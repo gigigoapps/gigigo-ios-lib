@@ -38,7 +38,7 @@
     if (parameters.count > 0)
     {
         NSString *queryString = [self queryStringWithParameters:parameters];
-        if ([url containsString:@"?"])
+        if ([url rangeOfString:@"?" options:kNilOptions].location != NSNotFound)
         {
             finalUrl = [NSString stringWithFormat:@"%@&%@", url, queryString];
         }
