@@ -35,12 +35,12 @@
                            range:NSMakeRange(0, string.length)];
 }
 
-- (NSString *)stringByReplacingMatchesInString:(NSString *)string withTemplate:(NSString *)template
+- (NSString *)stringByReplacingMatchesInString:(NSString *)string withTemplate:(NSString *)templateString
 {
     return [self stringByReplacingMatchesInString:string
                                           options:0
                                             range:NSMakeRange(0, string.length)
-                                     withTemplate:template];
+                                     withTemplate:templateString];
 }
 
 @end
