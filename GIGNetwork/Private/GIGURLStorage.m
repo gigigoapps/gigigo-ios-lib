@@ -65,6 +65,8 @@ NSString * const GIGURLManagerDomainsFilenameKey = @"GIGURLManagerDomainFilename
 - (GIGURLFixture *)loadFixture
 {
     NSData *encodedFixture = [self.userDefaults objectForKey:GIGURLManagerFixtureKey];
+    if (encodedFixture == nil) return nil;
+    
     return [NSKeyedUnarchiver unarchiveObjectWithData:encodedFixture];
 }
 
@@ -91,6 +93,8 @@ NSString * const GIGURLManagerDomainsFilenameKey = @"GIGURLManagerDomainFilename
 - (GIGURLDomain *)loadDomain
 {
     NSData *encodedDomain = [self.userDefaults objectForKey:GIGURLManagerDomainKey];
+    if (encodedDomain == nil) return nil;
+    
     return [NSKeyedUnarchiver unarchiveObjectWithData:encodedDomain];
 }
 
