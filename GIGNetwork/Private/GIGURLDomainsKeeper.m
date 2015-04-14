@@ -72,6 +72,28 @@
     self.domains = [tempDomains copy];
 }
 
+- (void)moveDomain:(GIGURLDomain *)domain toIndex:(NSInteger)destinationIndex
+{
+    NSMutableArray *tempDomains = [self.domains mutableCopy];
+    [tempDomains removeObject:domain];
+    [tempDomains insertObject:domain atIndex:destinationIndex];
+    
+    self.domains = [tempDomains copy];
+}
+
+- (void)replaceDomain:(GIGURLDomain *)oldDomain withDomain:(GIGURLDomain *)newDomain
+{
+    NSMutableArray *tempDomains = [self.domains mutableCopy];
+    NSInteger index = [tempDomains indexOfObject:oldDomain];
+    
+    if (index != NSNotFound)
+    {
+        [tempDomains replaceObjectAtIndex:index withObject:newDomain];
+        
+        self.domains = [tempDomains copy];
+    }
+}
+
 #pragma mark - PRIVATE
 
 - (void)loadDomains

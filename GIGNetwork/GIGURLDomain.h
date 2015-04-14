@@ -14,6 +14,8 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *url;
 
++ (NSArray *)domainsWithJSON:(NSArray *)domainsJSON;
+
 - (instancetype)initWithJSON:(NSDictionary *)json;
 - (instancetype)initWithName:(NSString *)name url:(NSString *)url;
 

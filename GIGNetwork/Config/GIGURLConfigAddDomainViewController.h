@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class GIGURLDomain;
+
+
 @interface GIGURLConfigAddDomainViewController : UIViewController
+
+@property (strong, nonatomic) GIGURLDomain *domain;
 
 @end

@@ -9,6 +9,8 @@
 #import "GIGURLConfigAddDomainViewController.h"
 
 #import "GIGURLManager.h"
+#import "GIGURLFormatter.h"
+#import "GIGLayout.h"
 
 
 @interface GIGURLConfigAddDomainViewController ()
@@ -16,8 +18,11 @@
 
 @property (strong, nonatomic) UITextField *nameField;
 @property (strong, nonatomic) UITextField *urlField;
+@property (strong, nonatomic) UISegmentedControl *protocolSelector;
 
+@property (strong, nonatomic) NSArray *protocols;
 @property (strong, nonatomic) GIGURLManager *manager;
+@property (strong, nonatomic) GIGURLFormatter *urlFormatter;
 
 @end
 
@@ -28,22 +33,23 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Add Domain";
+    self.title = (self.domain != nil) ? @"Edit Domain" : @"Add Domain";
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    self.nameField = [self textFieldWithTopMargin:10 placeholder:@"name" text:nil returnKey:UIReturnKeyNext];
-    [self.view addSubview:self.nameField];
-    
-    self.urlField = [self textFieldWithTopMargin:50 placeholder:@"url" text:@"http://" returnKey:UIReturnKeyGo];
-    self.urlField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    [self.view addSubview:self.urlField];
+    self.navigationController.navigationBar.translucent = NO;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(tapSaveButton)];
-    self.navigationItem.rightBarButtonItem.enabled = [self textAreValid];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(tapCancelButton)];
     
+    [self addNameField];
+    [self addUrlField];
+    [self addProtocolSelector];
+    
+    self.urlFormatter = [[GIGURLFormatter alloc] init];
     self.manager = [GIGURLManager sharedManager];
+    
+    self.navigationItem.rightBarButtonItem.enabled = [self textAreValid];
+    [self addCurrentProtocol];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -57,7 +63,7 @@
 
 - (void)tapSaveButton
 {
-    [self saveDomain];
+    [self saveDomainAndDismiss];
 }
 
 - (void)tapCancelButton
@@ -65,20 +71,39 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)tapProtocolSelector
+{
+    [self addCurrentProtocol];
+}
+
 #pragma mark - PRIVATE
+
+- (void)addCurrentProtocol
+{
+    NSString *protocol = self.protocols[self.protocolSelector.selectedSegmentIndex];
+    self.urlField.text = [self.urlFormatter formatUrl:self.urlField.text withProtocol:protocol];
+}
 
 - (BOOL)textAreValid
 {
     return (self.nameField.text.length > 0 && self.urlField.text > 0);
 }
 
-- (void)saveDomain
+- (void)saveDomainAndDismiss
 {
     NSString *name = self.nameField.text;
     NSString *url = self.urlField.text;
     
-    GIGURLDomain *domain = [[GIGURLDomain alloc] initWithName:name url:url];
-    [self.manager addDomain:domain];
+    GIGURLDomain *newDomain = [[GIGURLDomain alloc] initWithName:name url:url];
+    
+    if (self.domain != nil)
+    {
+        [self.manager updateDomain:self.domain withDomain:newDomain];
+    }
+    else
+    {
+        [self.manager addDomain:newDomain];
+    }
     
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
@@ -97,7 +122,7 @@
         
         if ([self textAreValid])
         {
-            [self saveDomain];
+            [self saveDomainAndDismiss];
         }
     }
     
@@ -113,17 +138,59 @@
 
 #pragma mark - HELPERS
 
-- (UITextField *)textFieldWithTopMargin:(CGFloat)topMargin placeholder:(NSString *)placeholder text:(NSString *)text returnKey:(UIReturnKeyType)returnKey
+- (void)addNameField
 {
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 64 + topMargin, self.view.frame.size.width - 20, 30)];
+    self.nameField = [self textFieldWithPlaceholder:@"name" returnKey:UIReturnKeyNext];
+    self.nameField.text = self.domain.name;
+    
+    [self.view addSubview:self.nameField];
+    
+    gig_layout_left(self.nameField, 20);
+    gig_layout_right(self.nameField, 20);
+    gig_layout_top(self.nameField, 10);
+}
+
+- (void)addUrlField
+{
+    self.urlField = [self textFieldWithPlaceholder:@"url" returnKey:UIReturnKeyGo];
+    self.urlField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    self.urlField.text = self.domain.url;
+    
+    [self.view addSubview:self.urlField];
+    
+    gig_layout_left(self.urlField, 20);
+    gig_layout_right(self.urlField, 20);
+    gig_layout_below(self.urlField, self.nameField, 10);
+}
+
+- (void)addProtocolSelector
+{
+    self.protocols = @[@"http", @"https"];
+    
+    self.protocolSelector = [[UISegmentedControl alloc] initWithItems:self.protocols];
+    self.protocolSelector.selectedSegmentIndex = 0;
+    [self.protocolSelector addTarget:self action:@selector(tapProtocolSelector) forControlEvents:UIControlEventValueChanged];
+    
+    [self.view addSubview:self.protocolSelector];
+    
+    gig_autoresize(self.protocolSelector, NO);
+    gig_layout_center_horizontal(self.protocolSelector, 0);
+    gig_layout_below(self.protocolSelector, self.urlField, 10);
+}
+
+- (UITextField *)textFieldWithPlaceholder:(NSString *)placeholder returnKey:(UIReturnKeyType)returnKey
+{
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 64, self.view.frame.size.width - 20, 30)];
     textField.borderStyle = UITextBorderStyleLine;
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.enablesReturnKeyAutomatically = YES;
     textField.delegate = self;
     
     textField.placeholder = placeholder;
-    textField.text = text;
     textField.returnKeyType = returnKey;
+    
+    gig_autoresize(textField, NO);
+    gig_constrain_height(textField, 30);
     
     return textField;
 }

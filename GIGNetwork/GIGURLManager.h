@@ -16,6 +16,7 @@
 
 
 extern NSString * const GIGURLManagerDidChangeDomainNotification;
+extern NSString * const GIGURLManagerDidEditDomainsNotification;
 extern NSString * const GIGURLManagerDomainUserInfoKey;
 extern NSString * const GIGURLManagerDidChangeFixtureNotification;
 extern NSString * const GIGURLManagerFixtureUserInfoKey;
@@ -43,5 +44,7 @@ extern NSString * const GIGURLManagerFixtureUserInfoKey;
 - (void)loadDomainFile:(NSString *)domainFilename;
 - (void)addDomain:(GIGURLDomain *)domain;
 - (void)removeDomain:(GIGURLDomain *)domain;
+- (void)moveDomain:(GIGURLDomain *)domain toIndex:(NSInteger)destinationIndex;
+- (void)updateDomain:(GIGURLDomain *)domain withDomain:(GIGURLDomain *)newDomain;
 
 @end

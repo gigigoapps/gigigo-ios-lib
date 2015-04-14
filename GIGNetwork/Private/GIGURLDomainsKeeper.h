@@ -26,5 +26,7 @@ static NSString * const GIGURLDomainsKeeperDefaultFile = @"domains.json";
 - (void)loadDomainsFromFilename:(NSString *)filename;
 - (void)addDomain:(GIGURLDomain *)domain;
 - (void)removeDomain:(GIGURLDomain *)domain;
+- (void)moveDomain:(GIGURLDomain *)domain toIndex:(NSInteger)destinationIndex;
+- (void)replaceDomain:(GIGURLDomain *)oldDomain withDomain:(GIGURLDomain *)newDomain;
 
 @end

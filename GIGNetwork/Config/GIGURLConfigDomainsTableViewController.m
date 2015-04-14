@@ -17,7 +17,7 @@
 @property (strong, nonatomic) GIGURLManager *manager;
 @property (strong, nonatomic) NSNotificationCenter *notificationCenter;
 
-@property (strong, nonatomic) NSArray *domains;
+@property (strong, nonatomic) NSMutableArray *domains;
 
 @end
 
@@ -29,13 +29,14 @@
     [super viewDidLoad];
     
     self.title = @"Domains";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tapAddButton)];
+    [self displayNormalLayout];
     
     self.manager = [GIGURLManager sharedManager];
     self.notificationCenter = [NSNotificationCenter defaultCenter];
-    self.domains = self.manager.domains;
+    self.domains = [self.manager.domains mutableCopy];
     
     [self.notificationCenter addObserver:self selector:@selector(domainsDidChangeNotification:) name:GIGURLManagerDidChangeDomainNotification object:nil];
+    [self.notificationCenter addObserver:self selector:@selector(domainsDidEditNotification:) name:GIGURLManagerDidEditDomainsNotification object:nil];
 }
 
 - (void)dealloc
@@ -44,6 +45,16 @@
 }
 
 #pragma mark - ACTIONS
+
+- (void)tapEditButton
+{
+    [self displayEditLayout];
+}
+
+- (void)tapDoneButton
+{
+    [self displayNormalLayout];
+}
 
 - (void)tapAddButton
 {
@@ -57,8 +68,70 @@
 
 - (void)domainsDidChangeNotification:(NSNotification *)notification
 {
-    self.domains = self.manager.domains;
+    self.domains = [self.manager.domains mutableCopy];
+    
     [self.tableView reloadData];
+}
+
+- (void)domainsDidEditNotification:(NSNotification *)notification
+{
+    if (self.manager.domains.count > self.domains.count)
+    {
+        self.domains = [self.manager.domains mutableCopy];
+        
+        [self.tableView reloadData];
+    }
+}
+
+#pragma mark - PRIVATE
+
+- (void)displayNormalLayout
+{
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(tapEditButton)];
+    
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    [self.navigationItem setRightBarButtonItem:editButton animated:YES];
+    
+    [self setEditing:NO animated:YES];
+}
+
+- (void)displayEditLayout
+{
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tapAddButton)];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(tapDoneButton)];
+    
+    [self.navigationItem setLeftBarButtonItem:addButton animated:YES];
+    [self.navigationItem setRightBarButtonItem:doneButton animated:YES];
+    
+    [self setEditing:YES animated:YES];
+}
+
+- (void)deleteDomainAtIndexPath:(NSIndexPath *)indexPath
+{
+    GIGURLDomain *domain = self.domains[indexPath.row];
+    [self.manager removeDomain:domain];
+    
+    [self.domains removeObject:domain];
+    
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)editDomainAtIndexPath:(NSIndexPath *)indexPath
+{
+    GIGURLDomain *domain = self.domains[indexPath.row];
+    
+    GIGURLConfigAddDomainViewController *addDomain = [[GIGURLConfigAddDomainViewController alloc] init];
+    addDomain.domain = domain;
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addDomain];
+    
+    [self.navigationController presentViewController:navController animated:YES completion:nil];
+    
+}
+
+- (BOOL)isCurrentDomain:(GIGURLDomain *)domain
+{
+    return [domain isEqualToDomain:self.manager.domain];
 }
 
 #pragma mark - UITableViewDataSource
@@ -87,28 +160,63 @@
     return cell;
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GIGURLDomain *domain = self.domains[indexPath.row];
+    
+    return ([self isCurrentDomain:domain]) ? UITableViewCellEditingStyleNone : UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self deleteDomainAtIndexPath:indexPath];
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    GIGURLDomain *domainToMove = self.domains[sourceIndexPath.row];
+    [self.domains removeObject:domainToMove];
+    [self.domains insertObject:domainToMove atIndex:destinationIndexPath.row];
+    
+    [self.manager moveDomain:domainToMove toIndex:destinationIndexPath.row];
+}
+
 #pragma mark - UITableViewDelegate
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSMutableArray *actions = [[NSMutableArray alloc] initWithCapacity:2];
+    
+    GIGURLDomain *domain = self.domains[indexPath.row];
+    
+    if (![self isCurrentDomain:domain])
+    {
+        UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+            [self deleteDomainAtIndexPath:indexPath];
+        }];
+        [actions addObject:deleteAction];
+    }
+    
+    UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        [self editDomainAtIndexPath:indexPath];
+    }];
+    editAction.backgroundColor = [UIColor blueColor];
+    [actions addObject:editAction];
+    
+    return [actions copy];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    self.manager.domain = self.domains[indexPath.row];
-    
-    [tableView reloadData];
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    GIGURLDomain *domain = self.domains[indexPath.row];
-    
-    return ![domain isEqualToDomain:self.manager.domain];
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    GIGURLDomain *domain = self.domains[indexPath.row];
-    [self.manager removeDomain:domain];
+    GIGURLDomain *selectedDomain = self.domains[indexPath.row];
+    if (![self.manager.domain isEqualToDomain:selectedDomain])
+    {
+        self.manager.domain = selectedDomain;
+        
+        [tableView reloadData];
+    }
 }
 
 @end

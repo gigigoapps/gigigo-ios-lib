@@ -16,6 +16,7 @@
 
 NSString * const GIGURLDomainsDefaultFile = @"domains.json";
 NSString * const GIGURLManagerDidChangeDomainNotification = @"GIGURLManagerDidChangeDomainNotification";
+NSString * const GIGURLManagerDidEditDomainsNotification = @"GIGURLManagerDidEditDomainsNotification";
 NSString * const GIGURLManagerDomainUserInfoKey = @"GIGURLManagerDomainUserInfoKey";
 
 NSString * const GIGURLFixturesDefaultFile = @"fixtures.json";
@@ -162,13 +163,25 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 - (void)addDomain:(GIGURLDomain *)domain
 {
     [self.domainsKeeper addDomain:domain];    
-    [self notifyDomainChange];
+    [self notifyDomainsEdit];
 }
 
 - (void)removeDomain:(GIGURLDomain *)domain
 {
     [self.domainsKeeper removeDomain:domain];
-    [self notifyDomainChange];
+    [self notifyDomainsEdit];
+}
+
+- (void)moveDomain:(GIGURLDomain *)domain toIndex:(NSInteger)destinationIndex
+{
+    [self.domainsKeeper moveDomain:domain toIndex:destinationIndex];
+    [self notifyDomainsEdit];
+}
+
+- (void)updateDomain:(GIGURLDomain *)domain withDomain:(GIGURLDomain *)newDomain;
+{
+    [self.domainsKeeper replaceDomain:domain withDomain:newDomain];
+    [self notifyDomainsEdit];
 }
 
 #pragma mark - PRIVATE
@@ -177,6 +190,11 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 {
     NSDictionary *userInfo = @{GIGURLManagerDomainUserInfoKey: self.domain};
     [self.notificationCenter postNotificationName:GIGURLManagerDidChangeDomainNotification object:self userInfo:userInfo];
+}
+
+- (void)notifyDomainsEdit
+{
+    [self.notificationCenter postNotificationName:GIGURLManagerDidEditDomainsNotification object:self userInfo:nil];
 }
 
 - (void)notifyFixtureChange

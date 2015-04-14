@@ -17,6 +17,18 @@
 
 @implementation GIGURLDomain
 
++ (NSArray *)domainsWithJSON:(NSArray *)domainsJSON
+{
+    NSMutableArray *domains = [[NSMutableArray alloc] initWithCapacity:domainsJSON.count];
+    for (NSDictionary *domainJSON in domainsJSON)
+    {
+        GIGURLDomain *domain = [[GIGURLDomain alloc] initWithJSON:domainJSON];
+        [domains addObject:domain];
+    }
+    
+    return [domains copy];
+}
+
 - (instancetype)initWithJSON:(NSDictionary *)json
 {
     NSString *name = json[@"name"];
@@ -43,6 +55,13 @@
     if (![domain isKindOfClass:self.class]) return NO;
     
     return ([domain.name isEqualToString:self.name] && [domain.url isEqualToString:self.url]);
+}
+
+#pragma mark - OVERRIDE
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ %@", [super description], self.name];
 }
 
 #pragma mark - PRIVATE

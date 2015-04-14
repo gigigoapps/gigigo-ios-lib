@@ -123,14 +123,7 @@ NSString * const GIGURLManagerDomainsKey = @"GIGURLManagerDomainsKey";
 {
     NSArray *domainsJSON = [self.bundle loadJSONFile:domainsFilename rootNode:@"domains"];
     
-    NSMutableArray *domains = [[NSMutableArray alloc] initWithCapacity:domainsJSON.count];
-    for (NSDictionary *domainJSON in domainsJSON)
-    {
-        GIGURLDomain *domain = [[GIGURLDomain alloc] initWithJSON:domainJSON];
-        [domains addObject:domain];
-    }
-    
-    return [domains copy];
+    return [GIGURLDomain domainsWithJSON:domainsJSON];
 }
 
 - (NSDictionary *)loadFixturesFromFile:(NSString *)fixtureFilename
