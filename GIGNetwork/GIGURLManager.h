@@ -12,10 +12,10 @@
 #import "GIGURLFixture.h"
 
 @class GIGURLStorage;
+@class GIGURLDomainsKeeper;
 
 
 extern NSString * const GIGURLManagerDidChangeDomainNotification;
-extern NSString * const GIGURLManagerDidAddOrRemoveDomainNotification;
 extern NSString * const GIGURLManagerDomainUserInfoKey;
 extern NSString * const GIGURLManagerDidChangeFixtureNotification;
 extern NSString * const GIGURLManagerFixtureUserInfoKey;
@@ -32,15 +32,16 @@ extern NSString * const GIGURLManagerFixtureUserInfoKey;
 // domains
 @property (strong, nonatomic) GIGURLDomain *domain;
 @property (strong, nonatomic) NSArray *domains;
-@property (strong, nonatomic) NSString *domainsFilename;
 
 + (instancetype)sharedManager;
 
-- (instancetype)initWithStorage:(GIGURLStorage *)storage notificationCenter:(NSNotificationCenter *)notificationCenter;
+- (instancetype)initWithStorage:(GIGURLStorage *)storage notificationCenter:(NSNotificationCenter *)notificationCenter domainsKeeper:(GIGURLDomainsKeeper *)domainsKeeper;
 
 - (NSData *)mockForRequestTag:(NSString *)requestTag;
 - (void)showConfig;
 
+- (void)loadDomainFile:(NSString *)domainFilename;
 - (void)addDomain:(GIGURLDomain *)domain;
+- (void)removeDomain:(GIGURLDomain *)domain;
 
 @end

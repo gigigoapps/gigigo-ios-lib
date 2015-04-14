@@ -10,13 +10,13 @@
 
 #import "GIGConstants.h"
 #import "GIGURLStorage.h"
+#import "GIGURLDomainsKeeper.h"
 #import "GIGURLConfigTableViewController.h"
 
 
 NSString * const GIGURLDomainsDefaultFile = @"domains.json";
 NSString * const GIGURLManagerDidChangeDomainNotification = @"GIGURLManagerDidChangeDomainNotification";
 NSString * const GIGURLManagerDomainUserInfoKey = @"GIGURLManagerDomainUserInfoKey";
-NSString * const GIGURLManagerDidAddOrRemoveDomainNotification = @"GIGURLManagerDidAddOrRemoveDomainNotification";
 
 NSString * const GIGURLFixturesDefaultFile = @"fixtures.json";
 NSString * const GIGURLManagerDidChangeFixtureNotification = @"GIGURLManagerDidChangeFixtureNotification";
@@ -27,6 +27,7 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 
 @property (strong, nonatomic) NSNotificationCenter *notificationCenter;
 @property (strong, nonatomic) GIGURLStorage *storage;
+@property (strong, nonatomic) GIGURLDomainsKeeper *domainsKeeper;
 
 @end
 
@@ -49,11 +50,12 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 {
     GIGURLStorage *storage = [[GIGURLStorage alloc] init];
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    GIGURLDomainsKeeper *domainsKeeper = [[GIGURLDomainsKeeper alloc] initWithStorage:storage];
     
-    return [self initWithStorage:storage notificationCenter:notificationCenter];
+    return [self initWithStorage:storage notificationCenter:notificationCenter domainsKeeper:domainsKeeper];
 }
 
-- (instancetype)initWithStorage:(GIGURLStorage *)storage notificationCenter:(NSNotificationCenter *)notificationCenter
+- (instancetype)initWithStorage:(GIGURLStorage *)storage notificationCenter:(NSNotificationCenter *)notificationCenter domainsKeeper:(GIGURLDomainsKeeper *)domainsKeeper
 {
     self = [super init];
     if (self)
@@ -65,8 +67,7 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
         _fixture = [self.storage loadFixture];
         self.fixtureFilename = [self.storage loadFixtureFilename];
         
-        _domain = [self.storage loadDomain];
-        self.domainsFilename = [self.storage loadDomainFilename];
+        _domainsKeeper = domainsKeeper;
     }
     return self;
 }
@@ -107,29 +108,27 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 
 #pragma mark - ACCESSORS (Domain)
 
-- (void)setDomain:(GIGURLDomain *)domain
+- (GIGURLDomain *)domain
 {
-    if ([domain isEqualToDomain:_domain]) return;
-    
-    _domain = domain;
-    
-    [self notifyDomainChange];
-    [self.storage storeDomain:domain];
+    return self.domainsKeeper.currentDomain;
 }
 
-- (void)setDomainsFilename:(NSString *)domainsFilename
+- (void)setDomain:(GIGURLDomain *)domain
 {
-    if (domainsFilename.length == 0)
-    {
-        domainsFilename = GIGURLDomainsDefaultFile;
-    }
+    if ([domain isEqualToDomain:self.domain]) return;
     
-    if (![domainsFilename isEqualToString:_domainsFilename])
-    {
-        _domainsFilename = domainsFilename;
-        
-        [self loadDomains];
-    }
+    self.domainsKeeper.currentDomain = domain;
+    [self notifyDomainChange];
+}
+
+- (NSArray *)domains
+{
+    return self.domainsKeeper.domains;
+}
+
+- (void)setDomains:(NSArray *)domains
+{
+    self.domainsKeeper.domains = domains;
 }
 
 #pragma mark - PUBLIC
@@ -155,11 +154,21 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
     }
 }
 
+- (void)loadDomainFile:(NSString *)domainFilename
+{
+    [self.domainsKeeper loadDomainsFromFilename:domainFilename];
+}
+
 - (void)addDomain:(GIGURLDomain *)domain
 {
-    self.domains = [self.domains arrayByAddingObject:domain];
-    
-    [self.notificationCenter postNotificationName:GIGURLManagerDidAddOrRemoveDomainNotification object:self];
+    [self.domainsKeeper addDomain:domain];    
+    [self notifyDomainChange];
+}
+
+- (void)removeDomain:(GIGURLDomain *)domain
+{
+    [self.domainsKeeper removeDomain:domain];
+    [self notifyDomainChange];
 }
 
 #pragma mark - PRIVATE
@@ -168,17 +177,6 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 {
     NSDictionary *userInfo = @{GIGURLManagerDomainUserInfoKey: self.domain};
     [self.notificationCenter postNotificationName:GIGURLManagerDidChangeDomainNotification object:self userInfo:userInfo];
-}
-
-- (void)loadDomains
-{
-    self.domains = [self.storage loadDomainsFromFile:self.domainsFilename];
-    [self.storage storeDomainsFilename:self.domainsFilename];
-    
-    if (self.domain == nil && self.domains.count > 0)
-    {
-        self.domain = self.domains[0];
-    }
 }
 
 - (void)notifyFixtureChange

@@ -35,7 +35,7 @@
     self.notificationCenter = [NSNotificationCenter defaultCenter];
     self.domains = self.manager.domains;
     
-    [self.notificationCenter addObserver:self selector:@selector(domainsDidChangeNotification:) name:GIGURLManagerDidAddOrRemoveDomainNotification object:nil];
+    [self.notificationCenter addObserver:self selector:@selector(domainsDidChangeNotification:) name:GIGURLManagerDidChangeDomainNotification object:nil];
 }
 
 - (void)dealloc
@@ -48,8 +48,9 @@
 - (void)tapAddButton
 {
     GIGURLConfigAddDomainViewController *addDomain = [[GIGURLConfigAddDomainViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addDomain];
     
-    [self.navigationController pushViewController:addDomain animated:YES];
+    [self.navigationController presentViewController:navController animated:YES completion:nil];
 }
 
 #pragma mark - NOTIFICATIONS
@@ -95,6 +96,19 @@
     self.manager.domain = self.domains[indexPath.row];
     
     [tableView reloadData];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GIGURLDomain *domain = self.domains[indexPath.row];
+    
+    return ![domain isEqualToDomain:self.manager.domain];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GIGURLDomain *domain = self.domains[indexPath.row];
+    [self.manager removeDomain:domain];
 }
 
 @end

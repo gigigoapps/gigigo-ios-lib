@@ -12,6 +12,14 @@
 @class GIGURLFixture;
 
 
+extern NSString * const GIGURLManagerUseFixtureKey;
+extern NSString * const GIGURLManagerFixtureKey;
+extern NSString * const GIGURLManagerFixtureFilenameKey;
+
+extern NSString * const GIGURLManagerDomainKey;
+extern NSString * const GIGURLManagerDomainsKey;
+
+
 @interface GIGURLStorage : NSObject
 
 - (instancetype)initWithBundle:(NSBundle *)bundle userDefaults:(NSUserDefaults *)userDefaults;
@@ -30,8 +38,8 @@
 - (GIGURLDomain *)loadDomain;
 - (void)storeDomain:(GIGURLDomain *)domain;
 
-- (NSString *)loadDomainFilename;
-- (void)storeDomainsFilename:(NSString *)domainsFilename;
+- (NSArray *)loadDomains;
+- (void)storeDomains:(NSArray *)domains;
 
 // files
 - (NSArray *)loadDomainsFromFile:(NSString *)domainsFilename;
