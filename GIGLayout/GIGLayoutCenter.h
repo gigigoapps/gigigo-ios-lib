@@ -22,7 +22,7 @@ __unused NSLayoutConstraint* gig_layout_center_horizontal_view(UIView *view, UIV
 {
     NSLayoutConstraint *constraint = gig_constraint(view, NSLayoutAttributeCenterX, NSLayoutRelationEqual, centerView, NSLayoutAttributeCenterX, margin);
     [view.superview addConstraint:constraint];
-    
+
     return constraint;
 }
 
@@ -33,6 +33,7 @@ __unused NSLayoutConstraint* gig_layout_center_vertical(UIView *view, CGFloat ma
     
     return constraint;
 }
+
 
 __unused NSLayoutConstraint* gig_layout_center_vertical_view(UIView *view, UIView *centerView, CGFloat margin)
 {
