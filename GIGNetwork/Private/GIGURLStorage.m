@@ -10,7 +10,7 @@
 
 #import "GIGURLDomain.h"
 #import "GIGURLFixture.h"
-#import "GIGURLBundle.h"
+#import "NSBundle+GIGLibrary.h"
 
 
 NSString * const GIGURLManagerUseFixtureKey = @"GIGURLManagerUseFixtureKey";
@@ -23,7 +23,7 @@ NSString * const GIGURLManagerDomainsKey = @"GIGURLManagerDomainsKey";
 
 @interface GIGURLStorage ()
 
-@property (strong, nonatomic) GIGURLBundle *bundle;
+@property (strong, nonatomic) NSBundle *bundle;
 @property (strong, nonatomic) NSUserDefaults *userDefaults;
 
 @end
@@ -44,7 +44,7 @@ NSString * const GIGURLManagerDomainsKey = @"GIGURLManagerDomainsKey";
     self = [super init];
     if (self)
     {
-        _bundle = [[GIGURLBundle alloc] initWithBundle:bundle];
+        _bundle = bundle;
         _userDefaults = userDefaults;
     }
     return self;

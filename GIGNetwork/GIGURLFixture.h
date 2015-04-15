@@ -8,15 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class GIGURLBundle;
-
 
 @interface GIGURLFixture : NSObject
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSDictionary *mocks;
 
-- (instancetype)initWithJSON:(NSDictionary *)json bundle:(GIGURLBundle *)bundle;
+- (instancetype)initWithJSON:(NSDictionary *)json bundle:(NSBundle *)bundle;
 - (instancetype)initWithName:(NSString *)name mocks:(NSDictionary *)mocks;
 
 - (BOOL)isEqualToFixture:(GIGURLFixture *)fixture;

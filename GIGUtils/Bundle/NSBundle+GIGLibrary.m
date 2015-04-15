@@ -1,45 +1,19 @@
 //
-//  GIGURLBundle.m
-//  gignetwork
+//  NSBundle+GIGLibrary.m
+//  giglibrary
 //
-//  Created by Sergio Baró on 07/04/15.
+//  Created by Sergio Baró on 15/04/15.
 //  Copyright (c) 2015 Gigigo. All rights reserved.
 //
 
-#import "GIGURLBundle.h"
+#import "NSBundle+GIGLibrary.h"
 
 
-@interface GIGURLBundle ()
-
-@property (strong, nonatomic) NSBundle *bundle;
-
-@end
-
-
-@implementation GIGURLBundle
-
-- (instancetype)init
-{
-    NSBundle *bundle = [NSBundle mainBundle];
-    
-    return [self initWithBundle:bundle];
-}
-
-- (instancetype)initWithBundle:(NSBundle *)bundle
-{
-    self = [super init];
-    if (self)
-    {
-        _bundle = bundle;
-    }
-    return self;
-}
-
-#pragma mark - PUBLIC
+@implementation NSBundle (GIGLibrary)
 
 - (NSData *)dataForFile:(NSString *)fileName
 {
-    NSString *filePath = [self.bundle pathForResource:fileName ofType:nil];
+    NSString *filePath = [self pathForResource:fileName ofType:nil];
     if (!filePath) return nil;
     
     NSError *error = nil;
@@ -66,5 +40,6 @@
     
     return (rootNode.length > 0) ? json[rootNode] : json;
 }
+
 
 @end

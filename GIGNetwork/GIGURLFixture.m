@@ -8,7 +8,7 @@
 
 #import "GIGURLFixture.h"
 
-#import "GIGURLBundle.h"
+#import "NSBundle+GIGLibrary.h"
 
 
 @interface GIGURLFixture ()
@@ -19,7 +19,7 @@
 
 @implementation GIGURLFixture
 
-- (instancetype)initWithJSON:(NSDictionary *)json bundle:(GIGURLBundle *)bundle
+- (instancetype)initWithJSON:(NSDictionary *)json bundle:(NSBundle *)bundle
 {
     NSString *name = json[@"name"];
     NSString *filename = json[@"filename"];

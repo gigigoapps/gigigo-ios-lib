@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface GIGDigest : NSObject
 
 + (NSString *)MD5:(id)data; // NSString or NSData
