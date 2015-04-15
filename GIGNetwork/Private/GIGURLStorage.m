@@ -11,6 +11,7 @@
 #import "GIGURLDomain.h"
 #import "GIGURLFixture.h"
 #import "NSBundle+GIGLibrary.h"
+#import "NSUserDefaults+GIGArchive.h"
 
 
 NSString * const GIGURLManagerUseFixtureKey = @"GIGURLManagerUseFixtureKey";
@@ -65,44 +66,48 @@ NSString * const GIGURLManagerDomainsKey = @"GIGURLManagerDomainsKey";
 
 - (GIGURLFixture *)loadFixture
 {
-    return [self unarchiveObjectWithKey:GIGURLManagerFixtureKey];
+    return [self.userDefaults unarchiveObjectForKey:GIGURLManagerFixtureKey];
 }
 
 - (void)storeFixture:(GIGURLFixture *)fixture
 {
-    [self archiveObject:fixture key:GIGURLManagerFixtureKey];
+    [self.userDefaults archiveObject:fixture forKey:GIGURLManagerFixtureKey];
+    [self.userDefaults synchronize];
 }
 
 - (NSArray *)loadFixtures
 {
-    return [self unarchiveObjectWithKey:GIGURLManagerFixturesKey];
+    return [self.userDefaults unarchiveObjectForKey:GIGURLManagerFixturesKey];
 }
 
 - (void)storeFixtures:(NSArray *)fixtures
 {
-    [self archiveObject:fixtures key:GIGURLManagerFixturesKey];
+    [self.userDefaults archiveObject:fixtures forKey:GIGURLManagerFixturesKey];
+    [self.userDefaults synchronize];
 }
 
 #pragma mark - PUBLIC (Domain)
 
 - (GIGURLDomain *)loadDomain
 {
-    return [self unarchiveObjectWithKey:GIGURLManagerDomainKey];
+    return [self.userDefaults unarchiveObjectForKey:GIGURLManagerDomainKey];
 }
 
 - (void)storeDomain:(GIGURLDomain *)domain
 {
-    [self archiveObject:domain key:GIGURLManagerDomainKey];
+    [self.userDefaults archiveObject:domain forKey:GIGURLManagerDomainKey];
+    [self.userDefaults synchronize];
 }
 
 - (NSArray *)loadDomains
 {
-    return [self unarchiveObjectWithKey:GIGURLManagerDomainsKey];
+    return [self.userDefaults unarchiveObjectForKey:GIGURLManagerDomainsKey];
 }
 
 - (void)storeDomains:(NSArray *)domains
 {
-    [self archiveObject:domains key:GIGURLManagerDomainsKey];
+    [self.userDefaults archiveObject:domains forKey:GIGURLManagerDomainsKey];
+    [self.userDefaults synchronize];
 }
 
 #pragma mark - PUBLIC (Files)
@@ -124,23 +129,6 @@ NSString * const GIGURLManagerDomainsKey = @"GIGURLManagerDomainsKey";
 - (NSData *)loadMockFromFile:(NSString *)filename
 {
     return [self.bundle dataForFile:filename];
-}
-
-#pragma mark - PRIVATE 
-
-- (void)archiveObject:(id)object key:(NSString *)key
-{
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:object];
-    [self.userDefaults setObject:data forKey:key];
-    [self.userDefaults synchronize];
-}
-
-- (id)unarchiveObjectWithKey:(NSString *)key
-{
-    NSData *data = [self.userDefaults objectForKey:key];
-    if (data == nil) return nil;
-    
-    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
 }
 
 @end
