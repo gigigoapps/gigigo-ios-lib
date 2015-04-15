@@ -9,12 +9,6 @@
 #import "GIGURLDomain.h"
 
 
-@interface GIGURLDomain ()
-<NSCoding>
-
-@end
-
-
 @implementation GIGURLDomain
 
 + (NSArray *)domainsWithJSON:(NSArray *)domainsJSON

@@ -12,6 +12,7 @@
 #import "GIGURLStorage.h"
 #import "GIGURLDomainsKeeper.h"
 #import "GIGURLConfigTableViewController.h"
+#import "GIGURLFixturesKeeper.h"
 
 
 NSString * const GIGURLDomainsDefaultFile = @"domains.json";
@@ -26,9 +27,9 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 
 @interface GIGURLManager ()
 
-@property (strong, nonatomic) NSNotificationCenter *notificationCenter;
-@property (strong, nonatomic) GIGURLStorage *storage;
 @property (strong, nonatomic) GIGURLDomainsKeeper *domainsKeeper;
+@property (strong, nonatomic) GIGURLFixturesKeeper *fixturesKeeper;
+@property (strong, nonatomic) NSNotificationCenter *notificationCenter;
 
 @end
 
@@ -50,61 +51,62 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 - (instancetype)init
 {
     GIGURLStorage *storage = [[GIGURLStorage alloc] init];
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     GIGURLDomainsKeeper *domainsKeeper = [[GIGURLDomainsKeeper alloc] initWithStorage:storage];
+    GIGURLFixturesKeeper *fixturesKeeper = [[GIGURLFixturesKeeper alloc] initWithStorage:storage];
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
-    return [self initWithStorage:storage notificationCenter:notificationCenter domainsKeeper:domainsKeeper];
+    return [self initWithDomainsKeeper:domainsKeeper fixturesKeeper:fixturesKeeper notificationCenter:notificationCenter];
 }
 
-- (instancetype)initWithStorage:(GIGURLStorage *)storage notificationCenter:(NSNotificationCenter *)notificationCenter domainsKeeper:(GIGURLDomainsKeeper *)domainsKeeper
+- (instancetype)initWithDomainsKeeper:(GIGURLDomainsKeeper *)domainsKeeper
+                       fixturesKeeper:(GIGURLFixturesKeeper *)fixturesKeeper
+                   notificationCenter:(NSNotificationCenter *)notificationCenter
 {
     self = [super init];
     if (self)
     {
-        _storage = storage;
-        _notificationCenter = notificationCenter;
-        
-        _useFixture = [self.storage loadUseFixture];
-        _fixture = [self.storage loadFixture];
-        self.fixtureFilename = [self.storage loadFixtureFilename];
-        
+        _fixturesKeeper = fixturesKeeper;
         _domainsKeeper = domainsKeeper;
+        _notificationCenter = notificationCenter;
     }
     return self;
 }
 
 #pragma mark - ACCESSORS (Fixture)
 
+- (BOOL)useFixture
+{
+    return self.fixturesKeeper.useFixture;
+}
+
 - (void)setUseFixture:(BOOL)useFixture
 {
-    _useFixture = useFixture;
-    
-    [self.storage storeUseFixture:useFixture];
+    self.fixturesKeeper.useFixture = useFixture;
+}
+
+- (GIGURLFixture *)fixture
+{
+    return self.fixturesKeeper.currentFixture;
 }
 
 - (void)setFixture:(GIGURLFixture *)fixture
 {
-    if ([fixture isEqualToFixture:_fixture]) return;
+    if ([fixture isEqualToFixture:self.fixture]) return;
     
-    _fixture = fixture;
-    
+    self.fixturesKeeper.currentFixture = fixture;
     [self notifyFixtureChange];
-    [self.storage storeFixture:fixture];
 }
 
-- (void)setFixtureFilename:(NSString *)fixtureFilename
+- (NSArray *)fixtures
 {
-    if (fixtureFilename.length == 0)
-    {
-        fixtureFilename = GIGURLFixturesDefaultFile;
-    }
+    return self.fixturesKeeper.fixtures;
+}
+
+- (void)setFixtures:(NSArray *)fixtures
+{
+    if ([fixtures isEqualToArray:self.fixtures]) return;
     
-    if (![fixtureFilename isEqualToString:_fixtureFilename])
-    {
-        _fixtureFilename = fixtureFilename;
-        
-        [self loadFixture];
-    }
+    self.fixturesKeeper.fixtures = fixtures;
 }
 
 #pragma mark - ACCESSORS (Domain)
@@ -136,11 +138,7 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 
 - (NSData *)mockForRequestTag:(NSString *)requestTag
 {
-    NSString *mockFileName = self.fixture.mocks[requestTag];
-    
-    if (mockFileName.length == 0) return nil;
-    
-    return [self.storage loadMockFromFile:mockFileName];
+    return [self.fixturesKeeper mockForRequestTag:requestTag];
 }
 
 - (void)showConfig
@@ -155,9 +153,14 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
     }
 }
 
-- (void)loadDomainFile:(NSString *)domainFilename
+- (void)loadFixturesFile:(NSString *)fixturesFilename
 {
-    [self.domainsKeeper loadDomainsFromFilename:domainFilename];
+    [self.fixturesKeeper loadFixturesFromFile:fixturesFilename];
+}
+
+- (void)loadDomainsFile:(NSString *)domainsFilename
+{
+    [self.domainsKeeper loadDomainsFromFilename:domainsFilename];
 }
 
 - (void)addDomain:(GIGURLDomain *)domain
@@ -201,17 +204,6 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 {
     NSDictionary *userInfo = @{GIGURLManagerFixtureUserInfoKey: self.fixture};
     [self.notificationCenter postNotificationName:GIGURLManagerDidChangeFixtureNotification object:self userInfo:userInfo];
-}
-
-- (void)loadFixture
-{
-    self.fixtures = [self.storage loadFixturesFromFile:self.fixtureFilename];
-    [self.storage storeFixtureFilename:self.fixtureFilename];
-    
-    if (self.fixture == nil && self.fixtures.count > 0)
-    {
-        self.fixture = self.fixtures[0];
-    }
 }
 
 - (UIViewController *)topViewController

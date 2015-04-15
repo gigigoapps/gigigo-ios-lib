@@ -11,8 +11,8 @@
 #import "GIGURLDomain.h"
 #import "GIGURLFixture.h"
 
-@class GIGURLStorage;
 @class GIGURLDomainsKeeper;
+@class GIGURLFixturesKeeper;
 
 
 extern NSString * const GIGURLManagerDidChangeCurrentDomainNotification;
@@ -28,7 +28,6 @@ extern NSString * const GIGURLManagerFixtureUserInfoKey;
 @property (assign, nonatomic) BOOL useFixture;
 @property (strong, nonatomic) GIGURLFixture *fixture;
 @property (strong, nonatomic) NSArray *fixtures;
-@property (strong, nonatomic) NSString *fixtureFilename;
 
 // domains
 @property (strong, nonatomic) GIGURLDomain *domain;
@@ -36,12 +35,16 @@ extern NSString * const GIGURLManagerFixtureUserInfoKey;
 
 + (instancetype)sharedManager;
 
-- (instancetype)initWithStorage:(GIGURLStorage *)storage notificationCenter:(NSNotificationCenter *)notificationCenter domainsKeeper:(GIGURLDomainsKeeper *)domainsKeeper;
+- (instancetype)initWithDomainsKeeper:(GIGURLDomainsKeeper *)domainsKeeper
+                       fixturesKeeper:(GIGURLFixturesKeeper *)fixturesKeeper
+                   notificationCenter:(NSNotificationCenter *)notificationCenter;
 
 - (NSData *)mockForRequestTag:(NSString *)requestTag;
 - (void)showConfig;
 
-- (void)loadDomainFile:(NSString *)domainFilename;
+- (void)loadFixturesFile:(NSString *)fixturesFilename;
+
+- (void)loadDomainsFile:(NSString *)domainsFilename;
 - (void)addDomain:(GIGURLDomain *)domain;
 - (void)removeDomain:(GIGURLDomain *)domain;
 - (void)moveDomain:(GIGURLDomain *)domain toIndex:(NSInteger)destinationIndex;

@@ -11,13 +11,20 @@
 #import "NSBundle+GIGLibrary.h"
 
 
-@interface GIGURLFixture ()
-<NSCoding>
-
-@end
-
-
 @implementation GIGURLFixture
+
++ (NSArray *)fixturesWithJSON:(NSArray *)fixturesJSON bundle:(NSBundle *)bundle
+{
+    NSMutableArray *fixtures = [[NSMutableArray alloc] initWithCapacity:fixturesJSON.count];
+    for (NSDictionary *fixtureJSON in fixturesJSON)
+    {
+        GIGURLFixture *fixture = [[GIGURLFixture alloc] initWithJSON:fixtureJSON bundle:bundle];
+        
+        [fixtures addObject:fixture];
+    }
+    
+    return [fixtures copy];
+}
 
 - (instancetype)initWithJSON:(NSDictionary *)json bundle:(NSBundle *)bundle
 {

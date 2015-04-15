@@ -10,9 +10,12 @@
 
 
 @interface GIGURLFixture : NSObject
+<NSCoding>
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSDictionary *mocks;
+
++ (NSArray *)fixturesWithJSON:(NSArray *)fixturesJSON bundle:(NSBundle *)bundle;
 
 - (instancetype)initWithJSON:(NSDictionary *)json bundle:(NSBundle *)bundle;
 - (instancetype)initWithName:(NSString *)name mocks:(NSDictionary *)mocks;

@@ -98,10 +98,10 @@
 
 - (void)loadDomains
 {
-    self.currentDomain = [self.storage loadDomain];
-    self.domains = [self.storage loadDomains];
+    _currentDomain = [self.storage loadDomain];
+    _domains = [self.storage loadDomains];
     
-    if (self.domains == nil)
+    if (_domains == nil)
     {
         self.domains = [self.storage loadDomainsFromFile:GIGURLDomainsKeeperDefaultFile];
     }

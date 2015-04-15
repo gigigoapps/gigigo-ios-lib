@@ -15,7 +15,7 @@
 
 NSString * const GIGURLManagerUseFixtureKey = @"GIGURLManagerUseFixtureKey";
 NSString * const GIGURLManagerFixtureKey = @"GIGURLManagerFixtureKey";
-NSString * const GIGURLManagerFixtureFilenameKey = @"GIGURLManagerFixtureFilenameKey";
+NSString * const GIGURLManagerFixturesKey = @"GIGURLManagerFixturesKey";
 
 NSString * const GIGURLManagerDomainKey = @"GIGURLManagerDomainKey";
 NSString * const GIGURLManagerDomainsKey = @"GIGURLManagerDomainsKey";
@@ -65,56 +65,44 @@ NSString * const GIGURLManagerDomainsKey = @"GIGURLManagerDomainsKey";
 
 - (GIGURLFixture *)loadFixture
 {
-    NSData *encodedFixture = [self.userDefaults objectForKey:GIGURLManagerFixtureKey];
-    
-    return [self unarchiveData:encodedFixture];
+    return [self unarchiveObjectWithKey:GIGURLManagerFixtureKey];
 }
 
 - (void)storeFixture:(GIGURLFixture *)fixture
 {
-    NSData *encodedFixture = [NSKeyedArchiver archivedDataWithRootObject:fixture];
-    [self.userDefaults setObject:encodedFixture forKey:GIGURLManagerFixtureKey];
-    [self.userDefaults synchronize];
+    [self archiveObject:fixture key:GIGURLManagerFixtureKey];
 }
 
-- (NSString *)loadFixtureFilename
+- (NSArray *)loadFixtures
 {
-    return [self.userDefaults objectForKey:GIGURLManagerFixtureFilenameKey];
+    return [self unarchiveObjectWithKey:GIGURLManagerFixturesKey];
 }
 
-- (void)storeFixtureFilename:(NSString *)fixtureFilename
+- (void)storeFixtures:(NSArray *)fixtures
 {
-    [self.userDefaults setObject:fixtureFilename forKey:GIGURLManagerFixtureFilenameKey];
-    [self.userDefaults synchronize];
+    [self archiveObject:fixtures key:GIGURLManagerFixturesKey];
 }
 
 #pragma mark - PUBLIC (Domain)
 
 - (GIGURLDomain *)loadDomain
 {
-    NSData *encodedDomain = [self.userDefaults objectForKey:GIGURLManagerDomainKey];
-    
-    return [self unarchiveData:encodedDomain];
+    return [self unarchiveObjectWithKey:GIGURLManagerDomainKey];
 }
 
 - (void)storeDomain:(GIGURLDomain *)domain
 {
-    NSData *encodedDomain = [NSKeyedArchiver archivedDataWithRootObject:domain];
-    [self.userDefaults setObject:encodedDomain forKey:GIGURLManagerDomainKey];
-    [self.userDefaults synchronize];
+    [self archiveObject:domain key:GIGURLManagerDomainKey];
 }
 
 - (NSArray *)loadDomains
 {
-    NSData *encodedDomains = [self.userDefaults objectForKey:GIGURLManagerDomainsKey];
-    return [self unarchiveData:encodedDomains];
+    return [self unarchiveObjectWithKey:GIGURLManagerDomainsKey];
 }
 
 - (void)storeDomains:(NSArray *)domains
 {
-    NSData *encodedDomains = [NSKeyedArchiver archivedDataWithRootObject:domains];
-    [self.userDefaults setObject:encodedDomains forKey:GIGURLManagerDomainsKey];
-    [self.userDefaults synchronize];
+    [self archiveObject:domains key:GIGURLManagerDomainsKey];
 }
 
 #pragma mark - PUBLIC (Files)
@@ -126,19 +114,11 @@ NSString * const GIGURLManagerDomainsKey = @"GIGURLManagerDomainsKey";
     return [GIGURLDomain domainsWithJSON:domainsJSON];
 }
 
-- (NSDictionary *)loadFixturesFromFile:(NSString *)fixtureFilename
+- (NSArray *)loadFixturesFromFile:(NSString *)fixtureFilename
 {
     NSArray *fixturesJSON = [self.bundle loadJSONFile:fixtureFilename rootNode:@"fixtures"];
     
-    NSMutableArray *fixtures = [[NSMutableArray alloc] initWithCapacity:fixturesJSON.count];
-    for (NSDictionary *fixtureJSON in fixturesJSON)
-    {
-        GIGURLFixture *fixture = [[GIGURLFixture alloc] initWithJSON:fixtureJSON bundle:self.bundle];
-        
-        [fixtures addObject:fixture];
-    }
-    
-    return [fixtures copy];
+    return [GIGURLFixture fixturesWithJSON:fixturesJSON bundle:self.bundle];
 }
 
 - (NSData *)loadMockFromFile:(NSString *)filename
@@ -148,8 +128,16 @@ NSString * const GIGURLManagerDomainsKey = @"GIGURLManagerDomainsKey";
 
 #pragma mark - PRIVATE 
 
-- (id)unarchiveData:(NSData *)data
+- (void)archiveObject:(id)object key:(NSString *)key
 {
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:object];
+    [self.userDefaults setObject:data forKey:key];
+    [self.userDefaults synchronize];
+}
+
+- (id)unarchiveObjectWithKey:(NSString *)key
+{
+    NSData *data = [self.userDefaults objectForKey:key];
     if (data == nil) return nil;
     
     return [NSKeyedUnarchiver unarchiveObjectWithData:data];

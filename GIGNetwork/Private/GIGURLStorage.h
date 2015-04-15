@@ -14,7 +14,7 @@
 
 extern NSString * const GIGURLManagerUseFixtureKey;
 extern NSString * const GIGURLManagerFixtureKey;
-extern NSString * const GIGURLManagerFixtureFilenameKey;
+extern NSString * const GIGURLManagerFixturesKey;
 
 extern NSString * const GIGURLManagerDomainKey;
 extern NSString * const GIGURLManagerDomainsKey;
@@ -31,8 +31,8 @@ extern NSString * const GIGURLManagerDomainsKey;
 - (GIGURLFixture *)loadFixture;
 - (void)storeFixture:(GIGURLFixture *)fixture;
 
-- (NSString *)loadFixtureFilename;
-- (void)storeFixtureFilename:(NSString *)fixtureFilename;
+- (NSArray *)loadFixtures;
+- (void)storeFixtures:(NSArray *)fixtures;
 
 // domain
 - (GIGURLDomain *)loadDomain;
