@@ -35,8 +35,8 @@
     self.notificationCenter = [NSNotificationCenter defaultCenter];
     self.domains = [self.manager.domains mutableCopy];
     
-    [self.notificationCenter addObserver:self selector:@selector(domainsDidChangeNotification:) name:GIGURLManagerDidChangeDomainNotification object:nil];
-    [self.notificationCenter addObserver:self selector:@selector(domainsDidEditNotification:) name:GIGURLManagerDidEditDomainsNotification object:nil];
+    [self.notificationCenter addObserver:self selector:@selector(domainsDidChangeNotification:) name:GIGURLManagerDidChangeCurrentDomainNotification object:nil];
+    [self.notificationCenter addObserver:self selector:@selector(domainsDidEditNotification:) name:GIGURLManagerDidChangeDomainsNotification object:nil];
 }
 
 - (void)dealloc

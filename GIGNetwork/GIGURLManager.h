@@ -15,8 +15,8 @@
 @class GIGURLDomainsKeeper;
 
 
-extern NSString * const GIGURLManagerDidChangeDomainNotification;
-extern NSString * const GIGURLManagerDidEditDomainsNotification;
+extern NSString * const GIGURLManagerDidChangeCurrentDomainNotification;
+extern NSString * const GIGURLManagerDidChangeDomainsNotification;
 extern NSString * const GIGURLManagerDomainUserInfoKey;
 extern NSString * const GIGURLManagerDidChangeFixtureNotification;
 extern NSString * const GIGURLManagerFixtureUserInfoKey;

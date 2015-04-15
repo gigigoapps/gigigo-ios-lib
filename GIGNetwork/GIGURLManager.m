@@ -15,8 +15,8 @@
 
 
 NSString * const GIGURLDomainsDefaultFile = @"domains.json";
-NSString * const GIGURLManagerDidChangeDomainNotification = @"GIGURLManagerDidChangeDomainNotification";
-NSString * const GIGURLManagerDidEditDomainsNotification = @"GIGURLManagerDidEditDomainsNotification";
+NSString * const GIGURLManagerDidChangeCurrentDomainNotification = @"GIGURLManagerDidChangeCurrentDomainNotification";
+NSString * const GIGURLManagerDidChangeDomainsNotification = @"GIGURLManagerDidChangeDomainsNotification";
 NSString * const GIGURLManagerDomainUserInfoKey = @"GIGURLManagerDomainUserInfoKey";
 
 NSString * const GIGURLFixturesDefaultFile = @"fixtures.json";
@@ -189,12 +189,12 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 - (void)notifyDomainChange
 {
     NSDictionary *userInfo = @{GIGURLManagerDomainUserInfoKey: self.domain};
-    [self.notificationCenter postNotificationName:GIGURLManagerDidChangeDomainNotification object:self userInfo:userInfo];
+    [self.notificationCenter postNotificationName:GIGURLManagerDidChangeCurrentDomainNotification object:self userInfo:userInfo];
 }
 
 - (void)notifyDomainsEdit
 {
-    [self.notificationCenter postNotificationName:GIGURLManagerDidEditDomainsNotification object:self userInfo:nil];
+    [self.notificationCenter postNotificationName:GIGURLManagerDidChangeDomainsNotification object:self userInfo:nil];
 }
 
 - (void)notifyFixtureChange

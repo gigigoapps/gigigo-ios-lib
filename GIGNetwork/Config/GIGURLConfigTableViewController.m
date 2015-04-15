@@ -38,7 +38,7 @@ NSInteger const GIGURLConfigNumberOfRows = 2;
     self.manager = [GIGURLManager sharedManager];
     self.notificationCenter = [NSNotificationCenter defaultCenter];
     
-    [self.notificationCenter addObserver:self selector:@selector(didChangeDomainNotification:) name:GIGURLManagerDidChangeDomainNotification object:nil];
+    [self.notificationCenter addObserver:self selector:@selector(didChangeDomainNotification:) name:GIGURLManagerDidChangeCurrentDomainNotification object:nil];
     [self.notificationCenter addObserver:self selector:@selector(didChangeFixtureNotification:) name:GIGURLManagerDidChangeFixtureNotification object:nil];
 }
 
