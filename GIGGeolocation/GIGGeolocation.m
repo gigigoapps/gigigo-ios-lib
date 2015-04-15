@@ -41,16 +41,6 @@
 
 #pragma mark - Private
 
-- (void)updateLocation:(CLLocation *)location
-{
-    if (self.completion)
-    {
-        self.completion(YES, YES, location, nil);
-    }
-    
-    [self stop];
-}
-
 - (void)start
 {
     if ([CLLocationManager locationServicesEnabled])
@@ -62,6 +52,16 @@
         
         [self.locationManager startUpdatingLocation];
     }
+}
+
+- (void)updateLocation:(CLLocation *)location
+{
+    if (self.completion)
+    {
+        self.completion(YES, YES, location, nil);
+    }
+    
+    [self stop];
 }
 
 - (void)stop
@@ -84,10 +84,6 @@
     if ([self isAuthorizedStatus:status])
     {
         [self.locationManager startUpdatingLocation];
-    }
-    else if (self.completion)
-    {
-        self.completion(NO, NO, nil, nil);
     }
 }
 
