@@ -17,6 +17,7 @@
 #import "GIGFileManager.h"
 
 // categories
+#import "NSInvocation+GIGExtension.h"
 #import "UIColor+GIGExtension.h"
 #import "NSBundle+GIGLibrary.h"
 #import "NSUserDefaults+GIGArchive.h"
