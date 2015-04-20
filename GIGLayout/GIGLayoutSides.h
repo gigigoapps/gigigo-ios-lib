@@ -10,7 +10,7 @@
 #define layout_GIGLayoutSides_h
 
 
-__unused NSLayoutConstraint* gig_layout_top(UIView *subview, CGFloat top)
+__unused static NSLayoutConstraint* gig_layout_top(UIView *subview, CGFloat top)
 {
     NSLayoutConstraint *constraint = gig_constraint_attribute_view(subview, subview.superview, NSLayoutAttributeTop, top);
     [subview.superview addConstraint:constraint];
@@ -18,7 +18,7 @@ __unused NSLayoutConstraint* gig_layout_top(UIView *subview, CGFloat top)
     return constraint;
 }
 
-__unused NSLayoutConstraint* gig_layout_bottom(UIView *subview, CGFloat bottom)
+__unused static NSLayoutConstraint* gig_layout_bottom(UIView *subview, CGFloat bottom)
 {
     NSLayoutConstraint *constraint = gig_constraint_attribute_view(subview, subview.superview, NSLayoutAttributeBottom, -bottom);
     [subview.superview addConstraint:constraint];
@@ -26,7 +26,7 @@ __unused NSLayoutConstraint* gig_layout_bottom(UIView *subview, CGFloat bottom)
     return constraint;
 }
 
-__unused NSLayoutConstraint* gig_layout_left(UIView *subview, CGFloat left)
+__unused static NSLayoutConstraint* gig_layout_left(UIView *subview, CGFloat left)
 {
     NSLayoutConstraint *constraint = gig_constraint_attribute_view(subview, subview.superview, NSLayoutAttributeLeft, left);
     [subview.superview addConstraint:constraint];
@@ -34,7 +34,7 @@ __unused NSLayoutConstraint* gig_layout_left(UIView *subview, CGFloat left)
     return constraint;
 }
 
-__unused NSLayoutConstraint* gig_layout_right(UIView *subview, CGFloat right)
+__unused static NSLayoutConstraint* gig_layout_right(UIView *subview, CGFloat right)
 {
     NSLayoutConstraint *constraint = gig_constraint_attribute_view(subview, subview.superview, NSLayoutAttributeRight, -right);
     [subview.superview addConstraint:constraint];
@@ -43,7 +43,7 @@ __unused NSLayoutConstraint* gig_layout_right(UIView *subview, CGFloat right)
 }
 
 
-__unused NSLayoutConstraint* gig_layout_below(UIView *belowView, UIView *aboveView, CGFloat margin)
+__unused static NSLayoutConstraint* gig_layout_below(UIView *belowView, UIView *aboveView, CGFloat margin)
 {
     NSLayoutConstraint *constraint = gig_constraint(belowView, NSLayoutAttributeTop, NSLayoutRelationEqual, aboveView, NSLayoutAttributeBottom, margin);
     [belowView.superview addConstraint:constraint];
@@ -51,12 +51,12 @@ __unused NSLayoutConstraint* gig_layout_below(UIView *belowView, UIView *aboveVi
     return constraint;
 }
 
-__unused NSLayoutConstraint* gig_layout_above(UIView *aboveView, UIView *belowView, CGFloat margin)
+__unused static NSLayoutConstraint* gig_layout_above(UIView *aboveView, UIView *belowView, CGFloat margin)
 {
     return gig_layout_below(belowView, aboveView, margin);
 }
 
-__unused NSLayoutConstraint* gig_layout_left_view(UIView *leftView, UIView *rightView, CGFloat margin)
+__unused static NSLayoutConstraint* gig_layout_left_view(UIView *leftView, UIView *rightView, CGFloat margin)
 {
     NSLayoutConstraint *constraint = gig_constraint(leftView, NSLayoutAttributeRight, NSLayoutRelationEqual, rightView, NSLayoutAttributeLeft, -margin);
     [leftView.superview addConstraint:constraint];
@@ -64,7 +64,7 @@ __unused NSLayoutConstraint* gig_layout_left_view(UIView *leftView, UIView *righ
     return constraint;
 }
 
-__unused NSLayoutConstraint* gig_layout_right_view(UIView *rightView, UIView *leftView, CGFloat margin)
+__unused static NSLayoutConstraint* gig_layout_right_view(UIView *rightView, UIView *leftView, CGFloat margin)
 {
     return gig_layout_left_view(leftView, rightView, margin);
 }

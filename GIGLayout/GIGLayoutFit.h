@@ -10,14 +10,14 @@
 #define layout_GIGLayoutFit_h
 
 
-__unused NSArray* gig_layout_fit_horizontal(UIView *subview)
+__unused static NSArray* gig_layout_fit_horizontal(UIView *subview)
 {
     NSArray *constraints = gig_constraints(@"H:|[subview]|", nil, GIGViews(subview));
     [subview.superview addConstraints:constraints];
     return constraints;
 }
 
-__unused NSArray* gig_layout_fit_vertical(UIView *subview)
+__unused static NSArray* gig_layout_fit_vertical(UIView *subview)
 {
     NSArray *constraints = gig_constraints(@"V:|[subview]|", nil, GIGViews(subview));
     [subview.superview addConstraints:constraints];
@@ -25,7 +25,7 @@ __unused NSArray* gig_layout_fit_vertical(UIView *subview)
     return constraints;
 }
 
-__unused NSArray* gig_layout_fit(UIView *subview)
+__unused static NSArray* gig_layout_fit(UIView *subview)
 {
     NSArray *horizontal = gig_layout_fit_horizontal(subview);
     NSArray *vertical = gig_layout_fit_vertical(subview);
@@ -33,7 +33,7 @@ __unused NSArray* gig_layout_fit(UIView *subview)
     return [[NSArray arrayWithArray:horizontal] arrayByAddingObjectsFromArray:vertical];
 }
 
-__unused NSArray* gig_layout_fit_views_horizontal(NSArray *subviews, BOOL top,
+__unused static NSArray* gig_layout_fit_views_horizontal(NSArray *subviews, BOOL top,
                                                 NSNumber *heightRow, NSNumber *margin,
                                                 NSNumber *paddingSuperview, NSNumber *paddingBetweenViews)
 {
@@ -87,7 +87,7 @@ __unused NSArray* gig_layout_fit_views_horizontal(NSArray *subviews, BOOL top,
     
 }
 
-__unused NSArray* gig_layout_fit_views_horizontal_default(NSArray *subviews, BOOL top, NSNumber *heightRow)
+__unused static NSArray* gig_layout_fit_views_horizontal_default(NSArray *subviews, BOOL top, NSNumber *heightRow)
 {
     return gig_layout_fit_views_horizontal(subviews, top, heightRow, @10, @20, @8);
 }

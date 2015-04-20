@@ -10,7 +10,7 @@
 #define layout_GIGLayoutCenter_h
 
 
-__unused NSLayoutConstraint* gig_layout_center_horizontal(UIView *view, CGFloat margin)
+__unused static NSLayoutConstraint* gig_layout_center_horizontal(UIView *view, CGFloat margin)
 {
     NSLayoutConstraint *constraint = gig_constraint(view, NSLayoutAttributeCenterX, NSLayoutRelationEqual, view.superview, NSLayoutAttributeCenterX, margin);
     [view.superview addConstraint:constraint];
@@ -18,7 +18,7 @@ __unused NSLayoutConstraint* gig_layout_center_horizontal(UIView *view, CGFloat 
     return constraint;
 }
 
-__unused NSLayoutConstraint* gig_layout_center_horizontal_view(UIView *view, UIView *centerView, CGFloat margin)
+__unused static NSLayoutConstraint* gig_layout_center_horizontal_view(UIView *view, UIView *centerView, CGFloat margin)
 {
     NSLayoutConstraint *constraint = gig_constraint(view, NSLayoutAttributeCenterX, NSLayoutRelationEqual, centerView, NSLayoutAttributeCenterX, margin);
     [view.superview addConstraint:constraint];
@@ -26,7 +26,7 @@ __unused NSLayoutConstraint* gig_layout_center_horizontal_view(UIView *view, UIV
     return constraint;
 }
 
-__unused NSLayoutConstraint* gig_layout_center_vertical(UIView *view, CGFloat margin)
+__unused static NSLayoutConstraint* gig_layout_center_vertical(UIView *view, CGFloat margin)
 {
     NSLayoutConstraint *constraint = gig_constraint(view, NSLayoutAttributeCenterY, NSLayoutRelationEqual, view.superview, NSLayoutAttributeCenterY, margin);
     [view.superview addConstraint:constraint];
@@ -35,7 +35,7 @@ __unused NSLayoutConstraint* gig_layout_center_vertical(UIView *view, CGFloat ma
 }
 
 
-__unused NSLayoutConstraint* gig_layout_center_vertical_view(UIView *view, UIView *centerView, CGFloat margin)
+__unused static NSLayoutConstraint* gig_layout_center_vertical_view(UIView *view, UIView *centerView, CGFloat margin)
 {
     NSLayoutConstraint *constraint = gig_constraint(view, NSLayoutAttributeCenterY, NSLayoutRelationEqual, centerView, NSLayoutAttributeCenterY, margin);
     [view.superview addConstraint:constraint];
@@ -43,7 +43,7 @@ __unused NSLayoutConstraint* gig_layout_center_vertical_view(UIView *view, UIVie
     return constraint;
 }
 
-__unused NSArray* gig_layout_center(UIView *view)
+__unused static NSArray* gig_layout_center(UIView *view)
 {
     NSLayoutConstraint *horizontal = gig_layout_center_horizontal(view, 0);
     NSLayoutConstraint *vertical = gig_layout_center_vertical(view, 0);
@@ -51,14 +51,13 @@ __unused NSArray* gig_layout_center(UIView *view)
     return @[horizontal, vertical];
 }
 
-__unused NSArray* gig_layout_center_view(UIView *view, UIView *centerView)
+__unused static NSArray* gig_layout_center_view(UIView *view, UIView *centerView)
 {
     NSLayoutConstraint *horizontal = gig_layout_center_horizontal_view(view, centerView, 0);
     NSLayoutConstraint *vertical = gig_layout_center_vertical_view(view, centerView, 0);
     
     return @[horizontal, vertical];
 }
-
 
 
 #endif

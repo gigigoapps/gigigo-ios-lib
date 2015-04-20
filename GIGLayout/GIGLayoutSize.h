@@ -10,7 +10,7 @@
 #define layout_GIGLayoutSize_h
 
 
-__unused NSLayoutConstraint* gig_constrain_width(UIView *view, CGFloat width)
+__unused static NSLayoutConstraint* gig_constrain_width(UIView *view, CGFloat width)
 {
     NSLayoutConstraint *constraint = gig_constraint_attribute(view, NSLayoutAttributeWidth, width);
     [view addConstraint:constraint];
@@ -18,7 +18,7 @@ __unused NSLayoutConstraint* gig_constrain_width(UIView *view, CGFloat width)
     return constraint;
 }
 
-__unused NSLayoutConstraint* gig_constrain_height(UIView *view, CGFloat height)
+__unused static NSLayoutConstraint* gig_constrain_height(UIView *view, CGFloat height)
 {
     NSLayoutConstraint *constraint = gig_constraint_attribute(view, NSLayoutAttributeHeight, height);
     [view addConstraint:constraint];
@@ -26,7 +26,7 @@ __unused NSLayoutConstraint* gig_constrain_height(UIView *view, CGFloat height)
     return constraint;
 }
 
-__unused NSArray* gig_constrain_size(UIView *view, CGSize size)
+__unused static NSArray* gig_constrain_size(UIView *view, CGSize size)
 {
     NSLayoutConstraint *width = gig_constrain_width(view, size.width);
     NSLayoutConstraint *height = gig_constrain_height(view, size.height);
