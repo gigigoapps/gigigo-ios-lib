@@ -33,6 +33,11 @@
 
 #pragma mark - Public
 
+- (BOOL)isAuthorized
+{
+    return ([CLLocationManager locationServicesEnabled] && [self isAuthorizedStatus:[CLLocationManager authorizationStatus]]);
+}
+
 - (void)locateCompletion:(GIGGeolocationCompletion)completion
 {
     self.completion = completion;

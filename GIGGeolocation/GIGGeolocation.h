@@ -16,6 +16,7 @@ typedef void(^GIGGeolocationCompletion)(BOOL success, BOOL authorized, CLLocatio
 
 @interface GIGGeolocation : NSObject
 
+- (BOOL)isAuthorized;
 - (void)locateCompletion:(GIGGeolocationCompletion)completion;
 
 @end
