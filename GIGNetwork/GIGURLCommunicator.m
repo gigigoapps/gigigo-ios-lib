@@ -42,6 +42,7 @@
     if (self)
     {
         _requestFactory = requestFactory;
+        _logLevel = GIGLevelError;
     }
     return self;
 }
