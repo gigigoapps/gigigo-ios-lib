@@ -13,6 +13,8 @@
 <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLGeocoder *geocoder;
+
 @property (copy, nonatomic) GIGGeolocationCompletion completion;
 
 @end
@@ -22,13 +24,23 @@
 
 - (instancetype)init
 {
-	self = [super init];
-	if (self != nil)
-	{
-		self.locationManager = [[CLLocationManager alloc] init];
-		self.locationManager.delegate = self;
-	}
-	return self;
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    
+    return [self initWithLocationManager:locationManager geocoder:geocoder];
+}
+
+- (instancetype)initWithLocationManager:(CLLocationManager *)locationManager geocoder:(CLGeocoder *)geocoder
+{
+    self = [super init];
+    if (self)
+    {
+        _locationManager = locationManager;
+        _locationManager.delegate = self;
+        
+        _geocoder = geocoder;
+    }
+    return self;
 }
 
 #pragma mark - Public
@@ -42,6 +54,13 @@
 {
     self.completion = completion;
     [self start];
+}
+
+- (void)geocode:(NSString *)text completion:(GIGGeocoderCompletion)completion
+{
+    [self.geocoder geocodeAddressString:text completionHandler:^(NSArray *placemarks, NSError *error) {
+        completion(placemarks, error);
+    }];
 }
 
 #pragma mark - Private
@@ -63,7 +82,7 @@
 {
     if (self.completion)
     {
-        self.completion(YES, YES, location, nil);
+        self.completion(YES, location, nil);
     }
     
     [self stop];
@@ -109,11 +128,11 @@
         BOOL authorized = [self isAuthorizedStatus:CLLocationManager.authorizationStatus];
         if (self.locationManager.location)
         {
-            self.completion(YES, authorized, self.locationManager.location, error);
+            self.completion(authorized, self.locationManager.location, error);
         }
         else
         {
-            self.completion(NO, authorized, nil, error);
+            self.completion(authorized, nil, error);
         }
     }
     
