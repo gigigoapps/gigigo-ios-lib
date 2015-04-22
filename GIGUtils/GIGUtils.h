@@ -23,4 +23,10 @@
 #import "NSBundle+GIGLibrary.h"
 #import "NSUserDefaults+GIGArchive.h"
 
+// json
+#import "NSArray+GIGJSON.h"
+#import "NSData+GIGJSON.h"
+#import "NSDictionary+GIGJSON.h"
+#import "NSString+GIGJSON.h"
+
 #endif
