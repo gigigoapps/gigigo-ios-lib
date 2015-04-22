@@ -12,8 +12,11 @@
 #import "GIGURLRequestLogger.h"
 #import "GIGURLManager.h"
 
+#import "GIGDispatch.h"
+
 
 static NSString * const GIGNetworkErrorDomain = @"com.gigigo.network";
+static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 
 
 @interface GIGURLRequest ()
@@ -95,7 +98,11 @@ static NSString * const GIGNetworkErrorDomain = @"com.gigigo.network";
 
     if (self.manager.useFixture)
     {
-        [self mockResponseWithCompletion:completion];
+        __weak typeof(self) this = self;
+        gig_dispatch_after_seconds(GIGNetworkMockDelay, ^{
+            [this mockResponseWithCompletion:completion];
+        });
+        
         return;
     }
 
