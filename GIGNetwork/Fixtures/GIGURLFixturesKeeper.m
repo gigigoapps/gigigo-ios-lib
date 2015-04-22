@@ -83,6 +83,11 @@
     {
         self.fixtures = [self.storage loadFixturesFromFile:GIGURLFixturesKeeperDefaultFile];
     }
+    
+    if (self.currentFixture == nil && self.fixtures.count > 0)
+    {
+        self.currentFixture = self.fixtures[0];
+    }
 }
 
 @end
