@@ -126,6 +126,10 @@ static NSString * const GIGNetworkErrorDomain = @"com.gigigo.network";
     }
     
     self.data = [[NSMutableData alloc] initWithData:mockData];
+    
+    NSURL *URL = [NSURL URLWithString:self.url];
+    self.response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
+    
     [self completeWithData];
 }
 
