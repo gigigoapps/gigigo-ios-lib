@@ -87,13 +87,9 @@
         {
             return YES;
         }
-        else if ([value isEqualToString:@"1"])
-        {
-            return YES;
-        }
         else
         {
-            return NO;
+            return [(NSString *)value boolValue];
         }
     }
 
@@ -104,33 +100,18 @@
 {
     id value = self[key];
     
+    if (![value isKindOfClass:[NSArray class]]) return nil;
+    
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    
-    if ([value isKindOfClass:[NSArray class]])
+    for (id object in (NSArray *)value)
     {
-        for (id object in (NSArray *)value)
+        if (object != [NSNull null])
         {
-            if ([object isKindOfClass:[NSNumber class]])
-            {
-                NSString *string = [NSString stringWithFormat:@"%@", object];
-                [array addObject:string];
-            }
-        }
-    }
-
-    if (array.count > 0)
-    {
-        return [NSArray arrayWithArray:array];
-    }
-    else
-    {
-        if ([value isKindOfClass:[NSArray class]])
-        {
-            return value;
+            [array addObject:object];
         }
     }
     
-    return nil;
+    return [array copy];
 }
 
 - (NSString *)stringForKey:(NSString *)key
@@ -196,13 +177,10 @@
 
 - (NSURL *)URLForKey:(NSString *)key
 {
-    NSString *url = [self stringForKey:key];
-    if (url.length > 0)
-    {
-        return [NSURL URLWithString:url];
-    }
+    id value = self[key];
+    if (![value isKindOfClass:[NSString class]]) return nil;
     
-    return nil;
+    return [NSURL URLWithString:(NSString *)value];
 }
 
 @end
