@@ -22,6 +22,7 @@
 #import "UIColor+GIGExtension.h"
 #import "NSBundle+GIGLibrary.h"
 #import "NSUserDefaults+GIGArchive.h"
+#import "NSArray+GIGExtension.h"
 
 // json
 #import "NSArray+GIGJSON.h"
