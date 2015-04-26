@@ -69,7 +69,7 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
         _cachePolicy = NSURLRequestUseProtocolCachePolicy;
         _timeout = 0;
         _responseClass = [GIGURLResponse class];
-        _logLevel = GIGLevelError;
+        _logLevel = GIGLogLevelError;
     }
     return self;
 }

@@ -125,7 +125,7 @@
 
 - (void)downloadImageURL:(NSURL *)URL
 {
-    if (self.logLevel != GIGLevelNone)
+    if (self.logLevel != GIGLogLevelNone)
     {
         NSLog(@"IMAGES MANAGER: Download: %@", URL);
     }

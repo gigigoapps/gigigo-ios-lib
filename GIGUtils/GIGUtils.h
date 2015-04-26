@@ -1,13 +1,13 @@
 //
 //  GIGUtils.h
-//  copiloto
+//  giglibrary
 //
 //  Created by Sergio Baró on 15/04/15.
 //  Copyright (c) 2015 Gigigo. All rights reserved.
 //
 
-#ifndef copiloto_GIGUtils_h
-#define copiloto_GIGUtils_h
+#ifndef giglibrary_GIGUtils_h
+#define giglibrary_GIGUtils_h
 
 // functions
 #import "GIGDispatch.h"

@@ -17,7 +17,7 @@
 {
     switch (self.logLevel)
     {
-        case GIGLevelVerbose:
+        case GIGLogLevelVerbose:
         {
             NSLog(@"-- REQUEST: %@ --", self.tag ?: @"");
             NSLog(@"URL: %@", request.URL.absoluteString);
@@ -26,14 +26,14 @@
             [self logBody:request.HTTPBody stringEncoding:stringEncoding];
             break;
         }
-        case GIGLevelBasic:
+        case GIGLogLevelBasic:
         {
             NSLog(@"-- REQUEST: %@ --", self.tag ?: @"");
             NSLog(@"URL: %@", request.URL.absoluteString);
             break;
         }
-        case GIGLevelError:
-        case GIGLevelNone:
+        case GIGLogLevelError:
+        case GIGLogLevelNone:
             // DO NOTHING
             break;
     }
@@ -43,7 +43,7 @@
 {
     switch (self.logLevel)
     {
-        case GIGLevelVerbose:
+        case GIGLogLevelVerbose:
         {
             NSLog(@"-- RESPONSE: %@ --", self.tag ?: @"");
             NSLog(@"URL: %@", response.URL.absoluteString);
@@ -53,14 +53,14 @@
             [self logError:error];
             break;
         }
-        case GIGLevelBasic:
+        case GIGLogLevelBasic:
         {
             NSLog(@"-- RESPONSE: %@ --", self.tag ?: @"");
             NSLog(@"URL: %@", response.URL.absoluteString);
             NSLog(@"Status Code: %d", (int)response.statusCode);
             break;
         }
-        case GIGLevelError:
+        case GIGLogLevelError:
         {
             NSLog(@"-- ERROR: RESPONSE: %@ --", self.tag ?: @"");
             NSLog(@"URL: %@", response.URL.absoluteString);
@@ -68,7 +68,7 @@
             [self logError:error];
             break;
         }
-        case GIGLevelNone:
+        case GIGLogLevelNone:
             // DO NOTHING
             break;
     }

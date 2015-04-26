@@ -42,7 +42,7 @@
     if (self)
     {
         _requestFactory = requestFactory;
-        _logLevel = GIGLevelError;
+        _logLevel = GIGLogLevelError;
     }
     return self;
 }
