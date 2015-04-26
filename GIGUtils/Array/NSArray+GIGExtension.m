@@ -19,4 +19,16 @@
     return [tmp copy];
 }
 
+- (NSArray *)arrayByRemovingObjectsFromArray:(NSArray *)array
+{
+    NSMutableArray *tmp = [self mutableCopy];
+    
+    for (id object in array)
+    {
+        [tmp removeObject:object];
+    }
+    
+    return [tmp copy];
+}
+
 @end
