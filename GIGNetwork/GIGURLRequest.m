@@ -121,6 +121,9 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 
 - (void)mockResponseWithCompletion:(GIGURLRequestCompletion)completion
 {
+    NSURL *URL = [NSURL URLWithString:self.url];
+    self.response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
+    
     if (completion == nil) return;
     
     NSData *mockData = [self.manager mockForRequestTag:self.requestTag];
@@ -133,9 +136,6 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
     }
     
     self.data = [[NSMutableData alloc] initWithData:mockData];
-    
-    NSURL *URL = [NSURL URLWithString:self.url];
-    self.response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
     
     [self completeWithData];
 }
