@@ -62,7 +62,7 @@
         }
         case GIGLogLevelError:
         {
-            NSLog(@"-- ERROR: RESPONSE: %@ --", self.tag ?: @"");
+            NSLog(@"-- RESPONSE: %@ --", self.tag ?: @"");
             NSLog(@"URL: %@", response.URL.absoluteString);
             NSLog(@"Status Code: %d", (int)response.statusCode);
             [self logError:error];
@@ -84,10 +84,13 @@
 
 - (void)logError:(NSError *)error
 {
-    NSLog(@"Error (%d): %@", (int)error.code, error.localizedDescription);
-    if (error.userInfo)
+    if (error != nil)
     {
-        NSLog(@"%@", error.userInfo);
+        NSLog(@"Error (%d): %@", (int)error.code, error.localizedDescription);
+        if (error.userInfo)
+        {
+            NSLog(@"%@", error.userInfo);
+        }
     }
 }
 
