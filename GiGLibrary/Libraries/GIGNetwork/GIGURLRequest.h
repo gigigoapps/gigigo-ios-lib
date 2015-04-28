@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "GIGURLFile.h"
-#import "GIGURLResponse.h"
 #import "GIGConstants.h"
 
 @class GIGURLConnectionBuilder;

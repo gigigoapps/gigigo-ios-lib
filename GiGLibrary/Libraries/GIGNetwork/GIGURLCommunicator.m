@@ -10,6 +10,8 @@
 
 #import "GIGURLRequestFactory.h"
 
+#import "GIGURLResponse.h"
+
 
 @interface GIGURLCommunicator ()
 
