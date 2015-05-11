@@ -15,23 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FA65BF981AEFD5F90031A91B"
-               BuildableName = "GiGLibrary.framework"
-               BlueprintName = "GiGLibrary"
-               ReferencedContainer = "container:GiGLibrary.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA65BFA31AEFD5F90031A91B"
-               BuildableName = "GiGLibraryTests.xctest"
-               BlueprintName = "GiGLibraryTests"
-               ReferencedContainer = "container:GiGLibrary.xcodeproj">
+               BuildableName = "GIGLibrary.framework"
+               BlueprintName = "GIGLibrary"
+               ReferencedContainer = "container:GIGLibrary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,24 +28,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA65BFA31AEFD5F90031A91B"
-               BuildableName = "GiGLibraryTests.xctest"
-               BlueprintName = "GiGLibraryTests"
-               ReferencedContainer = "container:GiGLibrary.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA65BF981AEFD5F90031A91B"
-            BuildableName = "GiGLibrary.framework"
-            BlueprintName = "GiGLibrary"
-            ReferencedContainer = "container:GiGLibrary.xcodeproj">
+            BuildableName = "GIGLibrary.framework"
+            BlueprintName = "GIGLibrary"
+            ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA65BF981AEFD5F90031A91B"
-            BuildableName = "GiGLibrary.framework"
-            BlueprintName = "GiGLibrary"
-            ReferencedContainer = "container:GiGLibrary.xcodeproj">
+            BuildableName = "GIGLibrary.framework"
+            BlueprintName = "GIGLibrary"
+            ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA65BF981AEFD5F90031A91B"
-            BuildableName = "GiGLibrary.framework"
-            BlueprintName = "GiGLibrary"
-            ReferencedContainer = "container:GiGLibrary.xcodeproj">
+            BuildableName = "GIGLibrary.framework"
+            BlueprintName = "GIGLibrary"
+            ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

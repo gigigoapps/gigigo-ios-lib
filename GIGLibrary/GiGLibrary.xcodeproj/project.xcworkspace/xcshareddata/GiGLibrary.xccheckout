@@ -7,18 +7,18 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>37ABF90C-3115-4048-A013-BA43DE5C657F</string>
 	<key>IDESourceControlProjectName</key>
-	<string>GiGLibrary</string>
+	<string>GIGLibrary</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B3353CEE85DB75F0EB1AF05465A807DE7FD0652D</key>
 		<string>https://bitbucket.org/gigigo/gigigo-giglibrary-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>GiGLibrary.xcodeproj</string>
+	<string>GiGLibrary/GIGLibrary.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B3353CEE85DB75F0EB1AF05465A807DE7FD0652D</key>
-		<string>../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://bitbucket.org/gigigo/gigigo-giglibrary-ios.git</string>
