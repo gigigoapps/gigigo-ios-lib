@@ -1,0 +1,1289 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9AD96951B0A381700CB5E8C /* GIGConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD961F1B0A381600CB5E8C /* GIGConstants.h */; };
+		D9AD96961B0A381700CB5E8C /* GIGGeolocation.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96211B0A381600CB5E8C /* GIGGeolocation.h */; };
+		D9AD96971B0A381700CB5E8C /* GIGGeolocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96221B0A381600CB5E8C /* GIGGeolocation.m */; };
+		D9AD96981B0A381700CB5E8C /* GIGImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96241B0A381600CB5E8C /* GIGImageCache.h */; };
+		D9AD96991B0A381700CB5E8C /* GIGImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96251B0A381600CB5E8C /* GIGImageCache.m */; };
+		D9AD969A1B0A381700CB5E8C /* GIGImageCacheNameGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96261B0A381600CB5E8C /* GIGImageCacheNameGenerator.h */; };
+		D9AD969B1B0A381700CB5E8C /* GIGImageCacheNameGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96271B0A381600CB5E8C /* GIGImageCacheNameGenerator.m */; };
+		D9AD969C1B0A381700CB5E8C /* GIGImageDownload.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96281B0A381600CB5E8C /* GIGImageDownload.h */; };
+		D9AD969D1B0A381700CB5E8C /* GIGImageDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96291B0A381600CB5E8C /* GIGImageDownload.m */; };
+		D9AD969E1B0A381700CB5E8C /* GIGImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD962A1B0A381600CB5E8C /* GIGImageDownloader.h */; };
+		D9AD969F1B0A381700CB5E8C /* GIGImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD962B1B0A381600CB5E8C /* GIGImageDownloader.m */; };
+		D9AD96A01B0A381700CB5E8C /* GIGImageStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD962C1B0A381600CB5E8C /* GIGImageStore.h */; };
+		D9AD96A11B0A381700CB5E8C /* GIGImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD962D1B0A381600CB5E8C /* GIGImageStore.m */; };
+		D9AD96A21B0A381700CB5E8C /* GIGLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD962F1B0A381600CB5E8C /* GIGLayout.h */; };
+		D9AD96A31B0A381700CB5E8C /* GIGLayoutBase.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96301B0A381600CB5E8C /* GIGLayoutBase.h */; };
+		D9AD96A41B0A381700CB5E8C /* GIGLayoutCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96311B0A381600CB5E8C /* GIGLayoutCenter.h */; };
+		D9AD96A51B0A381700CB5E8C /* GIGLayoutFit.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96321B0A381600CB5E8C /* GIGLayoutFit.h */; };
+		D9AD96A61B0A381700CB5E8C /* GIGLayoutGridHorizontal.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96331B0A381600CB5E8C /* GIGLayoutGridHorizontal.h */; };
+		D9AD96A71B0A381700CB5E8C /* GIGLayoutGridHorizontal.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96341B0A381600CB5E8C /* GIGLayoutGridHorizontal.m */; };
+		D9AD96A81B0A381700CB5E8C /* GIGLayoutGridVertical.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96351B0A381600CB5E8C /* GIGLayoutGridVertical.h */; };
+		D9AD96A91B0A381700CB5E8C /* GIGLayoutGridVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96361B0A381600CB5E8C /* GIGLayoutGridVertical.m */; };
+		D9AD96AA1B0A381700CB5E8C /* GIGLayoutSides.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96371B0A381600CB5E8C /* GIGLayoutSides.h */; };
+		D9AD96AB1B0A381700CB5E8C /* GIGLayoutSize.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96381B0A381600CB5E8C /* GIGLayoutSize.h */; };
+		D9AD96AC1B0A381700CB5E8C /* GIGURLConfigAddDomainViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD963B1B0A381600CB5E8C /* GIGURLConfigAddDomainViewController.h */; };
+		D9AD96AD1B0A381700CB5E8C /* GIGURLConfigAddDomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD963C1B0A381600CB5E8C /* GIGURLConfigAddDomainViewController.m */; };
+		D9AD96AE1B0A381700CB5E8C /* GIGURLConfigDomainsTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD963D1B0A381700CB5E8C /* GIGURLConfigDomainsTableViewController.h */; };
+		D9AD96AF1B0A381700CB5E8C /* GIGURLConfigDomainsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD963E1B0A381700CB5E8C /* GIGURLConfigDomainsTableViewController.m */; };
+		D9AD96B01B0A381700CB5E8C /* GIGURLConfigFixtureDetailTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD963F1B0A381700CB5E8C /* GIGURLConfigFixtureDetailTableViewController.h */; };
+		D9AD96B11B0A381700CB5E8C /* GIGURLConfigFixtureDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96401B0A381700CB5E8C /* GIGURLConfigFixtureDetailTableViewController.m */; };
+		D9AD96B21B0A381700CB5E8C /* GIGURLConfigFixturesTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96411B0A381700CB5E8C /* GIGURLConfigFixturesTableViewController.h */; };
+		D9AD96B31B0A381700CB5E8C /* GIGURLConfigFixturesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96421B0A381700CB5E8C /* GIGURLConfigFixturesTableViewController.m */; };
+		D9AD96B41B0A381700CB5E8C /* GIGURLConfigTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96431B0A381700CB5E8C /* GIGURLConfigTableViewController.h */; };
+		D9AD96B51B0A381700CB5E8C /* GIGURLConfigTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96441B0A381700CB5E8C /* GIGURLConfigTableViewController.m */; };
+		D9AD96B61B0A381700CB5E8C /* GIGURLDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96461B0A381700CB5E8C /* GIGURLDomain.h */; };
+		D9AD96B71B0A381700CB5E8C /* GIGURLDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96471B0A381700CB5E8C /* GIGURLDomain.m */; };
+		D9AD96B81B0A381700CB5E8C /* GIGURLDomainsKeeper.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96481B0A381700CB5E8C /* GIGURLDomainsKeeper.h */; };
+		D9AD96B91B0A381700CB5E8C /* GIGURLDomainsKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96491B0A381700CB5E8C /* GIGURLDomainsKeeper.m */; };
+		D9AD96BA1B0A381700CB5E8C /* GIGURLFixture.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD964B1B0A381700CB5E8C /* GIGURLFixture.h */; };
+		D9AD96BB1B0A381700CB5E8C /* GIGURLFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD964C1B0A381700CB5E8C /* GIGURLFixture.m */; };
+		D9AD96BC1B0A381700CB5E8C /* GIGURLFixturesKeeper.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD964D1B0A381700CB5E8C /* GIGURLFixturesKeeper.h */; };
+		D9AD96BD1B0A381700CB5E8C /* GIGURLFixturesKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD964E1B0A381700CB5E8C /* GIGURLFixturesKeeper.m */; };
+		D9AD96BE1B0A381700CB5E8C /* GIGURLFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96501B0A381700CB5E8C /* GIGURLFormatter.h */; };
+		D9AD96BF1B0A381700CB5E8C /* GIGURLFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96511B0A381700CB5E8C /* GIGURLFormatter.m */; };
+		D9AD96C01B0A381700CB5E8C /* GIGURLParametersFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96521B0A381700CB5E8C /* GIGURLParametersFormatter.h */; };
+		D9AD96C11B0A381700CB5E8C /* GIGURLParametersFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96531B0A381700CB5E8C /* GIGURLParametersFormatter.m */; };
+		D9AD96C21B0A381700CB5E8C /* GIGNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96541B0A381700CB5E8C /* GIGNetwork.h */; };
+		D9AD96C31B0A381700CB5E8C /* GIGURLCommunicator.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96551B0A381700CB5E8C /* GIGURLCommunicator.h */; };
+		D9AD96C41B0A381700CB5E8C /* GIGURLCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96561B0A381700CB5E8C /* GIGURLCommunicator.m */; };
+		D9AD96C51B0A381700CB5E8C /* GIGURLFile.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96571B0A381700CB5E8C /* GIGURLFile.h */; };
+		D9AD96C61B0A381700CB5E8C /* GIGURLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96581B0A381700CB5E8C /* GIGURLFile.m */; };
+		D9AD96C71B0A381700CB5E8C /* GIGURLManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96591B0A381700CB5E8C /* GIGURLManager.h */; };
+		D9AD96C81B0A381700CB5E8C /* GIGURLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD965A1B0A381700CB5E8C /* GIGURLManager.m */; };
+		D9AD96C91B0A381700CB5E8C /* GIGURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD965B1B0A381700CB5E8C /* GIGURLRequest.h */; };
+		D9AD96CA1B0A381700CB5E8C /* GIGURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD965C1B0A381700CB5E8C /* GIGURLRequest.m */; };
+		D9AD96CB1B0A381700CB5E8C /* GIGURLConnectionBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD965E1B0A381700CB5E8C /* GIGURLConnectionBuilder.h */; };
+		D9AD96CC1B0A381700CB5E8C /* GIGURLConnectionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD965F1B0A381700CB5E8C /* GIGURLConnectionBuilder.m */; };
+		D9AD96CD1B0A381700CB5E8C /* GIGURLRequestFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96601B0A381700CB5E8C /* GIGURLRequestFactory.h */; };
+		D9AD96CE1B0A381700CB5E8C /* GIGURLRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96611B0A381700CB5E8C /* GIGURLRequestFactory.m */; };
+		D9AD96CF1B0A381700CB5E8C /* GIGURLRequestLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96621B0A381700CB5E8C /* GIGURLRequestLogger.h */; };
+		D9AD96D01B0A381700CB5E8C /* GIGURLRequestLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96631B0A381700CB5E8C /* GIGURLRequestLogger.m */; };
+		D9AD96D11B0A381700CB5E8C /* GIGURLStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96641B0A381700CB5E8C /* GIGURLStorage.h */; };
+		D9AD96D21B0A381700CB5E8C /* GIGURLStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96651B0A381700CB5E8C /* GIGURLStorage.m */; };
+		D9AD96D31B0A381700CB5E8C /* GIGURLImageResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96671B0A381700CB5E8C /* GIGURLImageResponse.h */; };
+		D9AD96D41B0A381700CB5E8C /* GIGURLImageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96681B0A381700CB5E8C /* GIGURLImageResponse.m */; };
+		D9AD96D51B0A381700CB5E8C /* GIGURLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96691B0A381700CB5E8C /* GIGURLResponse.h */; };
+		D9AD96D61B0A381700CB5E8C /* GIGURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD966A1B0A381700CB5E8C /* GIGURLResponse.m */; };
+		D9AD96D71B0A381700CB5E8C /* GIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD966C1B0A381700CB5E8C /* GIGRegexp.h */; };
+		D9AD96D81B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD966D1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.h */; };
+		D9AD96D91B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD966E1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.m */; };
+		D9AD96DA1B0A381700CB5E8C /* NSString+GIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD966F1B0A381700CB5E8C /* NSString+GIGRegexp.h */; };
+		D9AD96DB1B0A381700CB5E8C /* NSString+GIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96701B0A381700CB5E8C /* NSString+GIGRegexp.m */; };
+		D9AD96DC1B0A381700CB5E8C /* NSArray+GIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96731B0A381700CB5E8C /* NSArray+GIGExtension.h */; };
+		D9AD96DD1B0A381700CB5E8C /* NSArray+GIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96741B0A381700CB5E8C /* NSArray+GIGExtension.m */; };
+		D9AD96DE1B0A381700CB5E8C /* NSBundle+GIGLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96761B0A381700CB5E8C /* NSBundle+GIGLibrary.h */; };
+		D9AD96DF1B0A381700CB5E8C /* NSBundle+GIGLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96771B0A381700CB5E8C /* NSBundle+GIGLibrary.m */; };
+		D9AD96E01B0A381700CB5E8C /* UIColor+GIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96791B0A381700CB5E8C /* UIColor+GIGExtension.h */; };
+		D9AD96E11B0A381700CB5E8C /* UIColor+GIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD967A1B0A381700CB5E8C /* UIColor+GIGExtension.m */; };
+		D9AD96E21B0A381700CB5E8C /* GIGDigest.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD967C1B0A381700CB5E8C /* GIGDigest.h */; };
+		D9AD96E31B0A381700CB5E8C /* GIGDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD967D1B0A381700CB5E8C /* GIGDigest.m */; };
+		D9AD96E41B0A381700CB5E8C /* GIGFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD967F1B0A381700CB5E8C /* GIGFileManager.h */; };
+		D9AD96E51B0A381700CB5E8C /* GIGFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96801B0A381700CB5E8C /* GIGFileManager.m */; };
+		D9AD96E61B0A381700CB5E8C /* GIGDispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96811B0A381700CB5E8C /* GIGDispatch.h */; };
+		D9AD96E71B0A381700CB5E8C /* GIGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96821B0A381700CB5E8C /* GIGUtils.h */; };
+		D9AD96E81B0A381700CB5E8C /* NSInvocation+GIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96841B0A381700CB5E8C /* NSInvocation+GIGExtension.h */; };
+		D9AD96E91B0A381700CB5E8C /* NSInvocation+GIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96851B0A381700CB5E8C /* NSInvocation+GIGExtension.m */; };
+		D9AD96EA1B0A381700CB5E8C /* NSArray+GIGJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96871B0A381700CB5E8C /* NSArray+GIGJSON.h */; };
+		D9AD96EB1B0A381700CB5E8C /* NSArray+GIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96881B0A381700CB5E8C /* NSArray+GIGJSON.m */; };
+		D9AD96EC1B0A381700CB5E8C /* NSData+GIGJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96891B0A381700CB5E8C /* NSData+GIGJSON.h */; };
+		D9AD96ED1B0A381700CB5E8C /* NSData+GIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD968A1B0A381700CB5E8C /* NSData+GIGJSON.m */; };
+		D9AD96EE1B0A381700CB5E8C /* NSDictionary+GIGJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD968B1B0A381700CB5E8C /* NSDictionary+GIGJSON.h */; };
+		D9AD96EF1B0A381700CB5E8C /* NSDictionary+GIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD968C1B0A381700CB5E8C /* NSDictionary+GIGJSON.m */; };
+		D9AD96F01B0A381700CB5E8C /* NSString+GIGJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD968D1B0A381700CB5E8C /* NSString+GIGJSON.h */; };
+		D9AD96F11B0A381700CB5E8C /* NSString+GIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD968E1B0A381700CB5E8C /* NSString+GIGJSON.m */; };
+		D9AD96F21B0A381700CB5E8C /* NSUserDefaults+GIGArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96901B0A381700CB5E8C /* NSUserDefaults+GIGArchive.h */; };
+		D9AD96F31B0A381700CB5E8C /* NSUserDefaults+GIGArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96911B0A381700CB5E8C /* NSUserDefaults+GIGArchive.m */; };
+		D9AD96F41B0A381700CB5E8C /* UIView+GIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96931B0A381700CB5E8C /* UIView+GIGExtension.h */; };
+		D9AD96F51B0A381700CB5E8C /* UIView+GIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96941B0A381700CB5E8C /* UIView+GIGExtension.m */; };
+		D9AD97001B0A386500CB5E8C /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
+		D9AD97341B0A398E00CB5E8C /* GIGLayoutGridVerticalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD97191B0A398E00CB5E8C /* GIGLayoutGridVerticalTests.m */; };
+		D9AD97351B0A398E00CB5E8C /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD971A1B0A398E00CB5E8C /* GIGLayoutTests.m */; };
+		D9AD97361B0A398E00CB5E8C /* GIGURLCommunicatorMultiRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD971C1B0A398E00CB5E8C /* GIGURLCommunicatorMultiRequestTests.m */; };
+		D9AD97371B0A398E00CB5E8C /* GIGURLCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD971D1B0A398E00CB5E8C /* GIGURLCommunicatorTests.m */; };
+		D9AD97381B0A398E00CB5E8C /* GIGURLConnectionBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD971E1B0A398E00CB5E8C /* GIGURLConnectionBuilderTests.m */; };
+		D9AD97391B0A398E00CB5E8C /* GIGURLDomainsKeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD971F1B0A398E00CB5E8C /* GIGURLDomainsKeeperTests.m */; };
+		D9AD973A1B0A398E00CB5E8C /* GIGURLFixturesKeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD97201B0A398E00CB5E8C /* GIGURLFixturesKeeperTests.m */; };
+		D9AD973B1B0A398E00CB5E8C /* GIGURLFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD97211B0A398E00CB5E8C /* GIGURLFormatterTests.m */; };
+		D9AD973C1B0A398E00CB5E8C /* GIGURLParametersFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD97221B0A398E00CB5E8C /* GIGURLParametersFormatterTests.m */; };
+		D9AD973D1B0A398E00CB5E8C /* GIGURLRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD97231B0A398E00CB5E8C /* GIGURLRequestTests.m */; };
+		D9AD973E1B0A398E00CB5E8C /* GIGURLStorageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD97241B0A398E00CB5E8C /* GIGURLStorageTests.m */; };
+		D9AD973F1B0A398E00CB5E8C /* GIGURLDomain+GIGTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD97271B0A398E00CB5E8C /* GIGURLDomain+GIGTesting.m */; };
+		D9AD97401B0A398E00CB5E8C /* GIGURLFixture+GIGTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD97291B0A398E00CB5E8C /* GIGURLFixture+GIGTesting.m */; };
+		D9AD97411B0A398E00CB5E8C /* GIGRegexpMatchingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD972B1B0A398E00CB5E8C /* GIGRegexpMatchingTests.m */; };
+		D9AD97421B0A398E00CB5E8C /* GIGRegexpReplacingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD972C1B0A398E00CB5E8C /* GIGRegexpReplacingTests.m */; };
+		D9AD97431B0A398E00CB5E8C /* GIGArrayExtesionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD972F1B0A398E00CB5E8C /* GIGArrayExtesionTests.m */; };
+		D9AD97441B0A398E00CB5E8C /* GIGJSONExtensionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD97301B0A398E00CB5E8C /* GIGJSONExtensionTests.m */; };
+		D9AD97451B0A398E00CB5E8C /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AD97321B0A398E00CB5E8C /* OCHamcrestIOS.framework */; };
+		D9AD97461B0A398E00CB5E8C /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AD97331B0A398E00CB5E8C /* OCMockitoIOS.framework */; };
+		FA2312E11B00AB4800903F18 /* GIGLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = FA23126A1B00AB4800903F18 /* GIGLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA680F1F1B009B6B006FC484 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA680F1E1B009B6B006FC484 /* main.m */; };
+		FA680F221B009B6B006FC484 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA680F211B009B6B006FC484 /* AppDelegate.m */; };
+		FA680F251B009B6B006FC484 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA680F241B009B6B006FC484 /* ViewController.m */; };
+		FA680F281B009B6B006FC484 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA680F261B009B6B006FC484 /* Main.storyboard */; };
+		FA680F2A1B009B6B006FC484 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA680F291B009B6B006FC484 /* Images.xcassets */; };
+		FA680F2D1B009B6B006FC484 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA680F2B1B009B6B006FC484 /* LaunchScreen.xib */; };
+		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D9AD97011B0A386500CB5E8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA65BF901AEFD5F80031A91B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA65BF981AEFD5F90031A91B;
+			remoteInfo = GIGLibrary;
+		};
+		FA680F401B009CA8006FC484 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA65BF901AEFD5F80031A91B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA65BF981AEFD5F90031A91B;
+			remoteInfo = GIGLibrary;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D9AD95441B0A375F00CB5E8C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		D9AD961F1B0A381600CB5E8C /* GIGConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGConstants.h; sourceTree = "<group>"; };
+		D9AD96211B0A381600CB5E8C /* GIGGeolocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGGeolocation.h; sourceTree = "<group>"; };
+		D9AD96221B0A381600CB5E8C /* GIGGeolocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGGeolocation.m; sourceTree = "<group>"; };
+		D9AD96241B0A381600CB5E8C /* GIGImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGImageCache.h; sourceTree = "<group>"; };
+		D9AD96251B0A381600CB5E8C /* GIGImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGImageCache.m; sourceTree = "<group>"; };
+		D9AD96261B0A381600CB5E8C /* GIGImageCacheNameGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGImageCacheNameGenerator.h; sourceTree = "<group>"; };
+		D9AD96271B0A381600CB5E8C /* GIGImageCacheNameGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGImageCacheNameGenerator.m; sourceTree = "<group>"; };
+		D9AD96281B0A381600CB5E8C /* GIGImageDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGImageDownload.h; sourceTree = "<group>"; };
+		D9AD96291B0A381600CB5E8C /* GIGImageDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGImageDownload.m; sourceTree = "<group>"; };
+		D9AD962A1B0A381600CB5E8C /* GIGImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGImageDownloader.h; sourceTree = "<group>"; };
+		D9AD962B1B0A381600CB5E8C /* GIGImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGImageDownloader.m; sourceTree = "<group>"; };
+		D9AD962C1B0A381600CB5E8C /* GIGImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGImageStore.h; sourceTree = "<group>"; };
+		D9AD962D1B0A381600CB5E8C /* GIGImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGImageStore.m; sourceTree = "<group>"; };
+		D9AD962F1B0A381600CB5E8C /* GIGLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLayout.h; sourceTree = "<group>"; };
+		D9AD96301B0A381600CB5E8C /* GIGLayoutBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLayoutBase.h; sourceTree = "<group>"; };
+		D9AD96311B0A381600CB5E8C /* GIGLayoutCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLayoutCenter.h; sourceTree = "<group>"; };
+		D9AD96321B0A381600CB5E8C /* GIGLayoutFit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLayoutFit.h; sourceTree = "<group>"; };
+		D9AD96331B0A381600CB5E8C /* GIGLayoutGridHorizontal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLayoutGridHorizontal.h; sourceTree = "<group>"; };
+		D9AD96341B0A381600CB5E8C /* GIGLayoutGridHorizontal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGLayoutGridHorizontal.m; sourceTree = "<group>"; };
+		D9AD96351B0A381600CB5E8C /* GIGLayoutGridVertical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLayoutGridVertical.h; sourceTree = "<group>"; };
+		D9AD96361B0A381600CB5E8C /* GIGLayoutGridVertical.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGLayoutGridVertical.m; sourceTree = "<group>"; };
+		D9AD96371B0A381600CB5E8C /* GIGLayoutSides.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLayoutSides.h; sourceTree = "<group>"; };
+		D9AD96381B0A381600CB5E8C /* GIGLayoutSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLayoutSize.h; sourceTree = "<group>"; };
+		D9AD963B1B0A381600CB5E8C /* GIGURLConfigAddDomainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLConfigAddDomainViewController.h; sourceTree = "<group>"; };
+		D9AD963C1B0A381600CB5E8C /* GIGURLConfigAddDomainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLConfigAddDomainViewController.m; sourceTree = "<group>"; };
+		D9AD963D1B0A381700CB5E8C /* GIGURLConfigDomainsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLConfigDomainsTableViewController.h; sourceTree = "<group>"; };
+		D9AD963E1B0A381700CB5E8C /* GIGURLConfigDomainsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLConfigDomainsTableViewController.m; sourceTree = "<group>"; };
+		D9AD963F1B0A381700CB5E8C /* GIGURLConfigFixtureDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLConfigFixtureDetailTableViewController.h; sourceTree = "<group>"; };
+		D9AD96401B0A381700CB5E8C /* GIGURLConfigFixtureDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLConfigFixtureDetailTableViewController.m; sourceTree = "<group>"; };
+		D9AD96411B0A381700CB5E8C /* GIGURLConfigFixturesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLConfigFixturesTableViewController.h; sourceTree = "<group>"; };
+		D9AD96421B0A381700CB5E8C /* GIGURLConfigFixturesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLConfigFixturesTableViewController.m; sourceTree = "<group>"; };
+		D9AD96431B0A381700CB5E8C /* GIGURLConfigTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLConfigTableViewController.h; sourceTree = "<group>"; };
+		D9AD96441B0A381700CB5E8C /* GIGURLConfigTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLConfigTableViewController.m; sourceTree = "<group>"; };
+		D9AD96461B0A381700CB5E8C /* GIGURLDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLDomain.h; sourceTree = "<group>"; };
+		D9AD96471B0A381700CB5E8C /* GIGURLDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLDomain.m; sourceTree = "<group>"; };
+		D9AD96481B0A381700CB5E8C /* GIGURLDomainsKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLDomainsKeeper.h; sourceTree = "<group>"; };
+		D9AD96491B0A381700CB5E8C /* GIGURLDomainsKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLDomainsKeeper.m; sourceTree = "<group>"; };
+		D9AD964B1B0A381700CB5E8C /* GIGURLFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLFixture.h; sourceTree = "<group>"; };
+		D9AD964C1B0A381700CB5E8C /* GIGURLFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLFixture.m; sourceTree = "<group>"; };
+		D9AD964D1B0A381700CB5E8C /* GIGURLFixturesKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLFixturesKeeper.h; sourceTree = "<group>"; };
+		D9AD964E1B0A381700CB5E8C /* GIGURLFixturesKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLFixturesKeeper.m; sourceTree = "<group>"; };
+		D9AD96501B0A381700CB5E8C /* GIGURLFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLFormatter.h; sourceTree = "<group>"; };
+		D9AD96511B0A381700CB5E8C /* GIGURLFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLFormatter.m; sourceTree = "<group>"; };
+		D9AD96521B0A381700CB5E8C /* GIGURLParametersFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLParametersFormatter.h; sourceTree = "<group>"; };
+		D9AD96531B0A381700CB5E8C /* GIGURLParametersFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLParametersFormatter.m; sourceTree = "<group>"; };
+		D9AD96541B0A381700CB5E8C /* GIGNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGNetwork.h; sourceTree = "<group>"; };
+		D9AD96551B0A381700CB5E8C /* GIGURLCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLCommunicator.h; sourceTree = "<group>"; };
+		D9AD96561B0A381700CB5E8C /* GIGURLCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLCommunicator.m; sourceTree = "<group>"; };
+		D9AD96571B0A381700CB5E8C /* GIGURLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLFile.h; sourceTree = "<group>"; };
+		D9AD96581B0A381700CB5E8C /* GIGURLFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLFile.m; sourceTree = "<group>"; };
+		D9AD96591B0A381700CB5E8C /* GIGURLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLManager.h; sourceTree = "<group>"; };
+		D9AD965A1B0A381700CB5E8C /* GIGURLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLManager.m; sourceTree = "<group>"; };
+		D9AD965B1B0A381700CB5E8C /* GIGURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLRequest.h; sourceTree = "<group>"; };
+		D9AD965C1B0A381700CB5E8C /* GIGURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLRequest.m; sourceTree = "<group>"; };
+		D9AD965E1B0A381700CB5E8C /* GIGURLConnectionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLConnectionBuilder.h; sourceTree = "<group>"; };
+		D9AD965F1B0A381700CB5E8C /* GIGURLConnectionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLConnectionBuilder.m; sourceTree = "<group>"; };
+		D9AD96601B0A381700CB5E8C /* GIGURLRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLRequestFactory.h; sourceTree = "<group>"; };
+		D9AD96611B0A381700CB5E8C /* GIGURLRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLRequestFactory.m; sourceTree = "<group>"; };
+		D9AD96621B0A381700CB5E8C /* GIGURLRequestLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLRequestLogger.h; sourceTree = "<group>"; };
+		D9AD96631B0A381700CB5E8C /* GIGURLRequestLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLRequestLogger.m; sourceTree = "<group>"; };
+		D9AD96641B0A381700CB5E8C /* GIGURLStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLStorage.h; sourceTree = "<group>"; };
+		D9AD96651B0A381700CB5E8C /* GIGURLStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLStorage.m; sourceTree = "<group>"; };
+		D9AD96671B0A381700CB5E8C /* GIGURLImageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLImageResponse.h; sourceTree = "<group>"; };
+		D9AD96681B0A381700CB5E8C /* GIGURLImageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLImageResponse.m; sourceTree = "<group>"; };
+		D9AD96691B0A381700CB5E8C /* GIGURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLResponse.h; sourceTree = "<group>"; };
+		D9AD966A1B0A381700CB5E8C /* GIGURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLResponse.m; sourceTree = "<group>"; };
+		D9AD966C1B0A381700CB5E8C /* GIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGRegexp.h; sourceTree = "<group>"; };
+		D9AD966D1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+GIGRegexp.h"; sourceTree = "<group>"; };
+		D9AD966E1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+GIGRegexp.m"; sourceTree = "<group>"; };
+		D9AD966F1B0A381700CB5E8C /* NSString+GIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GIGRegexp.h"; sourceTree = "<group>"; };
+		D9AD96701B0A381700CB5E8C /* NSString+GIGRegexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GIGRegexp.m"; sourceTree = "<group>"; };
+		D9AD96731B0A381700CB5E8C /* NSArray+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GIGExtension.h"; sourceTree = "<group>"; };
+		D9AD96741B0A381700CB5E8C /* NSArray+GIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GIGExtension.m"; sourceTree = "<group>"; };
+		D9AD96761B0A381700CB5E8C /* NSBundle+GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+GIGLibrary.h"; sourceTree = "<group>"; };
+		D9AD96771B0A381700CB5E8C /* NSBundle+GIGLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+GIGLibrary.m"; sourceTree = "<group>"; };
+		D9AD96791B0A381700CB5E8C /* UIColor+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GIGExtension.h"; sourceTree = "<group>"; };
+		D9AD967A1B0A381700CB5E8C /* UIColor+GIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GIGExtension.m"; sourceTree = "<group>"; };
+		D9AD967C1B0A381700CB5E8C /* GIGDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGDigest.h; sourceTree = "<group>"; };
+		D9AD967D1B0A381700CB5E8C /* GIGDigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGDigest.m; sourceTree = "<group>"; };
+		D9AD967F1B0A381700CB5E8C /* GIGFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGFileManager.h; sourceTree = "<group>"; };
+		D9AD96801B0A381700CB5E8C /* GIGFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGFileManager.m; sourceTree = "<group>"; };
+		D9AD96811B0A381700CB5E8C /* GIGDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGDispatch.h; sourceTree = "<group>"; };
+		D9AD96821B0A381700CB5E8C /* GIGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGUtils.h; sourceTree = "<group>"; };
+		D9AD96841B0A381700CB5E8C /* NSInvocation+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+GIGExtension.h"; sourceTree = "<group>"; };
+		D9AD96851B0A381700CB5E8C /* NSInvocation+GIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+GIGExtension.m"; sourceTree = "<group>"; };
+		D9AD96871B0A381700CB5E8C /* NSArray+GIGJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GIGJSON.h"; sourceTree = "<group>"; };
+		D9AD96881B0A381700CB5E8C /* NSArray+GIGJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GIGJSON.m"; sourceTree = "<group>"; };
+		D9AD96891B0A381700CB5E8C /* NSData+GIGJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GIGJSON.h"; sourceTree = "<group>"; };
+		D9AD968A1B0A381700CB5E8C /* NSData+GIGJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GIGJSON.m"; sourceTree = "<group>"; };
+		D9AD968B1B0A381700CB5E8C /* NSDictionary+GIGJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+GIGJSON.h"; sourceTree = "<group>"; };
+		D9AD968C1B0A381700CB5E8C /* NSDictionary+GIGJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GIGJSON.m"; sourceTree = "<group>"; };
+		D9AD968D1B0A381700CB5E8C /* NSString+GIGJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GIGJSON.h"; sourceTree = "<group>"; };
+		D9AD968E1B0A381700CB5E8C /* NSString+GIGJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GIGJSON.m"; sourceTree = "<group>"; };
+		D9AD96901B0A381700CB5E8C /* NSUserDefaults+GIGArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+GIGArchive.h"; sourceTree = "<group>"; };
+		D9AD96911B0A381700CB5E8C /* NSUserDefaults+GIGArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+GIGArchive.m"; sourceTree = "<group>"; };
+		D9AD96931B0A381700CB5E8C /* UIView+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GIGExtension.h"; sourceTree = "<group>"; };
+		D9AD96941B0A381700CB5E8C /* UIView+GIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GIGExtension.m"; sourceTree = "<group>"; };
+		D9AD96FA1B0A386500CB5E8C /* GIGLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIGLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9AD96FD1B0A386500CB5E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9AD97191B0A398E00CB5E8C /* GIGLayoutGridVerticalTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGLayoutGridVerticalTests.m; sourceTree = "<group>"; };
+		D9AD971A1B0A398E00CB5E8C /* GIGLayoutTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGLayoutTests.m; sourceTree = "<group>"; };
+		D9AD971C1B0A398E00CB5E8C /* GIGURLCommunicatorMultiRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLCommunicatorMultiRequestTests.m; sourceTree = "<group>"; };
+		D9AD971D1B0A398E00CB5E8C /* GIGURLCommunicatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLCommunicatorTests.m; sourceTree = "<group>"; };
+		D9AD971E1B0A398E00CB5E8C /* GIGURLConnectionBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLConnectionBuilderTests.m; sourceTree = "<group>"; };
+		D9AD971F1B0A398E00CB5E8C /* GIGURLDomainsKeeperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLDomainsKeeperTests.m; sourceTree = "<group>"; };
+		D9AD97201B0A398E00CB5E8C /* GIGURLFixturesKeeperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLFixturesKeeperTests.m; sourceTree = "<group>"; };
+		D9AD97211B0A398E00CB5E8C /* GIGURLFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLFormatterTests.m; sourceTree = "<group>"; };
+		D9AD97221B0A398E00CB5E8C /* GIGURLParametersFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLParametersFormatterTests.m; sourceTree = "<group>"; };
+		D9AD97231B0A398E00CB5E8C /* GIGURLRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLRequestTests.m; sourceTree = "<group>"; };
+		D9AD97241B0A398E00CB5E8C /* GIGURLStorageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLStorageTests.m; sourceTree = "<group>"; };
+		D9AD97261B0A398E00CB5E8C /* GIGURLDomain+GIGTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GIGURLDomain+GIGTesting.h"; sourceTree = "<group>"; };
+		D9AD97271B0A398E00CB5E8C /* GIGURLDomain+GIGTesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GIGURLDomain+GIGTesting.m"; sourceTree = "<group>"; };
+		D9AD97281B0A398E00CB5E8C /* GIGURLFixture+GIGTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GIGURLFixture+GIGTesting.h"; sourceTree = "<group>"; };
+		D9AD97291B0A398E00CB5E8C /* GIGURLFixture+GIGTesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GIGURLFixture+GIGTesting.m"; sourceTree = "<group>"; };
+		D9AD972B1B0A398E00CB5E8C /* GIGRegexpMatchingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGRegexpMatchingTests.m; sourceTree = "<group>"; };
+		D9AD972C1B0A398E00CB5E8C /* GIGRegexpReplacingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGRegexpReplacingTests.m; sourceTree = "<group>"; };
+		D9AD972D1B0A398E00CB5E8C /* GIGTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGTests.h; sourceTree = "<group>"; };
+		D9AD972F1B0A398E00CB5E8C /* GIGArrayExtesionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGArrayExtesionTests.m; sourceTree = "<group>"; };
+		D9AD97301B0A398E00CB5E8C /* GIGJSONExtensionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGJSONExtensionTests.m; sourceTree = "<group>"; };
+		D9AD97321B0A398E00CB5E8C /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
+		D9AD97331B0A398E00CB5E8C /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockitoIOS.framework; sourceTree = "<group>"; };
+		FA23126A1B00AB4800903F18 /* GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLibrary.h; sourceTree = SOURCE_ROOT; };
+		FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA680F1A1B009B6B006FC484 /* GIGLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA680F1D1B009B6B006FC484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA680F1E1B009B6B006FC484 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA680F201B009B6B006FC484 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FA680F211B009B6B006FC484 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FA680F231B009B6B006FC484 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FA680F241B009B6B006FC484 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FA680F271B009B6B006FC484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA680F291B009B6B006FC484 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FA680F2C1B009B6B006FC484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9AD96F71B0A386500CB5E8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9AD97001B0A386500CB5E8C /* GIGLibrary.framework in Frameworks */,
+				D9AD97451B0A398E00CB5E8C /* OCHamcrestIOS.framework in Frameworks */,
+				D9AD97461B0A398E00CB5E8C /* OCMockitoIOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA65BF951AEFD5F90031A91B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA680F171B009B6B006FC484 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9AD961E1B0A381600CB5E8C /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD961F1B0A381600CB5E8C /* GIGConstants.h */,
+				D9AD96201B0A381600CB5E8C /* GIGGeolocation */,
+				D9AD96231B0A381600CB5E8C /* GIGImageCache */,
+				D9AD962E1B0A381600CB5E8C /* GIGLayout */,
+				D9AD96391B0A381600CB5E8C /* GIGNetwork */,
+				D9AD966B1B0A381700CB5E8C /* GIGRegexp */,
+				D9AD96711B0A381700CB5E8C /* GIGUtils */,
+			);
+			path = Libraries;
+			sourceTree = SOURCE_ROOT;
+		};
+		D9AD96201B0A381600CB5E8C /* GIGGeolocation */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96211B0A381600CB5E8C /* GIGGeolocation.h */,
+				D9AD96221B0A381600CB5E8C /* GIGGeolocation.m */,
+			);
+			path = GIGGeolocation;
+			sourceTree = "<group>";
+		};
+		D9AD96231B0A381600CB5E8C /* GIGImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96241B0A381600CB5E8C /* GIGImageCache.h */,
+				D9AD96251B0A381600CB5E8C /* GIGImageCache.m */,
+				D9AD96261B0A381600CB5E8C /* GIGImageCacheNameGenerator.h */,
+				D9AD96271B0A381600CB5E8C /* GIGImageCacheNameGenerator.m */,
+				D9AD96281B0A381600CB5E8C /* GIGImageDownload.h */,
+				D9AD96291B0A381600CB5E8C /* GIGImageDownload.m */,
+				D9AD962A1B0A381600CB5E8C /* GIGImageDownloader.h */,
+				D9AD962B1B0A381600CB5E8C /* GIGImageDownloader.m */,
+				D9AD962C1B0A381600CB5E8C /* GIGImageStore.h */,
+				D9AD962D1B0A381600CB5E8C /* GIGImageStore.m */,
+			);
+			path = GIGImageCache;
+			sourceTree = "<group>";
+		};
+		D9AD962E1B0A381600CB5E8C /* GIGLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD962F1B0A381600CB5E8C /* GIGLayout.h */,
+				D9AD96301B0A381600CB5E8C /* GIGLayoutBase.h */,
+				D9AD96311B0A381600CB5E8C /* GIGLayoutCenter.h */,
+				D9AD96321B0A381600CB5E8C /* GIGLayoutFit.h */,
+				D9AD96331B0A381600CB5E8C /* GIGLayoutGridHorizontal.h */,
+				D9AD96341B0A381600CB5E8C /* GIGLayoutGridHorizontal.m */,
+				D9AD96351B0A381600CB5E8C /* GIGLayoutGridVertical.h */,
+				D9AD96361B0A381600CB5E8C /* GIGLayoutGridVertical.m */,
+				D9AD96371B0A381600CB5E8C /* GIGLayoutSides.h */,
+				D9AD96381B0A381600CB5E8C /* GIGLayoutSize.h */,
+			);
+			path = GIGLayout;
+			sourceTree = "<group>";
+		};
+		D9AD96391B0A381600CB5E8C /* GIGNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96541B0A381700CB5E8C /* GIGNetwork.h */,
+				D9AD963A1B0A381600CB5E8C /* Config */,
+				D9AD96451B0A381700CB5E8C /* Domains */,
+				D9AD964A1B0A381700CB5E8C /* Fixtures */,
+				D9AD964F1B0A381700CB5E8C /* Formatters */,
+				D9AD96551B0A381700CB5E8C /* GIGURLCommunicator.h */,
+				D9AD96561B0A381700CB5E8C /* GIGURLCommunicator.m */,
+				D9AD96571B0A381700CB5E8C /* GIGURLFile.h */,
+				D9AD96581B0A381700CB5E8C /* GIGURLFile.m */,
+				D9AD96591B0A381700CB5E8C /* GIGURLManager.h */,
+				D9AD965A1B0A381700CB5E8C /* GIGURLManager.m */,
+				D9AD965B1B0A381700CB5E8C /* GIGURLRequest.h */,
+				D9AD965C1B0A381700CB5E8C /* GIGURLRequest.m */,
+				D9AD965D1B0A381700CB5E8C /* Private */,
+				D9AD96661B0A381700CB5E8C /* Responses */,
+			);
+			path = GIGNetwork;
+			sourceTree = "<group>";
+		};
+		D9AD963A1B0A381600CB5E8C /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD963B1B0A381600CB5E8C /* GIGURLConfigAddDomainViewController.h */,
+				D9AD963C1B0A381600CB5E8C /* GIGURLConfigAddDomainViewController.m */,
+				D9AD963D1B0A381700CB5E8C /* GIGURLConfigDomainsTableViewController.h */,
+				D9AD963E1B0A381700CB5E8C /* GIGURLConfigDomainsTableViewController.m */,
+				D9AD963F1B0A381700CB5E8C /* GIGURLConfigFixtureDetailTableViewController.h */,
+				D9AD96401B0A381700CB5E8C /* GIGURLConfigFixtureDetailTableViewController.m */,
+				D9AD96411B0A381700CB5E8C /* GIGURLConfigFixturesTableViewController.h */,
+				D9AD96421B0A381700CB5E8C /* GIGURLConfigFixturesTableViewController.m */,
+				D9AD96431B0A381700CB5E8C /* GIGURLConfigTableViewController.h */,
+				D9AD96441B0A381700CB5E8C /* GIGURLConfigTableViewController.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		D9AD96451B0A381700CB5E8C /* Domains */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96461B0A381700CB5E8C /* GIGURLDomain.h */,
+				D9AD96471B0A381700CB5E8C /* GIGURLDomain.m */,
+				D9AD96481B0A381700CB5E8C /* GIGURLDomainsKeeper.h */,
+				D9AD96491B0A381700CB5E8C /* GIGURLDomainsKeeper.m */,
+			);
+			path = Domains;
+			sourceTree = "<group>";
+		};
+		D9AD964A1B0A381700CB5E8C /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD964B1B0A381700CB5E8C /* GIGURLFixture.h */,
+				D9AD964C1B0A381700CB5E8C /* GIGURLFixture.m */,
+				D9AD964D1B0A381700CB5E8C /* GIGURLFixturesKeeper.h */,
+				D9AD964E1B0A381700CB5E8C /* GIGURLFixturesKeeper.m */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		D9AD964F1B0A381700CB5E8C /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96501B0A381700CB5E8C /* GIGURLFormatter.h */,
+				D9AD96511B0A381700CB5E8C /* GIGURLFormatter.m */,
+				D9AD96521B0A381700CB5E8C /* GIGURLParametersFormatter.h */,
+				D9AD96531B0A381700CB5E8C /* GIGURLParametersFormatter.m */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		D9AD965D1B0A381700CB5E8C /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD965E1B0A381700CB5E8C /* GIGURLConnectionBuilder.h */,
+				D9AD965F1B0A381700CB5E8C /* GIGURLConnectionBuilder.m */,
+				D9AD96601B0A381700CB5E8C /* GIGURLRequestFactory.h */,
+				D9AD96611B0A381700CB5E8C /* GIGURLRequestFactory.m */,
+				D9AD96621B0A381700CB5E8C /* GIGURLRequestLogger.h */,
+				D9AD96631B0A381700CB5E8C /* GIGURLRequestLogger.m */,
+				D9AD96641B0A381700CB5E8C /* GIGURLStorage.h */,
+				D9AD96651B0A381700CB5E8C /* GIGURLStorage.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		D9AD96661B0A381700CB5E8C /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96671B0A381700CB5E8C /* GIGURLImageResponse.h */,
+				D9AD96681B0A381700CB5E8C /* GIGURLImageResponse.m */,
+				D9AD96691B0A381700CB5E8C /* GIGURLResponse.h */,
+				D9AD966A1B0A381700CB5E8C /* GIGURLResponse.m */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		D9AD966B1B0A381700CB5E8C /* GIGRegexp */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD966C1B0A381700CB5E8C /* GIGRegexp.h */,
+				D9AD966D1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.h */,
+				D9AD966E1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.m */,
+				D9AD966F1B0A381700CB5E8C /* NSString+GIGRegexp.h */,
+				D9AD96701B0A381700CB5E8C /* NSString+GIGRegexp.m */,
+			);
+			path = GIGRegexp;
+			sourceTree = "<group>";
+		};
+		D9AD96711B0A381700CB5E8C /* GIGUtils */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96721B0A381700CB5E8C /* Array */,
+				D9AD96751B0A381700CB5E8C /* Bundle */,
+				D9AD96781B0A381700CB5E8C /* Color */,
+				D9AD967B1B0A381700CB5E8C /* Digest */,
+				D9AD967E1B0A381700CB5E8C /* FileManager */,
+				D9AD96811B0A381700CB5E8C /* GIGDispatch.h */,
+				D9AD96821B0A381700CB5E8C /* GIGUtils.h */,
+				D9AD96831B0A381700CB5E8C /* Invocation */,
+				D9AD96861B0A381700CB5E8C /* JSON */,
+				D9AD968F1B0A381700CB5E8C /* UserDefaults */,
+				D9AD96921B0A381700CB5E8C /* View */,
+			);
+			path = GIGUtils;
+			sourceTree = "<group>";
+		};
+		D9AD96721B0A381700CB5E8C /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96731B0A381700CB5E8C /* NSArray+GIGExtension.h */,
+				D9AD96741B0A381700CB5E8C /* NSArray+GIGExtension.m */,
+			);
+			path = Array;
+			sourceTree = "<group>";
+		};
+		D9AD96751B0A381700CB5E8C /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96761B0A381700CB5E8C /* NSBundle+GIGLibrary.h */,
+				D9AD96771B0A381700CB5E8C /* NSBundle+GIGLibrary.m */,
+			);
+			path = Bundle;
+			sourceTree = "<group>";
+		};
+		D9AD96781B0A381700CB5E8C /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96791B0A381700CB5E8C /* UIColor+GIGExtension.h */,
+				D9AD967A1B0A381700CB5E8C /* UIColor+GIGExtension.m */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		D9AD967B1B0A381700CB5E8C /* Digest */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD967C1B0A381700CB5E8C /* GIGDigest.h */,
+				D9AD967D1B0A381700CB5E8C /* GIGDigest.m */,
+			);
+			path = Digest;
+			sourceTree = "<group>";
+		};
+		D9AD967E1B0A381700CB5E8C /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD967F1B0A381700CB5E8C /* GIGFileManager.h */,
+				D9AD96801B0A381700CB5E8C /* GIGFileManager.m */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
+		D9AD96831B0A381700CB5E8C /* Invocation */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96841B0A381700CB5E8C /* NSInvocation+GIGExtension.h */,
+				D9AD96851B0A381700CB5E8C /* NSInvocation+GIGExtension.m */,
+			);
+			path = Invocation;
+			sourceTree = "<group>";
+		};
+		D9AD96861B0A381700CB5E8C /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96871B0A381700CB5E8C /* NSArray+GIGJSON.h */,
+				D9AD96881B0A381700CB5E8C /* NSArray+GIGJSON.m */,
+				D9AD96891B0A381700CB5E8C /* NSData+GIGJSON.h */,
+				D9AD968A1B0A381700CB5E8C /* NSData+GIGJSON.m */,
+				D9AD968B1B0A381700CB5E8C /* NSDictionary+GIGJSON.h */,
+				D9AD968C1B0A381700CB5E8C /* NSDictionary+GIGJSON.m */,
+				D9AD968D1B0A381700CB5E8C /* NSString+GIGJSON.h */,
+				D9AD968E1B0A381700CB5E8C /* NSString+GIGJSON.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		D9AD968F1B0A381700CB5E8C /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96901B0A381700CB5E8C /* NSUserDefaults+GIGArchive.h */,
+				D9AD96911B0A381700CB5E8C /* NSUserDefaults+GIGArchive.m */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		D9AD96921B0A381700CB5E8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96931B0A381700CB5E8C /* UIView+GIGExtension.h */,
+				D9AD96941B0A381700CB5E8C /* UIView+GIGExtension.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D9AD96FB1B0A386500CB5E8C /* GIGLibraryTests */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD972D1B0A398E00CB5E8C /* GIGTests.h */,
+				D9AD97181B0A398E00CB5E8C /* GIGLayout */,
+				D9AD971B1B0A398E00CB5E8C /* GIGNetwork */,
+				D9AD972A1B0A398E00CB5E8C /* GIGRegexp */,
+				D9AD972E1B0A398E00CB5E8C /* GIGUtils */,
+				D9AD97311B0A398E00CB5E8C /* Libs */,
+				D9AD96FC1B0A386500CB5E8C /* Supporting Files */,
+			);
+			path = GIGLibraryTests;
+			sourceTree = "<group>";
+		};
+		D9AD96FC1B0A386500CB5E8C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD96FD1B0A386500CB5E8C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9AD97181B0A398E00CB5E8C /* GIGLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD97191B0A398E00CB5E8C /* GIGLayoutGridVerticalTests.m */,
+				D9AD971A1B0A398E00CB5E8C /* GIGLayoutTests.m */,
+			);
+			path = GIGLayout;
+			sourceTree = "<group>";
+		};
+		D9AD971B1B0A398E00CB5E8C /* GIGNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD971C1B0A398E00CB5E8C /* GIGURLCommunicatorMultiRequestTests.m */,
+				D9AD971D1B0A398E00CB5E8C /* GIGURLCommunicatorTests.m */,
+				D9AD971E1B0A398E00CB5E8C /* GIGURLConnectionBuilderTests.m */,
+				D9AD971F1B0A398E00CB5E8C /* GIGURLDomainsKeeperTests.m */,
+				D9AD97201B0A398E00CB5E8C /* GIGURLFixturesKeeperTests.m */,
+				D9AD97211B0A398E00CB5E8C /* GIGURLFormatterTests.m */,
+				D9AD97221B0A398E00CB5E8C /* GIGURLParametersFormatterTests.m */,
+				D9AD97231B0A398E00CB5E8C /* GIGURLRequestTests.m */,
+				D9AD97241B0A398E00CB5E8C /* GIGURLStorageTests.m */,
+				D9AD97251B0A398E00CB5E8C /* Helpers */,
+			);
+			path = GIGNetwork;
+			sourceTree = "<group>";
+		};
+		D9AD97251B0A398E00CB5E8C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD97261B0A398E00CB5E8C /* GIGURLDomain+GIGTesting.h */,
+				D9AD97271B0A398E00CB5E8C /* GIGURLDomain+GIGTesting.m */,
+				D9AD97281B0A398E00CB5E8C /* GIGURLFixture+GIGTesting.h */,
+				D9AD97291B0A398E00CB5E8C /* GIGURLFixture+GIGTesting.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D9AD972A1B0A398E00CB5E8C /* GIGRegexp */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD972B1B0A398E00CB5E8C /* GIGRegexpMatchingTests.m */,
+				D9AD972C1B0A398E00CB5E8C /* GIGRegexpReplacingTests.m */,
+			);
+			path = GIGRegexp;
+			sourceTree = "<group>";
+		};
+		D9AD972E1B0A398E00CB5E8C /* GIGUtils */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD972F1B0A398E00CB5E8C /* GIGArrayExtesionTests.m */,
+				D9AD97301B0A398E00CB5E8C /* GIGJSONExtensionTests.m */,
+			);
+			path = GIGUtils;
+			sourceTree = "<group>";
+		};
+		D9AD97311B0A398E00CB5E8C /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD97321B0A398E00CB5E8C /* OCHamcrestIOS.framework */,
+				D9AD97331B0A398E00CB5E8C /* OCMockitoIOS.framework */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		FA65BF8F1AEFD5F80031A91B = {
+			isa = PBXGroup;
+			children = (
+				FA65BF9B1AEFD5F90031A91B /* GIGLibrary */,
+				FA680F1B1B009B6B006FC484 /* GIGLibraryApp */,
+				D9AD96FB1B0A386500CB5E8C /* GIGLibraryTests */,
+				FA65BF9A1AEFD5F90031A91B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA65BF9A1AEFD5F90031A91B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */,
+				FA680F1A1B009B6B006FC484 /* GIGLibraryApp.app */,
+				D9AD96FA1B0A386500CB5E8C /* GIGLibraryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA65BF9B1AEFD5F90031A91B /* GIGLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				FA23126A1B00AB4800903F18 /* GIGLibrary.h */,
+				D9AD961E1B0A381600CB5E8C /* Libraries */,
+				FA65BF9C1AEFD5F90031A91B /* Supporting Files */,
+			);
+			name = GIGLibrary;
+			path = GiGLibrary;
+			sourceTree = "<group>";
+		};
+		FA65BF9C1AEFD5F90031A91B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9AD95441B0A375F00CB5E8C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA680F1B1B009B6B006FC484 /* GIGLibraryApp */ = {
+			isa = PBXGroup;
+			children = (
+				FA680F201B009B6B006FC484 /* AppDelegate.h */,
+				FA680F211B009B6B006FC484 /* AppDelegate.m */,
+				FA680F231B009B6B006FC484 /* ViewController.h */,
+				FA680F241B009B6B006FC484 /* ViewController.m */,
+				FA680F261B009B6B006FC484 /* Main.storyboard */,
+				FA680F291B009B6B006FC484 /* Images.xcassets */,
+				FA680F2B1B009B6B006FC484 /* LaunchScreen.xib */,
+				FA680F1C1B009B6B006FC484 /* Supporting Files */,
+			);
+			path = GIGLibraryApp;
+			sourceTree = "<group>";
+		};
+		FA680F1C1B009B6B006FC484 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA680F1D1B009B6B006FC484 /* Info.plist */,
+				FA680F1E1B009B6B006FC484 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FA65BF961AEFD5F90031A91B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9AD969A1B0A381700CB5E8C /* GIGImageCacheNameGenerator.h in Headers */,
+				D9AD96EA1B0A381700CB5E8C /* NSArray+GIGJSON.h in Headers */,
+				D9AD96CD1B0A381700CB5E8C /* GIGURLRequestFactory.h in Headers */,
+				D9AD96BC1B0A381700CB5E8C /* GIGURLFixturesKeeper.h in Headers */,
+				D9AD96AA1B0A381700CB5E8C /* GIGLayoutSides.h in Headers */,
+				D9AD96E01B0A381700CB5E8C /* UIColor+GIGExtension.h in Headers */,
+				D9AD96A61B0A381700CB5E8C /* GIGLayoutGridHorizontal.h in Headers */,
+				D9AD96E41B0A381700CB5E8C /* GIGFileManager.h in Headers */,
+				D9AD96D51B0A381700CB5E8C /* GIGURLResponse.h in Headers */,
+				D9AD96DA1B0A381700CB5E8C /* NSString+GIGRegexp.h in Headers */,
+				D9AD96C01B0A381700CB5E8C /* GIGURLParametersFormatter.h in Headers */,
+				D9AD96A41B0A381700CB5E8C /* GIGLayoutCenter.h in Headers */,
+				D9AD96EC1B0A381700CB5E8C /* NSData+GIGJSON.h in Headers */,
+				D9AD96AE1B0A381700CB5E8C /* GIGURLConfigDomainsTableViewController.h in Headers */,
+				D9AD96951B0A381700CB5E8C /* GIGConstants.h in Headers */,
+				D9AD96BA1B0A381700CB5E8C /* GIGURLFixture.h in Headers */,
+				D9AD96B41B0A381700CB5E8C /* GIGURLConfigTableViewController.h in Headers */,
+				D9AD96AB1B0A381700CB5E8C /* GIGLayoutSize.h in Headers */,
+				D9AD96D81B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.h in Headers */,
+				D9AD96961B0A381700CB5E8C /* GIGGeolocation.h in Headers */,
+				D9AD96BE1B0A381700CB5E8C /* GIGURLFormatter.h in Headers */,
+				D9AD96DE1B0A381700CB5E8C /* NSBundle+GIGLibrary.h in Headers */,
+				D9AD96B21B0A381700CB5E8C /* GIGURLConfigFixturesTableViewController.h in Headers */,
+				D9AD96B61B0A381700CB5E8C /* GIGURLDomain.h in Headers */,
+				D9AD96A21B0A381700CB5E8C /* GIGLayout.h in Headers */,
+				FA2312E11B00AB4800903F18 /* GIGLibrary.h in Headers */,
+				D9AD96E71B0A381700CB5E8C /* GIGUtils.h in Headers */,
+				D9AD96E81B0A381700CB5E8C /* NSInvocation+GIGExtension.h in Headers */,
+				D9AD96DC1B0A381700CB5E8C /* NSArray+GIGExtension.h in Headers */,
+				D9AD96C31B0A381700CB5E8C /* GIGURLCommunicator.h in Headers */,
+				D9AD96D71B0A381700CB5E8C /* GIGRegexp.h in Headers */,
+				D9AD96B01B0A381700CB5E8C /* GIGURLConfigFixtureDetailTableViewController.h in Headers */,
+				D9AD96D31B0A381700CB5E8C /* GIGURLImageResponse.h in Headers */,
+				D9AD96A31B0A381700CB5E8C /* GIGLayoutBase.h in Headers */,
+				D9AD96C51B0A381700CB5E8C /* GIGURLFile.h in Headers */,
+				D9AD96F41B0A381700CB5E8C /* UIView+GIGExtension.h in Headers */,
+				D9AD96F21B0A381700CB5E8C /* NSUserDefaults+GIGArchive.h in Headers */,
+				D9AD96C21B0A381700CB5E8C /* GIGNetwork.h in Headers */,
+				D9AD96CF1B0A381700CB5E8C /* GIGURLRequestLogger.h in Headers */,
+				D9AD96A81B0A381700CB5E8C /* GIGLayoutGridVertical.h in Headers */,
+				D9AD96C71B0A381700CB5E8C /* GIGURLManager.h in Headers */,
+				D9AD96C91B0A381700CB5E8C /* GIGURLRequest.h in Headers */,
+				D9AD96B81B0A381700CB5E8C /* GIGURLDomainsKeeper.h in Headers */,
+				D9AD96D11B0A381700CB5E8C /* GIGURLStorage.h in Headers */,
+				D9AD96E21B0A381700CB5E8C /* GIGDigest.h in Headers */,
+				D9AD96CB1B0A381700CB5E8C /* GIGURLConnectionBuilder.h in Headers */,
+				D9AD96A01B0A381700CB5E8C /* GIGImageStore.h in Headers */,
+				D9AD96AC1B0A381700CB5E8C /* GIGURLConfigAddDomainViewController.h in Headers */,
+				D9AD96E61B0A381700CB5E8C /* GIGDispatch.h in Headers */,
+				D9AD96A51B0A381700CB5E8C /* GIGLayoutFit.h in Headers */,
+				D9AD969C1B0A381700CB5E8C /* GIGImageDownload.h in Headers */,
+				D9AD96F01B0A381700CB5E8C /* NSString+GIGJSON.h in Headers */,
+				D9AD969E1B0A381700CB5E8C /* GIGImageDownloader.h in Headers */,
+				D9AD96981B0A381700CB5E8C /* GIGImageCache.h in Headers */,
+				D9AD96EE1B0A381700CB5E8C /* NSDictionary+GIGJSON.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D9AD96F91B0A386500CB5E8C /* GIGLibraryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9AD97031B0A386500CB5E8C /* Build configuration list for PBXNativeTarget "GIGLibraryTests" */;
+			buildPhases = (
+				D9AD96F61B0A386500CB5E8C /* Sources */,
+				D9AD96F71B0A386500CB5E8C /* Frameworks */,
+				D9AD96F81B0A386500CB5E8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9AD97021B0A386500CB5E8C /* PBXTargetDependency */,
+			);
+			name = GIGLibraryTests;
+			productName = GIGLibraryTests;
+			productReference = D9AD96FA1B0A386500CB5E8C /* GIGLibraryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FA65BF981AEFD5F90031A91B /* GIGLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA65BFAF1AEFD5F90031A91B /* Build configuration list for PBXNativeTarget "GIGLibrary" */;
+			buildPhases = (
+				FA65BF941AEFD5F90031A91B /* Sources */,
+				FA65BF951AEFD5F90031A91B /* Frameworks */,
+				FA65BF961AEFD5F90031A91B /* Headers */,
+				FA65BF971AEFD5F90031A91B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GIGLibrary;
+			productName = GiGLibrary;
+			productReference = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FA680F191B009B6B006FC484 /* GIGLibraryApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA680F3A1B009B6C006FC484 /* Build configuration list for PBXNativeTarget "GIGLibraryApp" */;
+			buildPhases = (
+				FA680F161B009B6B006FC484 /* Sources */,
+				FA680F171B009B6B006FC484 /* Frameworks */,
+				FA680F181B009B6B006FC484 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA680F411B009CA8006FC484 /* PBXTargetDependency */,
+			);
+			name = GIGLibraryApp;
+			productName = GIGLibraryApp;
+			productReference = FA680F1A1B009B6B006FC484 /* GIGLibraryApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA65BF901AEFD5F80031A91B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Gigigo SL";
+				TargetAttributes = {
+					D9AD96F91B0A386500CB5E8C = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					FA65BF981AEFD5F90031A91B = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					FA680F191B009B6B006FC484 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA65BF8F1AEFD5F80031A91B;
+			productRefGroup = FA65BF9A1AEFD5F90031A91B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA65BF981AEFD5F90031A91B /* GIGLibrary */,
+				FA680F191B009B6B006FC484 /* GIGLibraryApp */,
+				D9AD96F91B0A386500CB5E8C /* GIGLibraryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9AD96F81B0A386500CB5E8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA65BF971AEFD5F90031A91B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA680F181B009B6B006FC484 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA680F281B009B6B006FC484 /* Main.storyboard in Resources */,
+				FA680F2D1B009B6B006FC484 /* LaunchScreen.xib in Resources */,
+				FA680F2A1B009B6B006FC484 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9AD96F61B0A386500CB5E8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9AD97341B0A398E00CB5E8C /* GIGLayoutGridVerticalTests.m in Sources */,
+				D9AD97411B0A398E00CB5E8C /* GIGRegexpMatchingTests.m in Sources */,
+				D9AD97391B0A398E00CB5E8C /* GIGURLDomainsKeeperTests.m in Sources */,
+				D9AD973B1B0A398E00CB5E8C /* GIGURLFormatterTests.m in Sources */,
+				D9AD973E1B0A398E00CB5E8C /* GIGURLStorageTests.m in Sources */,
+				D9AD97351B0A398E00CB5E8C /* GIGLayoutTests.m in Sources */,
+				D9AD97381B0A398E00CB5E8C /* GIGURLConnectionBuilderTests.m in Sources */,
+				D9AD97401B0A398E00CB5E8C /* GIGURLFixture+GIGTesting.m in Sources */,
+				D9AD973F1B0A398E00CB5E8C /* GIGURLDomain+GIGTesting.m in Sources */,
+				D9AD973C1B0A398E00CB5E8C /* GIGURLParametersFormatterTests.m in Sources */,
+				D9AD97431B0A398E00CB5E8C /* GIGArrayExtesionTests.m in Sources */,
+				D9AD97371B0A398E00CB5E8C /* GIGURLCommunicatorTests.m in Sources */,
+				D9AD973A1B0A398E00CB5E8C /* GIGURLFixturesKeeperTests.m in Sources */,
+				D9AD97361B0A398E00CB5E8C /* GIGURLCommunicatorMultiRequestTests.m in Sources */,
+				D9AD97441B0A398E00CB5E8C /* GIGJSONExtensionTests.m in Sources */,
+				D9AD973D1B0A398E00CB5E8C /* GIGURLRequestTests.m in Sources */,
+				D9AD97421B0A398E00CB5E8C /* GIGRegexpReplacingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA65BF941AEFD5F90031A91B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9AD96CA1B0A381700CB5E8C /* GIGURLRequest.m in Sources */,
+				D9AD96B51B0A381700CB5E8C /* GIGURLConfigTableViewController.m in Sources */,
+				D9AD96C81B0A381700CB5E8C /* GIGURLManager.m in Sources */,
+				D9AD96991B0A381700CB5E8C /* GIGImageCache.m in Sources */,
+				D9AD96DB1B0A381700CB5E8C /* NSString+GIGRegexp.m in Sources */,
+				D9AD96C41B0A381700CB5E8C /* GIGURLCommunicator.m in Sources */,
+				D9AD96CC1B0A381700CB5E8C /* GIGURLConnectionBuilder.m in Sources */,
+				D9AD96C61B0A381700CB5E8C /* GIGURLFile.m in Sources */,
+				D9AD96BF1B0A381700CB5E8C /* GIGURLFormatter.m in Sources */,
+				D9AD96D91B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.m in Sources */,
+				D9AD96D41B0A381700CB5E8C /* GIGURLImageResponse.m in Sources */,
+				D9AD96C11B0A381700CB5E8C /* GIGURLParametersFormatter.m in Sources */,
+				D9AD96A71B0A381700CB5E8C /* GIGLayoutGridHorizontal.m in Sources */,
+				D9AD96D21B0A381700CB5E8C /* GIGURLStorage.m in Sources */,
+				D9AD96F51B0A381700CB5E8C /* UIView+GIGExtension.m in Sources */,
+				D9AD96F31B0A381700CB5E8C /* NSUserDefaults+GIGArchive.m in Sources */,
+				D9AD96CE1B0A381700CB5E8C /* GIGURLRequestFactory.m in Sources */,
+				D9AD96B11B0A381700CB5E8C /* GIGURLConfigFixtureDetailTableViewController.m in Sources */,
+				D9AD96EB1B0A381700CB5E8C /* NSArray+GIGJSON.m in Sources */,
+				D9AD96DD1B0A381700CB5E8C /* NSArray+GIGExtension.m in Sources */,
+				D9AD96E51B0A381700CB5E8C /* GIGFileManager.m in Sources */,
+				D9AD96E91B0A381700CB5E8C /* NSInvocation+GIGExtension.m in Sources */,
+				D9AD96EF1B0A381700CB5E8C /* NSDictionary+GIGJSON.m in Sources */,
+				D9AD96DF1B0A381700CB5E8C /* NSBundle+GIGLibrary.m in Sources */,
+				D9AD96AD1B0A381700CB5E8C /* GIGURLConfigAddDomainViewController.m in Sources */,
+				D9AD96B91B0A381700CB5E8C /* GIGURLDomainsKeeper.m in Sources */,
+				D9AD96971B0A381700CB5E8C /* GIGGeolocation.m in Sources */,
+				D9AD96BD1B0A381700CB5E8C /* GIGURLFixturesKeeper.m in Sources */,
+				D9AD96B31B0A381700CB5E8C /* GIGURLConfigFixturesTableViewController.m in Sources */,
+				D9AD969B1B0A381700CB5E8C /* GIGImageCacheNameGenerator.m in Sources */,
+				D9AD96AF1B0A381700CB5E8C /* GIGURLConfigDomainsTableViewController.m in Sources */,
+				D9AD96ED1B0A381700CB5E8C /* NSData+GIGJSON.m in Sources */,
+				D9AD969D1B0A381700CB5E8C /* GIGImageDownload.m in Sources */,
+				D9AD96D61B0A381700CB5E8C /* GIGURLResponse.m in Sources */,
+				D9AD96BB1B0A381700CB5E8C /* GIGURLFixture.m in Sources */,
+				D9AD96D01B0A381700CB5E8C /* GIGURLRequestLogger.m in Sources */,
+				D9AD969F1B0A381700CB5E8C /* GIGImageDownloader.m in Sources */,
+				D9AD96A11B0A381700CB5E8C /* GIGImageStore.m in Sources */,
+				D9AD96A91B0A381700CB5E8C /* GIGLayoutGridVertical.m in Sources */,
+				D9AD96E31B0A381700CB5E8C /* GIGDigest.m in Sources */,
+				D9AD96B71B0A381700CB5E8C /* GIGURLDomain.m in Sources */,
+				D9AD96E11B0A381700CB5E8C /* UIColor+GIGExtension.m in Sources */,
+				D9AD96F11B0A381700CB5E8C /* NSString+GIGJSON.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA680F161B009B6B006FC484 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA680F251B009B6B006FC484 /* ViewController.m in Sources */,
+				FA680F221B009B6B006FC484 /* AppDelegate.m in Sources */,
+				FA680F1F1B009B6B006FC484 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D9AD97021B0A386500CB5E8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA65BF981AEFD5F90031A91B /* GIGLibrary */;
+			targetProxy = D9AD97011B0A386500CB5E8C /* PBXContainerItemProxy */;
+		};
+		FA680F411B009CA8006FC484 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA65BF981AEFD5F90031A91B /* GIGLibrary */;
+			targetProxy = FA680F401B009CA8006FC484 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA680F261B009B6B006FC484 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA680F271B009B6B006FC484 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FA680F2B1B009B6B006FC484 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA680F2C1B009B6B006FC484 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D9AD97041B0A386500CB5E8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/GIGLibraryTests/Libs",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GIGLibraryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D9AD97051B0A386500CB5E8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/GIGLibraryTests/Libs",
+				);
+				INFOPLIST_FILE = GIGLibraryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FA65BFAD1AEFD5F90031A91B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FA65BFAE1AEFD5F90031A91B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FA65BFB01AEFD5F90031A91B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FA65BFB11AEFD5F90031A91B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FA680F3B1B009B6C006FC484 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Gigigo Mobile Services S.L.";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GIGLibraryApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8d76e394-2f28-416b-bee1-60d9c2babc08";
+			};
+			name = Debug;
+		};
+		FA680F3C1B009B6C006FC484 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Gigigo Mobile Services S.L.";
+				INFOPLIST_FILE = GIGLibraryApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8d76e394-2f28-416b-bee1-60d9c2babc08";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9AD97031B0A386500CB5E8C /* Build configuration list for PBXNativeTarget "GIGLibraryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9AD97041B0A386500CB5E8C /* Debug */,
+				D9AD97051B0A386500CB5E8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA65BFAD1AEFD5F90031A91B /* Debug */,
+				FA65BFAE1AEFD5F90031A91B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA65BFAF1AEFD5F90031A91B /* Build configuration list for PBXNativeTarget "GIGLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA65BFB01AEFD5F90031A91B /* Debug */,
+				FA65BFB11AEFD5F90031A91B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA680F3A1B009B6C006FC484 /* Build configuration list for PBXNativeTarget "GIGLibraryApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA680F3B1B009B6C006FC484 /* Debug */,
+				FA680F3C1B009B6C006FC484 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA65BF901AEFD5F80031A91B /* Project object */;
+}

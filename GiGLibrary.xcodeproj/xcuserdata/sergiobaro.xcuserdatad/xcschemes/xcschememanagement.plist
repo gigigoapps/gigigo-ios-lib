@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>GIGLibrary.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>GIGLibraryApp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>GIGLibraryTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D9AD96F91B0A386500CB5E8C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA65BF981AEFD5F90031A91B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA680F191B009B6B006FC484</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA680F311B009B6C006FC484</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
