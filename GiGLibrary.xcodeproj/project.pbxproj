@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9637D561B0C8FD300FD8E4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9637D551B0C8FD300FD8E4D /* main.m */; };
+		D9637D591B0C8FD300FD8E4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9637D581B0C8FD300FD8E4D /* AppDelegate.m */; };
+		D9637D5C1B0C8FD300FD8E4D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9637D5B1B0C8FD300FD8E4D /* ViewController.m */; };
+		D9637D5F1B0C8FD300FD8E4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9637D5D1B0C8FD300FD8E4D /* Main.storyboard */; };
+		D9637D611B0C8FD300FD8E4D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9637D601B0C8FD300FD8E4D /* Images.xcassets */; };
+		D9637D641B0C8FD300FD8E4D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9637D621B0C8FD300FD8E4D /* LaunchScreen.xib */; };
+		D9637D781B0C900A00FD8E4D /* GIGGeolocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96221B0A381600CB5E8C /* GIGGeolocation.m */; };
+		D9637D7A1B0C90C000FD8E4D /* GIGLibrary.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9AD96951B0A381700CB5E8C /* GIGConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD961F1B0A381600CB5E8C /* GIGConstants.h */; };
 		D9AD96961B0A381700CB5E8C /* GIGGeolocation.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96211B0A381600CB5E8C /* GIGGeolocation.h */; };
 		D9AD96971B0A381700CB5E8C /* GIGGeolocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96221B0A381600CB5E8C /* GIGGeolocation.m */; };
@@ -151,7 +159,32 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D9637D791B0C90B000FD8E4D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D9637D7A1B0C90C000FD8E4D /* GIGLibrary.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D9637D511B0C8FD300FD8E4D /* GIGLibrarySourceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGLibrarySourceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9637D541B0C8FD300FD8E4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9637D551B0C8FD300FD8E4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D9637D571B0C8FD300FD8E4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D9637D581B0C8FD300FD8E4D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D9637D5A1B0C8FD300FD8E4D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D9637D5B1B0C8FD300FD8E4D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D9637D5E1B0C8FD300FD8E4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D9637D601B0C8FD300FD8E4D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D9637D631B0C8FD300FD8E4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D9637D6E1B0C8FD300FD8E4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9637D6F1B0C8FD300FD8E4D /* GIGLibrarySourceAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GIGLibrarySourceAppTests.m; sourceTree = "<group>"; };
 		D9AD95441B0A375F00CB5E8C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		D9AD961F1B0A381600CB5E8C /* GIGConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGConstants.h; sourceTree = "<group>"; };
 		D9AD96211B0A381600CB5E8C /* GIGGeolocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGGeolocation.h; sourceTree = "<group>"; };
@@ -289,6 +322,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D9637D4E1B0C8FD300FD8E4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D9AD96F71B0A386500CB5E8C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,6 +357,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D9637D521B0C8FD300FD8E4D /* GIGLibrarySourceApp */ = {
+			isa = PBXGroup;
+			children = (
+				D9637D571B0C8FD300FD8E4D /* AppDelegate.h */,
+				D9637D581B0C8FD300FD8E4D /* AppDelegate.m */,
+				D9637D5A1B0C8FD300FD8E4D /* ViewController.h */,
+				D9637D5B1B0C8FD300FD8E4D /* ViewController.m */,
+				D9637D5D1B0C8FD300FD8E4D /* Main.storyboard */,
+				D9637D601B0C8FD300FD8E4D /* Images.xcassets */,
+				D9637D621B0C8FD300FD8E4D /* LaunchScreen.xib */,
+				D9637D531B0C8FD300FD8E4D /* Supporting Files */,
+			);
+			path = GIGLibrarySourceApp;
+			sourceTree = "<group>";
+		};
+		D9637D531B0C8FD300FD8E4D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9637D541B0C8FD300FD8E4D /* Info.plist */,
+				D9637D551B0C8FD300FD8E4D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9637D6C1B0C8FD300FD8E4D /* GIGLibrarySourceAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				D9637D6F1B0C8FD300FD8E4D /* GIGLibrarySourceAppTests.m */,
+				D9637D6D1B0C8FD300FD8E4D /* Supporting Files */,
+			);
+			path = GIGLibrarySourceAppTests;
+			sourceTree = "<group>";
+		};
+		D9637D6D1B0C8FD300FD8E4D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9637D6E1B0C8FD300FD8E4D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D9AD961E1B0A381600CB5E8C /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -681,6 +762,8 @@
 				FA65BF9B1AEFD5F90031A91B /* GIGLibrary */,
 				FA680F1B1B009B6B006FC484 /* GIGLibraryApp */,
 				D9AD96FB1B0A386500CB5E8C /* GIGLibraryTests */,
+				D9637D521B0C8FD300FD8E4D /* GIGLibrarySourceApp */,
+				D9637D6C1B0C8FD300FD8E4D /* GIGLibrarySourceAppTests */,
 				FA65BF9A1AEFD5F90031A91B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -691,6 +774,7 @@
 				FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */,
 				FA680F1A1B009B6B006FC484 /* GIGLibraryApp.app */,
 				D9AD96FA1B0A386500CB5E8C /* GIGLibraryTests.xctest */,
+				D9637D511B0C8FD300FD8E4D /* GIGLibrarySourceApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -806,6 +890,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		D9637D501B0C8FD300FD8E4D /* GIGLibrarySourceApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9637D751B0C8FD300FD8E4D /* Build configuration list for PBXNativeTarget "GIGLibrarySourceApp" */;
+			buildPhases = (
+				D9637D4D1B0C8FD300FD8E4D /* Sources */,
+				D9637D4E1B0C8FD300FD8E4D /* Frameworks */,
+				D9637D4F1B0C8FD300FD8E4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GIGLibrarySourceApp;
+			productName = GIGLibrarySourceApp;
+			productReference = D9637D511B0C8FD300FD8E4D /* GIGLibrarySourceApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		D9AD96F91B0A386500CB5E8C /* GIGLibraryTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9AD97031B0A386500CB5E8C /* Build configuration list for PBXNativeTarget "GIGLibraryTests" */;
@@ -849,6 +950,7 @@
 				FA680F161B009B6B006FC484 /* Sources */,
 				FA680F171B009B6B006FC484 /* Frameworks */,
 				FA680F181B009B6B006FC484 /* Resources */,
+				D9637D791B0C90B000FD8E4D /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -869,6 +971,9 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Gigigo SL";
 				TargetAttributes = {
+					D9637D501B0C8FD300FD8E4D = {
+						CreatedOnToolsVersion = 6.3;
+					};
 					D9AD96F91B0A386500CB5E8C = {
 						CreatedOnToolsVersion = 6.3;
 					};
@@ -894,13 +999,24 @@
 			projectRoot = "";
 			targets = (
 				FA65BF981AEFD5F90031A91B /* GIGLibrary */,
-				FA680F191B009B6B006FC484 /* GIGLibraryApp */,
 				D9AD96F91B0A386500CB5E8C /* GIGLibraryTests */,
+				FA680F191B009B6B006FC484 /* GIGLibraryApp */,
+				D9637D501B0C8FD300FD8E4D /* GIGLibrarySourceApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D9637D4F1B0C8FD300FD8E4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9637D5F1B0C8FD300FD8E4D /* Main.storyboard in Resources */,
+				D9637D641B0C8FD300FD8E4D /* LaunchScreen.xib in Resources */,
+				D9637D611B0C8FD300FD8E4D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D9AD96F81B0A386500CB5E8C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -928,6 +1044,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D9637D4D1B0C8FD300FD8E4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9637D5C1B0C8FD300FD8E4D /* ViewController.m in Sources */,
+				D9637D591B0C8FD300FD8E4D /* AppDelegate.m in Sources */,
+				D9637D781B0C900A00FD8E4D /* GIGGeolocation.m in Sources */,
+				D9637D561B0C8FD300FD8E4D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D9AD96F61B0A386500CB5E8C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1028,6 +1155,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D9637D5D1B0C8FD300FD8E4D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9637D5E1B0C8FD300FD8E4D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D9637D621B0C8FD300FD8E4D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9637D631B0C8FD300FD8E4D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
 		FA680F261B009B6B006FC484 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1047,6 +1190,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D9637D711B0C8FD300FD8E4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GIGLibrarySourceApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D9637D721B0C8FD300FD8E4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GIGLibrarySourceApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		D9AD97041B0A386500CB5E8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1190,7 +1359,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1206,7 +1375,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1224,7 +1393,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = GIGLibraryApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "8d76e394-2f28-416b-bee1-60d9c2babc08";
@@ -1238,7 +1407,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Gigigo Mobile Services S.L.";
 				INFOPLIST_FILE = GIGLibraryApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "8d76e394-2f28-416b-bee1-60d9c2babc08";
@@ -1248,6 +1417,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D9637D751B0C8FD300FD8E4D /* Build configuration list for PBXNativeTarget "GIGLibrarySourceApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9637D711B0C8FD300FD8E4D /* Debug */,
+				D9637D721B0C8FD300FD8E4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		D9AD97031B0A386500CB5E8C /* Build configuration list for PBXNativeTarget "GIGLibraryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1255,6 +1432,7 @@
 				D9AD97051B0A386500CB5E8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */ = {
 			isa = XCConfigurationList;
