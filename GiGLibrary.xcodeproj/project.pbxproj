@@ -73,11 +73,6 @@
 		A910069E1B0CCFE00080B812 /* GIGURLFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD964C1B0A381700CB5E8C /* GIGURLFixture.m */; };
 		A910069F1B0CCFE00080B812 /* GIGURLFixturesKeeper.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD964D1B0A381700CB5E8C /* GIGURLFixturesKeeper.h */; };
 		A91006A01B0CCFE00080B812 /* GIGURLFixturesKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD964E1B0A381700CB5E8C /* GIGURLFixturesKeeper.m */; };
-		A91006A11B0CCFF60080B812 /* GIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD966C1B0A381700CB5E8C /* GIGRegexp.h */; };
-		A91006A21B0CCFF60080B812 /* NSRegularExpression+GIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD966D1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.h */; };
-		A91006A31B0CCFF60080B812 /* NSRegularExpression+GIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD966E1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.m */; };
-		A91006A41B0CCFF60080B812 /* NSString+GIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD966F1B0A381700CB5E8C /* NSString+GIGRegexp.h */; };
-		A91006A51B0CCFF60080B812 /* NSString+GIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96701B0A381700CB5E8C /* NSString+GIGRegexp.m */; };
 		A91006A61B0CCFFE0080B812 /* NSArray+GIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96731B0A381700CB5E8C /* NSArray+GIGExtension.h */; };
 		A91006A71B0CCFFE0080B812 /* NSArray+GIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96741B0A381700CB5E8C /* NSArray+GIGExtension.m */; };
 		A91006A81B0CD0030080B812 /* NSBundle+GIGLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96761B0A381700CB5E8C /* NSBundle+GIGLibrary.h */; };
@@ -194,11 +189,6 @@
 		D9AD96D41B0A381700CB5E8C /* GIGURLImageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96681B0A381700CB5E8C /* GIGURLImageResponse.m */; };
 		D9AD96D51B0A381700CB5E8C /* GIGURLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96691B0A381700CB5E8C /* GIGURLResponse.h */; };
 		D9AD96D61B0A381700CB5E8C /* GIGURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD966A1B0A381700CB5E8C /* GIGURLResponse.m */; };
-		D9AD96D71B0A381700CB5E8C /* GIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD966C1B0A381700CB5E8C /* GIGRegexp.h */; };
-		D9AD96D81B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD966D1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.h */; };
-		D9AD96D91B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD966E1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.m */; };
-		D9AD96DA1B0A381700CB5E8C /* NSString+GIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD966F1B0A381700CB5E8C /* NSString+GIGRegexp.h */; };
-		D9AD96DB1B0A381700CB5E8C /* NSString+GIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96701B0A381700CB5E8C /* NSString+GIGRegexp.m */; };
 		D9AD96DC1B0A381700CB5E8C /* NSArray+GIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96731B0A381700CB5E8C /* NSArray+GIGExtension.h */; };
 		D9AD96DD1B0A381700CB5E8C /* NSArray+GIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD96741B0A381700CB5E8C /* NSArray+GIGExtension.m */; };
 		D9AD96DE1B0A381700CB5E8C /* NSBundle+GIGLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD96761B0A381700CB5E8C /* NSBundle+GIGLibrary.h */; };
@@ -245,6 +235,10 @@
 		D9AD97441B0A398E00CB5E8C /* GIGJSONExtensionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AD97301B0A398E00CB5E8C /* GIGJSONExtensionTests.m */; };
 		D9AD97451B0A398E00CB5E8C /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AD97321B0A398E00CB5E8C /* OCHamcrestIOS.framework */; };
 		D9AD97461B0A398E00CB5E8C /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AD97331B0A398E00CB5E8C /* OCMockitoIOS.framework */; };
+		D9DE3EF11B0CDC5B0085C117 /* NSRegularExpression+GIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = D9DE3EED1B0CDC5B0085C117 /* NSRegularExpression+GIGRegexp.h */; };
+		D9DE3EF21B0CDC5B0085C117 /* NSRegularExpression+GIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DE3EEE1B0CDC5B0085C117 /* NSRegularExpression+GIGRegexp.m */; };
+		D9DE3EF31B0CDC5B0085C117 /* NSString+GIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = D9DE3EEF1B0CDC5B0085C117 /* NSString+GIGRegexp.h */; };
+		D9DE3EF41B0CDC5B0085C117 /* NSString+GIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DE3EF01B0CDC5B0085C117 /* NSString+GIGRegexp.m */; };
 		FA2312E11B00AB4800903F18 /* GIGLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = FA23126A1B00AB4800903F18 /* GIGLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA680F1F1B009B6B006FC484 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA680F1E1B009B6B006FC484 /* main.m */; };
 		FA680F221B009B6B006FC484 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA680F211B009B6B006FC484 /* AppDelegate.m */; };
@@ -381,11 +375,6 @@
 		D9AD96681B0A381700CB5E8C /* GIGURLImageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLImageResponse.m; sourceTree = "<group>"; };
 		D9AD96691B0A381700CB5E8C /* GIGURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLResponse.h; sourceTree = "<group>"; };
 		D9AD966A1B0A381700CB5E8C /* GIGURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLResponse.m; sourceTree = "<group>"; };
-		D9AD966C1B0A381700CB5E8C /* GIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGRegexp.h; sourceTree = "<group>"; };
-		D9AD966D1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+GIGRegexp.h"; sourceTree = "<group>"; };
-		D9AD966E1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+GIGRegexp.m"; sourceTree = "<group>"; };
-		D9AD966F1B0A381700CB5E8C /* NSString+GIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GIGRegexp.h"; sourceTree = "<group>"; };
-		D9AD96701B0A381700CB5E8C /* NSString+GIGRegexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GIGRegexp.m"; sourceTree = "<group>"; };
 		D9AD96731B0A381700CB5E8C /* NSArray+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GIGExtension.h"; sourceTree = "<group>"; };
 		D9AD96741B0A381700CB5E8C /* NSArray+GIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GIGExtension.m"; sourceTree = "<group>"; };
 		D9AD96761B0A381700CB5E8C /* NSBundle+GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+GIGLibrary.h"; sourceTree = "<group>"; };
@@ -436,6 +425,10 @@
 		D9AD97301B0A398E00CB5E8C /* GIGJSONExtensionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGJSONExtensionTests.m; sourceTree = "<group>"; };
 		D9AD97321B0A398E00CB5E8C /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		D9AD97331B0A398E00CB5E8C /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockitoIOS.framework; sourceTree = "<group>"; };
+		D9DE3EED1B0CDC5B0085C117 /* NSRegularExpression+GIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSRegularExpression+GIGRegexp.h"; path = "Regexp/NSRegularExpression+GIGRegexp.h"; sourceTree = "<group>"; };
+		D9DE3EEE1B0CDC5B0085C117 /* NSRegularExpression+GIGRegexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSRegularExpression+GIGRegexp.m"; path = "Regexp/NSRegularExpression+GIGRegexp.m"; sourceTree = "<group>"; };
+		D9DE3EEF1B0CDC5B0085C117 /* NSString+GIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+GIGRegexp.h"; path = "Regexp/NSString+GIGRegexp.h"; sourceTree = "<group>"; };
+		D9DE3EF01B0CDC5B0085C117 /* NSString+GIGRegexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+GIGRegexp.m"; path = "Regexp/NSString+GIGRegexp.m"; sourceTree = "<group>"; };
 		FA23126A1B00AB4800903F18 /* GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLibrary.h; sourceTree = SOURCE_ROOT; };
 		FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1A1B009B6B006FC484 /* GIGLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -533,7 +526,6 @@
 				D9AD96231B0A381600CB5E8C /* GIGImageCache */,
 				D9AD962E1B0A381600CB5E8C /* GIGLayout */,
 				D9AD96391B0A381600CB5E8C /* GIGNetwork */,
-				D9AD966B1B0A381700CB5E8C /* GIGRegexp */,
 				D9AD96711B0A381700CB5E8C /* GIGUtils */,
 			);
 			path = Libraries;
@@ -680,28 +672,17 @@
 			path = Responses;
 			sourceTree = "<group>";
 		};
-		D9AD966B1B0A381700CB5E8C /* GIGRegexp */ = {
-			isa = PBXGroup;
-			children = (
-				D9AD966C1B0A381700CB5E8C /* GIGRegexp.h */,
-				D9AD966D1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.h */,
-				D9AD966E1B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.m */,
-				D9AD966F1B0A381700CB5E8C /* NSString+GIGRegexp.h */,
-				D9AD96701B0A381700CB5E8C /* NSString+GIGRegexp.m */,
-			);
-			path = GIGRegexp;
-			sourceTree = "<group>";
-		};
 		D9AD96711B0A381700CB5E8C /* GIGUtils */ = {
 			isa = PBXGroup;
 			children = (
+				D9AD96821B0A381700CB5E8C /* GIGUtils.h */,
+				D9AD96811B0A381700CB5E8C /* GIGDispatch.h */,
+				D9DE3EEC1B0CDC310085C117 /* Regexp */,
 				D9AD96721B0A381700CB5E8C /* Array */,
 				D9AD96751B0A381700CB5E8C /* Bundle */,
 				D9AD96781B0A381700CB5E8C /* Color */,
 				D9AD967B1B0A381700CB5E8C /* Digest */,
 				D9AD967E1B0A381700CB5E8C /* FileManager */,
-				D9AD96811B0A381700CB5E8C /* GIGDispatch.h */,
-				D9AD96821B0A381700CB5E8C /* GIGUtils.h */,
 				D9AD96831B0A381700CB5E8C /* Invocation */,
 				D9AD96861B0A381700CB5E8C /* JSON */,
 				D9AD968F1B0A381700CB5E8C /* UserDefaults */,
@@ -883,6 +864,17 @@
 			path = Libs;
 			sourceTree = "<group>";
 		};
+		D9DE3EEC1B0CDC310085C117 /* Regexp */ = {
+			isa = PBXGroup;
+			children = (
+				D9DE3EED1B0CDC5B0085C117 /* NSRegularExpression+GIGRegexp.h */,
+				D9DE3EEE1B0CDC5B0085C117 /* NSRegularExpression+GIGRegexp.m */,
+				D9DE3EEF1B0CDC5B0085C117 /* NSString+GIGRegexp.h */,
+				D9DE3EF01B0CDC5B0085C117 /* NSString+GIGRegexp.m */,
+			);
+			name = Regexp;
+			sourceTree = "<group>";
+		};
 		FA65BF8F1AEFD5F80031A91B = {
 			isa = PBXGroup;
 			children = (
@@ -972,7 +964,6 @@
 				A91006A61B0CCFFE0080B812 /* NSArray+GIGExtension.h in Headers */,
 				A91006AC1B0CD00E0080B812 /* GIGDigest.h in Headers */,
 				A91006B01B0CD0150080B812 /* GIGDispatch.h in Headers */,
-				A91006A21B0CCFF60080B812 /* NSRegularExpression+GIGRegexp.h in Headers */,
 				A91006801B0CCFC80080B812 /* GIGLayoutGridHorizontal.h in Headers */,
 				A910067E1B0CCFC80080B812 /* GIGLayoutCenter.h in Headers */,
 				A910070F1B0CD6030080B812 /* GIGURLFormatter.h in Headers */,
@@ -991,7 +982,6 @@
 				A910066E1B0CCF520080B812 /* GIGStaticLibrary.h in Headers */,
 				A910067D1B0CCFC80080B812 /* GIGLayoutBase.h in Headers */,
 				A91006C81B0CD0BE0080B812 /* GIGURLRequestLogger.h in Headers */,
-				A91006A11B0CCFF60080B812 /* GIGRegexp.h in Headers */,
 				A91006821B0CCFC80080B812 /* GIGLayoutGridVertical.h in Headers */,
 				A91006BA1B0CD0240080B812 /* NSString+GIGJSON.h in Headers */,
 				A91006BC1B0CD02A0080B812 /* NSUserDefaults+GIGArchive.h in Headers */,
@@ -1002,7 +992,6 @@
 				A91006761B0CCFC20080B812 /* GIGImageDownload.h in Headers */,
 				A91006B21B0CD01E0080B812 /* NSInvocation+GIGExtension.h in Headers */,
 				A910068F1B0CCFD50080B812 /* GIGURLConfigAddDomainViewController.h in Headers */,
-				A91006A41B0CCFF60080B812 /* NSString+GIGRegexp.h in Headers */,
 				A91006781B0CCFC20080B812 /* GIGImageDownloader.h in Headers */,
 				A910068B1B0CCFD10080B812 /* GIGURLManager.h in Headers */,
 				A91006931B0CCFD50080B812 /* GIGURLConfigFixtureDetailTableViewController.h in Headers */,
@@ -1020,6 +1009,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9AD969A1B0A381700CB5E8C /* GIGImageCacheNameGenerator.h in Headers */,
+				D9DE3EF31B0CDC5B0085C117 /* NSString+GIGRegexp.h in Headers */,
 				D9AD96EA1B0A381700CB5E8C /* NSArray+GIGJSON.h in Headers */,
 				D9AD96CD1B0A381700CB5E8C /* GIGURLRequestFactory.h in Headers */,
 				D9AD96BC1B0A381700CB5E8C /* GIGURLFixturesKeeper.h in Headers */,
@@ -1028,7 +1018,6 @@
 				D9AD96A61B0A381700CB5E8C /* GIGLayoutGridHorizontal.h in Headers */,
 				D9AD96E41B0A381700CB5E8C /* GIGFileManager.h in Headers */,
 				D9AD96D51B0A381700CB5E8C /* GIGURLResponse.h in Headers */,
-				D9AD96DA1B0A381700CB5E8C /* NSString+GIGRegexp.h in Headers */,
 				D9AD96C01B0A381700CB5E8C /* GIGURLParametersFormatter.h in Headers */,
 				D9AD96A41B0A381700CB5E8C /* GIGLayoutCenter.h in Headers */,
 				D9AD96EC1B0A381700CB5E8C /* NSData+GIGJSON.h in Headers */,
@@ -1037,7 +1026,6 @@
 				D9AD96BA1B0A381700CB5E8C /* GIGURLFixture.h in Headers */,
 				D9AD96B41B0A381700CB5E8C /* GIGURLConfigTableViewController.h in Headers */,
 				D9AD96AB1B0A381700CB5E8C /* GIGLayoutSize.h in Headers */,
-				D9AD96D81B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.h in Headers */,
 				D9AD96961B0A381700CB5E8C /* GIGGeolocation.h in Headers */,
 				D9AD96BE1B0A381700CB5E8C /* GIGURLFormatter.h in Headers */,
 				D9AD96DE1B0A381700CB5E8C /* NSBundle+GIGLibrary.h in Headers */,
@@ -1049,7 +1037,6 @@
 				D9AD96E81B0A381700CB5E8C /* NSInvocation+GIGExtension.h in Headers */,
 				D9AD96DC1B0A381700CB5E8C /* NSArray+GIGExtension.h in Headers */,
 				D9AD96C31B0A381700CB5E8C /* GIGURLCommunicator.h in Headers */,
-				D9AD96D71B0A381700CB5E8C /* GIGRegexp.h in Headers */,
 				D9AD96B01B0A381700CB5E8C /* GIGURLConfigFixtureDetailTableViewController.h in Headers */,
 				D9AD96D31B0A381700CB5E8C /* GIGURLImageResponse.h in Headers */,
 				D9AD96A31B0A381700CB5E8C /* GIGLayoutBase.h in Headers */,
@@ -1072,6 +1059,7 @@
 				D9AD969C1B0A381700CB5E8C /* GIGImageDownload.h in Headers */,
 				D9AD96F01B0A381700CB5E8C /* NSString+GIGJSON.h in Headers */,
 				D9AD969E1B0A381700CB5E8C /* GIGImageDownloader.h in Headers */,
+				D9DE3EF11B0CDC5B0085C117 /* NSRegularExpression+GIGRegexp.h in Headers */,
 				D9AD96981B0A381700CB5E8C /* GIGImageCache.h in Headers */,
 				D9AD96EE1B0A381700CB5E8C /* NSDictionary+GIGJSON.h in Headers */,
 			);
@@ -1310,12 +1298,10 @@
 				A91006811B0CCFC80080B812 /* GIGLayoutGridHorizontal.m in Sources */,
 				A91006B51B0CD0240080B812 /* NSArray+GIGJSON.m in Sources */,
 				A91006B71B0CD0240080B812 /* NSData+GIGJSON.m in Sources */,
-				A91006A51B0CCFF60080B812 /* NSString+GIGRegexp.m in Sources */,
 				A910069A1B0CCFDC0080B812 /* GIGURLDomain.m in Sources */,
 				A91006B31B0CD01E0080B812 /* NSInvocation+GIGExtension.m in Sources */,
 				A91006961B0CCFD50080B812 /* GIGURLConfigFixturesTableViewController.m in Sources */,
 				A91006711B0CCFBB0080B812 /* GIGGeolocation.m in Sources */,
-				A91006A31B0CCFF60080B812 /* NSRegularExpression+GIGRegexp.m in Sources */,
 				A91006881B0CCFD10080B812 /* GIGURLCommunicator.m in Sources */,
 				A91006751B0CCFC20080B812 /* GIGImageCacheNameGenerator.m in Sources */,
 				A91006AF1B0CD0150080B812 /* GIGFileManager.m in Sources */,
@@ -1385,16 +1371,15 @@
 				D9AD96B51B0A381700CB5E8C /* GIGURLConfigTableViewController.m in Sources */,
 				D9AD96C81B0A381700CB5E8C /* GIGURLManager.m in Sources */,
 				D9AD96991B0A381700CB5E8C /* GIGImageCache.m in Sources */,
-				D9AD96DB1B0A381700CB5E8C /* NSString+GIGRegexp.m in Sources */,
 				D9AD96C41B0A381700CB5E8C /* GIGURLCommunicator.m in Sources */,
 				D9AD96CC1B0A381700CB5E8C /* GIGURLConnectionBuilder.m in Sources */,
 				D9AD96C61B0A381700CB5E8C /* GIGURLFile.m in Sources */,
 				D9AD96BF1B0A381700CB5E8C /* GIGURLFormatter.m in Sources */,
-				D9AD96D91B0A381700CB5E8C /* NSRegularExpression+GIGRegexp.m in Sources */,
 				D9AD96D41B0A381700CB5E8C /* GIGURLImageResponse.m in Sources */,
 				D9AD96C11B0A381700CB5E8C /* GIGURLParametersFormatter.m in Sources */,
 				D9AD96A71B0A381700CB5E8C /* GIGLayoutGridHorizontal.m in Sources */,
 				D9AD96D21B0A381700CB5E8C /* GIGURLStorage.m in Sources */,
+				D9DE3EF41B0CDC5B0085C117 /* NSString+GIGRegexp.m in Sources */,
 				D9AD96F51B0A381700CB5E8C /* UIView+GIGExtension.m in Sources */,
 				D9AD96F31B0A381700CB5E8C /* NSUserDefaults+GIGArchive.m in Sources */,
 				D9AD96CE1B0A381700CB5E8C /* GIGURLRequestFactory.m in Sources */,
@@ -1421,6 +1406,7 @@
 				D9AD96A11B0A381700CB5E8C /* GIGImageStore.m in Sources */,
 				D9AD96A91B0A381700CB5E8C /* GIGLayoutGridVertical.m in Sources */,
 				D9AD96E31B0A381700CB5E8C /* GIGDigest.m in Sources */,
+				D9DE3EF21B0CDC5B0085C117 /* NSRegularExpression+GIGRegexp.m in Sources */,
 				D9AD96B71B0A381700CB5E8C /* GIGURLDomain.m in Sources */,
 				D9AD96E11B0A381700CB5E8C /* UIColor+GIGExtension.m in Sources */,
 				D9AD96F11B0A381700CB5E8C /* NSString+GIGJSON.m in Sources */,

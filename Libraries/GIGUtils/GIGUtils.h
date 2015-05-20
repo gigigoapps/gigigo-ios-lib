@@ -30,4 +30,8 @@
 #import "NSDictionary+GIGJSON.h"
 #import "NSString+GIGJSON.h"
 
+// regexp
+#import "NSRegularExpression+GIGRegexp.h"
+#import "NSString*GIGRegexp.h"
+
 #endif

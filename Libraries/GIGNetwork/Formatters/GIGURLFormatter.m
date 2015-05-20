@@ -8,7 +8,7 @@
 
 #import "GIGURLFormatter.h"
 
-#import "GIGRegexp.h"
+#import "NSString+GIGRegexp.h"
 
 
 @implementation GIGURLFormatter

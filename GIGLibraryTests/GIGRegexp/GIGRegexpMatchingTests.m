@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-#import "GIGRegexp.h"
+#import "NSString+GIGRegexp.h"
+#import "NSRegularExpression+GIGRegexp.h"
 
 
 @interface GIGRegexpMatchingTests : XCTestCase
