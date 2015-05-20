@@ -98,7 +98,7 @@
 
 - (BOOL)isAuthorizedStatus:(CLAuthorizationStatus)status
 {
-    return (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusAuthorized);
+    return (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusAuthorizedAlways);
 }
 
 #pragma mark - CLLocationManager Delegate
