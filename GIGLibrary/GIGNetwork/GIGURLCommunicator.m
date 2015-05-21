@@ -8,14 +8,15 @@
 
 #import "GIGURLCommunicator.h"
 
+#import "GIGURLManager.h"
 #import "GIGURLRequestFactory.h"
-
-#import "GIGURLResponse.h"
 
 
 @interface GIGURLCommunicator ()
 
 @property (strong, nonatomic) GIGURLRequestFactory *requestFactory;
+@property (strong, nonatomic) GIGURLManager *manager;
+
 @property (strong, nonatomic) GIGURLRequest *lastRequest;
 @property (copy, nonatomic) GIGURLMultiRequestCompletion requestsCompletion;
 
@@ -27,26 +28,36 @@
 - (instancetype)init
 {
     GIGURLRequestFactory *requestFactory = [[GIGURLRequestFactory alloc] init];
+    GIGURLManager *manager = [GIGURLManager sharedManager];
     
-    return [self initWithRequestFactory:requestFactory];
+    return [self initWithRequestFactory:requestFactory manager:manager];
 }
 
 - (instancetype)initWithManager:(GIGURLManager *)manager
 {
     GIGURLRequestFactory *requestFactory = [[GIGURLRequestFactory alloc] initWithManager:manager];
     
-    return [self initWithRequestFactory:requestFactory];
+    return [self initWithRequestFactory:requestFactory manager:manager];
 }
 
-- (instancetype)initWithRequestFactory:(GIGURLRequestFactory *)requestFactory
+- (instancetype)initWithRequestFactory:(GIGURLRequestFactory *)requestFactory manager:(GIGURLManager *)manager
 {
     self = [super init];
     if (self)
     {
         _requestFactory = requestFactory;
+        _manager = manager;
+        
         _logLevel = GIGLogLevelError;
     }
     return self;
+}
+
+#pragma mark - ACCESSORS
+
+- (NSString *)host
+{
+    return self.manager.domain.url;
 }
 
 #pragma mark - PUBLIC

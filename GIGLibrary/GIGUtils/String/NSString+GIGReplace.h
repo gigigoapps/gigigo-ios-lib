@@ -1,6 +1,6 @@
 //
 //  NSString+GIGReplace.h
-//  utils
+//  giglibrary
 //
 //  Created by Sergio Baró on 14/01/14.
 //  Copyright (c) 2014 Gigigo. All rights reserved.

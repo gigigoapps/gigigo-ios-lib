@@ -13,7 +13,6 @@
 <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) CLGeocoder *geocoder;
 
 @property (copy, nonatomic) GIGGeolocationCompletion completion;
 
@@ -25,20 +24,17 @@
 - (instancetype)init
 {
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     
-    return [self initWithLocationManager:locationManager geocoder:geocoder];
+    return [self initWithLocationManager:locationManager];
 }
 
-- (instancetype)initWithLocationManager:(CLLocationManager *)locationManager geocoder:(CLGeocoder *)geocoder
+- (instancetype)initWithLocationManager:(CLLocationManager *)locationManager
 {
     self = [super init];
     if (self)
     {
         _locationManager = locationManager;
         _locationManager.delegate = self;
-        
-        _geocoder = geocoder;
     }
     return self;
 }
@@ -54,13 +50,6 @@
 {
     self.completion = completion;
     [self start];
-}
-
-- (void)geocode:(NSString *)text completion:(GIGGeocoderCompletion)completion
-{
-    [self.geocoder geocodeAddressString:text completionHandler:^(NSArray *placemarks, NSError *error) {
-        completion(placemarks, error);
-    }];
 }
 
 #pragma mark - Private

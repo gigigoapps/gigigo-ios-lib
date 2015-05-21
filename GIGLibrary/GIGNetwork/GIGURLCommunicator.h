@@ -19,9 +19,10 @@ typedef void(^GIGURLMultiRequestCompletion)(NSDictionary *responses);
 @interface GIGURLCommunicator : NSObject
 
 @property (assign, nonatomic) GIGLogLevel logLevel;
+@property (assign, nonatomic, readonly) NSString *host;
 
 - (instancetype)initWithManager:(GIGURLManager *)manager;
-- (instancetype)initWithRequestFactory:(GIGURLRequestFactory *)requestFactory;
+- (instancetype)initWithRequestFactory:(GIGURLRequestFactory *)requestFactory manager:(GIGURLManager *)manager;
 
 - (GIGURLRequest *)GET:(NSString *)url;
 - (GIGURLRequest *)POST:(NSString *)url;

@@ -1,6 +1,6 @@
 //
 //  UIView+GIGTransformExtension.m
-//  utils
+//  giglibrary
 //
 //  Created by Sergio Baró on 13/09/2013.
 //  Copyright (c) 2013 Gigigo. All rights reserved.

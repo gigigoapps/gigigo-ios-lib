@@ -1,6 +1,6 @@
 //
 //  GIGLogManager.m
-//  utils
+//  giglibrary
 //
 //  Created by Sergio Baró on 17/03/14.
 //  Copyright (c) 2014 Gigigo. All rights reserved.

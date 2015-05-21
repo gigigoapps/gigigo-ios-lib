@@ -35,7 +35,7 @@
     
     self.managerMock = MKTMock([GIGURLManager class]);
     self.requestFactoryMock = MKTMock([GIGURLRequestFactory class]);
-    self.communicator = [[GIGURLCommunicator alloc] initWithRequestFactory:self.requestFactoryMock];
+    self.communicator = [[GIGURLCommunicator alloc] initWithRequestFactory:self.requestFactoryMock manager:self.managerMock];
     
     self.request1 = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url1" connectionBuilder:nil requestLogger:nil manager:self.managerMock];
     [MKTGiven([self.requestFactoryMock requestWithMethod:@"GET" url:@"http://url1"]) willReturn:self.request1];

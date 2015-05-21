@@ -1,6 +1,6 @@
 //
 //  UIView+GIGSubviewsExtension.h
-//  utils
+//  giglibrary
 //
 //  Created by sergiobaro on 26/02/14.
 //  Copyright (c) 2014 Gigigo. All rights reserved.

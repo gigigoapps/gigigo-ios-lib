@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 gigigo. All rights reserved.
 //
 
-#ifndef ClubVips_GIGRandom_h
-#define ClubVips_GIGRandom_h
+#ifndef GIGLibrary_GIGRandom_h
+#define GIGLibrary_GIGRandom_h
 
 #import <Foundation/Foundation.h>
 #import <stdlib.h>
