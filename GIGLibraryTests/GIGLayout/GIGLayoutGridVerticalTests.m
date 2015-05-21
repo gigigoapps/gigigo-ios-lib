@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+
 #import "GIGLayoutGridVertical.h"
+
 
 @interface GIGLayoutGridVerticalTests : XCTestCase
 

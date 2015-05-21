@@ -8,6 +8,6 @@
 
 #import<UIKit/UIKit.h>
 
-#import <GIGStaticLibrary/GIGStaticLibrary.h>
-#import <GIGStaticLibrary/GIGNetwork.h>
 #import <GIGStaticLibrary/GIGConstants.h>
+#import <GIGStaticLibrary/GIGUtils.h>
+#import <GIGStaticLibrary/GIGNetwork.h>
