@@ -11,3 +11,6 @@
 #import <GIGStaticLibrary/GIGConstants.h>
 #import <GIGStaticLibrary/GIGUtils.h>
 #import <GIGStaticLibrary/GIGNetwork.h>
+#import <GIGStaticLibrary/GIGGeolocation.h>
+#import <GIGStaticLibrary/GIGLayout.h>
+
