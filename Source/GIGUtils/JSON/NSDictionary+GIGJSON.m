@@ -66,6 +66,16 @@
     return 0.0;
 }
 
+- (float)doubleForKey:(NSString *)key
+{
+    id value = self[key];
+    
+    if ([value isKindOfClass:[NSNumber class]]) return [value doubleValue];
+    if ([value isKindOfClass:[NSString class]]) return [value doubleValue];
+    
+    return 0.0;
+}
+
 - (NSUInteger)unsignedIntegerForKey:(NSString *)key
 {
     id value = self[key];

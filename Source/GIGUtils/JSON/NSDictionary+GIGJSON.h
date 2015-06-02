@@ -17,6 +17,7 @@
 - (NSInteger)integerForKey:(NSString *)key;
 - (int)intForKey:(NSString *)key;
 - (float)floatForKey:(NSString *)key;
+- (float)doubleForKey:(NSString *)key;
 - (NSUInteger)unsignedIntegerForKey:(NSString *)key;
 - (BOOL)boolForKey:(NSString *)key;
 - (NSArray *)arrayForKey:(NSString *)key;

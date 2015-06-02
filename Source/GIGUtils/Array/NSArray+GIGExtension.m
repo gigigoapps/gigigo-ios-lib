@@ -11,6 +11,14 @@
 
 @implementation NSArray (GIGExtension)
 
+- (NSArray *)arrayByAddingObject:(id)object atIndex:(NSInteger)index
+{
+    NSMutableArray *tmp = [self mutableCopy];
+    [tmp insertObject:object atIndex:index];
+    
+    return [tmp copy];
+}
+
 - (NSArray *)arrayByRemovingObject:(id)object
 {
     NSMutableArray *tmp = [self mutableCopy];

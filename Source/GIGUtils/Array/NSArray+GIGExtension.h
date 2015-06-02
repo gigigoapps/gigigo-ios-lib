@@ -11,6 +11,8 @@
 
 @interface NSArray (GIGExtension)
 
+- (NSArray *)arrayByAddingObject:(id)object atIndex:(NSInteger)index;
+
 - (NSArray *)arrayByRemovingObject:(id)object;
 - (NSArray *)arrayByRemovingObjectsFromArray:(NSArray *)array;
 

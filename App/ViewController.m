@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+
 #import "GIGURLRequest.h"
 
 
@@ -24,8 +25,7 @@
 	GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://www.google.com"];
 	request.logLevel = GIGLogLevelVerbose;
 	
-	[request send:^(id response)
-	{
+	[request send:^(id response) {
 		NSLog(@"REQUEST DONE");
 	}];
 }
