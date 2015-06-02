@@ -8,7 +8,11 @@
 
 #import "ViewController.h"
 
-#import "GIGNetwork.h"
+#ifdef GIG_STATIC_LIBRARY
+    #import <GIGStaticLibrary/GIGStaticLibrary.h>
+#else
+    @import GIGLibrary;
+#endif
 
 
 @interface ViewController ()

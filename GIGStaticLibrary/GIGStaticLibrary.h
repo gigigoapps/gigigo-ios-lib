@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Gigigo SL. All rights reserved.
 //
 
-#import<UIKit/UIKit.h>
+#import <UIKit/UIKit.h>
 
 #import <GIGStaticLibrary/GIGConstants.h>
 #import <GIGStaticLibrary/GIGUtils.h>
