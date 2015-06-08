@@ -126,7 +126,6 @@
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addDomain];
     
     [self.navigationController presentViewController:navController animated:YES completion:nil];
-    
 }
 
 - (BOOL)isCurrentDomain:(GIGURLDomain *)domain
@@ -182,29 +181,6 @@
 }
 
 #pragma mark - UITableViewDelegate
-
-- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSMutableArray *actions = [[NSMutableArray alloc] initWithCapacity:2];
-    
-    GIGURLDomain *domain = self.domains[indexPath.row];
-    
-    if (![self isCurrentDomain:domain])
-    {
-        UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-            [self deleteDomainAtIndexPath:indexPath];
-        }];
-        [actions addObject:deleteAction];
-    }
-    
-    UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-        [self editDomainAtIndexPath:indexPath];
-    }];
-    editAction.backgroundColor = [UIColor blueColor];
-    [actions addObject:editAction];
-    
-    return [actions copy];
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
