@@ -29,6 +29,17 @@
     return [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:1.0f];
 }
 
++ (UIColor *)colorFromHexString:(NSString *)hexString
+{
+    unsigned rgbValue = 0;
+    
+    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+    [scanner setScanLocation:1];
+    [scanner scanHexInt:&rgbValue];
+    
+    return [UIColor colorFromHex:rgbValue];
+}
+
 + (UIColor *)randomColor
 {
     CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0

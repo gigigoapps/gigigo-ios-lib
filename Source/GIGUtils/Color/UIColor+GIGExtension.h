@@ -18,6 +18,8 @@
 + (UIColor *)colorFromHex:(NSInteger)hex;
 + (UIColor *)colorFromHex:(NSInteger)hex alpha:(CGFloat)alpha;
 + (UIColor *)colorFromRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
++ (UIColor *)colorFromHexString:(NSString *)hexString;
+
 + (UIColor *)randomColor;
 
 + (UIColor *)colorFromRGBString:(NSString *)rgbString; // @"255,255,255,100"
