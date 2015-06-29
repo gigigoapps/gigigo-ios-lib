@@ -95,41 +95,25 @@
 {
     self.validator.mandatory = YES;
     
-    BOOL result = [self.validator validate:nil error:nil];
-    XCTAssertFalse(result);
-    
-    result = [self.validator validate:@"" error:nil];
-    XCTAssertFalse(result);
-    
-    result = [self.validator validate:@"a" error:nil];
-    XCTAssertFalse(result);
-    
-    result = [self.validator validate:@"aaa" error:nil];
-    XCTAssertTrue(result);
-    
-    result = [self.validator validate:@"aaaa" error:nil];
-    XCTAssertFalse(result);
+    XCTAssertFalse([self.validator validate:nil error:nil]);
+    XCTAssertFalse([self.validator validate:@"" error:nil]);
+    XCTAssertFalse([self.validator validate:(id)@YES error:nil]);
 }
 
 - (void)test_validate_optional
 {
     self.validator.mandatory = NO;
     
-    BOOL result = [self.validator validate:nil error:nil];
-    XCTAssertTrue(result);
-    
-    result = [self.validator validate:@"" error:nil];
-    XCTAssertFalse(result);
-    
-    result = [self.validator validate:@"a" error:nil];
-    XCTAssertFalse(result);
-    
-    result = [self.validator validate:@"aaa" error:nil];
-    XCTAssertTrue(result);
-    
-    result = [self.validator validate:@"aaaa" error:nil];
-    XCTAssertFalse(result);
+    XCTAssertTrue([self.validator validate:nil error:nil]);
+    XCTAssertTrue([self.validator validate:@"" error:nil]);
+    XCTAssertFalse([self.validator validate:(id)@YES error:nil]);
 }
 
+- (void)test_validate_regexp
+{
+    XCTAssertFalse([self.validator validate:@"a" error:nil]);
+    XCTAssertTrue([self.validator validate:@"aaa" error:nil]);
+    XCTAssertFalse([self.validator validate:@"aaaa" error:nil]);
+}
 
 @end

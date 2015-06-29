@@ -45,12 +45,10 @@
 
 #pragma mark - OVERRIDE (GIGValidator)
 
-- (BOOL)validate:(id)value error:(NSError *__autoreleasing *)error
+- (BOOL)validate:(NSString *)value error:(NSError *__autoreleasing *)error
 {
-    if (value == nil)
-    {
-        return !self.mandatory;
-    }
+    if (![super validate:value error:error]) return NO;
+    if (value.length == 0 && !self.mandatory) return YES;
     
     return [self.regexp matchesString:value];
 }

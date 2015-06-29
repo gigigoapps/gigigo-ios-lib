@@ -13,6 +13,6 @@
 
 @property (assign, nonatomic) BOOL mandatory;
 
-- (BOOL)validate:(id)value error:(NSError **)error;
+- (BOOL)validate:(NSString *)value error:(NSError **)error;
 
 @end

@@ -12,6 +12,7 @@
 
 #import "GIGValidator.h"
 #import "GIGRegexpValidator.h"
+#import "GIGNumericValidator.h"
 
 
 #endif
