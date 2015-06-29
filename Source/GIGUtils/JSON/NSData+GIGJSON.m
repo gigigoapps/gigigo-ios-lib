@@ -14,16 +14,18 @@
 - (id)toJSON
 {
     NSError *error = nil;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:self options:kNilOptions error:&error];
+    id json = [self toJSONError:&error];
     if (error)
     {
         NSLog(@"%@", error.localizedDescription);
-        return nil;
     }
-    else
-    {
-        return json;
-    }
+    
+    return json;
+}
+
+- (id)toJSONError:(NSError **)error
+{
+    return [NSJSONSerialization JSONObjectWithData:self options:kNilOptions error:error];
 }
 
 @end

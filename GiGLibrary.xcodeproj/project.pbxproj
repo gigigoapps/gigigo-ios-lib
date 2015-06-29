@@ -360,6 +360,16 @@
 		D99AD3861B1DAAE6005BB4E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */; };
 		D99AD3871B1DAAE6005BB4E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */; };
 		D9AD97001B0A386500CB5E8C /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
+		D9E4661B1B411E9F00EC6C72 /* GIGURLJSONResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9E4661C1B411E9F00EC6C72 /* GIGURLJSONResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9E4661D1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */; };
+		D9E4661E1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */; };
+		D9E466201B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661F1B41215200EC6C72 /* GIGURLJSONResponseTests.m */; };
+		D9E466211B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661F1B41215200EC6C72 /* GIGURLJSONResponseTests.m */; };
+		D9FD35D31B4124CC000D356F /* GIGURLResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35D21B4124CC000D356F /* GIGURLResponseTests.m */; };
+		D9FD35D41B4124CC000D356F /* GIGURLResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35D21B4124CC000D356F /* GIGURLResponseTests.m */; };
+		D9FD35D91B412A72000D356F /* GIGURLImageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35D81B412A72000D356F /* GIGURLImageResponseTests.m */; };
+		D9FD35DA1B412A72000D356F /* GIGURLImageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35D81B412A72000D356F /* GIGURLImageResponseTests.m */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 /* End PBXBuildFile section */
 
@@ -605,6 +615,11 @@
 		D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		D9AD96FA1B0A386500CB5E8C /* GIGLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIGLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AD96FD1B0A386500CB5E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLJSONResponse.h; sourceTree = "<group>"; };
+		D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLJSONResponse.m; sourceTree = "<group>"; };
+		D9E4661F1B41215200EC6C72 /* GIGURLJSONResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLJSONResponseTests.m; sourceTree = "<group>"; };
+		D9FD35D21B4124CC000D356F /* GIGURLResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLResponseTests.m; sourceTree = "<group>"; };
+		D9FD35D81B412A72000D356F /* GIGURLImageResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLImageResponseTests.m; sourceTree = "<group>"; };
 		FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1A1B009B6B006FC484 /* GIGLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1D1B009B6B006FC484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -825,6 +840,8 @@
 		D99AD18A1B1DA3A3005BB4E5 /* Responses */ = {
 			isa = PBXGroup;
 			children = (
+				D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */,
+				D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */,
 				D99AD18B1B1DA3A3005BB4E5 /* GIGURLImageResponse.h */,
 				D99AD18C1B1DA3A3005BB4E5 /* GIGURLImageResponse.m */,
 				D99AD18D1B1DA3A3005BB4E5 /* GIGURLResponse.h */,
@@ -1154,6 +1171,9 @@
 				D99AD3271B1DA3B9005BB4E5 /* GIGURLParametersFormatterTests.m */,
 				D99AD3281B1DA3B9005BB4E5 /* GIGURLRequestTests.m */,
 				D99AD3291B1DA3B9005BB4E5 /* GIGURLStorageTests.m */,
+				D9FD35D21B4124CC000D356F /* GIGURLResponseTests.m */,
+				D9E4661F1B41215200EC6C72 /* GIGURLJSONResponseTests.m */,
+				D9FD35D81B412A72000D356F /* GIGURLImageResponseTests.m */,
 				D99AD32A1B1DA3B9005BB4E5 /* Helpers */,
 			);
 			path = GIGNetwork;
@@ -1356,6 +1376,7 @@
 				D99AD2101B1DA3A3005BB4E5 /* GIGLayoutSize.h in Headers */,
 				D99AD2321B1DA3A3005BB4E5 /* GIGURLFixturesKeeper.h in Headers */,
 				D99AD21A1B1DA3A3005BB4E5 /* GIGURLConfigFixtureDetailTableViewController.h in Headers */,
+				D9E4661C1B411E9F00EC6C72 /* GIGURLJSONResponse.h in Headers */,
 				D99AD29A1B1DA3A3005BB4E5 /* GIGDispatch.h in Headers */,
 				D99AD27C1B1DA3A3005BB4E5 /* NSData+GIGString.h in Headers */,
 				D99AD2C01B1DA3A3005BB4E5 /* GIGLogManager.h in Headers */,
@@ -1440,6 +1461,7 @@
 				D99AD20F1B1DA3A3005BB4E5 /* GIGLayoutSize.h in Headers */,
 				D99AD2311B1DA3A3005BB4E5 /* GIGURLFixturesKeeper.h in Headers */,
 				D99AD2191B1DA3A3005BB4E5 /* GIGURLConfigFixtureDetailTableViewController.h in Headers */,
+				D9E4661B1B411E9F00EC6C72 /* GIGURLJSONResponse.h in Headers */,
 				D99AD2991B1DA3A3005BB4E5 /* GIGDispatch.h in Headers */,
 				D99AD27B1B1DA3A3005BB4E5 /* NSData+GIGString.h in Headers */,
 				D99AD2BF1B1DA3A3005BB4E5 /* GIGLogManager.h in Headers */,
@@ -1723,6 +1745,7 @@
 				D99AD2181B1DA3A3005BB4E5 /* GIGURLConfigDomainsTableViewController.m in Sources */,
 				D99AD2461B1DA3A3005BB4E5 /* GIGURLFile.m in Sources */,
 				D99AD2A81B1DA3A3005BB4E5 /* NSInvocation+GIGExtension.m in Sources */,
+				D9E4661E1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */,
 				D99AD2661B1DA3A3005BB4E5 /* GIGURLResponse.m in Sources */,
 				D99AD2761B1DA3A3005BB4E5 /* UIColor+GIGExtension.m in Sources */,
 				D99AD2241B1DA3A3005BB4E5 /* GIGURLConfigTableViewController.m in Sources */,
@@ -1803,6 +1826,9 @@
 				D99AD34F1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m in Sources */,
 				D99AD3471B1DA3B9005BB4E5 /* GIGURLFormatterTests.m in Sources */,
 				D99AD33F1B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m in Sources */,
+				D9E466211B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */,
+				D9FD35D41B4124CC000D356F /* GIGURLResponseTests.m in Sources */,
+				D9FD35DA1B412A72000D356F /* GIGURLImageResponseTests.m in Sources */,
 				D99AD3511B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
 				D99AD3551B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
 				D99AD3411B1DA3B9005BB4E5 /* GIGURLConnectionBuilderTests.m in Sources */,
@@ -1827,6 +1853,9 @@
 				D99AD34E1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m in Sources */,
 				D99AD3461B1DA3B9005BB4E5 /* GIGURLFormatterTests.m in Sources */,
 				D99AD33E1B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m in Sources */,
+				D9E466201B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */,
+				D9FD35D31B4124CC000D356F /* GIGURLResponseTests.m in Sources */,
+				D9FD35D91B412A72000D356F /* GIGURLImageResponseTests.m in Sources */,
 				D99AD3501B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
 				D99AD3541B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
 				D99AD3401B1DA3B9005BB4E5 /* GIGURLConnectionBuilderTests.m in Sources */,
@@ -1847,6 +1876,7 @@
 				D99AD2171B1DA3A3005BB4E5 /* GIGURLConfigDomainsTableViewController.m in Sources */,
 				D99AD2451B1DA3A3005BB4E5 /* GIGURLFile.m in Sources */,
 				D99AD2A71B1DA3A3005BB4E5 /* NSInvocation+GIGExtension.m in Sources */,
+				D9E4661D1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */,
 				D99AD2651B1DA3A3005BB4E5 /* GIGURLResponse.m in Sources */,
 				D99AD2751B1DA3A3005BB4E5 /* UIColor+GIGExtension.m in Sources */,
 				D99AD2231B1DA3A3005BB4E5 /* GIGURLConfigTableViewController.m in Sources */,

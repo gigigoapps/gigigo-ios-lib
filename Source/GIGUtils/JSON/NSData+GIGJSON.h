@@ -12,5 +12,6 @@
 @interface NSData (GIGJSON)
 
 - (id)toJSON;
+- (id)toJSONError:(NSError **)error;
 
 @end

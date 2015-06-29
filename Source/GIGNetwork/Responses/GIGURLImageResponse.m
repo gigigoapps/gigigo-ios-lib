@@ -17,8 +17,16 @@
     if (self)
     {
         self.image = [UIImage imageWithData:data scale:[UIScreen mainScreen].scale];
+        self.success = (self.image != nil);
     }
     return self;
+}
+
+- (instancetype)initWithImage:(UIImage *)image
+{
+    NSData *data = UIImagePNGRepresentation(image);
+    
+    return [self initWithData:data];
 }
 
 @end

@@ -10,6 +10,9 @@
 
 #import "GIGURLRequest.h"
 
+#import "GIGURLImageResponse.h"
+#import "GIGURLJSONResponse.h"
+
 @class GIGURLRequestFactory;
 
 

@@ -26,7 +26,7 @@
     self = [super init];
     if (self)
     {
-        _success = YES;
+        _success = (data != nil);
         _data = data;
     }
     return self;

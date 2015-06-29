@@ -12,9 +12,6 @@
 #import "GIGURLRequestLogger.h"
 #import "GIGURLManager.h"
 
-#import "GIGURLFile.h"
-#import "GIGURLResponse.h"
-
 #import "GIGDispatch.h"
 
 
