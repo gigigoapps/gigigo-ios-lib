@@ -18,6 +18,7 @@
 #import "GIGTextValidator.h"
 #import "GIGMailValidator.h"
 #import "GIGPhoneValidator.h"
+#import "GIGPostalCodeValidator.h"
 
 
 #endif
