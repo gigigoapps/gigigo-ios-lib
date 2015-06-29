@@ -14,7 +14,7 @@
 
 - (instancetype)init
 {
-    return [self initWithRegexpPattern:@"^(\\+\\d{1,2})?\\d{9}$"];
+    return [self initWithRegexpPattern:@"^(\\+\\d{1,3})?\\d{9}$"];
 }
 
 @end
