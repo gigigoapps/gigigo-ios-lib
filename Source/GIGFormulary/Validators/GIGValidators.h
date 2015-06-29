@@ -21,6 +21,7 @@
 #import "GIGPostalCodeValidator.h"
 #import "GIGDocumentValidator.h"
 #import "GIGMultiValidator.h"
+#import "GIGCharactersValidator.h"
 
 
 #endif
