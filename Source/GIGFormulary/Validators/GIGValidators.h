@@ -11,9 +11,13 @@
 
 
 #import "GIGValidator.h"
+#import "GIGLengthValidator.h"
+
 #import "GIGRegexpValidator.h"
 #import "GIGNumericValidator.h"
 #import "GIGTextValidator.h"
+#import "GIGMailValidator.h"
+#import "GIGPhoneValidator.h"
 
 
 #endif
