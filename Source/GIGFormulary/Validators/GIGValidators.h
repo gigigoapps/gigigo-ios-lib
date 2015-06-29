@@ -20,6 +20,7 @@
 #import "GIGPhoneValidator.h"
 #import "GIGPostalCodeValidator.h"
 #import "GIGDocumentValidator.h"
+#import "GIGMultiValidator.h"
 
 
 #endif

@@ -378,6 +378,12 @@
 		D9E7A1561B4191AA004D3193 /* GIGDocumentValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7A1521B4191AA004D3193 /* GIGDocumentValidator.m */; };
 		D9E7A1581B419244004D3193 /* GIGDocumentValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7A1571B419244004D3193 /* GIGDocumentValidatorTests.m */; };
 		D9E7A1591B419244004D3193 /* GIGDocumentValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7A1571B419244004D3193 /* GIGDocumentValidatorTests.m */; };
+		D9E7A15C1B419475004D3193 /* GIGMultiValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E7A15A1B419475004D3193 /* GIGMultiValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9E7A15D1B419475004D3193 /* GIGMultiValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E7A15A1B419475004D3193 /* GIGMultiValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9E7A15E1B419475004D3193 /* GIGMultiValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7A15B1B419475004D3193 /* GIGMultiValidator.m */; };
+		D9E7A15F1B419475004D3193 /* GIGMultiValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7A15B1B419475004D3193 /* GIGMultiValidator.m */; };
+		D9E7A1611B4195C7004D3193 /* GIGMultiValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7A1601B4195C7004D3193 /* GIGMultiValidatorTests.m */; };
+		D9E7A1621B4195C7004D3193 /* GIGMultiValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7A1601B4195C7004D3193 /* GIGMultiValidatorTests.m */; };
 		D9FD35D31B4124CC000D356F /* GIGURLResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35D21B4124CC000D356F /* GIGURLResponseTests.m */; };
 		D9FD35D41B4124CC000D356F /* GIGURLResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35D21B4124CC000D356F /* GIGURLResponseTests.m */; };
 		D9FD35D91B412A72000D356F /* GIGURLImageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35D81B412A72000D356F /* GIGURLImageResponseTests.m */; };
@@ -682,6 +688,9 @@
 		D9E7A1511B4191AA004D3193 /* GIGDocumentValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGDocumentValidator.h; path = GIGFormulary/Validators/GIGDocumentValidator.h; sourceTree = "<group>"; };
 		D9E7A1521B4191AA004D3193 /* GIGDocumentValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGDocumentValidator.m; path = GIGFormulary/Validators/GIGDocumentValidator.m; sourceTree = "<group>"; };
 		D9E7A1571B419244004D3193 /* GIGDocumentValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGDocumentValidatorTests.m; sourceTree = "<group>"; };
+		D9E7A15A1B419475004D3193 /* GIGMultiValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMultiValidator.h; path = GIGFormulary/Validators/GIGMultiValidator.h; sourceTree = "<group>"; };
+		D9E7A15B1B419475004D3193 /* GIGMultiValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMultiValidator.m; path = GIGFormulary/Validators/GIGMultiValidator.m; sourceTree = "<group>"; };
+		D9E7A1601B4195C7004D3193 /* GIGMultiValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGMultiValidatorTests.m; sourceTree = "<group>"; };
 		D9FD35D21B4124CC000D356F /* GIGURLResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLResponseTests.m; sourceTree = "<group>"; };
 		D9FD35D81B412A72000D356F /* GIGURLImageResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLImageResponseTests.m; sourceTree = "<group>"; };
 		D9FD35E81B413E1A000D356F /* GIGRegexpValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGRegexpValidator.h; path = GIGFormulary/Validators/GIGRegexpValidator.h; sourceTree = "<group>"; };
@@ -1381,6 +1390,8 @@
 				D9E7A1491B4181B2004D3193 /* GIGPostalCodeValidator.m */,
 				D9E7A1511B4191AA004D3193 /* GIGDocumentValidator.h */,
 				D9E7A1521B4191AA004D3193 /* GIGDocumentValidator.m */,
+				D9E7A15A1B419475004D3193 /* GIGMultiValidator.h */,
+				D9E7A15B1B419475004D3193 /* GIGMultiValidator.m */,
 			);
 			name = Validators;
 			sourceTree = "<group>";
@@ -1405,6 +1416,7 @@
 				D9FD36401B416DF8000D356F /* GIGPhoneValidatorTests.m */,
 				D9E7A14E1B4182EB004D3193 /* GIGPostalCodeValidatorTests.m */,
 				D9E7A1571B419244004D3193 /* GIGDocumentValidatorTests.m */,
+				D9E7A1601B4195C7004D3193 /* GIGMultiValidatorTests.m */,
 			);
 			name = Validators;
 			path = GIGFormulary/Validators;
@@ -1541,6 +1553,7 @@
 				D99AD27C1B1DA3A3005BB4E5 /* NSData+GIGString.h in Headers */,
 				D99AD2C01B1DA3A3005BB4E5 /* GIGLogManager.h in Headers */,
 				A910066E1B0CCF520080B812 /* GIGStaticLibrary.h in Headers */,
+				D9E7A15D1B419475004D3193 /* GIGMultiValidator.h in Headers */,
 				D99AD2481B1DA3A3005BB4E5 /* GIGURLManager.h in Headers */,
 				D99AD2121B1DA3A3005BB4E5 /* GIGURLConfigAddDomainViewController.h in Headers */,
 			);
@@ -1637,6 +1650,7 @@
 				D99AD27B1B1DA3A3005BB4E5 /* NSData+GIGString.h in Headers */,
 				D99AD2BF1B1DA3A3005BB4E5 /* GIGLogManager.h in Headers */,
 				D909EFEA1B0DC2FF00DD4D97 /* GIGLibrary.h in Headers */,
+				D9E7A15C1B419475004D3193 /* GIGMultiValidator.h in Headers */,
 				D99AD2471B1DA3A3005BB4E5 /* GIGURLManager.h in Headers */,
 				D99AD2111B1DA3A3005BB4E5 /* GIGURLConfigAddDomainViewController.h in Headers */,
 			);
@@ -1912,6 +1926,7 @@
 			files = (
 				D99AD2621B1DA3A3005BB4E5 /* GIGURLImageResponse.m in Sources */,
 				D99AD2E61B1DA3A3005BB4E5 /* NSString+GIGSubstring.m in Sources */,
+				D9E7A15F1B419475004D3193 /* GIGMultiValidator.m in Sources */,
 				D99AD2561B1DA3A3005BB4E5 /* GIGURLRequestFactory.m in Sources */,
 				D99AD2181B1DA3A3005BB4E5 /* GIGURLConfigDomainsTableViewController.m in Sources */,
 				D9FD35FD1B415CAE000D356F /* GIGNumericValidator.m in Sources */,
@@ -1996,6 +2011,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9E7A1621B4195C7004D3193 /* GIGMultiValidatorTests.m in Sources */,
 				D99AD3591B1DA3B9005BB4E5 /* GIGRegexpReplacingTests.m in Sources */,
 				D99AD3431B1DA3B9005BB4E5 /* GIGURLDomainsKeeperTests.m in Sources */,
 				D99AD3571B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m in Sources */,
@@ -2032,6 +2048,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9E7A1611B4195C7004D3193 /* GIGMultiValidatorTests.m in Sources */,
 				D99AD3581B1DA3B9005BB4E5 /* GIGRegexpReplacingTests.m in Sources */,
 				D99AD3421B1DA3B9005BB4E5 /* GIGURLDomainsKeeperTests.m in Sources */,
 				D99AD3561B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m in Sources */,
@@ -2070,6 +2087,7 @@
 			files = (
 				D99AD2611B1DA3A3005BB4E5 /* GIGURLImageResponse.m in Sources */,
 				D99AD2E51B1DA3A3005BB4E5 /* NSString+GIGSubstring.m in Sources */,
+				D9E7A15E1B419475004D3193 /* GIGMultiValidator.m in Sources */,
 				D99AD2551B1DA3A3005BB4E5 /* GIGURLRequestFactory.m in Sources */,
 				D99AD2171B1DA3A3005BB4E5 /* GIGURLConfigDomainsTableViewController.m in Sources */,
 				D9FD35FC1B415CAE000D356F /* GIGNumericValidator.m in Sources */,
