@@ -402,6 +402,12 @@
 		D9FD36111B4164F5000D356F /* GIGMailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD360D1B4164F5000D356F /* GIGMailValidator.m */; };
 		D9FD36131B416531000D356F /* GIGMailValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD36121B416531000D356F /* GIGMailValidatorTests.m */; };
 		D9FD36141B416531000D356F /* GIGMailValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD36121B416531000D356F /* GIGMailValidatorTests.m */; };
+		D9FD36171B416774000D356F /* GIGLengthValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FD36151B416774000D356F /* GIGLengthValidator.h */; };
+		D9FD36181B416774000D356F /* GIGLengthValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FD36151B416774000D356F /* GIGLengthValidator.h */; };
+		D9FD36191B416774000D356F /* GIGLengthValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD36161B416774000D356F /* GIGLengthValidator.m */; };
+		D9FD361A1B416774000D356F /* GIGLengthValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD36161B416774000D356F /* GIGLengthValidator.m */; };
+		D9FD361C1B4168D4000D356F /* GIGLengthValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD361B1B4168D4000D356F /* GIGLengthValidatorTests.m */; };
+		D9FD361D1B4168D4000D356F /* GIGLengthValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD361B1B4168D4000D356F /* GIGLengthValidatorTests.m */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 /* End PBXBuildFile section */
 
@@ -668,6 +674,9 @@
 		D9FD360C1B4164F5000D356F /* GIGMailValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMailValidator.h; path = GIGFormulary/Validators/GIGMailValidator.h; sourceTree = "<group>"; };
 		D9FD360D1B4164F5000D356F /* GIGMailValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMailValidator.m; path = GIGFormulary/Validators/GIGMailValidator.m; sourceTree = "<group>"; };
 		D9FD36121B416531000D356F /* GIGMailValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMailValidatorTests.m; path = GIGFormulary/GIGMailValidatorTests.m; sourceTree = "<group>"; };
+		D9FD36151B416774000D356F /* GIGLengthValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGLengthValidator.h; path = GIGFormulary/Validators/GIGLengthValidator.h; sourceTree = "<group>"; };
+		D9FD36161B416774000D356F /* GIGLengthValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGLengthValidator.m; path = GIGFormulary/Validators/GIGLengthValidator.m; sourceTree = "<group>"; };
+		D9FD361B1B4168D4000D356F /* GIGLengthValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGLengthValidatorTests.m; path = GIGFormulary/GIGLengthValidatorTests.m; sourceTree = "<group>"; };
 		FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1A1B009B6B006FC484 /* GIGLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1D1B009B6B006FC484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1325,6 +1334,8 @@
 				D9FD35F41B413E38000D356F /* GIGValidators.h */,
 				D9FD35EE1B413E28000D356F /* GIGValidator.h */,
 				D9FD35EF1B413E28000D356F /* GIGValidator.m */,
+				D9FD36151B416774000D356F /* GIGLengthValidator.h */,
+				D9FD36161B416774000D356F /* GIGLengthValidator.m */,
 				D9FD35E81B413E1A000D356F /* GIGRegexpValidator.h */,
 				D9FD35E91B413E1A000D356F /* GIGRegexpValidator.m */,
 				D9FD35F81B415CAE000D356F /* GIGNumericValidator.h */,
@@ -1345,6 +1356,7 @@
 				D9FD35FE1B415CFC000D356F /* GIGNumericValidatorTests.m */,
 				D9FD36091B4162F6000D356F /* GIGTextValidatorTests.m */,
 				D9FD36121B416531000D356F /* GIGMailValidatorTests.m */,
+				D9FD361B1B4168D4000D356F /* GIGLengthValidatorTests.m */,
 			);
 			name = GIGFormulary;
 			sourceTree = "<group>";
@@ -1467,6 +1479,7 @@
 				D99AD2741B1DA3A3005BB4E5 /* UIColor+GIGExtension.h in Headers */,
 				D9FD360F1B4164F5000D356F /* GIGMailValidator.h in Headers */,
 				D99AD2A61B1DA3A3005BB4E5 /* NSInvocation+GIGExtension.h in Headers */,
+				D9FD36181B416774000D356F /* GIGLengthValidator.h in Headers */,
 				D99AD2101B1DA3A3005BB4E5 /* GIGLayoutSize.h in Headers */,
 				D99AD2321B1DA3A3005BB4E5 /* GIGURLFixturesKeeper.h in Headers */,
 				D99AD21A1B1DA3A3005BB4E5 /* GIGURLConfigFixtureDetailTableViewController.h in Headers */,
@@ -1558,6 +1571,7 @@
 				D99AD2731B1DA3A3005BB4E5 /* UIColor+GIGExtension.h in Headers */,
 				D9FD360E1B4164F5000D356F /* GIGMailValidator.h in Headers */,
 				D99AD2A51B1DA3A3005BB4E5 /* NSInvocation+GIGExtension.h in Headers */,
+				D9FD36171B416774000D356F /* GIGLengthValidator.h in Headers */,
 				D99AD20F1B1DA3A3005BB4E5 /* GIGLayoutSize.h in Headers */,
 				D99AD2311B1DA3A3005BB4E5 /* GIGURLFixturesKeeper.h in Headers */,
 				D99AD2191B1DA3A3005BB4E5 /* GIGURLConfigFixtureDetailTableViewController.h in Headers */,
@@ -1895,6 +1909,7 @@
 				D99AD25E1B1DA3A3005BB4E5 /* GIGURLStorage.m in Sources */,
 				D99AD2CC1B1DA3A3005BB4E5 /* NSRegularExpression+GIGRegexp.m in Sources */,
 				D99AD2D01B1DA3A3005BB4E5 /* NSString+GIGRegexp.m in Sources */,
+				D9FD361A1B416774000D356F /* GIGLengthValidator.m in Sources */,
 				D99AD28E1B1DA3A3005BB4E5 /* GIGEncrypt.m in Sources */,
 				D99AD2DE1B1DA3A3005BB4E5 /* NSString+GIGExtension.m in Sources */,
 				D99AD2C21B1DA3A3005BB4E5 /* GIGLogManager.m in Sources */,
@@ -1937,6 +1952,7 @@
 				D99AD33F1B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m in Sources */,
 				D9E466211B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */,
 				D9FD35D41B4124CC000D356F /* GIGURLResponseTests.m in Sources */,
+				D9FD361D1B4168D4000D356F /* GIGLengthValidatorTests.m in Sources */,
 				D9FD35F71B413EFC000D356F /* GIGRegexpValidatorTests.m in Sources */,
 				D9FD35DA1B412A72000D356F /* GIGURLImageResponseTests.m in Sources */,
 				D99AD3511B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
@@ -1969,6 +1985,7 @@
 				D99AD33E1B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m in Sources */,
 				D9E466201B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */,
 				D9FD35D31B4124CC000D356F /* GIGURLResponseTests.m in Sources */,
+				D9FD361C1B4168D4000D356F /* GIGLengthValidatorTests.m in Sources */,
 				D9FD35F61B413EFC000D356F /* GIGRegexpValidatorTests.m in Sources */,
 				D9FD35D91B412A72000D356F /* GIGURLImageResponseTests.m in Sources */,
 				D99AD3501B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
@@ -2041,6 +2058,7 @@
 				D99AD25D1B1DA3A3005BB4E5 /* GIGURLStorage.m in Sources */,
 				D99AD2CB1B1DA3A3005BB4E5 /* NSRegularExpression+GIGRegexp.m in Sources */,
 				D99AD2CF1B1DA3A3005BB4E5 /* NSString+GIGRegexp.m in Sources */,
+				D9FD36191B416774000D356F /* GIGLengthValidator.m in Sources */,
 				D99AD28D1B1DA3A3005BB4E5 /* GIGEncrypt.m in Sources */,
 				D99AD2DD1B1DA3A3005BB4E5 /* NSString+GIGExtension.m in Sources */,
 				D99AD2C11B1DA3A3005BB4E5 /* GIGLogManager.m in Sources */,
