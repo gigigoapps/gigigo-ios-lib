@@ -1,5 +1,5 @@
 //
-//  GIGNumericValidatorTests.m
+//  GIGTextValidatorTests.m
 //  GiGLibrary
 //
 //  Created by Sergio Baró on 29/06/15.
@@ -9,23 +9,23 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-#import "GIGNumericValidator.h"
+#import "GIGTextValidator.h"
 
 
-@interface GIGNumericValidatorTests : XCTestCase
+@interface GIGTextValidatorTests : XCTestCase
 
-@property (strong, nonatomic) GIGNumericValidator *validator;
+@property (strong, nonatomic) GIGTextValidator *validator;
 
 @end
 
 
-@implementation GIGNumericValidatorTests
+@implementation GIGTextValidatorTests
 
 - (void)setUp
 {
     [super setUp];
     
-    self.validator = [[GIGNumericValidator alloc] init];
+    self.validator = [[GIGTextValidator alloc] init];
 }
 
 - (void)tearDown
@@ -55,12 +55,12 @@
     XCTAssertFalse([self.validator validate:(id)@YES error:nil]);
 }
 
-- (void)test_numeric_validation
+- (void)test_validate_text
 {
-    XCTAssertTrue([self.validator validate:@"1" error:nil]);
-    XCTAssertTrue([self.validator validate:@"123456789" error:nil]);
-    XCTAssertFalse([self.validator validate:@"ab" error:nil]);
-    XCTAssertFalse([self.validator validate:@"123 " error:nil]);
+    XCTAssertTrue([self.validator validate:@"a" error:nil]);
+    XCTAssertTrue([self.validator validate:@"a b" error:nil]);
+    XCTAssertFalse([self.validator validate:@"a@" error:nil]);
+    XCTAssertFalse([self.validator validate:@"a1" error:nil]);
 }
 
 @end
