@@ -23,6 +23,8 @@
 
 /* Begin PBXBuildFile section */
 		A910066E1B0CCF520080B812 /* GIGStaticLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = A91006581B0CCE8E0080B812 /* GIGStaticLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D90867691B42A3E300193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
+		D908676A1B42A3E400193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
 		D909EFEA1B0DC2FF00DD4D97 /* GIGLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9637D7A1B0C90C000FD8E4D /* GIGLibrary.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D99AD11F1B1D978B005BB4E5 /* libGIGStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A91006561B0CCE8E0080B812 /* libGIGStaticLibrary.a */; };
@@ -299,8 +301,6 @@
 		D99AD3041B1DA3A3005BB4E5 /* UIView+GIGTransformExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD1F61B1DA3A3005BB4E5 /* UIView+GIGTransformExtension.m */; };
 		D99AD3381B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31E1B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m */; };
 		D99AD3391B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31E1B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m */; };
-		D99AD33A1B1DA3B9005BB4E5 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
-		D99AD33B1B1DA3B9005BB4E5 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
 		D99AD33C1B1DA3B9005BB4E5 /* GIGURLCommunicatorMultiRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3211B1DA3B9005BB4E5 /* GIGURLCommunicatorMultiRequestTests.m */; };
 		D99AD33D1B1DA3B9005BB4E5 /* GIGURLCommunicatorMultiRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3211B1DA3B9005BB4E5 /* GIGURLCommunicatorMultiRequestTests.m */; };
 		D99AD33E1B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3221B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m */; };
@@ -401,6 +401,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = FA65BF981AEFD5F90031A91B;
 			remoteInfo = GIGLibrary;
+		};
+		D9AF10C61B42A47D004F01F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA65BF901AEFD5F80031A91B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D99AD0F81B1D9716005BB4E5;
+			remoteInfo = GIGStaticLibraryApp;
+		};
+		D9AF10C81B42A4A0004F01F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA65BF901AEFD5F80031A91B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA680F191B009B6B006FC484;
+			remoteInfo = GIGLibraryApp;
 		};
 		FA680F401B009CA8006FC484 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1523,6 +1537,7 @@
 			);
 			dependencies = (
 				D99AD12E1B1D9866005BB4E5 /* PBXTargetDependency */,
+				D9AF10C71B42A47D004F01F9 /* PBXTargetDependency */,
 			);
 			name = GIGStaticLibraryTests;
 			productName = GIGStaticLibraryTests;
@@ -1541,6 +1556,7 @@
 			);
 			dependencies = (
 				D9AD97021B0A386500CB5E8C /* PBXTargetDependency */,
+				D9AF10C91B42A4A0004F01F9 /* PBXTargetDependency */,
 			);
 			name = GIGLibraryTests;
 			productName = GIGLibraryTests;
@@ -1604,9 +1620,11 @@
 					};
 					D99AD1251B1D9866005BB4E5 = {
 						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = D99AD0F81B1D9716005BB4E5;
 					};
 					D9AD96F91B0A386500CB5E8C = {
 						CreatedOnToolsVersion = 6.3;
+						TestTargetID = FA680F191B009B6B006FC484;
 					};
 					FA65BF981AEFD5F90031A91B = {
 						CreatedOnToolsVersion = 6.3;
@@ -1820,7 +1838,6 @@
 				D99AD3431B1DA3B9005BB4E5 /* GIGURLDomainsKeeperTests.m in Sources */,
 				D99AD3571B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m in Sources */,
 				D99AD34B1B1DA3B9005BB4E5 /* GIGURLRequestTests.m in Sources */,
-				D99AD33B1B1DA3B9005BB4E5 /* GIGLayoutTests.m in Sources */,
 				D99AD3531B1DA3B9005BB4E5 /* GIGArrayExtesionTests.m in Sources */,
 				D99AD34D1B1DA3B9005BB4E5 /* GIGURLStorageTests.m in Sources */,
 				D99AD34F1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m in Sources */,
@@ -1830,6 +1847,7 @@
 				D9FD35D41B4124CC000D356F /* GIGURLResponseTests.m in Sources */,
 				D9FD35DA1B412A72000D356F /* GIGURLImageResponseTests.m in Sources */,
 				D99AD3511B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
+				D908676A1B42A3E400193560 /* GIGLayoutTests.m in Sources */,
 				D99AD3551B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
 				D99AD3411B1DA3B9005BB4E5 /* GIGURLConnectionBuilderTests.m in Sources */,
 				D99AD3451B1DA3B9005BB4E5 /* GIGURLFixturesKeeperTests.m in Sources */,
@@ -1847,7 +1865,6 @@
 				D99AD3421B1DA3B9005BB4E5 /* GIGURLDomainsKeeperTests.m in Sources */,
 				D99AD3561B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m in Sources */,
 				D99AD34A1B1DA3B9005BB4E5 /* GIGURLRequestTests.m in Sources */,
-				D99AD33A1B1DA3B9005BB4E5 /* GIGLayoutTests.m in Sources */,
 				D99AD3521B1DA3B9005BB4E5 /* GIGArrayExtesionTests.m in Sources */,
 				D99AD34C1B1DA3B9005BB4E5 /* GIGURLStorageTests.m in Sources */,
 				D99AD34E1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m in Sources */,
@@ -1857,6 +1874,7 @@
 				D9FD35D31B4124CC000D356F /* GIGURLResponseTests.m in Sources */,
 				D9FD35D91B412A72000D356F /* GIGURLImageResponseTests.m in Sources */,
 				D99AD3501B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
+				D90867691B42A3E300193560 /* GIGLayoutTests.m in Sources */,
 				D99AD3541B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
 				D99AD3401B1DA3B9005BB4E5 /* GIGURLConnectionBuilderTests.m in Sources */,
 				D99AD3441B1DA3B9005BB4E5 /* GIGURLFixturesKeeperTests.m in Sources */,
@@ -1966,6 +1984,16 @@
 			target = FA65BF981AEFD5F90031A91B /* GIGLibrary */;
 			targetProxy = D9AD97011B0A386500CB5E8C /* PBXContainerItemProxy */;
 		};
+		D9AF10C71B42A47D004F01F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D99AD0F81B1D9716005BB4E5 /* GIGStaticLibraryApp */;
+			targetProxy = D9AF10C61B42A47D004F01F9 /* PBXContainerItemProxy */;
+		};
+		D9AF10C91B42A4A0004F01F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA680F191B009B6B006FC484 /* GIGLibraryApp */;
+			targetProxy = D9AF10C81B42A4A0004F01F9 /* PBXContainerItemProxy */;
+		};
 		FA680F411B009CA8006FC484 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FA65BF981AEFD5F90031A91B /* GIGLibrary */;
@@ -2053,6 +2081,7 @@
 		D99AD1301B1D9866005BB4E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2072,12 +2101,14 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GIGStaticLibraryApp.app/GIGStaticLibraryApp";
 			};
 			name = Debug;
 		};
 		D99AD1311B1D9866005BB4E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2093,12 +2124,14 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GIGStaticLibraryApp.app/GIGStaticLibraryApp";
 			};
 			name = Release;
 		};
 		D9AD97041B0A386500CB5E8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2118,12 +2151,14 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GIGLibraryApp.app/GIGLibraryApp";
 			};
 			name = Debug;
 		};
 		D9AD97051B0A386500CB5E8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2139,6 +2174,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GIGLibraryApp.app/GIGLibraryApp";
 			};
 			name = Release;
 		};
