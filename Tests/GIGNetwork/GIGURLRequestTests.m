@@ -40,9 +40,10 @@
 - (void)test_Request_error
 {
     __block GIGURLResponse *response = nil;
-    [self.request send:^(id resp) {
+    self.request.completion = ^(id resp) {
         response = resp;
-    }];
+    };
+    [self.request send];
     
     NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:nil];
     [self.request connection:nil didFailWithError:error];
@@ -55,9 +56,10 @@
 - (void)test_Request_response_404
 {
     __block GIGURLResponse *response = nil;
-    [self.request send:^(id resp) {
+    self.request.completion = ^(id resp) {
         response = resp;
-    }];
+    };
+    [self.request send];
     
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:404 HTTPVersion:@"HTTP/1.1" headerFields:nil];
@@ -71,9 +73,10 @@
 - (void)test_Request_response_200
 {
     __block GIGURLResponse *response = nil;
-    [self.request send:^(id resp) {
+    self.request.completion = ^(id resp) {
         response = resp;
-    }];
+    };
+    [self.request send];
     
     CGRect rect = CGRectMake(0, 0, 1, 1);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
@@ -102,8 +105,7 @@
     self.request.downloadProgress = ^(float prog) {
         progress = prog;
     };
-    
-    [self.request send:nil];
+    [self.request send];
     
     CGRect rect = CGRectMake(0, 0, 1, 1);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
@@ -128,8 +130,7 @@
     self.request.uploadProgress = ^(float prog) {
         progress = prog;
     };
-    
-    [self.request send:nil];
+    [self.request send];
     
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
