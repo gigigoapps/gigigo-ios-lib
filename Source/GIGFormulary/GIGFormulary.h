@@ -10,6 +10,7 @@
 #define GiGLibrary_GIGFormulary_h
 
 
+#import "GIGFormController.h"
 #import "GIGValidators.h"
 
 
