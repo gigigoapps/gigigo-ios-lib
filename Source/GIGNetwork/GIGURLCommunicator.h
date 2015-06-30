@@ -25,6 +25,7 @@ typedef void(^GIGURLMultiRequestCompletion)(NSDictionary *responses);
 @property (assign, nonatomic, readonly) NSString *host;
 
 - (instancetype)initWithManager:(GIGURLManager *)manager;
+- (instancetype)initWithRequestFactory:(GIGURLRequestFactory *)requestFactory;
 - (instancetype)initWithRequestFactory:(GIGURLRequestFactory *)requestFactory manager:(GIGURLManager *)manager;
 
 - (GIGURLRequest *)GET:(NSString *)url;
@@ -33,6 +34,7 @@ typedef void(^GIGURLMultiRequestCompletion)(NSDictionary *responses);
 - (GIGURLRequest *)PUT:(NSString *)url;
 - (GIGURLRequest *)requestWithMethod:(NSString *)method url:(NSString *)url;
 
+- (void)sendRequest:(GIGURLRequest *)request completion:(GIGURLRequestCompletion)completion;
 - (void)sendRequests:(NSDictionary *)requests completion:(GIGURLMultiRequestCompletion)completion;
 - (void)cancelLastRequest;
 

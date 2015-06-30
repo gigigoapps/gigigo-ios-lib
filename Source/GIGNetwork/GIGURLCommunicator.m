@@ -40,6 +40,13 @@
     return [self initWithRequestFactory:requestFactory manager:manager];
 }
 
+- (instancetype)initWithRequestFactory:(GIGURLRequestFactory *)requestFactory
+{
+    GIGURLManager *manager = [GIGURLManager sharedManager];
+    
+    return [self initWithRequestFactory:requestFactory manager:manager];
+}
+
 - (instancetype)initWithRequestFactory:(GIGURLRequestFactory *)requestFactory manager:(GIGURLManager *)manager
 {
     self = [super init];
@@ -90,6 +97,14 @@
     return self.lastRequest;
 }
 
+- (void)sendRequest:(GIGURLRequest *)request completion:(GIGURLRequestCompletion)completion
+{
+    self.lastRequest = request;
+    self.lastRequest.completion = completion;
+    
+    [request send];
+}
+
 - (void)sendRequests:(NSDictionary *)requests completion:(GIGURLMultiRequestCompletion)completion
 {
     self.requestsCompletion = completion;
@@ -100,10 +115,12 @@
     [requests enumerateKeysAndObjectsUsingBlock:^(NSString *requestKey, GIGURLRequest *request, __unused BOOL *stop) {
         dispatch_group_enter(groupRequests);
         
-        [request send:^(GIGURLResponse *response) {
+        request.completion = ^(GIGURLResponse *response) {
             responses[requestKey] = response;
             dispatch_group_leave(groupRequests);
-        }];
+        };
+        
+        [request send];
     }];
     
     __weak typeof(self) this = self;
