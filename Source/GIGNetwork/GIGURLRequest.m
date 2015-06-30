@@ -26,7 +26,6 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 @property (strong, nonatomic) GIGURLManager *manager;
 
 @property (strong, nonatomic) NSURLConnection *connection;
-@property (copy, nonatomic) GIGURLRequestCompletion completion;
 
 @property (strong, nonatomic) NSHTTPURLResponse *response;
 @property (strong, nonatomic) NSMutableData *data;
@@ -92,15 +91,13 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 
 #pragma mark - PUBLIC
 
-- (void)send:(GIGURLRequestCompletion)completion
+- (void)send
 {
-    self.completion = completion;
-
     if (self.manager.useFixture)
     {
         __weak typeof(self) this = self;
         gig_dispatch_after_seconds(GIGNetworkMockDelay, ^{
-            [this mockResponseWithCompletion:completion];
+            [this completeWithMock];
         });
         
         return;
@@ -117,14 +114,34 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
     [self.connection cancel];
 }
 
-#pragma mark - MOCKS
+#pragma mark - PRIVATE
 
-- (void)mockResponseWithCompletion:(GIGURLRequestCompletion)completion
+- (void)completeWithData
+{
+    [self.requestLogger logResponse:self.response data:self.data error:self.error stringEncoding:self.connectionBuilder.stringEncoding];
+    
+    if (self.completion != nil)
+    {
+        GIGURLResponse *response = [[self.responseClass alloc] initWithData:self.data headers:self.response.allHeaderFields];
+        self.completion(response);
+    }
+}
+
+- (void)completeWithError
+{
+    [self.requestLogger logResponse:self.response data:self.data error:self.error stringEncoding:self.connectionBuilder.stringEncoding];
+
+    if (self.completion != nil)
+    {
+        GIGURLResponse *response = [[self.responseClass alloc] initWithError:self.error headers:self.response.allHeaderFields];
+        self.completion(response);
+    }
+}
+
+- (void)completeWithMock
 {
     NSURL *URL = [NSURL URLWithString:self.url];
     self.response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
-    
-    if (completion == nil) return;
     
     NSData *mockData = [self.manager mockForRequestTag:self.requestTag];
     if (!mockData)
@@ -140,30 +157,6 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
     [self completeWithData];
 }
 
-#pragma mark - PRIVATE
-
-- (void)completeWithData
-{
-    [self.requestLogger logResponse:self.response data:self.data error:self.error stringEncoding:self.connectionBuilder.stringEncoding];
-    
-    if (self.completion)
-    {
-        GIGURLResponse *response = [[self.responseClass alloc] initWithData:self.data];
-        self.completion(response);
-    }
-}
-
-- (void)completeWithError
-{
-    [self.requestLogger logResponse:self.response data:self.data error:self.error stringEncoding:self.connectionBuilder.stringEncoding];
-
-    if (self.completion)
-    {
-        GIGURLResponse *response = [[self.responseClass alloc] initWithError:self.error];
-        self.completion(response);
-    }
-}
-
 - (BOOL)isSuccess
 {
     return (self.response.statusCode >= 200 && self.response.statusCode < 300);
@@ -171,7 +164,7 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 
 #pragma mark - DELEGATES
 
-#pragma mark - NSURLConnectionDelegate
+#pragma mark - <NSURLConnectionDelegate>
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
@@ -179,7 +172,7 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
     [self completeWithError];
 }
 
-#pragma mark - NSURLConnectionDataDelegate
+#pragma mark - <NSURLConnectionDataDelegate>
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)aResponse
 {

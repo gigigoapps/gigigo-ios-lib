@@ -33,6 +33,7 @@
     self = [super init];
     if (self)
     {
+        _requestClass = [GIGURLRequest class];
         _manager = manager;
     }
     return self;
@@ -42,7 +43,7 @@
 
 - (GIGURLRequest *)requestWithMethod:(NSString *)method url:(NSString *)url
 {
-    return [[GIGURLRequest alloc] initWithMethod:method url:url manager:self.manager];
+    return [[self.requestClass alloc] initWithMethod:method url:url manager:self.manager];
 }
 
 @end

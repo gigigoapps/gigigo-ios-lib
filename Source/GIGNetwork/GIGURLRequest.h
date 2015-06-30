@@ -37,6 +37,7 @@ typedef void(^GIGURLRequestProgress)(float progress); // 0.0 to 1.0
 @property (strong, nonatomic) NSString *requestTag;
 @property (assign, nonatomic) GIGLogLevel logLevel;
 
+@property (copy, nonatomic) GIGURLRequestCompletion completion;
 @property (copy, nonatomic) GIGURLRequestProgress downloadProgress;
 @property (copy, nonatomic) GIGURLRequestProgress uploadProgress;
 
@@ -47,7 +48,7 @@ typedef void(^GIGURLRequestProgress)(float progress); // 0.0 to 1.0
                  requestLogger:(GIGURLRequestLogger *)requestLogger
                        manager:(GIGURLManager *)manager;
 
-- (void)send:(GIGURLRequestCompletion)completion;
+- (void)send;
 - (void)cancel;
 
 @end

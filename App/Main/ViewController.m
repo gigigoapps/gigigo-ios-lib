@@ -26,12 +26,13 @@
 {
 	[super viewDidLoad];
 	
-	GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://www.google.com"];
+	GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://www.gle.es"];
 	request.logLevel = GIGLogLevelVerbose;
-	
-	[request send:^(id response) {
+    request.completion = ^(GIGURLResponse *response) {
 		NSLog(@"REQUEST DONE");
-	}];
+	};
+    
+    [request send];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event

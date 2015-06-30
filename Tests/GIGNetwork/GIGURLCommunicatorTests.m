@@ -73,9 +73,10 @@
     NSData *data = [self dataImageType];
 
     __block GIGURLResponse *response = nil;
-    [request send:^(id resp) {
+    request.completion = ^(id resp) {
         response = resp;
-    }];
+    };
+    [request send];
     
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
@@ -96,12 +97,12 @@
     
     GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:nil url:nil connectionBuilder:nil requestLogger:nil manager:self.managerMock];
     request.requestTag = @"config";
-    
-    [request send:^(GIGURLResponse *response) {
+    request.completion = ^(GIGURLResponse *response) {
         XCTAssertNotNil(response);
         XCTAssertNotNil(response.data);
         XCTAssertTrue([response.data isEqual:expectedData]);
-    }];
+    };
+    [request send];
 }
 
 - (void)test_Response_Mock_FileNotFound
@@ -109,10 +110,10 @@
     GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:nil url:nil connectionBuilder:nil requestLogger:nil manager:self.managerMock];
     request.requestTag = @"not_defined_on_fixture";
     
-    [request send:^(GIGURLResponse *response) {
+    request.completion = ^(GIGURLResponse *response) {
         XCTAssertFalse(response.success);
         XCTAssertTrue(response.error.code == 404);
-    }];
+    };
 }
 
 #pragma mark - HELPERS

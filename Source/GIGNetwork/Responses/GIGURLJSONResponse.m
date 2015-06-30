@@ -8,6 +8,8 @@
 
 #import "GIGURLJSONResponse.h"
 
+#import "GIGJSON.h"
+
 
 @implementation GIGURLJSONResponse
 

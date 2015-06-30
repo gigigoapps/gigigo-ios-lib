@@ -14,6 +14,8 @@
 
 @interface GIGURLRequestFactory : NSObject
 
+@property (strong, nonatomic) Class requestClass; // GIGURLRequest or subclass
+
 - (instancetype)initWithManager:(GIGURLManager *)urlManager;
 
 - (GIGURLRequest *)requestWithMethod:(NSString *)method url:(NSString *)url;

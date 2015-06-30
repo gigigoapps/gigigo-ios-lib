@@ -11,12 +11,12 @@
 
 @implementation GIGURLResponse
 
-- (instancetype)initWithSuccess:(BOOL)success
+- (instancetype)initWithData:(NSData *)data headers:(NSDictionary *)headers
 {
-    self = [super init];
+    self = [self initWithData:data];
     if (self)
     {
-        _success = success;
+        _headers = headers;
     }
     return self;
 }
@@ -32,6 +32,16 @@
     return self;
 }
 
+- (instancetype)initWithError:(NSError *)error headers:(NSDictionary *)headers
+{
+    self = [self initWithError:error];
+    if (self)
+    {
+        _headers = headers;
+    }
+    return self;
+}
+
 - (instancetype)initWithError:(NSError *)error
 {
     self = [super init];
@@ -39,6 +49,16 @@
     {
         _success = NO;
         _error = error;
+    }
+    return self;
+}
+
+- (instancetype)initWithSuccess:(BOOL)success
+{
+    self = [super init];
+    if (self)
+    {
+        _success = success;
     }
     return self;
 }
