@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Gigigo SL. All rights reserved.
 //
 
-#import "GIGValidator.h"
+#import "GIGStringValidator.h"
 
 
-@interface GIGRegexpValidator : GIGValidator
+@interface GIGRegexpValidator : GIGStringValidator
 
 @property (strong, nonatomic, readonly) NSRegularExpression *regexp;
 

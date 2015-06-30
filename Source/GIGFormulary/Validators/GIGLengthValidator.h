@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Gigigo SL. All rights reserved.
 //
 
-#import "GIGValidator.h"
+#import "GIGStringValidator.h"
 
 
-@interface GIGLengthValidator : GIGValidator
+@interface GIGLengthValidator : GIGStringValidator
 
 @property (assign, nonatomic, readonly) NSInteger minLength;
 @property (assign, nonatomic, readonly) NSInteger maxLength;

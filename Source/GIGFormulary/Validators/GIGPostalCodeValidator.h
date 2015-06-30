@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Gigigo SL. All rights reserved.
 //
 
-#import <GIGLibrary/GIGLibrary.h>
+#import "GIGRegexpValidator.h"
 
 
 @interface GIGPostalCodeValidator : GIGRegexpValidator

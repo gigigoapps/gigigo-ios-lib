@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Gigigo SL. All rights reserved.
 //
 
-#import <GIGLibrary/GIGLibrary.h>
+#import "GIGStringValidator.h"
 
 
-@interface GIGCharactersValidator : GIGValidator
+@interface GIGCharactersValidator : GIGStringValidator
 
 - (instancetype)initWithCharacters:(NSString *)characters;
 - (instancetype)initWithCharacterSet:(NSCharacterSet *)characterSet;

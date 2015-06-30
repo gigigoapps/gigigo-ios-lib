@@ -30,7 +30,7 @@
 
 #pragma mark - OVERRIDE (GIGMultiValidator)
 
-- (BOOL)validate:(NSString *)value error:(NSError *__autoreleasing *)error
+- (BOOL)validate:(id)value error:(NSError *__autoreleasing *)error
 {
     if (![super validate:value error:error]) return NO;
     

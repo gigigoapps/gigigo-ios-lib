@@ -23,16 +23,11 @@
 
 #pragma mark - PUBLIC
 
-- (BOOL)validate:(NSString *)value error:(NSError * __autoreleasing *)error
+- (BOOL)validate:(id)value error:(NSError * __autoreleasing *)error
 {
     if (value == nil && self.mandatory)
     {
         return NO;
-    }
-    else if (value != nil)
-    {
-        if (![value isKindOfClass:[NSString class]]) return NO;
-        if (value.length == 0 && self.mandatory) return NO;
     }
     
     return YES;

@@ -10,9 +10,17 @@
 #define GiGLibrary_GIGValidators_h
 
 
+// general
 #import "GIGValidator.h"
-#import "GIGLengthValidator.h"
+#import "GIGMultiValidator.h"
+#import "GIGBoolValidator.h"
 
+// string
+#import "GIGStringValidator.h"
+#import "GIGLengthValidator.h"
+#import "GIGCharactersValidator.h"
+
+// regexp
 #import "GIGRegexpValidator.h"
 #import "GIGNumericValidator.h"
 #import "GIGTextValidator.h"
@@ -20,8 +28,6 @@
 #import "GIGPhoneValidator.h"
 #import "GIGPostalCodeValidator.h"
 #import "GIGDocumentValidator.h"
-#import "GIGMultiValidator.h"
-#import "GIGCharactersValidator.h"
 
 
 #endif
