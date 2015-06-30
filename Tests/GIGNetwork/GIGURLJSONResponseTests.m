@@ -10,6 +10,7 @@
 #import <XCTest/XCTest.h>
 
 #import "GIGURLJSONResponse.h"
+#import "GIGJSON.h"
 
 
 @interface GIGURLJSONResponseTests : XCTestCase
