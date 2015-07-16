@@ -26,10 +26,15 @@
 {
 	[super viewDidLoad];
 	
+	[GIGLogManager shared].appName = @"GIGUtils Awesome Test App";
+	[GIGLogManager shared].logEnabled = YES;
+	
+	
 	GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://www.gle.es"];
 	request.logLevel = GIGLogLevelVerbose;
-    request.completion = ^(GIGURLResponse *response) {
-		NSLog(@"REQUEST DONE");
+    request.completion = ^(GIGURLResponse *response)
+	{
+		GIGLog(@"REQUEST DONE");
 	};
     
     [request send];
