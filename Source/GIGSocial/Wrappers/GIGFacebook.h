@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+
+typedef void(^GIGFacebookLoginCompletion)(BOOL success, NSString *userID, NSString *accessToken, NSError *error);
+
+
 @interface GIGFacebook : NSObject
+
+- (void)login:(GIGFacebookLoginCompletion)completionHandler;
 
 @end

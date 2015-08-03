@@ -40,8 +40,10 @@
 
 - (void)loginFacebook:(GIGSocialLoginFacebookCompletion)completionHandler
 {
-	//TODO: login facebook
-	GIGLogWarn(@"TODO");
+	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, NSError *error)
+	 {
+		 completionHandler(success, userID, accessToken, error);
+	 }];
 }
 
 @end

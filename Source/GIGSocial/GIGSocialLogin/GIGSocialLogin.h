@@ -9,7 +9,13 @@
 #import <Foundation/Foundation.h>
 
 
-typedef void(^GIGSocialLoginFacebookCompletion)(BOOL isLogged, NSString *userID, NSString *accessToken, NSError *error);
+typedef void(^GIGSocialLoginFacebookCompletion)(BOOL success, NSString *userID, NSString *accessToken, NSError *error);
+
+
+typedef NS_ENUM (NSUInteger, GIGLogLevel)
+{
+	GIGSocialLoginErrorUnknow
+};
 
 
 @interface GIGSocialLogin : NSObject
