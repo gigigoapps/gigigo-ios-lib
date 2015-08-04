@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-typedef void(^GIGFacebookLoginCompletion)(BOOL success, NSString *userID, NSString *accessToken, NSError *error);
+typedef void(^GIGFacebookLoginCompletion)(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error);
 
 
 @interface GIGFacebook : NSObject

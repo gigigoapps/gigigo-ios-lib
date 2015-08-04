@@ -58,26 +58,81 @@
 }
 
 
-- (void)testLoginSuccess
+- (void)testLoginFacebookSuccess
 {
 	// INPUTS
 	self.facebookMock.inSuccess = YES,
 	self.facebookMock.inUserId = @"USER_ID";
 	self.facebookMock.inAccessToken = @"ACCESSTOKEN";
+	self.facebookMock.isCancelled = NO;
 	self.facebookMock.inError = nil;
 	
 	
+	// EXECUTE TEST
 	__block BOOL completionCalled = NO;
-	[self.socialLogin loginFacebook:^(BOOL isLogged, NSString *userID, NSString *accessToken, NSError *error)
+	[self.socialLogin loginFacebook:^(BOOL success, NSString *userID, NSString *accessToken, GIGSocialLoginError loginError, NSError *error)
 	{
 		completionCalled = YES;
 		
-		XCTAssertTrue(isLogged, @"");
+		// VERIFY
+		XCTAssertTrue(success, @"");
 		XCTAssertTrue([userID isEqualToString:@"USER_ID"], @"%@", [self errorTestLogForObject:userID]);
 		XCTAssertTrue([accessToken isEqualToString:@"ACCESSTOKEN"], @"%@", [self errorTestLogForObject:accessToken]);
+		XCTAssertTrue(loginError == GIGSocialLoginErrorNone, @"");
 		XCTAssertNil(error, @"");
 	}];
 	
+	XCTAssertTrue(completionCalled, @"");
+}
+
+
+- (void)testLoginFacebookCancelled
+{
+	// INPUTS
+	self.facebookMock.inSuccess = NO;
+	self.facebookMock.inUserId = nil;
+	self.facebookMock.inAccessToken = nil;
+	self.facebookMock.isCancelled = YES;
+	self.facebookMock.inError = nil;
+	
+	__block BOOL completionCalled = NO;
+	[self.socialLogin loginFacebook:^(BOOL success, NSString *userID, NSString *accessToken, GIGSocialLoginError loginError, NSError *error)
+	{
+		completionCalled = YES;
+		
+		// VERIFY
+		XCTAssertFalse(success, @"");
+		XCTAssertNil(userID, @"%@", [self errorTestLogForObject:userID]);
+		XCTAssertNil(accessToken, @"%@", [self errorTestLogForObject:accessToken]);
+		XCTAssertTrue(loginError == GIGSocialLoginErrorFacebookCancelled, @"");
+		XCTAssertNil(error, @"");
+	}];
+	
+	XCTAssertTrue(completionCalled, @"");
+}
+
+
+- (void)testLoginFacebookError
+{
+	// INPUTS
+	self.facebookMock.inSuccess = NO;
+	self.facebookMock.inUserId = nil;
+	self.facebookMock.inAccessToken = nil;
+	self.facebookMock.isCancelled = NO;
+	self.facebookMock.inError = [NSError errorWithDomain:@"TESTFACEBOOK" code:3 userInfo:nil];
+	
+	__block BOOL completionCalled = NO;
+	[self.socialLogin loginFacebook:^(BOOL success, NSString *userID, NSString *accessToken, GIGSocialLoginError loginError, NSError *error)
+	 {
+		 completionCalled = YES;
+		 
+		 // VERIFY
+		 XCTAssertFalse(success, @"");
+		 XCTAssertNil(userID, @"%@", [self errorTestLogForObject:userID]);
+		 XCTAssertNil(accessToken, @"%@", [self errorTestLogForObject:accessToken]);
+		 XCTAssertTrue(loginError == GIGSocialLoginErrorFacebook, @"");
+		 XCTAssertTrue([error.domain isEqualToString:@"TESTFACEBOOK"] && error.code == 3, @"");
+	 }];
 	
 	XCTAssertTrue(completionCalled, @"");
 }

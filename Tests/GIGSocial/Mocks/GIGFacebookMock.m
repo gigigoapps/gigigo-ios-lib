@@ -12,7 +12,7 @@
 
 - (void)login:(GIGFacebookLoginCompletion)completionHandler
 {
-	completionHandler(self.inSuccess, self.inUserId, self.inAccessToken, self.inError);
+	completionHandler(self.inSuccess, self.inUserId, self.inAccessToken, self.isCancelled, self.inError);
 }
 
 @end

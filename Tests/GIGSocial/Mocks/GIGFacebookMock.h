@@ -15,6 +15,7 @@
 @property (assign, nonatomic) BOOL inSuccess;
 @property (strong, nonatomic) NSString *inUserId;
 @property (strong, nonatomic) NSString *inAccessToken;
+@property (assign, nonatomic) BOOL isCancelled;
 @property (strong, nonatomic) NSError *inError;
 
 
