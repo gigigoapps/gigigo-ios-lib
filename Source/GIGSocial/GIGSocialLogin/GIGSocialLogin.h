@@ -12,7 +12,6 @@
 typedef NS_ENUM (NSUInteger, GIGSocialLoginError)
 {
 	GIGSocialLoginErrorNone = 0,
-	GIGSocialLoginErrorUnknow,
 	GIGSocialLoginErrorFacebookCancelled,
 	GIGSocialLoginErrorFacebook				// See errors handling-> https://developers.facebook.com/docs/ios/errors
 };
