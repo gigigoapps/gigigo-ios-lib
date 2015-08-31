@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GLAMainViewController.h
 //  GiGLibraryApp
 //
 //  Created by Alejandro Jiménez Agudo on 28/4/15.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
 
+@interface GLAMainViewController : UITableViewController
 
 @end
 

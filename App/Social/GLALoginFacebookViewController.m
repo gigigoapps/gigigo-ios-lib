@@ -7,7 +7,7 @@
 //
 
 #import "GLALoginFacebookViewController.h"
-#import "GIGLogManager.h"
+
 #import "GIGSocialLogin.h"
 
 
@@ -23,14 +23,18 @@
 
 @implementation GLALoginFacebookViewController
 
+#pragma mark - VIEW LIFECYCLE
 
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
 	
+    self.labelInfo.numberOfLines = 0;
+    
 	self.socialLogin = [[GIGSocialLogin alloc] init];
 }
 
+#pragma mark - ACTIONS
 
 - (IBAction)onButtonLoginTap:(id)sender
 {
@@ -68,6 +72,5 @@
 		self.labelInfo.text = info;
 	}];
 }
-
 
 @end

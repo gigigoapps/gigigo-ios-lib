@@ -1,12 +1,12 @@
 //
-//  ViewController.m
+//  GLAMainViewController.m
 //  GiGLibraryApp
 //
 //  Created by Alejandro Jiménez Agudo on 28/4/15.
 //  Copyright (c) 2015 Gigigo SL. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GLAMainViewController.h"
 
 #ifdef GIG_STATIC_LIBRARY
     #import <GIGStaticLibrary/GIGStaticLibrary.h>
@@ -15,12 +15,12 @@
 #endif
 
 
-@interface ViewController ()
+@interface GLAMainViewController ()
 
 @end
 
 
-@implementation ViewController
+@implementation GLAMainViewController
 
 - (void)viewDidLoad
 {
@@ -29,11 +29,10 @@
 	[GIGLogManager shared].appName = @"GIGUtils Awesome Test App";
 	[GIGLogManager shared].logEnabled = YES;
 	
-	
-	GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://www.gle.es"];
+    // request with self-signed https certificate
+	GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"https://dclientes.rm.gr.repsolypf.com/App/SO/REPSOLMASws/SolicitarContratos/NIF/02626978X"];
 	request.logLevel = GIGLogLevelVerbose;
-    request.completion = ^(GIGURLResponse *response)
-	{
+    request.completion = ^(GIGURLResponse *response) {
 		GIGLog(@"REQUEST DONE");
 	};
     
