@@ -29,9 +29,13 @@
 	[GIGLogManager shared].appName = @"GIGUtils Awesome Test App";
 	[GIGLogManager shared].logEnabled = YES;
 	
-    // request with self-signed https certificate
-	GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"https://dclientes.rm.gr.repsolypf.com/App/SO/REPSOLMASws/SolicitarContratos/NIF/02626978X"];
+    // request with self-signed https certificate and http basic authentication
+    GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"https://dclientes.rm.gr.repsolypf.com/App/SO/REPSOLMASws/ContratosService.svc/SolicitarContratos/NIF/02626978X"];
 	request.logLevel = GIGLogLevelVerbose;
+    
+    request.ignoreSSL = YES;
+    [request setHTTPBasicUser:@"usuportal\\neiras2" password:@"America123"];
+    
     request.completion = ^(GIGURLResponse *response) {
 		GIGLog(@"REQUEST DONE");
 	};

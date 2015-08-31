@@ -29,6 +29,10 @@
 		D9637D7A1B0C90C000FD8E4D /* GIGLibrary.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D97448B51B944F9C0007C3AC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */; };
 		D97448B61B944F9E0007C3AC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A731B70C9DD0076FF9E /* FBSDKCoreKit.framework */; };
+		D97448B81B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D97448B71B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m */; };
+		D97448B91B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D97448B71B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m */; };
+		D97448BA1B9476AB0007C3AC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A731B70C9DD0076FF9E /* FBSDKCoreKit.framework */; };
+		D97448BB1B9476AE0007C3AC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */; };
 		D99AD11F1B1D978B005BB4E5 /* libGIGStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A91006561B0CCE8E0080B812 /* libGIGStaticLibrary.a */; };
 		D99AD12C1B1D9866005BB4E5 /* libGIGStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A91006561B0CCE8E0080B812 /* libGIGStaticLibrary.a */; };
 		D99AD1F71B1DA3A3005BB4E5 /* GIGConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D99AD14E1B1DA3A3005BB4E5 /* GIGConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -480,6 +484,7 @@
 		A91006581B0CCE8E0080B812 /* GIGStaticLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIGStaticLibrary.h; sourceTree = "<group>"; };
 		D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLibrary.h; sourceTree = "<group>"; };
 		D909EFE91B0DC2FF00DD4D97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D97448B71B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLRequestAuthenticationTests.m; sourceTree = "<group>"; };
 		D99AD0F91B1D9716005BB4E5 /* GIGStaticLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGStaticLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99AD0FC1B1D9716005BB4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D99AD1261B1D9866005BB4E5 /* GIGStaticLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIGStaticLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -705,6 +710,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99AD12C1B1D9866005BB4E5 /* libGIGStaticLibrary.a in Frameworks */,
+				D97448BA1B9476AB0007C3AC /* FBSDKCoreKit.framework in Frameworks */,
+				D97448BB1B9476AE0007C3AC /* FBSDKLoginKit.framework in Frameworks */,
 				D99AD35B1B1DA3BA005BB4E5 /* OCHamcrestIOS.framework in Frameworks */,
 				D99AD35D1B1DA3BA005BB4E5 /* OCMockitoIOS.framework in Frameworks */,
 			);
@@ -1226,6 +1233,7 @@
 		D99AD3201B1DA3B9005BB4E5 /* GIGNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				D97448B71B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m */,
 				D99AD3211B1DA3B9005BB4E5 /* GIGURLCommunicatorMultiRequestTests.m */,
 				D99AD3221B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m */,
 				D99AD3231B1DA3B9005BB4E5 /* GIGURLConnectionBuilderTests.m */,
@@ -1995,6 +2003,7 @@
 				D9E466211B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */,
 				D9FD35D41B4124CC000D356F /* GIGURLResponseTests.m in Sources */,
 				D9FD35DA1B412A72000D356F /* GIGURLImageResponseTests.m in Sources */,
+				D97448B91B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m in Sources */,
 				D99AD3511B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
 				D908676A1B42A3E400193560 /* GIGLayoutTests.m in Sources */,
 				D99AD3551B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
@@ -2023,6 +2032,7 @@
 				D9E466201B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */,
 				D9FD35D31B4124CC000D356F /* GIGURLResponseTests.m in Sources */,
 				D9FD35D91B412A72000D356F /* GIGURLImageResponseTests.m in Sources */,
+				D97448B81B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m in Sources */,
 				D99AD3501B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
 				D90867691B42A3E300193560 /* GIGLayoutTests.m in Sources */,
 				D99AD3541B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
@@ -2259,6 +2269,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tests/Libs",
+					"$(PROJECT_DIR)/Source/GIGSocial/Libs",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -2286,6 +2297,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tests/Libs",
+					"$(PROJECT_DIR)/Source/GIGSocial/Libs",
 				);
 				INFOPLIST_FILE = GIGStaticLibraryTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;

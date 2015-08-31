@@ -64,6 +64,7 @@
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:404 HTTPVersion:@"HTTP/1.1" headerFields:nil];
     [self.request connection:nil didReceiveResponse:HTTPResponse];
+    [self.request connectionDidFinishLoading:nil];
     
     XCTAssertNotNil(response);
     XCTAssertFalse(response.success);

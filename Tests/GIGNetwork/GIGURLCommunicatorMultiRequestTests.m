@@ -171,6 +171,7 @@
                                                                      HTTPVersion:@"HTTP/1.1"
                                                                     headerFields:nil];
         [request connection:nil didReceiveResponse:HTTPResponse];
+        [request connectionDidFinishLoading:nil];
     });
 }
 

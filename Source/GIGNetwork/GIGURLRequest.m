@@ -27,6 +27,8 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 
 @property (strong, nonatomic) NSURLConnection *connection;
 
+@property (copy, nonatomic) NSURLCredential *httpBasicCredential;
+
 @property (strong, nonatomic) NSHTTPURLResponse *response;
 @property (strong, nonatomic) NSMutableData *data;
 @property (strong, nonatomic) NSError *error;
@@ -114,6 +116,18 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
     [self.connection cancel];
 }
 
+- (void)setHTTPBasicUser:(NSString *)user password:(NSString *)password
+{
+    if (user.length > 0 && password.length > 0)
+    {
+        self.httpBasicCredential = [NSURLCredential credentialWithUser:user password:password persistence:NSURLCredentialPersistenceForSession];
+    }
+    else
+    {
+        self.httpBasicCredential = nil;
+    }
+}
+
 #pragma mark - PRIVATE
 
 - (void)completeWithData
@@ -172,6 +186,36 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
     [self completeWithError];
 }
 
+- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    NSString *authenticationMethod = challenge.protectionSpace.authenticationMethod;
+    
+    NSURLCredential *credential = nil;
+    if ([authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust] && self.ignoreSSL)
+    {
+        credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+    }
+    
+    if ([authenticationMethod isEqualToString:NSURLAuthenticationMethodHTTPBasic])
+    {
+        credential = self.httpBasicCredential;
+    }
+    
+    if (credential == nil && self.authentication != nil)
+    {
+        credential = self.authentication(challenge);
+    }
+    
+    if (credential != nil)
+    {
+        [challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
+    }
+    else
+    {
+        [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+    }
+}
+
 #pragma mark - <NSURLConnectionDataDelegate>
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)aResponse
@@ -182,7 +226,6 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
     if (![self isSuccess])
     {
         self.error = [NSError errorWithDomain:GIGNetworkErrorDomain code:self.response.statusCode userInfo:nil];
-        [self completeWithError];
     }
 }
 
@@ -211,6 +254,10 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
     if ([self isSuccess])
     {
         [self completeWithData];
+    }
+    else
+    {
+        [self completeWithError];
     }
 }
 

@@ -19,6 +19,7 @@
 
 typedef void(^GIGURLRequestCompletion)(id response);
 typedef void(^GIGURLRequestProgress)(float progress); // 0.0 to 1.0
+typedef NSURLCredential* (^GIGURLRequestCredential)(NSURLAuthenticationChallenge *challenge);
 
 
 @interface GIGURLRequest : NSObject
@@ -36,10 +37,12 @@ typedef void(^GIGURLRequestProgress)(float progress); // 0.0 to 1.0
 
 @property (strong, nonatomic) NSString *requestTag;
 @property (assign, nonatomic) GIGLogLevel logLevel;
+@property (assign, nonatomic) BOOL ignoreSSL;
 
 @property (copy, nonatomic) GIGURLRequestCompletion completion;
 @property (copy, nonatomic) GIGURLRequestProgress downloadProgress;
 @property (copy, nonatomic) GIGURLRequestProgress uploadProgress;
+@property (copy, nonatomic) GIGURLRequestCredential authentication;
 
 - (instancetype)initWithMethod:(NSString *)method url:(NSString *)url;
 - (instancetype)initWithMethod:(NSString *)method url:(NSString *)url manager:(GIGURLManager *)manager;
@@ -50,5 +53,7 @@ typedef void(^GIGURLRequestProgress)(float progress); // 0.0 to 1.0
 
 - (void)send;
 - (void)cancel;
+
+- (void)setHTTPBasicUser:(NSString *)user password:(NSString *)password;
 
 @end
