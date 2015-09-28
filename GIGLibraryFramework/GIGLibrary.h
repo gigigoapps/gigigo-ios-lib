@@ -20,5 +20,4 @@ FOUNDATION_EXPORT const unsigned char GIGLibraryVersionString[];
 #import "GIGUtils.h"
 #import "GIGGeolocation.h"
 #import "GIGLayout.h"
-#import "GIGSocialLogin.h"
 
