@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSURLAuthenticationChallenge *challengeMock;
 @property (strong, nonatomic) NSURLProtectionSpace *protectionSpaceMock;
 @property (strong, nonatomic) id<NSURLAuthenticationChallengeSender> senderMock;
+@property (strong, nonatomic) NSURLConnection *connectionMock;
 @property (strong, nonatomic) MKTArgumentCaptor *captor;
 
 @end
@@ -36,6 +37,7 @@
     self.protectionSpaceMock = MKTMock([NSURLProtectionSpace class]);
     self.senderMock = MKTMockProtocol(@protocol(NSURLAuthenticationChallengeSender));
     self.challengeMock = MKTMock([NSURLAuthenticationChallenge class]);
+    self.connectionMock = MKTMock([NSURLConnection class]);
     
     [MKTGiven([self.challengeMock protectionSpace]) willReturn:self.protectionSpaceMock];
     [MKTGiven([self.challengeMock sender]) willReturn:self.senderMock];
@@ -49,6 +51,7 @@
     self.challengeMock = nil;
     self.protectionSpaceMock = nil;
     self.senderMock = nil;
+    self.connectionMock = nil;
     
     self.captor = nil;
     
@@ -61,7 +64,7 @@
 {
     [MKTGiven([self.protectionSpaceMock authenticationMethod]) willReturn:NSURLAuthenticationMethodServerTrust];
     
-    [self.request connection:nil willSendRequestForAuthenticationChallenge:self.challengeMock];
+    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
     
     [MKTVerify(self.senderMock) continueWithoutCredentialForAuthenticationChallenge:self.challengeMock];
 }
@@ -72,7 +75,7 @@
     
     [MKTGiven([self.protectionSpaceMock authenticationMethod]) willReturn:NSURLAuthenticationMethodServerTrust];
     
-    [self.request connection:nil willSendRequestForAuthenticationChallenge:self.challengeMock];
+    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
     
     [MKTVerify(self.senderMock) useCredential:[self.captor capture] forAuthenticationChallenge:self.challengeMock];
     
@@ -86,7 +89,7 @@
     
     [MKTGiven([self.protectionSpaceMock authenticationMethod]) willReturn:NSURLAuthenticationMethodHTTPBasic];
     
-    [self.request connection:nil willSendRequestForAuthenticationChallenge:self.challengeMock];
+    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
     
     [MKTVerify(self.senderMock) useCredential:[self.captor capture] forAuthenticationChallenge:self.challengeMock];
     
@@ -104,7 +107,7 @@
         return nil;
     };
     
-    [self.request connection:nil willSendRequestForAuthenticationChallenge:self.challengeMock];
+    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
     
     [MKTVerify(self.senderMock) continueWithoutCredentialForAuthenticationChallenge:self.challengeMock];
 }
@@ -118,7 +121,7 @@
         return credential;
     };
     
-    [self.request connection:nil willSendRequestForAuthenticationChallenge:self.challengeMock];
+    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
     
     [MKTVerify(self.senderMock) useCredential:credential forAuthenticationChallenge:self.challengeMock];
 }
@@ -134,7 +137,7 @@
         return credential;
     };
     
-    [self.request connection:nil willSendRequestForAuthenticationChallenge:self.challengeMock];
+    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
     
     [MKTVerifyCount(self.senderMock, MKTNever()) useCredential:credential forAuthenticationChallenge:self.challengeMock];
     [MKTVerify(self.senderMock) useCredential:HC_notNilValue() forAuthenticationChallenge:self.challengeMock];
@@ -151,7 +154,7 @@
         return credential;
     };
     
-    [self.request connection:nil willSendRequestForAuthenticationChallenge:self.challengeMock];
+    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
     
     [MKTVerifyCount(self.senderMock, MKTNever()) useCredential:credential forAuthenticationChallenge:self.challengeMock];
     [MKTVerify(self.senderMock) useCredential:[self.captor capture] forAuthenticationChallenge:self.challengeMock];
@@ -172,7 +175,7 @@
         return credential;
     };
     
-    [self.request connection:nil willSendRequestForAuthenticationChallenge:self.challengeMock];
+    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
     
     [MKTVerify(self.senderMock) useCredential:[self.captor capture] forAuthenticationChallenge:self.challengeMock];
     
@@ -192,7 +195,7 @@
         return credential;
     };
     
-    [self.request connection:nil willSendRequestForAuthenticationChallenge:self.challengeMock];
+    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
     
     [MKTVerify(self.senderMock) useCredential:[self.captor capture] forAuthenticationChallenge:self.challengeMock];
     
@@ -213,7 +216,7 @@
         return credential;
     };
     
-    [self.request connection:nil willSendRequestForAuthenticationChallenge:self.challengeMock];
+    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
     
     [MKTVerify(self.senderMock) useCredential:[self.captor capture] forAuthenticationChallenge:self.challengeMock];
     

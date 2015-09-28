@@ -18,6 +18,7 @@
 @interface GIGURLCommunicatorTests : XCTestCase
 
 @property (strong, nonatomic) GIGURLManager *managerMock;
+@property (strong, nonatomic) NSURLConnection *connectionMock;
 @property (strong, nonatomic) GIGURLCommunicator *communicator;
 
 @end
@@ -30,12 +31,15 @@
     [super setUp];
     
     self.managerMock = MKTMock([GIGURLManager class]);
+    self.connectionMock = MKTMock([NSURLConnection class]);
+    
     self.communicator = [[GIGURLCommunicator alloc] initWithManager:self.managerMock];
 }
 
 - (void)tearDown
 {
     self.managerMock = nil;
+    self.connectionMock = nil;
     self.communicator = nil;
     
     [super tearDown];
@@ -80,9 +84,9 @@
     
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
-    [request connection:nil didReceiveResponse:HTTPResponse];
-    [request connection:nil didReceiveData:data];
-    [request connectionDidFinishLoading:nil];
+    [request connection:self.connectionMock didReceiveResponse:HTTPResponse];
+    [request connection:self.connectionMock didReceiveData:data];
+    [request connectionDidFinishLoading:self.connectionMock];
     
     XCTAssert([response.data isEqualToData:data]);
 }
@@ -131,9 +135,9 @@
                                                                       statusCode:200
                                                                      HTTPVersion:@"HTTP/1.1"
                                                                     headerFields:nil];
-        [request connection:nil didReceiveResponse:HTTPResponse];
-        [request connection:nil didReceiveData:data];
-        [request connectionDidFinishLoading:nil];
+        [request connection:self.connectionMock didReceiveResponse:HTTPResponse];
+        [request connection:self.connectionMock didReceiveData:data];
+        [request connectionDidFinishLoading:self.connectionMock];
     });
 }
 
@@ -146,9 +150,9 @@
                                                                       statusCode:200
                                                                      HTTPVersion:@"HTTP/1.1"
                                                                     headerFields:nil];
-        [request connection:nil didReceiveResponse:HTTPResponse];
-        [request connection:nil didReceiveData:data];
-        [request connectionDidFinishLoading:nil];
+        [request connection:self.connectionMock didReceiveResponse:HTTPResponse];
+        [request connection:self.connectionMock didReceiveData:data];
+        [request connectionDidFinishLoading:self.connectionMock];
     });
 }
 
@@ -161,7 +165,7 @@
                                                                       statusCode:statusCode
                                                                      HTTPVersion:@"HTTP/1.1"
                                                                     headerFields:nil];
-        [request connection:nil didReceiveResponse:HTTPResponse];
+        [request connection:self.connectionMock didReceiveResponse:HTTPResponse];
     });
 }
 

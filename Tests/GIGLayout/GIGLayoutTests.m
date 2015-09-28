@@ -211,7 +211,7 @@
     CGFloat expectedHeight = parent.frame.size.height - 50 - 10;
     XCTAssertFalse(view.frame.origin.y == expectedHeight, @"%d", (int)view.frame.origin.y);
     [parent layoutIfNeeded];
-    XCTAssertTrue(view.frame.origin.y == expectedHeight, @"%d", (int)view.frame.origin.y);
+    XCTAssertTrue(view.frame.origin.y == expectedHeight, @"%d, expected: %d", (int)view.frame.origin.y, (int)expectedHeight);
 }
 
 - (void)testLayoutLeft
@@ -244,7 +244,7 @@
     CGFloat expectedX = parent.frame.size.width - 50 - 10;
     XCTAssertFalse(view.frame.origin.x == expectedX, @"%d", (int)view.frame.origin.x);
     [parent layoutIfNeeded];
-    XCTAssertTrue(view.frame.origin.x == expectedX, @"%d", (int)view.frame.origin.x);
+    XCTAssertTrue(view.frame.origin.x == expectedX, @"%d, expected: %d", (int)view.frame.origin.x, (int)expectedX);
 }
 
 - (void)testLayoutBelowView
@@ -286,9 +286,9 @@
     gig_layout_above(view, belowView, 10);
     
     CGFloat expectedY = 200 - 10 - 50 - 10 - 50;
-    XCTAssertFalse(view.frame.origin.y == expectedY, @"%d", (int)view.frame.origin.y);
+    XCTAssertFalse(view.frame.origin.y == expectedY, @"%d, expected: %d", (int)view.frame.origin.y, (int)expectedY);
     [parent layoutIfNeeded];
-    XCTAssertTrue(view.frame.origin.y == expectedY, @"%d", (int)view.frame.origin.y);
+    XCTAssertTrue(view.frame.origin.y == expectedY, @"%d, expected: %d", (int)view.frame.origin.y, (int)expectedY);
 }
 
 - (void)testLayoutLeftView
