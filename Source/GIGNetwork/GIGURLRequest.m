@@ -147,7 +147,7 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 
     if (self.completion != nil)
     {
-        GIGURLResponse *response = [[self.responseClass alloc] initWithError:self.error headers:self.response.allHeaderFields];
+        GIGURLResponse *response = [[self.responseClass alloc] initWithError:self.error headers:self.response.allHeaderFields data:self.data];
         self.completion(response);
     }
 }

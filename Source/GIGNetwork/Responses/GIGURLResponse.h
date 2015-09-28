@@ -18,7 +18,7 @@
 
 - (instancetype)initWithData:(NSData *)data headers:(NSDictionary *)headers;
 - (instancetype)initWithData:(NSData *)data;
-- (instancetype)initWithError:(NSError *)error headers:(NSDictionary *)headers;
+- (instancetype)initWithError:(NSError *)error headers:(NSDictionary *)headers data:(NSData *)data;
 - (instancetype)initWithError:(NSError *)error;
 - (instancetype)initWithSuccess:(BOOL)success;
 
