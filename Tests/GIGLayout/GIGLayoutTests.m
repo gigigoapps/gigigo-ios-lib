@@ -201,6 +201,8 @@
 {
     UIView *parent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 200)];
     gig_autoresize(parent, NO);
+    gig_constrain_size(parent, parent.frame.size);
+    
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     gig_autoresize(view, NO);
     gig_constrain_size(view, CGSizeMake(50, 50));
@@ -211,6 +213,7 @@
     CGFloat expectedHeight = parent.frame.size.height - 50 - 10;
     XCTAssertFalse(view.frame.origin.y == expectedHeight, @"%d", (int)view.frame.origin.y);
     [parent layoutIfNeeded];
+    XCTAssertTrue(parent.frame.size.height != 0);
     XCTAssertTrue(view.frame.origin.y == expectedHeight, @"%d, expected: %d", (int)view.frame.origin.y, (int)expectedHeight);
 }
 
@@ -234,6 +237,8 @@
 {
     UIView *parent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 200)];
     gig_autoresize(parent, NO);
+    gig_constrain_size(parent, parent.frame.size);
+    
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     gig_autoresize(view, NO);
     gig_constrain_size(view, CGSizeMake(50, 50));
@@ -273,6 +278,8 @@
 {
     UIView *parent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 200)];
     gig_autoresize(parent, NO);
+    gig_constrain_size(parent, parent.frame.size);
+    
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     gig_autoresize(view, NO);
     gig_constrain_size(view, CGSizeMake(50, 50));
