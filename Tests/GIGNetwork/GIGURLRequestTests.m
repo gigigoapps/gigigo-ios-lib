@@ -76,6 +76,33 @@
     XCTAssertTrue(response.error.code == 404);
 }
 
+- (void)test_Request_response_500_with_data
+{
+    __block GIGURLResponse *response = nil;
+    self.request.completion = ^(id resp) {
+        response = resp;
+    };
+    [self.request send];
+    
+
+    NSString* str = @"data string";
+    NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *URL = [NSURL URLWithString:@"http://url"];
+    NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:404 HTTPVersion:@"HTTP/1.1" headerFields:nil];
+    [self.request connection:self.connectionMock didReceiveResponse:HTTPResponse];
+    
+    NSError *error = [NSError errorWithDomain:@"com.gigigo.errorCode" code:500 userInfo:nil];
+    [self.request connection:self.connectionMock didReceiveData:data];
+    [self.request connection:self.connectionMock didFailWithError:error];
+    
+    XCTAssertNotNil(response);
+    XCTAssertFalse(response.success);
+    XCTAssertTrue(response.error.code == 500);
+    XCTAssertNotNil(response.data);
+}
+
+
 - (void)test_Request_response_200
 {
     __block GIGURLResponse *response = nil;
