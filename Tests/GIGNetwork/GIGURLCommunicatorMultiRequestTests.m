@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) GIGURLManager *managerMock;
 @property (strong, nonatomic) GIGURLRequestFactory *requestFactoryMock;
+@property (strong, nonatomic) NSURLConnection *connectionMock;
 @property (strong, nonatomic) GIGURLCommunicator *communicator;
 @property (strong, nonatomic) GIGURLRequest *request1;
 @property (strong, nonatomic) GIGURLRequest *request2;
@@ -35,6 +36,8 @@
     
     self.managerMock = MKTMock([GIGURLManager class]);
     self.requestFactoryMock = MKTMock([GIGURLRequestFactory class]);
+    self.connectionMock = MKTMock([NSURLConnection class]);
+    
     self.communicator = [[GIGURLCommunicator alloc] initWithRequestFactory:self.requestFactoryMock manager:self.managerMock];
     
     self.request1 = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url1" connectionBuilder:nil requestLogger:nil manager:self.managerMock];
@@ -47,6 +50,7 @@
 {
     self.managerMock = nil;
     self.requestFactoryMock = nil;
+    self.connectionMock = nil;
     self.communicator = nil;
     self.request1 = nil;
     self.request2 = nil;
@@ -155,9 +159,9 @@
                                                                       statusCode:200
                                                                      HTTPVersion:@"HTTP/1.1"
                                                                     headerFields:nil];
-        [request connection:nil didReceiveResponse:HTTPResponse];
-        [request connection:nil didReceiveData:data];
-        [request connectionDidFinishLoading:nil];
+        [request connection:self.connectionMock didReceiveResponse:HTTPResponse];
+        [request connection:self.connectionMock didReceiveData:data];
+        [request connectionDidFinishLoading:self.connectionMock];
     });
 }
 
@@ -170,7 +174,8 @@
                                                                       statusCode:statusCode
                                                                      HTTPVersion:@"HTTP/1.1"
                                                                     headerFields:nil];
-        [request connection:nil didReceiveResponse:HTTPResponse];
+        [request connection:self.connectionMock didReceiveResponse:HTTPResponse];
+        [request connectionDidFinishLoading:self.connectionMock];
     });
 }
 

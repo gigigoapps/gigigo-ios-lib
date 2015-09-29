@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
+#import "GIGTests.h"
+
 #import "GIGURLRequest.h"
 
 
 @interface GIGURLRequestTests : XCTestCase
 
 @property (strong, nonatomic) GIGURLRequest *request;
+@property (strong, nonatomic) NSURLConnection *connectionMock;
 
 @end
 
@@ -25,11 +28,13 @@
 {
     [super setUp];
     
+    self.connectionMock = MKTMock([NSURLConnection class]);
     self.request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url" connectionBuilder:nil requestLogger:nil manager:nil];
 }
 
 - (void)tearDown
 {
+    self.connectionMock = nil;
     self.request = nil;
     
     [super tearDown];
@@ -46,7 +51,7 @@
     [self.request send];
     
     NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:nil];
-    [self.request connection:nil didFailWithError:error];
+    [self.request connection:self.connectionMock didFailWithError:error];
     
     XCTAssertNotNil(response);
     XCTAssertFalse(response.success);
@@ -63,12 +68,40 @@
     
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:404 HTTPVersion:@"HTTP/1.1" headerFields:nil];
-    [self.request connection:nil didReceiveResponse:HTTPResponse];
+    [self.request connection:self.connectionMock didReceiveResponse:HTTPResponse];
+    [self.request connectionDidFinishLoading:self.connectionMock];
     
     XCTAssertNotNil(response);
     XCTAssertFalse(response.success);
     XCTAssertTrue(response.error.code == 404);
 }
+
+- (void)test_Request_response_500_with_data
+{
+    __block GIGURLResponse *response = nil;
+    self.request.completion = ^(id resp) {
+        response = resp;
+    };
+    [self.request send];
+    
+
+    NSString* str = @"data string";
+    NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *URL = [NSURL URLWithString:@"http://url"];
+    NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:404 HTTPVersion:@"HTTP/1.1" headerFields:nil];
+    [self.request connection:self.connectionMock didReceiveResponse:HTTPResponse];
+    
+    NSError *error = [NSError errorWithDomain:@"com.gigigo.errorCode" code:500 userInfo:nil];
+    [self.request connection:self.connectionMock didReceiveData:data];
+    [self.request connection:self.connectionMock didFailWithError:error];
+    
+    XCTAssertNotNil(response);
+    XCTAssertFalse(response.success);
+    XCTAssertTrue(response.error.code == 500);
+    XCTAssertNotNil(response.data);
+}
+
 
 - (void)test_Request_response_200
 {
@@ -88,9 +121,9 @@
     
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
-    [self.request connection:nil didReceiveResponse:HTTPResponse];
-    [self.request connection:nil didReceiveData:data];
-    [self.request connectionDidFinishLoading:nil];
+    [self.request connection:self.connectionMock didReceiveResponse:HTTPResponse];
+    [self.request connection:self.connectionMock didReceiveData:data];
+    [self.request connectionDidFinishLoading:self.connectionMock];
     
     XCTAssertNotNil(response);
     XCTAssertTrue(response.success);
@@ -118,8 +151,8 @@
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSDictionary *headerFields = @{@"Content-Length": [NSString stringWithFormat:@"%ld", (long)data.length]};
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:headerFields];
-    [self.request connection:nil didReceiveResponse:HTTPResponse];
-    [self.request connection:nil didReceiveData:data];
+    [self.request connection:self.connectionMock didReceiveResponse:HTTPResponse];
+    [self.request connection:self.connectionMock didReceiveData:data];
     
     XCTAssertTrue(progress == 1.0f, @"%f", progress);
 }
@@ -134,8 +167,8 @@
     
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
-    [self.request connection:nil didReceiveResponse:HTTPResponse];
-    [self.request connection:nil didSendBodyData:10 totalBytesWritten:10 totalBytesExpectedToWrite:20];
+    [self.request connection:self.connectionMock didReceiveResponse:HTTPResponse];
+    [self.request connection:self.connectionMock didSendBodyData:10 totalBytesWritten:10 totalBytesExpectedToWrite:20];
     
     XCTAssertTrue(progress == 0.5f, @"%f", progress);
 }
