@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class FBSDKLoginManager;
+
 
 typedef void(^GIGFacebookLoginCompletion)(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error);
 
 
 @interface GIGFacebook : NSObject
+
+- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager;
 
 - (void)login:(GIGFacebookLoginCompletion)completionHandler;
 

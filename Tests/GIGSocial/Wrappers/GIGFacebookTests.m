@@ -11,12 +11,14 @@
 
 #import "GIGFacebook.h"
 #import "FBSDKAccessTokenMock.h"
+#import "GIGLoginManagerMock.h"
 
 
 @interface GIGFacebookTests : XCTestCase
 
 @property (strong, nonatomic) GIGFacebook *facebook;
 @property (strong, nonatomic) FBSDKAccessTokenMock *accessTokenMock;
+@property (strong, nonatomic) GIGLoginManagerMock *loginManagerMock;
 
 @end
 
@@ -31,7 +33,9 @@
 	self.accessTokenMock = [[FBSDKAccessTokenMock alloc] init];
 	[self.accessTokenMock swizzleMethods];
 	
-	self.facebook = [[GIGFacebook alloc] init];
+	self.loginManagerMock = [[GIGLoginManagerMock alloc] init];
+	
+	self.facebook = [[GIGFacebook alloc] initWithLoginManager:self.loginManagerMock];
 }
 
 
@@ -58,8 +62,6 @@
 	self.accessTokenMock.userID = @"USER_ID_1";
 	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
 	
-	[FBSDKAccessToken currentAccessToken];
-	
 	__block BOOL completionCalled = NO;
 	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
 	{
@@ -71,6 +73,28 @@
 		XCTAssertFalse(isCancelled);
 		XCTAssertNil(error);
 	}];
+	
+	
+	XCTAssertTrue(completionCalled);
+}
+
+
+- (void)test_login_with_error
+{
+	self.accessTokenMock.hasCurrentAccessToken = NO;
+	self.loginManagerMock.error = [NSError errorWithDomain:@"TESTFACEBOOK" code:3 userInfo:nil];
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
+	 {
+		 completionCalled = YES;
+		 
+		 XCTAssertTrue(success == NO);
+		 XCTAssertTrue(userID == nil, @"%@", [self errorTestLogForObject:userID]);
+		 XCTAssertTrue(accessToken == nil, @"%@", [self errorTestLogForObject:accessToken]);
+		 XCTAssertFalse(isCancelled);
+		 XCTAssertTrue([error.domain isEqualToString:@"TESTFACEBOOK"] && error.code == 3);
+	 }];
 	
 	
 	XCTAssertTrue(completionCalled);

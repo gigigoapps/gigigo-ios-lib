@@ -13,7 +13,37 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 
+@interface GIGFacebook ()
+
+@property (strong, nonatomic) FBSDKLoginManager *loginManager;
+
+@end
+
+
+
+
 @implementation GIGFacebook
+
+
+- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager
+{
+	self = [super init];
+	
+	if (self)
+	{
+		self.loginManager = loginManager;
+	}
+	
+	return self;
+}
+
+
+- (instancetype)init
+{
+	FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+	
+	return [self initWithLoginManager:loginManager];
+}
 
 
 - (void)login:(GIGFacebookLoginCompletion)completionHandler
@@ -25,8 +55,7 @@
 	}
 	else
 	{
-		FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-		[login logInWithReadPermissions:@[@"public_profile", @"email"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error)
+		[self.loginManager logInWithReadPermissions:@[@"public_profile", @"email"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error)
 		 {
 			 if (error)
 			 {
