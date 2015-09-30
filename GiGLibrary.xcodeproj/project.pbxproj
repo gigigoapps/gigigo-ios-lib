@@ -372,6 +372,8 @@
 		D9E10E6A1BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734E1BBBC4E000AB5655 /* GIGURLJSONResponseTests.m */; settings = {ASSET_TAGS = (); }; };
 		D9E10E6B1BBBC7820016C00B /* GIGURLResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734F1BBBC4E000AB5655 /* GIGURLResponseTests.m */; settings = {ASSET_TAGS = (); }; };
 		D9E10E6C1BBBC7830016C00B /* GIGURLResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734F1BBBC4E000AB5655 /* GIGURLResponseTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E721BBBD3360016C00B /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E10E711BBBD3360016C00B /* GLAMultiRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E731BBBD3360016C00B /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E10E711BBBD3360016C00B /* GLAMultiRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
 		D9E4661B1B411E9F00EC6C72 /* GIGURLJSONResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9E4661C1B411E9F00EC6C72 /* GIGURLJSONResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9E4661D1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */; };
@@ -646,6 +648,8 @@
 		D9AD96FA1B0A386500CB5E8C /* GIGLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIGLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AD96FD1B0A386500CB5E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9E10E6D1BBBD0390016C00B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D9E10E701BBBD3360016C00B /* GLAMultiRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLAMultiRequestViewController.h; path = Network/GLAMultiRequestViewController.h; sourceTree = "<group>"; };
+		D9E10E711BBBD3360016C00B /* GLAMultiRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLAMultiRequestViewController.m; path = Network/GLAMultiRequestViewController.m; sourceTree = "<group>"; };
 		D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLJSONResponse.h; sourceTree = "<group>"; };
 		D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLJSONResponse.m; sourceTree = "<group>"; };
 		FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1192,6 +1196,7 @@
 			isa = PBXGroup;
 			children = (
 				D99AD35F1B1DAAE6005BB4E5 /* Main */,
+				D9E10E6F1BBBD3110016C00B /* Network */,
 				FAA80A7A1B70CFE40076FF9E /* Social */,
 				D99AD3661B1DAAE6005BB4E5 /* Resources */,
 				D99AD3881B1DAAEB005BB4E5 /* Supporting Files */,
@@ -1318,6 +1323,15 @@
 				D9AD96FD1B0A386500CB5E8C /* Info.plist */,
 			);
 			path = GIGLibraryTests;
+			sourceTree = "<group>";
+		};
+		D9E10E6F1BBBD3110016C00B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D9E10E701BBBD3360016C00B /* GLAMultiRequestViewController.h */,
+				D9E10E711BBBD3360016C00B /* GLAMultiRequestViewController.m */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		FA65BF8F1AEFD5F80031A91B = {
@@ -1662,6 +1676,7 @@
 		FA65BF901AEFD5F80031A91B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = "";
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Gigigo SL";
 				TargetAttributes = {
@@ -1883,6 +1898,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99AD3751B1DAAE6005BB4E5 /* GLAMainViewController.m in Sources */,
+				D9E10E731BBBD3360016C00B /* GLAMultiRequestViewController.m in Sources */,
 				D99AD3771B1DAAE6005BB4E5 /* main.m in Sources */,
 				D99AD3711B1DAAE6005BB4E5 /* AppDelegate.m in Sources */,
 			);
@@ -2021,6 +2037,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99AD3741B1DAAE6005BB4E5 /* GLAMainViewController.m in Sources */,
+				D9E10E721BBBD3360016C00B /* GLAMultiRequestViewController.m in Sources */,
 				D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */,
 				D99AD3701B1DAAE6005BB4E5 /* AppDelegate.m in Sources */,
 			);

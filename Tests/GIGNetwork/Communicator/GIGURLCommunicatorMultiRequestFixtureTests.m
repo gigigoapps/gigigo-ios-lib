@@ -45,11 +45,9 @@
     
     self.request1 = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url1" connectionBuilder:nil requestLogger:nil manager:self.managerMock];
     self.request1.requestTag = @"request1";
-    self.request1.fixtureDelay = GIGURLRequestFixtureDelayNone;
     
     self.request2 = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url2" connectionBuilder:nil requestLogger:nil manager:self.managerMock];
     self.request2.requestTag = @"request2";
-    self.request2.fixtureDelay = GIGURLRequestFixtureDelayNone;
     
     self.requestFactoryMock = MKTMock([GIGURLRequestFactory class]);
     [MKTGiven([self.requestFactoryMock requestWithMethod:@"GET" url:@"http://url1"]) willReturn:self.request1];
@@ -148,6 +146,25 @@
         XCTAssert(response2.error != nil);
         XCTAssert(response2.error.code == 404);
     }];
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError * _Nullable error) {}];
+}
+
+- (void)test_Multirequest_with_no_retained_request
+{
+    {
+        GIGURLRequest *request = [[GIGURLRequest alloc] init];
+        request.requestTag = @"request";
+        
+        XCTestExpectation *expectation = [self expectationWithDescription:@"All requests have finished"];
+        NSDictionary *requests = @{@"request": request};
+        
+        [self.communicator sendRequests:requests completion:^(NSDictionary *responses) {
+            [expectation fulfill];
+            
+            XCTAssert(responses != nil);
+        }];
+    }
     
     [self waitForExpectationsWithTimeout:1 handler:^(NSError * _Nullable error) {}];
 }
