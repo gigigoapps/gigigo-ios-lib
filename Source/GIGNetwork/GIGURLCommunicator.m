@@ -18,6 +18,7 @@
 @property (strong, nonatomic) GIGURLManager *manager;
 
 @property (strong, nonatomic) GIGURLRequest *lastRequest;
+@property (strong, nonatomic) NSDictionary *requests;
 @property (copy, nonatomic) GIGURLMultiRequestCompletion requestsCompletion;
 
 @end
@@ -107,6 +108,7 @@
 
 - (void)sendRequests:(NSDictionary *)requests completion:(GIGURLMultiRequestCompletion)completion
 {
+    self.requests = requests;
     self.requestsCompletion = completion;
     
     NSMutableDictionary *responses = [[NSMutableDictionary alloc] initWithCapacity:requests.count];
@@ -125,6 +127,8 @@
     
     __weak typeof(self) this = self;
     dispatch_group_notify(groupRequests, dispatch_get_main_queue(), ^{
+        this.requests = nil;
+        
         if (this.requestsCompletion)
         {
             this.requestsCompletion(responses);

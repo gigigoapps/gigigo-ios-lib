@@ -11,11 +11,13 @@
 
 #import "GIGTests.h"
 
+#import "GIGURLManager.h"
 #import "GIGURLRequest.h"
 
 
 @interface GIGURLRequestTests : XCTestCase
 
+@property (strong, nonatomic) GIGURLManager *managerMock;
 @property (strong, nonatomic) GIGURLRequest *request;
 @property (strong, nonatomic) NSURLConnection *connectionMock;
 
@@ -28,12 +30,14 @@
 {
     [super setUp];
     
+    self.managerMock = MKTMock([GIGURLManager class]);
     self.connectionMock = MKTMock([NSURLConnection class]);
-    self.request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url" connectionBuilder:nil requestLogger:nil manager:nil];
+    self.request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url" connectionBuilder:nil requestLogger:nil manager:self.managerMock];
 }
 
 - (void)tearDown
 {
+    self.managerMock = nil;
     self.connectionMock = nil;
     self.request = nil;
     
@@ -41,6 +45,13 @@
 }
 
 #pragma mark - TESTS
+
+- (void)test_Request_init
+{
+    GIGURLRequest *request = [[GIGURLRequest alloc] init];
+    
+    XCTAssert(request != nil);
+}
 
 - (void)test_Request_error
 {
@@ -101,7 +112,6 @@
     XCTAssertTrue(response.error.code == 500);
     XCTAssertNotNil(response.data);
 }
-
 
 - (void)test_Request_response_200
 {
