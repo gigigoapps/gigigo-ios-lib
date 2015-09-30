@@ -11,5 +11,6 @@
 @interface GIGLoginManagerMock : FBSDKLoginManager
 
 @property (strong, nonatomic) NSError *error;
+@property (strong, nonatomic) FBSDKLoginManagerLoginResult *loginResult;
 
 @end

@@ -12,10 +12,7 @@
 
 - (void)logInWithReadPermissions:(NSArray *)permissions handler:(FBSDKLoginManagerRequestTokenHandler)handler
 {
-	if (self.error)
-	{
-		handler(nil, self.error);
-	}
+	handler(self.loginResult, self.error);
 }
 
 @end

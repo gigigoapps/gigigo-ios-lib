@@ -74,7 +74,6 @@
 		XCTAssertNil(error);
 	}];
 	
-	
 	XCTAssertTrue(completionCalled);
 }
 
@@ -96,9 +95,67 @@
 		 XCTAssertTrue([error.domain isEqualToString:@"TESTFACEBOOK"] && error.code == 3);
 	 }];
 	
+	XCTAssertTrue(completionCalled);
+}
+
+
+- (void)test_login_cancelled
+{
+	FBSDKLoginManagerLoginResult *result = [[FBSDKLoginManagerLoginResult alloc] initWithToken:nil
+																				   isCancelled:YES
+																			grantedPermissions:nil
+																		   declinedPermissions:nil];
+	
+	self.accessTokenMock.hasCurrentAccessToken = NO;
+	self.loginManagerMock.loginResult = result;
+	self.loginManagerMock.error = nil;
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
+	 {
+		 completionCalled = YES;
+		 
+		 XCTAssertTrue(success == NO);
+		 XCTAssertTrue(userID == nil, @"%@", [self errorTestLogForObject:userID]);
+		 XCTAssertTrue(accessToken == nil, @"%@", [self errorTestLogForObject:accessToken]);
+		 XCTAssertTrue(isCancelled == YES);
+		 XCTAssertNil(error);
+	 }];
 	
 	XCTAssertTrue(completionCalled);
 }
+
+
+- (void)test_login_success
+{
+	self.accessTokenMock.hasCurrentAccessToken = YES;
+	self.accessTokenMock.userID = @"USER_ID_1";
+	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
+	
+	FBSDKLoginManagerLoginResult *result = [[FBSDKLoginManagerLoginResult alloc] initWithToken:self.accessTokenMock
+																				   isCancelled:NO
+																			grantedPermissions:nil
+																		   declinedPermissions:nil];
+	
+	self.accessTokenMock.hasCurrentAccessToken = NO;
+	self.loginManagerMock.loginResult = result;
+	self.loginManagerMock.error = nil;
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
+	 {
+		 completionCalled = YES;
+		 
+		 XCTAssertTrue(success == YES);
+		 XCTAssertTrue([userID isEqualToString:@"USER_ID_1"], @"%@", [self errorTestLogForObject:userID]);
+		 XCTAssertTrue([accessToken isEqualToString:@"ACCESS_TOKEN_1"], @"%@", [self errorTestLogForObject:accessToken]);
+		 XCTAssertTrue(isCancelled == NO);
+		 XCTAssertNil(error);
+	 }];
+	
+	XCTAssertTrue(completionCalled);
+}
+
 
 
 #pragma mark - HELPERS
