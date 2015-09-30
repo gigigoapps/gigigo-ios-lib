@@ -29,7 +29,6 @@
 		D9637D7A1B0C90C000FD8E4D /* GIGLibrary.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D97448B51B944F9C0007C3AC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */; };
 		D97448B61B944F9E0007C3AC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A731B70C9DD0076FF9E /* FBSDKCoreKit.framework */; };
-		D97448B91B94684E0007C3AC /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D99AD11F1B1D978B005BB4E5 /* libGIGStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A91006561B0CCE8E0080B812 /* libGIGStaticLibrary.a */; };
 		D99AD12C1B1D9866005BB4E5 /* libGIGStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A91006561B0CCE8E0080B812 /* libGIGStaticLibrary.a */; };
 		D99AD1F71B1DA3A3005BB4E5 /* GIGConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D99AD14E1B1DA3A3005BB4E5 /* GIGConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -365,14 +364,10 @@
 		D9E10E681BBBC7770016C00B /* GIGURLImageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734D1BBBC4E000AB5655 /* GIGURLImageResponseTests.m */; settings = {ASSET_TAGS = (); }; };
 		D9E10E691BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734E1BBBC4E000AB5655 /* GIGURLJSONResponseTests.m */; settings = {ASSET_TAGS = (); }; };
 		D9E10E6A1BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734E1BBBC4E000AB5655 /* GIGURLJSONResponseTests.m */; settings = {ASSET_TAGS = (); }; };
-		D9E10E731BBBD3360016C00B /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E10E711BBBD3360016C00B /* GLAMultiRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
 		D9E4661B1B411E9F00EC6C72 /* GIGURLJSONResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9E4661C1B411E9F00EC6C72 /* GIGURLJSONResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9E4661D1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */; };
 		D9E4661E1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */; };
-		D9E466211B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661F1B41215200EC6C72 /* GIGURLJSONResponseTests.m */; };
-		D9FD35D41B4124CC000D356F /* GIGURLResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35D21B4124CC000D356F /* GIGURLResponseTests.m */; };
-		D9FD35DA1B412A72000D356F /* GIGURLImageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35D81B412A72000D356F /* GIGURLImageResponseTests.m */; };
 		FA1F80741B71EDFA003699DE /* GIGFacebookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */; };
 		FA1F80751B71EDFA003699DE /* GIGFacebookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */; };
 		FA3497B31B70E72D00F274F0 /* GIGSocialLogin.h in Headers */ = {isa = PBXBuildFile; fileRef = FA74BCF81B6F6DEA001D2BCF /* GIGSocialLogin.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -408,6 +403,7 @@
 		FACE6D9A1BBC116300457B4C /* GLALoginFacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FACE6D9C1BBC116D00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FACE6D9E1BBC3D2700457B4C /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -673,12 +669,8 @@
 		D9AD96FA1B0A386500CB5E8C /* GIGLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIGLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AD96FD1B0A386500CB5E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9E10E6D1BBBD0390016C00B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		D9E10E711BBBD3360016C00B /* GLAMultiRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLAMultiRequestViewController.m; path = Network/GLAMultiRequestViewController.m; sourceTree = "<group>"; };
 		D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLJSONResponse.h; sourceTree = "<group>"; };
 		D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLJSONResponse.m; sourceTree = "<group>"; };
-		D9E4661F1B41215200EC6C72 /* GIGURLJSONResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLJSONResponseTests.m; sourceTree = "<group>"; };
-		D9FD35D21B4124CC000D356F /* GIGURLResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLResponseTests.m; sourceTree = "<group>"; };
-		D9FD35D81B412A72000D356F /* GIGURLImageResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLImageResponseTests.m; sourceTree = "<group>"; };
 		FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFacebookTests.m; path = GIGSocial/Wrappers/GIGFacebookTests.m; sourceTree = "<group>"; };
 		FA3F10831B71F0D500517468 /* FBSDKAccessTokenMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBSDKAccessTokenMock.h; path = GIGSocial/Mocks/FBSDKAccessTokenMock.h; sourceTree = "<group>"; };
 		FA3F10841B71F0D500517468 /* FBSDKAccessTokenMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBSDKAccessTokenMock.m; path = GIGSocial/Mocks/FBSDKAccessTokenMock.m; sourceTree = "<group>"; };
@@ -2048,7 +2040,6 @@
 			files = (
 				D99AD3751B1DAAE6005BB4E5 /* GLAMainViewController.m in Sources */,
 				FACE6D9C1BBC116D00457B4C /* GLAMultiRequestViewController.m in Sources */,
-				D9E10E731BBBD3360016C00B /* GLAMultiRequestViewController.m in Sources */,
 				FACE6D9A1BBC116300457B4C /* GLALoginFacebookViewController.m in Sources */,
 				D99AD3771B1DAAE6005BB4E5 /* main.m in Sources */,
 				D99AD3711B1DAAE6005BB4E5 /* AppDelegate.m in Sources */,
@@ -2069,11 +2060,8 @@
 				FA74BD011B6F7050001D2BCF /* GIGSocialLoginTests.m in Sources */,
 				D99AD34F1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m in Sources */,
 				D99AD3471B1DA3B9005BB4E5 /* GIGURLFormatterTests.m in Sources */,
-				D9E466211B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */,
 				FA3F10861B71F0D500517468 /* FBSDKAccessTokenMock.m in Sources */,
-				D9FD35D41B4124CC000D356F /* GIGURLResponseTests.m in Sources */,
-				D9FD35DA1B412A72000D356F /* GIGURLImageResponseTests.m in Sources */,
-				D97448B91B94684E0007C3AC /* (null) in Sources */,
+				FACE6D9E1BBC3D2700457B4C /* GIGLoginManagerMock.m in Sources */,
 				FA3F10881B71F1B800517468 /* GIGFacebookMock.m in Sources */,
 				D99AD3511B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
 				D9E10E641BBBC76D0016C00B /* GIGURLRequestFixtureTests.m in Sources */,

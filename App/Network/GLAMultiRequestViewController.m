@@ -7,6 +7,8 @@
 //
 
 #import "GLAMultiRequestViewController.h"
+#import "GIGURLCommunicator.h"
+#import "GIGURLManager.h"
 
 
 @interface GLAMultiRequestViewController ()
