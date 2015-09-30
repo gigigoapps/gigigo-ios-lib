@@ -15,8 +15,12 @@
 #import "GIGDispatch.h"
 
 
-static NSString * const GIGNetworkErrorDomain = @"com.gigigo.network";
-static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
+NSString * const GIGNetworkErrorDomain = @"com.gigigo.network";
+
+NSTimeInterval const GIGURLRequestTimeoutDefault = 0.0f;
+NSTimeInterval const GIGURLRequestFixtureDelayDefault = 0.5f;
+NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
+
 
 
 @interface GIGURLRequest ()
@@ -37,6 +41,11 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 
 
 @implementation GIGURLRequest
+
+- (instancetype)init
+{
+    return [self initWithMethod:@"GET" url:nil];
+}
 
 - (instancetype)initWithMethod:(NSString *)method url:(NSString *)url
 {
@@ -68,7 +77,8 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
         _manager = manager;
         
         _cachePolicy = NSURLRequestUseProtocolCachePolicy;
-        _timeout = 0;
+        _timeout = GIGURLRequestTimeoutDefault;
+        _fixtureDelay = GIGURLRequestFixtureDelayDefault;
         _responseClass = [GIGURLResponse class];
         _logLevel = GIGLogLevelError;
     }
@@ -97,10 +107,17 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 {
     if (self.manager.useFixture)
     {
-        __weak typeof(self) this = self;
-        gig_dispatch_after_seconds(GIGNetworkMockDelay, ^{
-            [this completeWithMock];
-        });
+        if (self.fixtureDelay == GIGURLRequestFixtureDelayNone)
+        {
+            [self completeWithFixture];
+        }
+        else
+        {
+            __weak typeof(self) this = self;
+            gig_dispatch_after_seconds(GIGURLRequestFixtureDelayDefault, ^{
+                [this completeWithFixture];
+            });
+        }
         
         return;
     }
@@ -152,12 +169,12 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
     }
 }
 
-- (void)completeWithMock
+- (void)completeWithFixture
 {
     NSURL *URL = [NSURL URLWithString:self.url];
     self.response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
     
-    NSData *mockData = [self.manager mockForRequestTag:self.requestTag];
+    NSData *mockData = [self.manager fixtureForRequestTag:self.requestTag];
     if (!mockData)
     {
         self.error = [NSError errorWithDomain:GIGNetworkErrorDomain code:404 userInfo:nil];

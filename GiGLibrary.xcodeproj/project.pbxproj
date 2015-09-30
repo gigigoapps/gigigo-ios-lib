@@ -27,8 +27,6 @@
 		D908676A1B42A3E400193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
 		D909EFEA1B0DC2FF00DD4D97 /* GIGLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9637D7A1B0C90C000FD8E4D /* GIGLibrary.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D97448B81B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D97448B71B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m */; };
-		D97448B91B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D97448B71B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m */; };
 		D99AD11F1B1D978B005BB4E5 /* libGIGStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A91006561B0CCE8E0080B812 /* libGIGStaticLibrary.a */; };
 		D99AD12C1B1D9866005BB4E5 /* libGIGStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A91006561B0CCE8E0080B812 /* libGIGStaticLibrary.a */; };
 		D99AD1F71B1DA3A3005BB4E5 /* GIGConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D99AD14E1B1DA3A3005BB4E5 /* GIGConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -303,10 +301,6 @@
 		D99AD3041B1DA3A3005BB4E5 /* UIView+GIGTransformExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD1F61B1DA3A3005BB4E5 /* UIView+GIGTransformExtension.m */; };
 		D99AD3381B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31E1B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m */; };
 		D99AD3391B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31E1B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m */; };
-		D99AD33C1B1DA3B9005BB4E5 /* GIGURLCommunicatorMultiRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3211B1DA3B9005BB4E5 /* GIGURLCommunicatorMultiRequestTests.m */; };
-		D99AD33D1B1DA3B9005BB4E5 /* GIGURLCommunicatorMultiRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3211B1DA3B9005BB4E5 /* GIGURLCommunicatorMultiRequestTests.m */; };
-		D99AD33E1B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3221B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m */; };
-		D99AD33F1B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3221B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m */; };
 		D99AD3401B1DA3B9005BB4E5 /* GIGURLConnectionBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3231B1DA3B9005BB4E5 /* GIGURLConnectionBuilderTests.m */; };
 		D99AD3411B1DA3B9005BB4E5 /* GIGURLConnectionBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3231B1DA3B9005BB4E5 /* GIGURLConnectionBuilderTests.m */; };
 		D99AD3421B1DA3B9005BB4E5 /* GIGURLDomainsKeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3241B1DA3B9005BB4E5 /* GIGURLDomainsKeeperTests.m */; };
@@ -317,8 +311,6 @@
 		D99AD3471B1DA3B9005BB4E5 /* GIGURLFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3261B1DA3B9005BB4E5 /* GIGURLFormatterTests.m */; };
 		D99AD3481B1DA3B9005BB4E5 /* GIGURLParametersFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3271B1DA3B9005BB4E5 /* GIGURLParametersFormatterTests.m */; };
 		D99AD3491B1DA3B9005BB4E5 /* GIGURLParametersFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3271B1DA3B9005BB4E5 /* GIGURLParametersFormatterTests.m */; };
-		D99AD34A1B1DA3B9005BB4E5 /* GIGURLRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3281B1DA3B9005BB4E5 /* GIGURLRequestTests.m */; };
-		D99AD34B1B1DA3B9005BB4E5 /* GIGURLRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3281B1DA3B9005BB4E5 /* GIGURLRequestTests.m */; };
 		D99AD34C1B1DA3B9005BB4E5 /* GIGURLStorageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3291B1DA3B9005BB4E5 /* GIGURLStorageTests.m */; };
 		D99AD34D1B1DA3B9005BB4E5 /* GIGURLStorageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3291B1DA3B9005BB4E5 /* GIGURLStorageTests.m */; };
 		D99AD34E1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD32C1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m */; };
@@ -362,16 +354,28 @@
 		D99AD3861B1DAAE6005BB4E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */; };
 		D99AD3871B1DAAE6005BB4E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */; };
 		D9AD97001B0A386500CB5E8C /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
+		D9E10E5B1BBBC5A70016C00B /* GIGURLCommunicatorMultiRequestFixtureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473451BBBC4E000AB5655 /* GIGURLCommunicatorMultiRequestFixtureTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E5C1BBBC5A80016C00B /* GIGURLCommunicatorMultiRequestFixtureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473451BBBC4E000AB5655 /* GIGURLCommunicatorMultiRequestFixtureTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E5D1BBBC7590016C00B /* GIGURLCommunicatorMultiRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473461BBBC4E000AB5655 /* GIGURLCommunicatorMultiRequestTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E5E1BBBC75A0016C00B /* GIGURLCommunicatorMultiRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473461BBBC4E000AB5655 /* GIGURLCommunicatorMultiRequestTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E5F1BBBC7620016C00B /* GIGURLCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473471BBBC4E000AB5655 /* GIGURLCommunicatorTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E601BBBC7630016C00B /* GIGURLCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473471BBBC4E000AB5655 /* GIGURLCommunicatorTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E611BBBC7680016C00B /* GIGURLRequestAuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473491BBBC4E000AB5655 /* GIGURLRequestAuthenticationTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E621BBBC7690016C00B /* GIGURLRequestAuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473491BBBC4E000AB5655 /* GIGURLRequestAuthenticationTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E631BBBC76C0016C00B /* GIGURLRequestFixtureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734A1BBBC4E000AB5655 /* GIGURLRequestFixtureTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E641BBBC76D0016C00B /* GIGURLRequestFixtureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734A1BBBC4E000AB5655 /* GIGURLRequestFixtureTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E651BBBC7700016C00B /* GIGURLRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734B1BBBC4E000AB5655 /* GIGURLRequestTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E661BBBC7710016C00B /* GIGURLRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734B1BBBC4E000AB5655 /* GIGURLRequestTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E671BBBC7760016C00B /* GIGURLImageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734D1BBBC4E000AB5655 /* GIGURLImageResponseTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E681BBBC7770016C00B /* GIGURLImageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734D1BBBC4E000AB5655 /* GIGURLImageResponseTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E691BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734E1BBBC4E000AB5655 /* GIGURLJSONResponseTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E6A1BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734E1BBBC4E000AB5655 /* GIGURLJSONResponseTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E6B1BBBC7820016C00B /* GIGURLResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734F1BBBC4E000AB5655 /* GIGURLResponseTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E10E6C1BBBC7830016C00B /* GIGURLResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734F1BBBC4E000AB5655 /* GIGURLResponseTests.m */; settings = {ASSET_TAGS = (); }; };
 		D9E4661B1B411E9F00EC6C72 /* GIGURLJSONResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9E4661C1B411E9F00EC6C72 /* GIGURLJSONResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9E4661D1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */; };
 		D9E4661E1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */; };
-		D9E466201B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661F1B41215200EC6C72 /* GIGURLJSONResponseTests.m */; };
-		D9E466211B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661F1B41215200EC6C72 /* GIGURLJSONResponseTests.m */; };
-		D9FD35D31B4124CC000D356F /* GIGURLResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35D21B4124CC000D356F /* GIGURLResponseTests.m */; };
-		D9FD35D41B4124CC000D356F /* GIGURLResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35D21B4124CC000D356F /* GIGURLResponseTests.m */; };
-		D9FD35D91B412A72000D356F /* GIGURLImageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35D81B412A72000D356F /* GIGURLImageResponseTests.m */; };
-		D9FD35DA1B412A72000D356F /* GIGURLImageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35D81B412A72000D356F /* GIGURLImageResponseTests.m */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FAA80A7D1B70D0210076FF9E /* GLALoginFacebookViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FAA80A7B1B70D0210076FF9E /* GLALoginFacebookViewController.h */; };
 		FAA80A7E1B70D0210076FF9E /* GLALoginFacebookViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FAA80A7B1B70D0210076FF9E /* GLALoginFacebookViewController.h */; };
@@ -458,7 +462,15 @@
 		A91006581B0CCE8E0080B812 /* GIGStaticLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIGStaticLibrary.h; sourceTree = "<group>"; };
 		D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLibrary.h; sourceTree = "<group>"; };
 		D909EFE91B0DC2FF00DD4D97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D97448B71B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLRequestAuthenticationTests.m; sourceTree = "<group>"; };
+		D93473451BBBC4E000AB5655 /* GIGURLCommunicatorMultiRequestFixtureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLCommunicatorMultiRequestFixtureTests.m; sourceTree = "<group>"; };
+		D93473461BBBC4E000AB5655 /* GIGURLCommunicatorMultiRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLCommunicatorMultiRequestTests.m; sourceTree = "<group>"; };
+		D93473471BBBC4E000AB5655 /* GIGURLCommunicatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLCommunicatorTests.m; sourceTree = "<group>"; };
+		D93473491BBBC4E000AB5655 /* GIGURLRequestAuthenticationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLRequestAuthenticationTests.m; sourceTree = "<group>"; };
+		D934734A1BBBC4E000AB5655 /* GIGURLRequestFixtureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLRequestFixtureTests.m; sourceTree = "<group>"; };
+		D934734B1BBBC4E000AB5655 /* GIGURLRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLRequestTests.m; sourceTree = "<group>"; };
+		D934734D1BBBC4E000AB5655 /* GIGURLImageResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLImageResponseTests.m; sourceTree = "<group>"; };
+		D934734E1BBBC4E000AB5655 /* GIGURLJSONResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLJSONResponseTests.m; sourceTree = "<group>"; };
+		D934734F1BBBC4E000AB5655 /* GIGURLResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLResponseTests.m; sourceTree = "<group>"; };
 		D99AD0F91B1D9716005BB4E5 /* GIGStaticLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGStaticLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99AD0FC1B1D9716005BB4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D99AD1261B1D9866005BB4E5 /* GIGStaticLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIGStaticLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -600,14 +612,11 @@
 		D99AD1F61B1DA3A3005BB4E5 /* UIView+GIGTransformExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GIGTransformExtension.m"; sourceTree = "<group>"; };
 		D99AD31E1B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGLayoutGridVerticalTests.m; sourceTree = "<group>"; };
 		D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGLayoutTests.m; sourceTree = "<group>"; };
-		D99AD3211B1DA3B9005BB4E5 /* GIGURLCommunicatorMultiRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLCommunicatorMultiRequestTests.m; sourceTree = "<group>"; };
-		D99AD3221B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLCommunicatorTests.m; sourceTree = "<group>"; };
 		D99AD3231B1DA3B9005BB4E5 /* GIGURLConnectionBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLConnectionBuilderTests.m; sourceTree = "<group>"; };
 		D99AD3241B1DA3B9005BB4E5 /* GIGURLDomainsKeeperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLDomainsKeeperTests.m; sourceTree = "<group>"; };
 		D99AD3251B1DA3B9005BB4E5 /* GIGURLFixturesKeeperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLFixturesKeeperTests.m; sourceTree = "<group>"; };
 		D99AD3261B1DA3B9005BB4E5 /* GIGURLFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLFormatterTests.m; sourceTree = "<group>"; };
 		D99AD3271B1DA3B9005BB4E5 /* GIGURLParametersFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLParametersFormatterTests.m; sourceTree = "<group>"; };
-		D99AD3281B1DA3B9005BB4E5 /* GIGURLRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLRequestTests.m; sourceTree = "<group>"; };
 		D99AD3291B1DA3B9005BB4E5 /* GIGURLStorageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLStorageTests.m; sourceTree = "<group>"; };
 		D99AD32B1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GIGURLDomain+GIGTesting.h"; sourceTree = "<group>"; };
 		D99AD32C1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GIGURLDomain+GIGTesting.m"; sourceTree = "<group>"; };
@@ -638,9 +647,6 @@
 		D9AD96FD1B0A386500CB5E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLJSONResponse.h; sourceTree = "<group>"; };
 		D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLJSONResponse.m; sourceTree = "<group>"; };
-		D9E4661F1B41215200EC6C72 /* GIGURLJSONResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLJSONResponseTests.m; sourceTree = "<group>"; };
-		D9FD35D21B4124CC000D356F /* GIGURLResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLResponseTests.m; sourceTree = "<group>"; };
-		D9FD35D81B412A72000D356F /* GIGURLImageResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLImageResponseTests.m; sourceTree = "<group>"; };
 		FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1A1B009B6B006FC484 /* GIGLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1D1B009B6B006FC484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -717,6 +723,36 @@
 				D909EFE91B0DC2FF00DD4D97 /* Info.plist */,
 			);
 			path = GIGLibraryFramework;
+			sourceTree = "<group>";
+		};
+		D93473441BBBC4E000AB5655 /* Communicator */ = {
+			isa = PBXGroup;
+			children = (
+				D93473451BBBC4E000AB5655 /* GIGURLCommunicatorMultiRequestFixtureTests.m */,
+				D93473461BBBC4E000AB5655 /* GIGURLCommunicatorMultiRequestTests.m */,
+				D93473471BBBC4E000AB5655 /* GIGURLCommunicatorTests.m */,
+			);
+			path = Communicator;
+			sourceTree = "<group>";
+		};
+		D93473481BBBC4E000AB5655 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				D93473491BBBC4E000AB5655 /* GIGURLRequestAuthenticationTests.m */,
+				D934734A1BBBC4E000AB5655 /* GIGURLRequestFixtureTests.m */,
+				D934734B1BBBC4E000AB5655 /* GIGURLRequestTests.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		D934734C1BBBC4E000AB5655 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				D934734D1BBBC4E000AB5655 /* GIGURLImageResponseTests.m */,
+				D934734E1BBBC4E000AB5655 /* GIGURLJSONResponseTests.m */,
+				D934734F1BBBC4E000AB5655 /* GIGURLResponseTests.m */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		D99AD0FA1B1D9716005BB4E5 /* GIGStaticLibraryApp */ = {
@@ -1186,19 +1222,15 @@
 		D99AD3201B1DA3B9005BB4E5 /* GIGNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				D97448B71B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m */,
-				D99AD3211B1DA3B9005BB4E5 /* GIGURLCommunicatorMultiRequestTests.m */,
-				D99AD3221B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m */,
+				D93473441BBBC4E000AB5655 /* Communicator */,
+				D93473481BBBC4E000AB5655 /* Request */,
+				D934734C1BBBC4E000AB5655 /* Response */,
 				D99AD3231B1DA3B9005BB4E5 /* GIGURLConnectionBuilderTests.m */,
 				D99AD3241B1DA3B9005BB4E5 /* GIGURLDomainsKeeperTests.m */,
 				D99AD3251B1DA3B9005BB4E5 /* GIGURLFixturesKeeperTests.m */,
 				D99AD3261B1DA3B9005BB4E5 /* GIGURLFormatterTests.m */,
 				D99AD3271B1DA3B9005BB4E5 /* GIGURLParametersFormatterTests.m */,
-				D99AD3281B1DA3B9005BB4E5 /* GIGURLRequestTests.m */,
 				D99AD3291B1DA3B9005BB4E5 /* GIGURLStorageTests.m */,
-				D9FD35D21B4124CC000D356F /* GIGURLResponseTests.m */,
-				D9E4661F1B41215200EC6C72 /* GIGURLJSONResponseTests.m */,
-				D9FD35D81B412A72000D356F /* GIGURLImageResponseTests.m */,
 				D99AD32A1B1DA3B9005BB4E5 /* Helpers */,
 			);
 			path = GIGNetwork;
@@ -1859,26 +1891,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99AD3591B1DA3B9005BB4E5 /* GIGRegexpReplacingTests.m in Sources */,
+				D9E10E6C1BBBC7830016C00B /* GIGURLResponseTests.m in Sources */,
+				D9E10E621BBBC7690016C00B /* GIGURLRequestAuthenticationTests.m in Sources */,
+				D9E10E5C1BBBC5A80016C00B /* GIGURLCommunicatorMultiRequestFixtureTests.m in Sources */,
+				D9E10E5E1BBBC75A0016C00B /* GIGURLCommunicatorMultiRequestTests.m in Sources */,
 				D99AD3431B1DA3B9005BB4E5 /* GIGURLDomainsKeeperTests.m in Sources */,
 				D99AD3571B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m in Sources */,
-				D99AD34B1B1DA3B9005BB4E5 /* GIGURLRequestTests.m in Sources */,
 				D99AD3531B1DA3B9005BB4E5 /* GIGArrayExtesionTests.m in Sources */,
+				D9E10E601BBBC7630016C00B /* GIGURLCommunicatorTests.m in Sources */,
 				D99AD34D1B1DA3B9005BB4E5 /* GIGURLStorageTests.m in Sources */,
+				D9E10E661BBBC7710016C00B /* GIGURLRequestTests.m in Sources */,
 				D99AD34F1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m in Sources */,
 				D99AD3471B1DA3B9005BB4E5 /* GIGURLFormatterTests.m in Sources */,
-				D99AD33F1B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m in Sources */,
-				D9E466211B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */,
-				D9FD35D41B4124CC000D356F /* GIGURLResponseTests.m in Sources */,
-				D9FD35DA1B412A72000D356F /* GIGURLImageResponseTests.m in Sources */,
-				D97448B91B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m in Sources */,
 				D99AD3511B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
+				D9E10E641BBBC76D0016C00B /* GIGURLRequestFixtureTests.m in Sources */,
+				D9E10E681BBBC7770016C00B /* GIGURLImageResponseTests.m in Sources */,
 				D908676A1B42A3E400193560 /* GIGLayoutTests.m in Sources */,
+				D9E10E6A1BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */,
 				D99AD3551B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
 				D99AD3411B1DA3B9005BB4E5 /* GIGURLConnectionBuilderTests.m in Sources */,
 				D99AD3451B1DA3B9005BB4E5 /* GIGURLFixturesKeeperTests.m in Sources */,
 				D99AD3491B1DA3B9005BB4E5 /* GIGURLParametersFormatterTests.m in Sources */,
 				D99AD3391B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m in Sources */,
-				D99AD33D1B1DA3B9005BB4E5 /* GIGURLCommunicatorMultiRequestTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1887,26 +1921,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99AD3581B1DA3B9005BB4E5 /* GIGRegexpReplacingTests.m in Sources */,
+				D9E10E6B1BBBC7820016C00B /* GIGURLResponseTests.m in Sources */,
+				D9E10E611BBBC7680016C00B /* GIGURLRequestAuthenticationTests.m in Sources */,
+				D9E10E5B1BBBC5A70016C00B /* GIGURLCommunicatorMultiRequestFixtureTests.m in Sources */,
+				D9E10E5D1BBBC7590016C00B /* GIGURLCommunicatorMultiRequestTests.m in Sources */,
 				D99AD3421B1DA3B9005BB4E5 /* GIGURLDomainsKeeperTests.m in Sources */,
 				D99AD3561B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m in Sources */,
-				D99AD34A1B1DA3B9005BB4E5 /* GIGURLRequestTests.m in Sources */,
 				D99AD3521B1DA3B9005BB4E5 /* GIGArrayExtesionTests.m in Sources */,
+				D9E10E5F1BBBC7620016C00B /* GIGURLCommunicatorTests.m in Sources */,
 				D99AD34C1B1DA3B9005BB4E5 /* GIGURLStorageTests.m in Sources */,
+				D9E10E651BBBC7700016C00B /* GIGURLRequestTests.m in Sources */,
 				D99AD34E1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m in Sources */,
 				D99AD3461B1DA3B9005BB4E5 /* GIGURLFormatterTests.m in Sources */,
-				D99AD33E1B1DA3B9005BB4E5 /* GIGURLCommunicatorTests.m in Sources */,
-				D9E466201B41215200EC6C72 /* GIGURLJSONResponseTests.m in Sources */,
-				D9FD35D31B4124CC000D356F /* GIGURLResponseTests.m in Sources */,
-				D9FD35D91B412A72000D356F /* GIGURLImageResponseTests.m in Sources */,
-				D97448B81B94684E0007C3AC /* GIGURLRequestAuthenticationTests.m in Sources */,
 				D99AD3501B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
+				D9E10E631BBBC76C0016C00B /* GIGURLRequestFixtureTests.m in Sources */,
+				D9E10E671BBBC7760016C00B /* GIGURLImageResponseTests.m in Sources */,
 				D90867691B42A3E300193560 /* GIGLayoutTests.m in Sources */,
+				D9E10E691BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */,
 				D99AD3541B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
 				D99AD3401B1DA3B9005BB4E5 /* GIGURLConnectionBuilderTests.m in Sources */,
 				D99AD3441B1DA3B9005BB4E5 /* GIGURLFixturesKeeperTests.m in Sources */,
 				D99AD3481B1DA3B9005BB4E5 /* GIGURLParametersFormatterTests.m in Sources */,
 				D99AD3381B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m in Sources */,
-				D99AD33C1B1DA3B9005BB4E5 /* GIGURLCommunicatorMultiRequestTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

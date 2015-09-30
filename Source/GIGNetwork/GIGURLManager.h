@@ -39,7 +39,7 @@ extern NSString * const GIGURLManagerFixtureUserInfoKey;
                        fixturesKeeper:(GIGURLFixturesKeeper *)fixturesKeeper
                    notificationCenter:(NSNotificationCenter *)notificationCenter;
 
-- (NSData *)mockForRequestTag:(NSString *)requestTag;
+- (NSData *)fixtureForRequestTag:(NSString *)requestTag;
 - (void)showConfig;
 
 - (void)loadFixturesFile:(NSString *)fixturesFilename;
