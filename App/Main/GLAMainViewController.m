@@ -1,18 +1,12 @@
 //
 //  GLAMainViewController.m
-//  GiGLibraryApp
+//  GIGLibraryApp
 //
 //  Created by Alejandro Jiménez Agudo on 28/4/15.
 //  Copyright (c) 2015 Gigigo SL. All rights reserved.
 //
 
 #import "GLAMainViewController.h"
-
-#ifdef GIG_STATIC_LIBRARY
-    #import <GIGStaticLibrary/GIGStaticLibrary.h>
-#else
-    @import GIGLibrary;
-#endif
 
 
 @interface GLAMainViewController ()

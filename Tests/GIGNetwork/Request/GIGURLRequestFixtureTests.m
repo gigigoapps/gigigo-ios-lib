@@ -1,6 +1,6 @@
 //
 //  GIGURLRequestFixtureTests.m
-//  GiGLibrary
+//  GIGLibrary
 //
 //  Created by Sergio Baró on 30/09/15.
 //  Copyright © 2015 Gigigo SL. All rights reserved.
