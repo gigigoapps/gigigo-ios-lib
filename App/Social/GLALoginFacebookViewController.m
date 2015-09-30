@@ -8,7 +8,7 @@
 
 #import "GLALoginFacebookViewController.h"
 
-#import "GIGSocialLogin.h"
+#import "GIGSocial.h"
 
 
 @interface GLALoginFacebookViewController ()

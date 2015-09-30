@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "GIGSocialCore.h"
+#import "GIGSocial.h"
 
 
 @interface AppDelegate ()
