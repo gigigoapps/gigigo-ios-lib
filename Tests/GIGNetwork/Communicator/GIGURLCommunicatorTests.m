@@ -97,7 +97,7 @@
 {
     NSData *expectedData = [self dataFromJSONFile:@"GET_config.json"];
     [MKTGiven([self.managerMock useFixture]) willReturnBool:YES];
-    [MKTGiven([self.managerMock mockForRequestTag:@"config"]) willReturn:expectedData];
+    [MKTGiven([self.managerMock fixtureForRequestTag:@"config"]) willReturn:expectedData];
     
     GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:nil url:nil connectionBuilder:nil requestLogger:nil manager:self.managerMock];
     request.requestTag = @"config";

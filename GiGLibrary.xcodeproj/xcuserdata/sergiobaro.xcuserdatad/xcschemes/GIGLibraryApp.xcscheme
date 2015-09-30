@@ -17,7 +17,7 @@
                BlueprintIdentifier = "FA680F191B009B6B006FC484"
                BuildableName = "GIGLibraryApp.app"
                BlueprintName = "GIGLibraryApp"
-               ReferencedContainer = "container:GiGLibrary.xcodeproj">
+               ReferencedContainer = "container:GIGLibrary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "D9AD96F91B0A386500CB5E8C"
                BuildableName = "GIGLibraryTests.xctest"
                BlueprintName = "GIGLibraryTests"
-               ReferencedContainer = "container:GiGLibrary.xcodeproj">
+               ReferencedContainer = "container:GIGLibrary.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "FA680F191B009B6B006FC484"
             BuildableName = "GIGLibraryApp.app"
             BlueprintName = "GIGLibraryApp"
-            ReferencedContainer = "container:GiGLibrary.xcodeproj">
+            ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,7 +68,7 @@
             BlueprintIdentifier = "FA680F191B009B6B006FC484"
             BuildableName = "GIGLibraryApp.app"
             BlueprintName = "GIGLibraryApp"
-            ReferencedContainer = "container:GiGLibrary.xcodeproj">
+            ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -87,7 +87,7 @@
             BlueprintIdentifier = "FA680F191B009B6B006FC484"
             BuildableName = "GIGLibraryApp.app"
             BlueprintName = "GIGLibraryApp"
-            ReferencedContainer = "container:GiGLibrary.xcodeproj">
+            ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

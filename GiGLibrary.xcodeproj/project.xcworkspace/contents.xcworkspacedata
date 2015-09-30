@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:GIGLibrary.xcodeproj">
+      location = "self:/Users/sergiobaro/Documents/giglibrary/GIGLibrary.xcodeproj">
    </FileRef>
 </Workspace>
