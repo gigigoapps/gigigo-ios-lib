@@ -21,20 +21,15 @@
 
 @implementation GIGSocialLogin
 
-
-
 - (instancetype)init
 {
 	self = [super init];
-	
 	if (self)
 	{
-		self.facebook = [[GIGFacebook alloc] init];
+		_facebook = [[GIGFacebook alloc] init];
 	}
-	
 	return self;
 }
-
 
 #pragma mark - PUBLIC
 
@@ -42,7 +37,7 @@
 {
 	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
 	 {
-		 GIGSocialLoginError socialError;
+		 GIGSocialLoginError socialError = GIGSocialLoginErrorNone;
 		 
 		 if (success)
 		 {

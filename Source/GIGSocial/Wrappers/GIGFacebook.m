@@ -20,31 +20,28 @@
 @end
 
 
-
-
 @implementation GIGFacebook
 
+#pragma mark - INIT
+
+- (instancetype)init
+{
+    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+    
+    return [self initWithLoginManager:loginManager];
+}
 
 - (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager
 {
 	self = [super init];
-	
 	if (self)
 	{
 		self.loginManager = loginManager;
 	}
-	
 	return self;
 }
 
-
-- (instancetype)init
-{
-	FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
-	
-	return [self initWithLoginManager:loginManager];
-}
-
+#pragma mark - PUBLIC
 
 - (void)login:(GIGFacebookLoginCompletion)completionHandler
 {
@@ -60,12 +57,10 @@
 			 if (error)
 			 {
 				 GIGLogNSError(error);
-				 
 				 completionHandler(NO, nil, nil, NO, error);
 			 }
 			 else if (result.isCancelled)
 			 {
-				 // DO NOTHING
 				 GIGLogWarn(@"Facebook was cancelled");
 				 completionHandler(NO, nil, nil, YES, nil);
 			 }
@@ -76,6 +71,5 @@
 		 }];
 	}
 }
-
 
 @end

@@ -10,6 +10,7 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
+
 @implementation GIGSocialCore
 
 + (void)applicationDidBecomeActive:(UIApplication *)application
@@ -17,12 +18,10 @@
 	[FBSDKAppEvents activateApp];
 }
 
-
 + (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
-
 
 + (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
