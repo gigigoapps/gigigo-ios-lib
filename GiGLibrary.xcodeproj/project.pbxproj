@@ -379,7 +379,6 @@
 		FA3F108A1B71F1CB00517468 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A731B70C9DD0076FF9E /* FBSDKCoreKit.framework */; };
 		FA3F108B1B71F1CD00517468 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */; };
 		FA3F108C1B71F1CE00517468 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */; };
-		FA4BFCD71BBADC31003FC7E2 /* GIGFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74BD111B6F768C001D2BCF /* GIGFacebook.m */; settings = {ASSET_TAGS = (); }; };
 		FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; settings = {ASSET_TAGS = (); }; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FA74BCFC1B6F6DF9001D2BCF /* GIGSocialLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74BCF91B6F6DEA001D2BCF /* GIGSocialLogin.m */; };
@@ -1266,8 +1265,8 @@
 			isa = PBXGroup;
 			children = (
 				D99AD35F1B1DAAE6005BB4E5 /* Main */,
-				FAA80A7A1B70CFE40076FF9E /* Social */,
 				FACE6D941BBC112B00457B4C /* Network */,
+				FAA80A7A1B70CFE40076FF9E /* Social */,
 				D99AD3661B1DAAE6005BB4E5 /* Resources */,
 				D99AD3881B1DAAEB005BB4E5 /* Supporting Files */,
 			);
@@ -2161,7 +2160,6 @@
 				D99AD34C1B1DA3B9005BB4E5 /* GIGURLStorageTests.m in Sources */,
 				FA74BD001B6F7050001D2BCF /* GIGSocialLoginTests.m in Sources */,
 				D99AD34E1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m in Sources */,
-				FA4BFCD71BBADC31003FC7E2 /* GIGFacebook.m in Sources */,
 				D99AD3461B1DA3B9005BB4E5 /* GIGURLFormatterTests.m in Sources */,
 				FA3F10851B71F0D500517468 /* FBSDKAccessTokenMock.m in Sources */,
 				FA3F10871B71F1B600517468 /* GIGFacebookMock.m in Sources */,
@@ -2698,7 +2696,7 @@
 				);
 				INFOPLIST_FILE = GIGSocial/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.GIGSocial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2722,7 +2720,7 @@
 				);
 				INFOPLIST_FILE = GIGSocial/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.GIGSocial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2812,6 +2810,7 @@
 				FACE6E531BBC3FDC00457B4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
