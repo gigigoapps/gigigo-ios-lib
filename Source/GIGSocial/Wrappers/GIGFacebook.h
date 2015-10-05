@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class FBSDKLoginManager;
+@class GIGFacebookAccessTokenFactory;
 
 
 typedef void(^GIGFacebookLoginCompletion)(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error);
@@ -16,7 +17,7 @@ typedef void(^GIGFacebookLoginCompletion)(BOOL success, NSString *userID, NSStri
 
 @interface GIGFacebook : NSObject
 
-- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager;
+- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager accessToken:(GIGFacebookAccessTokenFactory *)accessTokenFactory;
 
 - (void)login:(GIGFacebookLoginCompletion)completionHandler;
 

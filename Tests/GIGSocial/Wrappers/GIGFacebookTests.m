@@ -12,6 +12,7 @@
 #import "GIGFacebook.h"
 #import "FBSDKAccessTokenMock.h"
 #import "GIGLoginManagerMock.h"
+#import "GIGFacebookAccessTokenFactoryMock.h"
 
 
 @interface GIGFacebookTests : XCTestCase
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) GIGFacebook *facebook;
 @property (strong, nonatomic) FBSDKAccessTokenMock *accessTokenMock;
 @property (strong, nonatomic) GIGLoginManagerMock *loginManagerMock;
+@property (strong, nonatomic) GIGFacebookAccessTokenFactoryMock *accessTokenFactoryMock;
 
 @end
 
@@ -31,19 +33,19 @@
     [super setUp];
 
 	self.accessTokenMock = [[FBSDKAccessTokenMock alloc] init];
-	[self.accessTokenMock swizzleMethods];
-	
+	self.accessTokenFactoryMock = [[GIGFacebookAccessTokenFactoryMock alloc] init];
 	self.loginManagerMock = [[GIGLoginManagerMock alloc] init];
 	
-	self.facebook = [[GIGFacebook alloc] initWithLoginManager:self.loginManagerMock];
+	self.accessTokenFactoryMock.accessToken = self.accessTokenMock;
+	self.facebook = [[GIGFacebook alloc] initWithLoginManager:self.loginManagerMock accessToken:self.accessTokenFactoryMock];
 }
 
 
 - (void)tearDown
 {
-	[self.accessTokenMock unswizzleMethods];
 	self.accessTokenMock = nil;
-	
+	self.accessTokenFactoryMock = nil;
+	self.loginManagerMock = nil;
 	self.facebook = nil;
 	
     [super tearDown];
@@ -58,7 +60,6 @@
 
 - (void)test_has_current_access_token
 {
-	self.accessTokenMock.hasCurrentAccessToken = YES;
 	self.accessTokenMock.userID = @"USER_ID_1";
 	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
 	
@@ -80,7 +81,7 @@
 
 - (void)test_login_with_error
 {
-	self.accessTokenMock.hasCurrentAccessToken = NO;
+	self.accessTokenFactoryMock.accessToken = nil;
 	self.loginManagerMock.error = [NSError errorWithDomain:@"TESTFACEBOOK" code:3 userInfo:nil];
 	
 	__block BOOL completionCalled = NO;
@@ -101,12 +102,12 @@
 
 - (void)test_login_cancelled
 {
+	self.accessTokenFactoryMock.accessToken = nil;
 	FBSDKLoginManagerLoginResult *result = [[FBSDKLoginManagerLoginResult alloc] initWithToken:nil
 																				   isCancelled:YES
 																			grantedPermissions:nil
 																		   declinedPermissions:nil];
 	
-	self.accessTokenMock.hasCurrentAccessToken = NO;
 	self.loginManagerMock.loginResult = result;
 	self.loginManagerMock.error = nil;
 	
@@ -128,7 +129,6 @@
 
 - (void)test_login_success
 {
-	self.accessTokenMock.hasCurrentAccessToken = YES;
 	self.accessTokenMock.userID = @"USER_ID_1";
 	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
 	
@@ -137,7 +137,6 @@
 																			grantedPermissions:nil
 																		   declinedPermissions:nil];
 	
-	self.accessTokenMock.hasCurrentAccessToken = NO;
 	self.loginManagerMock.loginResult = result;
 	self.loginManagerMock.error = nil;
 	

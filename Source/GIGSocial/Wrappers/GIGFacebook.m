@@ -8,6 +8,7 @@
 
 #import "GIGFacebook.h"
 #import "GIGLogManager.h"
+#import "GIGFacebookAccessTokenFactory.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -16,36 +17,41 @@
 @interface GIGFacebook ()
 
 @property (strong, nonatomic) FBSDKLoginManager *loginManager;
+@property (strong, nonatomic) GIGFacebookAccessTokenFactory *accessTokenFactory;
 
 @end
 
 
 @implementation GIGFacebook
 
+
 #pragma mark - INIT
 
 - (instancetype)init
 {
     FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
-    
-    return [self initWithLoginManager:loginManager];
+	GIGFacebookAccessTokenFactory *accessTokenFactory = [[GIGFacebookAccessTokenFactory alloc] init];
+	
+    return [self initWithLoginManager:loginManager accessToken:accessTokenFactory];
 }
 
-- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager
+- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager accessToken:(GIGFacebookAccessTokenFactory *)accessTokenFactory
 {
 	self = [super init];
 	if (self)
 	{
 		self.loginManager = loginManager;
+		self.accessTokenFactory = accessTokenFactory;
 	}
 	return self;
 }
+
 
 #pragma mark - PUBLIC
 
 - (void)login:(GIGFacebookLoginCompletion)completionHandler
 {
-	FBSDKAccessToken *currentAccessToken = [FBSDKAccessToken currentAccessToken];
+	FBSDKAccessToken *currentAccessToken = [self.accessTokenFactory getCurrentToken];
 	if (currentAccessToken)
 	{
 		completionHandler(YES, currentAccessToken.userID, currentAccessToken.tokenString, NO, nil);
