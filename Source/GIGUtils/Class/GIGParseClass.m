@@ -29,7 +29,6 @@
         NSString *propertyName = [[NSString alloc] initWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
         NSObject *object = [parseClass valueForKey:propertyName];
         
-        
         [dicElement setObject:object forKey:propertyName];
     }
     free(properties);
