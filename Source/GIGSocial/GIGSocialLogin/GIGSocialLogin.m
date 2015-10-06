@@ -35,6 +35,7 @@
 
 - (void)loginFacebook:(GIGSocialLoginFacebookCompletion)completionHandler
 {
+	self.facebook.extraPermissions = self.extraPermissions;
 	[self.facebook login:^(GIGFacebookLoginResult *result)
 	 {
 		 GIGSocialLoginError socialError = GIGSocialLoginErrorNone;

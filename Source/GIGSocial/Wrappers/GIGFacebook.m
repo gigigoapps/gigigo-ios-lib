@@ -65,7 +65,14 @@
 	}
 	else
 	{
-		[self.loginManager logInWithReadPermissions:@[@"public_profile", @"email"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error)
+		NSArray *permissions = @[@"public_profile"];
+		
+		if (self.extraPermissions)
+		{
+			permissions = [permissions arrayByAddingObjectsFromArray:self.extraPermissions];
+		}
+		
+		[self.loginManager logInWithReadPermissions:permissions fromViewController:nil handler:^(FBSDKLoginManagerLoginResult *result, NSError *error)
 		 {
 			 GIGFacebookLoginResult *loginResult = [[GIGFacebookLoginResult alloc] init];
 			 loginResult.userID = result.token.userID;

@@ -38,6 +38,7 @@
 
 - (IBAction)onButtonLoginTap:(id)sender
 {
+//	self.socialLogin.extraPermissions = @[@"email"];
 	[self.socialLogin loginFacebook:^(GIGSocialLoginResult *result)
 	{
 		NSMutableString *info = [[NSMutableString alloc] init];

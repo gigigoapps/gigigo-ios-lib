@@ -2035,7 +2035,6 @@
 					};
 					FACE6E471BBC3FDB00457B4C = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = SU5BA5HAQK;
 					};
 				};
 			};
@@ -2845,7 +2844,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Source/GIGSocial/Libs",
@@ -2869,7 +2868,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Source/GIGSocial/Libs",
