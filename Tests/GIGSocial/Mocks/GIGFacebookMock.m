@@ -12,7 +12,14 @@
 
 - (void)login:(GIGFacebookLoginCompletion)completionHandler
 {
-	completionHandler(self.inSuccess, self.inUserId, self.inAccessToken, self.isCancelled, self.inError);
+	GIGFacebookLoginResult *result = [[GIGFacebookLoginResult alloc] init];
+	result.success = self.inSuccess;
+	result.userID = self.inUserId;
+	result.accessToken = self.inAccessToken;
+	result.isCancelled = self.isCancelled;
+	result.error = self.inError;
+	
+	completionHandler(result);
 }
 
 @end

@@ -7,17 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GIGSocialLoginResult.h"
 
 
-typedef NS_ENUM (NSUInteger, GIGSocialLoginError)
-{
-	GIGSocialLoginErrorNone = 0,
-	GIGSocialLoginErrorFacebookCancelled,
-	GIGSocialLoginErrorFacebook				// Generic Facebook errors. See errors handling-> https://developers.facebook.com/docs/ios/errors
-};
-
-
-typedef void(^GIGSocialLoginFacebookCompletion)(BOOL success, NSString *userID, NSString *accessToken, GIGSocialLoginError loginError, NSError *error);
+typedef void(^GIGSocialLoginFacebookCompletion)(GIGSocialLoginResult *result);
 
 
 @interface GIGSocialLogin : NSObject

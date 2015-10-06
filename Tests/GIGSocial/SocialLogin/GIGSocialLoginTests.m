@@ -70,16 +70,16 @@
 	
 	// EXECUTE TEST
 	__block BOOL completionCalled = NO;
-	[self.socialLogin loginFacebook:^(BOOL success, NSString *userID, NSString *accessToken, GIGSocialLoginError loginError, NSError *error)
+	[self.socialLogin loginFacebook:^(GIGSocialLoginResult *result)
 	{
 		completionCalled = YES;
 		
 		// VERIFY
-		XCTAssertTrue(success, @"");
-		XCTAssertTrue([userID isEqualToString:@"USER_ID"], @"%@", [self errorTestLogForObject:userID]);
-		XCTAssertTrue([accessToken isEqualToString:@"ACCESSTOKEN"], @"%@", [self errorTestLogForObject:accessToken]);
-		XCTAssertTrue(loginError == GIGSocialLoginErrorNone, @"");
-		XCTAssertNil(error, @"");
+		XCTAssertTrue(result.success, @"");
+		XCTAssertTrue([result.userID isEqualToString:@"USER_ID"], @"%@", [self errorTestLogForObject:result.userID]);
+		XCTAssertTrue([result.accessToken isEqualToString:@"ACCESSTOKEN"], @"%@", [self errorTestLogForObject:result.accessToken]);
+		XCTAssertTrue(result.loginError == GIGSocialLoginErrorNone, @"");
+		XCTAssertNil(result.error, @"");
 	}];
 	
 	XCTAssertTrue(completionCalled, @"");
@@ -96,16 +96,16 @@
 	self.facebookMock.inError = nil;
 	
 	__block BOOL completionCalled = NO;
-	[self.socialLogin loginFacebook:^(BOOL success, NSString *userID, NSString *accessToken, GIGSocialLoginError loginError, NSError *error)
+	[self.socialLogin loginFacebook:^(GIGSocialLoginResult *result)
 	{
 		completionCalled = YES;
 		
 		// VERIFY
-		XCTAssertFalse(success, @"");
-		XCTAssertNil(userID, @"%@", [self errorTestLogForObject:userID]);
-		XCTAssertNil(accessToken, @"%@", [self errorTestLogForObject:accessToken]);
-		XCTAssertTrue(loginError == GIGSocialLoginErrorFacebookCancelled, @"");
-		XCTAssertNil(error, @"");
+		XCTAssertFalse(result.success, @"");
+		XCTAssertNil(result.userID, @"%@", [self errorTestLogForObject:result.userID]);
+		XCTAssertNil(result.accessToken, @"%@", [self errorTestLogForObject:result.accessToken]);
+		XCTAssertTrue(result.loginError == GIGSocialLoginErrorFacebookCancelled, @"");
+		XCTAssertNil(result.error, @"");
 	}];
 	
 	XCTAssertTrue(completionCalled, @"");
@@ -122,16 +122,16 @@
 	self.facebookMock.inError = [NSError errorWithDomain:@"TESTFACEBOOK" code:3 userInfo:nil];
 	
 	__block BOOL completionCalled = NO;
-	[self.socialLogin loginFacebook:^(BOOL success, NSString *userID, NSString *accessToken, GIGSocialLoginError loginError, NSError *error)
+	[self.socialLogin loginFacebook:^(GIGSocialLoginResult *result)
 	 {
 		 completionCalled = YES;
 		 
 		 // VERIFY
-		 XCTAssertFalse(success, @"");
-		 XCTAssertNil(userID, @"%@", [self errorTestLogForObject:userID]);
-		 XCTAssertNil(accessToken, @"%@", [self errorTestLogForObject:accessToken]);
-		 XCTAssertTrue(loginError == GIGSocialLoginErrorFacebook, @"");
-		 XCTAssertTrue([error.domain isEqualToString:@"TESTFACEBOOK"] && error.code == 3, @"");
+		 XCTAssertFalse(result.success, @"");
+		 XCTAssertNil(result.userID, @"%@", [self errorTestLogForObject:result.userID]);
+		 XCTAssertNil(result.accessToken, @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssertTrue(result.loginError == GIGSocialLoginErrorFacebook, @"");
+		 XCTAssertTrue([result.error.domain isEqualToString:@"TESTFACEBOOK"] && result.error.code == 3, @"");
 	 }];
 	
 	XCTAssertTrue(completionCalled, @"");

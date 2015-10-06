@@ -11,11 +11,7 @@
 
 @interface FBSDKAccessTokenMock : FBSDKAccessToken
 
-@property (assign, nonatomic) BOOL hasCurrentAccessToken;
 @property (copy, nonatomic) NSString *userID;
 @property (copy, nonatomic) NSString *tokenString;
-
-- (void)swizzleMethods;
-- (void)unswizzleMethods;
 
 @end

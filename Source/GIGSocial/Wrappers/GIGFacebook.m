@@ -8,6 +8,7 @@
 
 #import "GIGFacebook.h"
 #import "GIGLogManager.h"
+#import "GIGFacebookAccessTokenFactory.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -16,57 +17,81 @@
 @interface GIGFacebook ()
 
 @property (strong, nonatomic) FBSDKLoginManager *loginManager;
+@property (strong, nonatomic) GIGFacebookAccessTokenFactory *accessTokenFactory;
 
 @end
 
 
 @implementation GIGFacebook
 
+
 #pragma mark - INIT
 
 - (instancetype)init
 {
     FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
-    
-    return [self initWithLoginManager:loginManager];
+	GIGFacebookAccessTokenFactory *accessTokenFactory = [[GIGFacebookAccessTokenFactory alloc] init];
+	
+    return [self initWithLoginManager:loginManager accessToken:accessTokenFactory];
 }
 
-- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager
+- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager accessToken:(GIGFacebookAccessTokenFactory *)accessTokenFactory
 {
 	self = [super init];
 	if (self)
 	{
 		self.loginManager = loginManager;
+		self.accessTokenFactory = accessTokenFactory;
 	}
 	return self;
 }
+
 
 #pragma mark - PUBLIC
 
 - (void)login:(GIGFacebookLoginCompletion)completionHandler
 {
-	FBSDKAccessToken *currentAccessToken = [FBSDKAccessToken currentAccessToken];
+	FBSDKAccessToken *currentAccessToken = [self.accessTokenFactory getCurrentToken];
 	if (currentAccessToken)
 	{
-		completionHandler(YES, currentAccessToken.userID, currentAccessToken.tokenString, NO, nil);
+		GIGFacebookLoginResult *result = [[GIGFacebookLoginResult alloc] init];
+		result.success = YES;
+		result.userID = currentAccessToken.userID;
+		result.accessToken = currentAccessToken.tokenString;
+		result.isCancelled = NO;
+		result.error = nil;
+
+		completionHandler(result);
 	}
 	else
 	{
 		[self.loginManager logInWithReadPermissions:@[@"public_profile", @"email"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error)
 		 {
+			 GIGFacebookLoginResult *loginResult = [[GIGFacebookLoginResult alloc] init];
+			 loginResult.userID = result.token.userID;
+			 loginResult.accessToken = result.token.tokenString;
+			 loginResult.isCancelled = result.isCancelled;
+			 loginResult.error = error;
+			 
 			 if (error)
 			 {
 				 GIGLogNSError(error);
-				 completionHandler(NO, nil, nil, NO, error);
+				 loginResult.success = NO;
+				 
+				 completionHandler(loginResult);
 			 }
 			 else if (result.isCancelled)
 			 {
 				 GIGLogWarn(@"Facebook was cancelled");
-				 completionHandler(NO, nil, nil, YES, nil);
+				 loginResult.success = NO;
+
+				 completionHandler(loginResult);
 			 }
 			 else
 			 {
-				 completionHandler(YES, result.token.userID, result.token.tokenString, NO, nil);
+				 loginResult.success = YES;
+				 
+				 completionHandler(loginResult);
 			 }
 		 }];
 	}
