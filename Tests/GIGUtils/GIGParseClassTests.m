@@ -72,7 +72,7 @@
     XCTAssertTrue(dicExample.count == 5);
 }
 
-- (void)test_emply_properties
+- (void)test_empty_properties
 {
     NSDictionary *dicEmpty = [GIGParseClass parseClass:self.mockEmpty];
     XCTAssertTrue(dicEmpty != nil);
