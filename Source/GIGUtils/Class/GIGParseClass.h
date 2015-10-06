@@ -11,7 +11,7 @@
 @interface GIGParseClass : NSObject
 
 /**
- This method convert the class properties to a dictionary
+ This method converts the class properties to a dictionary
  where the key is the name of the property and the value its content. 
  **/
 
