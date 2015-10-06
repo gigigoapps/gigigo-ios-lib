@@ -11,11 +11,8 @@
 @interface GIGParseClass : NSObject
 
 /**
- 
- Este metodo transaforma las propiedades de una clase, en un diccionario. 
- 
- Donde su clave es el nombre de la propiedad y el valor su contenido.
- 
+ This method convert the class properties to a dictionary
+ where the key is the name of the property and the value its content. 
  **/
 
 - (NSDictionary *)parseClass:(id)parseClass;
