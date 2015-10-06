@@ -15,6 +15,11 @@
 
 #pragma mark - Public
 
+- (NSDictionary *)parseClass:(id)parseClass
+{
+    return [GIGParseClass parseClass:parseClass];
+}
+
 + (NSDictionary *)parseClass:(id)parseClass
 {
     NSMutableDictionary *dicElement = [[NSMutableDictionary alloc] init];
@@ -29,7 +34,8 @@
         NSString *propertyName = [[NSString alloc] initWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
         NSObject *object = [parseClass valueForKey:propertyName];
         
-        [dicElement setObject:object forKey:propertyName];
+        [dicElement setObject:object?object:[NSNull null]
+                       forKey:propertyName];
     }
     free(properties);
     return dicElement;
