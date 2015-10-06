@@ -13,4 +13,18 @@
 @synthesize userID;
 @synthesize tokenString;
 
+
+- (instancetype)init
+{
+	self = [super initWithTokenString:nil
+						  permissions:nil
+				  declinedPermissions:nil
+								appID:nil
+							   userID:nil
+					   expirationDate:nil
+						  refreshDate:nil];
+	
+	return self;
+}
+
 @end

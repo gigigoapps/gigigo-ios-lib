@@ -14,67 +14,71 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA680EEF1B009B0B006FC484"
+               BlueprintIdentifier = "FA680F191B009B6B006FC484"
                BuildableName = "GIGLibraryApp.app"
                BlueprintName = "GIGLibraryApp"
-               ReferencedContainer = "container:GIGLibrary.xcodeproj">
+               ReferencedContainer = "container:GiGLibrary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      codeCoverageEnabled = "YES">
       <Testables>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA680EEF1B009B0B006FC484"
+            BlueprintIdentifier = "FA680F191B009B6B006FC484"
             BuildableName = "GIGLibraryApp.app"
             BlueprintName = "GIGLibraryApp"
-            ReferencedContainer = "container:GIGLibrary.xcodeproj">
+            ReferencedContainer = "container:GiGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </TestAction>
    <LaunchAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA680EEF1B009B0B006FC484"
+            BlueprintIdentifier = "FA680F191B009B6B006FC484"
             BuildableName = "GIGLibraryApp.app"
             BlueprintName = "GIGLibraryApp"
-            ReferencedContainer = "container:GIGLibrary.xcodeproj">
+            ReferencedContainer = "container:GiGLibrary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA680EEF1B009B0B006FC484"
+            BlueprintIdentifier = "FA680F191B009B6B006FC484"
             BuildableName = "GIGLibraryApp.app"
             BlueprintName = "GIGLibraryApp"
-            ReferencedContainer = "container:GIGLibrary.xcodeproj">
+            ReferencedContainer = "container:GiGLibrary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
