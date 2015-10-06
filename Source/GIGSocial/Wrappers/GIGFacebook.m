@@ -54,25 +54,44 @@
 	FBSDKAccessToken *currentAccessToken = [self.accessTokenFactory getCurrentToken];
 	if (currentAccessToken)
 	{
-		completionHandler(YES, currentAccessToken.userID, currentAccessToken.tokenString, NO, nil);
+		GIGFacebookLoginResult *result = [[GIGFacebookLoginResult alloc] init];
+		result.success = YES;
+		result.userID = currentAccessToken.userID;
+		result.accessToken = currentAccessToken.tokenString;
+		result.isCancelled = NO;
+		result.error = nil;
+
+		completionHandler(result);
 	}
 	else
 	{
 		[self.loginManager logInWithReadPermissions:@[@"public_profile", @"email"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error)
 		 {
+			 GIGFacebookLoginResult *loginResult = [[GIGFacebookLoginResult alloc] init];
+			 loginResult.userID = result.token.userID;
+			 loginResult.accessToken = result.token.tokenString;
+			 loginResult.isCancelled = result.isCancelled;
+			 loginResult.error = error;
+			 
 			 if (error)
 			 {
 				 GIGLogNSError(error);
-				 completionHandler(NO, nil, nil, NO, error);
+				 loginResult.success = NO;
+				 
+				 completionHandler(loginResult);
 			 }
 			 else if (result.isCancelled)
 			 {
 				 GIGLogWarn(@"Facebook was cancelled");
-				 completionHandler(NO, nil, nil, YES, nil);
+				 loginResult.success = NO;
+
+				 completionHandler(loginResult);
 			 }
 			 else
 			 {
-				 completionHandler(YES, result.token.userID, result.token.tokenString, NO, nil);
+				 loginResult.success = YES;
+				 
+				 completionHandler(loginResult);
 			 }
 		 }];
 	}

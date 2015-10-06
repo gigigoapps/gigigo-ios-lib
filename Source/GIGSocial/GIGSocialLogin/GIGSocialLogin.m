@@ -35,15 +35,15 @@
 
 - (void)loginFacebook:(GIGSocialLoginFacebookCompletion)completionHandler
 {
-	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
+	[self.facebook login:^(GIGFacebookLoginResult *result)
 	 {
 		 GIGSocialLoginError socialError = GIGSocialLoginErrorNone;
 		 
-		 if (success)
+		 if (result.success)
 		 {
 			 socialError = GIGSocialLoginErrorNone;
 		 }
-		 else if (isCancelled)
+		 else if (result.isCancelled)
 		 {
 			 socialError = GIGSocialLoginErrorFacebookCancelled;
 		 }
@@ -52,7 +52,14 @@
 			 socialError = GIGSocialLoginErrorFacebook;
 		 }
 		 
-		 completionHandler(success, userID, accessToken, socialError, error);
+		 GIGSocialLoginResult *socialResult = [[GIGSocialLoginResult alloc] init];
+		 socialResult.success = result.success;
+		 socialResult.userID = result.userID;
+		 socialResult.accessToken = result.accessToken;
+		 socialResult.loginError = socialError;
+		 socialResult.error = result.error;
+		 
+		 completionHandler(socialResult);
 	 }];
 }
 

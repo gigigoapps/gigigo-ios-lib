@@ -393,6 +393,14 @@
 		FA74BD131B6F768C001D2BCF /* GIGFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = FA74BD101B6F768C001D2BCF /* GIGFacebook.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FA74BD151B6F768C001D2BCF /* GIGFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74BD111B6F768C001D2BCF /* GIGFacebook.m */; };
 		FA86049D1BBD412300D2BFEE /* GIGFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74BD111B6F768C001D2BCF /* GIGFacebook.m */; settings = {ASSET_TAGS = (); }; };
+		FA9C123C1BC3D38E00BCED1A /* GIGFacebookLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9C123A1BC3D38E00BCED1A /* GIGFacebookLoginResult.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		FA9C123D1BC3D38E00BCED1A /* GIGFacebookLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9C123A1BC3D38E00BCED1A /* GIGFacebookLoginResult.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		FA9C123E1BC3D38E00BCED1A /* GIGFacebookLoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C123B1BC3D38E00BCED1A /* GIGFacebookLoginResult.m */; settings = {ASSET_TAGS = (); }; };
+		FA9C123F1BC3D38E00BCED1A /* GIGFacebookLoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C123B1BC3D38E00BCED1A /* GIGFacebookLoginResult.m */; settings = {ASSET_TAGS = (); }; };
+		FA9C12421BC3DD2300BCED1A /* GIGSocialLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9C12401BC3DD2300BCED1A /* GIGSocialLoginResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA9C12431BC3DD2300BCED1A /* GIGSocialLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9C12401BC3DD2300BCED1A /* GIGSocialLoginResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA9C12441BC3DD2300BCED1A /* GIGSocialLoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C12411BC3DD2300BCED1A /* GIGSocialLoginResult.m */; settings = {ASSET_TAGS = (); }; };
+		FA9C12451BC3DD2300BCED1A /* GIGSocialLoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C12411BC3DD2300BCED1A /* GIGSocialLoginResult.m */; settings = {ASSET_TAGS = (); }; };
 		FAA80A761B70C9DD0076FF9E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A731B70C9DD0076FF9E /* FBSDKCoreKit.framework */; };
 		FAA80A781B70C9DD0076FF9E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */; };
 		FAA80A851B70E1940076FF9E /* GIGSocialCore.h in Headers */ = {isa = PBXBuildFile; fileRef = FAA80A821B70E1940076FF9E /* GIGSocialCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -707,6 +715,10 @@
 		FA74BD111B6F768C001D2BCF /* GIGFacebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFacebook.m; path = GIGSocial/Wrappers/GIGFacebook.m; sourceTree = "<group>"; };
 		FA74BD171B6F79E7001D2BCF /* GIGFacebookMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGFacebookMock.h; path = GIGSocial/Mocks/GIGFacebookMock.h; sourceTree = "<group>"; };
 		FA74BD181B6F79E7001D2BCF /* GIGFacebookMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFacebookMock.m; path = GIGSocial/Mocks/GIGFacebookMock.m; sourceTree = "<group>"; };
+		FA9C123A1BC3D38E00BCED1A /* GIGFacebookLoginResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGFacebookLoginResult.h; path = GIGSocial/Wrappers/GIGFacebookLoginResult.h; sourceTree = "<group>"; };
+		FA9C123B1BC3D38E00BCED1A /* GIGFacebookLoginResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFacebookLoginResult.m; path = GIGSocial/Wrappers/GIGFacebookLoginResult.m; sourceTree = "<group>"; };
+		FA9C12401BC3DD2300BCED1A /* GIGSocialLoginResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGSocialLoginResult.h; path = GIGSocial/GIGSocialLogin/GIGSocialLoginResult.h; sourceTree = "<group>"; };
+		FA9C12411BC3DD2300BCED1A /* GIGSocialLoginResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGSocialLoginResult.m; path = GIGSocial/GIGSocialLogin/GIGSocialLoginResult.m; sourceTree = "<group>"; };
 		FAA80A731B70C9DD0076FF9E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = GIGSocial/Libs/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = GIGSocial/Libs/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		FAA80A7B1B70D0210076FF9E /* GLALoginFacebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLALoginFacebookViewController.h; path = Social/GLALoginFacebookViewController.h; sourceTree = "<group>"; };
@@ -1479,6 +1491,8 @@
 			children = (
 				FA74BCF81B6F6DEA001D2BCF /* GIGSocialLogin.h */,
 				FA74BCF91B6F6DEA001D2BCF /* GIGSocialLogin.m */,
+				FA9C12401BC3DD2300BCED1A /* GIGSocialLoginResult.h */,
+				FA9C12411BC3DD2300BCED1A /* GIGSocialLoginResult.m */,
 			);
 			name = GIGSocialLogin;
 			sourceTree = "<group>";
@@ -1488,6 +1502,8 @@
 			children = (
 				FA74BD101B6F768C001D2BCF /* GIGFacebook.h */,
 				FA74BD111B6F768C001D2BCF /* GIGFacebook.m */,
+				FA9C123A1BC3D38E00BCED1A /* GIGFacebookLoginResult.h */,
+				FA9C123B1BC3D38E00BCED1A /* GIGFacebookLoginResult.m */,
 			);
 			name = Wrappers;
 			sourceTree = "<group>";
@@ -1590,6 +1606,8 @@
 				D99AD2541B1DA3A3005BB4E5 /* GIGURLRequestFactory.h in Headers */,
 				D99AD2E41B1DA3A3005BB4E5 /* NSString+GIGSubstring.h in Headers */,
 				D99AD2B41B1DA3A3005BB4E5 /* NSDictionary+GIGJSON.h in Headers */,
+				FA9C123D1BC3D38E00BCED1A /* GIGFacebookLoginResult.h in Headers */,
+				FA9C12431BC3DD2300BCED1A /* GIGSocialLoginResult.h in Headers */,
 				D99AD2E01B1DA3A3005BB4E5 /* NSString+GIGReplace.h in Headers */,
 				D99AD2501B1DA3A3005BB4E5 /* GIGURLConnectionBuilder.h in Headers */,
 				D99AD24C1B1DA3A3005BB4E5 /* GIGURLRequest.h in Headers */,
@@ -1751,7 +1769,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9C12421BC3DD2300BCED1A /* GIGSocialLoginResult.h in Headers */,
 				FACE6E581BBC400C00457B4C /* GIGFacebook.h in Headers */,
+				FA9C123C1BC3D38E00BCED1A /* GIGFacebookLoginResult.h in Headers */,
 				FACE6E541BBC3FF700457B4C /* GIGSocialCore.h in Headers */,
 				FACE6E4B1BBC3FDB00457B4C /* GIGSocial.h in Headers */,
 				FACE6E561BBC400100457B4C /* GIGSocialLogin.h in Headers */,
@@ -2109,6 +2129,7 @@
 				D99AD28A1B1DA3A3005BB4E5 /* GIGDigest.m in Sources */,
 				D99AD2D41B1DA3A3005BB4E5 /* UIScreen+GIGExtension.m in Sources */,
 				D99AD2BE1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.m in Sources */,
+				FA9C123F1BC3D38E00BCED1A /* GIGFacebookLoginResult.m in Sources */,
 				FA74BD151B6F768C001D2BCF /* GIGFacebook.m in Sources */,
 				D99AD24A1B1DA3A3005BB4E5 /* GIGURLManager.m in Sources */,
 				D99AD2F41B1DA3A3005BB4E5 /* UIView+GIGDebugExtension.m in Sources */,
@@ -2120,6 +2141,7 @@
 				D99AD25E1B1DA3A3005BB4E5 /* GIGURLStorage.m in Sources */,
 				D99AD2CC1B1DA3A3005BB4E5 /* NSRegularExpression+GIGRegexp.m in Sources */,
 				D99AD2D01B1DA3A3005BB4E5 /* NSString+GIGRegexp.m in Sources */,
+				FA9C12451BC3DD2300BCED1A /* GIGSocialLoginResult.m in Sources */,
 				D99AD28E1B1DA3A3005BB4E5 /* GIGEncrypt.m in Sources */,
 				D99AD2DE1B1DA3A3005BB4E5 /* NSString+GIGExtension.m in Sources */,
 				D99AD2C21B1DA3A3005BB4E5 /* GIGLogManager.m in Sources */,
@@ -2289,8 +2311,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9C123E1BC3D38E00BCED1A /* GIGFacebookLoginResult.m in Sources */,
 				FACE6E571BBC400800457B4C /* GIGSocialLogin.m in Sources */,
 				FACE6E551BBC3FFD00457B4C /* GIGSocialCore.m in Sources */,
+				FA9C12441BC3DD2300BCED1A /* GIGSocialLoginResult.m in Sources */,
 				FA3B236A1BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.m in Sources */,
 				FACE6E591BBC401200457B4C /* GIGFacebook.m in Sources */,
 			);
