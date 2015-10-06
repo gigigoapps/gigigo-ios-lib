@@ -88,6 +88,7 @@
                     <navigationItem key="navigationItem" title="Facebook Login" id="SQX-Gq-r8J"/>
                     <connections>
                         <outlet property="labelInfo" destination="5VW-Q2-mQJ" id="6xk-oy-dbB"/>
+                        <outlet property="loginButton" destination="UiX-RL-9i3" id="mqN-5B-MQ9"/>
                         <outlet property="scrollView" destination="MJ1-2N-h4s" id="N7D-eJ-3N7"/>
                     </connections>
                 </viewController>

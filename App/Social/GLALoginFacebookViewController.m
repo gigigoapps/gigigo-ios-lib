@@ -8,17 +8,49 @@
 
 #import "GLALoginFacebookViewController.h"
 
+#if GIG_STATIC_LIBRARY
+
+@interface GLALoginFacebookViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *labelInfo;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
+@end
+
+@implementation GLALoginFacebookViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.labelInfo.textAlignment = NSTextAlignmentCenter;
+    self.labelInfo.text = @"Social module not available on GIGStaticLibrary";
+    self.scrollView.scrollEnabled = NO;
+    self.loginButton.hidden = YES;
+}
+
+- (IBAction)onButtonLoginTap:(id)sender
+{
+    // NOTHING
+}
+
+@end
+
+#else // GIG_DYNAMIC_LIBRARY
+
 #import "GIGSocial.h"
 
 
 @interface GLALoginFacebookViewController ()
 
-@property (strong, nonatomic) GIGSocialLogin *socialLogin;
 @property (weak, nonatomic) IBOutlet UILabel *labelInfo;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
+@property (strong, nonatomic) GIGSocialLogin *socialLogin;
 
 @end
-
 
 
 @implementation GLALoginFacebookViewController
@@ -74,3 +106,5 @@
 }
 
 @end
+
+#endif // GIG_STATIC_LIBRARY
