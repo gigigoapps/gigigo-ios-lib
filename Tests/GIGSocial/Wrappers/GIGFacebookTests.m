@@ -129,14 +129,16 @@
 
 - (void)test_login_success
 {
-	self.accessTokenMock.userID = @"USER_ID_1";
-	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
+	self.accessTokenFactoryMock.accessToken = nil;
 	
-	FBSDKLoginManagerLoginResult *result = [[FBSDKLoginManagerLoginResult alloc] initWithToken:self.accessTokenMock
+	FBSDKAccessTokenMock *accessTokenResult = [[FBSDKAccessTokenMock alloc] init];
+	accessTokenResult.userID = @"USER_ID_1";
+	accessTokenResult.tokenString = @"ACCESS_TOKEN_1";
+	
+	FBSDKLoginManagerLoginResult *result = [[FBSDKLoginManagerLoginResult alloc] initWithToken:accessTokenResult
 																				   isCancelled:NO
 																			grantedPermissions:nil
 																		   declinedPermissions:nil];
-	
 	self.loginManagerMock.loginResult = result;
 	self.loginManagerMock.error = nil;
 	
@@ -150,11 +152,48 @@
 		 XCTAssertTrue([result.accessToken isEqualToString:@"ACCESS_TOKEN_1"], @"%@", [self errorTestLogForObject:result.accessToken]);
 		 XCTAssertTrue(result.isCancelled == NO);
 		 XCTAssertNil(result.error);
+		 
+		 XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:@[@"public_profile"]], @"%@", [self errorTestLogForObject:self.loginManagerMock.requestedPermissions]);
 	 }];
 	
 	XCTAssertTrue(completionCalled);
 }
 
+
+- (void)test_login_success_with_extra_permissions
+{
+	self.accessTokenFactoryMock.accessToken = nil;
+	
+	FBSDKAccessTokenMock *accessTokenResult = [[FBSDKAccessTokenMock alloc] init];
+	accessTokenResult.userID = @"USER_ID_1";
+	accessTokenResult.tokenString = @"ACCESS_TOKEN_1";
+	
+	FBSDKLoginManagerLoginResult *result = [[FBSDKLoginManagerLoginResult alloc] initWithToken:accessTokenResult
+																				   isCancelled:NO
+																			grantedPermissions:nil
+																		   declinedPermissions:nil];
+	self.loginManagerMock.loginResult = result;
+	self.loginManagerMock.error = nil;
+	
+	self.facebook.extraPermissions = @[@"email", @"user_birthday"];
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook login:^(GIGFacebookLoginResult *result)
+	 {
+		 completionCalled = YES;
+		 
+		 XCTAssertTrue(result.success == YES);
+		 XCTAssertTrue([result.userID isEqualToString:@"USER_ID_1"], @"%@", [self errorTestLogForObject:result.userID]);
+		 XCTAssertTrue([result.accessToken isEqualToString:@"ACCESS_TOKEN_1"], @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssertTrue(result.isCancelled == NO);
+		 XCTAssertNil(result.error);
+		 
+		 NSArray *requestedPermissions = @[@"public_profile", @"email", @"user_birthday"];
+		 XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:requestedPermissions]);
+	 }];
+	
+	XCTAssertTrue(completionCalled);
+}
 
 
 #pragma mark - HELPERS

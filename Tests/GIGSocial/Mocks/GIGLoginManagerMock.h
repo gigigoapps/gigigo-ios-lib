@@ -10,7 +10,11 @@
 
 @interface GIGLoginManagerMock : FBSDKLoginManager
 
+// Inputs
 @property (strong, nonatomic) NSError *error;
 @property (strong, nonatomic) FBSDKLoginManagerLoginResult *loginResult;
+
+// Outputs
+@property (strong, nonatomic) NSArray *requestedPermissions;
 
 @end
