@@ -70,14 +70,15 @@
 
 - (IBAction)onButtonLoginTap:(id)sender
 {
-	[self.socialLogin loginFacebook:^(BOOL success, NSString *userID, NSString *accessToken, GIGSocialLoginError loginError, NSError *error)
+//	self.socialLogin.extraPermissions = @[@"email"];
+	[self.socialLogin loginFacebook:^(GIGSocialLoginResult *result)
 	{
 		NSMutableString *info = [[NSMutableString alloc] init];
 		
-		NSString *successString = success ? @"YES" : @"NO";
+		NSString *successString = result.success ? @"YES" : @"NO";
 		NSString *loginErrorString = @"";
 		
-		switch (loginError)
+		switch (result.loginError)
 		{
 			case GIGSocialLoginErrorNone:
 				loginErrorString = @"NO ERROR";
@@ -96,10 +97,10 @@
 		}
 		
 		[info appendFormat:@"SUCCESS: %@\n\n", successString];
-		[info appendFormat:@"USER ID: %@\n\n", userID];
-		[info appendFormat:@"ACCESS TOKEN: %@\n\n", accessToken];
+		[info appendFormat:@"USER ID: %@\n\n", result.userID];
+		[info appendFormat:@"ACCESS TOKEN: %@\n\n", result.accessToken];
 		[info appendFormat:@"ERROR TYPE: %@\n\n", loginErrorString];
-		[info appendFormat:@"ERROR: %@\n", error];
+		[info appendFormat:@"ERROR: %@\n", result.error];
 		
 		self.labelInfo.text = info;
 	}];

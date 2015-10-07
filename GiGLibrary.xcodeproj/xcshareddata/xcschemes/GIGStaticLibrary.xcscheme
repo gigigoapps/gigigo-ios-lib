@@ -17,7 +17,7 @@
                BlueprintIdentifier = "A91006551B0CCE8E0080B812"
                BuildableName = "libGIGStaticLibrary.a"
                BlueprintName = "GIGStaticLibrary"
-               ReferencedContainer = "container:GIGLibrary.xcodeproj">
+               ReferencedContainer = "container:GiGLibrary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,7 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,7 +36,7 @@
                BlueprintIdentifier = "D99AD1251B1D9866005BB4E5"
                BuildableName = "GIGStaticLibraryTests.xctest"
                BlueprintName = "GIGStaticLibraryTests"
-               ReferencedContainer = "container:GIGLibrary.xcodeproj">
+               ReferencedContainer = "container:GiGLibrary.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +46,7 @@
             BlueprintIdentifier = "A91006551B0CCE8E0080B812"
             BuildableName = "libGIGStaticLibrary.a"
             BlueprintName = "GIGStaticLibrary"
-            ReferencedContainer = "container:GIGLibrary.xcodeproj">
+            ReferencedContainer = "container:GiGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -67,7 +68,7 @@
             BlueprintIdentifier = "A91006551B0CCE8E0080B812"
             BuildableName = "libGIGStaticLibrary.a"
             BlueprintName = "GIGStaticLibrary"
-            ReferencedContainer = "container:GIGLibrary.xcodeproj">
+            ReferencedContainer = "container:GiGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -85,7 +86,7 @@
             BlueprintIdentifier = "A91006551B0CCE8E0080B812"
             BuildableName = "libGIGStaticLibrary.a"
             BlueprintName = "GIGStaticLibrary"
-            ReferencedContainer = "container:GIGLibrary.xcodeproj">
+            ReferencedContainer = "container:GiGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

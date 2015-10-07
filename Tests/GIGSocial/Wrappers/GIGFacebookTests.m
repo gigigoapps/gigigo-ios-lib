@@ -12,6 +12,7 @@
 #import "GIGFacebook.h"
 #import "FBSDKAccessTokenMock.h"
 #import "GIGLoginManagerMock.h"
+#import "GIGFacebookAccessTokenFactoryMock.h"
 
 
 @interface GIGFacebookTests : XCTestCase
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) GIGFacebook *facebook;
 @property (strong, nonatomic) FBSDKAccessTokenMock *accessTokenMock;
 @property (strong, nonatomic) GIGLoginManagerMock *loginManagerMock;
+@property (strong, nonatomic) GIGFacebookAccessTokenFactoryMock *accessTokenFactoryMock;
 
 @end
 
@@ -31,19 +33,19 @@
     [super setUp];
 
 	self.accessTokenMock = [[FBSDKAccessTokenMock alloc] init];
-	[self.accessTokenMock swizzleMethods];
-	
+	self.accessTokenFactoryMock = [[GIGFacebookAccessTokenFactoryMock alloc] init];
 	self.loginManagerMock = [[GIGLoginManagerMock alloc] init];
 	
-	self.facebook = [[GIGFacebook alloc] initWithLoginManager:self.loginManagerMock];
+	self.accessTokenFactoryMock.accessToken = self.accessTokenMock;
+	self.facebook = [[GIGFacebook alloc] initWithLoginManager:self.loginManagerMock accessToken:self.accessTokenFactoryMock];
 }
 
 
 - (void)tearDown
 {
-	[self.accessTokenMock unswizzleMethods];
 	self.accessTokenMock = nil;
-	
+	self.accessTokenFactoryMock = nil;
+	self.loginManagerMock = nil;
 	self.facebook = nil;
 	
     [super tearDown];
@@ -58,20 +60,19 @@
 
 - (void)test_has_current_access_token
 {
-	self.accessTokenMock.hasCurrentAccessToken = YES;
 	self.accessTokenMock.userID = @"USER_ID_1";
 	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
 	
 	__block BOOL completionCalled = NO;
-	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
+	[self.facebook login:^(GIGFacebookLoginResult *result)
 	{
 		completionCalled = YES;
 		
-		XCTAssertTrue(success);
-		XCTAssertTrue([userID isEqualToString:@"USER_ID_1"], @"%@", [self errorTestLogForObject:userID]);
-		XCTAssertTrue([accessToken isEqualToString:@"ACCESS_TOKEN_1"], @"%@", [self errorTestLogForObject:accessToken]);
-		XCTAssertFalse(isCancelled);
-		XCTAssertNil(error);
+		XCTAssertTrue(result.success);
+		XCTAssertTrue([result.userID isEqualToString:@"USER_ID_1"], @"%@", [self errorTestLogForObject:result.userID]);
+		XCTAssertTrue([result.accessToken isEqualToString:@"ACCESS_TOKEN_1"], @"%@", [self errorTestLogForObject:result.accessToken]);
+		XCTAssertFalse(result.isCancelled);
+		XCTAssertNil(result.error);
 	}];
 	
 	XCTAssertTrue(completionCalled);
@@ -80,19 +81,19 @@
 
 - (void)test_login_with_error
 {
-	self.accessTokenMock.hasCurrentAccessToken = NO;
+	self.accessTokenFactoryMock.accessToken = nil;
 	self.loginManagerMock.error = [NSError errorWithDomain:@"TESTFACEBOOK" code:3 userInfo:nil];
 	
 	__block BOOL completionCalled = NO;
-	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
+	[self.facebook login:^(GIGFacebookLoginResult *result)
 	 {
 		 completionCalled = YES;
 		 
-		 XCTAssertTrue(success == NO);
-		 XCTAssertTrue(userID == nil, @"%@", [self errorTestLogForObject:userID]);
-		 XCTAssertTrue(accessToken == nil, @"%@", [self errorTestLogForObject:accessToken]);
-		 XCTAssertFalse(isCancelled);
-		 XCTAssertTrue([error.domain isEqualToString:@"TESTFACEBOOK"] && error.code == 3);
+		 XCTAssertTrue(result.success == NO);
+		 XCTAssertTrue(result.userID == nil, @"%@", [self errorTestLogForObject:result.userID]);
+		 XCTAssertTrue(result.accessToken == nil, @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssertFalse(result.isCancelled);
+		 XCTAssertTrue([result.error.domain isEqualToString:@"TESTFACEBOOK"] && result.error.code == 3);
 	 }];
 	
 	XCTAssertTrue(completionCalled);
@@ -101,25 +102,25 @@
 
 - (void)test_login_cancelled
 {
+	self.accessTokenFactoryMock.accessToken = nil;
 	FBSDKLoginManagerLoginResult *result = [[FBSDKLoginManagerLoginResult alloc] initWithToken:nil
 																				   isCancelled:YES
 																			grantedPermissions:nil
 																		   declinedPermissions:nil];
 	
-	self.accessTokenMock.hasCurrentAccessToken = NO;
 	self.loginManagerMock.loginResult = result;
 	self.loginManagerMock.error = nil;
 	
 	__block BOOL completionCalled = NO;
-	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
+	[self.facebook login:^(GIGFacebookLoginResult *result)
 	 {
 		 completionCalled = YES;
 		 
-		 XCTAssertTrue(success == NO);
-		 XCTAssertTrue(userID == nil, @"%@", [self errorTestLogForObject:userID]);
-		 XCTAssertTrue(accessToken == nil, @"%@", [self errorTestLogForObject:accessToken]);
-		 XCTAssertTrue(isCancelled == YES);
-		 XCTAssertNil(error);
+		 XCTAssertTrue(result.success == NO);
+		 XCTAssertTrue(result.userID == nil, @"%@", [self errorTestLogForObject:result.userID]);
+		 XCTAssertTrue(result.accessToken == nil, @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssertTrue(result.isCancelled == YES);
+		 XCTAssertNil(result.error);
 	 }];
 	
 	XCTAssertTrue(completionCalled);
@@ -128,7 +129,6 @@
 
 - (void)test_login_success
 {
-	self.accessTokenMock.hasCurrentAccessToken = YES;
 	self.accessTokenMock.userID = @"USER_ID_1";
 	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
 	
@@ -137,20 +137,19 @@
 																			grantedPermissions:nil
 																		   declinedPermissions:nil];
 	
-	self.accessTokenMock.hasCurrentAccessToken = NO;
 	self.loginManagerMock.loginResult = result;
 	self.loginManagerMock.error = nil;
 	
 	__block BOOL completionCalled = NO;
-	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
+	[self.facebook login:^(GIGFacebookLoginResult *result)
 	 {
 		 completionCalled = YES;
 		 
-		 XCTAssertTrue(success == YES);
-		 XCTAssertTrue([userID isEqualToString:@"USER_ID_1"], @"%@", [self errorTestLogForObject:userID]);
-		 XCTAssertTrue([accessToken isEqualToString:@"ACCESS_TOKEN_1"], @"%@", [self errorTestLogForObject:accessToken]);
-		 XCTAssertTrue(isCancelled == NO);
-		 XCTAssertNil(error);
+		 XCTAssertTrue(result.success == YES);
+		 XCTAssertTrue([result.userID isEqualToString:@"USER_ID_1"], @"%@", [self errorTestLogForObject:result.userID]);
+		 XCTAssertTrue([result.accessToken isEqualToString:@"ACCESS_TOKEN_1"], @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssertTrue(result.isCancelled == NO);
+		 XCTAssertNil(result.error);
 	 }];
 	
 	XCTAssertTrue(completionCalled);
