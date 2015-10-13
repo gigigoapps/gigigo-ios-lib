@@ -10,10 +10,19 @@
 
 @interface GIGParseClass : NSObject
 
-/**
- This method converts the class properties to a dictionary
- where the key is the name of the property and the value its content. 
- **/
+
+/*!
+    @brief This method converts the class properties to a dictionary.
+ 
+    @discussion Where the key is the name of the property and the value its content.
+ 
+                To use it, simply call [GIGParseClass parseClass:NameClass];
+ 
+    @param  parseClass The input value representing any class.
+ 
+    @return NSDictionary Key = Name Property, Value = value of content.
+ */
+
 
 - (NSDictionary *)parseClass:(id)parseClass;
 
