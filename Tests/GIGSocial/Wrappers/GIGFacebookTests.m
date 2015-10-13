@@ -96,6 +96,8 @@
 		 XCTAssertTrue([result.error.domain isEqualToString:@"TESTFACEBOOK"] && result.error.code == 3);
 	 }];
 	
+	NSArray *requestedPermissionsResult = @[@"public_profile"];
+	XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:requestedPermissionsResult]);
 	XCTAssertTrue(completionCalled);
 }
 
@@ -123,6 +125,8 @@
 		 XCTAssertNil(result.error);
 	 }];
 	
+	NSArray *requestedPermissionsResult = @[@"public_profile"];
+	XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:requestedPermissionsResult]);
 	XCTAssertTrue(completionCalled);
 }
 
@@ -156,6 +160,8 @@
 		 XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:@[@"public_profile"]], @"%@", [self errorTestLogForObject:self.loginManagerMock.requestedPermissions]);
 	 }];
 	
+	NSArray *requestedPermissionsResult = @[@"public_profile"];
+	XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:requestedPermissionsResult]);
 	XCTAssertTrue(completionCalled);
 }
 
@@ -188,10 +194,10 @@
 		 XCTAssertTrue(result.isCancelled == NO);
 		 XCTAssertNil(result.error);
 		 
-		 NSArray *requestedPermissions = @[@"public_profile", @"email", @"user_birthday"];
-		 XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:requestedPermissions]);
 	 }];
 	
+	NSArray *requestedPermissionsResult = @[@"public_profile", @"email", @"user_birthday"];
+	XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:requestedPermissionsResult]);
 	XCTAssertTrue(completionCalled);
 }
 
