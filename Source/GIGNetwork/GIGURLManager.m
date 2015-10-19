@@ -136,7 +136,7 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 
 #pragma mark - PUBLIC
 
-- (NSData *)mockForRequestTag:(NSString *)requestTag
+- (NSData *)fixtureForRequestTag:(NSString *)requestTag
 {
     return [self.fixturesKeeper mockForRequestTag:requestTag];
 }

@@ -25,10 +25,6 @@
 	return instance;
 }
 
-+ (void)load
-{
-    [GIGLogManager performSelectorOnMainThread:@selector(shared) withObject:nil waitUntilDone:NO];
-}
 
 - (instancetype)init
 {
@@ -185,9 +181,15 @@
 
 + (void)logString:(NSString *)log withHeader:(BOOL)withHeader
 {
+	BOOL isDebug = NO;
+
+#if DEBUG
+	isDebug = YES;
+#endif
+	
 	NSString *finalOutput;
 	
-	if (withHeader)
+	if (withHeader && isDebug)
 	{
 		finalOutput = [NSString stringWithFormat:@"* %@ %@ -> %@\n", [GIGLogManager currentTime], [GIGLogManager shared].appName, log];
 	}
@@ -196,13 +198,13 @@
 		finalOutput = [NSString stringWithFormat:@"%@\n", log];
 	}
 	
-	@try
+	if (isDebug)
 	{
 		[[NSFileHandle fileHandleWithStandardOutput] writeData: [finalOutput dataUsingEncoding: NSUTF8StringEncoding]];
 	}
-	@catch (NSException *exception)
+	else
 	{
-		GIGLog(@"%@", finalOutput);
+		NSLog(@"%@", finalOutput);
 	}
 }
 

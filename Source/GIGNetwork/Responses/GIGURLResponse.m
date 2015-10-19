@@ -32,12 +32,14 @@
     return self;
 }
 
-- (instancetype)initWithError:(NSError *)error headers:(NSDictionary *)headers
+- (instancetype)initWithError:(NSError *)error headers:(NSDictionary *)headers data:(NSData *)data;
 {
     self = [self initWithError:error];
+    
     if (self)
     {
         _headers = headers;
+        _data = data;
     }
     return self;
 }

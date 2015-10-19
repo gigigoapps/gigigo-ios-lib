@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0630"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -17,16 +17,16 @@
                BlueprintIdentifier = "FA680F191B009B6B006FC484"
                BuildableName = "GIGLibraryApp.app"
                BlueprintName = "GIGLibraryApp"
-               ReferencedContainer = "container:GiGLibrary.xcodeproj">
+               ReferencedContainer = "container:GIGLibrary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "D9AD96F91B0A386500CB5E8C"
                BuildableName = "GIGLibraryTests.xctest"
                BlueprintName = "GIGLibraryTests"
-               ReferencedContainer = "container:GiGLibrary.xcodeproj">
+               ReferencedContainer = "container:GIGLibrary.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,18 +45,21 @@
             BlueprintIdentifier = "FA680F191B009B6B006FC484"
             BuildableName = "GIGLibraryApp.app"
             BlueprintName = "GIGLibraryApp"
-            ReferencedContainer = "container:GiGLibrary.xcodeproj">
+            ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </TestAction>
    <LaunchAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
@@ -65,17 +68,17 @@
             BlueprintIdentifier = "FA680F191B009B6B006FC484"
             BuildableName = "GIGLibraryApp.app"
             BlueprintName = "GIGLibraryApp"
-            ReferencedContainer = "container:GiGLibrary.xcodeproj">
+            ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
@@ -84,7 +87,7 @@
             BlueprintIdentifier = "FA680F191B009B6B006FC484"
             BuildableName = "GIGLibraryApp.app"
             BlueprintName = "GIGLibraryApp"
-            ReferencedContainer = "container:GiGLibrary.xcodeproj">
+            ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

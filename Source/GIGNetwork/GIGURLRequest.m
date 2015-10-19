@@ -15,8 +15,12 @@
 #import "GIGDispatch.h"
 
 
-static NSString * const GIGNetworkErrorDomain = @"com.gigigo.network";
-static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
+NSString * const GIGNetworkErrorDomain = @"com.gigigo.network";
+
+NSTimeInterval const GIGURLRequestTimeoutDefault = 0.0f;
+NSTimeInterval const GIGURLRequestFixtureDelayDefault = 0.5f;
+NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
+
 
 
 @interface GIGURLRequest ()
@@ -27,6 +31,8 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 
 @property (strong, nonatomic) NSURLConnection *connection;
 
+@property (copy, nonatomic) NSURLCredential *httpBasicCredential;
+
 @property (strong, nonatomic) NSHTTPURLResponse *response;
 @property (strong, nonatomic) NSMutableData *data;
 @property (strong, nonatomic) NSError *error;
@@ -35,6 +41,11 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 
 
 @implementation GIGURLRequest
+
+- (instancetype)init
+{
+    return [self initWithMethod:@"GET" url:nil];
+}
 
 - (instancetype)initWithMethod:(NSString *)method url:(NSString *)url
 {
@@ -66,7 +77,8 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
         _manager = manager;
         
         _cachePolicy = NSURLRequestUseProtocolCachePolicy;
-        _timeout = 0;
+        _timeout = GIGURLRequestTimeoutDefault;
+        _fixtureDelay = GIGURLRequestFixtureDelayDefault;
         _responseClass = [GIGURLResponse class];
         _logLevel = GIGLogLevelError;
     }
@@ -95,10 +107,17 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 {
     if (self.manager.useFixture)
     {
-        __weak typeof(self) this = self;
-        gig_dispatch_after_seconds(GIGNetworkMockDelay, ^{
-            [this completeWithMock];
-        });
+        if (self.fixtureDelay == GIGURLRequestFixtureDelayNone)
+        {
+            [self completeWithFixture];
+        }
+        else
+        {
+            __weak typeof(self) this = self;
+            gig_dispatch_after_seconds(GIGURLRequestFixtureDelayDefault, ^{
+                [this completeWithFixture];
+            });
+        }
         
         return;
     }
@@ -112,6 +131,18 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 - (void)cancel
 {
     [self.connection cancel];
+}
+
+- (void)setHTTPBasicUser:(NSString *)user password:(NSString *)password
+{
+    if (user.length > 0 && password.length > 0)
+    {
+        self.httpBasicCredential = [NSURLCredential credentialWithUser:user password:password persistence:NSURLCredentialPersistenceForSession];
+    }
+    else
+    {
+        self.httpBasicCredential = nil;
+    }
 }
 
 #pragma mark - PRIVATE
@@ -133,17 +164,17 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
 
     if (self.completion != nil)
     {
-        GIGURLResponse *response = [[self.responseClass alloc] initWithError:self.error headers:self.response.allHeaderFields];
+        GIGURLResponse *response = [[self.responseClass alloc] initWithError:self.error headers:self.response.allHeaderFields data:self.data];
         self.completion(response);
     }
 }
 
-- (void)completeWithMock
+- (void)completeWithFixture
 {
     NSURL *URL = [NSURL URLWithString:self.url];
     self.response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
     
-    NSData *mockData = [self.manager mockForRequestTag:self.requestTag];
+    NSData *mockData = [self.manager fixtureForRequestTag:self.requestTag];
     if (!mockData)
     {
         self.error = [NSError errorWithDomain:GIGNetworkErrorDomain code:404 userInfo:nil];
@@ -172,6 +203,36 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
     [self completeWithError];
 }
 
+- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    NSString *authenticationMethod = challenge.protectionSpace.authenticationMethod;
+    
+    NSURLCredential *credential = nil;
+    if ([authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust] && self.ignoreSSL)
+    {
+        credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+    }
+    
+    if ([authenticationMethod isEqualToString:NSURLAuthenticationMethodHTTPBasic])
+    {
+        credential = self.httpBasicCredential;
+    }
+    
+    if (credential == nil && self.authentication != nil)
+    {
+        credential = self.authentication(challenge);
+    }
+    
+    if (credential != nil)
+    {
+        [challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
+    }
+    else
+    {
+        [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+    }
+}
+
 #pragma mark - <NSURLConnectionDataDelegate>
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)aResponse
@@ -182,7 +243,6 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
     if (![self isSuccess])
     {
         self.error = [NSError errorWithDomain:GIGNetworkErrorDomain code:self.response.statusCode userInfo:nil];
-        [self completeWithError];
     }
 }
 
@@ -211,6 +271,10 @@ static NSTimeInterval const GIGNetworkMockDelay = 0.5f;
     if ([self isSuccess])
     {
         [self completeWithData];
+    }
+    else
+    {
+        [self completeWithError];
     }
 }
 
