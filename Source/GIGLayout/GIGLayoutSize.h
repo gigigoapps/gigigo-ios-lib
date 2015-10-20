@@ -34,5 +34,10 @@ __unused static NSArray* gig_constrain_size(UIView *view, CGSize size)
     return @[width, height];
 }
 
+__unused static NSLayoutConstraint *gig_equal_width(UIView *view1, UIView *view2)
+{
+    return gig_constraint_attribute_view(view1, view2, NSLayoutAttributeWidth, 0.0);
+}
+
 
 #endif

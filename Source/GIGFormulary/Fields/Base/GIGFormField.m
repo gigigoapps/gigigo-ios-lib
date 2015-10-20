@@ -15,6 +15,11 @@
 
 - (BOOL)validate
 {
+    if (self.validator == nil)
+    {
+        return YES;
+    }
+    
     return [self.validator validate:self.fieldValue error:nil];
 }
 

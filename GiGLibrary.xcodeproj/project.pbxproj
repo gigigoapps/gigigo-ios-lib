@@ -393,14 +393,8 @@
 		D9AF10D81B42A87E004F01F9 /* GIGBoolValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF10D41B42A87E004F01F9 /* GIGBoolValidator.m */; };
 		D9AF10DA1B42A93E004F01F9 /* GIGBoolValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF10D91B42A93E004F01F9 /* GIGBoolValidatorTests.m */; };
 		D9AF10DB1B42A93E004F01F9 /* GIGBoolValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF10D91B42A93E004F01F9 /* GIGBoolValidatorTests.m */; };
-		D9AF10DE1B42AA90004F01F9 /* GIGFormController.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AF10DC1B42AA90004F01F9 /* GIGFormController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D9AF10DF1B42AA90004F01F9 /* GIGFormController.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AF10DC1B42AA90004F01F9 /* GIGFormController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D9AF10E01B42AA90004F01F9 /* GIGFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF10DD1B42AA90004F01F9 /* GIGFormController.m */; };
-		D9AF10E11B42AA90004F01F9 /* GIGFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF10DD1B42AA90004F01F9 /* GIGFormController.m */; };
-		D9AF10E41B42ABB4004F01F9 /* GIGFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AF10E21B42ABB4004F01F9 /* GIGFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D9AF10E51B42ABB4004F01F9 /* GIGFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AF10E21B42ABB4004F01F9 /* GIGFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D9AF10E61B42ABB4004F01F9 /* GIGFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF10E31B42ABB4004F01F9 /* GIGFormField.m */; };
-		D9AF10E71B42ABB4004F01F9 /* GIGFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF10E31B42ABB4004F01F9 /* GIGFormField.m */; };
+		D9B2F7F61BD549490057422F /* basic_form.json in Resources */ = {isa = PBXBuildFile; fileRef = D9B2F7F51BD549490057422F /* basic_form.json */; settings = {ASSET_TAGS = (); }; };
+		D9B2F7F71BD549490057422F /* basic_form.json in Resources */ = {isa = PBXBuildFile; fileRef = D9B2F7F51BD549490057422F /* basic_form.json */; settings = {ASSET_TAGS = (); }; };
 		D9E10E5F1BBBC7620016C00B /* GIGURLCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473471BBBC4E000AB5655 /* GIGURLCommunicatorTests.m */; settings = {ASSET_TAGS = (); }; };
 		D9E10E601BBBC7630016C00B /* GIGURLCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473471BBBC4E000AB5655 /* GIGURLCommunicatorTests.m */; settings = {ASSET_TAGS = (); }; };
 		D9E10E631BBBC76C0016C00B /* GIGURLRequestFixtureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734A1BBBC4E000AB5655 /* GIGURLRequestFixtureTests.m */; settings = {ASSET_TAGS = (); }; };
@@ -409,6 +403,8 @@
 		D9E10E681BBBC7770016C00B /* GIGURLImageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734D1BBBC4E000AB5655 /* GIGURLImageResponseTests.m */; settings = {ASSET_TAGS = (); }; };
 		D9E10E691BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734E1BBBC4E000AB5655 /* GIGURLJSONResponseTests.m */; settings = {ASSET_TAGS = (); }; };
 		D9E10E6A1BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734E1BBBC4E000AB5655 /* GIGURLJSONResponseTests.m */; settings = {ASSET_TAGS = (); }; };
+		D9E18E141BD542FD00611CDA /* GLABasicFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E18E131BD542FD00611CDA /* GLABasicFormViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D9E18E151BD542FD00611CDA /* GLABasicFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E18E131BD542FD00611CDA /* GLABasicFormViewController.m */; settings = {ASSET_TAGS = (); }; };
 		D9E4661B1B411E9F00EC6C72 /* GIGURLJSONResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9E4661C1B411E9F00EC6C72 /* GIGURLJSONResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9E4661D1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */; };
@@ -483,6 +479,34 @@
 		D9FD36531B417DD0000D356F /* GIGFormulary.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FD36521B417DD0000D356F /* GIGFormulary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9FD36541B417DD0000D356F /* GIGFormulary.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FD36521B417DD0000D356F /* GIGFormulary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9FD36551B417E70000D356F /* GIGValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FD35EE1B413E28000D356F /* GIGValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE61F41BD65BA900E2B23C /* GIGFormConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE61F31BD65BA600E2B23C /* GIGFormConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE61F51BD65BAE00E2B23C /* GIGFormConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE61F31BD65BA600E2B23C /* GIGFormConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE61F61BD65CA200E2B23C /* GIGFormFields.h in Headers */ = {isa = PBXBuildFile; fileRef = D9A39DB11BD538D000EAB2E0 /* GIGFormFields.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE61F71BD65CA400E2B23C /* GIGFormFields.h in Headers */ = {isa = PBXBuildFile; fileRef = D9A39DB11BD538D000EAB2E0 /* GIGFormFields.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE61FB1BD65CC900E2B23C /* GIGFormController.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE61F91BD65CC900E2B23C /* GIGFormController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE61FC1BD65CC900E2B23C /* GIGFormController.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE61F91BD65CC900E2B23C /* GIGFormController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE61FD1BD65CC900E2B23C /* GIGFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE61FA1BD65CC900E2B23C /* GIGFormController.m */; settings = {ASSET_TAGS = (); }; };
+		D9FE61FE1BD65CC900E2B23C /* GIGFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE61FA1BD65CC900E2B23C /* GIGFormController.m */; settings = {ASSET_TAGS = (); }; };
+		D9FE62081BD65D8A00E2B23C /* GIGFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE62001BD65D8A00E2B23C /* GIGFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE62091BD65D8A00E2B23C /* GIGFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE62001BD65D8A00E2B23C /* GIGFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE620A1BD65D8A00E2B23C /* GIGFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE62011BD65D8A00E2B23C /* GIGFormField.m */; settings = {ASSET_TAGS = (); }; };
+		D9FE620B1BD65D8A00E2B23C /* GIGFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE62011BD65D8A00E2B23C /* GIGFormField.m */; settings = {ASSET_TAGS = (); }; };
+		D9FE620C1BD65D8A00E2B23C /* GIGFormFieldsBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE62031BD65D8A00E2B23C /* GIGFormFieldsBuilder.h */; settings = {ASSET_TAGS = (); }; };
+		D9FE620D1BD65D8A00E2B23C /* GIGFormFieldsBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE62031BD65D8A00E2B23C /* GIGFormFieldsBuilder.h */; settings = {ASSET_TAGS = (); }; };
+		D9FE620E1BD65D8A00E2B23C /* GIGFormFieldsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE62041BD65D8A00E2B23C /* GIGFormFieldsBuilder.m */; settings = {ASSET_TAGS = (); }; };
+		D9FE620F1BD65D8A00E2B23C /* GIGFormFieldsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE62041BD65D8A00E2B23C /* GIGFormFieldsBuilder.m */; settings = {ASSET_TAGS = (); }; };
+		D9FE62101BD65D8A00E2B23C /* GIGTextFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE62061BD65D8A00E2B23C /* GIGTextFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE62111BD65D8A00E2B23C /* GIGTextFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE62061BD65D8A00E2B23C /* GIGTextFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE62121BD65D8A00E2B23C /* GIGTextFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE62071BD65D8A00E2B23C /* GIGTextFormField.m */; settings = {ASSET_TAGS = (); }; };
+		D9FE62131BD65D8A00E2B23C /* GIGTextFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE62071BD65D8A00E2B23C /* GIGTextFormField.m */; settings = {ASSET_TAGS = (); }; };
+		D9FE62171BD65DCF00E2B23C /* GIGCheckFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE62151BD65DCF00E2B23C /* GIGCheckFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE62181BD65DCF00E2B23C /* GIGCheckFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE62151BD65DCF00E2B23C /* GIGCheckFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE62191BD65DCF00E2B23C /* GIGCheckFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE62161BD65DCF00E2B23C /* GIGCheckFormField.m */; settings = {ASSET_TAGS = (); }; };
+		D9FE621A1BD65DCF00E2B23C /* GIGCheckFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE62161BD65DCF00E2B23C /* GIGCheckFormField.m */; settings = {ASSET_TAGS = (); }; };
+		D9FE621E1BD6878600E2B23C /* GIGMessageFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE621C1BD6878600E2B23C /* GIGMessageFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE621F1BD6878600E2B23C /* GIGMessageFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE621C1BD6878600E2B23C /* GIGMessageFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */; settings = {ASSET_TAGS = (); }; };
+		D9FE62211BD6878600E2B23C /* GIGMessageFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */; settings = {ASSET_TAGS = (); }; };
 		FA1F80741B71EDFA003699DE /* GIGFacebookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */; };
 		FA3B23691BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3B23671BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FA3B236A1BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3B23681BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.m */; settings = {ASSET_TAGS = (); }; };
@@ -797,6 +821,7 @@
 		D99AD36D1B1DAAE6005BB4E5 /* GET_keepalive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_keepalive.json; sourceTree = "<group>"; };
 		D99AD36E1B1DAAE6005BB4E5 /* GET_logout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_logout.json; sourceTree = "<group>"; };
 		D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		D9A39DB11BD538D000EAB2E0 /* GIGFormFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIGFormFields.h; sourceTree = "<group>"; };
 		D9AD96FA1B0A386500CB5E8C /* GIGLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIGLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AD96FD1B0A386500CB5E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9AF10CA1B42A6D7004F01F9 /* GIGStringValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGStringValidator.h; path = GIGFormulary/Validators/GIGStringValidator.h; sourceTree = "<group>"; };
@@ -805,11 +830,10 @@
 		D9AF10D31B42A87E004F01F9 /* GIGBoolValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGBoolValidator.h; path = GIGFormulary/Validators/GIGBoolValidator.h; sourceTree = "<group>"; };
 		D9AF10D41B42A87E004F01F9 /* GIGBoolValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGBoolValidator.m; path = GIGFormulary/Validators/GIGBoolValidator.m; sourceTree = "<group>"; };
 		D9AF10D91B42A93E004F01F9 /* GIGBoolValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGBoolValidatorTests.m; sourceTree = "<group>"; };
-		D9AF10DC1B42AA90004F01F9 /* GIGFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGFormController.h; path = GIGFormulary/GIGFormController.h; sourceTree = "<group>"; };
-		D9AF10DD1B42AA90004F01F9 /* GIGFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFormController.m; path = GIGFormulary/GIGFormController.m; sourceTree = "<group>"; };
-		D9AF10E21B42ABB4004F01F9 /* GIGFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGFormField.h; path = GIGFormulary/GIGFormField.h; sourceTree = "<group>"; };
-		D9AF10E31B42ABB4004F01F9 /* GIGFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFormField.m; path = GIGFormulary/GIGFormField.m; sourceTree = "<group>"; };
+		D9B2F7F51BD549490057422F /* basic_form.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = basic_form.json; path = Formulary/Basic/basic_form.json; sourceTree = "<group>"; };
 		D9E10E6D1BBBD0390016C00B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D9E18E121BD542FD00611CDA /* GLABasicFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLABasicFormViewController.h; path = Formulary/Basic/GLABasicFormViewController.h; sourceTree = "<group>"; };
+		D9E18E131BD542FD00611CDA /* GLABasicFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLABasicFormViewController.m; path = Formulary/Basic/GLABasicFormViewController.m; sourceTree = "<group>"; };
 		D9E466191B411E9F00EC6C72 /* GIGURLJSONResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLJSONResponse.h; sourceTree = "<group>"; };
 		D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLJSONResponse.m; sourceTree = "<group>"; };
 		D9E7A1481B4181B2004D3193 /* GIGPostalCodeValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGPostalCodeValidator.h; path = GIGFormulary/Validators/GIGPostalCodeValidator.h; sourceTree = "<group>"; };
@@ -847,6 +871,19 @@
 		D9FD36421B416DF8000D356F /* GIGTextValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGTextValidatorTests.m; sourceTree = "<group>"; };
 		D9FD36431B416DF8000D356F /* GIGValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGValidatorTests.m; sourceTree = "<group>"; };
 		D9FD36521B417DD0000D356F /* GIGFormulary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGFormulary.h; path = GIGFormulary/GIGFormulary.h; sourceTree = "<group>"; };
+		D9FE61F31BD65BA600E2B23C /* GIGFormConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GIGFormConstants.h; path = GIGFormulary/GIGFormConstants.h; sourceTree = "<group>"; };
+		D9FE61F91BD65CC900E2B23C /* GIGFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGFormController.h; sourceTree = "<group>"; };
+		D9FE61FA1BD65CC900E2B23C /* GIGFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGFormController.m; sourceTree = "<group>"; };
+		D9FE62001BD65D8A00E2B23C /* GIGFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGFormField.h; sourceTree = "<group>"; };
+		D9FE62011BD65D8A00E2B23C /* GIGFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGFormField.m; sourceTree = "<group>"; };
+		D9FE62031BD65D8A00E2B23C /* GIGFormFieldsBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGFormFieldsBuilder.h; sourceTree = "<group>"; };
+		D9FE62041BD65D8A00E2B23C /* GIGFormFieldsBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGFormFieldsBuilder.m; sourceTree = "<group>"; };
+		D9FE62061BD65D8A00E2B23C /* GIGTextFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGTextFormField.h; sourceTree = "<group>"; };
+		D9FE62071BD65D8A00E2B23C /* GIGTextFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGTextFormField.m; sourceTree = "<group>"; };
+		D9FE62151BD65DCF00E2B23C /* GIGCheckFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGCheckFormField.h; path = Check/GIGCheckFormField.h; sourceTree = "<group>"; };
+		D9FE62161BD65DCF00E2B23C /* GIGCheckFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGCheckFormField.m; path = Check/GIGCheckFormField.m; sourceTree = "<group>"; };
+		D9FE621C1BD6878600E2B23C /* GIGMessageFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMessageFormField.h; path = Message/GIGMessageFormField.h; sourceTree = "<group>"; };
+		D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMessageFormField.m; path = Message/GIGMessageFormField.m; sourceTree = "<group>"; };
 		FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFacebookTests.m; path = GIGSocial/Wrappers/GIGFacebookTests.m; sourceTree = "<group>"; };
 		FA3B23671BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGFacebookAccessTokenFactory.h; path = GIGSocial/Factory/GIGFacebookAccessTokenFactory.h; sourceTree = "<group>"; };
 		FA3B23681BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFacebookAccessTokenFactory.m; path = GIGSocial/Factory/GIGFacebookAccessTokenFactory.m; sourceTree = "<group>"; };
@@ -1472,6 +1509,7 @@
 			children = (
 				D99AD35F1B1DAAE6005BB4E5 /* Main */,
 				FACE6D941BBC112B00457B4C /* Network */,
+				D9E18E111BD542D900611CDA /* Formulary */,
 				FAA80A7A1B70CFE40076FF9E /* Social */,
 				D99AD3661B1DAAE6005BB4E5 /* Resources */,
 				D99AD3881B1DAAEB005BB4E5 /* Supporting Files */,
@@ -1596,6 +1634,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D9A39D9E1BD536E100EAB2E0 /* Fields */ = {
+			isa = PBXGroup;
+			children = (
+				D9A39DB11BD538D000EAB2E0 /* GIGFormFields.h */,
+				D9FE621B1BD6876F00E2B23C /* Message */,
+				D9FE62051BD65D8A00E2B23C /* Text */,
+				D9FE62141BD65DB200E2B23C /* Check */,
+				D9FE61FF1BD65D8A00E2B23C /* Base */,
+				D9FE62021BD65D8A00E2B23C /* Builder */,
+			);
+			name = Fields;
+			path = GIGFormulary/Fields;
+			sourceTree = "<group>";
+		};
 		D9AD96FB1B0A386500CB5E8C /* GIGLibraryTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1604,14 +1656,31 @@
 			path = GIGLibraryTests;
 			sourceTree = "<group>";
 		};
+		D9E18E111BD542D900611CDA /* Formulary */ = {
+			isa = PBXGroup;
+			children = (
+				D9E18E161BD542FF00611CDA /* Basic */,
+			);
+			name = Formulary;
+			sourceTree = "<group>";
+		};
+		D9E18E161BD542FF00611CDA /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				D9B2F7F51BD549490057422F /* basic_form.json */,
+				D9E18E121BD542FD00611CDA /* GLABasicFormViewController.h */,
+				D9E18E131BD542FD00611CDA /* GLABasicFormViewController.m */,
+			);
+			name = Basic;
+			sourceTree = "<group>";
+		};
 		D9FD35DB1B41393C000D356F /* GIGFormulary */ = {
 			isa = PBXGroup;
 			children = (
 				D9FD36521B417DD0000D356F /* GIGFormulary.h */,
-				D9AF10DC1B42AA90004F01F9 /* GIGFormController.h */,
-				D9AF10DD1B42AA90004F01F9 /* GIGFormController.m */,
-				D9AF10E21B42ABB4004F01F9 /* GIGFormField.h */,
-				D9AF10E31B42ABB4004F01F9 /* GIGFormField.m */,
+				D9FE61F31BD65BA600E2B23C /* GIGFormConstants.h */,
+				D9FE61F81BD65CC900E2B23C /* Controller */,
+				D9A39D9E1BD536E100EAB2E0 /* Fields */,
 				D9FD35DC1B41394D000D356F /* Validators */,
 			);
 			name = GIGFormulary;
@@ -1678,6 +1747,61 @@
 			);
 			name = Validators;
 			path = GIGFormulary/Validators;
+			sourceTree = "<group>";
+		};
+		D9FE61F81BD65CC900E2B23C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9FE61F91BD65CC900E2B23C /* GIGFormController.h */,
+				D9FE61FA1BD65CC900E2B23C /* GIGFormController.m */,
+			);
+			name = Controller;
+			path = GIGFormulary/Controller;
+			sourceTree = "<group>";
+		};
+		D9FE61FF1BD65D8A00E2B23C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D9FE62001BD65D8A00E2B23C /* GIGFormField.h */,
+				D9FE62011BD65D8A00E2B23C /* GIGFormField.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D9FE62021BD65D8A00E2B23C /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				D9FE62031BD65D8A00E2B23C /* GIGFormFieldsBuilder.h */,
+				D9FE62041BD65D8A00E2B23C /* GIGFormFieldsBuilder.m */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		D9FE62051BD65D8A00E2B23C /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				D9FE62061BD65D8A00E2B23C /* GIGTextFormField.h */,
+				D9FE62071BD65D8A00E2B23C /* GIGTextFormField.m */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		D9FE62141BD65DB200E2B23C /* Check */ = {
+			isa = PBXGroup;
+			children = (
+				D9FE62151BD65DCF00E2B23C /* GIGCheckFormField.h */,
+				D9FE62161BD65DCF00E2B23C /* GIGCheckFormField.m */,
+			);
+			name = Check;
+			sourceTree = "<group>";
+		};
+		D9FE621B1BD6876F00E2B23C /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				D9FE621C1BD6878600E2B23C /* GIGMessageFormField.h */,
+				D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */,
+			);
+			name = Message;
 			sourceTree = "<group>";
 		};
 		FA1F80721B71EDD2003699DE /* Wrappers */ = {
@@ -1879,13 +2003,16 @@
 				D99AD22A1B1DA3A3005BB4E5 /* GIGURLDomainsKeeper.h in Headers */,
 				D99AD2441B1DA3A3005BB4E5 /* GIGURLFile.h in Headers */,
 				D99AD2401B1DA3A3005BB4E5 /* GIGURLCommunicator.h in Headers */,
+				D9FE62181BD65DCF00E2B23C /* GIGCheckFormField.h in Headers */,
 				D99AD2C41B1DA3A3005BB4E5 /* UINavigationController+GIGExtension.h in Headers */,
 				D99AD2161B1DA3A3005BB4E5 /* GIGURLConfigDomainsTableViewController.h in Headers */,
+				D9FE61F71BD65CA400E2B23C /* GIGFormFields.h in Headers */,
 				D99AD2901B1DA3A3005BB4E5 /* NSError+GIGExtension.h in Headers */,
-				D9AF10E51B42ABB4004F01F9 /* GIGFormField.h in Headers */,
 				D99AD2DA1B1DA3A3005BB4E5 /* GIGString.h in Headers */,
+				D9FE62091BD65D8A00E2B23C /* GIGFormField.h in Headers */,
 				D99AD29E1B1DA3A3005BB4E5 /* GIGRandom.h in Headers */,
 				D99AD23E1B1DA3A3005BB4E5 /* GIGNetwork.h in Headers */,
+				D9FE61FC1BD65CC900E2B23C /* GIGFormController.h in Headers */,
 				D99AD2681B1DA3A3005BB4E5 /* GIGAlert.h in Headers */,
 				D99AD2FA1B1DA3A3005BB4E5 /* UIView+GIGNibExtension.h in Headers */,
 				D99AD2001B1DA3A3005BB4E5 /* GIGLayoutBase.h in Headers */,
@@ -1899,6 +2026,7 @@
 				D99AD2BC1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.h in Headers */,
 				D99AD2F21B1DA3A3005BB4E5 /* UIView+GIGDebugExtension.h in Headers */,
 				D99AD29C1B1DA3A3005BB4E5 /* GIGLocalization.h in Headers */,
+				D9FE61F51BD65BAE00E2B23C /* GIGFormConstants.h in Headers */,
 				D9FD35FB1B415CAE000D356F /* GIGNumericValidator.h in Headers */,
 				D9FD36021B416264000D356F /* GIGValidators.h in Headers */,
 				D9FD36061B4162A6000D356F /* GIGTextValidator.h in Headers */,
@@ -1910,7 +2038,6 @@
 				D99AD2361B1DA3A3005BB4E5 /* GIGURLFormatter.h in Headers */,
 				D99AD2841B1DA3A3005BB4E5 /* NSDictionary+GIGExtension.h in Headers */,
 				D99AD2E81B1DA3A3005BB4E5 /* NSUserDefaults+GIGArchive.h in Headers */,
-				D9AF10DF1B42AA90004F01F9 /* GIGFormController.h in Headers */,
 				D99AD1F81B1DA3A3005BB4E5 /* GIGConstants.h in Headers */,
 				D99AD2061B1DA3A3005BB4E5 /* GIGLayoutGridHorizontal.h in Headers */,
 				D99AD2CA1B1DA3A3005BB4E5 /* NSRegularExpression+GIGRegexp.h in Headers */,
@@ -1921,6 +2048,7 @@
 				D99AD2AC1B1DA3A3005BB4E5 /* NSArray+GIGJSON.h in Headers */,
 				D99AD2D21B1DA3A3005BB4E5 /* UIScreen+GIGExtension.h in Headers */,
 				D99AD2A21B1DA3A3005BB4E5 /* UIImage+GIGExtension.h in Headers */,
+				D9FE62111BD65D8A00E2B23C /* GIGTextFormField.h in Headers */,
 				D99AD2EE1B1DA3A3005BB4E5 /* UIView+GIGBorderShadowExtension.h in Headers */,
 				D99AD2881B1DA3A3005BB4E5 /* GIGDigest.h in Headers */,
 				D99AD20A1B1DA3A3005BB4E5 /* GIGLayoutGridVertical.h in Headers */,
@@ -1937,8 +2065,10 @@
 				D99AD2221B1DA3A3005BB4E5 /* GIGURLConfigTableViewController.h in Headers */,
 				D99AD1FE1B1DA3A3005BB4E5 /* GIGLayout.h in Headers */,
 				D99AD2741B1DA3A3005BB4E5 /* UIColor+GIGExtension.h in Headers */,
+				D9FE620D1BD65D8A00E2B23C /* GIGFormFieldsBuilder.h in Headers */,
 				D9FD360F1B4164F5000D356F /* GIGMailValidator.h in Headers */,
 				D99AD2A61B1DA3A3005BB4E5 /* NSInvocation+GIGExtension.h in Headers */,
+				D9FE621F1BD6878600E2B23C /* GIGMessageFormField.h in Headers */,
 				D9FD36181B416774000D356F /* GIGLengthValidator.h in Headers */,
 				D99AD2101B1DA3A3005BB4E5 /* GIGLayoutSize.h in Headers */,
 				D99AD2321B1DA3A3005BB4E5 /* GIGURLFixturesKeeper.h in Headers */,
@@ -1978,7 +2108,9 @@
 				D99AD2B31B1DA3A3005BB4E5 /* NSDictionary+GIGJSON.h in Headers */,
 				D99AD2DF1B1DA3A3005BB4E5 /* NSString+GIGReplace.h in Headers */,
 				D99AD24F1B1DA3A3005BB4E5 /* GIGURLConnectionBuilder.h in Headers */,
+				D9FE62101BD65D8A00E2B23C /* GIGTextFormField.h in Headers */,
 				D99AD24B1B1DA3A3005BB4E5 /* GIGURLRequest.h in Headers */,
+				D9FE61F61BD65CA200E2B23C /* GIGFormFields.h in Headers */,
 				D99AD26B1B1DA3A3005BB4E5 /* NSArray+GIGExtension.h in Headers */,
 				D9FD36551B417E70000D356F /* GIGValidator.h in Headers */,
 				D99AD25F1B1DA3A3005BB4E5 /* GIGURLImageResponse.h in Headers */,
@@ -1987,9 +2119,10 @@
 				D99AD2431B1DA3A3005BB4E5 /* GIGURLFile.h in Headers */,
 				D99AD23F1B1DA3A3005BB4E5 /* GIGURLCommunicator.h in Headers */,
 				D99AD2C31B1DA3A3005BB4E5 /* UINavigationController+GIGExtension.h in Headers */,
+				D9FE61FB1BD65CC900E2B23C /* GIGFormController.h in Headers */,
 				D99AD2151B1DA3A3005BB4E5 /* GIGURLConfigDomainsTableViewController.h in Headers */,
-				D9AF10E41B42ABB4004F01F9 /* GIGFormField.h in Headers */,
 				D99AD28F1B1DA3A3005BB4E5 /* NSError+GIGExtension.h in Headers */,
+				D9FE62171BD65DCF00E2B23C /* GIGCheckFormField.h in Headers */,
 				D99AD2D91B1DA3A3005BB4E5 /* GIGString.h in Headers */,
 				D99AD29D1B1DA3A3005BB4E5 /* GIGRandom.h in Headers */,
 				D99AD23D1B1DA3A3005BB4E5 /* GIGNetwork.h in Headers */,
@@ -2002,12 +2135,14 @@
 				D99AD2631B1DA3A3005BB4E5 /* GIGURLResponse.h in Headers */,
 				D99AD2771B1DA3A3005BB4E5 /* NSManagedObjectContext+GIGExtension.h in Headers */,
 				D99AD2011B1DA3A3005BB4E5 /* GIGLayoutCenter.h in Headers */,
+				D9FE621E1BD6878600E2B23C /* GIGMessageFormField.h in Headers */,
 				D99AD2931B1DA3A3005BB4E5 /* GIGFileManager.h in Headers */,
 				7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */,
 				D99AD2CD1B1DA3A3005BB4E5 /* NSString+GIGRegexp.h in Headers */,
 				D99AD2BB1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.h in Headers */,
 				D99AD2F11B1DA3A3005BB4E5 /* UIView+GIGDebugExtension.h in Headers */,
 				D99AD29B1B1DA3A3005BB4E5 /* GIGLocalization.h in Headers */,
+				D9FE62081BD65D8A00E2B23C /* GIGFormField.h in Headers */,
 				D9FD35FA1B415CAE000D356F /* GIGNumericValidator.h in Headers */,
 				D9FD36011B41625F000D356F /* GIGValidators.h in Headers */,
 				D9FD36051B4162A6000D356F /* GIGTextValidator.h in Headers */,
@@ -2019,7 +2154,6 @@
 				D99AD2351B1DA3A3005BB4E5 /* GIGURLFormatter.h in Headers */,
 				D99AD2831B1DA3A3005BB4E5 /* NSDictionary+GIGExtension.h in Headers */,
 				7B6B84B01BC2B4A000517C2F /* GIGMockClassEmpty.h in Headers */,
-				D9AF10DE1B42AA90004F01F9 /* GIGFormController.h in Headers */,
 				D99AD2E71B1DA3A3005BB4E5 /* NSUserDefaults+GIGArchive.h in Headers */,
 				D99AD1F71B1DA3A3005BB4E5 /* GIGConstants.h in Headers */,
 				D99AD2051B1DA3A3005BB4E5 /* GIGLayoutGridHorizontal.h in Headers */,
@@ -2055,9 +2189,11 @@
 				D99AD2991B1DA3A3005BB4E5 /* GIGDispatch.h in Headers */,
 				D99AD27B1B1DA3A3005BB4E5 /* NSData+GIGString.h in Headers */,
 				D99AD2BF1B1DA3A3005BB4E5 /* GIGLogManager.h in Headers */,
+				D9FE61F41BD65BA900E2B23C /* GIGFormConstants.h in Headers */,
 				D909EFEA1B0DC2FF00DD4D97 /* GIGLibrary.h in Headers */,
 				D9E7A15C1B419475004D3193 /* GIGMultiValidator.h in Headers */,
 				D99AD2471B1DA3A3005BB4E5 /* GIGURLManager.h in Headers */,
+				D9FE620C1BD65D8A00E2B23C /* GIGFormFieldsBuilder.h in Headers */,
 				7BE65FB51BC3CB90002C335E /* GIGMockClassNSObject.h in Headers */,
 				D99AD2111B1DA3A3005BB4E5 /* GIGURLConfigAddDomainViewController.h in Headers */,
 			);
@@ -2287,6 +2423,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B2F7F71BD549490057422F /* basic_form.json in Resources */,
 				D99AD3851B1DAAE6005BB4E5 /* GET_logout.json in Resources */,
 				D99AD37F1B1DAAE6005BB4E5 /* fixtures.json in Resources */,
 				D99AD37B1B1DAAE6005BB4E5 /* domains.json in Resources */,
@@ -2324,6 +2461,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B2F7F61BD549490057422F /* basic_form.json in Resources */,
 				D99AD3841B1DAAE6005BB4E5 /* GET_logout.json in Resources */,
 				D99AD37E1B1DAAE6005BB4E5 /* fixtures.json in Resources */,
 				D99AD37A1B1DAAE6005BB4E5 /* domains.json in Resources */,
@@ -2385,16 +2523,18 @@
 				D99AD2E61B1DA3A3005BB4E5 /* NSString+GIGSubstring.m in Sources */,
 				D9E7A15F1B419475004D3193 /* GIGMultiValidator.m in Sources */,
 				D99AD2561B1DA3A3005BB4E5 /* GIGURLRequestFactory.m in Sources */,
+				D9FE620B1BD65D8A00E2B23C /* GIGFormField.m in Sources */,
 				D99AD2181B1DA3A3005BB4E5 /* GIGURLConfigDomainsTableViewController.m in Sources */,
 				D9FD35FD1B415CAE000D356F /* GIGNumericValidator.m in Sources */,
 				D99AD2461B1DA3A3005BB4E5 /* GIGURLFile.m in Sources */,
 				D99AD2A81B1DA3A3005BB4E5 /* NSInvocation+GIGExtension.m in Sources */,
+				D9FE61FE1BD65CC900E2B23C /* GIGFormController.m in Sources */,
 				7B6B84B31BC2B4A000517C2F /* GIGMockClassEmpty.m in Sources */,
 				D9E7A1681B4198D1004D3193 /* GIGCharactersValidator.m in Sources */,
 				D9E4661E1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */,
 				D99AD2661B1DA3A3005BB4E5 /* GIGURLResponse.m in Sources */,
-				D9AF10E11B42AA90004F01F9 /* GIGFormController.m in Sources */,
 				D99AD2761B1DA3A3005BB4E5 /* UIColor+GIGExtension.m in Sources */,
+				D9FE621A1BD65DCF00E2B23C /* GIGCheckFormField.m in Sources */,
 				D99AD2241B1DA3A3005BB4E5 /* GIGURLConfigTableViewController.m in Sources */,
 				D9FD35F31B413E28000D356F /* GIGValidator.m in Sources */,
 				D99AD2A41B1DA3A3005BB4E5 /* UIImage+GIGExtension.m in Sources */,
@@ -2404,7 +2544,6 @@
 				D99AD1FC1B1DA3A3005BB4E5 /* GIGGeolocation.m in Sources */,
 				D99AD27A1B1DA3A3005BB4E5 /* NSManagedObjectContext+GIGExtension.m in Sources */,
 				D99AD2EA1B1DA3A3005BB4E5 /* NSUserDefaults+GIGArchive.m in Sources */,
-				D9AF10E71B42ABB4004F01F9 /* GIGFormField.m in Sources */,
 				D99AD2AE1B1DA3A3005BB4E5 /* NSArray+GIGJSON.m in Sources */,
 				D99AD2081B1DA3A3005BB4E5 /* GIGLayoutGridHorizontal.m in Sources */,
 				D99AD22C1B1DA3A3005BB4E5 /* GIGURLDomainsKeeper.m in Sources */,
@@ -2418,6 +2557,7 @@
 				D99AD2D81B1DA3A3005BB4E5 /* UIScrollView+GIGScrollTo.m in Sources */,
 				D99AD2F81B1DA3A3005BB4E5 /* UIView+GIGFrameExtension.m in Sources */,
 				D9FD35ED1B413E1A000D356F /* GIGRegexpValidator.m in Sources */,
+				D9FE62131BD65D8A00E2B23C /* GIGTextFormField.m in Sources */,
 				D99AD2E21B1DA3A3005BB4E5 /* NSString+GIGReplace.m in Sources */,
 				D99AD26A1B1DA3A3005BB4E5 /* GIGAlert.m in Sources */,
 				D99AD2961B1DA3A3005BB4E5 /* GIGFileManager.m in Sources */,
@@ -2425,6 +2565,7 @@
 				D99AD27E1B1DA3A3005BB4E5 /* NSData+GIGString.m in Sources */,
 				D99AD2281B1DA3A3005BB4E5 /* GIGURLDomain.m in Sources */,
 				D99AD2381B1DA3A3005BB4E5 /* GIGURLFormatter.m in Sources */,
+				D9FE620F1BD65D8A00E2B23C /* GIGFormFieldsBuilder.m in Sources */,
 				7BE65FC51BC3D2AE002C335E /* GIGMockClassPrimitive.m in Sources */,
 				D99AD2301B1DA3A3005BB4E5 /* GIGURLFixture.m in Sources */,
 				D99AD25A1B1DA3A3005BB4E5 /* GIGURLRequestLogger.m in Sources */,
@@ -2432,6 +2573,7 @@
 				D99AD2B21B1DA3A3005BB4E5 /* NSData+GIGJSON.m in Sources */,
 				D9AF10CF1B42A6D7004F01F9 /* GIGStringValidator.m in Sources */,
 				D9FD36231B416CCB000D356F /* GIGPhoneValidator.m in Sources */,
+				D9FE62211BD6878600E2B23C /* GIGMessageFormField.m in Sources */,
 				D99AD2B61B1DA3A3005BB4E5 /* NSDictionary+GIGJSON.m in Sources */,
 				D99AD2721B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m in Sources */,
 				7BE65FC41BC3D2AB002C335E /* GIGMockClassNull.m in Sources */,
@@ -2472,6 +2614,7 @@
 			files = (
 				D99AD3751B1DAAE6005BB4E5 /* GLAMainViewController.m in Sources */,
 				FACE6D9C1BBC116D00457B4C /* GLAMultiRequestViewController.m in Sources */,
+				D9E18E151BD542FD00611CDA /* GLABasicFormViewController.m in Sources */,
 				D916868C1BC3BBFA00647357 /* GLALoginFacebookViewController.m in Sources */,
 				D99AD3771B1DAAE6005BB4E5 /* main.m in Sources */,
 				D99AD3711B1DAAE6005BB4E5 /* AppDelegate.m in Sources */,
@@ -2572,16 +2715,18 @@
 				D99AD2E51B1DA3A3005BB4E5 /* NSString+GIGSubstring.m in Sources */,
 				7BE65FB21BC3CB7D002C335E /* GIGMockClassPrimitive.m in Sources */,
 				D9E7A15E1B419475004D3193 /* GIGMultiValidator.m in Sources */,
+				D9FE620A1BD65D8A00E2B23C /* GIGFormField.m in Sources */,
 				D99AD2551B1DA3A3005BB4E5 /* GIGURLRequestFactory.m in Sources */,
 				D99AD2171B1DA3A3005BB4E5 /* GIGURLConfigDomainsTableViewController.m in Sources */,
 				D9FD35FC1B415CAE000D356F /* GIGNumericValidator.m in Sources */,
 				D99AD2451B1DA3A3005BB4E5 /* GIGURLFile.m in Sources */,
+				D9FE61FD1BD65CC900E2B23C /* GIGFormController.m in Sources */,
 				7BE65FB61BC3CB90002C335E /* GIGMockClassNSObject.m in Sources */,
 				D99AD2A71B1DA3A3005BB4E5 /* NSInvocation+GIGExtension.m in Sources */,
 				D9E7A1671B4198D1004D3193 /* GIGCharactersValidator.m in Sources */,
 				D9E4661D1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */,
 				D99AD2651B1DA3A3005BB4E5 /* GIGURLResponse.m in Sources */,
-				D9AF10E01B42AA90004F01F9 /* GIGFormController.m in Sources */,
+				D9FE62191BD65DCF00E2B23C /* GIGCheckFormField.m in Sources */,
 				D99AD2751B1DA3A3005BB4E5 /* UIColor+GIGExtension.m in Sources */,
 				D99AD2231B1DA3A3005BB4E5 /* GIGURLConfigTableViewController.m in Sources */,
 				D9FD35F21B413E28000D356F /* GIGValidator.m in Sources */,
@@ -2592,7 +2737,6 @@
 				D99AD1FB1B1DA3A3005BB4E5 /* GIGGeolocation.m in Sources */,
 				D99AD2791B1DA3A3005BB4E5 /* NSManagedObjectContext+GIGExtension.m in Sources */,
 				D99AD2E91B1DA3A3005BB4E5 /* NSUserDefaults+GIGArchive.m in Sources */,
-				D9AF10E61B42ABB4004F01F9 /* GIGFormField.m in Sources */,
 				D99AD2AD1B1DA3A3005BB4E5 /* NSArray+GIGJSON.m in Sources */,
 				D99AD2071B1DA3A3005BB4E5 /* GIGLayoutGridHorizontal.m in Sources */,
 				D99AD22B1B1DA3A3005BB4E5 /* GIGURLDomainsKeeper.m in Sources */,
@@ -2605,6 +2749,7 @@
 				7B6B84B21BC2B4A000517C2F /* GIGMockClassEmpty.m in Sources */,
 				D99AD2D71B1DA3A3005BB4E5 /* UIScrollView+GIGScrollTo.m in Sources */,
 				D99AD2F71B1DA3A3005BB4E5 /* UIView+GIGFrameExtension.m in Sources */,
+				D9FE62121BD65D8A00E2B23C /* GIGTextFormField.m in Sources */,
 				D9FD35EC1B413E1A000D356F /* GIGRegexpValidator.m in Sources */,
 				D99AD2E11B1DA3A3005BB4E5 /* NSString+GIGReplace.m in Sources */,
 				D99AD2691B1DA3A3005BB4E5 /* GIGAlert.m in Sources */,
@@ -2612,6 +2757,7 @@
 				7BE65FC31BC3CEDE002C335E /* GIGMockClassUser.m in Sources */,
 				D99AD27D1B1DA3A3005BB4E5 /* NSData+GIGString.m in Sources */,
 				D99AD2271B1DA3A3005BB4E5 /* GIGURLDomain.m in Sources */,
+				D9FE620E1BD65D8A00E2B23C /* GIGFormFieldsBuilder.m in Sources */,
 				D99AD2371B1DA3A3005BB4E5 /* GIGURLFormatter.m in Sources */,
 				D99AD22F1B1DA3A3005BB4E5 /* GIGURLFixture.m in Sources */,
 				D99AD2591B1DA3A3005BB4E5 /* GIGURLRequestLogger.m in Sources */,
@@ -2619,6 +2765,7 @@
 				D99AD2B11B1DA3A3005BB4E5 /* NSData+GIGJSON.m in Sources */,
 				D9AF10CE1B42A6D7004F01F9 /* GIGStringValidator.m in Sources */,
 				D9FD36221B416CCB000D356F /* GIGPhoneValidator.m in Sources */,
+				D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */,
 				D99AD2B51B1DA3A3005BB4E5 /* NSDictionary+GIGJSON.m in Sources */,
 				D99AD2711B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m in Sources */,
 				D99AD2891B1DA3A3005BB4E5 /* GIGDigest.m in Sources */,
@@ -2659,6 +2806,7 @@
 			files = (
 				D99AD3741B1DAAE6005BB4E5 /* GLAMainViewController.m in Sources */,
 				FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */,
+				D9E18E141BD542FD00611CDA /* GLABasicFormViewController.m in Sources */,
 				FACE6D991BBC115900457B4C /* GLALoginFacebookViewController.m in Sources */,
 				D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */,
 				D99AD3701B1DAAE6005BB4E5 /* AppDelegate.m in Sources */,

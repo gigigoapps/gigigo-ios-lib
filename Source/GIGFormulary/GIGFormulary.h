@@ -12,6 +12,8 @@
 
 #import "GIGFormController.h"
 #import "GIGValidators.h"
+#import "GIGFormConstants.h"
+#import "GIGFormFields.h"
 
 
 #endif

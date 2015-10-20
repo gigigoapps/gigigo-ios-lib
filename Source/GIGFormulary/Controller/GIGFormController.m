@@ -8,17 +8,22 @@
 
 #import "GIGFormController.h"
 
+#import "GIGUtils.h"
 #import "GIGLayout.h"
-#import "GIGView.h"
+
+#import "GIGFormField.h"
+#import "GIGFormFieldsBuilder.h"
 
 
 @interface GIGFormController ()
+<UIGestureRecognizerDelegate>
 
-@property (weak, nonatomic) UIView *view;
+@property (weak, nonatomic) UIView *parentView;
 @property (weak, nonatomic) UIView *headerView;
 @property (weak, nonatomic) UIView *footerView;
 @property (weak, nonatomic) UIScrollView *scrollView;
 @property (weak, nonatomic) UIView *contentView;
+@property (weak, nonatomic) UIView *fieldsContentView;
 
 @property (strong, nonatomic) NSNotificationCenter *notificationCenter;
 
@@ -30,19 +35,29 @@
 
 @implementation GIGFormController
 
-- (instancetype)initWithView:(UIView *)view headerView:(UIView *)headerView footerView:(UIView *)footerView
+- (instancetype)init
+{
+    return [self initWithParentView:nil];
+}
+
+- (instancetype)initWithParentView:(UIView *)view
+{
+    return [self initWithParentView:view headerView:nil footerView:nil];
+}
+
+- (instancetype)initWithParentView:(UIView *)view headerView:(UIView *)headerView footerView:(UIView *)footerView
 {
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
-    return [self initWithView:view headerView:headerView footerView:footerView notificationCenter:notificationCenter];
+    return [self initWithParentView:view headerView:headerView footerView:footerView notificationCenter:notificationCenter];
 }
 
-- (instancetype)initWithView:(UIView *)view headerView:(UIView *)headerView footerView:(UIView *)footerView notificationCenter:(NSNotificationCenter *)notificationCenter
+- (instancetype)initWithParentView:(UIView *)parentView headerView:(UIView *)headerView footerView:(UIView *)footerView notificationCenter:(NSNotificationCenter *)notificationCenter
 {
     self = [super init];
     if (self)
     {
-        _view = view;
+        _parentView = parentView;
         _headerView = headerView;
         _footerView = footerView;
         _notificationCenter = notificationCenter;
@@ -57,7 +72,7 @@
     [self.notificationCenter removeObserver:self];
 }
 
-#pragma mark - INIT
+#pragma mark - INITIALIZE
 
 - (void)initialize
 {
@@ -66,18 +81,19 @@
     
     [self initializeScrollView];
     [self initializeContentView];
+    [self initializeFieldsContentView];
     
     [self updateContent];
 }
 
 - (void)initializeScrollView
 {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
-    scrollView.alwaysBounceVertical = YES;;
-    scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
-    [self.view addSubview:scrollView];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    scrollView.alwaysBounceVertical = YES;
+    [self.parentView addSubview:scrollView];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBackground:)];
+    tap.delegate = self;
     [scrollView addGestureRecognizer:tap];
     
     gig_autoresize(scrollView, NO);
@@ -88,28 +104,40 @@
 
 - (void)initializeContentView
 {
-    UIView *contentView = [[UIView alloc] initWithFrame:self.view.frame];
+    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     [self.scrollView addSubview:contentView];
     
     gig_autoresize(contentView, NO);
     gig_layout_fit(contentView);
-    gig_constrain_width(contentView, self.view.width);
+    gig_layout_top(contentView, 0.0);
+    gig_constrain_width(contentView, [UIScreen mainScreen].bounds.size.width);
     
     self.contentView = contentView;
+}
+
+- (void)initializeFieldsContentView
+{
+    UIView *fieldsContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    [self.contentView addSubview:fieldsContentView];
+    
+    gig_autoresize(fieldsContentView, NO);
+    gig_layout_fit_horizontal(fieldsContentView);
+    
+    self.fieldsContentView = fieldsContentView;
 }
 
 #pragma mark - ACTIONS
 
 - (void)tapBackground:(UITapGestureRecognizer *)tapGesture
 {
-    [self.view endEditing:YES];
+    [self.parentView endEditing:YES];
 }
 
 #pragma mark - NOTIFICATIONS
 
 - (void)keyboardWillShow:(NSNotification *)notification
 {
-    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
     [UIView animateWithDuration:0.25f animations:^{
         self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardFrame.size.height, 0);
@@ -119,10 +147,8 @@
 
 - (void)keyboardWillHide:(NSNotification *)notification
 {
-    [UIView animateWithDuration:0.25f animations:^{
-        self.scrollView.contentInset = UIEdgeInsetsZero;
-        self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
-    }];
+    self.scrollView.contentInset = UIEdgeInsetsZero;
+    self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
 }
 
 #pragma mark - ACCESSORS
@@ -136,13 +162,43 @@
 {
     self.formValues = [fieldValues mutableCopy];
     
+    __weak typeof(self) this = self;
     [fieldValues enumerateKeysAndObjectsUsingBlock:^(NSString *fieldTag, id value, __unused BOOL *stop) {
-        GIGFormField *field = [self fieldWithTag:fieldTag];
+        GIGFormField *field = [this fieldWithTag:fieldTag];
         field.fieldValue = value;
     }];
 }
 
+- (UIView *)view
+{
+    return self.scrollView;
+}
+
 #pragma mark - PUBLIC
+
+- (void)loadFieldsFromJSONFile:(NSString *)jsonFile
+{
+    GIGFormFieldsBuilder *builder = [[GIGFormFieldsBuilder alloc] init];
+    NSArray *fields = [builder fieldsFromJSONFile:jsonFile];
+    
+    [self showFields:fields];
+}
+
+- (void)showFields:(NSArray *)fields
+{
+    self.formValues = [[NSMutableDictionary alloc] initWithCapacity:fields.count];
+    self.formFields = fields;
+    
+    for (GIGFormField *field in fields)
+    {
+        if (field.fieldValue != nil)
+        {
+            self.formValues[field.fieldTag] = field.fieldValue;
+        }
+    }
+    
+    [self updateContent];
+}
 
 - (BOOL)becomeFirstResponder
 {
@@ -152,14 +208,6 @@
 - (BOOL)resignFirstResponder
 {
     return [self.contentView endEditing:YES];
-}
-
-- (void)showFields:(NSArray *)fields
-{
-    self.formValues = [[NSMutableDictionary alloc] initWithCapacity:fields.count];
-    self.formFields = fields;
-    
-    [self updateContent];
 }
 
 - (BOOL)validateFields
@@ -174,6 +222,32 @@
     return valid;
 }
 
+- (GIGFormField *)fieldWithTag:(NSString *)fieldTag
+{
+    for (GIGFormField *field in self.formFields)
+    {
+        if ([field.fieldTag isEqualToString:fieldTag])
+        {
+            return field;
+        }
+    }
+    
+    return nil;
+}
+
+- (id)valueForFieldWithTag:(NSString *)fieldTag
+{
+    GIGFormField *field = [self fieldWithTag:fieldTag];
+    
+    return field.fieldValue;
+}
+
+- (void)setValue:(id)value forFieldWithTag:(NSString *)fieldTag
+{
+    GIGFormField *field = [self fieldWithTag:fieldTag];
+    field.fieldValue = value;
+}
+
 - (void)formFieldDidStart:(GIGFormField *)formField
 {
     [self.scrollView scrollRectToVisible:formField.frame animated:YES];
@@ -183,13 +257,21 @@
 {
     GIGFormField *nextField = [self nextFieldTo:formField];
     
-    if ([nextField canBecomeFirstResponder])
+    if (nextField != nil)
     {
-        [nextField becomeFirstResponder];
+        if ([nextField canBecomeFirstResponder])
+        {
+            [nextField becomeFirstResponder];
+        }
+        else
+        {
+            [formField resignFirstResponder];
+        }
     }
     else
     {
-        [formField resignFirstResponder];
+        [self resignFirstResponder];
+        [self validateFields];
     }
 }
 
@@ -199,19 +281,6 @@
 }
 
 #pragma mark - PRIVATE (Fields)
-
-- (GIGFormField *)fieldWithTag:(NSString *)tag
-{
-    for (GIGFormField *field in self.formFields)
-    {
-        if ([field.fieldTag isEqualToString:tag])
-        {
-            return field;
-        }
-    }
-    
-    return nil;
-}
 
 - (GIGFormField *)nextFieldTo:(GIGFormField *)formField
 {
@@ -226,34 +295,15 @@
 
 #pragma mark - PRIVATE (Content Views)
 
-- (UIView *)lastView
-{
-    if (self.footerView != nil) return self.footerView;
-    if (self.formFields.count > 0) return self.formFields.lastObject;
-    
-    return self.headerView;
-}
-
-- (UIView *)lastViewBeforeFooter
-{
-    if (self.formFields.count > 0) return self.formFields.lastObject;
-    
-    return self.headerView;
-}
-
 - (void)updateContent
 {
-    [self.contentView removeSubviews];
+    [self.headerView removeFromSuperview];
+    [self.fieldsContentView removeSubviews];
+    [self.footerView removeFromSuperview];
     
     [self addHeaderView];
     [self addFields];
     [self addFooterView];
-    
-    UIView *lastView = [self lastView];
-    if (lastView != nil)
-    {
-        gig_layout_bottom(lastView, 0);
-    }
 }
 
 - (void)addHeaderView
@@ -265,6 +315,11 @@
         gig_autoresize(self.headerView, NO);
         gig_layout_fit_horizontal(self.headerView);
         gig_layout_top(self.headerView, 0);
+        gig_layout_above(self.headerView, self.fieldsContentView, 0);
+    }
+    else
+    {
+        gig_layout_top(self.fieldsContentView, 0);
     }
 }
 
@@ -272,32 +327,27 @@
 {
     if (self.footerView != nil)
     {
-        UIView *lastView = nil;
-        if (self.addSeparators)
-        {
-            lastView = [self addSeparatorBelowView:[self lastViewBeforeFooter]];
-        }
-        else
-        {
-            lastView = [self lastViewBeforeFooter];
-        }
-        
         [self.contentView addSubview:self.footerView];
         
         gig_autoresize(self.footerView, NO);
         gig_layout_fit_horizontal(self.footerView);
-        gig_layout_below(self.footerView, lastView, 0);
+        gig_layout_below(self.footerView, self.fieldsContentView, 0);
+        gig_layout_bottom(self.footerView, 0);
+    }
+    else
+    {
+        gig_layout_bottom(self.fieldsContentView, 0);
     }
 }
 
 - (void)addFields
 {
-    UIView *lastView = self.headerView;
+    UIView *lastView = nil;
     
     for (GIGFormField *field in self.formFields)
     {
         field.formController = self;
-        [self.contentView addSubview:field];
+        [self.fieldsContentView addSubview:field];
         
         gig_autoresize(field, NO);
         gig_layout_fit_horizontal(field);
@@ -311,30 +361,28 @@
             gig_layout_top(field, 0);
         }
         
-        if (self.addSeparators)
-        {
-            lastView = (field == self.formFields.lastObject) ? field : [self addSeparatorBelowView:field];
-        }
-        else
-        {
-            lastView = field;
-        }
+        lastView = field;
+    }
+    
+    if (lastView != nil)
+    {
+        gig_layout_bottom(lastView, 0);
     }
 }
 
-- (UIView *)addSeparatorBelowView:(UIView *)view
+#pragma mark - DELEGATES
+
+#pragma mark - <UIGestureRecognizerDelegate>
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    UIView *separatorView = [[UIView alloc] initWithFrame:self.view.frame];
-    separatorView.backgroundColor = [UIColor darkGrayColor];
-    [self.contentView addSubview:separatorView];
+    if ([touch.view isKindOfClass:[UIControl class]])
+    {
+        return NO;
+    }
     
-    gig_autoresize(separatorView, NO);
-    gig_layout_below(separatorView, view, self.fieldsMargin);
-    gig_layout_left(separatorView, 10);
-    gig_layout_right(separatorView, 10);
-    gig_constrain_height(separatorView, 2);
-    
-    return separatorView;
+    return YES;
 }
+
 
 @end
