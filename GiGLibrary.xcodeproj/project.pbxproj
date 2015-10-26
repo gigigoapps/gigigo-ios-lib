@@ -3000,6 +3000,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tests/Libs",
@@ -3020,6 +3021,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigigo..$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "abdf8362-ad40-4c5a-8a51-def0e6742b69";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GIGStaticLibraryApp.app/GIGStaticLibraryApp";
 			};
 			name = Debug;
@@ -3028,6 +3030,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tests/Libs",
@@ -3044,6 +3047,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigigo..$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "abdf8362-ad40-4c5a-8a51-def0e6742b69";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GIGStaticLibraryApp.app/GIGStaticLibraryApp";
 			};
 			name = Release;
