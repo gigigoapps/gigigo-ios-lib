@@ -8,7 +8,8 @@
 
 #import "GIGURLRequest.h"
 
-#import "GIGURLConnectionBuilder.h"
+#import "GIGURLSessionFactory.h"
+#import "GIGURLRequestFactory.h"
 #import "GIGURLRequestLogger.h"
 #import "GIGURLManager.h"
 
@@ -22,14 +23,16 @@ NSTimeInterval const GIGURLRequestFixtureDelayDefault = 0.5f;
 NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
 
 
-
 @interface GIGURLRequest ()
 
-@property (strong, nonatomic) GIGURLConnectionBuilder *connectionBuilder;
-@property (strong, nonatomic) GIGURLRequestLogger *requestLogger;
+@property (strong, nonatomic) GIGURLSessionFactory *sessionFactory;
+@property (strong, nonatomic) GIGURLRequestFactory *requestFactory;
+@property (strong, nonatomic) GIGURLRequestLogger *logger;
 @property (strong, nonatomic) GIGURLManager *manager;
 
-@property (strong, nonatomic) NSURLConnection *connection;
+@property (strong, nonatomic) NSURLSession *session;
+@property (strong, nonatomic) NSURLRequest *request;
+@property (strong, nonatomic) NSURLSessionDataTask *dataTask;
 
 @property (copy, nonatomic) NSURLCredential *httpBasicCredential;
 
@@ -56,15 +59,17 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
 
 - (instancetype)initWithMethod:(NSString *)method url:(NSString *)url manager:(GIGURLManager *)manager
 {
-    GIGURLConnectionBuilder *connectionBuilder = [[GIGURLConnectionBuilder alloc] init];
-    GIGURLRequestLogger *requestLogger = [[GIGURLRequestLogger alloc] init];
+    GIGURLSessionFactory *sessionFactory = [[GIGURLSessionFactory alloc] init];
+    GIGURLRequestFactory *requestFactory = [[GIGURLRequestFactory alloc] init];
+    GIGURLRequestLogger *logger = [[GIGURLRequestLogger alloc] init];
     
-    return [self initWithMethod:method url:url connectionBuilder:connectionBuilder requestLogger:requestLogger manager:manager];
+    return [self initWithMethod:method url:url sessionFactory:sessionFactory requestFactory:requestFactory logger:logger manager:manager];
 }
 
 - (instancetype)initWithMethod:(NSString *)method url:(NSString *)url
-             connectionBuilder:(GIGURLConnectionBuilder *)connectionBuilder
-                 requestLogger:(GIGURLRequestLogger *)requestLogger
+                sessionFactory:(GIGURLSessionFactory *)sessionFactory
+                requestFactory:(GIGURLRequestFactory *)requestFactory
+                        logger:(GIGURLRequestLogger *)logger
                        manager:(GIGURLManager *)manager
 {
     self = [super init];
@@ -72,8 +77,9 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
     {
         _method = method;
         _url = url;
-        _connectionBuilder = connectionBuilder;
-        _requestLogger = requestLogger;
+        _sessionFactory = sessionFactory;
+        _requestFactory = requestFactory;
+        _logger = logger;
         _manager = manager;
         
         _cachePolicy = NSURLRequestUseProtocolCachePolicy;
@@ -91,17 +97,29 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
 {
     _requestTag = requestTag;
     
-    self.requestLogger.tag = requestTag;
+    self.logger.tag = requestTag;
 }
 
 - (void)setLogLevel:(GIGLogLevel)logLevel
 {
     _logLevel = logLevel;
     
-    self.requestLogger.logLevel = logLevel;
+    self.logger.logLevel = logLevel;
 }
 
 #pragma mark - PUBLIC
+
+- (void)setHTTPBasicUser:(NSString *)user password:(NSString *)password
+{
+    if (user.length > 0 && password.length > 0)
+    {
+        self.httpBasicCredential = [NSURLCredential credentialWithUser:user password:password persistence:NSURLCredentialPersistenceForSession];
+    }
+    else
+    {
+        self.httpBasicCredential = nil;
+    }
+}
 
 - (void)send
 {
@@ -121,52 +139,47 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
         
         return;
     }
-
-    self.connection = [self.connectionBuilder buildConnectionWithRequest:self];
-    [self.requestLogger logRequest:self.connection.originalRequest encoding:self.connectionBuilder.stringEncoding];
     
-    [self.connection start];
+    self.session = [self.sessionFactory sessionForRequest:self];
+    self.request = [self.requestFactory requestForRequest:self];
+    
+    [self.logger logRequest:self.request encoding:self.requestFactory.stringEncoding];
+    
+    self.dataTask = [self.session dataTaskWithRequest:self.request];
+    [self.dataTask resume];
 }
 
 - (void)cancel
 {
-    [self.connection cancel];
-}
-
-- (void)setHTTPBasicUser:(NSString *)user password:(NSString *)password
-{
-    if (user.length > 0 && password.length > 0)
-    {
-        self.httpBasicCredential = [NSURLCredential credentialWithUser:user password:password persistence:NSURLCredentialPersistenceForSession];
-    }
-    else
-    {
-        self.httpBasicCredential = nil;
-    }
+    [self.session invalidateAndCancel];
 }
 
 #pragma mark - PRIVATE
 
 - (void)completeWithData
 {
-    [self.requestLogger logResponse:self.response data:self.data error:self.error stringEncoding:self.connectionBuilder.stringEncoding];
+    [self.logger logResponse:self.response data:self.data error:self.error stringEncoding:self.requestFactory.stringEncoding];
     
     if (self.completion != nil)
     {
         GIGURLResponse *response = [[self.responseClass alloc] initWithData:self.data headers:self.response.allHeaderFields];
         self.completion(response);
     }
+    
+    [self.session finishTasksAndInvalidate];
 }
 
 - (void)completeWithError
 {
-    [self.requestLogger logResponse:self.response data:self.data error:self.error stringEncoding:self.connectionBuilder.stringEncoding];
-
+    [self.logger logResponse:self.response data:self.data error:self.error stringEncoding:self.requestFactory.stringEncoding];
+    
     if (self.completion != nil)
     {
         GIGURLResponse *response = [[self.responseClass alloc] initWithError:self.error headers:self.response.allHeaderFields data:self.data];
         self.completion(response);
     }
+    
+    [self.session finishTasksAndInvalidate];
 }
 
 - (void)completeWithFixture
@@ -193,17 +206,7 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
     return (self.response.statusCode >= 200 && self.response.statusCode < 300);
 }
 
-#pragma mark - DELEGATES
-
-#pragma mark - <NSURLConnectionDelegate>
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    self.error = error;
-    [self completeWithError];
-}
-
-- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+- (NSURLCredential *)credentialForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
     NSString *authenticationMethod = challenge.protectionSpace.authenticationMethod;
     
@@ -223,58 +226,106 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
         credential = self.authentication(challenge);
     }
     
+    return credential;
+}
+
+#pragma mark - DELEGATES
+
+#pragma mark - <NSURLSessionDelegate>
+
+- (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error
+{
+    if (error != nil)
+    {
+        self.error = error;
+        [self completeWithError];
+    }
+}
+
+- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
+ completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * __nullable credential))completionHandler
+{
+    NSURLCredential *credential = [self credentialForAuthenticationChallenge:challenge];
+    
     if (credential != nil)
     {
-        [challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
+        completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
     }
     else
     {
-        [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+        completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
     }
 }
 
-#pragma mark - <NSURLConnectionDataDelegate>
+#pragma mark - <NSURLSessionTaskDelegate>
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)aResponse
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(nullable NSError *)error
 {
-    self.response = (NSHTTPURLResponse *)aResponse;
-    self.data = [NSMutableData data];
-    
-    if (![self isSuccess])
+    if (error == nil)
     {
-        self.error = [NSError errorWithDomain:GIGNetworkErrorDomain code:self.response.statusCode userInfo:nil];
+        if ([self isSuccess])
+        {
+            [self completeWithData];
+        }
+        else
+        {
+            [self completeWithError];
+        }
+    }
+    else
+    {
+        self.error = error;
+        [self completeWithError];
     }
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)someData
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
 {
-    [self.data appendData:someData];
-    
-    if (self.downloadProgress)
+    if (self.uploadProgress != nil)
     {
-        float progress = ((float)self.data.length / (float)[self.response expectedContentLength]);
-        self.downloadProgress(progress);
-    }
-}
-
-- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
-{
-    if (self.uploadProgress)
-    {
-        float progress = (float)totalBytesWritten / (float)totalBytesExpectedToWrite;
+        float progress = (float)totalBytesSent / (float)totalBytesExpectedToSend;
         self.uploadProgress(progress);
     }
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler
 {
-    if ([self isSuccess])
+    NSURLCredential *credential = [self credentialForAuthenticationChallenge:challenge];
+    
+    if (credential != nil)
     {
-        [self completeWithData];
+        completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
     }
     else
     {
-        [self completeWithError];
+        completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
+    }
+}
+
+#pragma mark - <NSURLSessionDataDelegate>
+
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response
+ completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler
+{
+    self.response = (NSHTTPURLResponse *)response;
+    self.data = [NSMutableData data];
+    
+    if (![self isSuccess])
+    {
+        self.error = [NSError errorWithDomain:NSURLErrorDomain code:self.response.statusCode userInfo:nil];
+    }
+    
+    completionHandler(NSURLSessionResponseAllow);
+}
+
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
+{
+    [self.data appendData:data];
+    
+    if (self.downloadProgress != nil)
+    {
+        float progress = ((float)self.data.length / (float)[self.response expectedContentLength]);
+        self.downloadProgress(progress);
     }
 }
 
