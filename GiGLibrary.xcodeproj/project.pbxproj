@@ -22,6 +22,30 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84931BC2962600517C2F /* GIGParseClass.h */; };
+		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
+		7B6B84971BC2962F00517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
+		7B6B84991BC296F600517C2F /* GIGParseClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84981BC296F600517C2F /* GIGParseClassTests.m */; };
+		7B6B84AD1BC2AEDC00517C2F /* GIGParseClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84981BC296F600517C2F /* GIGParseClassTests.m */; };
+		7B6B84B01BC2B4A000517C2F /* GIGMockClassEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84AE1BC2B4A000517C2F /* GIGMockClassEmpty.h */; };
+		7B6B84B11BC2B4A000517C2F /* GIGMockClassEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84AE1BC2B4A000517C2F /* GIGMockClassEmpty.h */; };
+		7B6B84B21BC2B4A000517C2F /* GIGMockClassEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84AF1BC2B4A000517C2F /* GIGMockClassEmpty.m */; };
+		7B6B84B31BC2B4A000517C2F /* GIGMockClassEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84AF1BC2B4A000517C2F /* GIGMockClassEmpty.m */; };
+		7BE65FAD1BC3CB65002C335E /* GIGMockClassNull.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BE65FAB1BC3CB65002C335E /* GIGMockClassNull.h */; };
+		7BE65FAE1BC3CB65002C335E /* GIGMockClassNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FAC1BC3CB65002C335E /* GIGMockClassNull.m */; };
+		7BE65FB11BC3CB7D002C335E /* GIGMockClassPrimitive.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BE65FAF1BC3CB7D002C335E /* GIGMockClassPrimitive.h */; };
+		7BE65FB21BC3CB7D002C335E /* GIGMockClassPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FB01BC3CB7D002C335E /* GIGMockClassPrimitive.m */; };
+		7BE65FB51BC3CB90002C335E /* GIGMockClassNSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BE65FB31BC3CB90002C335E /* GIGMockClassNSObject.h */; };
+		7BE65FB61BC3CB90002C335E /* GIGMockClassNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FB41BC3CB90002C335E /* GIGMockClassNSObject.m */; };
+		7BE65FBE1BC3CEC8002C335E /* GIGMockClassAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BE65FBC1BC3CEC8002C335E /* GIGMockClassAddress.h */; };
+		7BE65FBF1BC3CEC8002C335E /* GIGMockClassAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FBD1BC3CEC8002C335E /* GIGMockClassAddress.m */; };
+		7BE65FC21BC3CEDE002C335E /* GIGMockClassUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BE65FC01BC3CEDE002C335E /* GIGMockClassUser.h */; };
+		7BE65FC31BC3CEDE002C335E /* GIGMockClassUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FC11BC3CEDE002C335E /* GIGMockClassUser.m */; };
+		7BE65FC41BC3D2AB002C335E /* GIGMockClassNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FAC1BC3CB65002C335E /* GIGMockClassNull.m */; };
+		7BE65FC51BC3D2AE002C335E /* GIGMockClassPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FB01BC3CB7D002C335E /* GIGMockClassPrimitive.m */; };
+		7BE65FC61BC3D2B0002C335E /* GIGMockClassNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FB41BC3CB90002C335E /* GIGMockClassNSObject.m */; };
+		7BE65FC71BC3D2B2002C335E /* GIGMockClassAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FBD1BC3CEC8002C335E /* GIGMockClassAddress.m */; };
+		7BE65FC81BC3D2B5002C335E /* GIGMockClassUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FC11BC3CEDE002C335E /* GIGMockClassUser.m */; };
 		7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84931BC2962600517C2F /* GIGParseClass.h */; settings = {ASSET_TAGS = (); }; };
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; settings = {ASSET_TAGS = (); }; };
 		7B6B84971BC2962F00517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; settings = {ASSET_TAGS = (); }; };
@@ -31,7 +55,7 @@
 		D90867691B42A3E300193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
 		D908676A1B42A3E400193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
 		D909EFEA1B0DC2FF00DD4D97 /* GIGLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D916868C1BC3BBFA00647357 /* GLALoginFacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D916868C1BC3BBFA00647357 /* GLALoginFacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */; };
 		D9637D7A1B0C90C000FD8E4D /* GIGLibrary.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D99AD11F1B1D978B005BB4E5 /* libGIGStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A91006561B0CCE8E0080B812 /* libGIGStaticLibrary.a */; };
 		D99AD12C1B1D9866005BB4E5 /* libGIGStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A91006561B0CCE8E0080B812 /* libGIGStaticLibrary.a */; };
@@ -354,6 +378,18 @@
 		D99AD3861B1DAAE6005BB4E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */; };
 		D99AD3871B1DAAE6005BB4E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */; };
 		D9AD97001B0A386500CB5E8C /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
+		D9D059E01BDE43E800927F0E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92263A21BDE254A00735D9D /* CoreLocation.framework */; };
+		D9D059E11BDE43EB00927F0E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D922639F1BDE251D00735D9D /* CoreData.framework */; };
+		D9D059E21BDE43FD00927F0E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D922639F1BDE251D00735D9D /* CoreData.framework */; };
+		D9D059E51BDE452500927F0E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92263A21BDE254A00735D9D /* CoreLocation.framework */; };
+		D9E10E5F1BBBC7620016C00B /* GIGURLCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473471BBBC4E000AB5655 /* GIGURLCommunicatorTests.m */; };
+		D9E10E601BBBC7630016C00B /* GIGURLCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473471BBBC4E000AB5655 /* GIGURLCommunicatorTests.m */; };
+		D9E10E631BBBC76C0016C00B /* GIGURLRequestFixtureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734A1BBBC4E000AB5655 /* GIGURLRequestFixtureTests.m */; };
+		D9E10E641BBBC76D0016C00B /* GIGURLRequestFixtureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734A1BBBC4E000AB5655 /* GIGURLRequestFixtureTests.m */; };
+		D9E10E671BBBC7760016C00B /* GIGURLImageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734D1BBBC4E000AB5655 /* GIGURLImageResponseTests.m */; };
+		D9E10E681BBBC7770016C00B /* GIGURLImageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734D1BBBC4E000AB5655 /* GIGURLImageResponseTests.m */; };
+		D9E10E691BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734E1BBBC4E000AB5655 /* GIGURLJSONResponseTests.m */; };
+		D9E10E6A1BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734E1BBBC4E000AB5655 /* GIGURLJSONResponseTests.m */; };
 		D9C804761BD0EE4300EBDD93 /* GIGURLResponses.h in Headers */ = {isa = PBXBuildFile; fileRef = D9C804741BD0ED7000EBDD93 /* GIGURLResponses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9C804771BD0EE4800EBDD93 /* GIGURLResponses.h in Headers */ = {isa = PBXBuildFile; fileRef = D9C804741BD0ED7000EBDD93 /* GIGURLResponses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9C8047A1BD0EEAC00EBDD93 /* GIGURLSessionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D9C804781BD0EEAC00EBDD93 /* GIGURLSessionFactory.h */; settings = {ASSET_TAGS = (); }; };
@@ -396,33 +432,33 @@
 		D9E4661E1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E4661A1B411E9F00EC6C72 /* GIGURLJSONResponse.m */; };
 		FA1F80741B71EDFA003699DE /* GIGFacebookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */; };
 		FA3B23691BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3B23671BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		FA3B236A1BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3B23681BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.m */; settings = {ASSET_TAGS = (); }; };
-		FA3B236F1BC2D9F900F972DE /* GIGFacebookAccessTokenFactoryMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3B236E1BC2D9F900F972DE /* GIGFacebookAccessTokenFactoryMock.m */; settings = {ASSET_TAGS = (); }; };
+		FA3B236A1BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3B23681BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.m */; };
+		FA3B236F1BC2D9F900F972DE /* GIGFacebookAccessTokenFactoryMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3B236E1BC2D9F900F972DE /* GIGFacebookAccessTokenFactoryMock.m */; };
 		FA3F10851B71F0D500517468 /* FBSDKAccessTokenMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3F10841B71F0D500517468 /* FBSDKAccessTokenMock.m */; };
 		FA3F10871B71F1B600517468 /* GIGFacebookMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74BD181B6F79E7001D2BCF /* GIGFacebookMock.m */; };
 		FA3F10891B71F1C900517468 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A731B70C9DD0076FF9E /* FBSDKCoreKit.framework */; };
 		FA3F108B1B71F1CD00517468 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */; };
-		FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; settings = {ASSET_TAGS = (); }; };
+		FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FA74BD001B6F7050001D2BCF /* GIGSocialLoginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74BCFF1B6F7050001D2BCF /* GIGSocialLoginTests.m */; };
 		FA9C123C1BC3D38E00BCED1A /* GIGFacebookLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9C123A1BC3D38E00BCED1A /* GIGFacebookLoginResult.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		FA9C123E1BC3D38E00BCED1A /* GIGFacebookLoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C123B1BC3D38E00BCED1A /* GIGFacebookLoginResult.m */; settings = {ASSET_TAGS = (); }; };
+		FA9C123E1BC3D38E00BCED1A /* GIGFacebookLoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C123B1BC3D38E00BCED1A /* GIGFacebookLoginResult.m */; };
 		FA9C12421BC3DD2300BCED1A /* GIGSocialLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9C12401BC3DD2300BCED1A /* GIGSocialLoginResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FA9C12441BC3DD2300BCED1A /* GIGSocialLoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C12411BC3DD2300BCED1A /* GIGSocialLoginResult.m */; settings = {ASSET_TAGS = (); }; };
-		FACE6D991BBC115900457B4C /* GLALoginFacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FACE6D9C1BBC116D00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FA9C12441BC3DD2300BCED1A /* GIGSocialLoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9C12411BC3DD2300BCED1A /* GIGSocialLoginResult.m */; };
+		FACE6D991BBC115900457B4C /* GLALoginFacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */; };
+		FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; };
+		FACE6D9C1BBC116D00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; };
 		FACE6E4B1BBC3FDB00457B4C /* GIGSocial.h in Headers */ = {isa = PBXBuildFile; fileRef = FACE6E4A1BBC3FDB00457B4C /* GIGSocial.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FACE6E4F1BBC3FDB00457B4C /* GIGSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FACE6E481BBC3FDB00457B4C /* GIGSocial.framework */; };
 		FACE6E501BBC3FDB00457B4C /* GIGSocial.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FACE6E481BBC3FDB00457B4C /* GIGSocial.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FACE6E541BBC3FF700457B4C /* GIGSocialCore.h in Headers */ = {isa = PBXBuildFile; fileRef = FAA80A821B70E1940076FF9E /* GIGSocialCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FACE6E551BBC3FFD00457B4C /* GIGSocialCore.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA80A831B70E1940076FF9E /* GIGSocialCore.m */; settings = {ASSET_TAGS = (); }; };
+		FACE6E551BBC3FFD00457B4C /* GIGSocialCore.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA80A831B70E1940076FF9E /* GIGSocialCore.m */; };
 		FACE6E561BBC400100457B4C /* GIGSocialLogin.h in Headers */ = {isa = PBXBuildFile; fileRef = FA74BCF81B6F6DEA001D2BCF /* GIGSocialLogin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FACE6E571BBC400800457B4C /* GIGSocialLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74BCF91B6F6DEA001D2BCF /* GIGSocialLogin.m */; settings = {ASSET_TAGS = (); }; };
+		FACE6E571BBC400800457B4C /* GIGSocialLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74BCF91B6F6DEA001D2BCF /* GIGSocialLogin.m */; };
 		FACE6E581BBC400C00457B4C /* GIGFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = FA74BD101B6F768C001D2BCF /* GIGFacebook.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		FACE6E591BBC401200457B4C /* GIGFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74BD111B6F768C001D2BCF /* GIGFacebook.m */; settings = {ASSET_TAGS = (); }; };
-		FACE6E5A1BBC401900457B4C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A731B70C9DD0076FF9E /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
-		FACE6E5B1BBC401B00457B4C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
+		FACE6E591BBC401200457B4C /* GIGFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74BD111B6F768C001D2BCF /* GIGFacebook.m */; };
+		FACE6E5A1BBC401900457B4C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A731B70C9DD0076FF9E /* FBSDKCoreKit.framework */; };
+		FACE6E5B1BBC401B00457B4C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -527,6 +563,8 @@
 		A91006581B0CCE8E0080B812 /* GIGStaticLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIGStaticLibrary.h; sourceTree = "<group>"; };
 		D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLibrary.h; sourceTree = "<group>"; };
 		D909EFE91B0DC2FF00DD4D97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D922639F1BDE251D00735D9D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D92263A21BDE254A00735D9D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D93473451BBBC4E000AB5655 /* GIGURLCommunicatorMultiRequestFixtureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLCommunicatorMultiRequestFixtureTests.m; sourceTree = "<group>"; };
 		D93473461BBBC4E000AB5655 /* GIGURLCommunicatorMultiRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLCommunicatorMultiRequestTests.m; sourceTree = "<group>"; };
 		D93473471BBBC4E000AB5655 /* GIGURLCommunicatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLCommunicatorTests.m; sourceTree = "<group>"; };
@@ -761,6 +799,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9D059E01BDE43E800927F0E /* CoreLocation.framework in Frameworks */,
+				D9D059E11BDE43EB00927F0E /* CoreData.framework in Frameworks */,
 				D99AD11F1B1D978B005BB4E5 /* libGIGStaticLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -770,6 +810,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99AD12C1B1D9866005BB4E5 /* libGIGStaticLibrary.a in Frameworks */,
+				D9D059E51BDE452500927F0E /* CoreLocation.framework in Frameworks */,
+				D9D059E21BDE43FD00927F0E /* CoreData.framework in Frameworks */,
 				D99AD35B1B1DA3BA005BB4E5 /* OCHamcrestIOS.framework in Frameworks */,
 				D99AD35D1B1DA3BA005BB4E5 /* OCMockitoIOS.framework in Frameworks */,
 			);
@@ -1340,6 +1382,7 @@
 				FACE6D941BBC112B00457B4C /* Network */,
 				FAA80A7A1B70CFE40076FF9E /* Social */,
 				D99AD3661B1DAAE6005BB4E5 /* Resources */,
+				D9D059E41BDE440F00927F0E /* Frameworks */,
 				D99AD3881B1DAAEB005BB4E5 /* Supporting Files */,
 			);
 			path = App;
@@ -1466,6 +1509,15 @@
 				D9AD96FD1B0A386500CB5E8C /* Info.plist */,
 			);
 			path = GIGLibraryTests;
+			sourceTree = "<group>";
+		};
+		D9D059E41BDE440F00927F0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D92263A21BDE254A00735D9D /* CoreLocation.framework */,
+				D922639F1BDE251D00735D9D /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FA1F80721B71EDD2003699DE /* Wrappers */ = {
@@ -2426,6 +2478,7 @@
 		A91006671B0CCE8E0080B812 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2437,6 +2490,7 @@
 					"$(inherited)",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PRODUCT_NAME)";
@@ -2448,6 +2502,7 @@
 		A91006681B0CCE8E0080B812 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2455,6 +2510,7 @@
 					"$(PROJECT_DIR)/Source/GIGSocial/Libs",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PRODUCT_NAME)";
