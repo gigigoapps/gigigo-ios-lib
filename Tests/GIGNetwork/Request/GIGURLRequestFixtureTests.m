@@ -30,7 +30,7 @@
     self.managerMock = MKTMock([GIGURLManager class]);
     [MKTGiven([self.managerMock useFixture]) willReturnBool:YES];
     
-    self.request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url" connectionBuilder:nil requestLogger:nil manager:self.managerMock];
+    self.request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url" sessionFactory:nil requestFactory:nil logger:nil manager:self.managerMock];
     self.request.requestTag = @"request";
     self.request.fixtureDelay = GIGURLRequestFixtureDelayNone;
 }

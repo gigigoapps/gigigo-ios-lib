@@ -8,16 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class GIGURLManager;
 @class GIGURLRequest;
 
 
 @interface GIGURLRequestFactory : NSObject
 
-@property (strong, nonatomic) Class requestClass; // GIGURLRequest or subclass
+@property (assign, nonatomic) NSStringEncoding stringEncoding;
+@property (assign, nonatomic) NSJSONWritingOptions jsonWritingOptions;
 
-- (instancetype)initWithManager:(GIGURLManager *)urlManager;
-
+- (NSMutableURLRequest *)requestForRequest:(GIGURLRequest *)URLRequest;
 - (GIGURLRequest *)requestWithMethod:(NSString *)method url:(NSString *)url;
 
 @end

@@ -17,11 +17,13 @@
 
 @interface GIGURLRequestAuthenticationTests : XCTestCase
 
-@property (strong, nonatomic) GIGURLRequest *request;
 @property (strong, nonatomic) NSURLAuthenticationChallenge *challengeMock;
 @property (strong, nonatomic) NSURLProtectionSpace *protectionSpaceMock;
 @property (strong, nonatomic) id<NSURLAuthenticationChallengeSender> senderMock;
-@property (strong, nonatomic) NSURLConnection *connectionMock;
+@property (strong, nonatomic) NSURLSession *sessionMock;
+@property (strong, nonatomic) NSURLSessionDataTask *taskMock;
+
+@property (strong, nonatomic) GIGURLRequest *request;
 @property (strong, nonatomic) MKTArgumentCaptor *captor;
 
 @end
@@ -32,30 +34,18 @@
 {
     [super setUp];
     
-    self.request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url" connectionBuilder:nil requestLogger:nil manager:nil];
+    self.request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url" sessionFactory:nil requestFactory:nil logger:nil manager:nil];
     
     self.protectionSpaceMock = MKTMock([NSURLProtectionSpace class]);
     self.senderMock = MKTMockProtocol(@protocol(NSURLAuthenticationChallengeSender));
     self.challengeMock = MKTMock([NSURLAuthenticationChallenge class]);
-    self.connectionMock = MKTMock([NSURLConnection class]);
+    self.sessionMock = MKTMock([NSURLSession class]);
+    self.taskMock = MKTMock([NSURLSessionDataTask class]);
     
     [MKTGiven([self.challengeMock protectionSpace]) willReturn:self.protectionSpaceMock];
     [MKTGiven([self.challengeMock sender]) willReturn:self.senderMock];
     
     self.captor = [[MKTArgumentCaptor alloc] init];
-}
-
-- (void)tearDown
-{
-    self.request = nil;
-    self.challengeMock = nil;
-    self.protectionSpaceMock = nil;
-    self.senderMock = nil;
-    self.connectionMock = nil;
-    
-    self.captor = nil;
-    
-    [super tearDown];
 }
 
 #pragma mark - TESTS
@@ -64,9 +54,14 @@
 {
     [MKTGiven([self.protectionSpaceMock authenticationMethod]) willReturn:NSURLAuthenticationMethodServerTrust];
     
-    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
+    __block BOOL blockCalled = NO;
+    [self.request URLSession:self.sessionMock task:self.taskMock didReceiveChallenge:self.challengeMock completionHandler:^(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential) {
+        blockCalled = YES;
+        XCTAssert(disposition == NSURLSessionAuthChallengePerformDefaultHandling);
+        XCTAssert(credential == nil);
+    }];
     
-    [MKTVerify(self.senderMock) continueWithoutCredentialForAuthenticationChallenge:self.challengeMock];
+    XCTAssert(blockCalled == YES);
 }
 
 - (void)test_authentication_ignore_ssl
@@ -75,12 +70,14 @@
     
     [MKTGiven([self.protectionSpaceMock authenticationMethod]) willReturn:NSURLAuthenticationMethodServerTrust];
     
-    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
+    __block BOOL blockCalled = NO;
+    [self.request URLSession:self.sessionMock task:self.taskMock didReceiveChallenge:self.challengeMock completionHandler:^(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential) {
+        blockCalled = YES;
+        XCTAssert(disposition == NSURLSessionAuthChallengeUseCredential);
+        XCTAssert(credential != nil);
+    }];
     
-    [MKTVerify(self.senderMock) useCredential:[self.captor capture] forAuthenticationChallenge:self.challengeMock];
-    
-    NSURLCredential *credential = [self.captor value];
-    XCTAssertNotNil(credential);
+    XCTAssert(blockCalled == YES);
 }
 
 - (void)test_authentication_http_basic
@@ -89,14 +86,16 @@
     
     [MKTGiven([self.protectionSpaceMock authenticationMethod]) willReturn:NSURLAuthenticationMethodHTTPBasic];
     
-    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
+    __block BOOL blockCalled = NO;
+    [self.request URLSession:self.sessionMock task:self.taskMock didReceiveChallenge:self.challengeMock completionHandler:^(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential) {
+        blockCalled = YES;
+        XCTAssert(disposition == NSURLSessionAuthChallengeUseCredential);
+        XCTAssertNotNil(credential);
+        XCTAssertTrue([credential.user isEqualToString:@"user"]);
+        XCTAssertTrue([credential.password isEqualToString:@"password"]);
+    }];
     
-    [MKTVerify(self.senderMock) useCredential:[self.captor capture] forAuthenticationChallenge:self.challengeMock];
-    
-    NSURLCredential *credential = [self.captor value];
-    XCTAssertNotNil(credential);
-    XCTAssertTrue([credential.user isEqualToString:@"user"]);
-    XCTAssertTrue([credential.password isEqualToString:@"password"]);
+    XCTAssert(blockCalled == YES);
 }
 
 - (void)test_authentication_block_returns_nil
@@ -107,9 +106,14 @@
         return nil;
     };
     
-    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
+    __block BOOL blockCalled = NO;
+    [self.request URLSession:self.sessionMock task:self.taskMock didReceiveChallenge:self.challengeMock completionHandler:^(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential) {
+        blockCalled = YES;
+        XCTAssert(disposition == NSURLSessionAuthChallengePerformDefaultHandling);
+        XCTAssert(credential == nil);
+    }];
     
-    [MKTVerify(self.senderMock) continueWithoutCredentialForAuthenticationChallenge:self.challengeMock];
+    XCTAssert(blockCalled == YES);
 }
 
 - (void)test_authentication_block_returns_credential
@@ -121,9 +125,14 @@
         return credential;
     };
     
-    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
+    __block BOOL blockCalled = NO;
+    [self.request URLSession:self.sessionMock task:self.taskMock didReceiveChallenge:self.challengeMock completionHandler:^(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential) {
+        blockCalled = YES;
+        XCTAssert(disposition == NSURLSessionAuthChallengeUseCredential);
+        XCTAssert(credential != nil);
+    }];
     
-    [MKTVerify(self.senderMock) useCredential:credential forAuthenticationChallenge:self.challengeMock];
+    XCTAssert(blockCalled == YES);
 }
 
 - (void)test_authentication_block_and_ignore_ssl
@@ -137,10 +146,14 @@
         return credential;
     };
     
-    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
+    __block BOOL blockCalled = NO;
+    [self.request URLSession:self.sessionMock task:self.taskMock didReceiveChallenge:self.challengeMock completionHandler:^(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential) {
+        blockCalled = YES;
+        XCTAssert(disposition == NSURLSessionAuthChallengeUseCredential);
+        XCTAssert(credential != nil);
+    }];
     
-    [MKTVerifyCount(self.senderMock, MKTNever()) useCredential:credential forAuthenticationChallenge:self.challengeMock];
-    [MKTVerify(self.senderMock) useCredential:HC_notNilValue() forAuthenticationChallenge:self.challengeMock];
+    XCTAssert(blockCalled == YES);
 }
 
 - (void)test_authentication_block_and_http_basic
@@ -154,14 +167,16 @@
         return credential;
     };
     
-    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
+    __block BOOL blockCalled = NO;
+    [self.request URLSession:self.sessionMock task:self.taskMock didReceiveChallenge:self.challengeMock completionHandler:^(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential) {
+        blockCalled = YES;
+        XCTAssert(disposition == NSURLSessionAuthChallengeUseCredential);
+        XCTAssertNotNil(credential);
+        XCTAssertTrue([credential.user isEqualToString:@"user"]);
+        XCTAssertTrue([credential.password isEqualToString:@"password"]);
+    }];
     
-    [MKTVerifyCount(self.senderMock, MKTNever()) useCredential:credential forAuthenticationChallenge:self.challengeMock];
-    [MKTVerify(self.senderMock) useCredential:[self.captor capture] forAuthenticationChallenge:self.challengeMock];
-    
-    NSURLCredential *usedCredential = [self.captor value];
-    XCTAssertTrue([usedCredential.user isEqualToString:@"user"]);
-    XCTAssertTrue([usedCredential.password isEqualToString:@"password"]);
+    XCTAssert(blockCalled == YES);
 }
 
 - (void)test_authentication_block_and_http_basic_trust_authentication
@@ -175,13 +190,16 @@
         return credential;
     };
     
-    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
+    __block BOOL blockCalled = NO;
+    [self.request URLSession:self.sessionMock task:self.taskMock didReceiveChallenge:self.challengeMock completionHandler:^(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential) {
+        blockCalled = YES;
+        XCTAssert(disposition == NSURLSessionAuthChallengeUseCredential);
+        XCTAssertNotNil(credential);
+        XCTAssertTrue([credential.user isEqualToString:@"user2"]);
+        XCTAssertTrue([credential.password isEqualToString:@"password2"]);
+    }];
     
-    [MKTVerify(self.senderMock) useCredential:[self.captor capture] forAuthenticationChallenge:self.challengeMock];
-    
-    NSURLCredential *usedCredential = [self.captor value];
-    XCTAssertTrue([usedCredential.user isEqualToString:@"user2"]);
-    XCTAssertTrue([usedCredential.password isEqualToString:@"password2"]);
+    XCTAssert(blockCalled == YES);
 }
 
 - (void)test_authentication_block_and_ignore_ssl_basic_authentication
@@ -195,13 +213,16 @@
         return credential;
     };
     
-    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
+    __block BOOL blockCalled = NO;
+    [self.request URLSession:self.sessionMock task:self.taskMock didReceiveChallenge:self.challengeMock completionHandler:^(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential) {
+        blockCalled = YES;
+        XCTAssert(disposition == NSURLSessionAuthChallengeUseCredential);
+        XCTAssertNotNil(credential);
+        XCTAssertTrue([credential.user isEqualToString:@"user2"]);
+        XCTAssertTrue([credential.password isEqualToString:@"password2"]);
+    }];
     
-    [MKTVerify(self.senderMock) useCredential:[self.captor capture] forAuthenticationChallenge:self.challengeMock];
-    
-    NSURLCredential *usedCredential = [self.captor value];
-    XCTAssertTrue([usedCredential.user isEqualToString:@"user2"]);
-    XCTAssertTrue([usedCredential.password isEqualToString:@"password2"]);
+    XCTAssert(blockCalled == YES);
 }
 
 - (void)test_authentication_block_and_ignore_ssl_and_http_basic_other_authentication
@@ -216,13 +237,16 @@
         return credential;
     };
     
-    [self.request connection:self.connectionMock willSendRequestForAuthenticationChallenge:self.challengeMock];
+    __block BOOL blockCalled = NO;
+    [self.request URLSession:self.sessionMock task:self.taskMock didReceiveChallenge:self.challengeMock completionHandler:^(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential) {
+        blockCalled = YES;
+        XCTAssert(disposition == NSURLSessionAuthChallengeUseCredential);
+        XCTAssertNotNil(credential);
+        XCTAssertTrue([credential.user isEqualToString:@"user2"]);
+        XCTAssertTrue([credential.password isEqualToString:@"password2"]);
+    }];
     
-    [MKTVerify(self.senderMock) useCredential:[self.captor capture] forAuthenticationChallenge:self.challengeMock];
-    
-    NSURLCredential *usedCredential = [self.captor value];
-    XCTAssertTrue([usedCredential.user isEqualToString:@"user2"]);
-    XCTAssertTrue([usedCredential.password isEqualToString:@"password2"]);
+    XCTAssert(blockCalled == YES);
 }
 
 @end

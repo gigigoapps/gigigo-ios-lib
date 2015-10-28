@@ -17,9 +17,10 @@
 
 @interface GIGURLRequestTests : XCTestCase
 
+@property (strong, nonatomic) NSURLSession *sessionMock;
+@property (strong, nonatomic) NSURLSessionDataTask *taskMock;
 @property (strong, nonatomic) GIGURLManager *managerMock;
 @property (strong, nonatomic) GIGURLRequest *request;
-@property (strong, nonatomic) NSURLConnection *connectionMock;
 
 @end
 
@@ -30,15 +31,19 @@
 {
     [super setUp];
     
+    self.sessionMock = MKTMock([NSURLSession class]);
+    self.taskMock = MKTMock([NSURLSessionDataTask class]);
     self.managerMock = MKTMock([GIGURLManager class]);
-    self.connectionMock = MKTMock([NSURLConnection class]);
-    self.request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url" connectionBuilder:nil requestLogger:nil manager:self.managerMock];
+    
+    self.request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url" manager:self.managerMock];
 }
 
 - (void)tearDown
 {
+    self.taskMock = nil;
+    self.sessionMock = nil;
     self.managerMock = nil;
-    self.connectionMock = nil;
+    
     self.request = nil;
     
     [super tearDown];
@@ -62,7 +67,7 @@
     [self.request send];
     
     NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:nil];
-    [self.request connection:self.connectionMock didFailWithError:error];
+    [self.request URLSession:self.sessionMock task:self.taskMock didCompleteWithError:error];
     
     XCTAssertNotNil(response);
     XCTAssertFalse(response.success);
@@ -79,8 +84,10 @@
     
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:404 HTTPVersion:@"HTTP/1.1" headerFields:nil];
-    [self.request connection:self.connectionMock didReceiveResponse:HTTPResponse];
-    [self.request connectionDidFinishLoading:self.connectionMock];
+    [self.request URLSession:self.sessionMock dataTask:self.taskMock didReceiveResponse:HTTPResponse completionHandler:^(NSURLSessionResponseDisposition disposition) {
+        XCTAssert(disposition = NSURLSessionResponseAllow);
+    }];
+    [self.request URLSession:self.sessionMock task:self.taskMock didCompleteWithError:nil];
     
     XCTAssertNotNil(response);
     XCTAssertFalse(response.success);
@@ -95,17 +102,17 @@
     };
     [self.request send];
     
-
-    NSString* str = @"data string";
-    NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *str = @"data string";
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
     
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:404 HTTPVersion:@"HTTP/1.1" headerFields:nil];
-    [self.request connection:self.connectionMock didReceiveResponse:HTTPResponse];
-    
+    [self.request URLSession:self.sessionMock dataTask:self.taskMock didReceiveResponse:HTTPResponse completionHandler:^(NSURLSessionResponseDisposition disposition) {
+        XCTAssert(disposition == NSURLSessionResponseAllow);
+    }];
+    [self.request URLSession:self.sessionMock dataTask:self.taskMock didReceiveData:data];
     NSError *error = [NSError errorWithDomain:@"com.gigigo.errorCode" code:500 userInfo:nil];
-    [self.request connection:self.connectionMock didReceiveData:data];
-    [self.request connection:self.connectionMock didFailWithError:error];
+    [self.request URLSession:self.sessionMock task:self.taskMock didCompleteWithError:error];
     
     XCTAssertNotNil(response);
     XCTAssertFalse(response.success);
@@ -121,19 +128,16 @@
     };
     [self.request send];
     
-    CGRect rect = CGRectMake(0, 0, 1, 1);
-    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
-    [[UIColor blackColor] setFill];
-    UIRectFill(rect);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    NSData *data = UIImagePNGRepresentation(image);
+    NSData *data = [self dataImage];
     
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
-    [self.request connection:self.connectionMock didReceiveResponse:HTTPResponse];
-    [self.request connection:self.connectionMock didReceiveData:data];
-    [self.request connectionDidFinishLoading:self.connectionMock];
+    
+    [self.request URLSession:self.sessionMock dataTask:self.taskMock didReceiveResponse:HTTPResponse completionHandler:^(NSURLSessionResponseDisposition disposition) {
+        XCTAssert(disposition == NSURLSessionResponseAllow);
+    }];
+    [self.request URLSession:self.sessionMock dataTask:self.taskMock didReceiveData:data];
+    [self.request URLSession:self.sessionMock task:self.taskMock didCompleteWithError:nil];
     
     XCTAssertNotNil(response);
     XCTAssertTrue(response.success);
@@ -150,19 +154,16 @@
     };
     [self.request send];
     
-    CGRect rect = CGRectMake(0, 0, 1, 1);
-    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
-    [[UIColor blackColor] setFill];
-    UIRectFill(rect);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    NSData *data = UIImagePNGRepresentation(image);
+    NSData *data = [self dataImage];
     
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSDictionary *headerFields = @{@"Content-Length": [NSString stringWithFormat:@"%ld", (long)data.length]};
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:headerFields];
-    [self.request connection:self.connectionMock didReceiveResponse:HTTPResponse];
-    [self.request connection:self.connectionMock didReceiveData:data];
+    
+    [self.request URLSession:self.sessionMock dataTask:self.taskMock didReceiveResponse:HTTPResponse completionHandler:^(NSURLSessionResponseDisposition disposition) {
+        XCTAssert(disposition = NSURLSessionResponseAllow);
+    }];
+    [self.request URLSession:self.sessionMock dataTask:self.taskMock didReceiveData:data];
     
     XCTAssertTrue(progress == 1.0f, @"%f", progress);
 }
@@ -177,10 +178,26 @@
     
     NSURL *URL = [NSURL URLWithString:@"http://url"];
     NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
-    [self.request connection:self.connectionMock didReceiveResponse:HTTPResponse];
-    [self.request connection:self.connectionMock didSendBodyData:10 totalBytesWritten:10 totalBytesExpectedToWrite:20];
+    [self.request URLSession:self.sessionMock dataTask:self.taskMock didReceiveResponse:HTTPResponse completionHandler:^(NSURLSessionResponseDisposition disposition) {
+        XCTAssert(disposition == NSURLSessionResponseAllow);
+    }];
+    [self.request URLSession:self.sessionMock task:self.taskMock didSendBodyData:10 totalBytesSent:10 totalBytesExpectedToSend:20];
     
     XCTAssertTrue(progress == 0.5f, @"%f", progress);
+}
+
+#pragma mark - HELPERS
+
+- (NSData *)dataImage
+{
+    CGRect rect = CGRectMake(0, 0, 1, 1);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
+    [[UIColor blackColor] setFill];
+    UIRectFill(rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return UIImagePNGRepresentation(image);
 }
 
 @end

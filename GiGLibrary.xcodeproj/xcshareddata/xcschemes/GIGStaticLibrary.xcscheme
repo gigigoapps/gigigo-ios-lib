@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0710"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -17,7 +17,7 @@
                BlueprintIdentifier = "A91006551B0CCE8E0080B812"
                BuildableName = "libGIGStaticLibrary.a"
                BlueprintName = "GIGStaticLibrary"
-               ReferencedContainer = "container:GiGLibrary.xcodeproj">
+               ReferencedContainer = "container:GIGLibrary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,7 +36,7 @@
                BlueprintIdentifier = "D99AD1251B1D9866005BB4E5"
                BuildableName = "GIGStaticLibraryTests.xctest"
                BlueprintName = "GIGStaticLibraryTests"
-               ReferencedContainer = "container:GiGLibrary.xcodeproj">
+               ReferencedContainer = "container:GIGLibrary.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -46,7 +46,7 @@
             BlueprintIdentifier = "A91006551B0CCE8E0080B812"
             BuildableName = "libGIGStaticLibrary.a"
             BlueprintName = "GIGStaticLibrary"
-            ReferencedContainer = "container:GiGLibrary.xcodeproj">
+            ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,7 +68,7 @@
             BlueprintIdentifier = "A91006551B0CCE8E0080B812"
             BuildableName = "libGIGStaticLibrary.a"
             BlueprintName = "GIGStaticLibrary"
-            ReferencedContainer = "container:GiGLibrary.xcodeproj">
+            ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -86,7 +86,7 @@
             BlueprintIdentifier = "A91006551B0CCE8E0080B812"
             BuildableName = "libGIGStaticLibrary.a"
             BlueprintName = "GIGStaticLibrary"
-            ReferencedContainer = "container:GiGLibrary.xcodeproj">
+            ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
