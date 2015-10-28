@@ -8,6 +8,7 @@
 
 #import "GIGTextFormField.h"
 
+#import "GIGLayout.h"
 #import "GIGValidator.h"
 
 

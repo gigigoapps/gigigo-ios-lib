@@ -8,6 +8,7 @@
 
 #import "GIGFormFieldsBuilder.h"
 
+#import "GIGUtils.h"
 #import "GIGJSON.h"
 #import "NSBundle+GIGExtension.h"
 #import "GIGLocalization.h"
