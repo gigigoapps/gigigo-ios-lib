@@ -31,6 +31,7 @@
 	return self;
 }
 
+
 #pragma mark - PUBLIC
 
 - (void)loginFacebook:(GIGSocialLoginFacebookCompletion)completionHandler
@@ -63,5 +64,6 @@
 		 completionHandler(socialResult);
 	 }];
 }
+
 
 @end

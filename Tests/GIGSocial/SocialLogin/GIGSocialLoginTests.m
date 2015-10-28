@@ -58,6 +58,8 @@
 }
 
 
+#pragma mark - LOGIN
+
 - (void)test_login_facebook_success
 {
 	// INPUTS
@@ -169,6 +171,7 @@
 	XCTAssertTrue(self.facebookMock.extraPermissions == self.socialLogin.extraPermissions);
 	XCTAssertTrue(completionCalled, @"");
 }
+
 
 
 #pragma mark - HELPERS

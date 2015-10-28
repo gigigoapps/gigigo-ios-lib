@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GIGFacebookUser.h"
+
 
 typedef NS_ENUM (NSUInteger, GIGSocialLoginError)
 {
@@ -15,11 +17,13 @@ typedef NS_ENUM (NSUInteger, GIGSocialLoginError)
 	GIGSocialLoginErrorFacebook				// Generic Facebook errors. See errors handling-> https://developers.facebook.com/docs/ios/errors
 };
 
+
 @interface GIGSocialLoginResult : NSObject
 
 @property (assign, nonatomic) BOOL success;
 @property (strong, nonatomic) NSString *userID;
 @property (strong, nonatomic) NSString *accessToken;
+@property (strong, nonatomic) GIGFacebookUser *user;
 @property (assign, nonatomic) GIGSocialLoginError loginError;
 @property (strong, nonatomic) NSError *error;
 

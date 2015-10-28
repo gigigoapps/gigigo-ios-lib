@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "GIGSocialLoginResult.h"
+#import "GIGFacebookUser.h"
 
 
 typedef void(^GIGSocialLoginFacebookCompletion)(GIGSocialLoginResult *result);
+typedef void(^GIGSocialFacebookUserCompletion)(GIGFacebookUser *user);
 
 
 @interface GIGSocialLogin : NSObject
@@ -24,6 +26,19 @@ typedef void(^GIGSocialLoginFacebookCompletion)(GIGSocialLoginResult *result);
  */
 @property (strong, nonatomic) NSArray *extraPermissions;
 
+/**
+ *	@abstract User's data fields to be requested
+ *
+ *	@discussion By default (if nil), the data gathered is: email, first_name, middle_name, last_name and gender
+ */
+@property (strong, nonatomic) NSArray *extraFields;
+
+/**
+ *	@abstract Login with Facebook.
+ *
+ *	@discussion If login success, internally, the method [facebookUser:] will be called and returns also user's data
+ */
 - (void)loginFacebook:(GIGSocialLoginFacebookCompletion)completionHandler;
+
 
 @end
