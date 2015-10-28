@@ -13,7 +13,8 @@
 
 @interface GIGURLSessionFactory ()
 
-@property (strong, nonatomic) NSURLSessionConfiguration *configuration;
+@property (nonnull, strong, nonatomic) NSURLSessionConfiguration *configuration;
+@property (nullable, strong, nonatomic) NSOperationQueue *queue;
 
 @end
 
@@ -25,25 +26,27 @@
 - (instancetype)init
 {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSOperationQueue *queue = [NSOperationQueue mainQueue];
     
-    return [self initWithConfiguration:configuration];
+    return [self initWithConfiguration:configuration queue:queue];
 }
 
-- (instancetype)initWithConfiguration:(NSURLSessionConfiguration *)configuration
+- (instancetype)initWithConfiguration:(nonnull NSURLSessionConfiguration *)configuration queue:(nullable NSOperationQueue *)queue
 {
     self = [super init];
     if (self)
     {
         _configuration = configuration;
+        _queue = queue;
     }
     return self;
 }
 
 #pragma mark - PUBLIC
 
-- (NSURLSession *)sessionForRequest:(GIGURLRequest<NSURLSessionDataDelegate> *)request
+- (NSURLSession *)sessionForRequest:(nonnull GIGURLRequest<NSURLSessionDataDelegate> *)request
 {
-    return [NSURLSession sessionWithConfiguration:self.configuration delegate:request delegateQueue:nil];
+    return [NSURLSession sessionWithConfiguration:self.configuration delegate:request delegateQueue:self.queue];
 }
 
 @end

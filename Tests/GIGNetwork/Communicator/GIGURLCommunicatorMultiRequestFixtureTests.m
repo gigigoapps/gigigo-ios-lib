@@ -76,6 +76,7 @@
     NSDictionary *requests = @{@"request1": self.request1, @"request2": self.request2};
     
     [self.communicator sendRequests:requests completion:^(NSDictionary *responses) {
+        XCTAssert([NSThread isMainThread]);
         [expectation fulfill];
         
         XCTAssert(responses != nil);
@@ -104,6 +105,7 @@
     NSDictionary *requests = @{@"request1": self.request1, @"request2": self.request2};
     
     [self.communicator sendRequests:requests completion:^(NSDictionary *responses) {
+        XCTAssert([NSThread isMainThread]);
         [expectation fulfill];
         
         XCTAssert(responses != nil);
@@ -131,6 +133,7 @@
     NSDictionary *requests = @{@"request1": self.request1, @"request2": self.request2};
     
     [self.communicator sendRequests:requests completion:^(NSDictionary *responses) {
+        XCTAssert([NSThread isMainThread]);
         [expectation fulfill];
         
         XCTAssert(responses != nil);
@@ -161,6 +164,7 @@
         NSDictionary *requests = @{@"request": request};
         
         [self.communicator sendRequests:requests completion:^(NSDictionary *responses) {
+            XCTAssert([NSThread isMainThread]);
             [expectation fulfill];
             
             XCTAssert(responses[@"request"] != nil);
