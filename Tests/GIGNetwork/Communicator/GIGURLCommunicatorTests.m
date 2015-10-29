@@ -87,6 +87,7 @@
     [request URLSession:self.sessionMock dataTask:self.taskMock didReceiveData:data];
     [request URLSession:self.sessionMock task:self.taskMock didCompleteWithError:nil];
     
+    XCTAssert(blockResponse.data != nil);
     XCTAssert([blockResponse.data isEqualToData:data]);
 }
 

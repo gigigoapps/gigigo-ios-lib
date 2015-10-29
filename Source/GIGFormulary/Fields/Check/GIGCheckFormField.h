@@ -6,7 +6,7 @@
 //  Copyright © 2015 Gigigo SL. All rights reserved.
 //
 
-#import <GIGLibrary/GIGLibrary.h>
+#import "GIGFormField.h"
 
 
 @interface GIGCheckFormField : GIGFormField

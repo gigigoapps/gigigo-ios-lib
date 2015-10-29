@@ -63,10 +63,13 @@
     NSData *dataText = [self dataTextType];
 
     [self.communicator sendRequests:requests completion:^(NSDictionary *responses) {
+        [groupRequestsSuccess fulfill];
+        
+        XCTAssert([NSThread isMainThread]);
+        
         GIGURLResponse *response1 = [responses valueForKey:@"Request_1"];
         GIGURLResponse *response2 = [responses valueForKey:@"Request_2"];
 
-        [groupRequestsSuccess fulfill];
 
         XCTAssertNotNil(response1);
         XCTAssertTrue(response1.success);

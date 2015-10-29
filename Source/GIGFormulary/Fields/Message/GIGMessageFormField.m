@@ -8,6 +8,8 @@
 
 #import "GIGMessageFormField.h"
 
+#import "GIGLayout.h"
+
 
 @implementation GIGMessageFormField
 

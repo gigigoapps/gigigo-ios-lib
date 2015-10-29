@@ -8,6 +8,8 @@
 
 #import "GIGCheckFormField.h"
 
+#import "GIGLayout.h"
+
 
 @interface GIGCheckFormField ()
 

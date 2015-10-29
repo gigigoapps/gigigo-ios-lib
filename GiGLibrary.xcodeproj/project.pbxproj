@@ -62,6 +62,8 @@
 		D908676A1B42A3E400193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
 		D909EFEA1B0DC2FF00DD4D97 /* GIGLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D916868C1BC3BBFA00647357 /* GLALoginFacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */; };
+		D9404D4D1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9404D4C1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m */; };
+		D9404D4E1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9404D4C1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m */; };
 		D9637D7A1B0C90C000FD8E4D /* GIGLibrary.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D99AD11F1B1D978B005BB4E5 /* libGIGStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A91006561B0CCE8E0080B812 /* libGIGStaticLibrary.a */; };
 		D99AD12C1B1D9866005BB4E5 /* libGIGStaticLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A91006561B0CCE8E0080B812 /* libGIGStaticLibrary.a */; };
@@ -641,6 +643,7 @@
 		D934734D1BBBC4E000AB5655 /* GIGURLImageResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLImageResponseTests.m; sourceTree = "<group>"; };
 		D934734E1BBBC4E000AB5655 /* GIGURLJSONResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLJSONResponseTests.m; sourceTree = "<group>"; };
 		D934734F1BBBC4E000AB5655 /* GIGURLResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLResponseTests.m; sourceTree = "<group>"; };
+		D9404D4C1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLRequestThreadsTests.m; sourceTree = "<group>"; };
 		D99AD0F91B1D9716005BB4E5 /* GIGStaticLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGStaticLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99AD0FC1B1D9716005BB4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D99AD1261B1D9866005BB4E5 /* GIGStaticLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIGStaticLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1053,6 +1056,7 @@
 				D93473491BBBC4E000AB5655 /* GIGURLRequestAuthenticationTests.m */,
 				D934734A1BBBC4E000AB5655 /* GIGURLRequestFixtureTests.m */,
 				D934734B1BBBC4E000AB5655 /* GIGURLRequestTests.m */,
+				D9404D4C1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -2425,8 +2429,8 @@
 			projectRoot = "";
 			targets = (
 				FA65BF981AEFD5F90031A91B /* GIGLibrary */,
-				FACA6B291BDF74A2001AA36E /* GIGLibraryFramework */,
 				FACE6E471BBC3FDB00457B4C /* GIGSocial */,
+				FACA6B291BDF74A2001AA36E /* GIGLibraryFramework */,
 				FA680F191B009B6B006FC484 /* GIGLibraryApp */,
 				D9AD96F91B0A386500CB5E8C /* GIGLibraryTests */,
 				A91006551B0CCE8E0080B812 /* GIGStaticLibrary */,
@@ -2658,6 +2662,7 @@
 				7B6B84AD1BC2AEDC00517C2F /* GIGParseClassTests.m in Sources */,
 				D9E02A511BD4D85C0004717C /* GIGMockClassNull.m in Sources */,
 				D99AD3431B1DA3B9005BB4E5 /* GIGURLDomainsKeeperTests.m in Sources */,
+				D9404D4E1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m in Sources */,
 				D9E02A531BD4D8610004717C /* GIGMockClassEmpty.m in Sources */,
 				D99AD3571B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m in Sources */,
 				D99AD3531B1DA3B9005BB4E5 /* GIGArrayExtesionTests.m in Sources */,
@@ -2738,6 +2743,7 @@
 				D99AD3541B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
 				D9AF10DA1B42A93E004F01F9 /* GIGBoolValidatorTests.m in Sources */,
 				D9FD36441B416DF8000D356F /* GIGLengthValidatorTests.m in Sources */,
+				D9404D4D1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m in Sources */,
 				D99AD3441B1DA3B9005BB4E5 /* GIGURLFixturesKeeperTests.m in Sources */,
 				D9E02A4C1BD4D8200004717C /* GIGMockClassUser.m in Sources */,
 				D9E02A471BD4D7740004717C /* GIGURLCommunicatorMultiRequestTests.m in Sources */,
@@ -3435,6 +3441,7 @@
 				FACA6B2C1BDF74A2001AA36E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FACE6E511BBC3FDC00457B4C /* Build configuration list for PBXNativeTarget "GIGSocial" */ = {
 			isa = XCConfigurationList;

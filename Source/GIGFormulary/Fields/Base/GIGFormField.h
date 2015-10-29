@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class GIGFormController;
+#import "GIGFormController.h"
+
 @class GIGValidator;
 
 
