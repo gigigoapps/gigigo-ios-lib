@@ -26,6 +26,7 @@ typedef void(^GIGFacebookLoginCompletion)(GIGFacebookLoginResult *result);
  *	@example For example: ["email"]	will login with both "public_profile" and "email" permissions
  */
 @property (strong, nonatomic) NSArray *extraPermissions;
+@property (strong, nonatomic) NSArray *extraFields;
 
 - (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager accessToken:(GIGFacebookAccessTokenFactory *)accessTokenFactory;
 

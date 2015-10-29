@@ -479,9 +479,9 @@
 		D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */; };
 		D9FE62211BD6878600E2B23C /* GIGMessageFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */; };
 		FA1F80741B71EDFA003699DE /* GIGFacebookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */; };
-		FA3820EC1BE0BEC300BABFEB /* GIGFacebookUser.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3820E81BE0BEC300BABFEB /* GIGFacebookUser.h */; };
+		FA3820EC1BE0BEC300BABFEB /* GIGFacebookUser.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3820E81BE0BEC300BABFEB /* GIGFacebookUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA3820ED1BE0BEC300BABFEB /* GIGFacebookUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3820E91BE0BEC300BABFEB /* GIGFacebookUser.m */; };
-		FA3820EE1BE0BEC300BABFEB /* GIGSocialLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3820EA1BE0BEC300BABFEB /* GIGSocialLoginResult.h */; };
+		FA3820EE1BE0BEC300BABFEB /* GIGSocialLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3820EA1BE0BEC300BABFEB /* GIGSocialLoginResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA3820EF1BE0BEC300BABFEB /* GIGSocialLoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3820EB1BE0BEC300BABFEB /* GIGSocialLoginResult.m */; };
 		FA3B23691BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3B23671BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FA3B236A1BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3B23681BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.m */; };
@@ -523,6 +523,18 @@
 		FAEDF67F1BE20EFE00F05AE2 /* GIGURLSessionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C804791BD0EEAC00EBDD93 /* GIGURLSessionFactory.m */; };
 		FAEDF6801BE20F4300F05AE2 /* GIGURLResponses.h in Headers */ = {isa = PBXBuildFile; fileRef = D9C804741BD0ED7000EBDD93 /* GIGURLResponses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAEDF6811BE20F4700F05AE2 /* GIGURLResponses.h in Headers */ = {isa = PBXBuildFile; fileRef = D9C804741BD0ED7000EBDD93 /* GIGURLResponses.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FAEDF6821BE21A0500F05AE2 /* GIGMockClassEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84AF1BC2B4A000517C2F /* GIGMockClassEmpty.m */; };
+		FAEDF6831BE21A0800F05AE2 /* GIGMockClassEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84AF1BC2B4A000517C2F /* GIGMockClassEmpty.m */; };
+		FAEDF6841BE21A2E00F05AE2 /* GIGMockClassNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FAC1BC3CB65002C335E /* GIGMockClassNull.m */; };
+		FAEDF6851BE21A2E00F05AE2 /* GIGMockClassPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FB01BC3CB7D002C335E /* GIGMockClassPrimitive.m */; };
+		FAEDF6861BE21A2E00F05AE2 /* GIGMockClassNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FB41BC3CB90002C335E /* GIGMockClassNSObject.m */; };
+		FAEDF6871BE21A3100F05AE2 /* GIGMockClassNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FAC1BC3CB65002C335E /* GIGMockClassNull.m */; };
+		FAEDF6881BE21A3100F05AE2 /* GIGMockClassPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FB01BC3CB7D002C335E /* GIGMockClassPrimitive.m */; };
+		FAEDF6891BE21A3100F05AE2 /* GIGMockClassNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FB41BC3CB90002C335E /* GIGMockClassNSObject.m */; };
+		FAEDF68A1BE21A5600F05AE2 /* GIGMockClassUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FC11BC3CEDE002C335E /* GIGMockClassUser.m */; };
+		FAEDF68B1BE21A5600F05AE2 /* GIGMockClassAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FBD1BC3CEC8002C335E /* GIGMockClassAddress.m */; };
+		FAEDF68C1BE21A5700F05AE2 /* GIGMockClassUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FC11BC3CEDE002C335E /* GIGMockClassUser.m */; };
+		FAEDF68D1BE21A5700F05AE2 /* GIGMockClassAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FBD1BC3CEC8002C335E /* GIGMockClassAddress.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2661,6 +2673,7 @@
 				D9FD364F1B416DF8000D356F /* GIGTextValidatorTests.m in Sources */,
 				D9FD364D1B416DF8000D356F /* GIGRegexpValidatorTests.m in Sources */,
 				D99AD3511B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
+				FAEDF68D1BE21A5700F05AE2 /* GIGMockClassAddress.m in Sources */,
 				D9E10E641BBBC76D0016C00B /* GIGURLRequestFixtureTests.m in Sources */,
 				D9E10E681BBBC7770016C00B /* GIGURLImageResponseTests.m in Sources */,
 				D9E7A1501B4182EB004D3193 /* GIGPostalCodeValidatorTests.m in Sources */,
@@ -2668,12 +2681,17 @@
 				D9E10E6A1BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */,
 				D99AD3551B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
 				D9FD36451B416DF8000D356F /* GIGLengthValidatorTests.m in Sources */,
+				FAEDF6831BE21A0800F05AE2 /* GIGMockClassEmpty.m in Sources */,
+				FAEDF68C1BE21A5700F05AE2 /* GIGMockClassUser.m in Sources */,
 				D99AD3451B1DA3B9005BB4E5 /* GIGURLFixturesKeeperTests.m in Sources */,
 				D9E7A1591B419244004D3193 /* GIGDocumentValidatorTests.m in Sources */,
 				D99AD3491B1DA3B9005BB4E5 /* GIGURLParametersFormatterTests.m in Sources */,
 				D9FD36471B416DF8000D356F /* GIGMailValidatorTests.m in Sources */,
+				FAEDF6851BE21A2E00F05AE2 /* GIGMockClassPrimitive.m in Sources */,
 				D9FD364B1B416DF8000D356F /* GIGPhoneValidatorTests.m in Sources */,
 				D99AD3391B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m in Sources */,
+				FAEDF6861BE21A2E00F05AE2 /* GIGMockClassNSObject.m in Sources */,
+				FAEDF6841BE21A2E00F05AE2 /* GIGMockClassNull.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2691,6 +2709,8 @@
 				D9E10E5F1BBBC7620016C00B /* GIGURLCommunicatorTests.m in Sources */,
 				D9FD36481B416DF8000D356F /* GIGNumericValidatorTests.m in Sources */,
 				D99AD34C1B1DA3B9005BB4E5 /* GIGURLStorageTests.m in Sources */,
+				FAEDF6881BE21A3100F05AE2 /* GIGMockClassPrimitive.m in Sources */,
+				FAEDF6891BE21A3100F05AE2 /* GIGMockClassNSObject.m in Sources */,
 				FA74BD001B6F7050001D2BCF /* GIGSocialLoginTests.m in Sources */,
 				D9E7A16A1B419A45004D3193 /* GIGCharactersValidatorTests.m in Sources */,
 				D99AD34E1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m in Sources */,
@@ -2700,16 +2720,19 @@
 				D9A39D921BD531AB00EAB2E0 /* GIGURLResponseTests.m in Sources */,
 				D9FD36501B416DF8000D356F /* GIGValidatorTests.m in Sources */,
 				D9FD364E1B416DF8000D356F /* GIGTextValidatorTests.m in Sources */,
+				FAEDF68B1BE21A5600F05AE2 /* GIGMockClassAddress.m in Sources */,
 				D9FD364C1B416DF8000D356F /* GIGRegexpValidatorTests.m in Sources */,
 				D99AD3501B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
 				D9E10E631BBBC76C0016C00B /* GIGURLRequestFixtureTests.m in Sources */,
 				D9E10E671BBBC7760016C00B /* GIGURLImageResponseTests.m in Sources */,
+				FAEDF68A1BE21A5600F05AE2 /* GIGMockClassUser.m in Sources */,
 				D9E7A14F1B4182EB004D3193 /* GIGPostalCodeValidatorTests.m in Sources */,
 				D90867691B42A3E300193560 /* GIGLayoutTests.m in Sources */,
 				FA3B236F1BC2D9F900F972DE /* GIGFacebookAccessTokenFactoryMock.m in Sources */,
 				D9E10E691BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */,
 				D99AD3541B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
 				D9FD36441B416DF8000D356F /* GIGLengthValidatorTests.m in Sources */,
+				FAEDF6871BE21A3100F05AE2 /* GIGMockClassNull.m in Sources */,
 				D9404D4D1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m in Sources */,
 				D99AD3441B1DA3B9005BB4E5 /* GIGURLFixturesKeeperTests.m in Sources */,
 				D9E7A1581B419244004D3193 /* GIGDocumentValidatorTests.m in Sources */,
@@ -2717,6 +2740,7 @@
 				D9FD36461B416DF8000D356F /* GIGMailValidatorTests.m in Sources */,
 				D9FD364A1B416DF8000D356F /* GIGPhoneValidatorTests.m in Sources */,
 				D99AD3381B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m in Sources */,
+				FAEDF6821BE21A0500F05AE2 /* GIGMockClassEmpty.m in Sources */,
 				FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

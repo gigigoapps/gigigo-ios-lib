@@ -7,6 +7,7 @@
 //
 
 #import "GIGFacebook.h"
+#import "GIGFacebookUser.h"
 
 @interface GIGFacebookMock : GIGFacebook
 
@@ -15,6 +16,7 @@
 @property (assign, nonatomic) BOOL inSuccess;
 @property (strong, nonatomic) NSString *inUserId;
 @property (strong, nonatomic) NSString *inAccessToken;
+@property (strong, nonatomic) GIGFacebookUser *inUser;
 @property (assign, nonatomic) BOOL isCancelled;
 @property (strong, nonatomic) NSError *inError;
 

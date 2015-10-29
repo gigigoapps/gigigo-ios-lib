@@ -66,9 +66,9 @@
 	self.facebookMock.inSuccess = YES,
 	self.facebookMock.inUserId = @"USER_ID";
 	self.facebookMock.inAccessToken = @"ACCESSTOKEN";
+	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
 	self.facebookMock.isCancelled = NO;
 	self.facebookMock.inError = nil;
-	
 	
 	// EXECUTE TEST
 	__block BOOL completionCalled = NO;
@@ -80,10 +80,12 @@
 		XCTAssertTrue(result.success, @"");
 		XCTAssertTrue([result.userID isEqualToString:@"USER_ID"], @"%@", [self errorTestLogForObject:result.userID]);
 		XCTAssertTrue([result.accessToken isEqualToString:@"ACCESSTOKEN"], @"%@", [self errorTestLogForObject:result.accessToken]);
+		XCTAssert(result.user == self.facebookMock.inUser);
 		XCTAssertTrue(result.loginError == GIGSocialLoginErrorNone, @"");
 		XCTAssertNil(result.error, @"");
 	}];
 	
+	XCTAssertTrue(self.facebookMock.extraFields == self.socialLogin.extraFields);
 	XCTAssertTrue(self.facebookMock.extraPermissions == self.socialLogin.extraPermissions);
 	XCTAssertTrue(completionCalled, @"");
 }
@@ -95,6 +97,7 @@
 	self.facebookMock.inSuccess = YES,
 	self.facebookMock.inUserId = @"USER_ID";
 	self.facebookMock.inAccessToken = @"ACCESSTOKEN";
+	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
 	self.facebookMock.isCancelled = NO;
 	self.facebookMock.inError = nil;
 	
@@ -110,10 +113,45 @@
 		 XCTAssertTrue(result.success, @"");
 		 XCTAssertTrue([result.userID isEqualToString:@"USER_ID"], @"%@", [self errorTestLogForObject:result.userID]);
 		 XCTAssertTrue([result.accessToken isEqualToString:@"ACCESSTOKEN"], @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssert(result.user == self.facebookMock.inUser);
 		 XCTAssertTrue(result.loginError == GIGSocialLoginErrorNone, @"");
 		 XCTAssertNil(result.error, @"");
 	 }];
 	
+	XCTAssertTrue(self.facebookMock.extraFields == self.socialLogin.extraFields);
+	XCTAssertTrue(self.facebookMock.extraPermissions == self.socialLogin.extraPermissions);
+	XCTAssertTrue(completionCalled, @"");
+}
+
+
+- (void)test_login_facebook_success_with_extra_fields
+{
+	// INPUTS
+	self.facebookMock.inSuccess = YES,
+	self.facebookMock.inUserId = @"USER_ID";
+	self.facebookMock.inAccessToken = @"ACCESSTOKEN";
+	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
+	self.facebookMock.isCancelled = NO;
+	self.facebookMock.inError = nil;
+	
+	self.socialLogin.extraFields = @[@"birthday"];
+	
+	// EXECUTE TEST
+	__block BOOL completionCalled = NO;
+	[self.socialLogin loginFacebook:^(GIGSocialLoginResult *result)
+	 {
+		 completionCalled = YES;
+		 
+		 // VERIFY
+		 XCTAssertTrue(result.success, @"");
+		 XCTAssertTrue([result.userID isEqualToString:@"USER_ID"], @"%@", [self errorTestLogForObject:result.userID]);
+		 XCTAssertTrue([result.accessToken isEqualToString:@"ACCESSTOKEN"], @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssert(result.user == self.facebookMock.inUser);
+		 XCTAssertTrue(result.loginError == GIGSocialLoginErrorNone, @"");
+		 XCTAssertNil(result.error, @"");
+	 }];
+	
+	XCTAssertTrue(self.facebookMock.extraFields == self.socialLogin.extraFields);
 	XCTAssertTrue(self.facebookMock.extraPermissions == self.socialLogin.extraPermissions);
 	XCTAssertTrue(completionCalled, @"");
 }
@@ -125,6 +163,7 @@
 	self.facebookMock.inSuccess = NO;
 	self.facebookMock.inUserId = nil;
 	self.facebookMock.inAccessToken = nil;
+	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
 	self.facebookMock.isCancelled = YES;
 	self.facebookMock.inError = nil;
 	
@@ -137,10 +176,12 @@
 		XCTAssertFalse(result.success, @"");
 		XCTAssertNil(result.userID, @"%@", [self errorTestLogForObject:result.userID]);
 		XCTAssertNil(result.accessToken, @"%@", [self errorTestLogForObject:result.accessToken]);
+		XCTAssertNil(result.user);
 		XCTAssertTrue(result.loginError == GIGSocialLoginErrorFacebookCancelled, @"");
 		XCTAssertNil(result.error, @"");
 	}];
 	
+	XCTAssertTrue(self.facebookMock.extraFields == self.socialLogin.extraFields);
 	XCTAssertTrue(self.facebookMock.extraPermissions == self.socialLogin.extraPermissions);
 	XCTAssertTrue(completionCalled, @"");
 }
@@ -152,6 +193,7 @@
 	self.facebookMock.inSuccess = NO;
 	self.facebookMock.inUserId = nil;
 	self.facebookMock.inAccessToken = nil;
+	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
 	self.facebookMock.isCancelled = NO;
 	self.facebookMock.inError = [NSError errorWithDomain:@"TESTFACEBOOK" code:3 userInfo:nil];
 	
@@ -164,10 +206,41 @@
 		 XCTAssertFalse(result.success, @"");
 		 XCTAssertNil(result.userID, @"%@", [self errorTestLogForObject:result.userID]);
 		 XCTAssertNil(result.accessToken, @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssertNil(result.user);
 		 XCTAssertTrue(result.loginError == GIGSocialLoginErrorFacebook, @"");
 		 XCTAssertTrue([result.error.domain isEqualToString:@"TESTFACEBOOK"] && result.error.code == 3, @"");
 	 }];
 	
+	XCTAssertTrue(self.facebookMock.extraFields == self.socialLogin.extraFields);
+	XCTAssertTrue(self.facebookMock.extraPermissions == self.socialLogin.extraPermissions);
+	XCTAssertTrue(completionCalled, @"");
+}
+
+- (void)test_login_facebook_user_error
+{
+	// INPUTS
+	self.facebookMock.inSuccess = NO;
+	self.facebookMock.inUserId = nil;
+	self.facebookMock.inAccessToken = nil;
+	self.facebookMock.inUser = nil;
+	self.facebookMock.isCancelled = NO;
+	self.facebookMock.inError = [NSError errorWithDomain:@"TESTFACEBOOK" code:3 userInfo:nil];
+	
+	__block BOOL completionCalled = NO;
+	[self.socialLogin loginFacebook:^(GIGSocialLoginResult *result)
+	 {
+		 completionCalled = YES;
+		 
+		 // VERIFY
+		 XCTAssertFalse(result.success, @"");
+		 XCTAssertNil(result.userID, @"%@", [self errorTestLogForObject:result.userID]);
+		 XCTAssertNil(result.accessToken, @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssertNil(result.user);
+		 XCTAssertTrue(result.loginError == GIGSocialLoginErrorUser, @"");
+		 XCTAssertTrue([result.error.domain isEqualToString:@"TESTFACEBOOK"] && result.error.code == 3, @"");
+	 }];
+	
+	XCTAssertTrue(self.facebookMock.extraFields == self.socialLogin.extraFields);
 	XCTAssertTrue(self.facebookMock.extraPermissions == self.socialLogin.extraPermissions);
 	XCTAssertTrue(completionCalled, @"");
 }

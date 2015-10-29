@@ -58,6 +58,7 @@
 		 socialResult.success = result.success;
 		 socialResult.userID = result.userID;
 		 socialResult.accessToken = result.accessToken;
+		 socialResult.user = nil;
 		 socialResult.loginError = socialError;
 		 socialResult.error = result.error;
 		 
