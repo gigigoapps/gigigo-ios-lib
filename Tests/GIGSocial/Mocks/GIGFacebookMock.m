@@ -22,4 +22,9 @@
 	completionHandler(result);
 }
 
+- (void)me:(GIGFacebookMeCompletion)completionHandler
+{
+	completionHandler(self.inMeSuccess, self.inUser, self.inMeError);
+}
+
 @end

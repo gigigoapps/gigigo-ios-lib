@@ -37,32 +37,48 @@
 - (void)loginFacebook:(GIGSocialLoginFacebookCompletion)completionHandler
 {
 	self.facebook.extraPermissions = self.extraPermissions;
+	self.facebook.extraFields = self.extraFields;
+	
 	[self.facebook login:^(GIGFacebookLoginResult *result)
 	 {
-		 GIGSocialLoginError socialError = GIGSocialLoginErrorNone;
-		 
+		 __block GIGSocialLoginError socialError = GIGSocialLoginErrorNone;
 		 if (result.success)
 		 {
-			 socialError = GIGSocialLoginErrorNone;
-		 }
-		 else if (result.isCancelled)
-		 {
-			 socialError = GIGSocialLoginErrorFacebookCancelled;
+			 [self.facebook me:^(BOOL success, GIGFacebookUser *user, NSError *error)
+			 {
+				 GIGSocialLoginResult *socialResult = [[GIGSocialLoginResult alloc] init];
+				 if (!success)
+				 {
+					 socialError = GIGSocialLoginErrorUser;
+				 }
+				 
+				 socialResult.success = success;
+				 socialResult.userID = result.userID;
+				 socialResult.accessToken = result.accessToken;
+				 socialResult.user = user;
+				 socialResult.loginError = socialError;
+				 socialResult.error = error;
+				 
+				 completionHandler(socialResult);
+			 }];
 		 }
 		 else
 		 {
-			 socialError = GIGSocialLoginErrorFacebook;
+			 if (result.isCancelled)
+			 {
+				 socialError = GIGSocialLoginErrorFacebookCancelled;
+			 }
+			 else
+			 {
+				 socialError = GIGSocialLoginErrorFacebook;
+			 }
+			 
+			 GIGSocialLoginResult *socialResult = [[GIGSocialLoginResult alloc] init];
+			 socialResult.loginError = socialError;
+			 socialResult.error = result.error;
+			 
+			 completionHandler(socialResult);
 		 }
-		 
-		 GIGSocialLoginResult *socialResult = [[GIGSocialLoginResult alloc] init];
-		 socialResult.success = result.success;
-		 socialResult.userID = result.userID;
-		 socialResult.accessToken = result.accessToken;
-		 socialResult.user = nil;
-		 socialResult.loginError = socialError;
-		 socialResult.error = result.error;
-		 
-		 completionHandler(socialResult);
 	 }];
 }
 

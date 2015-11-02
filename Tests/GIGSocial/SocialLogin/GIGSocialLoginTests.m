@@ -66,9 +66,12 @@
 	self.facebookMock.inSuccess = YES,
 	self.facebookMock.inUserId = @"USER_ID";
 	self.facebookMock.inAccessToken = @"ACCESSTOKEN";
-	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
 	self.facebookMock.isCancelled = NO;
 	self.facebookMock.inError = nil;
+	
+	self.facebookMock.inMeSuccess = YES;
+	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
+	self.facebookMock.inMeError = nil;
 	
 	// EXECUTE TEST
 	__block BOOL completionCalled = NO;
@@ -97,9 +100,12 @@
 	self.facebookMock.inSuccess = YES,
 	self.facebookMock.inUserId = @"USER_ID";
 	self.facebookMock.inAccessToken = @"ACCESSTOKEN";
-	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
 	self.facebookMock.isCancelled = NO;
 	self.facebookMock.inError = nil;
+	
+	self.facebookMock.inMeSuccess = YES;
+	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
+	self.facebookMock.inMeError = nil;
 	
 	self.socialLogin.extraPermissions = @[@"public_profile", @"email", @"user_birthday"];
 	
@@ -130,9 +136,12 @@
 	self.facebookMock.inSuccess = YES,
 	self.facebookMock.inUserId = @"USER_ID";
 	self.facebookMock.inAccessToken = @"ACCESSTOKEN";
-	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
 	self.facebookMock.isCancelled = NO;
 	self.facebookMock.inError = nil;
+	
+	self.facebookMock.inMeSuccess = YES;
+	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
+	self.facebookMock.inMeError = nil;
 	
 	self.socialLogin.extraFields = @[@"birthday"];
 	
@@ -163,9 +172,12 @@
 	self.facebookMock.inSuccess = NO;
 	self.facebookMock.inUserId = nil;
 	self.facebookMock.inAccessToken = nil;
-	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
 	self.facebookMock.isCancelled = YES;
 	self.facebookMock.inError = nil;
+	
+	self.facebookMock.inMeSuccess = YES;
+	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
+	self.facebookMock.inMeError = nil;
 	
 	__block BOOL completionCalled = NO;
 	[self.socialLogin loginFacebook:^(GIGSocialLoginResult *result)
@@ -193,9 +205,12 @@
 	self.facebookMock.inSuccess = NO;
 	self.facebookMock.inUserId = nil;
 	self.facebookMock.inAccessToken = nil;
-	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
 	self.facebookMock.isCancelled = NO;
 	self.facebookMock.inError = [NSError errorWithDomain:@"TESTFACEBOOK" code:3 userInfo:nil];
+	
+	self.facebookMock.inMeSuccess = YES;
+	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
+	self.facebookMock.inMeError = nil;
 	
 	__block BOOL completionCalled = NO;
 	[self.socialLogin loginFacebook:^(GIGSocialLoginResult *result)
@@ -219,12 +234,15 @@
 - (void)test_login_facebook_user_error
 {
 	// INPUTS
-	self.facebookMock.inSuccess = NO;
-	self.facebookMock.inUserId = nil;
-	self.facebookMock.inAccessToken = nil;
-	self.facebookMock.inUser = nil;
+	self.facebookMock.inSuccess = YES,
+	self.facebookMock.inUserId = @"USER_ID";
+	self.facebookMock.inAccessToken = @"ACCESSTOKEN";
 	self.facebookMock.isCancelled = NO;
-	self.facebookMock.inError = [NSError errorWithDomain:@"TESTFACEBOOK" code:3 userInfo:nil];
+	self.facebookMock.inError = nil;
+	
+	self.facebookMock.inMeSuccess = NO;
+	self.facebookMock.inUser = nil;
+	self.facebookMock.inMeError = [NSError errorWithDomain:@"TESTFACEBOOK" code:3 userInfo:nil];
 	
 	__block BOOL completionCalled = NO;
 	[self.socialLogin loginFacebook:^(GIGSocialLoginResult *result)
@@ -233,8 +251,8 @@
 		 
 		 // VERIFY
 		 XCTAssertFalse(result.success, @"");
-		 XCTAssertNil(result.userID, @"%@", [self errorTestLogForObject:result.userID]);
-		 XCTAssertNil(result.accessToken, @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssertTrue([result.userID isEqualToString:@"USER_ID"], @"%@", [self errorTestLogForObject:result.userID]);
+		 XCTAssertTrue([result.accessToken isEqualToString:@"ACCESSTOKEN"], @"%@", [self errorTestLogForObject:result.accessToken]);
 		 XCTAssertNil(result.user);
 		 XCTAssertTrue(result.loginError == GIGSocialLoginErrorUser, @"");
 		 XCTAssertTrue([result.error.domain isEqualToString:@"TESTFACEBOOK"] && result.error.code == 3, @"");

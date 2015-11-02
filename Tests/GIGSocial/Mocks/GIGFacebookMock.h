@@ -12,13 +12,18 @@
 @interface GIGFacebookMock : GIGFacebook
 
 
-// INPUTS
+// INPUTS LOGIN
 @property (assign, nonatomic) BOOL inSuccess;
 @property (strong, nonatomic) NSString *inUserId;
 @property (strong, nonatomic) NSString *inAccessToken;
-@property (strong, nonatomic) GIGFacebookUser *inUser;
 @property (assign, nonatomic) BOOL isCancelled;
 @property (strong, nonatomic) NSError *inError;
+
+
+// INPUTS ME
+@property (assign, nonatomic) BOOL inMeSuccess;
+@property (strong, nonatomic) GIGFacebookUser *inUser;
+@property (strong, nonatomic) NSError *inMeError;
 
 
 @end

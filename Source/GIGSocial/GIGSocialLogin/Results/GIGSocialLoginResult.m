@@ -10,4 +10,21 @@
 
 @implementation GIGSocialLoginResult
 
+- (instancetype)init
+{
+	self = [super init];
+	
+	if (self)
+	{
+		self.success = NO;
+		self.userID = nil;
+		self.accessToken = nil;
+		self.user = nil;
+		self.loginError = GIGSocialLoginErrorNone;
+		self.error = nil;
+	}
+	
+	return self;
+}
+
 @end

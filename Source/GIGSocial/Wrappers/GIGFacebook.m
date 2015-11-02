@@ -104,4 +104,10 @@
 	}
 }
 
+
+- (void)me:(GIGFacebookMeCompletion)completionHandler
+{
+	// TODO:
+}
+
 @end
