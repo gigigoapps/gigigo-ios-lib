@@ -82,22 +82,17 @@
 			 
 			 if (error)
 			 {
-				 GIGLogNSError(error);
 				 loginResult.success = NO;
-				 
 				 completionHandler(loginResult);
 			 }
 			 else if (result.isCancelled)
 			 {
-				 GIGLogWarn(@"Facebook was cancelled");
 				 loginResult.success = NO;
-
 				 completionHandler(loginResult);
 			 }
 			 else
 			 {
 				 loginResult.success = YES;
-				 
 				 completionHandler(loginResult);
 			 }
 		 }];
@@ -107,7 +102,31 @@
 
 - (void)me:(GIGFacebookMeCompletion)completionHandler
 {
-	// TODO:
+	NSMutableString *fields = [NSMutableString stringWithString:@"email,first_name,middle_name,last_name,gender"];
+	if (self.extraFields)
+	{
+		for (NSString *field in self.extraFields)
+		{
+			[fields appendFormat:@",%@", field];
+		}
+	}
+	
+	FBSDKAccessToken *currentAccessToken = [self.accessTokenFactory getCurrentToken];
+	if (currentAccessToken)
+	{
+		[[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": fields}]
+		 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
+		 {
+			 if (!error)
+			 {
+				 completionHandler(YES, result, nil);
+			 }
+			 else
+			 {
+				 completionHandler(NO, nil, error);
+			 }
+		 }];
+	}
 }
 
 @end

@@ -8,25 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "GIGFacebookLoginResult.h"
-#import "GIGFacebookUser.h"
 
 @class FBSDKLoginManager;
 @class GIGFacebookAccessTokenFactory;
 
 
 typedef void(^GIGFacebookLoginCompletion)(GIGFacebookLoginResult *result);
-typedef void(^GIGFacebookMeCompletion)(BOOL success, GIGFacebookUser *user, NSError *error);
+typedef void(^GIGFacebookMeCompletion)(BOOL success, NSDictionary *user, NSError *error);
 
 
 @interface GIGFacebook : NSObject
 
-/**
- *	@abstract Permissions to be used for login
- *	
- *	@discussion if nil, permissions will be only permission by default: "public_profile".
- *	
- *	@example For example: ["email"]	will login with both "public_profile" and "email" permissions
- */
 @property (strong, nonatomic) NSArray *extraPermissions;
 @property (strong, nonatomic) NSArray *extraFields;
 

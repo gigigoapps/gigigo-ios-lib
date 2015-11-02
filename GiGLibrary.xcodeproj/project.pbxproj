@@ -479,8 +479,6 @@
 		D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */; };
 		D9FE62211BD6878600E2B23C /* GIGMessageFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */; };
 		FA1F80741B71EDFA003699DE /* GIGFacebookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */; };
-		FA3820EC1BE0BEC300BABFEB /* GIGFacebookUser.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3820E81BE0BEC300BABFEB /* GIGFacebookUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FA3820ED1BE0BEC300BABFEB /* GIGFacebookUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3820E91BE0BEC300BABFEB /* GIGFacebookUser.m */; };
 		FA3820EE1BE0BEC300BABFEB /* GIGSocialLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3820EA1BE0BEC300BABFEB /* GIGSocialLoginResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA3820EF1BE0BEC300BABFEB /* GIGSocialLoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3820EB1BE0BEC300BABFEB /* GIGSocialLoginResult.m */; };
 		FA3B23691BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3B23671BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -887,8 +885,6 @@
 		D9FE621C1BD6878600E2B23C /* GIGMessageFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMessageFormField.h; path = Message/GIGMessageFormField.h; sourceTree = "<group>"; };
 		D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMessageFormField.m; path = Message/GIGMessageFormField.m; sourceTree = "<group>"; };
 		FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFacebookTests.m; path = GIGSocial/Wrappers/GIGFacebookTests.m; sourceTree = "<group>"; };
-		FA3820E81BE0BEC300BABFEB /* GIGFacebookUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGFacebookUser.h; sourceTree = "<group>"; };
-		FA3820E91BE0BEC300BABFEB /* GIGFacebookUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGFacebookUser.m; sourceTree = "<group>"; };
 		FA3820EA1BE0BEC300BABFEB /* GIGSocialLoginResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGSocialLoginResult.h; sourceTree = "<group>"; };
 		FA3820EB1BE0BEC300BABFEB /* GIGSocialLoginResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGSocialLoginResult.m; sourceTree = "<group>"; };
 		FA3B23671BC2D7A500F972DE /* GIGFacebookAccessTokenFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGFacebookAccessTokenFactory.h; path = GIGSocial/Factory/GIGFacebookAccessTokenFactory.h; sourceTree = "<group>"; };
@@ -1830,8 +1826,6 @@
 		FA3820E71BE0BEC300BABFEB /* Results */ = {
 			isa = PBXGroup;
 			children = (
-				FA3820E81BE0BEC300BABFEB /* GIGFacebookUser.h */,
-				FA3820E91BE0BEC300BABFEB /* GIGFacebookUser.m */,
 				FA3820EA1BE0BEC300BABFEB /* GIGSocialLoginResult.h */,
 				FA3820EB1BE0BEC300BABFEB /* GIGSocialLoginResult.m */,
 			);
@@ -2226,7 +2220,6 @@
 			files = (
 				FACE6E581BBC400C00457B4C /* GIGFacebook.h in Headers */,
 				FA9C123C1BC3D38E00BCED1A /* GIGFacebookLoginResult.h in Headers */,
-				FA3820EC1BE0BEC300BABFEB /* GIGFacebookUser.h in Headers */,
 				FACE6E541BBC3FF700457B4C /* GIGSocialCore.h in Headers */,
 				FACE6E4B1BBC3FDB00457B4C /* GIGSocial.h in Headers */,
 				FACE6E561BBC400100457B4C /* GIGSocialLogin.h in Headers */,
@@ -2848,7 +2841,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA3820ED1BE0BEC300BABFEB /* GIGFacebookUser.m in Sources */,
 				FA3820EF1BE0BEC300BABFEB /* GIGSocialLoginResult.m in Sources */,
 				FA9C123E1BC3D38E00BCED1A /* GIGFacebookLoginResult.m in Sources */,
 				FACE6E571BBC400800457B4C /* GIGSocialLogin.m in Sources */,

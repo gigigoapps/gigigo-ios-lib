@@ -44,7 +44,7 @@
 		 __block GIGSocialLoginError socialError = GIGSocialLoginErrorNone;
 		 if (result.success)
 		 {
-			 [self.facebook me:^(BOOL success, GIGFacebookUser *user, NSError *error)
+			 [self.facebook me:^(BOOL success, NSDictionary *user, NSError *error)
 			 {
 				 GIGSocialLoginResult *socialResult = [[GIGSocialLoginResult alloc] init];
 				 if (!success)

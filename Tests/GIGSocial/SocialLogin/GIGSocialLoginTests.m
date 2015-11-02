@@ -70,7 +70,7 @@
 	self.facebookMock.inError = nil;
 	
 	self.facebookMock.inMeSuccess = YES;
-	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
+	self.facebookMock.inUser = [[NSDictionary alloc] init];
 	self.facebookMock.inMeError = nil;
 	
 	// EXECUTE TEST
@@ -104,7 +104,7 @@
 	self.facebookMock.inError = nil;
 	
 	self.facebookMock.inMeSuccess = YES;
-	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
+	self.facebookMock.inUser = [[NSDictionary alloc] init];
 	self.facebookMock.inMeError = nil;
 	
 	self.socialLogin.extraPermissions = @[@"public_profile", @"email", @"user_birthday"];
@@ -140,7 +140,7 @@
 	self.facebookMock.inError = nil;
 	
 	self.facebookMock.inMeSuccess = YES;
-	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
+	self.facebookMock.inUser = [[NSDictionary alloc] init];
 	self.facebookMock.inMeError = nil;
 	
 	self.socialLogin.extraFields = @[@"birthday"];
@@ -176,7 +176,7 @@
 	self.facebookMock.inError = nil;
 	
 	self.facebookMock.inMeSuccess = YES;
-	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
+	self.facebookMock.inUser = [[NSDictionary alloc] init];
 	self.facebookMock.inMeError = nil;
 	
 	__block BOOL completionCalled = NO;
@@ -209,7 +209,7 @@
 	self.facebookMock.inError = [NSError errorWithDomain:@"TESTFACEBOOK" code:3 userInfo:nil];
 	
 	self.facebookMock.inMeSuccess = YES;
-	self.facebookMock.inUser = [[GIGFacebookUser alloc] init];
+	self.facebookMock.inUser = [[NSDictionary alloc] init];
 	self.facebookMock.inMeError = nil;
 	
 	__block BOOL completionCalled = NO;

@@ -8,11 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "GIGSocialLoginResult.h"
-#import "GIGFacebookUser.h"
 
 
 typedef void(^GIGSocialLoginFacebookCompletion)(GIGSocialLoginResult *result);
-typedef void(^GIGSocialFacebookUserCompletion)(GIGFacebookUser *user);
 
 
 @interface GIGSocialLogin : NSObject

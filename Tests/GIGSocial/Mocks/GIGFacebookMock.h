@@ -7,7 +7,6 @@
 //
 
 #import "GIGFacebook.h"
-#import "GIGFacebookUser.h"
 
 @interface GIGFacebookMock : GIGFacebook
 
@@ -22,7 +21,7 @@
 
 // INPUTS ME
 @property (assign, nonatomic) BOOL inMeSuccess;
-@property (strong, nonatomic) GIGFacebookUser *inUser;
+@property (strong, nonatomic) NSDictionary *inUser;
 @property (strong, nonatomic) NSError *inMeError;
 
 
