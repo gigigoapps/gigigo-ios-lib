@@ -6,11 +6,11 @@
 //  Copyright © 2015 Gigigo SL. All rights reserved.
 //
 
-#import "GIGFacebookAccessTokenFactory.h"
+#import "GIGFacebookFactory.h"
 #import "FBSDKAccessTokenMock.h"
 
 
-@interface GIGFacebookAccessTokenFactoryMock : GIGFacebookAccessTokenFactory
+@interface GIGFacebookAccessTokenFactoryMock : GIGFacebookFactory
 
 @property (strong, nonatomic) FBSDKAccessTokenMock *accessToken;
 

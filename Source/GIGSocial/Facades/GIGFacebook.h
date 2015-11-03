@@ -10,7 +10,7 @@
 #import "GIGFacebookLoginResult.h"
 
 @class FBSDKLoginManager;
-@class GIGFacebookAccessTokenFactory;
+@class GIGFacebookFactory;
 
 
 typedef void(^GIGFacebookLoginCompletion)(GIGFacebookLoginResult *result);
@@ -22,7 +22,7 @@ typedef void(^GIGFacebookMeCompletion)(BOOL success, NSDictionary *user, NSError
 @property (strong, nonatomic) NSArray *extraPermissions;
 @property (strong, nonatomic) NSArray *extraFields;
 
-- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager accessToken:(GIGFacebookAccessTokenFactory *)accessTokenFactory;
+- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager accessToken:(GIGFacebookFactory *)accessTokenFactory;
 
 - (void)login:(GIGFacebookLoginCompletion)completionHandler;
 - (void)me:(GIGFacebookMeCompletion)completionHandler;

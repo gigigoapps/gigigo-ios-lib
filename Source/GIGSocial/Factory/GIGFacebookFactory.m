@@ -6,16 +6,21 @@
 //  Copyright © 2015 Gigigo SL. All rights reserved.
 //
 
-#import "GIGFacebookAccessTokenFactory.h"
+#import "GIGFacebookFactory.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 
-@implementation GIGFacebookAccessTokenFactory
+@implementation GIGFacebookFactory
 
-- (FBSDKAccessToken *)getCurrentToken
+- (FBSDKAccessToken *)currentToken
 {
 	return [FBSDKAccessToken currentAccessToken];
+}
+
+- (FBSDKGraphRequest *)meRequestWithParams:(NSDictionary *)params
+{
+	return [[FBSDKGraphRequest alloc] initWithGraphPath:@"/me" parameters:params];
 }
 
 @end

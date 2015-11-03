@@ -58,7 +58,9 @@
 }
 
 
-- (void)test_has_current_access_token
+#pragma mark - Login
+
+- (void)test_login_has_current_access_token
 {
 	self.accessTokenMock.userID = @"USER_ID_1";
 	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
@@ -200,6 +202,10 @@
 	XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:requestedPermissionsResult]);
 	XCTAssertTrue(completionCalled);
 }
+
+
+#pragma mark - Me
+
 
 
 #pragma mark - HELPERS

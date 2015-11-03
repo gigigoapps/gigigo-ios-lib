@@ -8,7 +8,7 @@
 
 #import "GIGFacebook.h"
 #import "GIGLogManager.h"
-#import "GIGFacebookAccessTokenFactory.h"
+#import "GIGFacebookFactory.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -17,7 +17,7 @@
 @interface GIGFacebook ()
 
 @property (strong, nonatomic) FBSDKLoginManager *loginManager;
-@property (strong, nonatomic) GIGFacebookAccessTokenFactory *accessTokenFactory;
+@property (strong, nonatomic) GIGFacebookFactory *facebookFactory;
 
 @end
 
@@ -30,18 +30,18 @@
 - (instancetype)init
 {
     FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
-	GIGFacebookAccessTokenFactory *accessTokenFactory = [[GIGFacebookAccessTokenFactory alloc] init];
+	GIGFacebookFactory *accessTokenFactory = [[GIGFacebookFactory alloc] init];
 	
     return [self initWithLoginManager:loginManager accessToken:accessTokenFactory];
 }
 
-- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager accessToken:(GIGFacebookAccessTokenFactory *)accessTokenFactory
+- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager accessToken:(GIGFacebookFactory *)accessTokenFactory
 {
 	self = [super init];
 	if (self)
 	{
 		self.loginManager = loginManager;
-		self.accessTokenFactory = accessTokenFactory;
+		self.facebookFactory = accessTokenFactory;
 	}
 	return self;
 }
@@ -51,7 +51,7 @@
 
 - (void)login:(GIGFacebookLoginCompletion)completionHandler
 {
-	FBSDKAccessToken *currentAccessToken = [self.accessTokenFactory getCurrentToken];
+	FBSDKAccessToken *currentAccessToken = [self.facebookFactory currentToken];
 	if (currentAccessToken)
 	{
 		GIGFacebookLoginResult *result = [[GIGFacebookLoginResult alloc] init];
@@ -111,11 +111,11 @@
 		}
 	}
 	
-	FBSDKAccessToken *currentAccessToken = [self.accessTokenFactory getCurrentToken];
+	FBSDKAccessToken *currentAccessToken = [self.facebookFactory currentToken];
 	if (currentAccessToken)
 	{
-		[[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": fields}]
-		 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
+		FBSDKGraphRequest *request = [self.facebookFactory meRequestWithParams:@{@"fields": fields}];
+		[request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error)
 		 {
 			 if (!error)
 			 {

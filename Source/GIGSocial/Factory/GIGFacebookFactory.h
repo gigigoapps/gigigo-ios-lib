@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @class FBSDKAccessToken;
+@class FBSDKGraphRequest;
 
-@interface GIGFacebookAccessTokenFactory : NSObject
+@interface GIGFacebookFactory : NSObject
 
-- (FBSDKAccessToken *)getCurrentToken;
+- (FBSDKAccessToken *)currentToken;
+- (FBSDKGraphRequest *)meRequestWithParams:(NSDictionary *)params;
 
 @end

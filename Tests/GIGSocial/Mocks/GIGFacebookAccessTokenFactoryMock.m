@@ -11,7 +11,7 @@
 
 @implementation GIGFacebookAccessTokenFactoryMock
 
-- (FBSDKAccessToken *)getCurrentToken
+- (FBSDKAccessToken *)currentToken
 {
 	return self.accessToken;
 }
