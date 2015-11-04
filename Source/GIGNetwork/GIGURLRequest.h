@@ -44,6 +44,7 @@ typedef NSURLCredential* (^GIGURLRequestCredential)(NSURLAuthenticationChallenge
 @property (strong, nonatomic) NSArray<GIGURLFile *> *files;
 @property (strong, nonatomic) NSDictionary *json;
 
+@property (strong, nonatomic) NSString *requestId;
 @property (strong, nonatomic) NSString *requestTag;
 @property (assign, nonatomic) GIGLogLevel logLevel;
 @property (assign, nonatomic) NSTimeInterval fixtureDelay;
