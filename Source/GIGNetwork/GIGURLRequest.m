@@ -123,30 +123,14 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
 
 - (void)send
 {
-    if ([self.manager shouldUseFixtureWithRequestTag:self.requestTag])
+    if ([self.manager requestShouldUseMock:self])
     {
-        if (self.fixtureDelay == GIGURLRequestFixtureDelayNone)
-        {
-            [self completeWithFixture];
-        }
-        else
-        {
-            __weak typeof(self) this = self;
-            gig_dispatch_after_seconds(GIGURLRequestFixtureDelayDefault, ^{
-                [this completeWithFixture];
-            });
-        }
-        
-        return;
+        [self doFixtureRequest];
     }
-    
-    self.session = [self.sessionFactory sessionForRequest:self];
-    self.request = [self.requestFactory requestForRequest:self];
-    
-    [self.logger logRequest:self.request encoding:self.requestFactory.stringEncoding];
-    
-    self.dataTask = [self.session dataTaskWithRequest:self.request];
-    [self.dataTask resume];
+    else
+    {
+        [self doActualRequest];
+    }
 }
 
 - (void)cancel
@@ -155,6 +139,32 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
 }
 
 #pragma mark - PRIVATE
+
+- (void)doFixtureRequest
+{
+    if (self.fixtureDelay == GIGURLRequestFixtureDelayNone)
+    {
+        [self completeWithFixture];
+    }
+    else
+    {
+        __weak typeof(self) this = self;
+        gig_dispatch_after_seconds(GIGURLRequestFixtureDelayDefault, ^{
+            [this completeWithFixture];
+        });
+    }
+}
+
+- (void)doActualRequest
+{
+    self.session = [self.sessionFactory sessionForRequest:self];
+    self.request = [self.requestFactory requestForRequest:self];
+    
+    [self.logger logRequest:self.request encoding:self.requestFactory.stringEncoding];
+    
+    self.dataTask = [self.session dataTaskWithRequest:self.request];
+    [self.dataTask resume];
+}
 
 - (void)completeWithData
 {
@@ -187,8 +197,8 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
     NSURL *URL = [NSURL URLWithString:self.url];
     self.response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
     
-    NSData *mockData = [self.manager fixtureForRequestTag:self.requestTag];
-    if (!mockData)
+    NSData *mockData = [self.manager mockForRequest:self];
+    if (mockData == nil)
     {
         self.error = [NSError errorWithDomain:GIGNetworkErrorDomain code:404 userInfo:nil];
         [self completeWithError];

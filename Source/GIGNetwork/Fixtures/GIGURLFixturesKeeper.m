@@ -54,13 +54,17 @@
 - (NSData *)mockForRequestTag:(NSString *)requestTag
 {
     NSString *mockFileName = self.currentFixture.mocks[requestTag];
-    
     if (mockFileName.length == 0) return nil;
     
     return [self.storage loadMockFromFile:mockFileName];
 }
 
-- (BOOL)isFixtureDefinedForRequestTag:(NSString *)requestTag
+- (NSData *)mockWithFilename:(NSString *)mockFileName
+{
+    return [self.storage loadMockFromFile:mockFileName];
+}
+
+- (BOOL)isMockDefinedForRequestTag:(NSString *)requestTag
 {
     NSString *mockFileName = self.currentFixture.mocks[requestTag];
     

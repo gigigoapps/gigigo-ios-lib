@@ -25,6 +25,7 @@ static NSString * const GIGURLFixturesKeeperDefaultFile = @"fixtures.json";
 - (instancetype)initWithStorage:(GIGURLStorage *)storage;
 
 - (NSData *)mockForRequestTag:(NSString *)requestTag;
-- (BOOL)isFixtureDefinedForRequestTag:(NSString *)requestTag;
+- (NSData *)mockWithFilename:(NSString *)mockFileName;
+- (BOOL)isMockDefinedForRequestTag:(NSString *)requestTag;
 
 @end

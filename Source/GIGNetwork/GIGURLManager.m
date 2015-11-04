@@ -13,6 +13,7 @@
 #import "GIGURLDomainsKeeper.h"
 #import "GIGURLConfigTableViewController.h"
 #import "GIGURLFixturesKeeper.h"
+#import "GIGURLRequest.h"
 
 
 NSString * const GIGURLDomainsDefaultFile = @"domains.json";
@@ -148,14 +149,28 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
     }
 }
 
-- (BOOL)shouldUseFixtureWithRequestTag:(NSString *)requestTag
+- (BOOL)requestShouldUseMock:(GIGURLRequest *)request
 {
-    return (self.useFixture && [self.fixturesKeeper isFixtureDefinedForRequestTag:requestTag]);
+    if ([self requestShouldUseRequestMock:request])
+    {
+        return YES;
+    }
+    
+    return [self requestShouldUseFixtureMock:request];
 }
 
-- (NSData *)fixtureForRequestTag:(NSString *)requestTag
+- (NSData *)mockForRequest:(GIGURLRequest *)request
 {
-    return [self.fixturesKeeper mockForRequestTag:requestTag];
+    if ([self requestShouldUseRequestMock:request])
+    {
+        return [self.fixturesKeeper mockWithFilename:request.mockFilename];
+    }
+    else if ([self requestShouldUseFixtureMock:request])
+    {
+        return [self.fixturesKeeper mockForRequestTag:request.requestTag];
+    }
+    
+    return nil;
 }
 
 - (void)loadDomainsFile:(NSString *)domainsFilename
@@ -188,6 +203,16 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 }
 
 #pragma mark - PRIVATE
+
+- (BOOL)requestShouldUseRequestMock:(GIGURLRequest *)request
+{
+    return (request.mockFilename.length > 0);
+}
+
+- (BOOL)requestShouldUseFixtureMock:(GIGURLRequest *)request
+{
+    return (self.useFixture && [self.fixturesKeeper isMockDefinedForRequestTag:request.requestTag]);
+}
 
 - (void)notifyDomainChange
 {

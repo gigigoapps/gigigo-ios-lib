@@ -455,6 +455,8 @@
 		D9E7A1681B4198D1004D3193 /* GIGCharactersValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7A1641B4198D1004D3193 /* GIGCharactersValidator.m */; };
 		D9E7A16A1B419A45004D3193 /* GIGCharactersValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7A1691B419A45004D3193 /* GIGCharactersValidatorTests.m */; };
 		D9E7A16B1B419A45004D3193 /* GIGCharactersValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7A1691B419A45004D3193 /* GIGCharactersValidatorTests.m */; };
+		D9EECF6E1BEA5A7B007FEAD8 /* GIGURLManagerFixturesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EECF6D1BEA5A7B007FEAD8 /* GIGURLManagerFixturesTests.m */; };
+		D9EECF6F1BEA5A7B007FEAD8 /* GIGURLManagerFixturesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EECF6D1BEA5A7B007FEAD8 /* GIGURLManagerFixturesTests.m */; };
 		D9FD35EA1B413E1A000D356F /* GIGRegexpValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FD35E81B413E1A000D356F /* GIGRegexpValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9FD35EB1B413E1A000D356F /* GIGRegexpValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FD35E81B413E1A000D356F /* GIGRegexpValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9FD35EC1B413E1A000D356F /* GIGRegexpValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FD35E91B413E1A000D356F /* GIGRegexpValidator.m */; };
@@ -875,6 +877,7 @@
 		D9E7A1631B4198D1004D3193 /* GIGCharactersValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGCharactersValidator.h; path = GIGFormulary/Validators/GIGCharactersValidator.h; sourceTree = "<group>"; };
 		D9E7A1641B4198D1004D3193 /* GIGCharactersValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGCharactersValidator.m; path = GIGFormulary/Validators/GIGCharactersValidator.m; sourceTree = "<group>"; };
 		D9E7A1691B419A45004D3193 /* GIGCharactersValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGCharactersValidatorTests.m; sourceTree = "<group>"; };
+		D9EECF6D1BEA5A7B007FEAD8 /* GIGURLManagerFixturesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLManagerFixturesTests.m; sourceTree = "<group>"; };
 		D9FD35E81B413E1A000D356F /* GIGRegexpValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGRegexpValidator.h; path = GIGFormulary/Validators/GIGRegexpValidator.h; sourceTree = "<group>"; };
 		D9FD35E91B413E1A000D356F /* GIGRegexpValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGRegexpValidator.m; path = GIGFormulary/Validators/GIGRegexpValidator.m; sourceTree = "<group>"; };
 		D9FD35EE1B413E28000D356F /* GIGValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGValidator.h; path = GIGFormulary/Validators/GIGValidator.h; sourceTree = "<group>"; };
@@ -1587,6 +1590,7 @@
 				D99AD3261B1DA3B9005BB4E5 /* GIGURLFormatterTests.m */,
 				D99AD3271B1DA3B9005BB4E5 /* GIGURLParametersFormatterTests.m */,
 				D99AD3291B1DA3B9005BB4E5 /* GIGURLStorageTests.m */,
+				D9EECF6D1BEA5A7B007FEAD8 /* GIGURLManagerFixturesTests.m */,
 				D99AD32A1B1DA3B9005BB4E5 /* Helpers */,
 			);
 			path = GIGNetwork;
@@ -2680,6 +2684,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9E7A1621B4195C7004D3193 /* GIGMultiValidatorTests.m in Sources */,
+				D9EECF6F1BEA5A7B007FEAD8 /* GIGURLManagerFixturesTests.m in Sources */,
 				D99AD3591B1DA3B9005BB4E5 /* GIGRegexpReplacingTests.m in Sources */,
 				D9E02A4B1BD4D7910004717C /* GIGURLResponseTests.m in Sources */,
 				7B6B84AD1BC2AEDC00517C2F /* GIGParseClassTests.m in Sources */,
@@ -2738,6 +2743,7 @@
 				D99AD3561B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m in Sources */,
 				D9E02A561BD4D8D00004717C /* GIGMockClassNSObject.m in Sources */,
 				D99AD3521B1DA3B9005BB4E5 /* GIGArrayExtesionTests.m in Sources */,
+				D9EECF6E1BEA5A7B007FEAD8 /* GIGURLManagerFixturesTests.m in Sources */,
 				7B6B84991BC296F600517C2F /* GIGParseClassTests.m in Sources */,
 				D9E02A411BD4D7640004717C /* GIGURLRequestAuthenticationTests.m in Sources */,
 				D9E02A521BD4D8600004717C /* GIGMockClassEmpty.m in Sources */,

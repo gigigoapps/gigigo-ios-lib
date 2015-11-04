@@ -119,8 +119,8 @@
     
     GIGURLFixturesKeeper *keeper = [[GIGURLFixturesKeeper alloc] initWithStorage:self.storageMock];
     
-    XCTAssertTrue([keeper isFixtureDefinedForRequestTag:@"request_tag"]);
-    XCTAssertFalse([keeper isFixtureDefinedForRequestTag:@"request"]);
+    XCTAssertTrue([keeper isMockDefinedForRequestTag:@"request_tag"]);
+    XCTAssertFalse([keeper isMockDefinedForRequestTag:@"request"]);
 }
 
 - (void)test_mock_for_request_tag_found
