@@ -38,7 +38,7 @@
     self.communicator = [[GIGURLCommunicator alloc] initWithManager:self.managerMock];
 }
 
-#pragma mark - TESTS (Send Requests)
+#pragma mark - TESTS (Build Requests)
 
 - (void)test_Request_GET_Method
 {
@@ -63,6 +63,26 @@
     GIGURLRequest *requestFromCommunicator = [self.communicator  PUT:@"http://url"];
     XCTAssert([requestFromCommunicator.method isEqualToString:@"PUT"]);
 }
+
+#pragma mark - TESTS (Log Level)
+
+- (void)test_Communicator_log_level_by_default_should_be_error
+{
+    XCTAssert(self.communicator.logLevel == GIGLogLevelError);
+    
+    GIGURLRequest *request = [self.communicator GET:@"http://url"];
+    XCTAssert(request.logLevel == self.communicator.logLevel);
+}
+
+- (void)test_Request_log_level_changes
+{
+    self.communicator.logLevel = GIGLogLevelVerbose;
+    
+    GIGURLRequest *request = [self.communicator GET:@"http://url"];
+    XCTAssert(request.logLevel == GIGLogLevelVerbose);
+}
+
+#pragma mark - TESTS (Send Requests)
 
 - (void)test_Send_Request_From_Communicator
 {

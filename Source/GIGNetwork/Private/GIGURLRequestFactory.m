@@ -63,7 +63,10 @@
 
 - (GIGURLRequest *)requestWithMethod:(NSString *)method url:(NSString *)url
 {
-    return [[GIGURLRequest alloc] initWithMethod:method url:url];
+    GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:method url:url];
+    request.logLevel = self.requestLogLevel;
+    
+    return request;
 }
 
 #pragma mark - PRIVATE
