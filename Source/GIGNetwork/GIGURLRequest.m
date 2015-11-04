@@ -229,6 +229,13 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
     return credential;
 }
 
+#pragma mark - <NSObject>
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ %@: %@", super.description, self.method, self.url];
+}
+
 #pragma mark - DELEGATES
 
 #pragma mark - <NSURLSessionDelegate>
@@ -288,7 +295,8 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
     }
 }
 
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
+ completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler
 {
     NSURLCredential *credential = [self credentialForAuthenticationChallenge:challenge];
     
