@@ -43,6 +43,10 @@
 		D908676A1B42A3E400193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
 		D909EFEA1B0DC2FF00DD4D97 /* GIGLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D916868C1BC3BBFA00647357 /* GLALoginFacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */; };
+		D93CA52E1BEA49600098D37C /* NSData+GIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = D93CA52C1BEA49600098D37C /* NSData+GIGExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D93CA52F1BEA49600098D37C /* NSData+GIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = D93CA52C1BEA49600098D37C /* NSData+GIGExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D93CA5301BEA49600098D37C /* NSData+GIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D93CA52D1BEA49600098D37C /* NSData+GIGExtension.m */; };
+		D93CA5311BEA49600098D37C /* NSData+GIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D93CA52D1BEA49600098D37C /* NSData+GIGExtension.m */; };
 		D9404D4D1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9404D4C1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m */; };
 		D9404D4E1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9404D4C1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m */; };
 		D9637D7A1B0C90C000FD8E4D /* GIGLibrary.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -669,6 +673,8 @@
 		D934734D1BBBC4E000AB5655 /* GIGURLImageResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLImageResponseTests.m; sourceTree = "<group>"; };
 		D934734E1BBBC4E000AB5655 /* GIGURLJSONResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLJSONResponseTests.m; sourceTree = "<group>"; };
 		D934734F1BBBC4E000AB5655 /* GIGURLResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLResponseTests.m; sourceTree = "<group>"; };
+		D93CA52C1BEA49600098D37C /* NSData+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GIGExtension.h"; sourceTree = "<group>"; };
+		D93CA52D1BEA49600098D37C /* NSData+GIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GIGExtension.m"; sourceTree = "<group>"; };
 		D9404D4C1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLRequestThreadsTests.m; sourceTree = "<group>"; };
 		D99AD0F91B1D9716005BB4E5 /* GIGStaticLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGStaticLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99AD0FC1B1D9716005BB4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1339,6 +1345,8 @@
 			children = (
 				D99AD1A01B1DA3A3005BB4E5 /* NSData+GIGString.h */,
 				D99AD1A11B1DA3A3005BB4E5 /* NSData+GIGString.m */,
+				D93CA52C1BEA49600098D37C /* NSData+GIGExtension.h */,
+				D93CA52D1BEA49600098D37C /* NSData+GIGExtension.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -2097,6 +2105,7 @@
 				D99AD2DC1B1DA3A3005BB4E5 /* NSString+GIGExtension.h in Headers */,
 				D99AD28C1B1DA3A3005BB4E5 /* GIGEncrypt.h in Headers */,
 				D99AD1FA1B1DA3A3005BB4E5 /* GIGGeolocation.h in Headers */,
+				D93CA52F1BEA49600098D37C /* NSData+GIGExtension.h in Headers */,
 				D9FD35F11B413E28000D356F /* GIGValidator.h in Headers */,
 				D99AD2221B1DA3A3005BB4E5 /* GIGURLConfigTableViewController.h in Headers */,
 				D99AD1FE1B1DA3A3005BB4E5 /* GIGLayout.h in Headers */,
@@ -2178,6 +2187,7 @@
 				D9FD35FA1B415CAE000D356F /* GIGNumericValidator.h in Headers */,
 				D9FD36011B41625F000D356F /* GIGValidators.h in Headers */,
 				D9FD36051B4162A6000D356F /* GIGTextValidator.h in Headers */,
+				D93CA52E1BEA49600098D37C /* NSData+GIGExtension.h in Headers */,
 				D9AF10D51B42A87E004F01F9 /* GIGBoolValidator.h in Headers */,
 				D99AD25B1B1DA3A3005BB4E5 /* GIGURLStorage.h in Headers */,
 				D99AD2971B1DA3A3005BB4E5 /* GIGDebug.h in Headers */,
@@ -2618,6 +2628,7 @@
 				D9AF10CF1B42A6D7004F01F9 /* GIGStringValidator.m in Sources */,
 				D9FD36231B416CCB000D356F /* GIGPhoneValidator.m in Sources */,
 				D9FE62211BD6878600E2B23C /* GIGMessageFormField.m in Sources */,
+				D93CA5311BEA49600098D37C /* NSData+GIGExtension.m in Sources */,
 				D99AD2B61B1DA3A3005BB4E5 /* NSDictionary+GIGJSON.m in Sources */,
 				D99AD2721B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m in Sources */,
 				D99AD28A1B1DA3A3005BB4E5 /* GIGDigest.m in Sources */,
@@ -2824,6 +2835,7 @@
 				D9AF10CE1B42A6D7004F01F9 /* GIGStringValidator.m in Sources */,
 				D9FD36221B416CCB000D356F /* GIGPhoneValidator.m in Sources */,
 				D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */,
+				D93CA5301BEA49600098D37C /* NSData+GIGExtension.m in Sources */,
 				D99AD2B51B1DA3A3005BB4E5 /* NSDictionary+GIGJSON.m in Sources */,
 				D99AD2711B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m in Sources */,
 				D99AD2891B1DA3A3005BB4E5 /* GIGDigest.m in Sources */,

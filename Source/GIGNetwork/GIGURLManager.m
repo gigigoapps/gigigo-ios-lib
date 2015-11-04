@@ -136,11 +136,6 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
 
 #pragma mark - PUBLIC
 
-- (NSData *)fixtureForRequestTag:(NSString *)requestTag
-{
-    return [self.fixturesKeeper mockForRequestTag:requestTag];
-}
-
 - (void)showConfig
 {
     UIViewController *topViewController = [self topViewController];
@@ -153,9 +148,14 @@ NSString * const GIGURLManagerFixtureUserInfoKey = @"GIGURLManagerFixtureUserInf
     }
 }
 
-- (void)loadFixturesFile:(NSString *)fixturesFilename
+- (BOOL)shouldUseFixtureWithRequestTag:(NSString *)requestTag
 {
-    [self.fixturesKeeper loadFixturesFromFile:fixturesFilename];
+    return (self.useFixture && [self.fixturesKeeper isFixtureDefinedForRequestTag:requestTag]);
+}
+
+- (NSData *)fixtureForRequestTag:(NSString *)requestTag
+{
+    return [self.fixturesKeeper mockForRequestTag:requestTag];
 }
 
 - (void)loadDomainsFile:(NSString *)domainsFilename

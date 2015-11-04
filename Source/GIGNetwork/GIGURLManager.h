@@ -39,10 +39,10 @@ extern NSString * const GIGURLManagerFixtureUserInfoKey;
                        fixturesKeeper:(GIGURLFixturesKeeper *)fixturesKeeper
                    notificationCenter:(NSNotificationCenter *)notificationCenter;
 
-- (NSData *)fixtureForRequestTag:(NSString *)requestTag;
 - (void)showConfig;
 
-- (void)loadFixturesFile:(NSString *)fixturesFilename;
+- (BOOL)shouldUseFixtureWithRequestTag:(NSString *)requestTag;
+- (NSData *)fixtureForRequestTag:(NSString *)requestTag;
 
 - (void)loadDomainsFile:(NSString *)domainsFilename;
 - (void)addDomain:(GIGURLDomain *)domain;

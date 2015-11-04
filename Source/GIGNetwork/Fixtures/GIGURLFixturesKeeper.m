@@ -9,6 +9,7 @@
 #import "GIGURLFixturesKeeper.h"
 
 #import "GIGURLStorage.h"
+#import "NSArray+GIGExtension.h"
 
 
 @interface GIGURLFixturesKeeper ()
@@ -48,19 +49,7 @@
     [self.storage storeFixture:currentFixture];
 }
 
-- (void)setFixtures:(NSArray *)fixtures
-{
-    _fixtures = fixtures;
-    
-    [self.storage storeFixtures:fixtures];
-}
-
 #pragma mark - PUBLIC
-
-- (void)loadFixturesFromFile:(NSString *)fixtureFilename
-{
-    self.fixtures = [self.storage loadFixturesFromFile:fixtureFilename];
-}
 
 - (NSData *)mockForRequestTag:(NSString *)requestTag
 {
@@ -71,22 +60,32 @@
     return [self.storage loadMockFromFile:mockFileName];
 }
 
+- (BOOL)isFixtureDefinedForRequestTag:(NSString *)requestTag
+{
+    NSString *mockFileName = self.currentFixture.mocks[requestTag];
+    
+    return (mockFileName.length > 0);
+}
+
 #pragma mark - PRIVATE
 
 - (void)loadFixtures
 {
     _useFixture = [self.storage loadUseFixture];
     _currentFixture = [self.storage loadFixture];
-    _fixtures = [self.storage loadFixtures];
+    _fixtures = [self.storage loadFixturesFromFile:GIGURLFixturesKeeperDefaultFile];
     
-    if (_fixtures.count == 0)
+    NSArray *fixturesWithName = [self.fixtures filteredArrayWithBlock:^BOOL(GIGURLFixture *fixture) {
+        return [fixture.name isEqualToString:self.currentFixture.name];
+    }];
+    
+    if (fixturesWithName.count > 0)
     {
-        self.fixtures = [self.storage loadFixturesFromFile:GIGURLFixturesKeeperDefaultFile];
+        self.currentFixture = fixturesWithName[0];
     }
-    
-    if (self.currentFixture == nil && self.fixtures.count > 0)
+    else
     {
-        self.currentFixture = self.fixtures[0];
+        self.currentFixture = self.fixtures.firstObject;
     }
 }
 

@@ -31,9 +31,6 @@ extern NSString * const GIGURLManagerDomainsKey;
 - (GIGURLFixture *)loadFixture;
 - (void)storeFixture:(GIGURLFixture *)fixture;
 
-- (NSArray *)loadFixtures;
-- (void)storeFixtures:(NSArray *)fixtures;
-
 // domain
 - (GIGURLDomain *)loadDomain;
 - (void)storeDomain:(GIGURLDomain *)domain;

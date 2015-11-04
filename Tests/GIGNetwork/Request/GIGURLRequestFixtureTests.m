@@ -47,6 +47,7 @@
 
 - (void)test_Request_with_fixture_Should_return_404
 {
+    [MKTGiven([self.managerMock shouldUseFixtureWithRequestTag:self.request.requestTag]) willReturnBool:YES];
     [MKTGiven([self.managerMock fixtureForRequestTag:self.request.requestTag]) willReturn:nil];
     
     __block GIGURLResponse *response = nil;
@@ -64,6 +65,8 @@
 - (void)test_Request_with_fixture_Should_return_success
 {
     NSData *fixtureData = [@"fixture_data" dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [MKTGiven([self.managerMock shouldUseFixtureWithRequestTag:self.request.requestTag]) willReturnBool:YES];
     [MKTGiven([self.managerMock fixtureForRequestTag:self.request.requestTag]) willReturn:fixtureData];
     
     __block GIGURLResponse *response = nil;

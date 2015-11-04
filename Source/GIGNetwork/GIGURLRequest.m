@@ -123,7 +123,7 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
 
 - (void)send
 {
-    if (self.manager.useFixture)
+    if ([self.manager shouldUseFixtureWithRequestTag:self.requestTag])
     {
         if (self.fixtureDelay == GIGURLRequestFixtureDelayNone)
         {

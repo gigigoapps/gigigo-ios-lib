@@ -32,6 +32,7 @@
 #import "NSDate+GIGExtension.h"
 #import "NSDictionary+GIGExtension.h"
 #import "NSData+GIGString.h"
+#import "NSData+GIGExtension.h"
 #import "UIImage+GIGExtension.h"
 #import "NSLocale+GIGExtension.h"
 #import "UINavigationController+GIGExtension.h"

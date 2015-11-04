@@ -40,7 +40,9 @@
     self.fixtureData1 = [@"fixture_data_1" dataUsingEncoding:NSUTF8StringEncoding];
     self.fixtureData2 = [@"fixture_data_2" dataUsingEncoding:NSUTF8StringEncoding];
     
+    [MKTGiven([self.managerMock shouldUseFixtureWithRequestTag:@"request1"]) willReturnBool:YES];
     [MKTGiven([self.managerMock fixtureForRequestTag:@"request1"]) willReturn:self.fixtureData1];
+    [MKTGiven([self.managerMock shouldUseFixtureWithRequestTag:@"request2"]) willReturnBool:YES];
     [MKTGiven([self.managerMock fixtureForRequestTag:@"request2"]) willReturn:self.fixtureData2];
     
     self.request1 = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url1" sessionFactory:nil requestFactory:nil logger:nil manager:self.managerMock];
@@ -158,6 +160,9 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"All requests have finished"];
     
     {
+        [MKTGiven([self.managerMock shouldUseFixtureWithRequestTag:@"request"]) willReturnBool:YES];
+        [MKTGiven([self.managerMock fixtureForRequestTag:@"request"]) willReturn:nil];
+        
         GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:nil sessionFactory:nil requestFactory:nil logger:nil manager:self.managerMock];
         request.requestTag = @"request";
         
