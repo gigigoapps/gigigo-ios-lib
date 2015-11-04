@@ -12,7 +12,7 @@
 #import "GIGFacebook.h"
 #import "FBSDKAccessTokenMock.h"
 #import "GIGLoginManagerMock.h"
-#import "GIGFacebookAccessTokenFactoryMock.h"
+#import "GIGFacebookFactoryMock.h"
 
 
 @interface GIGFacebookTests : XCTestCase
@@ -20,7 +20,7 @@
 @property (strong, nonatomic) GIGFacebook *facebook;
 @property (strong, nonatomic) FBSDKAccessTokenMock *accessTokenMock;
 @property (strong, nonatomic) GIGLoginManagerMock *loginManagerMock;
-@property (strong, nonatomic) GIGFacebookAccessTokenFactoryMock *accessTokenFactoryMock;
+@property (strong, nonatomic) GIGFacebookFactoryMock *facebookFactoryMock;
 
 @end
 
@@ -33,18 +33,17 @@
     [super setUp];
 
 	self.accessTokenMock = [[FBSDKAccessTokenMock alloc] init];
-	self.accessTokenFactoryMock = [[GIGFacebookAccessTokenFactoryMock alloc] init];
+	self.facebookFactoryMock = [[GIGFacebookFactoryMock alloc] init];
 	self.loginManagerMock = [[GIGLoginManagerMock alloc] init];
 	
-	self.accessTokenFactoryMock.accessToken = self.accessTokenMock;
-	self.facebook = [[GIGFacebook alloc] initWithLoginManager:self.loginManagerMock accessToken:self.accessTokenFactoryMock];
+	self.facebookFactoryMock.accessToken = self.accessTokenMock;
+	self.facebook = [[GIGFacebook alloc] initWithLoginManager:self.loginManagerMock accessToken:self.facebookFactoryMock];
 }
-
 
 - (void)tearDown
 {
 	self.accessTokenMock = nil;
-	self.accessTokenFactoryMock = nil;
+	self.facebookFactoryMock = nil;
 	self.loginManagerMock = nil;
 	self.facebook = nil;
 	
@@ -83,7 +82,7 @@
 
 - (void)test_login_with_error
 {
-	self.accessTokenFactoryMock.accessToken = nil;
+	self.facebookFactoryMock.accessToken = nil;
 	self.loginManagerMock.error = [NSError errorWithDomain:@"TESTFACEBOOK" code:3 userInfo:nil];
 	
 	__block BOOL completionCalled = NO;
@@ -106,7 +105,7 @@
 
 - (void)test_login_cancelled
 {
-	self.accessTokenFactoryMock.accessToken = nil;
+	self.facebookFactoryMock.accessToken = nil;
 	FBSDKLoginManagerLoginResult *result = [[FBSDKLoginManagerLoginResult alloc] initWithToken:nil
 																				   isCancelled:YES
 																			grantedPermissions:nil
@@ -135,7 +134,7 @@
 
 - (void)test_login_success
 {
-	self.accessTokenFactoryMock.accessToken = nil;
+	self.facebookFactoryMock.accessToken = nil;
 	
 	FBSDKAccessTokenMock *accessTokenResult = [[FBSDKAccessTokenMock alloc] init];
 	accessTokenResult.userID = @"USER_ID_1";
@@ -170,7 +169,7 @@
 
 - (void)test_login_success_with_extra_permissions
 {
-	self.accessTokenFactoryMock.accessToken = nil;
+	self.facebookFactoryMock.accessToken = nil;
 	
 	FBSDKAccessTokenMock *accessTokenResult = [[FBSDKAccessTokenMock alloc] init];
 	accessTokenResult.userID = @"USER_ID_1";
@@ -205,6 +204,27 @@
 
 
 #pragma mark - Me
+
+- (void)test_me_success
+{
+	self.facebookFactoryMock.inReqUser = [NSDictionary dictionary];
+	self.facebookFactoryMock.inReqError = nil;
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook me:^(BOOL success, NSDictionary *user, NSError *error) {
+		completionCalled = YES;
+		
+		XCTAssert(success == YES);
+		XCTAssert(user == self.facebookFactoryMock.inReqUser);
+		XCTAssert(error == self.facebookFactoryMock.inReqError);
+	}];
+	
+	NSString *fields = @"email,first_name,middle_name,last_name,gender";
+	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
+	XCTAssert([outFields isEqualToString:fields], @"%@", [self errorTestLogForObject:outFields]);
+	
+	XCTAssert(completionCalled == YES);
+}
 
 
 

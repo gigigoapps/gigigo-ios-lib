@@ -8,10 +8,15 @@
 
 #import "GIGFacebookFactory.h"
 #import "FBSDKAccessTokenMock.h"
+#import "FBSDKGraphRequestMock.h"
 
-
-@interface GIGFacebookAccessTokenFactoryMock : GIGFacebookFactory
+@interface GIGFacebookFactoryMock : GIGFacebookFactory
 
 @property (strong, nonatomic) FBSDKAccessTokenMock *accessToken;
+@property (strong, nonatomic) FBSDKGraphRequestMock *requestMock;
+
+// INPUTS
+@property (strong, nonatomic) NSDictionary *inReqUser;
+@property (strong, nonatomic) NSError *inReqError;
 
 @end
