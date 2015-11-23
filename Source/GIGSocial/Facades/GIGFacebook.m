@@ -127,6 +127,11 @@
 			 }
 		 }];
 	}
+	else
+	{
+		NSError *error = [NSError errorWithDomain:@"com.giglibrary.social" code:-1 userInfo:@{@"GIGlibraryDebugMessage": @"No current access token, login with facebook first"}];
+		completionHandler(NO, nil, error);
+	}
 }
 
 @end

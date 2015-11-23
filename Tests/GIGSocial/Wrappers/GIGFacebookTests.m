@@ -205,8 +205,10 @@
 
 #pragma mark - Me
 
-- (void)test_me_success
+- (void)test_me_success_no_extra_fields
 {
+	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
+	self.facebook.extraFields = nil;
 	self.facebookFactoryMock.inReqUser = [NSDictionary dictionary];
 	self.facebookFactoryMock.inReqError = nil;
 	
@@ -216,7 +218,79 @@
 		
 		XCTAssert(success == YES);
 		XCTAssert(user == self.facebookFactoryMock.inReqUser);
-		XCTAssert(error == self.facebookFactoryMock.inReqError);
+		XCTAssert(error == nil);
+	}];
+	
+	NSString *fields = @"email,first_name,middle_name,last_name,gender";
+	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
+	XCTAssert([outFields isEqualToString:fields], @"%@", [self errorTestLogForObject:outFields]);
+
+	XCTAssert(completionCalled == YES);
+}
+
+- (void)test_me_success_with_extra_fields
+{
+	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
+	self.facebook.extraFields = @[@"birthday"];
+	self.facebookFactoryMock.inReqUser = [NSDictionary dictionary];
+	self.facebookFactoryMock.inReqError = nil;
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook me:^(BOOL success, NSDictionary *user, NSError *error) {
+		completionCalled = YES;
+		
+		XCTAssert(success == YES);
+		XCTAssert(user == self.facebookFactoryMock.inReqUser);
+		XCTAssert(error == nil);
+	}];
+	
+	NSString *fields = @"email,first_name,middle_name,last_name,gender,birthday";
+	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
+	XCTAssert([outFields isEqualToString:fields], @"%@", [self errorTestLogForObject:outFields]);
+	
+	XCTAssert(completionCalled == YES);
+}
+
+
+- (void)test_me_error_no_accessToken
+{
+	self.facebookFactoryMock.accessToken = nil;
+	self.facebook.extraFields = @[@"birthday"];
+	self.facebookFactoryMock.inReqUser = [NSDictionary dictionary];
+	self.facebookFactoryMock.inReqError = nil;
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook me:^(BOOL success, NSDictionary *user, NSError *error) {
+		completionCalled = YES;
+		
+		XCTAssert(success == NO);
+		XCTAssert(user == nil);
+		XCTAssert(error.code == -1);
+		XCTAssert([error.domain isEqualToString:@"com.giglibrary.social"]);
+	}];
+	
+//	NSString *fields = @"email,first_name,middle_name,last_name,gender,birthday";
+	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
+	XCTAssert(outFields == nil, @"%@", [self errorTestLogForObject:outFields]);
+	
+	XCTAssert(completionCalled == YES);
+}
+
+- (void)test_me_error_facebook_with_no_extra_fields
+{
+	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
+	self.facebook.extraFields = nil;
+	self.facebookFactoryMock.inReqUser = nil;
+	self.facebookFactoryMock.inReqError = [NSError errorWithDomain:@"facebook.mock.error" code:666 userInfo:nil];
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook me:^(BOOL success, NSDictionary *user, NSError *error) {
+		completionCalled = YES;
+		
+		XCTAssert(success == NO);
+		XCTAssert(user == nil);
+		XCTAssert(error.code == 666);
+		XCTAssert([error.domain isEqualToString:@"facebook.mock.error"]);
 	}];
 	
 	NSString *fields = @"email,first_name,middle_name,last_name,gender";
@@ -226,6 +300,29 @@
 	XCTAssert(completionCalled == YES);
 }
 
+- (void)test_me_error_facebook_with_extra_fields
+{
+	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
+	self.facebook.extraFields = @[@"birthday"];
+	self.facebookFactoryMock.inReqUser = nil;
+	self.facebookFactoryMock.inReqError = [NSError errorWithDomain:@"facebook.mock.error" code:666 userInfo:nil];
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook me:^(BOOL success, NSDictionary *user, NSError *error) {
+		completionCalled = YES;
+		
+		XCTAssert(success == NO);
+		XCTAssert(user == nil);
+		XCTAssert(error.code == 666);
+		XCTAssert([error.domain isEqualToString:@"facebook.mock.error"]);
+	}];
+	
+	NSString *fields = @"email,first_name,middle_name,last_name,gender,birthday";
+	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
+	XCTAssert([outFields isEqualToString:fields], @"%@", [self errorTestLogForObject:outFields]);
+	
+	XCTAssert(completionCalled == YES);
+}
 
 
 #pragma mark - HELPERS
