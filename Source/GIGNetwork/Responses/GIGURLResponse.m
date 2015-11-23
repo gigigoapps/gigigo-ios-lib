@@ -11,6 +11,8 @@
 
 @implementation GIGURLResponse
 
+#pragma mark - INIT
+
 - (instancetype)initWithData:(NSData *)data headers:(NSDictionary *)headers
 {
     self = [self initWithData:data];
@@ -35,7 +37,6 @@
 - (instancetype)initWithError:(NSError *)error headers:(NSDictionary *)headers data:(NSData *)data;
 {
     self = [self initWithError:error];
-    
     if (self)
     {
         _headers = headers;
@@ -63,6 +64,20 @@
         _success = success;
     }
     return self;
+}
+
+#pragma mark - PRIVATE
+
+- (NSString *)description
+{
+    if (self.success)
+    {
+        return [NSString stringWithFormat:@"%@ Success: data.length = %d", super.description, (int)self.data.length];
+    }
+    else
+    {
+        return [NSString stringWithFormat:@"%@ Error (%d): %@", super.description, (int)self.error.code, self.error.localizedDescription];
+    }
 }
 
 @end

@@ -49,6 +49,8 @@
     {
         _manager = manager;
         _requestFactory = requestFactory;
+        
+        _requestFactory.requestLogLevel = GIGLogLevelError;
     }
     return self;
 }
@@ -60,7 +62,19 @@
     return self.manager.domain.url;
 }
 
+- (GIGLogLevel)logLevel
+{
+    return self.requestFactory.requestLogLevel;
+}
+
+- (void)setLogLevel:(GIGLogLevel)logLevel
+{
+    self.requestFactory.requestLogLevel = logLevel;
+}
+
 #pragma mark - PUBLIC
+
+#pragma mark - Build Requests
 
 - (GIGURLRequest *)GET:(NSString *)urlFormat, ... NS_FORMAT_FUNCTION(1, 2)
 {
@@ -102,6 +116,7 @@
     return [self requestWithMethod:method urlFormat:urlFormat args:args];
 }
 
+#pragma mark - Manage Requests
 
 - (void)sendRequest:(GIGURLRequest *)request completion:(GIGURLRequestCompletion)completion
 {

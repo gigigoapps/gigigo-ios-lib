@@ -31,8 +31,8 @@ typedef NSURLCredential* (^GIGURLRequestCredential)(NSURLAuthenticationChallenge
 @interface GIGURLRequest : NSObject
 <NSURLSessionDataDelegate>
 
-@property (strong, nonatomic) NSString *method;
-@property (strong, nonatomic) NSString *url;
+@property (copy, nonatomic) NSString *method;
+@property (copy, nonatomic) NSString *url;
 @property (strong, nonatomic) Class /* GIGURLResponse */ responseClass;
 
 @property (assign, nonatomic) NSURLRequestCachePolicy cachePolicy;
@@ -44,9 +44,11 @@ typedef NSURLCredential* (^GIGURLRequestCredential)(NSURLAuthenticationChallenge
 @property (strong, nonatomic) NSArray<GIGURLFile *> *files;
 @property (strong, nonatomic) NSDictionary *json;
 
-@property (strong, nonatomic) NSString *requestTag;
+@property (copy, nonatomic) NSString *requestId;
+@property (copy, nonatomic) NSString *requestTag;
 @property (assign, nonatomic) GIGLogLevel logLevel;
 @property (assign, nonatomic) NSTimeInterval fixtureDelay;
+@property (copy, nonatomic) NSString *mockFilename;
 
 @property (copy, nonatomic) GIGURLRequestCompletion completion;
 @property (copy, nonatomic) GIGURLRequestProgress downloadProgress;

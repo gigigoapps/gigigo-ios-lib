@@ -75,17 +75,6 @@ NSString * const GIGURLManagerDomainsKey = @"GIGURLManagerDomainsKey";
     [self.userDefaults synchronize];
 }
 
-- (NSArray *)loadFixtures
-{
-    return [self.userDefaults unarchiveObjectForKey:GIGURLManagerFixturesKey];
-}
-
-- (void)storeFixtures:(NSArray *)fixtures
-{
-    [self.userDefaults archiveObject:fixtures forKey:GIGURLManagerFixturesKey];
-    [self.userDefaults synchronize];
-}
-
 #pragma mark - PUBLIC (Domain)
 
 - (GIGURLDomain *)loadDomain

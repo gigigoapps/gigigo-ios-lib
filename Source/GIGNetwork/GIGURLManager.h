@@ -11,6 +11,7 @@
 #import "GIGURLDomain.h"
 #import "GIGURLFixture.h"
 
+@class GIGURLRequest;
 @class GIGURLDomainsKeeper;
 @class GIGURLFixturesKeeper;
 
@@ -39,10 +40,10 @@ extern NSString * const GIGURLManagerFixtureUserInfoKey;
                        fixturesKeeper:(GIGURLFixturesKeeper *)fixturesKeeper
                    notificationCenter:(NSNotificationCenter *)notificationCenter;
 
-- (NSData *)fixtureForRequestTag:(NSString *)requestTag;
 - (void)showConfig;
 
-- (void)loadFixturesFile:(NSString *)fixturesFilename;
+- (BOOL)requestShouldUseMock:(GIGURLRequest *)request;
+- (NSData *)mockForRequest:(GIGURLRequest *)request;
 
 - (void)loadDomainsFile:(NSString *)domainsFilename;
 - (void)addDomain:(GIGURLDomain *)domain;

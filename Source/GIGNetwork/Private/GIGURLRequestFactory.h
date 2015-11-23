@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GIGConstants.h"
+
 @class GIGURLRequest;
 
 
@@ -15,6 +17,7 @@
 
 @property (assign, nonatomic) NSStringEncoding stringEncoding;
 @property (assign, nonatomic) NSJSONWritingOptions jsonWritingOptions;
+@property (assign, nonatomic) GIGLogLevel requestLogLevel;
 
 - (NSMutableURLRequest *)requestForRequest:(GIGURLRequest *)URLRequest;
 - (GIGURLRequest *)requestWithMethod:(NSString *)method url:(NSString *)url;

@@ -21,6 +21,7 @@
 #import "GIGAlert.h"
 #import "GIGEncrypt.h"
 #import "GIGLogManager.h"
+#import "GIGAttributedStringBuilder.h"
 
 // extensions
 #import "NSInvocation+GIGExtension.h"

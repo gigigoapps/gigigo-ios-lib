@@ -7,8 +7,6 @@
 //
 
 #import "GIGSocialLogin.h"
-
-#import "GIGLogManager.h"
 #import "GIGFacebook.h"
 
 

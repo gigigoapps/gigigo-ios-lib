@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "GIGConstants.h"
+
 
 @interface GIGURLRequestLogger : NSObject
 
