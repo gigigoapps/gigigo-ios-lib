@@ -27,7 +27,7 @@ typedef void(^GIGSocialLoginFacebookCompletion)(GIGSocialLoginResult *result);
 /**
  *	@abstract User's data fields to be requested
  *
- *	@discussion By default (if nil), the data gathered is: email, first_name, middle_name, last_name and gender
+ *	@discussion By default (if nil), the data gathered is: first_name, middle_name, last_name and gender
  */
 @property (strong, nonatomic) NSArray *extraFields;
 

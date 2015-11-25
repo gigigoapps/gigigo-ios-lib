@@ -102,7 +102,7 @@
 
 - (void)me:(GIGFacebookMeCompletion)completionHandler
 {
-	NSMutableString *fields = [NSMutableString stringWithString:@"email,first_name,middle_name,last_name,gender"];
+	NSMutableString *fields = [NSMutableString stringWithString:@"first_name,middle_name,last_name,gender"];
 	if (self.extraFields)
 	{
 		for (NSString *field in self.extraFields)

@@ -70,11 +70,11 @@
 
 - (IBAction)onButtonLoginTap:(id)sender
 {
-	self.socialLogin.extraPermissions = @[@"email"];
+	self.socialLogin.extraPermissions = @[@"email", @"user_birthday"];
+	self.socialLogin.extraFields = @[@"birthday", @"email"];
 	[self.socialLogin loginFacebook:^(GIGSocialLoginResult *result)
 	{
 		NSMutableString *info = [[NSMutableString alloc] init];
-		
 		NSString *successString = result.success ? @"YES" : @"NO";
 		NSString *loginErrorString = @"";
 		
@@ -82,6 +82,10 @@
 		{
 			case GIGSocialLoginErrorNone:
 				loginErrorString = @"NO ERROR";
+				break;
+				
+			case GIGSocialLoginErrorUser:
+				loginErrorString = @"USER ERROR";
 				break;
 				
 			case GIGSocialLoginErrorFacebookCancelled:
@@ -97,10 +101,11 @@
 		}
 		
 		[info appendFormat:@"SUCCESS: %@\n\n", successString];
-		[info appendFormat:@"USER ID: %@\n\n", result.userID];
-		[info appendFormat:@"ACCESS TOKEN: %@\n\n", result.accessToken];
 		[info appendFormat:@"ERROR TYPE: %@\n\n", loginErrorString];
-		[info appendFormat:@"ERROR: %@\n", result.error];
+		[info appendFormat:@"ERROR: %@\n\n", result.error];
+		[info appendFormat:@"USER ID: %@\n\n", result.userID];
+		[info appendFormat:@"USER DATA:\n%@\n\n", result.user];
+		[info appendFormat:@"ACCESS TOKEN: %@\n\n", result.accessToken];
 		
 		self.labelInfo.text = info;
 	}];
