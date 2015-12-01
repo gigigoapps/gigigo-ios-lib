@@ -1,5 +1,11 @@
 # GIGSocial
-(description - TBD)
+Framework to perform common social features like:
+
+* Facebook login
+* Twitter Login
+* Share content (images, urls, text...)
+
+With a dynamic framework, it also encapsulate and provide the Facebook & Twitter frameworks nedded.
 
 
 ## Facebook Login
