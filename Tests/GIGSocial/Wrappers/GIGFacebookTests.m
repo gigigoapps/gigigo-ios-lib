@@ -221,7 +221,7 @@
 		XCTAssert(error == nil);
 	}];
 	
-	NSString *fields = @"email,first_name,middle_name,last_name,gender";
+	NSString *fields = @"first_name,middle_name,last_name,gender";
 	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
 	XCTAssert([outFields isEqualToString:fields], @"%@", [self errorTestLogForObject:outFields]);
 
@@ -244,7 +244,7 @@
 		XCTAssert(error == nil);
 	}];
 	
-	NSString *fields = @"email,first_name,middle_name,last_name,gender,birthday";
+	NSString *fields = @"first_name,middle_name,last_name,gender,birthday";
 	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
 	XCTAssert([outFields isEqualToString:fields], @"%@", [self errorTestLogForObject:outFields]);
 	
@@ -293,7 +293,7 @@
 		XCTAssert([error.domain isEqualToString:@"facebook.mock.error"]);
 	}];
 	
-	NSString *fields = @"email,first_name,middle_name,last_name,gender";
+	NSString *fields = @"first_name,middle_name,last_name,gender";
 	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
 	XCTAssert([outFields isEqualToString:fields], @"%@", [self errorTestLogForObject:outFields]);
 	
@@ -317,7 +317,7 @@
 		XCTAssert([error.domain isEqualToString:@"facebook.mock.error"]);
 	}];
 	
-	NSString *fields = @"email,first_name,middle_name,last_name,gender,birthday";
+	NSString *fields = @"first_name,middle_name,last_name,gender,birthday";
 	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
 	XCTAssert([outFields isEqualToString:fields], @"%@", [self errorTestLogForObject:outFields]);
 	
