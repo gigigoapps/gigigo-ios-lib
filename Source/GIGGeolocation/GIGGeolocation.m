@@ -65,6 +65,17 @@
         
         [self.locationManager startUpdatingLocation];
     }
+	else
+	{
+		if (self.completion)
+		{
+			NSError *error = [NSError errorWithDomain:@"com.giglibrary.geolocation"
+												 code:-1
+											 userInfo:@{NSLocalizedDescriptionKey: @"Location services are disabled"}];
+			
+			self.completion(NO, nil, error);
+		}
+	}
 }
 
 - (void)updateLocation:(CLLocation *)location
