@@ -42,6 +42,8 @@
 		A910066E1B0CCF520080B812 /* GIGStaticLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = A91006581B0CCE8E0080B812 /* GIGStaticLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A99D2DC41C4CFAEB00F23959 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D922639F1BDE251D00735D9D /* CoreData.framework */; };
 		A99D2DC51C4CFAEF00F23959 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92263A21BDE254A00735D9D /* CoreLocation.framework */; };
+		A99D2DC61C4D089400F23959 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92263A21BDE254A00735D9D /* CoreLocation.framework */; };
+		A99D2DC71C4D089800F23959 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D922639F1BDE251D00735D9D /* CoreData.framework */; };
 		D90867691B42A3E300193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
 		D908676A1B42A3E400193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
 		D909EFEA1B0DC2FF00DD4D97 /* GIGLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -965,7 +967,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A99D2DC61C4D089400F23959 /* CoreLocation.framework in Frameworks */,
 				D99AD12C1B1D9866005BB4E5 /* libGIGStaticLibrary.a in Frameworks */,
+				A99D2DC71C4D089800F23959 /* CoreData.framework in Frameworks */,
 				D99AD35B1B1DA3BA005BB4E5 /* OCHamcrestIOS.framework in Frameworks */,
 				D99AD35D1B1DA3BA005BB4E5 /* OCMockitoIOS.framework in Frameworks */,
 			);
