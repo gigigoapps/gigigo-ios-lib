@@ -7,19 +7,6 @@
 //
 
 #import "FBSDKAccessTokenMock.h"
-#include <objc/runtime.h>
-
-
-static FBSDKAccessTokenMock *staticCurrentAccessToken;
-
-
-@interface FBSDKAccessTokenMock ()
-
-@property (assign, nonatomic) Method originalMethod;
-@property (assign, nonatomic) Method mockMethod;
-
-@end
-
 
 @implementation FBSDKAccessTokenMock
 
@@ -27,66 +14,17 @@ static FBSDKAccessTokenMock *staticCurrentAccessToken;
 @synthesize tokenString;
 
 
-#pragma mark - Init
-
 - (instancetype)init
 {
-	self = [super init];
-	
-	if (self)
-	{
-		self.hasCurrentAccessToken = NO;
-		staticCurrentAccessToken = self;
-	}
+	self = [super initWithTokenString:nil
+						  permissions:nil
+				  declinedPermissions:nil
+								appID:nil
+							   userID:nil
+					   expirationDate:nil
+						  refreshDate:nil];
 	
 	return self;
 }
-
-
-#pragma mark - Public
-
-- (void)swizzleMethods
-{
-	[self swizzleMethod:@selector(currentAccessToken)
-				inClass:[FBSDKAccessToken class]
-			 withMethod:@selector(currentAccessToken)
-			  fromClass:[FBSDKAccessTokenMock class]];
-}
-
-
-- (void)unswizzleMethods
-{
-	method_exchangeImplementations(self.mockMethod, self.originalMethod);
-}
-
-
-#pragma mark - Overriden
-
-+ (FBSDKAccessToken *)currentAccessToken
-{
-	if (staticCurrentAccessToken.hasCurrentAccessToken)
-	{
-		return staticCurrentAccessToken;
-	}
-	else
-	{
-		return nil;
-	}
-}
-
-
-#pragma mark - Private
-
-- (void)swizzleMethod:(SEL)aOriginalMethod
-			  inClass:(Class)aOriginalClass
-		   withMethod:(SEL)aNewMethod
-			fromClass:(Class)aNewClass
-{
-	self.originalMethod = class_getClassMethod(aOriginalClass, aOriginalMethod);
-	self.mockMethod = class_getClassMethod(aNewClass, aNewMethod);
-	
-	method_exchangeImplementations(self.originalMethod, self.mockMethod);
-}
-
 
 @end

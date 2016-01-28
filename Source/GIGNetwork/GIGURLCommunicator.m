@@ -26,37 +26,31 @@
 
 @implementation GIGURLCommunicator
 
+#pragma mark - INITIALIZATION
+
 - (instancetype)init
 {
-    GIGURLRequestFactory *requestFactory = [[GIGURLRequestFactory alloc] init];
     GIGURLManager *manager = [GIGURLManager sharedManager];
     
-    return [self initWithRequestFactory:requestFactory manager:manager];
+    return [self initWithManager:manager];
 }
 
 - (instancetype)initWithManager:(GIGURLManager *)manager
 {
-    GIGURLRequestFactory *requestFactory = [[GIGURLRequestFactory alloc] initWithManager:manager];
+    GIGURLRequestFactory *requestFactory = [[GIGURLRequestFactory alloc] init];
     
-    return [self initWithRequestFactory:requestFactory manager:manager];
+    return [self initWithManager:manager requestFactory:requestFactory];
 }
 
-- (instancetype)initWithRequestFactory:(GIGURLRequestFactory *)requestFactory
-{
-    GIGURLManager *manager = [GIGURLManager sharedManager];
-    
-    return [self initWithRequestFactory:requestFactory manager:manager];
-}
-
-- (instancetype)initWithRequestFactory:(GIGURLRequestFactory *)requestFactory manager:(GIGURLManager *)manager
+- (instancetype)initWithManager:(GIGURLManager *)manager requestFactory:(GIGURLRequestFactory *)requestFactory
 {
     self = [super init];
     if (self)
     {
-        _requestFactory = requestFactory;
         _manager = manager;
+        _requestFactory = requestFactory;
         
-        _logLevel = GIGLogLevelError;
+        _requestFactory.requestLogLevel = GIGLogLevelError;
     }
     return self;
 }
@@ -68,42 +62,68 @@
     return self.manager.domain.url;
 }
 
+- (GIGLogLevel)logLevel
+{
+    return self.requestFactory.requestLogLevel;
+}
+
+- (void)setLogLevel:(GIGLogLevel)logLevel
+{
+    self.requestFactory.requestLogLevel = logLevel;
+}
+
 #pragma mark - PUBLIC
 
-- (GIGURLRequest *)GET:(NSString *)url
-{
-    return [self requestWithMethod:@"GET" url:url];
-}
+#pragma mark - Build Requests
 
-- (GIGURLRequest *)POST:(NSString *)url
+- (GIGURLRequest *)GET:(NSString *)urlFormat, ... NS_FORMAT_FUNCTION(1, 2)
 {
-    return [self requestWithMethod:@"POST" url:url];
-}
-
-- (GIGURLRequest *)DELETE:(NSString *)url
-{
-    return [self requestWithMethod:@"DELETE" url:url];
-}
-
-- (GIGURLRequest *)PUT:(NSString *)url
-{
-    return [self requestWithMethod:@"PUT" url:url];
-}
-
-- (GIGURLRequest *)requestWithMethod:(NSString *)method url:(NSString *)url
-{
-    self.lastRequest = [self.requestFactory requestWithMethod:method url:url];
-    self.lastRequest.logLevel = self.logLevel;
+    va_list args;
+    va_start(args, urlFormat);
     
-    return self.lastRequest;
+    return [self requestWithMethod:@"GET" urlFormat:urlFormat args:args];
 }
+
+- (GIGURLRequest *)POST:(NSString *)urlFormat, ... NS_FORMAT_FUNCTION(1, 2)
+{
+    va_list args;
+    va_start(args, urlFormat);
+    
+    return [self requestWithMethod:@"POST" urlFormat:urlFormat args:args];
+}
+
+- (GIGURLRequest *)DELETE:(NSString *)urlFormat, ... NS_FORMAT_FUNCTION(1, 2)
+{
+    va_list args;
+    va_start(args, urlFormat);
+    
+    return [self requestWithMethod:@"DELETE" urlFormat:urlFormat args:args];
+}
+
+- (GIGURLRequest *)PUT:(NSString *)urlFormat, ... NS_FORMAT_FUNCTION(1, 2)
+{
+    va_list args;
+    va_start(args, urlFormat);
+    
+    return [self requestWithMethod:@"PUT" urlFormat:urlFormat args:args];
+}
+
+- (GIGURLRequest *)requestWithMethod:(NSString *)method url:(NSString *)urlFormat, ... NS_FORMAT_FUNCTION(2, 3)
+{
+    va_list args;
+    va_start(args, urlFormat);
+    
+    return [self requestWithMethod:method urlFormat:urlFormat args:args];
+}
+
+#pragma mark - Manage Requests
 
 - (void)sendRequest:(GIGURLRequest *)request completion:(GIGURLRequestCompletion)completion
 {
     self.lastRequest = request;
     self.lastRequest.completion = completion;
     
-    [request send];
+    [self.lastRequest send];
 }
 
 - (void)sendRequests:(NSDictionary *)requests completion:(GIGURLMultiRequestCompletion)completion
@@ -114,32 +134,58 @@
     NSMutableDictionary *responses = [[NSMutableDictionary alloc] initWithCapacity:requests.count];
     dispatch_group_t groupRequests = dispatch_group_create();
     
-    [requests enumerateKeysAndObjectsUsingBlock:^(NSString *requestKey, GIGURLRequest *request, __unused BOOL *stop) {
-        dispatch_group_enter(groupRequests);
-        
-        request.completion = ^(GIGURLResponse *response) {
-            responses[requestKey] = response;
-            dispatch_group_leave(groupRequests);
-        };
-        
-        [request send];
-    }];
+    for (NSString *requestKey in requests)
+    {
+        GIGURLRequest *request = requests[requestKey];
+        [self sendRequest:request key:requestKey group:groupRequests responses:responses];
+    }
     
     __weak typeof(self) this = self;
     dispatch_group_notify(groupRequests, dispatch_get_main_queue(), ^{
-        this.requests = nil;
-        
-        if (this.requestsCompletion)
-        {
-            this.requestsCompletion(responses);
-            this.requestsCompletion = nil;
-        }
+        [this completeRequestsWithResponses:[responses copy]];
     });
+    
 }
 
 - (void)cancelLastRequest
 {
     [self.lastRequest cancel];
+    self.lastRequest = nil;
+}
+
+#pragma mark - PRIVATE
+
+- (GIGURLRequest *)requestWithMethod:(NSString *)method urlFormat:(NSString *)urlFormat args:(va_list)args
+{
+    NSString *url = [[NSString alloc] initWithFormat:urlFormat arguments:args];
+    va_end(args);
+    
+    self.lastRequest = [self.requestFactory requestWithMethod:method url:url];
+    
+    return self.lastRequest;
+}
+
+- (void)sendRequest:(GIGURLRequest *)request key:(NSString *)requestKey group:(dispatch_group_t)groupRequests responses:(NSMutableDictionary *)responses
+{
+    dispatch_group_enter(groupRequests);
+    
+    request.completion = ^(GIGURLResponse *response) {
+        responses[requestKey] = response;
+        dispatch_group_leave(groupRequests);
+    };
+    
+    [request send];
+}
+
+- (void)completeRequestsWithResponses:(NSDictionary *)responses
+{
+    self.requests = nil;
+    
+    if (self.requestsCompletion != nil)
+    {
+        self.requestsCompletion(responses);
+        self.requestsCompletion = nil;
+    }
 }
 
 @end

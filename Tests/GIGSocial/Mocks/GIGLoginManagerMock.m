@@ -10,8 +10,9 @@
 
 @implementation GIGLoginManagerMock
 
-- (void)logInWithReadPermissions:(NSArray *)permissions handler:(FBSDKLoginManagerRequestTokenHandler)handler
+- (void)logInWithReadPermissions:(NSArray *)permissions fromViewController:(UIViewController *)fromViewController handler:(FBSDKLoginManagerRequestTokenHandler)handler
 {
+	self.requestedPermissions = permissions;
 	handler(self.loginResult, self.error);
 }
 

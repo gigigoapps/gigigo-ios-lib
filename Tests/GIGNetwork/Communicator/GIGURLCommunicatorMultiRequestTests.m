@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
+#import "GIGDispatch.h"
 #import "GIGTests.h"
 
 #import "GIGURLManager.h"
@@ -20,7 +21,9 @@
 
 @property (strong, nonatomic) GIGURLManager *managerMock;
 @property (strong, nonatomic) GIGURLRequestFactory *requestFactoryMock;
-@property (strong, nonatomic) NSURLConnection *connectionMock;
+@property (strong, nonatomic) NSURLSession *sessionMock;
+@property (strong, nonatomic) NSURLSessionDataTask *taskMock;
+
 @property (strong, nonatomic) GIGURLCommunicator *communicator;
 @property (strong, nonatomic) GIGURLRequest *request1;
 @property (strong, nonatomic) GIGURLRequest *request2;
@@ -36,26 +39,15 @@
     
     self.managerMock = MKTMock([GIGURLManager class]);
     self.requestFactoryMock = MKTMock([GIGURLRequestFactory class]);
-    self.connectionMock = MKTMock([NSURLConnection class]);
+    self.sessionMock = MKTMock([NSURLSession class]);
+    self.taskMock = MKTMock([NSURLSessionDataTask class]);
     
-    self.communicator = [[GIGURLCommunicator alloc] initWithRequestFactory:self.requestFactoryMock manager:self.managerMock];
+    self.communicator = [[GIGURLCommunicator alloc] initWithManager:self.managerMock requestFactory:self.requestFactoryMock];
     
-    self.request1 = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url1" connectionBuilder:nil requestLogger:nil manager:self.managerMock];
+    self.request1 = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url1" sessionFactory:nil requestFactory:nil logger:nil manager:self.managerMock];
     [MKTGiven([self.requestFactoryMock requestWithMethod:@"GET" url:@"http://url1"]) willReturn:self.request1];
-    self.request2 = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url2" connectionBuilder:nil requestLogger:nil manager:self.managerMock];
+    self.request2 = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url2" sessionFactory:nil requestFactory:nil logger:nil manager:self.managerMock];
     [MKTGiven([self.requestFactoryMock requestWithMethod:@"GET" url:@"http://url2"]) willReturn:self.request2];
-}
-
-- (void)tearDown
-{
-    self.managerMock = nil;
-    self.requestFactoryMock = nil;
-    self.connectionMock = nil;
-    self.communicator = nil;
-    self.request1 = nil;
-    self.request2 = nil;
-    
-    [super tearDown];
 }
 
 #pragma mark - TESTS
@@ -71,10 +63,13 @@
     NSData *dataText = [self dataTextType];
 
     [self.communicator sendRequests:requests completion:^(NSDictionary *responses) {
+        [groupRequestsSuccess fulfill];
+        
+        XCTAssert([NSThread isMainThread]);
+        
         GIGURLResponse *response1 = [responses valueForKey:@"Request_1"];
         GIGURLResponse *response2 = [responses valueForKey:@"Request_2"];
 
-        [groupRequestsSuccess fulfill];
 
         XCTAssertNotNil(response1);
         XCTAssertTrue(response1.success);
@@ -87,6 +82,7 @@
 
     [self responseToRequest:self.request1 data:dataImage delayInSeconds:0.5f];
     [self responseToRequest:self.request2 data:dataText delayInSeconds:0.3f];
+    
     [self waitForExpectationsWithTimeout:5 handler:^(NSError *error){}];
 }
 
@@ -116,6 +112,7 @@
     
     [self responseWithErrorToRequest:self.request1 statusCode:404 delayInSeconds:0.5f];
     [self responseToRequest:self.request2 data:dataText delayInSeconds:0.2f];
+    
     [self waitForExpectationsWithTimeout:5 handler:^(NSError *error){}];
 }
 
@@ -143,6 +140,7 @@
     
     [self responseWithErrorToRequest:self.request1 statusCode:404 delayInSeconds:0.5f];
     [self responseWithErrorToRequest:self.request2 statusCode:500 delayInSeconds:0.2f];
+    
     [self waitForExpectationsWithTimeout:5 handler:^(NSError *error){}];
 }
 
@@ -152,30 +150,33 @@
 
 - (void)responseToRequest:(GIGURLRequest *)request data:(NSData *)data delayInSeconds:(double)delayInSeconds
 {
-    dispatch_time_t responseTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(responseTime, dispatch_get_main_queue(), ^{
+    gig_dispatch_after_seconds(delayInSeconds, ^{
         NSURL *URL = [NSURL URLWithString:@"http://url"];
         NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL
                                                                       statusCode:200
                                                                      HTTPVersion:@"HTTP/1.1"
                                                                     headerFields:nil];
-        [request connection:self.connectionMock didReceiveResponse:HTTPResponse];
-        [request connection:self.connectionMock didReceiveData:data];
-        [request connectionDidFinishLoading:self.connectionMock];
+        [request URLSession:self.sessionMock dataTask:self.taskMock didReceiveResponse:HTTPResponse completionHandler:^(NSURLSessionResponseDisposition disposition) {
+            XCTAssert(disposition == NSURLSessionResponseAllow);
+        }];
+        [request URLSession:self.sessionMock dataTask:self.taskMock didReceiveData:data];
+        [request URLSession:self.sessionMock task:self.taskMock didCompleteWithError:nil];
     });
 }
 
 - (void)responseWithErrorToRequest:(GIGURLRequest *)request statusCode:(NSInteger)statusCode delayInSeconds:(double)delayInSeconds
 {
-    dispatch_time_t responseTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(responseTime, dispatch_get_main_queue(), ^{
+    gig_dispatch_after_seconds(delayInSeconds, ^{
         NSURL *URL = [NSURL URLWithString:@"http://url"];
         NSHTTPURLResponse *HTTPResponse = [[NSHTTPURLResponse alloc] initWithURL:URL
                                                                       statusCode:statusCode
                                                                      HTTPVersion:@"HTTP/1.1"
                                                                     headerFields:nil];
-        [request connection:self.connectionMock didReceiveResponse:HTTPResponse];
-        [request connectionDidFinishLoading:self.connectionMock];
+        
+        [request URLSession:self.sessionMock dataTask:self.taskMock didReceiveResponse:HTTPResponse completionHandler:^(NSURLSessionResponseDisposition disposition) {
+            XCTAssert(disposition == NSURLSessionResponseAllow);
+        }];
+        [request URLSession:self.sessionMock task:self.taskMock didCompleteWithError:nil];
     });
 }
 

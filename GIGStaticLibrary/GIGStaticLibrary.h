@@ -13,4 +13,4 @@
 #import <GIGStaticLibrary/GIGNetwork.h>
 #import <GIGStaticLibrary/GIGGeolocation.h>
 #import <GIGStaticLibrary/GIGLayout.h>
-
+#import <GIGStaticLibrary/GIGFormulary.h>

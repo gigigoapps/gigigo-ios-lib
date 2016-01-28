@@ -12,6 +12,7 @@
 #import "GIGFacebook.h"
 #import "FBSDKAccessTokenMock.h"
 #import "GIGLoginManagerMock.h"
+#import "GIGFacebookFactoryMock.h"
 
 
 @interface GIGFacebookTests : XCTestCase
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) GIGFacebook *facebook;
 @property (strong, nonatomic) FBSDKAccessTokenMock *accessTokenMock;
 @property (strong, nonatomic) GIGLoginManagerMock *loginManagerMock;
+@property (strong, nonatomic) GIGFacebookFactoryMock *facebookFactoryMock;
 
 @end
 
@@ -31,19 +33,18 @@
     [super setUp];
 
 	self.accessTokenMock = [[FBSDKAccessTokenMock alloc] init];
-	[self.accessTokenMock swizzleMethods];
-	
+	self.facebookFactoryMock = [[GIGFacebookFactoryMock alloc] init];
 	self.loginManagerMock = [[GIGLoginManagerMock alloc] init];
 	
-	self.facebook = [[GIGFacebook alloc] initWithLoginManager:self.loginManagerMock];
+	self.facebookFactoryMock.accessToken = self.accessTokenMock;
+	self.facebook = [[GIGFacebook alloc] initWithLoginManager:self.loginManagerMock accessToken:self.facebookFactoryMock];
 }
-
 
 - (void)tearDown
 {
-	[self.accessTokenMock unswizzleMethods];
 	self.accessTokenMock = nil;
-	
+	self.facebookFactoryMock = nil;
+	self.loginManagerMock = nil;
 	self.facebook = nil;
 	
     [super tearDown];
@@ -56,22 +57,23 @@
 }
 
 
-- (void)test_has_current_access_token
+#pragma mark - Login
+
+- (void)test_login_has_current_access_token
 {
-	self.accessTokenMock.hasCurrentAccessToken = YES;
 	self.accessTokenMock.userID = @"USER_ID_1";
 	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
 	
 	__block BOOL completionCalled = NO;
-	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
+	[self.facebook login:^(GIGFacebookLoginResult *result)
 	{
 		completionCalled = YES;
 		
-		XCTAssertTrue(success);
-		XCTAssertTrue([userID isEqualToString:@"USER_ID_1"], @"%@", [self errorTestLogForObject:userID]);
-		XCTAssertTrue([accessToken isEqualToString:@"ACCESS_TOKEN_1"], @"%@", [self errorTestLogForObject:accessToken]);
-		XCTAssertFalse(isCancelled);
-		XCTAssertNil(error);
+		XCTAssertTrue(result.success);
+		XCTAssertTrue([result.userID isEqualToString:@"USER_ID_1"], @"%@", [self errorTestLogForObject:result.userID]);
+		XCTAssertTrue([result.accessToken isEqualToString:@"ACCESS_TOKEN_1"], @"%@", [self errorTestLogForObject:result.accessToken]);
+		XCTAssertFalse(result.isCancelled);
+		XCTAssertNil(result.error);
 	}];
 	
 	XCTAssertTrue(completionCalled);
@@ -80,82 +82,247 @@
 
 - (void)test_login_with_error
 {
-	self.accessTokenMock.hasCurrentAccessToken = NO;
+	self.facebookFactoryMock.accessToken = nil;
 	self.loginManagerMock.error = [NSError errorWithDomain:@"TESTFACEBOOK" code:3 userInfo:nil];
 	
 	__block BOOL completionCalled = NO;
-	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
+	[self.facebook login:^(GIGFacebookLoginResult *result)
 	 {
 		 completionCalled = YES;
 		 
-		 XCTAssertTrue(success == NO);
-		 XCTAssertTrue(userID == nil, @"%@", [self errorTestLogForObject:userID]);
-		 XCTAssertTrue(accessToken == nil, @"%@", [self errorTestLogForObject:accessToken]);
-		 XCTAssertFalse(isCancelled);
-		 XCTAssertTrue([error.domain isEqualToString:@"TESTFACEBOOK"] && error.code == 3);
+		 XCTAssertTrue(result.success == NO);
+		 XCTAssertTrue(result.userID == nil, @"%@", [self errorTestLogForObject:result.userID]);
+		 XCTAssertTrue(result.accessToken == nil, @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssertFalse(result.isCancelled);
+		 XCTAssertTrue([result.error.domain isEqualToString:@"TESTFACEBOOK"] && result.error.code == 3);
 	 }];
 	
+	NSArray *requestedPermissionsResult = @[@"public_profile"];
+	XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:requestedPermissionsResult]);
 	XCTAssertTrue(completionCalled);
 }
 
 
 - (void)test_login_cancelled
 {
+	self.facebookFactoryMock.accessToken = nil;
 	FBSDKLoginManagerLoginResult *result = [[FBSDKLoginManagerLoginResult alloc] initWithToken:nil
 																				   isCancelled:YES
 																			grantedPermissions:nil
 																		   declinedPermissions:nil];
 	
-	self.accessTokenMock.hasCurrentAccessToken = NO;
 	self.loginManagerMock.loginResult = result;
 	self.loginManagerMock.error = nil;
 	
 	__block BOOL completionCalled = NO;
-	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
+	[self.facebook login:^(GIGFacebookLoginResult *result)
 	 {
 		 completionCalled = YES;
 		 
-		 XCTAssertTrue(success == NO);
-		 XCTAssertTrue(userID == nil, @"%@", [self errorTestLogForObject:userID]);
-		 XCTAssertTrue(accessToken == nil, @"%@", [self errorTestLogForObject:accessToken]);
-		 XCTAssertTrue(isCancelled == YES);
-		 XCTAssertNil(error);
+		 XCTAssertTrue(result.success == NO);
+		 XCTAssertTrue(result.userID == nil, @"%@", [self errorTestLogForObject:result.userID]);
+		 XCTAssertTrue(result.accessToken == nil, @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssertTrue(result.isCancelled == YES);
+		 XCTAssertNil(result.error);
 	 }];
 	
+	NSArray *requestedPermissionsResult = @[@"public_profile"];
+	XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:requestedPermissionsResult]);
 	XCTAssertTrue(completionCalled);
 }
 
 
 - (void)test_login_success
 {
-	self.accessTokenMock.hasCurrentAccessToken = YES;
-	self.accessTokenMock.userID = @"USER_ID_1";
-	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
+	self.facebookFactoryMock.accessToken = nil;
 	
-	FBSDKLoginManagerLoginResult *result = [[FBSDKLoginManagerLoginResult alloc] initWithToken:self.accessTokenMock
+	FBSDKAccessTokenMock *accessTokenResult = [[FBSDKAccessTokenMock alloc] init];
+	accessTokenResult.userID = @"USER_ID_1";
+	accessTokenResult.tokenString = @"ACCESS_TOKEN_1";
+	
+	FBSDKLoginManagerLoginResult *result = [[FBSDKLoginManagerLoginResult alloc] initWithToken:accessTokenResult
 																				   isCancelled:NO
 																			grantedPermissions:nil
 																		   declinedPermissions:nil];
-	
-	self.accessTokenMock.hasCurrentAccessToken = NO;
 	self.loginManagerMock.loginResult = result;
 	self.loginManagerMock.error = nil;
 	
 	__block BOOL completionCalled = NO;
-	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
+	[self.facebook login:^(GIGFacebookLoginResult *result)
 	 {
 		 completionCalled = YES;
 		 
-		 XCTAssertTrue(success == YES);
-		 XCTAssertTrue([userID isEqualToString:@"USER_ID_1"], @"%@", [self errorTestLogForObject:userID]);
-		 XCTAssertTrue([accessToken isEqualToString:@"ACCESS_TOKEN_1"], @"%@", [self errorTestLogForObject:accessToken]);
-		 XCTAssertTrue(isCancelled == NO);
-		 XCTAssertNil(error);
+		 XCTAssertTrue(result.success == YES);
+		 XCTAssertTrue([result.userID isEqualToString:@"USER_ID_1"], @"%@", [self errorTestLogForObject:result.userID]);
+		 XCTAssertTrue([result.accessToken isEqualToString:@"ACCESS_TOKEN_1"], @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssertTrue(result.isCancelled == NO);
+		 XCTAssertNil(result.error);
+		 
+		 XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:@[@"public_profile"]], @"%@", [self errorTestLogForObject:self.loginManagerMock.requestedPermissions]);
 	 }];
 	
+	NSArray *requestedPermissionsResult = @[@"public_profile"];
+	XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:requestedPermissionsResult]);
 	XCTAssertTrue(completionCalled);
 }
 
+
+- (void)test_login_success_with_extra_permissions
+{
+	self.facebookFactoryMock.accessToken = nil;
+	
+	FBSDKAccessTokenMock *accessTokenResult = [[FBSDKAccessTokenMock alloc] init];
+	accessTokenResult.userID = @"USER_ID_1";
+	accessTokenResult.tokenString = @"ACCESS_TOKEN_1";
+	
+	FBSDKLoginManagerLoginResult *result = [[FBSDKLoginManagerLoginResult alloc] initWithToken:accessTokenResult
+																				   isCancelled:NO
+																			grantedPermissions:nil
+																		   declinedPermissions:nil];
+	self.loginManagerMock.loginResult = result;
+	self.loginManagerMock.error = nil;
+	
+	self.facebook.extraPermissions = @[@"email", @"user_birthday"];
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook login:^(GIGFacebookLoginResult *result)
+	 {
+		 completionCalled = YES;
+		 
+		 XCTAssertTrue(result.success == YES);
+		 XCTAssertTrue([result.userID isEqualToString:@"USER_ID_1"], @"%@", [self errorTestLogForObject:result.userID]);
+		 XCTAssertTrue([result.accessToken isEqualToString:@"ACCESS_TOKEN_1"], @"%@", [self errorTestLogForObject:result.accessToken]);
+		 XCTAssertTrue(result.isCancelled == NO);
+		 XCTAssertNil(result.error);
+		 
+	 }];
+	
+	NSArray *requestedPermissionsResult = @[@"public_profile", @"email", @"user_birthday"];
+	XCTAssertTrue([self.loginManagerMock.requestedPermissions isEqualToArray:requestedPermissionsResult]);
+	XCTAssertTrue(completionCalled);
+}
+
+
+#pragma mark - Me
+
+- (void)test_me_success_no_extra_fields
+{
+	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
+	self.facebook.extraFields = nil;
+	self.facebookFactoryMock.inReqUser = [NSDictionary dictionary];
+	self.facebookFactoryMock.inReqError = nil;
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook me:^(BOOL success, NSDictionary *user, NSError *error) {
+		completionCalled = YES;
+		
+		XCTAssert(success == YES);
+		XCTAssert(user == self.facebookFactoryMock.inReqUser);
+		XCTAssert(error == nil);
+	}];
+	
+	NSString *fields = @"first_name,middle_name,last_name,gender";
+	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
+	XCTAssert([outFields isEqualToString:fields], @"%@", [self errorTestLogForObject:outFields]);
+
+	XCTAssert(completionCalled == YES);
+}
+
+- (void)test_me_success_with_extra_fields
+{
+	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
+	self.facebook.extraFields = @[@"birthday"];
+	self.facebookFactoryMock.inReqUser = [NSDictionary dictionary];
+	self.facebookFactoryMock.inReqError = nil;
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook me:^(BOOL success, NSDictionary *user, NSError *error) {
+		completionCalled = YES;
+		
+		XCTAssert(success == YES);
+		XCTAssert(user == self.facebookFactoryMock.inReqUser);
+		XCTAssert(error == nil);
+	}];
+	
+	NSString *fields = @"first_name,middle_name,last_name,gender,birthday";
+	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
+	XCTAssert([outFields isEqualToString:fields], @"%@", [self errorTestLogForObject:outFields]);
+	
+	XCTAssert(completionCalled == YES);
+}
+
+
+- (void)test_me_error_no_accessToken
+{
+	self.facebookFactoryMock.accessToken = nil;
+	self.facebook.extraFields = @[@"birthday"];
+	self.facebookFactoryMock.inReqUser = [NSDictionary dictionary];
+	self.facebookFactoryMock.inReqError = nil;
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook me:^(BOOL success, NSDictionary *user, NSError *error) {
+		completionCalled = YES;
+		
+		XCTAssert(success == NO);
+		XCTAssert(user == nil);
+		XCTAssert(error.code == -1);
+		XCTAssert([error.domain isEqualToString:@"com.giglibrary.social"]);
+	}];
+	
+//	NSString *fields = @"email,first_name,middle_name,last_name,gender,birthday";
+	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
+	XCTAssert(outFields == nil, @"%@", [self errorTestLogForObject:outFields]);
+	
+	XCTAssert(completionCalled == YES);
+}
+
+- (void)test_me_error_facebook_with_no_extra_fields
+{
+	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
+	self.facebook.extraFields = nil;
+	self.facebookFactoryMock.inReqUser = nil;
+	self.facebookFactoryMock.inReqError = [NSError errorWithDomain:@"facebook.mock.error" code:666 userInfo:nil];
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook me:^(BOOL success, NSDictionary *user, NSError *error) {
+		completionCalled = YES;
+		
+		XCTAssert(success == NO);
+		XCTAssert(user == nil);
+		XCTAssert(error.code == 666);
+		XCTAssert([error.domain isEqualToString:@"facebook.mock.error"]);
+	}];
+	
+	NSString *fields = @"first_name,middle_name,last_name,gender";
+	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
+	XCTAssert([outFields isEqualToString:fields], @"%@", [self errorTestLogForObject:outFields]);
+	
+	XCTAssert(completionCalled == YES);
+}
+
+- (void)test_me_error_facebook_with_extra_fields
+{
+	self.accessTokenMock.tokenString = @"ACCESS_TOKEN_1";
+	self.facebook.extraFields = @[@"birthday"];
+	self.facebookFactoryMock.inReqUser = nil;
+	self.facebookFactoryMock.inReqError = [NSError errorWithDomain:@"facebook.mock.error" code:666 userInfo:nil];
+	
+	__block BOOL completionCalled = NO;
+	[self.facebook me:^(BOOL success, NSDictionary *user, NSError *error) {
+		completionCalled = YES;
+		
+		XCTAssert(success == NO);
+		XCTAssert(user == nil);
+		XCTAssert(error.code == 666);
+		XCTAssert([error.domain isEqualToString:@"facebook.mock.error"]);
+	}];
+	
+	NSString *fields = @"first_name,middle_name,last_name,gender,birthday";
+	NSString *outFields = self.facebookFactoryMock.requestMock.parameters[@"fields"];
+	XCTAssert([outFields isEqualToString:fields], @"%@", [self errorTestLogForObject:outFields]);
+	
+	XCTAssert(completionCalled == YES);
+}
 
 
 #pragma mark - HELPERS

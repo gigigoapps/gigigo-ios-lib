@@ -32,12 +32,13 @@
 - (IBAction)tapMultirequestButton
 {
     GIGURLManager *manager = [GIGURLManager sharedManager];
-    manager.useFixture = YES;
-    [manager loadFixturesFile:@"fixtures.json"];
     manager.fixture = manager.fixtures[1];
+    manager.useFixture = YES;
     
-    GIGURLRequest *request = [[GIGURLRequest alloc] init];
+    GIGURLRequest *request = [self.communicator GET:@"http://www.gigigo.com"];
     request.requestTag = @"config";
+    
+    NSLog(@"%@", request);
     
     NSDictionary *requests = @{request.requestTag: request};
     

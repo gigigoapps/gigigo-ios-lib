@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "GIGURLRequest.h"
-
-#import "GIGURLImageResponse.h"
-#import "GIGURLJSONResponse.h"
+#import "GIGURLResponses.h"
 
 @class GIGURLRequestFactory;
 
@@ -25,14 +23,13 @@ typedef void(^GIGURLMultiRequestCompletion)(NSDictionary *responses);
 @property (assign, nonatomic, readonly) NSString *host;
 
 - (instancetype)initWithManager:(GIGURLManager *)manager;
-- (instancetype)initWithRequestFactory:(GIGURLRequestFactory *)requestFactory;
-- (instancetype)initWithRequestFactory:(GIGURLRequestFactory *)requestFactory manager:(GIGURLManager *)manager;
+- (instancetype)initWithManager:(GIGURLManager *)manager requestFactory:(GIGURLRequestFactory *)requestFactory NS_DESIGNATED_INITIALIZER;
 
-- (GIGURLRequest *)GET:(NSString *)url;
-- (GIGURLRequest *)POST:(NSString *)url;
-- (GIGURLRequest *)DELETE:(NSString *)url;
-- (GIGURLRequest *)PUT:(NSString *)url;
-- (GIGURLRequest *)requestWithMethod:(NSString *)method url:(NSString *)url;
+- (GIGURLRequest *)GET:(NSString *)url, ... NS_FORMAT_FUNCTION(1, 2);
+- (GIGURLRequest *)POST:(NSString *)url, ... NS_FORMAT_FUNCTION(1, 2);
+- (GIGURLRequest *)DELETE:(NSString *)url, ... NS_FORMAT_FUNCTION(1, 2);
+- (GIGURLRequest *)PUT:(NSString *)url, ... NS_FORMAT_FUNCTION(1, 2);
+- (GIGURLRequest *)requestWithMethod:(NSString *)method url:(NSString *)url, ... NS_FORMAT_FUNCTION(2, 3);
 
 - (void)sendRequest:(GIGURLRequest *)request completion:(GIGURLRequestCompletion)completion;
 - (void)sendRequests:(NSDictionary *)requests completion:(GIGURLMultiRequestCompletion)completion;

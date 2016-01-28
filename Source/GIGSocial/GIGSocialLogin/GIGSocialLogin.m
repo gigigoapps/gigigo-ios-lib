@@ -7,8 +7,6 @@
 //
 
 #import "GIGSocialLogin.h"
-
-#import "GIGLogManager.h"
 #import "GIGFacebook.h"
 
 
@@ -31,29 +29,56 @@
 	return self;
 }
 
+
 #pragma mark - PUBLIC
 
 - (void)loginFacebook:(GIGSocialLoginFacebookCompletion)completionHandler
 {
-	[self.facebook login:^(BOOL success, NSString *userID, NSString *accessToken, BOOL isCancelled, NSError *error)
+	self.facebook.extraPermissions = self.extraPermissions;
+	self.facebook.extraFields = self.extraFields;
+	
+	[self.facebook login:^(GIGFacebookLoginResult *result)
 	 {
-		 GIGSocialLoginError socialError = GIGSocialLoginErrorNone;
-		 
-		 if (success)
+		 __block GIGSocialLoginError socialError = GIGSocialLoginErrorNone;
+		 if (result.success)
 		 {
-			 socialError = GIGSocialLoginErrorNone;
-		 }
-		 else if (isCancelled)
-		 {
-			 socialError = GIGSocialLoginErrorFacebookCancelled;
+			 [self.facebook me:^(BOOL success, NSDictionary *user, NSError *error)
+			 {
+				 GIGSocialLoginResult *socialResult = [[GIGSocialLoginResult alloc] init];
+				 if (!success)
+				 {
+					 socialError = GIGSocialLoginErrorUser;
+				 }
+				 
+				 socialResult.success = success;
+				 socialResult.userID = result.userID;
+				 socialResult.accessToken = result.accessToken;
+				 socialResult.user = user;
+				 socialResult.loginError = socialError;
+				 socialResult.error = error;
+				 
+				 completionHandler(socialResult);
+			 }];
 		 }
 		 else
 		 {
-			 socialError = GIGSocialLoginErrorFacebook;
+			 if (result.isCancelled)
+			 {
+				 socialError = GIGSocialLoginErrorFacebookCancelled;
+			 }
+			 else
+			 {
+				 socialError = GIGSocialLoginErrorFacebook;
+			 }
+			 
+			 GIGSocialLoginResult *socialResult = [[GIGSocialLoginResult alloc] init];
+			 socialResult.loginError = socialError;
+			 socialResult.error = result.error;
+			 
+			 completionHandler(socialResult);
 		 }
-		 
-		 completionHandler(success, userID, accessToken, socialError, error);
 	 }];
 }
+
 
 @end

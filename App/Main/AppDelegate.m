@@ -8,12 +8,21 @@
 
 #import "AppDelegate.h"
 
-#import "GIGSocial.h"
 
+#if GIG_STATIC_LIBRARY
 
-@interface AppDelegate ()
+@implementation AppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    return YES;
+}
 
 @end
+
+#else // GIG_DYNAMIC_LIBRARY
+
+#import "GIGSocial.h"
 
 
 @implementation AppDelegate
@@ -25,12 +34,14 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-	[GIGSocialCore applicationDidBecomeActive:application];
+    [GIGSocialCore applicationDidBecomeActive:application];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-	return [GIGSocialCore application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    return [GIGSocialCore application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
 @end
+
+#endif

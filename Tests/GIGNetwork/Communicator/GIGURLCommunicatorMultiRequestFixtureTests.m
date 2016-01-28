@@ -40,20 +40,22 @@
     self.fixtureData1 = [@"fixture_data_1" dataUsingEncoding:NSUTF8StringEncoding];
     self.fixtureData2 = [@"fixture_data_2" dataUsingEncoding:NSUTF8StringEncoding];
     
-    [MKTGiven([self.managerMock fixtureForRequestTag:@"request1"]) willReturn:self.fixtureData1];
-    [MKTGiven([self.managerMock fixtureForRequestTag:@"request2"]) willReturn:self.fixtureData2];
-    
-    self.request1 = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url1" connectionBuilder:nil requestLogger:nil manager:self.managerMock];
+    self.request1 = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url1" sessionFactory:nil requestFactory:nil logger:nil manager:self.managerMock];
     self.request1.requestTag = @"request1";
     
-    self.request2 = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url2" connectionBuilder:nil requestLogger:nil manager:self.managerMock];
+    self.request2 = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://url2" sessionFactory:nil requestFactory:nil logger:nil manager:self.managerMock];
     self.request2.requestTag = @"request2";
+    
+    [MKTGiven([self.managerMock requestShouldUseMock:self.request1]) willReturnBool:YES];
+    [MKTGiven([self.managerMock mockForRequest:self.request1]) willReturn:self.fixtureData1];
+    [MKTGiven([self.managerMock requestShouldUseMock:self.request2]) willReturnBool:YES];
+    [MKTGiven([self.managerMock mockForRequest:self.request2]) willReturn:self.fixtureData2];
     
     self.requestFactoryMock = MKTMock([GIGURLRequestFactory class]);
     [MKTGiven([self.requestFactoryMock requestWithMethod:@"GET" url:@"http://url1"]) willReturn:self.request1];
     [MKTGiven([self.requestFactoryMock requestWithMethod:@"GET" url:@"http://url2"]) willReturn:self.request2];
     
-    self.communicator = [[GIGURLCommunicator alloc] initWithRequestFactory:self.requestFactoryMock manager:self.managerMock];
+    self.communicator = [[GIGURLCommunicator alloc] initWithManager:self.managerMock requestFactory:self.requestFactoryMock];
 }
 
 - (void)tearDown
@@ -76,6 +78,7 @@
     NSDictionary *requests = @{@"request1": self.request1, @"request2": self.request2};
     
     [self.communicator sendRequests:requests completion:^(NSDictionary *responses) {
+        XCTAssert([NSThread isMainThread]);
         [expectation fulfill];
         
         XCTAssert(responses != nil);
@@ -97,13 +100,14 @@
 
 - (void)test_Multirequest_with_fixture_fail
 {
-    [MKTGiven([self.managerMock fixtureForRequestTag:@"request1"]) willReturn:nil];
-    [MKTGiven([self.managerMock fixtureForRequestTag:@"request2"]) willReturn:nil];
+    [MKTGiven([self.managerMock mockForRequest:self.request1]) willReturn:nil];
+    [MKTGiven([self.managerMock mockForRequest:self.request2]) willReturn:nil];
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"All requests have finished"];
     NSDictionary *requests = @{@"request1": self.request1, @"request2": self.request2};
     
     [self.communicator sendRequests:requests completion:^(NSDictionary *responses) {
+        XCTAssert([NSThread isMainThread]);
         [expectation fulfill];
         
         XCTAssert(responses != nil);
@@ -125,12 +129,13 @@
 
 - (void)test_Multirequest_with_fixture_one_request_fail
 {
-    [MKTGiven([self.managerMock fixtureForRequestTag:@"request2"]) willReturn:nil];
+    [MKTGiven([self.managerMock mockForRequest:self.request2]) willReturn:nil];
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"All requests have finished"];
     NSDictionary *requests = @{@"request1": self.request1, @"request2": self.request2};
     
     [self.communicator sendRequests:requests completion:^(NSDictionary *responses) {
+        XCTAssert([NSThread isMainThread]);
         [expectation fulfill];
         
         XCTAssert(responses != nil);
@@ -150,19 +155,24 @@
     [self waitForExpectationsWithTimeout:1 handler:^(NSError * _Nullable error) {}];
 }
 
-- (void)test_Multirequest_with_no_retained_request
+- (void)test_Multirequest_with_fixture_no_retained_request
 {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"All requests have finished"];
+    
     {
-        GIGURLRequest *request = [[GIGURLRequest alloc] init];
+        GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:nil sessionFactory:nil requestFactory:nil logger:nil manager:self.managerMock];
         request.requestTag = @"request";
         
-        XCTestExpectation *expectation = [self expectationWithDescription:@"All requests have finished"];
+        [MKTGiven([self.managerMock requestShouldUseMock:request]) willReturnBool:YES];
+        [MKTGiven([self.managerMock mockForRequest:request]) willReturn:nil];
+        
         NSDictionary *requests = @{@"request": request};
         
         [self.communicator sendRequests:requests completion:^(NSDictionary *responses) {
+            XCTAssert([NSThread isMainThread]);
             [expectation fulfill];
             
-            XCTAssert(responses != nil);
+            XCTAssert(responses[@"request"] != nil);
         }];
     }
     
