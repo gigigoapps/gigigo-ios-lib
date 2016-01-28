@@ -1,13 +1,13 @@
+# GIGLibrary iOS
+
+----
+
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
 ![Version](https://img.shields.io/badge/version-0.2-blue.svg)
 
-# What is GIGLibrary?
 
-GIGLibrary is the main library for iOS projects on Gigigo.
+Main library for iOS projects on Gigigo.
 
-```
-version: 0.2
-```
 
 ## How to add it to my project?
 
