@@ -3,15 +3,16 @@
 GIGLibrary is the main library for iOS projects on Gigigo.
 
 ```
-version: 0.1
+version: 0.2
 ```
 
 ## How to add it to my project?
 
 GIGLibrary comes in two versions:
 
-- A static framework for projects that must support iOS 7.
+- A static framework for projects that must support iOS 7. (deprecated)
 - A dynamic framework for projects for iOS 8 and after.
+
 
 ## What is included?
 
