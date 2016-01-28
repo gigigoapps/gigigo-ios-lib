@@ -19,16 +19,16 @@
 			name = GIGStaticFrameworkLibrary;
 			productName = Framework;
 		};
-		FACA6B291BDF74A2001AA36E /* GIGLibraryFramework */ = {
+		FACA6B291BDF74A2001AA36E /* DeployFrameworks */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = FACA6B2A1BDF74A2001AA36E /* Build configuration list for PBXAggregateTarget "GIGLibraryFramework" */;
+			buildConfigurationList = FACA6B2A1BDF74A2001AA36E /* Build configuration list for PBXAggregateTarget "DeployFrameworks" */;
 			buildPhases = (
 				FACA6B2E1BDF7513001AA36E /* Build GIGLibrary */,
 				FA2D76131C06FC97000851DE /* Build GIGSocial */,
 			);
 			dependencies = (
 			);
-			name = GIGLibraryFramework;
+			name = DeployFrameworks;
 			productName = GIGLibraryFramework;
 		};
 /* End PBXAggregateTarget section */
@@ -2476,7 +2476,7 @@
 			targets = (
 				FA65BF981AEFD5F90031A91B /* GIGLibrary */,
 				FACE6E471BBC3FDB00457B4C /* GIGSocial */,
-				FACA6B291BDF74A2001AA36E /* GIGLibraryFramework */,
+				FACA6B291BDF74A2001AA36E /* DeployFrameworks */,
 				FA680F191B009B6B006FC484 /* GIGLibraryApp */,
 				D9AD96F91B0A386500CB5E8C /* GIGLibraryTests */,
 				A91006551B0CCE8E0080B812 /* GIGStaticLibrary */,
@@ -3271,6 +3271,7 @@
 		FA65BFB01AEFD5F90031A91B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -3295,6 +3296,7 @@
 		FA65BFB11AEFD5F90031A91B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -3367,6 +3369,7 @@
 		FACE6E521BBC3FDC00457B4C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -3391,6 +3394,7 @@
 		FACE6E531BBC3FDC00457B4C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -3486,7 +3490,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FACA6B2A1BDF74A2001AA36E /* Build configuration list for PBXAggregateTarget "GIGLibraryFramework" */ = {
+		FACA6B2A1BDF74A2001AA36E /* Build configuration list for PBXAggregateTarget "DeployFrameworks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FACA6B2B1BDF74A2001AA36E /* Debug */,
