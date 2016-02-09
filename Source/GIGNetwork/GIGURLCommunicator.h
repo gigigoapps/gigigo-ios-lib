@@ -23,7 +23,7 @@ typedef void(^GIGURLMultiRequestCompletion)(NSDictionary *responses);
 @property (assign, nonatomic, readonly) NSString *host;
 
 - (instancetype)initWithManager:(GIGURLManager *)manager;
-- (instancetype)initWithManager:(GIGURLManager *)manager requestFactory:(GIGURLRequestFactory *)requestFactory NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithManager:(GIGURLManager *)manager requestFactory:(GIGURLRequestFactory *)requestFactory;
 
 - (GIGURLRequest *)GET:(NSString *)url, ... NS_FORMAT_FUNCTION(1, 2);
 - (GIGURLRequest *)POST:(NSString *)url, ... NS_FORMAT_FUNCTION(1, 2);
