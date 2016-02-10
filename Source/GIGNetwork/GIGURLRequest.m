@@ -15,8 +15,8 @@
 
 #import "GIGDispatch.h"
 
-
 NSString * const GIGNetworkErrorDomain = @"com.gigigo.network";
+NSString * const GIGNetworkErrorMessage = @"GIGNETWORK_ERROR_MESSAGE";
 
 NSTimeInterval const GIGURLRequestTimeoutDefault = 0.0f;
 NSTimeInterval const GIGURLRequestFixtureDelayDefault = 0.5f;
@@ -159,9 +159,15 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
 {
     self.session = [self.sessionFactory sessionForRequest:self];
     self.request = [self.requestFactory requestForRequest:self];
-    
-    [self.logger logRequest:self.request encoding:self.requestFactory.stringEncoding];
-    
+	
+	[self.logger logRequest:self.request encoding:self.requestFactory.stringEncoding];
+	
+	if (!self.request) {
+		[self completeWithInvalidRequest];
+		return;
+	}
+	
+	
     self.dataTask = [self.session dataTaskWithRequest:self.request];
     [self.dataTask resume];
 }
@@ -191,6 +197,16 @@ NSTimeInterval const GIGURLRequestFixtureDelayNone = 0.0f;
     
     [self.session finishTasksAndInvalidate];
 }
+
+- (void)completeWithInvalidRequest
+{
+	self.error = [[NSError alloc] initWithDomain:GIGNetworkErrorDomain
+											code:-1
+										userInfo:@{NSLocalizedDescriptionKey: @"Invalid request"}];
+	
+	[self completeWithError];
+}
+
 
 - (void)completeWithFixture
 {
