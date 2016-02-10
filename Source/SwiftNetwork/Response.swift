@@ -9,7 +9,9 @@
 import Foundation
 
 
-public let kGigNetworkErrorMessage = "GIGNETWORK_ERROR_MESSAGE"
+public let kGIGNetworkErrorDomain = "com.gigigo.network";
+public let kGIGNetworkErrorMessage = "GIGNETWORK_ERROR_MESSAGE"
+
 
 public enum ResponseStatus {
 	case Success
@@ -46,7 +48,7 @@ public class Response {
 				return
 			}
 			
-			guard let status = json["status"] as? Bool else {
+			guard let status = self.parseStatus(json) else {
 				self.error = response.error
 				self.status = self.parseError(self.error)
 				return
@@ -83,16 +85,29 @@ public class Response {
 
 	
 	// MARK: - Private Helpers
+	
+	private func parseStatus(json: [String: AnyObject]) -> Bool? {
+		if let statusBool = json["status"] as? Bool {
+			return statusBool
+		}
+		else if let statusString = json["status"] as? String {
+			return statusString == "OK"
+		}
+		else {
+			return nil
+		}
+	}
+	
 	private func parseError(json: [String: AnyObject]) ->  ResponseStatus {
-		guard let error = json["error"] as? [String: AnyObject] else { return .UnknownError }
+		let error = json["error"] as? [String: AnyObject] ?? json
 		
 		guard
 			let code = error["code"] as? Int,
 			let message = error["message"] as? String
 			else { return .UnknownError }
 		
-		let userInfo = [kGigNetworkErrorMessage: message]
-		self.error = NSError(domain: "com.giglibrary.network", code: code, userInfo: userInfo)
+		let userInfo = [kGIGNetworkErrorMessage: message]
+		self.error = NSError(domain: kGIGNetworkErrorDomain, code: code, userInfo: userInfo)
 		
 		return self.parseError(self.error)
 	}

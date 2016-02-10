@@ -20,12 +20,13 @@ public class Request: GIGURLCommunicator {
 	
 	private var manager: GIGURLManager
 	
-	init(method: String, host: String, endpoint: String, headers: [String: String] = [:], urlParams: [String: AnyObject] = [:], bodyParams: [String: AnyObject] = [:]) {
+	public init(method: String, host: String, endpoint: String, headers: [String: String] = [:], urlParams: [String: AnyObject] = [:], bodyParams: [String: AnyObject] = [:], verbose: Bool = false) {
 		self.method = method
 		self.endpoint = endpoint
 		self.headers = headers
 		self.urlParams = urlParams
 		self.bodyParams = bodyParams
+		self.verbose = verbose
 		
 		self.manager = GIGURLManager()
 		self.manager.domain = GIGURLDomain(name: "domain", url: host)
@@ -36,7 +37,7 @@ public class Request: GIGURLCommunicator {
 	
 	// MARK: - Public Method
 	
-	func fetchJson(completionHandler: (Response) -> Void) {
+	public func fetchJson(completionHandler: (Response) -> Void) {
 		let request = self.buildRequest()
 		request.responseClass = self.jsonClass()
 		
@@ -51,7 +52,7 @@ public class Request: GIGURLCommunicator {
 		}
 	}
 	
-	func fetchImage(completionHandler: (Response) -> Void) {
+	public func fetchImage(completionHandler: (Response) -> Void) {
 		let request = self.buildRequest()
 		request.responseClass = self.imageClass()
 		
@@ -70,7 +71,7 @@ public class Request: GIGURLCommunicator {
 	// MARK: - Private Helpers
 	
 	private func buildRequest() -> GIGURLRequest {
-		let request = GIGURLRequest(method: self.method, url: "\(self.manager.domain)\(self.endpoint)")
+		let request = GIGURLRequest(method: self.method, url: "\(self.manager.domain.url)\(self.endpoint)")
 		request.headers = self.headers
 		request.parameters = self.urlParams
 		request.json = self.bodyParams

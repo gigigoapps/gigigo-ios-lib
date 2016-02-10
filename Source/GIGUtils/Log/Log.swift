@@ -59,7 +59,7 @@ public func LogWarn(message: String, filename: NSString = __FILE__, line: Int = 
 	Log("🚸🚸🚸 ⤷ FROM CALLER: " + caller + "\n")
 }
 
-func LogError(error: NSError?, filename: NSString = __FILE__, line: Int = __LINE__, funcname: String = __FUNCTION__) {
+public func LogError(error: NSError?, filename: NSString = __FILE__, line: Int = __LINE__, funcname: String = __FUNCTION__) {
 	guard
 		LogManager.shared.logLevel >= .Error,
 		let err = error
