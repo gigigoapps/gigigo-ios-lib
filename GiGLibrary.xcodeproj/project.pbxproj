@@ -34,6 +34,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		4A6A04821C62524000FED731 /* GIGIOSVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A04811C62524000FED731 /* GIGIOSVersion.swift */; };
+		4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A881C111C5F7C72000EC61E /* AlertController.swift */; };
+		4A881C1A1C5F86CF000EC61E /* GIGAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A881C191C5F86CF000EC61E /* GIGAlertViewController.m */; };
+		4AACDF981C60DA2400F4E8AE /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */; };
+		4AACDF9A1C611E7100F4E8AE /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF991C611E7100F4E8AE /* Alert.swift */; };
 		7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84931BC2962600517C2F /* GIGParseClass.h */; };
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
 		7B6B84971BC2962F00517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
@@ -635,6 +640,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4A6A04811C62524000FED731 /* GIGIOSVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGIOSVersion.swift; sourceTree = "<group>"; };
+		4A881C111C5F7C72000EC61E /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertController.swift; path = GIGUtils/AlertController/AlertController.swift; sourceTree = "<group>"; };
+		4A881C181C5F86CF000EC61E /* GIGAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGAlertViewController.h; sourceTree = "<group>"; };
+		4A881C191C5F86CF000EC61E /* GIGAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGAlertViewController.m; sourceTree = "<group>"; };
+		4A881C1C1C5F8854000EC61E /* GIGLibraryApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GIGLibraryApp-Bridging-Header.h"; path = "../GIGLibraryApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionSheet.swift; path = ActionSheet/ActionSheet.swift; sourceTree = "<group>"; };
+		4AACDF991C611E7100F4E8AE /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = GIGUtils/AlertController/Alert.swift; sourceTree = "<group>"; };
 		7B6B84931BC2962600517C2F /* GIGParseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGParseClass.h; path = Class/GIGParseClass.h; sourceTree = "<group>"; };
 		7B6B84941BC2962600517C2F /* GIGParseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGParseClass.m; path = Class/GIGParseClass.m; sourceTree = "<group>"; };
 		7B6B84981BC296F600517C2F /* GIGParseClassTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGParseClassTests.m; sourceTree = "<group>"; };
@@ -1015,6 +1027,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A881C101C5F7C2D000EC61E /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				4A881C111C5F7C72000EC61E /* AlertController.swift */,
+				4AACDF991C611E7100F4E8AE /* Alert.swift */,
+			);
+			name = AlertController;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		4A881C131C5F8650000EC61E /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				4A881C181C5F86CF000EC61E /* GIGAlertViewController.h */,
+				4A881C191C5F86CF000EC61E /* GIGAlertViewController.m */,
+			);
+			name = Alert;
+			sourceTree = "<group>";
+		};
+		4AACDF961C60D98A00F4E8AE /* ActionSheetController */ = {
+			isa = PBXGroup;
+			children = (
+				4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */,
+			);
+			name = ActionSheetController;
+			sourceTree = "<group>";
+		};
 		7B6B84921BC2959500517C2F /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -1260,6 +1299,7 @@
 			isa = PBXGroup;
 			children = (
 				D99AD1B81B1DA3A3005BB4E5 /* GIGUtils.h */,
+				4A6A04811C62524000FED731 /* GIGIOSVersion.swift */,
 				D99AD1B41B1DA3A3005BB4E5 /* GIGDebug.h */,
 				D99AD1B51B1DA3A3005BB4E5 /* GIGDispatch.h */,
 				D99AD1B61B1DA3A3005BB4E5 /* GIGLocalization.h */,
@@ -1290,6 +1330,8 @@
 				D99AD1DE1B1DA3A3005BB4E5 /* String */,
 				D99AD1E61B1DA3A3005BB4E5 /* UserDefaults */,
 				D99AD1E91B1DA3A3005BB4E5 /* View */,
+				4A881C101C5F7C2D000EC61E /* AlertController */,
+				4AACDF961C60D98A00F4E8AE /* ActionSheetController */,
 			);
 			path = GIGUtils;
 			sourceTree = "<group>";
@@ -1545,6 +1587,7 @@
 				FACE6D941BBC112B00457B4C /* Network */,
 				D9E18E111BD542D900611CDA /* Formulary */,
 				FAA80A7A1B70CFE40076FF9E /* Social */,
+				4A881C131C5F8650000EC61E /* Alert */,
 				D99AD3661B1DAAE6005BB4E5 /* Resources */,
 				D9D059E41BDE440F00927F0E /* Frameworks */,
 				D99AD3881B1DAAEB005BB4E5 /* Supporting Files */,
@@ -1629,6 +1672,7 @@
 		D99AD35F1B1DAAE6005BB4E5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				4A881C1C1C5F8854000EC61E /* GIGLibraryApp-Bridging-Header.h */,
 				D99AD3601B1DAAE6005BB4E5 /* AppDelegate.h */,
 				D99AD3611B1DAAE6005BB4E5 /* AppDelegate.m */,
 				D99AD3621B1DAAE6005BB4E5 /* Main.storyboard */,
@@ -2417,6 +2461,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = "";
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Gigigo SL";
 				TargetAttributes = {
@@ -2814,6 +2859,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99AD2611B1DA3A3005BB4E5 /* GIGURLImageResponse.m in Sources */,
+				4AACDF981C60DA2400F4E8AE /* ActionSheet.swift in Sources */,
 				D99AD2E51B1DA3A3005BB4E5 /* NSString+GIGSubstring.m in Sources */,
 				D9E7A15E1B419475004D3193 /* GIGMultiValidator.m in Sources */,
 				D9FE620A1BD65D8A00E2B23C /* GIGFormField.m in Sources */,
@@ -2830,6 +2876,7 @@
 				D9FE62191BD65DCF00E2B23C /* GIGCheckFormField.m in Sources */,
 				D99AD2751B1DA3A3005BB4E5 /* UIColor+GIGExtension.m in Sources */,
 				D99AD2231B1DA3A3005BB4E5 /* GIGURLConfigTableViewController.m in Sources */,
+				4A6A04821C62524000FED731 /* GIGIOSVersion.swift in Sources */,
 				D9FD35F21B413E28000D356F /* GIGValidator.m in Sources */,
 				D99AD2A31B1DA3A3005BB4E5 /* UIImage+GIGExtension.m in Sources */,
 				D99AD2EF1B1DA3A3005BB4E5 /* UIView+GIGBorderShadowExtension.m in Sources */,
@@ -2838,6 +2885,7 @@
 				D99AD1FB1B1DA3A3005BB4E5 /* GIGGeolocation.m in Sources */,
 				D99AD2791B1DA3A3005BB4E5 /* NSManagedObjectContext+GIGExtension.m in Sources */,
 				D99AD2E91B1DA3A3005BB4E5 /* NSUserDefaults+GIGArchive.m in Sources */,
+				4AACDF9A1C611E7100F4E8AE /* Alert.swift in Sources */,
 				D99AD2AD1B1DA3A3005BB4E5 /* NSArray+GIGJSON.m in Sources */,
 				D99AD2071B1DA3A3005BB4E5 /* GIGLayoutGridHorizontal.m in Sources */,
 				D99AD22B1B1DA3A3005BB4E5 /* GIGURLDomainsKeeper.m in Sources */,
@@ -2866,6 +2914,7 @@
 				D99AD2B11B1DA3A3005BB4E5 /* NSData+GIGJSON.m in Sources */,
 				D9FD36221B416CCB000D356F /* GIGPhoneValidator.m in Sources */,
 				D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */,
+				4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */,
 				D93CA5301BEA49600098D37C /* NSData+GIGExtension.m in Sources */,
 				D99AD2B51B1DA3A3005BB4E5 /* NSDictionary+GIGJSON.m in Sources */,
 				D99AD2711B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m in Sources */,
@@ -2907,6 +2956,7 @@
 				FACE6D991BBC115900457B4C /* GLALoginFacebookViewController.m in Sources */,
 				D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */,
 				D99AD3701B1DAAE6005BB4E5 /* AppDelegate.m in Sources */,
+				4A881C1A1C5F86CF000EC61E /* GIGAlertViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3272,6 +3322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -3290,6 +3341,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigigo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -3297,6 +3349,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -3321,7 +3374,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREFIX_HEADER = App/PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -3333,6 +3388,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.giglibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "App/GIGLibraryApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -3341,7 +3398,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREFIX_HEADER = App/PrefixHeader.pch;
 				INFOPLIST_FILE = GIGLibraryApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3349,6 +3408,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.giglibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "App/GIGLibraryApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
