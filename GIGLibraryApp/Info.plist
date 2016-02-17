@@ -77,6 +77,13 @@
                 <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
                 <true/>
             </dict>
+			<key>api-discover-mcd.s.gigigoapps.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
 		</dict>
 	</dict>
 	<key>LSApplicationQueriesSchemes</key>
