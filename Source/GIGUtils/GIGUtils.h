@@ -34,7 +34,6 @@
 #import "NSDictionary+GIGExtension.h"
 #import "NSData+GIGString.h"
 #import "UIImage+GIGExtension.h"
-#import "NSLocale+GIGExtension.h"
 #import "UINavigationController+GIGExtension.h"
 #import "NSError+GIGExtension.h"
 #import "UIScreen+GIGExtension.h"

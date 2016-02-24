@@ -254,10 +254,6 @@
 		D99AD2B81B1DA3A3005BB4E5 /* NSString+GIGJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = D99AD1C71B1DA3A3005BB4E5 /* NSString+GIGJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D99AD2B91B1DA3A3005BB4E5 /* NSString+GIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD1C81B1DA3A3005BB4E5 /* NSString+GIGJSON.m */; };
 		D99AD2BA1B1DA3A3005BB4E5 /* NSString+GIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD1C81B1DA3A3005BB4E5 /* NSString+GIGJSON.m */; };
-		D99AD2BB1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = D99AD1CA1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D99AD2BC1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = D99AD1CA1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D99AD2BD1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD1CB1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.m */; };
-		D99AD2BE1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD1CB1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.m */; };
 		D99AD2BF1B1DA3A3005BB4E5 /* GIGLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D99AD1CD1B1DA3A3005BB4E5 /* GIGLogManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D99AD2C01B1DA3A3005BB4E5 /* GIGLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D99AD1CD1B1DA3A3005BB4E5 /* GIGLogManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D99AD2C11B1DA3A3005BB4E5 /* GIGLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD1CE1B1DA3A3005BB4E5 /* GIGLogManager.m */; };
@@ -521,6 +517,7 @@
 		FA723AC71C64AB4500225E79 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC51C64AB4500225E79 /* Request.swift */; };
 		FA723AC81C64AB4500225E79 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC61C64AB4500225E79 /* Response.swift */; };
 		FA74BD001B6F7050001D2BCF /* GIGSocialLoginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74BCFF1B6F7050001D2BCF /* GIGSocialLoginTests.m */; };
+		FA88CBAC1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */; };
 		FAA3F8871C60EDD80061AADD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3F8861C60EDD80061AADD /* Log.swift */; };
 		FACE6D991BBC115900457B4C /* GLALoginFacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */; };
 		FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; };
@@ -794,8 +791,6 @@
 		D99AD1C61B1DA3A3005BB4E5 /* NSDictionary+GIGJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GIGJSON.m"; sourceTree = "<group>"; };
 		D99AD1C71B1DA3A3005BB4E5 /* NSString+GIGJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GIGJSON.h"; sourceTree = "<group>"; };
 		D99AD1C81B1DA3A3005BB4E5 /* NSString+GIGJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GIGJSON.m"; sourceTree = "<group>"; };
-		D99AD1CA1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+GIGExtension.h"; sourceTree = "<group>"; };
-		D99AD1CB1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+GIGExtension.m"; sourceTree = "<group>"; };
 		D99AD1CD1B1DA3A3005BB4E5 /* GIGLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLogManager.h; sourceTree = "<group>"; };
 		D99AD1CE1B1DA3A3005BB4E5 /* GIGLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGLogManager.m; sourceTree = "<group>"; };
 		D99AD1D01B1DA3A3005BB4E5 /* UINavigationController+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+GIGExtension.h"; sourceTree = "<group>"; };
@@ -962,6 +957,7 @@
 		FA74BCFF1B6F7050001D2BCF /* GIGSocialLoginTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGSocialLoginTests.m; path = GIGSocial/SocialLogin/GIGSocialLoginTests.m; sourceTree = "<group>"; };
 		FA74BD171B6F79E7001D2BCF /* GIGFacebookMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGFacebookMock.h; path = GIGSocial/Mocks/GIGFacebookMock.h; sourceTree = "<group>"; };
 		FA74BD181B6F79E7001D2BCF /* GIGFacebookMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFacebookMock.m; path = GIGSocial/Mocks/GIGFacebookMock.m; sourceTree = "<group>"; };
+		FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocale+GIGExtension.swift"; sourceTree = "<group>"; };
 		FAA3F8861C60EDD80061AADD /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		FAA80A731B70C9DD0076FF9E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = GIGSocial/Libs/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = GIGSocial/Libs/FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -1510,8 +1506,7 @@
 		D99AD1C91B1DA3A3005BB4E5 /* Locale */ = {
 			isa = PBXGroup;
 			children = (
-				D99AD1CA1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.h */,
-				D99AD1CB1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.m */,
+				FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */,
 			);
 			path = Locale;
 			sourceTree = "<group>";
@@ -2170,7 +2165,6 @@
 				FAEDF67D1BE20EF900F05AE2 /* GIGURLSessionFactory.h in Headers */,
 				D99AD2941B1DA3A3005BB4E5 /* GIGFileManager.h in Headers */,
 				D99AD2CE1B1DA3A3005BB4E5 /* NSString+GIGRegexp.h in Headers */,
-				D99AD2BC1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.h in Headers */,
 				D99AD2F21B1DA3A3005BB4E5 /* UIView+GIGDebugExtension.h in Headers */,
 				D99AD29C1B1DA3A3005BB4E5 /* GIGLocalization.h in Headers */,
 				D9FE61F51BD65BAE00E2B23C /* GIGFormConstants.h in Headers */,
@@ -2287,7 +2281,6 @@
 				D99AD2931B1DA3A3005BB4E5 /* GIGFileManager.h in Headers */,
 				7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */,
 				D99AD2CD1B1DA3A3005BB4E5 /* NSString+GIGRegexp.h in Headers */,
-				D99AD2BB1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.h in Headers */,
 				D99AD2F11B1DA3A3005BB4E5 /* UIView+GIGDebugExtension.h in Headers */,
 				D99AD29B1B1DA3A3005BB4E5 /* GIGLocalization.h in Headers */,
 				D9FE62081BD65D8A00E2B23C /* GIGFormField.h in Headers */,
@@ -2756,7 +2749,6 @@
 				D99AD2721B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m in Sources */,
 				D99AD28A1B1DA3A3005BB4E5 /* GIGDigest.m in Sources */,
 				D99AD2D41B1DA3A3005BB4E5 /* UIScreen+GIGExtension.m in Sources */,
-				D99AD2BE1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.m in Sources */,
 				D99AD24A1B1DA3A3005BB4E5 /* GIGURLManager.m in Sources */,
 				D99AD2F41B1DA3A3005BB4E5 /* UIView+GIGDebugExtension.m in Sources */,
 				D99AD2201B1DA3A3005BB4E5 /* GIGURLConfigFixturesTableViewController.m in Sources */,
@@ -2959,6 +2951,7 @@
 				D99AD2271B1DA3A3005BB4E5 /* GIGURLDomain.m in Sources */,
 				D9FE620E1BD65D8A00E2B23C /* GIGFormFieldsBuilder.m in Sources */,
 				D99AD2371B1DA3A3005BB4E5 /* GIGURLFormatter.m in Sources */,
+				FA88CBAC1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift in Sources */,
 				D99AD22F1B1DA3A3005BB4E5 /* GIGURLFixture.m in Sources */,
 				D99AD2591B1DA3A3005BB4E5 /* GIGURLRequestLogger.m in Sources */,
 				D99AD3031B1DA3A3005BB4E5 /* UIView+GIGTransformExtension.m in Sources */,
@@ -2971,7 +2964,6 @@
 				D99AD2711B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m in Sources */,
 				D99AD2891B1DA3A3005BB4E5 /* GIGDigest.m in Sources */,
 				D99AD2D31B1DA3A3005BB4E5 /* UIScreen+GIGExtension.m in Sources */,
-				D99AD2BD1B1DA3A3005BB4E5 /* NSLocale+GIGExtension.m in Sources */,
 				7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */,
 				D99AD2491B1DA3A3005BB4E5 /* GIGURLManager.m in Sources */,
 				D99AD2F31B1DA3A3005BB4E5 /* UIView+GIGDebugExtension.m in Sources */,
