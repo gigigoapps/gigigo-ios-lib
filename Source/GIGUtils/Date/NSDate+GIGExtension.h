@@ -11,7 +11,6 @@
 
 @interface NSDate (GIGExtension)
 
-+ (NSDate *)dateFromString:(NSString *)dateString format:(NSString *)format;
 + (NSDate *)dateFromString:(NSString *)dateString format:(NSString *)format locale:(NSLocale *)locale;
 + (NSDate *)randomDate;
 + (NSTimeInterval)timeIntervalSince1970;

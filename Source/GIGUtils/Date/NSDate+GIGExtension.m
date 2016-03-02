@@ -7,14 +7,11 @@
 //
 
 #import "NSDate+GIGExtension.h"
+#import <GIGLibrary/GIGLibrary-Swift.h>
 
 
 @implementation NSDate (GIGExtension)
 
-+ (NSDate *)dateFromString:(NSString *)dateString format:(NSString *)format
-{
-    return [self dateFromString:dateString format:format locale:nil];
-}
 
 + (NSDate *)dateFromString:(NSString *)dateString format:(NSString *)format locale:(NSLocale *)locale
 {
@@ -40,8 +37,9 @@
     NSInteger seconds = arc4random_uniform(60) + 1;
     
     NSString *dateString = [NSString stringWithFormat:@"%02d/%02d/%04d %02d:%02d:%02d", (int)day, (int)month, (int)year, (int)hour, (int)minutes, (int)seconds];
-    
-    return [NSDate dateFromString:dateString format:@"dd/MM/yyyy HH:mm:ss"];
+	
+	
+	return [NSDate dateFromString:dateString format:@"dd/MM/yyyy HH:mm:ss"];
 }
 
 + (NSTimeInterval)timeIntervalSince1970
