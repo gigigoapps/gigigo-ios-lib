@@ -30,7 +30,6 @@ class SwiftRequestVC: UIViewController {
 	}
 	
 	@IBAction func onButtonOrchextraApiRequestTap(sender: AnyObject) {
-		
 		Request(
 			method: "POST",
 			host: "https://api.s.orchextra.io/v1",
@@ -41,7 +40,8 @@ class SwiftRequestVC: UIViewController {
 				"password": "GigigoMadrid1",
 				"staySigned": true,
 				"createCookie": false
-			]
+			],
+			verbose: true
 		)
 		.fetchJson { response in
 			switch response.status {
@@ -60,7 +60,7 @@ class SwiftRequestVC: UIViewController {
 	
 	private func processResponse(response: Response) {
 		switch response.status {
-			
+
 		case .Success:
 			Log("Success: \n\(response.body)")
 		case .ErrorParsingJson, .NoInternet, .SessionExpired, .Timeout, .UnknownError:
