@@ -13,14 +13,14 @@ public class Request: GIGURLCommunicator {
 	
 	public var method: String
 	public var endpoint: String
-	public var headers: [String: String]
-	public var urlParams: [String: AnyObject]
-	public var bodyParams: [String: AnyObject]
+	public var headers: [String: String]?
+	public var urlParams: [String: AnyObject]?
+	public var bodyParams: [String: AnyObject]?
 	public var verbose = false
 	
 	private var manager: GIGURLManager
 	
-	public init(method: String, host: String, endpoint: String, headers: [String: String] = [:], urlParams: [String: AnyObject] = [:], bodyParams: [String: AnyObject] = [:], verbose: Bool = false) {
+	public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: AnyObject]? = nil, bodyParams: [String: AnyObject]? = nil, verbose: Bool = false) {
 		self.method = method
 		self.endpoint = endpoint
 		self.headers = headers
@@ -29,7 +29,7 @@ public class Request: GIGURLCommunicator {
 		self.verbose = verbose
 		
 		self.manager = GIGURLManager()
-		self.manager.domain = GIGURLDomain(name: "domain", url: host)
+		self.manager.domain = GIGURLDomain(name: "domain", url: baseUrl)
 		
 		super.init(manager: self.manager)
 	}
@@ -71,13 +71,25 @@ public class Request: GIGURLCommunicator {
 	// MARK: - Private Helpers
 	
 	private func buildRequest() -> GIGURLRequest {
-		let request = GIGURLRequest(method: self.method, url: "\(self.manager.domain.url)\(self.endpoint)")
+		let url = self.buildURL()
+		let request = GIGURLRequest(method: self.method, url: url)
 		request.headers = self.headers
 		request.parameters = self.urlParams
 		request.json = self.bodyParams
 		request.logLevel = self.verbose ? .Verbose : .None
 		
 		return request
+	}
+	
+	private func buildURL() -> String {
+		let url = NSURLComponents(string: self.manager.domain.url)
+		url?.path = url?.path?.stringByAppendingString(self.endpoint)
+		
+		url?.queryItems = self.urlParams?.map { key, value in
+			NSURLQueryItem(name: key, value: String(value))
+		}
+		
+		return url?.string ?? "NOT VALID URL"
 	}
 	
 	private func jsonClass() -> AnyClass {

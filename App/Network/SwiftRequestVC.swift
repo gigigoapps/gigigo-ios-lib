@@ -21,7 +21,7 @@ class SwiftRequestVC: UIViewController {
 	@IBAction func onButtonSwiftRequestTap(sender: UIButton) {
 		let request = Request(
 			method: "POST",
-			host: "http://api-discover-mcd.s.gigigoapps.com",
+			baseUrl: "http://api-discover-mcd.s.gigigoapps.com",
 			endpoint: "/configuration"
 		)
 		request.verbose = true
@@ -32,7 +32,7 @@ class SwiftRequestVC: UIViewController {
 	@IBAction func onButtonOrchextraApiRequestTap(sender: AnyObject) {
 		Request(
 			method: "POST",
-			host: "https://api.s.orchextra.io/v1",
+			baseUrl: "https://api.s.orchextra.io/v1",
 			endpoint: "/security/token",
 			bodyParams: [
 				"grantType": "password",
@@ -43,18 +43,7 @@ class SwiftRequestVC: UIViewController {
 			],
 			verbose: true
 		)
-		.fetchJson { response in
-			switch response.status {
-			case .Success:
-				Log("Success: \n\(response.body)")
-			case .ErrorParsingJson, .NoInternet, .SessionExpired, .Timeout, .UnknownError:
-				Log("Some kind of error")
-				LogError(response.error)
-			case .ApiError:
-				Log("API error")
-				LogError(response.error)
-			}
-		}
+		.fetchJson(processResponse)
 	}
 	
 	
@@ -62,7 +51,7 @@ class SwiftRequestVC: UIViewController {
 		switch response.status {
 
 		case .Success:
-			Log("Success: \n\(response.body)")
+			Log("Success: \n\(response.body!)")
 		case .ErrorParsingJson, .NoInternet, .SessionExpired, .Timeout, .UnknownError:
 			Log("Some kind of error")
 			LogError(response.error)
