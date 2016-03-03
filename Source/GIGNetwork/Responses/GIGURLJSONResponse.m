@@ -13,21 +13,25 @@
 
 @implementation GIGURLJSONResponse
 
+- (instancetype)initWithData:(NSData *)data headers:(NSDictionary *)headers;
+{
+	self = [super initWithData:data headers:headers];
+	
+	if (self)
+	{
+		[self initializeJSONResponseWithData:data];
+	}
+	
+	return self;
+}
+
+
 - (instancetype)initWithData:(NSData *)data
 {
     self = [super initWithData:data];
     if (self)
     {
-        if (self.success)
-        {
-            NSError *error = nil;
-            self.json = [data toJSONError:&error];
-            if (self.json == nil)
-            {
-                self.success = NO;
-                self.error = error;
-            }
-        }
+		[self initializeJSONResponseWithData:data];
     }
     return self;
 }
@@ -35,8 +39,26 @@
 - (instancetype)initWithJSON:(id)json
 {
     NSData *data = [json toData];
-    
+	
     return [self initWithData:data];
 }
+
+
+#pragma mark - Private Helpers
+
+- (void)initializeJSONResponseWithData:(NSData *)data
+{
+	if (self.success)
+	{
+		NSError *error = nil;
+		self.json = [data toJSONError:&error];
+		if (self.json == nil)
+		{
+			self.success = NO;
+			self.error = error;
+		}
+	}
+}
+
 
 @end

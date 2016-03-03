@@ -18,7 +18,7 @@
     self = [super init];
     if (self)
     {
-		[self initializeWithData:data];
+		[self initializeResponseWithData:data];
         _headers = headers;
     }
     return self;
@@ -29,7 +29,7 @@
     self = [super init];
     if (self)
     {
-		[self initializeWithData:data];
+		[self initializeResponseWithData:data];
     }
     return self;
 }
@@ -39,7 +39,7 @@
     self = [super init];
     if (self)
     {
-		[self initializeWithError:error];
+		[self initializeResponseWithError:error];
         _headers = headers;
         _data = data;
     }
@@ -51,7 +51,7 @@
     self = [super init];
     if (self)
     {
-		[self initializeWithError:error];
+		[self initializeResponseWithError:error];
     }
     return self;
 }
@@ -69,13 +69,13 @@
 
 #pragma mark - PRIVATE
 
-- (void)initializeWithError:(NSError *)error
+- (void)initializeResponseWithError:(NSError *)error
 {
 	self.success = NO;
 	self.error = error;
 }
 
-- (void)initializeWithData:(NSData *)data
+- (void)initializeResponseWithData:(NSData *)data
 {
 	self.success = (data != nil);
 	self.data = data;
