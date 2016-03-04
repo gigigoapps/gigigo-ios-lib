@@ -2,8 +2,8 @@
 Framework to perform common social features like:
 
 * Facebook login
-* Twitter Login
-* Share content (images, urls, text...)
+* Twitter Login - (not implemented yet)
+* Share content (images, urls, text...) - (not implemented yet)
 
 With a dynamic framework, it also embed the Facebook & Twitter frameworks nedded.
 
@@ -41,7 +41,7 @@ Following is detailed what you need and what you don't from the Facebook install
 4. Don't add the SDK to your Xcode Project. There is no need
 5. Configure Xcode Project
 	* URL Schemes, app id and display name
-	* Whitelist facebook server
+	* Don't whitelist facebook server, is no needed anymore
 6. Don't connect Application Delegate and don't add app events. Instead, use the GIGSocialCore methods.
 
 
