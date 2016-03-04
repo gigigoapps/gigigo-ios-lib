@@ -512,6 +512,7 @@
 		FA3F10891B71F1C900517468 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A731B70C9DD0076FF9E /* FBSDKCoreKit.framework */; };
 		FA3F108B1B71F1CD00517468 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */; };
 		FA42A2AD1C6B678300C2D1BB /* SwiftRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */; };
+		FA46B2971C899B2C009EDE7C /* facebook_version.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA46B2961C899B2C009EDE7C /* facebook_version.txt */; };
 		FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FA723AC71C64AB4500225E79 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC51C64AB4500225E79 /* Request.swift */; };
@@ -947,6 +948,7 @@
 		FA3F10831B71F0D500517468 /* FBSDKAccessTokenMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBSDKAccessTokenMock.h; path = GIGSocial/Mocks/FBSDKAccessTokenMock.h; sourceTree = "<group>"; };
 		FA3F10841B71F0D500517468 /* FBSDKAccessTokenMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBSDKAccessTokenMock.m; path = GIGSocial/Mocks/FBSDKAccessTokenMock.m; sourceTree = "<group>"; };
 		FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRequestVC.swift; sourceTree = "<group>"; };
+		FA46B2961C899B2C009EDE7C /* facebook_version.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = facebook_version.txt; path = GIGSocial/Libs/facebook_version.txt; sourceTree = "<group>"; };
 		FA4BFCD91BBAF21E003FC7E2 /* GIGLoginManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGLoginManagerMock.h; path = GIGSocial/Mocks/GIGLoginManagerMock.h; sourceTree = "<group>"; };
 		FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGLoginManagerMock.m; path = GIGSocial/Mocks/GIGLoginManagerMock.m; sourceTree = "<group>"; };
 		FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2041,6 +2043,7 @@
 		FA74BCF71B6F6D9C001D2BCF /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				FA46B2961C899B2C009EDE7C /* facebook_version.txt */,
 				FAA80A731B70C9DD0076FF9E /* FBSDKCoreKit.framework */,
 				FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */,
 			);
@@ -2613,6 +2616,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA46B2971C899B2C009EDE7C /* facebook_version.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
