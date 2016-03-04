@@ -12,7 +12,7 @@
 typedef void(^GIGAlertActionBlock)(void);
 typedef void(^GIGAlertAcceptBlock)(BOOL accepted);
 
-
+__attribute((deprecated(("Use Alert class instead"))))
 @interface GIGAlert : NSObject
 
 @property (strong, nonatomic) NSString *title;
