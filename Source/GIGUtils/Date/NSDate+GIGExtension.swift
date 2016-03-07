@@ -14,7 +14,7 @@ public let DateISOFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 public extension NSDate {
 	
 	/// Date from string with ISO format.
-	class func dateFromString(dateString: String, format: String = DateISOFormat) -> NSDate? {
+	public class func dateFromString(dateString: String, format: String = DateISOFormat) -> NSDate? {
 		let dateFormat = NSDateFormatter()
 		dateFormat.dateFormat = format
 
