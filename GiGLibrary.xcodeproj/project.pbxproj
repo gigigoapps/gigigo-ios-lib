@@ -516,6 +516,8 @@
 		FA4192261C8F153B00BF6988 /* GIGFacebookLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = FA0015A01BE8AA760028B1CD /* GIGFacebookLoginResult.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FA4192271C8F155C00BF6988 /* facebook_version.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA46B2961C899B2C009EDE7C /* facebook_version.txt */; };
 		FA41922A1C8F2F7200BF6988 /* Passbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4192291C8F2F7200BF6988 /* Passbook.swift */; };
+		FA41922D1C8F331400BF6988 /* PassbookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41922C1C8F331400BF6988 /* PassbookService.swift */; };
+		FA4192301C8F34BE00BF6988 /* PassbookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41922F1C8F34BE00BF6988 /* PassbookManager.swift */; };
 		FA42A2AD1C6B678300C2D1BB /* SwiftRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */; };
 		FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
@@ -963,6 +965,8 @@
 		FA41921B1C8F145000BF6988 /* GIGPassbook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIGPassbook.h; sourceTree = "<group>"; };
 		FA41921D1C8F145000BF6988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA4192291C8F2F7200BF6988 /* Passbook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Passbook.swift; path = GIGPassbook/Passbook.swift; sourceTree = "<group>"; };
+		FA41922C1C8F331400BF6988 /* PassbookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassbookService.swift; path = GIGPassbook/Services/PassbookService.swift; sourceTree = "<group>"; };
+		FA41922F1C8F34BE00BF6988 /* PassbookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassbookManager.swift; path = GIGPassbook/Managers/PassbookManager.swift; sourceTree = "<group>"; };
 		FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRequestVC.swift; sourceTree = "<group>"; };
 		FA46B2961C899B2C009EDE7C /* facebook_version.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = facebook_version.txt; path = GIGSocial/Libs/facebook_version.txt; sourceTree = "<group>"; };
 		FA4BFCD91BBAF21E003FC7E2 /* GIGLoginManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGLoginManagerMock.h; path = GIGSocial/Mocks/GIGLoginManagerMock.h; sourceTree = "<group>"; };
@@ -1997,8 +2001,26 @@
 			isa = PBXGroup;
 			children = (
 				FA4192291C8F2F7200BF6988 /* Passbook.swift */,
+				FA41922B1C8F32F600BF6988 /* Services */,
+				FA41922E1C8F348500BF6988 /* Facades */,
 			);
 			name = GIGPassbook;
+			sourceTree = "<group>";
+		};
+		FA41922B1C8F32F600BF6988 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FA41922C1C8F331400BF6988 /* PassbookService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		FA41922E1C8F348500BF6988 /* Facades */ = {
+			isa = PBXGroup;
+			children = (
+				FA41922F1C8F34BE00BF6988 /* PassbookManager.swift */,
+			);
+			name = Facades;
 			sourceTree = "<group>";
 		};
 		FA65BF8F1AEFD5F80031A91B = {
@@ -3001,6 +3023,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA41922A1C8F2F7200BF6988 /* Passbook.swift in Sources */,
+				FA41922D1C8F331400BF6988 /* PassbookService.swift in Sources */,
+				FA4192301C8F34BE00BF6988 /* PassbookManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

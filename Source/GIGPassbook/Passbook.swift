@@ -20,14 +20,38 @@ public enum PassbookResult {
 
 public class Passbook {
 	
-	public func addPassbookFromUrl(url: String, completionHandler: PassbookResult -> Void) {
-		let error = NSError(
-			domain: kGIGPassbookErrorDomain,
-			code: -1,
-			userInfo: [kGIGPassbookErrorMessage: "Not implemented yet"]
-		)
-
-		completionHandler(.Error(error))
+	private var service = PassbookService()
+	private var passbookManager = PassbookManager()
+	
+	
+	public func addPassbookFromUrl(urlString: String, completionHandler: PassbookResult -> Void) {
+		guard let url = NSURL(string: urlString) else {
+			completionHandler(.Error(self.errorURLNotValid()))
+			return
+		}
+		
+		self.service.fetchPassFromURL(url) { result in
+			switch result {
+				
+			case .Success(let pass):
+				self.passbookManager.addPass(pass)
+				completionHandler(.Success)
+				
+			case .Error(let error):
+				completionHandler(.Error(error))
+			}
+		}
+		
 	}
 	
+	
+	private func errorURLNotValid() -> NSError {
+		let error = NSError(
+			domain: kGIGPassbookErrorDomain,
+			code: 1,
+			userInfo: [kGIGPassbookErrorMessage: "The url is not valid"]
+		)
+		
+		return error
+	}
 }
