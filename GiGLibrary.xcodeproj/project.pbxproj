@@ -495,8 +495,6 @@
 		D9FE621F1BD6878600E2B23C /* GIGMessageFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE621C1BD6878600E2B23C /* GIGMessageFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */; };
 		D9FE62211BD6878600E2B23C /* GIGMessageFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */; };
-		FA0015A21BE8AA760028B1CD /* GIGFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = FA00159E1BE8AA760028B1CD /* GIGFacebook.h */; };
-		FA0015A41BE8AA760028B1CD /* GIGFacebookLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = FA0015A01BE8AA760028B1CD /* GIGFacebookLoginResult.h */; };
 		FA0215081BE8B0A600B4C10B /* GIGFacebookLoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0015A11BE8AA760028B1CD /* GIGFacebookLoginResult.m */; };
 		FA0215091BE8B0A900B4C10B /* GIGFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = FA00159F1BE8AA760028B1CD /* GIGFacebook.m */; };
 		FA03182E1BE9FB4400333521 /* FBSDKGraphRequestMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA03182D1BE9FB4400333521 /* FBSDKGraphRequestMock.m */; };
@@ -511,8 +509,14 @@
 		FA3F10871B71F1B600517468 /* GIGFacebookMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74BD181B6F79E7001D2BCF /* GIGFacebookMock.m */; };
 		FA3F10891B71F1C900517468 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A731B70C9DD0076FF9E /* FBSDKCoreKit.framework */; };
 		FA3F108B1B71F1CD00517468 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA80A741B70C9DD0076FF9E /* FBSDKLoginKit.framework */; };
+		FA41921C1C8F145000BF6988 /* GIGPassbook.h in Headers */ = {isa = PBXBuildFile; fileRef = FA41921B1C8F145000BF6988 /* GIGPassbook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA4192201C8F145000BF6988 /* GIGPassbook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4192191C8F145000BF6988 /* GIGPassbook.framework */; };
+		FA4192211C8F145000BF6988 /* GIGPassbook.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA4192191C8F145000BF6988 /* GIGPassbook.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FA4192251C8F153000BF6988 /* GIGFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = FA00159E1BE8AA760028B1CD /* GIGFacebook.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		FA4192261C8F153B00BF6988 /* GIGFacebookLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = FA0015A01BE8AA760028B1CD /* GIGFacebookLoginResult.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		FA4192271C8F155C00BF6988 /* facebook_version.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA46B2961C899B2C009EDE7C /* facebook_version.txt */; };
+		FA41922A1C8F2F7200BF6988 /* Passbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4192291C8F2F7200BF6988 /* Passbook.swift */; };
 		FA42A2AD1C6B678300C2D1BB /* SwiftRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */; };
-		FA46B2971C899B2C009EDE7C /* facebook_version.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA46B2961C899B2C009EDE7C /* facebook_version.txt */; };
 		FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FA723AC71C64AB4500225E79 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC51C64AB4500225E79 /* Request.swift */; };
@@ -601,6 +605,13 @@
 			remoteGlobalIDString = D99AD0F81B1D9716005BB4E5;
 			remoteInfo = GIGStaticLibraryApp;
 		};
+		FA41921E1C8F145000BF6988 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA65BF901AEFD5F80031A91B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA4192181C8F145000BF6988;
+			remoteInfo = GIGPassbook;
+		};
 		FA680F401B009CA8006FC484 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FA65BF901AEFD5F80031A91B /* Project object */;
@@ -648,6 +659,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D9637D7A1B0C90C000FD8E4D /* GIGLibrary.framework in CopyFiles */,
+				FA4192211C8F145000BF6988 /* GIGPassbook.framework in CopyFiles */,
 				FACE6E501BBC3FDB00457B4C /* GIGSocial.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -947,6 +959,10 @@
 		FA3B236E1BC2D9F900F972DE /* GIGFacebookFactoryMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFacebookFactoryMock.m; path = GIGSocial/Mocks/GIGFacebookFactoryMock.m; sourceTree = "<group>"; };
 		FA3F10831B71F0D500517468 /* FBSDKAccessTokenMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBSDKAccessTokenMock.h; path = GIGSocial/Mocks/FBSDKAccessTokenMock.h; sourceTree = "<group>"; };
 		FA3F10841B71F0D500517468 /* FBSDKAccessTokenMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBSDKAccessTokenMock.m; path = GIGSocial/Mocks/FBSDKAccessTokenMock.m; sourceTree = "<group>"; };
+		FA4192191C8F145000BF6988 /* GIGPassbook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGPassbook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA41921B1C8F145000BF6988 /* GIGPassbook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIGPassbook.h; sourceTree = "<group>"; };
+		FA41921D1C8F145000BF6988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA4192291C8F2F7200BF6988 /* Passbook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Passbook.swift; path = GIGPassbook/Passbook.swift; sourceTree = "<group>"; };
 		FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRequestVC.swift; sourceTree = "<group>"; };
 		FA46B2961C899B2C009EDE7C /* facebook_version.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = facebook_version.txt; path = GIGSocial/Libs/facebook_version.txt; sourceTree = "<group>"; };
 		FA4BFCD91BBAF21E003FC7E2 /* GIGLoginManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGLoginManagerMock.h; path = GIGSocial/Mocks/GIGLoginManagerMock.h; sourceTree = "<group>"; };
@@ -1019,6 +1035,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA4192151C8F145000BF6988 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA65BF951AEFD5F90031A91B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1031,6 +1054,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */,
+				FA4192201C8F145000BF6988 /* GIGPassbook.framework in Frameworks */,
 				FACE6E4F1BBC3FDB00457B4C /* GIGSocial.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1190,6 +1214,7 @@
 				D99AD15D1B1DA3A3005BB4E5 /* GIGNetwork */,
 				FA723AC41C64AAF700225E79 /* SwiftNetwork */,
 				FA74BCF41B6F6AB2001D2BCF /* GIGSocial */,
+				FA4192281C8F2F3300BF6988 /* GIGPassbook */,
 				D99AD18F1B1DA3A3005BB4E5 /* GIGUtils */,
 			);
 			path = Source;
@@ -1959,6 +1984,23 @@
 			name = Factory;
 			sourceTree = "<group>";
 		};
+		FA41921A1C8F145000BF6988 /* GIGPassbook */ = {
+			isa = PBXGroup;
+			children = (
+				FA41921B1C8F145000BF6988 /* GIGPassbook.h */,
+				FA41921D1C8F145000BF6988 /* Info.plist */,
+			);
+			path = GIGPassbook;
+			sourceTree = "<group>";
+		};
+		FA4192281C8F2F3300BF6988 /* GIGPassbook */ = {
+			isa = PBXGroup;
+			children = (
+				FA4192291C8F2F7200BF6988 /* Passbook.swift */,
+			);
+			name = GIGPassbook;
+			sourceTree = "<group>";
+		};
 		FA65BF8F1AEFD5F80031A91B = {
 			isa = PBXGroup;
 			children = (
@@ -1972,6 +2014,7 @@
 				D99AD0FA1B1D9716005BB4E5 /* GIGStaticLibraryApp */,
 				D9AD96FB1B0A386500CB5E8C /* GIGLibraryTests */,
 				D99AD1271B1D9866005BB4E5 /* GIGStaticLibraryTests */,
+				FA41921A1C8F145000BF6988 /* GIGPassbook */,
 				FA65BF9A1AEFD5F90031A91B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1986,6 +2029,7 @@
 				D99AD0F91B1D9716005BB4E5 /* GIGStaticLibraryApp.app */,
 				D99AD1261B1D9866005BB4E5 /* GIGStaticLibraryTests.xctest */,
 				FACE6E481BBC3FDB00457B4C /* GIGSocial.framework */,
+				FA4192191C8F145000BF6988 /* GIGPassbook.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2244,6 +2288,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA4192161C8F145000BF6988 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA41921C1C8F145000BF6988 /* GIGPassbook.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA65BF961AEFD5F90031A91B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2268,7 +2320,6 @@
 				D99AD2DF1B1DA3A3005BB4E5 /* NSString+GIGReplace.h in Headers */,
 				D9FE62101BD65D8A00E2B23C /* GIGTextFormField.h in Headers */,
 				FAEDF6741BE20E7800F05AE2 /* GIGBoolValidator.h in Headers */,
-				FA0015A21BE8AA760028B1CD /* GIGFacebook.h in Headers */,
 				D99AD24B1B1DA3A3005BB4E5 /* GIGURLRequest.h in Headers */,
 				D9FE61F61BD65CA200E2B23C /* GIGFormFields.h in Headers */,
 				D99AD26B1B1DA3A3005BB4E5 /* NSArray+GIGExtension.h in Headers */,
@@ -2316,7 +2367,6 @@
 				D99AD2051B1DA3A3005BB4E5 /* GIGLayoutGridHorizontal.h in Headers */,
 				D99AD2C91B1DA3A3005BB4E5 /* NSRegularExpression+GIGRegexp.h in Headers */,
 				D99AD26F1B1DA3A3005BB4E5 /* NSBundle+GIGExtension.h in Headers */,
-				FA0015A41BE8AA760028B1CD /* GIGFacebookLoginResult.h in Headers */,
 				D9FD36531B417DD0000D356F /* GIGFormulary.h in Headers */,
 				D9E7A14A1B4181B2004D3193 /* GIGPostalCodeValidator.h in Headers */,
 				D99AD2571B1DA3A3005BB4E5 /* GIGURLRequestLogger.h in Headers */,
@@ -2363,8 +2413,10 @@
 			files = (
 				FACE6E541BBC3FF700457B4C /* GIGSocialCore.h in Headers */,
 				FACE6E4B1BBC3FDB00457B4C /* GIGSocial.h in Headers */,
+				FA4192251C8F153000BF6988 /* GIGFacebook.h in Headers */,
 				FACE6E561BBC400100457B4C /* GIGSocialLogin.h in Headers */,
 				FA3820EE1BE0BEC300BABFEB /* GIGSocialLoginResult.h in Headers */,
+				FA4192261C8F153B00BF6988 /* GIGFacebookLoginResult.h in Headers */,
 				FA3B23691BC2D7A500F972DE /* GIGFacebookFactory.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2446,6 +2498,24 @@
 			productReference = D9AD96FA1B0A386500CB5E8C /* GIGLibraryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		FA4192181C8F145000BF6988 /* GIGPassbook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA4192221C8F145100BF6988 /* Build configuration list for PBXNativeTarget "GIGPassbook" */;
+			buildPhases = (
+				FA4192141C8F145000BF6988 /* Sources */,
+				FA4192151C8F145000BF6988 /* Frameworks */,
+				FA4192161C8F145000BF6988 /* Headers */,
+				FA4192171C8F145000BF6988 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GIGPassbook;
+			productName = GIGPassbook;
+			productReference = FA4192191C8F145000BF6988 /* GIGPassbook.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		FA65BF981AEFD5F90031A91B /* GIGLibrary */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA65BFAF1AEFD5F90031A91B /* Build configuration list for PBXNativeTarget "GIGLibrary" */;
@@ -2478,6 +2548,7 @@
 			dependencies = (
 				FA680F411B009CA8006FC484 /* PBXTargetDependency */,
 				FACE6E4E1BBC3FDB00457B4C /* PBXTargetDependency */,
+				FA41921F1C8F145000BF6988 /* PBXTargetDependency */,
 			);
 			name = GIGLibraryApp;
 			productName = GIGLibraryApp;
@@ -2531,6 +2602,10 @@
 						CreatedOnToolsVersion = 6.3;
 						TestTargetID = FA680F191B009B6B006FC484;
 					};
+					FA4192181C8F145000BF6988 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = SU5BA5HAQK;
+					};
 					FA65BF981AEFD5F90031A91B = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = SU5BA5HAQK;
@@ -2570,6 +2645,7 @@
 			targets = (
 				FA65BF981AEFD5F90031A91B /* GIGLibrary */,
 				FACE6E471BBC3FDB00457B4C /* GIGSocial */,
+				FA4192181C8F145000BF6988 /* GIGPassbook */,
 				FACA6B291BDF74A2001AA36E /* DeployFrameworks */,
 				FA680F191B009B6B006FC484 /* GIGLibraryApp */,
 				D9AD96F91B0A386500CB5E8C /* GIGLibraryTests */,
@@ -2612,11 +2688,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA4192171C8F145000BF6988 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA65BF971AEFD5F90031A91B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA46B2971C899B2C009EDE7C /* facebook_version.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2640,6 +2722,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4192271C8F155C00BF6988 /* facebook_version.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2913,6 +2996,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA4192141C8F145000BF6988 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA41922A1C8F2F7200BF6988 /* Passbook.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA65BF941AEFD5F90031A91B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3061,6 +3152,11 @@
 			isa = PBXTargetDependency;
 			target = D99AD0F81B1D9716005BB4E5 /* GIGStaticLibraryApp */;
 			targetProxy = D9AF10C61B42A47D004F01F9 /* PBXContainerItemProxy */;
+		};
+		FA41921F1C8F145000BF6988 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA4192181C8F145000BF6988 /* GIGPassbook */;
+			targetProxy = FA41921E1C8F145000BF6988 /* PBXContainerItemProxy */;
 		};
 		FA680F411B009CA8006FC484 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3295,6 +3391,48 @@
 			};
 			name = Release;
 		};
+		FA4192231C8F145100BF6988 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GIGPassbook/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.GIGPassbook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FA4192241C8F145100BF6988 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GIGPassbook/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.GIGPassbook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		FA65BFAD1AEFD5F90031A91B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3523,7 +3661,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -3590,6 +3728,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		FA4192221C8F145100BF6988 /* Build configuration list for PBXNativeTarget "GIGPassbook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA4192231C8F145100BF6988 /* Debug */,
+				FA4192241C8F145100BF6988 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */ = {
 			isa = XCConfigurationList;
