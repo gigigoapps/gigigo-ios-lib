@@ -15,6 +15,7 @@ public let kGIGPassbookErrorMessage = "GIGPASSBOOK_ERROR_MESSAGE"
 public enum PassbookResult {
 	case Success
 	case Error(NSError)
+	case UnsupportedVersionError(NSError)
 }
 
 
@@ -37,6 +38,9 @@ public class Passbook {
 				self.passbookManager.addPass(pass)
 				completionHandler(.Success)
 				
+			case .UnsupportedVersionError(let error):
+				completionHandler(.UnsupportedVersionError(error))
+				
 			case .Error(let error):
 				completionHandler(.Error(error))
 			}
@@ -48,7 +52,7 @@ public class Passbook {
 	private func errorURLNotValid() -> NSError {
 		let error = NSError(
 			domain: kGIGPassbookErrorDomain,
-			code: 1,
+			code: 10000,
 			userInfo: [kGIGPassbookErrorMessage: "The url is not valid"]
 		)
 		
