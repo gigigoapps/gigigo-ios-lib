@@ -8,12 +8,16 @@
 
 import Foundation
 import PassKit
+import GIGLibrary
 
 
 class PassbookManager {
 	
+	private var app = Application()
+	
 	func addPass(pass: PKPass) {
-		// TODO: add pass
+		let addVC = PKAddPassesViewController(pass: pass)
+		self.app.presentModal(addVC)
 	}
 	
 }

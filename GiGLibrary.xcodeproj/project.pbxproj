@@ -519,6 +519,7 @@
 		FA41922D1C8F331400BF6988 /* PassbookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41922C1C8F331400BF6988 /* PassbookService.swift */; };
 		FA4192301C8F34BE00BF6988 /* PassbookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41922F1C8F34BE00BF6988 /* PassbookManager.swift */; };
 		FA42A2AD1C6B678300C2D1BB /* SwiftRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */; };
+		FA44E4961C9069A6009BBBA2 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44E4951C9069A6009BBBA2 /* Application.swift */; };
 		FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FA723AC71C64AB4500225E79 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC51C64AB4500225E79 /* Request.swift */; };
@@ -613,6 +614,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = FA4192181C8F145000BF6988;
 			remoteInfo = GIGPassbook;
+		};
+		FA44E4971C906ECD009BBBA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA65BF901AEFD5F80031A91B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA65BF981AEFD5F90031A91B;
+			remoteInfo = GIGLibrary;
 		};
 		FA680F401B009CA8006FC484 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -968,6 +976,7 @@
 		FA41922C1C8F331400BF6988 /* PassbookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassbookService.swift; path = GIGPassbook/Services/PassbookService.swift; sourceTree = "<group>"; };
 		FA41922F1C8F34BE00BF6988 /* PassbookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassbookManager.swift; path = GIGPassbook/Managers/PassbookManager.swift; sourceTree = "<group>"; };
 		FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRequestVC.swift; sourceTree = "<group>"; };
+		FA44E4951C9069A6009BBBA2 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Application.swift; path = Application/Application.swift; sourceTree = "<group>"; };
 		FA46B2961C899B2C009EDE7C /* facebook_version.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = facebook_version.txt; path = GIGSocial/Libs/facebook_version.txt; sourceTree = "<group>"; };
 		FA4BFCD91BBAF21E003FC7E2 /* GIGLoginManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGLoginManagerMock.h; path = GIGSocial/Mocks/GIGLoginManagerMock.h; sourceTree = "<group>"; };
 		FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGLoginManagerMock.m; path = GIGSocial/Mocks/GIGLoginManagerMock.m; sourceTree = "<group>"; };
@@ -1354,6 +1363,7 @@
 		D99AD18F1B1DA3A3005BB4E5 /* GIGUtils */ = {
 			isa = PBXGroup;
 			children = (
+				FA44E4941C90694B009BBBA2 /* Application */,
 				4AC0299B1C73831700FF22BF /* AlertController */,
 				D99AD1B81B1DA3A3005BB4E5 /* GIGUtils.h */,
 				4A6A04811C62524000FED731 /* GIGIOSVersion.swift */,
@@ -2023,6 +2033,14 @@
 			name = Facades;
 			sourceTree = "<group>";
 		};
+		FA44E4941C90694B009BBBA2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				FA44E4951C9069A6009BBBA2 /* Application.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
 		FA65BF8F1AEFD5F80031A91B = {
 			isa = PBXGroup;
 			children = (
@@ -2532,6 +2550,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA44E4981C906ECD009BBBA2 /* PBXTargetDependency */,
 			);
 			name = GIGPassbook;
 			productName = GIGPassbook;
@@ -3080,6 +3099,7 @@
 				FAEDF67E1BE20EFD00F05AE2 /* GIGURLSessionFactory.m in Sources */,
 				D99AD2691B1DA3A3005BB4E5 /* GIGAlert.m in Sources */,
 				D99AD2951B1DA3A3005BB4E5 /* GIGFileManager.m in Sources */,
+				FA44E4961C9069A6009BBBA2 /* Application.swift in Sources */,
 				D99AD27D1B1DA3A3005BB4E5 /* NSData+GIGString.m in Sources */,
 				D99AD2271B1DA3A3005BB4E5 /* GIGURLDomain.m in Sources */,
 				D9FE620E1BD65D8A00E2B23C /* GIGFormFieldsBuilder.m in Sources */,
@@ -3181,6 +3201,11 @@
 			isa = PBXTargetDependency;
 			target = FA4192181C8F145000BF6988 /* GIGPassbook */;
 			targetProxy = FA41921E1C8F145000BF6988 /* PBXContainerItemProxy */;
+		};
+		FA44E4981C906ECD009BBBA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA65BF981AEFD5F90031A91B /* GIGLibrary */;
+			targetProxy = FA44E4971C906ECD009BBBA2 /* PBXContainerItemProxy */;
 		};
 		FA680F411B009CA8006FC484 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3760,6 +3785,7 @@
 				FA4192241C8F145100BF6988 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */ = {
 			isa = XCConfigurationList;
