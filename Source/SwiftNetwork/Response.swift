@@ -39,6 +39,25 @@ public class Response {
 		self.statusCode = 0
 	}
 	
+	
+	convenience init(response: GIGURLResponse) {
+		self.init()
+		
+		guard
+			response.success,
+			let data = response.data
+			else {
+				self.statusCode = response.error.code ?? -1
+				self.error = response.error
+				self.status = self.parseError(self.error)
+				return
+		}
+		
+		self.statusCode = 200
+		self.status = .Success
+		self.body = data
+	}
+	
 	convenience init(response: GIGURLJSONResponse) {
 		self.init()
 		
@@ -82,7 +101,7 @@ public class Response {
 			self.status = self.parseError(response.error)
 		}
 	}
-
+	
 	
 	// MARK: - Private Helpers
 	

@@ -37,6 +37,22 @@ public class Request: GIGURLCommunicator {
 	
 	// MARK: - Public Method
 	
+	public func fetchData(completionHandler: Response -> Void) {
+		let request = self.buildRequest()
+		request.responseClass = self.dataClass()
+		
+		self.sendRequest(request) { urlResponse in
+			guard let dataResponse = urlResponse as? GIGURLResponse else {
+				completionHandler(Response())
+				return
+			}
+			
+			let response = Response(response: dataResponse)
+			completionHandler(response)
+		}
+	}
+	
+	
 	public func fetchJson(completionHandler: (Response) -> Void) {
 		let request = self.buildRequest()
 		request.responseClass = self.jsonClass()
@@ -100,5 +116,10 @@ public class Request: GIGURLCommunicator {
 	private func imageClass() -> AnyClass {
 		let className = NSStringFromClass(GIGURLImageResponse.self)
 		return NSClassFromString(className) as! GIGURLImageResponse.Type
+	}
+	
+	private func dataClass() -> AnyClass {
+		let className = NSStringFromClass(GIGURLResponse.self)
+		return NSClassFromString(className) as! GIGURLResponse.Type
 	}
 }
