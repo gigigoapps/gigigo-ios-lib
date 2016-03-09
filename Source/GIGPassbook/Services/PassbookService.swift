@@ -63,8 +63,10 @@ class PassbookService {
 				completionHandler(.Error(errorUnwrap))
 			}
 		}
+		else {
+			completionHandler(.Success(pass))
+		}
 		
-		completionHandler(.Success(pass))
 	}
 	
 	private func onFail(response: Response, completionHandler: PassbookServiceResult -> Void) {

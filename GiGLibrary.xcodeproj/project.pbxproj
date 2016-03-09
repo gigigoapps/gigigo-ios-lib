@@ -520,6 +520,8 @@
 		FA4192301C8F34BE00BF6988 /* PassbookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41922F1C8F34BE00BF6988 /* PassbookManager.swift */; };
 		FA42A2AD1C6B678300C2D1BB /* SwiftRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */; };
 		FA44E4961C9069A6009BBBA2 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44E4951C9069A6009BBBA2 /* Application.swift */; };
+		FA44E49B1C907784009BBBA2 /* PassbookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44E49A1C907784009BBBA2 /* PassbookVC.swift */; };
+		FA44E49E1C907F8D009BBBA2 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA44E49D1C907F8D009BBBA2 /* PassKit.framework */; };
 		FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FA723AC71C64AB4500225E79 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC51C64AB4500225E79 /* Request.swift */; };
@@ -977,6 +979,9 @@
 		FA41922F1C8F34BE00BF6988 /* PassbookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassbookManager.swift; path = GIGPassbook/Managers/PassbookManager.swift; sourceTree = "<group>"; };
 		FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRequestVC.swift; sourceTree = "<group>"; };
 		FA44E4951C9069A6009BBBA2 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Application.swift; path = Application/Application.swift; sourceTree = "<group>"; };
+		FA44E49A1C907784009BBBA2 /* PassbookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassbookVC.swift; path = Passbook/PassbookVC.swift; sourceTree = "<group>"; };
+		FA44E49C1C907F8C009BBBA2 /* GIGLibraryApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GIGLibraryApp.entitlements; sourceTree = "<group>"; };
+		FA44E49D1C907F8D009BBBA2 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		FA46B2961C899B2C009EDE7C /* facebook_version.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = facebook_version.txt; path = GIGSocial/Libs/facebook_version.txt; sourceTree = "<group>"; };
 		FA4BFCD91BBAF21E003FC7E2 /* GIGLoginManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGLoginManagerMock.h; path = GIGSocial/Mocks/GIGLoginManagerMock.h; sourceTree = "<group>"; };
 		FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGLoginManagerMock.m; path = GIGSocial/Mocks/GIGLoginManagerMock.m; sourceTree = "<group>"; };
@@ -1066,6 +1071,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA44E49E1C907F8D009BBBA2 /* PassKit.framework in Frameworks */,
 				FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */,
 				FA4192201C8F145000BF6988 /* GIGPassbook.framework in Frameworks */,
 				FACE6E4F1BBC3FDB00457B4C /* GIGSocial.framework in Frameworks */,
@@ -1658,6 +1664,7 @@
 				D9E18E111BD542D900611CDA /* Formulary */,
 				FAA80A7A1B70CFE40076FF9E /* Social */,
 				4A881C131C5F8650000EC61E /* Alert */,
+				FA44E4991C90775D009BBBA2 /* Passbook */,
 				D99AD3661B1DAAE6005BB4E5 /* Resources */,
 				D9D059E41BDE440F00927F0E /* Frameworks */,
 				D99AD3881B1DAAEB005BB4E5 /* Supporting Files */,
@@ -2041,9 +2048,18 @@
 			name = Application;
 			sourceTree = "<group>";
 		};
+		FA44E4991C90775D009BBBA2 /* Passbook */ = {
+			isa = PBXGroup;
+			children = (
+				FA44E49A1C907784009BBBA2 /* PassbookVC.swift */,
+			);
+			name = Passbook;
+			sourceTree = "<group>";
+		};
 		FA65BF8F1AEFD5F80031A91B = {
 			isa = PBXGroup;
 			children = (
+				FA44E49D1C907F8D009BBBA2 /* PassKit.framework */,
 				D99AD14D1B1DA3A3005BB4E5 /* Source */,
 				D99AD31C1B1DA3B9005BB4E5 /* Tests */,
 				D99AD3051B1DA3AF005BB4E5 /* App */,
@@ -2077,6 +2093,7 @@
 		FA680F1B1B009B6B006FC484 /* GIGLibraryApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA44E49C1C907F8C009BBBA2 /* GIGLibraryApp.entitlements */,
 				FA680F1D1B009B6B006FC484 /* Info.plist */,
 			);
 			path = GIGLibraryApp;
@@ -2654,6 +2671,11 @@
 					FA680F191B009B6B006FC484 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = SU5BA5HAQK;
+						SystemCapabilities = {
+							com.apple.Wallet = {
+								enabled = 1;
+							};
+						};
 					};
 					FACA6B291BDF74A2001AA36E = {
 						CreatedOnToolsVersion = 7.1;
@@ -3157,6 +3179,7 @@
 				FACE6D991BBC115900457B4C /* GLALoginFacebookViewController.m in Sources */,
 				D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */,
 				4A23B67B1C74779D00E37E5D /* GIGAlertViewController.swift in Sources */,
+				FA44E49B1C907784009BBBA2 /* PassbookVC.swift in Sources */,
 				D99AD3701B1DAAE6005BB4E5 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3453,7 +3476,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = GIGPassbook/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.GIGPassbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3474,7 +3497,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = GIGPassbook/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.GIGPassbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";

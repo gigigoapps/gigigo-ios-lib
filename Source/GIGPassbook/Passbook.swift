@@ -18,12 +18,13 @@ public enum PassbookResult {
 	case UnsupportedVersionError(NSError)
 }
 
-
 public class Passbook {
 	
 	private var service = PassbookService()
 	private var passbookManager = PassbookManager()
 	
+	
+	public init() {}
 	
 	public func addPassbookFromUrl(urlString: String, completionHandler: PassbookResult -> Void) {
 		guard let url = NSURL(string: urlString) else {
