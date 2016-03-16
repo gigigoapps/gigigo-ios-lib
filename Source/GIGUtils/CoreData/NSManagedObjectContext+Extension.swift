@@ -19,11 +19,17 @@ public extension NSManagedObjectContext {
 		return NSManagedObject(entity: entity, insertIntoManagedObjectContext: self)
 	}
 	
-	public func fetchFirst(entityName: String, pedricateString: String) -> NSManagedObject? {
+	public func fetchFirst(entityName: String, predicateString: String) -> NSManagedObject? {
+		let result = self.fetchList(entityName, predicateString: predicateString)
+		return result?.first
+	}
+	
+	public func fetchList(entityName: String, predicateString: String) -> [NSManagedObject]? {
 		let fetch = NSFetchRequest(entityName: entityName)
-		fetch.predicate = NSPredicate(format: pedricateString)
+		fetch.predicate = NSPredicate(format: predicateString)
 		
-		let result = try? self.executeFetchRequest(fetch)
-		return result?.first as? NSManagedObject
+		let results = try? self.executeFetchRequest(fetch)
+		
+		return results as? [NSManagedObject]
 	}
 }
