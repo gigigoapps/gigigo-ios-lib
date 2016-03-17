@@ -15,9 +15,10 @@
 
 - (instancetype)initWithData:(NSData *)data headers:(NSDictionary *)headers
 {
-    self = [self initWithData:data];
+    self = [super init];
     if (self)
     {
+		[self initializeResponseWithData:data];
         _headers = headers;
     }
     return self;
@@ -28,17 +29,17 @@
     self = [super init];
     if (self)
     {
-        _success = (data != nil);
-        _data = data;
+		[self initializeResponseWithData:data];
     }
     return self;
 }
 
 - (instancetype)initWithError:(NSError *)error headers:(NSDictionary *)headers data:(NSData *)data;
 {
-    self = [self initWithError:error];
+    self = [super init];
     if (self)
     {
+		[self initializeResponseWithError:error];
         _headers = headers;
         _data = data;
     }
@@ -50,8 +51,7 @@
     self = [super init];
     if (self)
     {
-        _success = NO;
-        _error = error;
+		[self initializeResponseWithError:error];
     }
     return self;
 }
@@ -66,7 +66,21 @@
     return self;
 }
 
+
 #pragma mark - PRIVATE
+
+- (void)initializeResponseWithError:(NSError *)error
+{
+	self.success = NO;
+	self.error = error;
+}
+
+- (void)initializeResponseWithData:(NSData *)data
+{
+	self.success = (data != nil);
+	self.data = data;
+}
+
 
 - (NSString *)description
 {

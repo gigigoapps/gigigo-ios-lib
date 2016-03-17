@@ -3,7 +3,7 @@
 ----
 
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
-![Version](https://img.shields.io/badge/version-0.2-blue.svg)
+![Version](https://img.shields.io/badge/version-0.3-blue.svg)
 
 
 Main library for iOS projects on Gigigo.

@@ -117,6 +117,38 @@
             </objects>
             <point key="canvasLocation" x="-93" y="2965"/>
         </scene>
+        <!--Passbook-->
+        <scene sceneID="0cb-ID-COq">
+            <objects>
+                <viewController id="cYL-aG-Qen" customClass="PassbookVC" customModule="GIGLibraryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B3x-ap-ylM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sr9-jk-RjL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ieu-JV-Mia">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7e-EX-Exo">
+                                <rect key="frame" x="91" y="237" width="139" height="30"/>
+                                <state key="normal" title="Download Passbook"/>
+                                <connections>
+                                    <action selector="onButtonDownloadTap:" destination="cYL-aG-Qen" eventType="touchUpInside" id="71t-VX-jMt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f7e-EX-Exo" firstAttribute="centerX" secondItem="Ieu-JV-Mia" secondAttribute="centerX" id="9e9-vr-Avm"/>
+                            <constraint firstItem="f7e-EX-Exo" firstAttribute="centerY" secondItem="Ieu-JV-Mia" secondAttribute="centerY" id="uR9-hL-8KN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Passbook" id="zPh-ya-qun"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YWu-5i-VZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="1253"/>
+        </scene>
         <!--Swift Requests-->
         <scene sceneID="bT5-WV-PrD">
             <objects>
@@ -236,7 +268,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="FCe-ZC-iNO">
-                            <rect key="frame" x="0.0" y="308" width="320" height="1"/>
+                            <rect key="frame" x="0.0" y="374" width="320" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -353,6 +385,30 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="BJ6-jP-2Hh" kind="push" id="Jzi-uG-kC8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Passbook" id="VUh-mC-e1t">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="odG-Zu-J34" style="IBUITableViewCellStyleDefault" id="RjH-7X-oAi">
+                                        <rect key="frame" x="0.0" y="330" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RjH-7X-oAi" id="w8G-en-qIR">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Passbook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="odG-Zu-J34" userLabel="Alert">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="cYL-aG-Qen" kind="push" id="MqZ-aK-eVL"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
