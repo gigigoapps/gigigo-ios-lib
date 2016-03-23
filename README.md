@@ -27,5 +27,6 @@ GIGLibrary comes in two versions:
 	
 - Social: 
 	- Facebook: login.
-- Passbook:
-        - Add a new passbook from a URL
+
+- Passbook: 
+    * Add a new passbook from a URL
