@@ -32,7 +32,7 @@
 {
     [super setUp];
 
-	self.accessTokenMock = [[FBSDKAccessTokenMock alloc] init];
+	self.accessTokenMock = [[FBSDKAccessTokenMock alloc] initWithTokenString:nil permissions:nil declinedPermissions:nil appID:nil userID:nil expirationDate:nil refreshDate:nil];
 	self.facebookFactoryMock = [[GIGFacebookFactoryMock alloc] init];
 	self.loginManagerMock = [[GIGLoginManagerMock alloc] init];
 	
@@ -136,7 +136,7 @@
 {
 	self.facebookFactoryMock.accessToken = nil;
 	
-	FBSDKAccessTokenMock *accessTokenResult = [[FBSDKAccessTokenMock alloc] init];
+	FBSDKAccessTokenMock *accessTokenResult = [[FBSDKAccessTokenMock alloc] initWithTokenString:nil permissions:nil declinedPermissions:nil appID:nil userID:nil expirationDate:nil refreshDate:nil];
 	accessTokenResult.userID = @"USER_ID_1";
 	accessTokenResult.tokenString = @"ACCESS_TOKEN_1";
 	
@@ -171,7 +171,7 @@
 {
 	self.facebookFactoryMock.accessToken = nil;
 	
-	FBSDKAccessTokenMock *accessTokenResult = [[FBSDKAccessTokenMock alloc] init];
+	FBSDKAccessTokenMock *accessTokenResult = [[FBSDKAccessTokenMock alloc] initWithTokenString:nil permissions:nil declinedPermissions:nil appID:nil userID:nil expirationDate:nil refreshDate:nil];
 	accessTokenResult.userID = @"USER_ID_1";
 	accessTokenResult.tokenString = @"ACCESS_TOKEN_1";
 	

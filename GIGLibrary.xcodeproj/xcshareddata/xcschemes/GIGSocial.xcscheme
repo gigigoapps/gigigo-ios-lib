@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA65BF981AEFD5F90031A91B"
-               BuildableName = "GIGLibrary.framework"
-               BlueprintName = "GIGLibrary"
+               BlueprintIdentifier = "FACE6E471BBC3FDB00457B4C"
+               BuildableName = "GIGSocial.framework"
+               BlueprintName = "GIGSocial"
                ReferencedContainer = "container:GIGLibrary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,19 +26,9 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA65BF981AEFD5F90031A91B"
-            BuildableName = "GIGLibrary.framework"
-            BlueprintName = "GIGLibrary"
-            ReferencedContainer = "container:GIGLibrary.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -55,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA65BF981AEFD5F90031A91B"
-            BuildableName = "GIGLibrary.framework"
-            BlueprintName = "GIGLibrary"
+            BlueprintIdentifier = "FACE6E471BBC3FDB00457B4C"
+            BuildableName = "GIGSocial.framework"
+            BlueprintName = "GIGSocial"
             ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -73,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA65BF981AEFD5F90031A91B"
-            BuildableName = "GIGLibrary.framework"
-            BlueprintName = "GIGLibrary"
+            BlueprintIdentifier = "FACE6E471BBC3FDB00457B4C"
+            BuildableName = "GIGSocial.framework"
+            BlueprintName = "GIGSocial"
             ReferencedContainer = "container:GIGLibrary.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
