@@ -3,7 +3,8 @@
 ----
 
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
-![Version](https://img.shields.io/badge/version-0.3-blue.svg)
+![Language](https://img.shields.io/badge/Language-Swift-orange.svg)
+![Version](https://img.shields.io/badge/version-0.4-blue.svg)
 
 
 Main library for iOS projects on Gigigo.
@@ -26,3 +27,6 @@ GIGLibrary comes in two versions:
 	
 - Social: 
 	- Facebook: login.
+
+- Passbook: 
+    * Add a new passbook from a URL
