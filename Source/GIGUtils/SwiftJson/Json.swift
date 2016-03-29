@@ -105,7 +105,7 @@ public class JSON: SequenceType, CustomStringConvertible {
 			
 			let item = array[index]
 			let json = JSON(json: item)
-			index = index + 1
+			index += 1
 			
 			return json
 		}
