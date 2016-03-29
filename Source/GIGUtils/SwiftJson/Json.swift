@@ -99,13 +99,13 @@ public class JSON: SequenceType, CustomStringConvertible {
 	public func generate() -> AnyGenerator<JSON> {
 		var index = 0
 		
-		return anyGenerator{ () -> JSON? in
+		return AnyGenerator{ () -> JSON? in
 			guard let array = self.json as? [AnyObject] else { return nil }
 			guard array.count > index else { return nil }
 			
 			let item = array[index]
 			let json = JSON(json: item)
-			index++
+			index = index + 1
 			
 			return json
 		}

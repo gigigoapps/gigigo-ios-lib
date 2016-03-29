@@ -11,9 +11,9 @@
 
 @interface NSManagedObjectContext (GIGExtension)
 
-+ (NSManagedObjectContext *)managedObjectContextWithMigrationWithName:(NSString *)name;
-+ (NSManagedObjectContext *)managedObjectContextInMemoryWithName:(NSString *)name;
-+ (NSManagedObjectContext *)managedObjectContextInFileWithName:(NSString *)name;
++ (NSManagedObjectContext *)managedObjectContextWithMigrationWithName:(NSString *)name bundle:(NSBundle *)bundle;
++ (NSManagedObjectContext *)managedObjectContextInMemoryWithName:(NSString *)name bundle:(NSBundle *)bundle;
++ (NSManagedObjectContext *)managedObjectContextInFileWithName:(NSString *)name bundle:(NSBundle *)bundle;
 
 - (id)insertEntity:(Class)entityClass;
 - (NSArray *)fetch:(Class)entityClass;

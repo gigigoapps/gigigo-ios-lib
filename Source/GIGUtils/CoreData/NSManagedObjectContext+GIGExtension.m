@@ -13,19 +13,19 @@
 
 #pragma mark - Factory
 
-+ (NSManagedObjectContext *)managedObjectContextWithMigrationWithName:(NSString *)name
++ (NSManagedObjectContext *)managedObjectContextWithMigrationWithName:(NSString *)name bundle:(NSBundle *)bundle
 {
-    return [self managedObjectContextWithCoordinator:[self coordinatorWithMigrationWithName:name]];
+    return [self managedObjectContextWithCoordinator:[self coordinatorWithMigrationWithName:name bundle:bundle]];
 }
 
-+ (NSManagedObjectContext *)managedObjectContextInMemoryWithName:(NSString *)name
++ (NSManagedObjectContext *)managedObjectContextInMemoryWithName:(NSString *)name bundle:(NSBundle *)bundle
 {
-	return [self managedObjectContextWithCoordinator:[self coordinatorInMemoryWithName:name]];
+	return [self managedObjectContextWithCoordinator:[self coordinatorInMemoryWithName:name bundle:bundle]];
 }
 
-+ (NSManagedObjectContext *)managedObjectContextInFileWithName:(NSString *)name
++ (NSManagedObjectContext *)managedObjectContextInFileWithName:(NSString *)name bundle:(NSBundle *)bundle
 {
-	return [self managedObjectContextWithCoordinator:[self coordinatorInFileWithName:name]];
+	return [self managedObjectContextWithCoordinator:[self coordinatorInFileWithName:name bundle:bundle]];
 }
 
 + (NSManagedObjectContext *)managedObjectContextWithCoordinator:(NSPersistentStoreCoordinator *)coordinator
@@ -226,15 +226,17 @@
 
 #pragma mark - Private
 
-+ (NSManagedObjectModel *)modelWithName:(NSString *)name
++ (NSManagedObjectModel *)modelWithName:(NSString *)name bundle:(NSBundle *)bundle
 {
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:name withExtension:@"momd"];
+    NSURL *modelURL = [bundle URLForResource:name withExtension:@"momd"];
+    
+    //NSURL *modelURL = [[NSBundle mainBundle] URLForResource:name withExtension:@"momd"];
     return [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
 }
 
-+ (NSPersistentStoreCoordinator *)coordinatorWithMigrationWithName:(NSString *)name
++ (NSPersistentStoreCoordinator *)coordinatorWithMigrationWithName:(NSString *)name bundle:(NSBundle *)bundle
 {
-    NSManagedObjectModel *model = [self modelWithName:name];
+    NSManagedObjectModel *model = [self modelWithName:name bundle:bundle];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
     
     NSURL *documentsDirectory = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
@@ -251,9 +253,9 @@
     return coordinator;
 }
 
-+ (NSPersistentStoreCoordinator *)coordinatorInMemoryWithName:(NSString *)name
++ (NSPersistentStoreCoordinator *)coordinatorInMemoryWithName:(NSString *)name  bundle:(NSBundle *)bundle
 {
-	NSManagedObjectModel *model = [self modelWithName:name];
+	NSManagedObjectModel *model = [self modelWithName:name bundle:bundle];
 	NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
 	
 	NSError *error = nil;
@@ -265,9 +267,9 @@
 	return coordinator;
 }
 
-+ (NSPersistentStoreCoordinator *)coordinatorInFileWithName:(NSString *)name
++ (NSPersistentStoreCoordinator *)coordinatorInFileWithName:(NSString *)name bundle:(NSBundle *)bundle
 {
-	NSManagedObjectModel *model = [self modelWithName:name];
+	NSManagedObjectModel *model = [self modelWithName:name bundle:bundle];
 	
 	NSURL *documentsDirectory = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     NSURL *storeURL = [documentsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.sqlite", name]];
