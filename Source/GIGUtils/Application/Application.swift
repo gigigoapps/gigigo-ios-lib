@@ -15,7 +15,9 @@ public class Application {
 	
 	public func presentModal(viewController: UIViewController) {
 		let topVC = self.topViewController()
-		topVC?.presentViewController(viewController, animated: true, completion: nil)
+        dispatch_async(dispatch_get_main_queue(), {
+            topVC?.presentViewController(viewController, animated: true, completion: nil)
+        })
 	}
 	
 	private func topViewController() -> UIViewController? {
