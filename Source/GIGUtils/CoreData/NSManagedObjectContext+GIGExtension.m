@@ -38,6 +38,16 @@
 	return managedContext;
 }
 
++ (NSManagedObjectContext *)managedObjectContextWithMigrationWithName:(NSString *)name {
+    return [self managedObjectContextWithMigrationWithName:name bundle:[NSBundle mainBundle]];
+}
++ (NSManagedObjectContext *)managedObjectContextInMemoryWithName:(NSString *)name {
+    return [self managedObjectContextInMemoryWithName:name bundle:[NSBundle mainBundle]];
+}
++ (NSManagedObjectContext *)managedObjectContextInFileWithName:(NSString *)name {
+    return [self managedObjectContextInFileWithName:name bundle:[NSBundle mainBundle]];
+}
+
 #pragma mark - Insert
 
 - (id)insertEntity:(Class)entityClass
