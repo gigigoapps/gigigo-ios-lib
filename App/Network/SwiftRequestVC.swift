@@ -20,9 +20,13 @@ class SwiftRequestVC: UIViewController {
 	
 	@IBAction func onButtonSwiftRequestTap(sender: UIButton) {
 		let request = Request(
-			method: "POST",
+			method: "GET",
 			baseUrl: "http://api-discover-mcd.s.gigigoapps.com",
-			endpoint: "/configuration"
+			endpoint: "/configuration",
+			urlParams: [
+                "this_is": "a_trout",
+                "probando": "repeticion"
+            ]
 		)
 		request.verbose = true
 		
@@ -59,6 +63,9 @@ class SwiftRequestVC: UIViewController {
 			Log("API error")
 			LogError(response.error)
 		}
+        
+
+        
 	}
 	
 }
