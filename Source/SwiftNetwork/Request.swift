@@ -90,7 +90,6 @@ public class Request: GIGURLCommunicator {
 		let url = self.buildURL()
 		let request = GIGURLRequest(method: self.method, url: url)
 		request.headers = self.headers
-		request.parameters = self.urlParams
 		request.json = self.bodyParams
 		request.logLevel = self.verbose ? .Verbose : .None
 		
