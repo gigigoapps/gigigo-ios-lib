@@ -60,6 +60,14 @@ public class JSON: SequenceType, CustomStringConvertible {
 			return JSON(json: json)
 		}
 	}
+    
+    public subscript(index: Int) -> JSON? {
+        get {
+            guard let array = self.json as? [AnyObject] where array.count > index else { return nil }
+            
+            return JSON(json: array[index])
+        }
+    }
 	
 	public class func dataToJson(data: NSData) throws -> JSON {
 		let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
