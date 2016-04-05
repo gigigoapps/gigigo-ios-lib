@@ -51,6 +51,19 @@ class SwiftRequestVC: UIViewController {
 	}
 	
 	
+	@IBAction func onButtonImageDownloadTap(sender: AnyObject) {
+		Request(
+			method: "GET",
+			baseUrl: "http://api-discover-mcd.s.gigigoapps.com/media/image/qLXSBtDE/100/185/90",
+			endpoint: "",
+			verbose: true
+		)
+		.fetchImage(processResponse)
+
+	}
+	
+	
+	
 	private func processResponse(response: Response) {
 		switch response.status {
 
