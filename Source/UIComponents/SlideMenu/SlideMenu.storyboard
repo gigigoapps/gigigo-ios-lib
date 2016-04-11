@@ -11,10 +11,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Menu View Controller-->
+        <!--View Controller-->
         <scene sceneID="o7t-J3-Rk7">
             <objects>
-                <viewController storyboardIdentifier="SlideMenuVC" id="A7I-ea-9T2" customClass="CNTMenuViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SlideMenuVC" id="A7I-ea-9T2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H41-1A-thf"/>
                         <viewControllerLayoutGuide type="bottom" id="b0D-je-35H"/>
@@ -57,26 +57,16 @@
                             <outletCollection property="gestureRecognizers" destination="Suz-Bj-vWb" appends="YES" id="qHJ-xI-6UD"/>
                         </connections>
                     </view>
-                    <connections>
-                        <outlet property="containerContent" destination="wJO-I4-jOX" id="JNu-ul-VOp"/>
-                        <outlet property="containerMenuTable" destination="R8A-dM-Pe3" id="lUL-JE-cve"/>
-                        <outlet property="leftContentContainer" destination="kFd-P7-W3x" id="frh-Oh-ry9"/>
-                        <outlet property="panGesture" destination="Suz-Bj-vWb" id="wLN-B0-ekv"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZXU-MJ-6OQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Suz-Bj-vWb">
-                    <connections>
-                        <action selector="onGesturePan:" destination="A7I-ea-9T2" id="qwC-zi-owt"/>
-                    </connections>
-                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Suz-Bj-vWb"/>
             </objects>
             <point key="canvasLocation" x="285" y="439"/>
         </scene>
-        <!--Menu Table-->
+        <!--View Controller-->
         <scene sceneID="5mi-wm-cqB">
             <objects>
-                <viewController storyboardIdentifier="SlideTableMenu" automaticallyAdjustsScrollViewInsets="NO" id="lHg-97-gQW" customClass="CNTMenuTable" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SlideTableMenu" automaticallyAdjustsScrollViewInsets="NO" id="lHg-97-gQW" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yHI-0w-D48"/>
                         <viewControllerLayoutGuide type="bottom" id="SyM-0o-i8l"/>
@@ -136,10 +126,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="lHg-97-gQW" id="q3y-BO-CQL"/>
-                                    <outlet property="delegate" destination="lHg-97-gQW" id="lXO-Nv-snP"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -151,9 +137,6 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <connections>
-                        <outlet property="tableMenu" destination="nrs-V3-KIb" id="qwr-fY-whr"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMx-rT-o9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -500,6 +500,7 @@
 		FA0215091BE8B0A900B4C10B /* GIGFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = FA00159F1BE8AA760028B1CD /* GIGFacebook.m */; };
 		FA03182E1BE9FB4400333521 /* FBSDKGraphRequestMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA03182D1BE9FB4400333521 /* FBSDKGraphRequestMock.m */; };
 		FA133A6E1CBC1F150007EE06 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA133A6D1CBC1F150007EE06 /* Storyboard+Extension.swift */; };
+		FA133A751CBC225E0007EE06 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */; };
 		FA153EB51C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA153EB41C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift */; };
 		FA1F80741B71EDFA003699DE /* GIGFacebookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */; };
 		FA36E9701C637CD100214598 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E96F1C637CD100214598 /* Dispatch.swift */; };
@@ -969,6 +970,7 @@
 		FA03182C1BE9FB4400333521 /* FBSDKGraphRequestMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBSDKGraphRequestMock.h; path = GIGSocial/Mocks/FBSDKGraphRequestMock.h; sourceTree = "<group>"; };
 		FA03182D1BE9FB4400333521 /* FBSDKGraphRequestMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBSDKGraphRequestMock.m; path = GIGSocial/Mocks/FBSDKGraphRequestMock.m; sourceTree = "<group>"; };
 		FA133A6D1CBC1F150007EE06 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Extension.swift"; path = "Storyboard/Storyboard+Extension.swift"; sourceTree = "<group>"; };
+		FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuViewController.swift; path = Menu/SlideMenuViewController.swift; sourceTree = "<group>"; };
 		FA153EB41C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Extension.swift"; sourceTree = "<group>"; };
 		FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFacebookTests.m; path = GIGSocial/Wrappers/GIGFacebookTests.m; sourceTree = "<group>"; };
 		FA36E96F1C637CD100214598 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
@@ -1643,7 +1645,7 @@
 				FAA80A7A1B70CFE40076FF9E /* Social */,
 				4A881C131C5F8650000EC61E /* Alert */,
 				FA44E4991C90775D009BBBA2 /* Passbook */,
-				FA133A721CBC208B0007EE06 /* SlideMenu */,
+				FA133A721CBC208B0007EE06 /* Menu */,
 				D99AD3661B1DAAE6005BB4E5 /* Resources */,
 				D9D059E41BDE440F00927F0E /* Frameworks */,
 				D99AD3881B1DAAEB005BB4E5 /* Supporting Files */,
@@ -2020,11 +2022,12 @@
 			name = Storyboard;
 			sourceTree = "<group>";
 		};
-		FA133A721CBC208B0007EE06 /* SlideMenu */ = {
+		FA133A721CBC208B0007EE06 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */,
 			);
-			name = SlideMenu;
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		FA1F80721B71EDD2003699DE /* FacebookFacade */ = {
@@ -3264,6 +3267,7 @@
 				D99AD3741B1DAAE6005BB4E5 /* GLAMainViewController.m in Sources */,
 				FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */,
 				FACE6D991BBC115900457B4C /* GLALoginFacebookViewController.m in Sources */,
+				FA133A751CBC225E0007EE06 /* SlideMenuViewController.swift in Sources */,
 				D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */,
 				4A23B67B1C74779D00E37E5D /* GIGAlertViewController.swift in Sources */,
 				FA44E49B1C907784009BBBA2 /* PassbookVC.swift in Sources */,

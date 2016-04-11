@@ -12,7 +12,7 @@ import UIKit
 extension UIStoryboard {
 	
     class func GIGStoryboard(name: String) -> UIStoryboard {
-		return UIStoryboard(name: name, bundle: NSBundle(identifier: "com.gigigo.giglibrary"))
+		return UIStoryboard(name: name, bundle: NSBundle(identifier: "com.gigigo.GIGLibrary"))
 	}
 	
 	

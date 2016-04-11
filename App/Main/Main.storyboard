@@ -20,6 +20,39 @@
             </objects>
             <point key="canvasLocation" x="-987" y="1324"/>
         </scene>
+        <!--Slide Menu View Controller-->
+        <scene sceneID="03O-tP-xnJ">
+            <objects>
+                <viewController id="cBX-M7-2hs" customClass="SlideMenuViewController" customModule="GIGLibraryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ndm-NH-Jwx"/>
+                        <viewControllerLayoutGuide type="bottom" id="euG-zo-uHr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xy0-DP-nYi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbj-rQ-nyy">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Rbj-rQ-nyy" secondAttribute="trailing" id="6V7-KN-PKa"/>
+                            <constraint firstItem="Rbj-rQ-nyy" firstAttribute="top" secondItem="xy0-DP-nYi" secondAttribute="top" id="gCy-AG-wlK"/>
+                            <constraint firstItem="euG-zo-uHr" firstAttribute="top" secondItem="Rbj-rQ-nyy" secondAttribute="bottom" id="kZ3-6b-Cqs"/>
+                            <constraint firstItem="Rbj-rQ-nyy" firstAttribute="leading" secondItem="xy0-DP-nYi" secondAttribute="leading" id="qQ2-di-nxY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="W27-IN-wdz"/>
+                    <connections>
+                        <outlet property="viewContainer" destination="Rbj-rQ-nyy" id="Z96-Cj-Ck5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dh7-5S-atd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="952" y="1324"/>
+        </scene>
         <!--Login Facebook-->
         <scene sceneID="U2R-3K-4fa">
             <objects>
@@ -96,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cgd-WN-nJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-91" y="2307"/>
+            <point key="canvasLocation" x="27" y="2089"/>
         </scene>
         <!--Alert View Controller-->
         <scene sceneID="krt-q2-aol">
@@ -115,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XP4-QR-pef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-93" y="2965"/>
+            <point key="canvasLocation" x="490" y="2089"/>
         </scene>
         <!--Passbook-->
         <scene sceneID="0cb-ID-COq">
@@ -147,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWu-5i-VZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="516" y="1253"/>
+            <point key="canvasLocation" x="490" y="1324"/>
         </scene>
         <!--Swift Requests-->
         <scene sceneID="bT5-WV-PrD">
@@ -197,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfp-7g-cSr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-91" y="879"/>
+            <point key="canvasLocation" x="490" y="588"/>
         </scene>
         <!--Example Form-->
         <scene sceneID="Slv-dI-SNS">
@@ -266,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCB-KT-keV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-91" y="1579"/>
+            <point key="canvasLocation" x="27" y="1324"/>
         </scene>
         <!--GIGLibrary-->
         <scene sceneID="JbR-H5-Et5">
@@ -277,7 +310,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="FCe-ZC-iNO">
-                            <rect key="frame" x="0.0" y="374" width="320" height="1"/>
+                            <rect key="frame" x="0.0" y="440" width="320" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -422,6 +455,30 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Menu" id="xuG-q8-mcL">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="t6c-DJ-xLk" style="IBUITableViewCellStyleDefault" id="aOq-86-lV8">
+                                        <rect key="frame" x="0.0" y="396" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aOq-86-lV8" id="z6A-d9-XlJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="SlideMenu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t6c-DJ-xLk" userLabel="Alert">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="cBX-M7-2hs" kind="modal" id="XxW-Hi-7sy"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                     </tableView>
                     <navigationItem key="navigationItem" title="GIGLibrary" id="tII-uo-xbR"/>
@@ -460,7 +517,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGB-Dq-EKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-93" y="248"/>
+            <point key="canvasLocation" x="27" y="588"/>
         </scene>
     </scenes>
 </document>
