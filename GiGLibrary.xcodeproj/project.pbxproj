@@ -499,6 +499,7 @@
 		FA0215081BE8B0A600B4C10B /* GIGFacebookLoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0015A11BE8AA760028B1CD /* GIGFacebookLoginResult.m */; };
 		FA0215091BE8B0A900B4C10B /* GIGFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = FA00159F1BE8AA760028B1CD /* GIGFacebook.m */; };
 		FA03182E1BE9FB4400333521 /* FBSDKGraphRequestMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA03182D1BE9FB4400333521 /* FBSDKGraphRequestMock.m */; };
+		FA133A6E1CBC1F150007EE06 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA133A6D1CBC1F150007EE06 /* Storyboard+Extension.swift */; };
 		FA153EB51C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA153EB41C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift */; };
 		FA1F80741B71EDFA003699DE /* GIGFacebookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */; };
 		FA36E9701C637CD100214598 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E96F1C637CD100214598 /* Dispatch.swift */; };
@@ -526,6 +527,8 @@
 		FA44E49E1C907F8D009BBBA2 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA44E49D1C907F8D009BBBA2 /* PassKit.framework */; };
 		FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; };
 		FA4CEADD1CBBBE620029FF4C /* SlideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4CEADC1CBBBE620029FF4C /* SlideMenu.storyboard */; };
+		FA4CEAE11CBBC0850029FF4C /* SlideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CEAE01CBBC0850029FF4C /* SlideMenuVC.swift */; };
+		FA4CEAE31CBBC0AF0029FF4C /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FA723AC71C64AB4500225E79 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC51C64AB4500225E79 /* Request.swift */; };
 		FA723AC81C64AB4500225E79 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC61C64AB4500225E79 /* Response.swift */; };
@@ -784,8 +787,8 @@
 		D99AD1921B1DA3A3005BB4E5 /* GIGAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGAlert.m; sourceTree = "<group>"; };
 		D99AD1941B1DA3A3005BB4E5 /* NSArray+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GIGExtension.h"; sourceTree = "<group>"; };
 		D99AD1951B1DA3A3005BB4E5 /* NSArray+GIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GIGExtension.m"; sourceTree = "<group>"; };
-		D99AD1971B1DA3A3005BB4E5 /* NSBundle+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+GIGExtension.h"; sourceTree = "<group>"; };
-		D99AD1981B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+GIGExtension.m"; sourceTree = "<group>"; };
+		D99AD1971B1DA3A3005BB4E5 /* NSBundle+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBundle+GIGExtension.h"; path = "Bundle/NSBundle+GIGExtension.h"; sourceTree = "<group>"; };
+		D99AD1981B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+GIGExtension.m"; path = "Bundle/NSBundle+GIGExtension.m"; sourceTree = "<group>"; };
 		D99AD19A1B1DA3A3005BB4E5 /* UIColor+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GIGExtension.h"; sourceTree = "<group>"; };
 		D99AD19B1B1DA3A3005BB4E5 /* UIColor+GIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GIGExtension.m"; sourceTree = "<group>"; };
 		D99AD19D1B1DA3A3005BB4E5 /* NSManagedObjectContext+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+GIGExtension.h"; sourceTree = "<group>"; };
@@ -965,6 +968,7 @@
 		FA0015A11BE8AA760028B1CD /* GIGFacebookLoginResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFacebookLoginResult.m; path = GIGSocial/Facades/GIGFacebookLoginResult.m; sourceTree = "<group>"; };
 		FA03182C1BE9FB4400333521 /* FBSDKGraphRequestMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBSDKGraphRequestMock.h; path = GIGSocial/Mocks/FBSDKGraphRequestMock.h; sourceTree = "<group>"; };
 		FA03182D1BE9FB4400333521 /* FBSDKGraphRequestMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBSDKGraphRequestMock.m; path = GIGSocial/Mocks/FBSDKGraphRequestMock.m; sourceTree = "<group>"; };
+		FA133A6D1CBC1F150007EE06 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Extension.swift"; path = "Storyboard/Storyboard+Extension.swift"; sourceTree = "<group>"; };
 		FA153EB41C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Extension.swift"; sourceTree = "<group>"; };
 		FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFacebookTests.m; path = GIGSocial/Wrappers/GIGFacebookTests.m; sourceTree = "<group>"; };
 		FA36E96F1C637CD100214598 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
@@ -991,6 +995,8 @@
 		FA4BFCD91BBAF21E003FC7E2 /* GIGLoginManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGLoginManagerMock.h; path = GIGSocial/Mocks/GIGLoginManagerMock.h; sourceTree = "<group>"; };
 		FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGLoginManagerMock.m; path = GIGSocial/Mocks/GIGLoginManagerMock.m; sourceTree = "<group>"; };
 		FA4CEADC1CBBBE620029FF4C /* SlideMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SlideMenu.storyboard; path = UIComponents/SlideMenu/SlideMenu.storyboard; sourceTree = "<group>"; };
+		FA4CEAE01CBBC0850029FF4C /* SlideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuVC.swift; path = UIComponents/SlideMenu/SlideMenuVC.swift; sourceTree = "<group>"; };
+		FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenu.swift; path = UIComponents/SlideMenu/SlideMenu.swift; sourceTree = "<group>"; };
 		FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1A1B009B6B006FC484 /* GIGLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1D1B009B6B006FC484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1377,44 +1383,8 @@
 		D99AD18F1B1DA3A3005BB4E5 /* GIGUtils */ = {
 			isa = PBXGroup;
 			children = (
-				FA44E4941C90694B009BBBA2 /* Application */,
-				4AC0299B1C73831700FF22BF /* AlertController */,
-				D99AD1B81B1DA3A3005BB4E5 /* GIGUtils.h */,
-				4A6A04811C62524000FED731 /* GIGIOSVersion.swift */,
-				D99AD1B41B1DA3A3005BB4E5 /* GIGDebug.h */,
-				D99AD1B51B1DA3A3005BB4E5 /* GIGDispatch.h */,
-				FA36E96F1C637CD100214598 /* Dispatch.swift */,
-				D99AD1B61B1DA3A3005BB4E5 /* GIGLocalization.h */,
-				D99AD1B71B1DA3A3005BB4E5 /* GIGRandom.h */,
-				D9EECF7E1BEA6AE0007FEAD8 /* AttributedString */,
-				D99AD1901B1DA3A3005BB4E5 /* Alert */,
-				D99AD1931B1DA3A3005BB4E5 /* Array */,
-				D99AD1961B1DA3A3005BB4E5 /* Bundle */,
-				7B6B84921BC2959500517C2F /* Class */,
-				D99AD1991B1DA3A3005BB4E5 /* Color */,
-				D99AD19C1B1DA3A3005BB4E5 /* CoreData */,
-				D99AD19F1B1DA3A3005BB4E5 /* Data */,
-				D99AD1A21B1DA3A3005BB4E5 /* Date */,
-				D99AD1A51B1DA3A3005BB4E5 /* Dictionary */,
-				D99AD1A81B1DA3A3005BB4E5 /* Digest */,
-				D99AD1AB1B1DA3A3005BB4E5 /* Encrypt */,
-				D99AD1AE1B1DA3A3005BB4E5 /* Error */,
-				D99AD1B11B1DA3A3005BB4E5 /* FileManager */,
-				D99AD1B91B1DA3A3005BB4E5 /* Image */,
-				D99AD1BC1B1DA3A3005BB4E5 /* Invocation */,
-				FA86D0E81C870438003C5623 /* SwiftJson */,
-				D99AD1BF1B1DA3A3005BB4E5 /* JSON */,
-				D99AD1C91B1DA3A3005BB4E5 /* Locale */,
-				D99AD1CC1B1DA3A3005BB4E5 /* Log */,
-				D99AD1CF1B1DA3A3005BB4E5 /* NavigationController */,
-				D99AD1D21B1DA3A3005BB4E5 /* Regexp */,
-				D99AD1D81B1DA3A3005BB4E5 /* Screen */,
-				D99AD1DB1B1DA3A3005BB4E5 /* Scroll */,
-				D99AD1DE1B1DA3A3005BB4E5 /* String */,
-				D99AD1E61B1DA3A3005BB4E5 /* UserDefaults */,
-				D99AD1E91B1DA3A3005BB4E5 /* View */,
-				4A881C101C5F7C2D000EC61E /* AlertController */,
-				4AACDF961C60D98A00F4E8AE /* ActionSheetController */,
+				FA133A6F1CBC1FD50007EE06 /* Public */,
+				FA133A701CBC1FE20007EE06 /* Private */,
 			);
 			path = GIGUtils;
 			sourceTree = "<group>";
@@ -1440,8 +1410,6 @@
 		D99AD1961B1DA3A3005BB4E5 /* Bundle */ = {
 			isa = PBXGroup;
 			children = (
-				D99AD1971B1DA3A3005BB4E5 /* NSBundle+GIGExtension.h */,
-				D99AD1981B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m */,
 			);
 			path = Bundle;
 			sourceTree = "<group>";
@@ -1675,6 +1643,7 @@
 				FAA80A7A1B70CFE40076FF9E /* Social */,
 				4A881C131C5F8650000EC61E /* Alert */,
 				FA44E4991C90775D009BBBA2 /* Passbook */,
+				FA133A721CBC208B0007EE06 /* SlideMenu */,
 				D99AD3661B1DAAE6005BB4E5 /* Resources */,
 				D9D059E41BDE440F00927F0E /* Frameworks */,
 				D99AD3881B1DAAEB005BB4E5 /* Supporting Files */,
@@ -1988,6 +1957,76 @@
 			name = Message;
 			sourceTree = "<group>";
 		};
+		FA133A6F1CBC1FD50007EE06 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				FA44E4941C90694B009BBBA2 /* Application */,
+				4AC0299B1C73831700FF22BF /* AlertController */,
+				D99AD1B81B1DA3A3005BB4E5 /* GIGUtils.h */,
+				4A6A04811C62524000FED731 /* GIGIOSVersion.swift */,
+				D99AD1B41B1DA3A3005BB4E5 /* GIGDebug.h */,
+				D99AD1B51B1DA3A3005BB4E5 /* GIGDispatch.h */,
+				FA36E96F1C637CD100214598 /* Dispatch.swift */,
+				D99AD1B61B1DA3A3005BB4E5 /* GIGLocalization.h */,
+				D99AD1B71B1DA3A3005BB4E5 /* GIGRandom.h */,
+				D9EECF7E1BEA6AE0007FEAD8 /* AttributedString */,
+				D99AD1901B1DA3A3005BB4E5 /* Alert */,
+				D99AD1931B1DA3A3005BB4E5 /* Array */,
+				D99AD1961B1DA3A3005BB4E5 /* Bundle */,
+				D99AD1971B1DA3A3005BB4E5 /* NSBundle+GIGExtension.h */,
+				D99AD1981B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m */,
+				7B6B84921BC2959500517C2F /* Class */,
+				D99AD1991B1DA3A3005BB4E5 /* Color */,
+				D99AD19C1B1DA3A3005BB4E5 /* CoreData */,
+				D99AD19F1B1DA3A3005BB4E5 /* Data */,
+				D99AD1A21B1DA3A3005BB4E5 /* Date */,
+				D99AD1A51B1DA3A3005BB4E5 /* Dictionary */,
+				D99AD1A81B1DA3A3005BB4E5 /* Digest */,
+				D99AD1AB1B1DA3A3005BB4E5 /* Encrypt */,
+				D99AD1AE1B1DA3A3005BB4E5 /* Error */,
+				D99AD1B11B1DA3A3005BB4E5 /* FileManager */,
+				D99AD1B91B1DA3A3005BB4E5 /* Image */,
+				D99AD1BC1B1DA3A3005BB4E5 /* Invocation */,
+				FA86D0E81C870438003C5623 /* SwiftJson */,
+				D99AD1BF1B1DA3A3005BB4E5 /* JSON */,
+				D99AD1C91B1DA3A3005BB4E5 /* Locale */,
+				D99AD1CC1B1DA3A3005BB4E5 /* Log */,
+				D99AD1CF1B1DA3A3005BB4E5 /* NavigationController */,
+				D99AD1D21B1DA3A3005BB4E5 /* Regexp */,
+				D99AD1D81B1DA3A3005BB4E5 /* Screen */,
+				D99AD1DB1B1DA3A3005BB4E5 /* Scroll */,
+				D99AD1DE1B1DA3A3005BB4E5 /* String */,
+				D99AD1E61B1DA3A3005BB4E5 /* UserDefaults */,
+				D99AD1E91B1DA3A3005BB4E5 /* View */,
+				4A881C101C5F7C2D000EC61E /* AlertController */,
+				4AACDF961C60D98A00F4E8AE /* ActionSheetController */,
+			);
+			name = Public;
+			sourceTree = "<group>";
+		};
+		FA133A701CBC1FE20007EE06 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				FA133A711CBC1FF50007EE06 /* Storyboard */,
+			);
+			name = Private;
+			sourceTree = "<group>";
+		};
+		FA133A711CBC1FF50007EE06 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FA133A6D1CBC1F150007EE06 /* Storyboard+Extension.swift */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		FA133A721CBC208B0007EE06 /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SlideMenu;
+			sourceTree = "<group>";
+		};
 		FA1F80721B71EDD2003699DE /* FacebookFacade */ = {
 			isa = PBXGroup;
 			children = (
@@ -2079,6 +2118,8 @@
 			isa = PBXGroup;
 			children = (
 				FA4CEADC1CBBBE620029FF4C /* SlideMenu.storyboard */,
+				FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */,
+				FA4CEAE01CBBC0850029FF4C /* SlideMenuVC.swift */,
 			);
 			name = SlideMenu;
 			sourceTree = "<group>";
@@ -3138,6 +3179,7 @@
 				D99AD2A31B1DA3A3005BB4E5 /* UIImage+GIGExtension.m in Sources */,
 				D99AD2EF1B1DA3A3005BB4E5 /* UIView+GIGBorderShadowExtension.m in Sources */,
 				D99AD2131B1DA3A3005BB4E5 /* GIGURLConfigAddDomainViewController.m in Sources */,
+				FA133A6E1CBC1F150007EE06 /* Storyboard+Extension.swift in Sources */,
 				D9FD36071B4162A6000D356F /* GIGTextValidator.m in Sources */,
 				D99AD1FB1B1DA3A3005BB4E5 /* GIGGeolocation.m in Sources */,
 				D99AD2791B1DA3A3005BB4E5 /* NSManagedObjectContext+GIGExtension.m in Sources */,
@@ -3157,6 +3199,8 @@
 				D99AD2D71B1DA3A3005BB4E5 /* UIScrollView+GIGScrollTo.m in Sources */,
 				D99AD2F71B1DA3A3005BB4E5 /* UIView+GIGFrameExtension.m in Sources */,
 				D9FE62121BD65D8A00E2B23C /* GIGTextFormField.m in Sources */,
+				FA4CEAE31CBBC0AF0029FF4C /* SlideMenu.swift in Sources */,
+				FA4CEAE11CBBC0850029FF4C /* SlideMenuVC.swift in Sources */,
 				D9FD35EC1B413E1A000D356F /* GIGRegexpValidator.m in Sources */,
 				D99AD2E11B1DA3A3005BB4E5 /* NSString+GIGReplace.m in Sources */,
 				FAEDF67E1BE20EFD00F05AE2 /* GIGURLSessionFactory.m in Sources */,

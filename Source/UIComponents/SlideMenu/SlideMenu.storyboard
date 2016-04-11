@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A7I-ea-9T2">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -14,7 +14,7 @@
         <!--Menu View Controller-->
         <scene sceneID="o7t-J3-Rk7">
             <objects>
-                <viewController id="A7I-ea-9T2" customClass="CNTMenuViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SlideMenuVC" id="A7I-ea-9T2" customClass="CNTMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H41-1A-thf"/>
                         <viewControllerLayoutGuide type="bottom" id="b0D-je-35H"/>
@@ -76,7 +76,7 @@
         <!--Menu Table-->
         <scene sceneID="5mi-wm-cqB">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="lHg-97-gQW" customClass="CNTMenuTable" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SlideTableMenu" automaticallyAdjustsScrollViewInsets="NO" id="lHg-97-gQW" customClass="CNTMenuTable" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yHI-0w-D48"/>
                         <viewControllerLayoutGuide type="bottom" id="SyM-0o-i8l"/>
