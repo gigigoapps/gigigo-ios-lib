@@ -525,6 +525,7 @@
 		FA44E49B1C907784009BBBA2 /* PassbookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44E49A1C907784009BBBA2 /* PassbookVC.swift */; };
 		FA44E49E1C907F8D009BBBA2 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA44E49D1C907F8D009BBBA2 /* PassKit.framework */; };
 		FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; };
+		FA4CEADD1CBBBE620029FF4C /* SlideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4CEADC1CBBBE620029FF4C /* SlideMenu.storyboard */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FA723AC71C64AB4500225E79 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC51C64AB4500225E79 /* Request.swift */; };
 		FA723AC81C64AB4500225E79 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC61C64AB4500225E79 /* Response.swift */; };
@@ -989,6 +990,7 @@
 		FA46B2961C899B2C009EDE7C /* facebook_version.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = facebook_version.txt; path = GIGSocial/Libs/facebook_version.txt; sourceTree = "<group>"; };
 		FA4BFCD91BBAF21E003FC7E2 /* GIGLoginManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGLoginManagerMock.h; path = GIGSocial/Mocks/GIGLoginManagerMock.h; sourceTree = "<group>"; };
 		FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGLoginManagerMock.m; path = GIGSocial/Mocks/GIGLoginManagerMock.m; sourceTree = "<group>"; };
+		FA4CEADC1CBBBE620029FF4C /* SlideMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SlideMenu.storyboard; path = UIComponents/SlideMenu/SlideMenu.storyboard; sourceTree = "<group>"; };
 		FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1A1B009B6B006FC484 /* GIGLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1D1B009B6B006FC484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1237,6 +1239,7 @@
 				D99AD1521B1DA3A3005BB4E5 /* GIGLayout */,
 				D99AD15D1B1DA3A3005BB4E5 /* GIGNetwork */,
 				FA723AC41C64AAF700225E79 /* SwiftNetwork */,
+				FA4CEADA1CBBBE1C0029FF4C /* UIComponents */,
 				FA74BCF41B6F6AB2001D2BCF /* GIGSocial */,
 				FA4192281C8F2F3300BF6988 /* GIGPassbook */,
 				D99AD18F1B1DA3A3005BB4E5 /* GIGUtils */,
@@ -2064,6 +2067,22 @@
 			name = Passbook;
 			sourceTree = "<group>";
 		};
+		FA4CEADA1CBBBE1C0029FF4C /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FA4CEADB1CBBBE330029FF4C /* SlideMenu */,
+			);
+			name = UIComponents;
+			sourceTree = "<group>";
+		};
+		FA4CEADB1CBBBE330029FF4C /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				FA4CEADC1CBBBE620029FF4C /* SlideMenu.storyboard */,
+			);
+			name = SlideMenu;
+			sourceTree = "<group>";
+		};
 		FA65BF8F1AEFD5F80031A91B = {
 			isa = PBXGroup;
 			children = (
@@ -2769,6 +2788,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4CEADD1CBBBE620029FF4C /* SlideMenu.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
