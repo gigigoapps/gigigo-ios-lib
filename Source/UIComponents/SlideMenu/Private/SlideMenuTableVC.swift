@@ -8,7 +8,15 @@
 
 import UIKit
 
-class SlideMenuTableVC: UIViewController, UITableViewDataSource {
+
+protocol MenuTableDelegate {
+    func tableDidSelecteSection(menuSection: MenuSection)
+}
+
+
+class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var menuTableDelegate: MenuTableDelegate?
     
     var sections: [MenuSection]? {
         didSet {
@@ -44,6 +52,20 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource {
         cell.bindMenuSection(menuSection)
         
         return cell
+    }
+    
+    
+    // MARK: - TableViewDelegate
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        guard
+            let menuSection = self.sections?[indexPath.row],
+            let delegate = self.menuTableDelegate
+            else {
+                return
+        }
+        
+        delegate.tableDidSelecteSection(menuSection)
     }
     
 }

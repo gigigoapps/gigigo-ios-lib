@@ -94,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJd-fw-XlS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1394" y="1325"/>
+            <point key="canvasLocation" x="1381" y="1324"/>
         </scene>
         <!--Login Facebook-->
         <scene sceneID="U2R-3K-4fa">
@@ -561,6 +561,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGB-Dq-EKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="27" y="588"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vOE-uI-eLp">
+            <objects>
+                <viewController storyboardIdentifier="SlideMenuSection2" id="Pnc-p5-W1v" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yWX-Yn-ywI"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Sw-ia-2Um"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Efh-rP-vKZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide Menu 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7v-39-7NJ">
+                                <rect key="frame" x="108" y="273" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80392158031463623" green="0.80392158031463623" blue="0.82745099067687988" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="o7v-39-7NJ" firstAttribute="centerX" secondItem="Efh-rP-vKZ" secondAttribute="centerX" id="xiA-S0-FIw"/>
+                            <constraint firstItem="o7v-39-7NJ" firstAttribute="centerY" secondItem="Efh-rP-vKZ" secondAttribute="centerY" id="zNZ-oY-a6h"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HDY-2a-0Oo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1795" y="1324"/>
         </scene>
     </scenes>
 </document>

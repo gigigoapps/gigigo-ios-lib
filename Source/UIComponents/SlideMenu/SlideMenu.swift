@@ -9,18 +9,11 @@
 import Foundation
 
 
-enum MenuState {
-    case Open
-    case Close
-}
-
-
 public class SlideMenu {
     
     public static let shared = SlideMenu()
     
     private lazy var menuViewController = SlideMenuVC.menuVC()
-    private var menuState = MenuState.Close
     private var sections: [MenuSection] = []
     
     
@@ -36,25 +29,9 @@ public class SlideMenu {
     }
     
     public func userDidTapMenu() {
-        switch self.menuState {
-        
-        case .Open:
-            self.closeMenu()
-        
-        case .Close:
-            self.openMenu()
-        }
+        self.menuViewController?.userDidTapMenuButton()
     }
-    
-    public func openMenu() {
-        self.menuViewController?.openMenu()
-        self.menuState = .Open
-    }
-    
-    public func closeMenu() {
-        self.menuViewController?.closeMenu()
-        self.menuState = .Close
-    }
+
     
     public func addSection(section: MenuSection) {
         self.sections.append(section)
@@ -62,7 +39,7 @@ public class SlideMenu {
     }
     
     public func selectSection(index: Int) {
-        var section = self.sections[index]
+        let section = self.sections[index]
         self.menuViewController?.setSection(section.sectionController)
     }
     

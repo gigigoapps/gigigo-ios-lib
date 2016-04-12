@@ -9,7 +9,13 @@
 import UIKit
 
 
-class SlideMenuVC: UIViewController {
+enum MenuState {
+    case Open
+    case Close
+}
+
+
+class SlideMenuVC: UIViewController, MenuTableDelegate {
     
     var sections: [MenuSection] = [] {
         didSet {
@@ -19,6 +25,7 @@ class SlideMenuVC: UIViewController {
         }
     }
     
+    private var menuState = MenuState.Close
     weak var menuTableView: SlideMenuTableVC?
     @IBOutlet weak private var customContentContainer: UIView!
     
@@ -29,6 +36,8 @@ class SlideMenuVC: UIViewController {
         return menuVC
     }
     
+    
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,19 +53,21 @@ class SlideMenuVC: UIViewController {
         
         self.menuTableView = menuTableView
         self.menuTableView?.sections = self.sections
+        self.menuTableView?.menuTableDelegate = self
     }
     
     
     // MARK: - Public Methods
-    func openMenu() {
-        let xPos = self.view.width() - (self.view.width() * 0.2)
-        let tTranslate = CGAffineTransformMakeTranslation(xPos, 0)
-        self.customContentContainer.transform = CGAffineTransformConcat(CGAffineTransformIdentity, tTranslate)
-    }
     
-    
-    func closeMenu() {
-        self.customContentContainer.transform = CGAffineTransformIdentity
+    func userDidTapMenuButton() {
+        switch self.menuState {
+            
+        case .Open:
+            self.closeMenu()
+            
+        case .Close:
+            self.openMenu()
+        }
     }
     
     
@@ -66,6 +77,29 @@ class SlideMenuVC: UIViewController {
     }
     
     
+    // MARK: - MenuTableDelegate
     
+    func tableDidSelecteSection(menuSection: MenuSection) {
+        self.setSection(menuSection.sectionController)
+        self.closeMenu()
+    }
+    
+    
+    // MARK: - Private Methods
+    
+    private func openMenu() {
+        self.menuState = .Open
+        
+        let xPos = self.view.width() - (self.view.width() * 0.2)
+        let tTranslate = CGAffineTransformMakeTranslation(xPos, 0)
+        self.customContentContainer.transform = CGAffineTransformConcat(CGAffineTransformIdentity, tTranslate)
+    }
+    
+    
+    private func closeMenu() {
+        self.menuState = .Close
+        
+        self.customContentContainer.transform = CGAffineTransformIdentity
+    }
 
 }

@@ -26,26 +26,34 @@ class SlideMenuViewController: UIViewController {
         self.addChildViewController(menuVC)
         self.viewContainer.addSubviewWithAutolayout(menuVC.view)
         
+        self.prepareMenu()
+        
     }
     
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        let section = MenuSection(
-            name: "Section1",
-            icon: UIImage(),
-            storyboard: "Main",
-            viewController: "SlideMenuSection1"
-        )
-        
-        self.menu.addSection(section)
-        self.menu.selectSection(0)
-    }
-
     
     @IBAction func onMenuButtonTap(sender: AnyObject) {
         self.menu.userDidTapMenu()
     }
 
+    
+    private func prepareMenu() {
+        let section1 = MenuSection(
+            name: "Section 1",
+            icon: UIImage(),
+            storyboard: "Main",
+            viewController: "SlideMenuSection1"
+        )
+        
+        let section2 = MenuSection(
+            name: "Section 2",
+            icon: UIImage(),
+            storyboard: "Main",
+            viewController: "SlideMenuSection2"
+        )
+        
+        self.menu.addSection(section1)
+        self.menu.addSection(section2)
+        
+        self.menu.selectSection(0)
+    }
 }

@@ -9,14 +9,14 @@
 import Foundation
 
 
-public struct MenuSection {
+public class MenuSection {
     
     public let name: String
     public let icon: UIImage
     public let storyboard: String
     public let viewController: String?
     
-    lazy var sectionController: UIViewController! = self.instantiateViewController()
+    lazy var sectionController: UIViewController = self.instantiateViewController()
     
     
     public init(name: String, icon: UIImage, storyboard: String, viewController: String) {
@@ -27,15 +27,15 @@ public struct MenuSection {
     }
     
     
-    private func instantiateViewController() -> UIViewController? {
+    private func instantiateViewController() -> UIViewController {
         let storyboard = UIStoryboard(name: self.storyboard, bundle: NSBundle.mainBundle())
-        let sectionVC: UIViewController?
+        let sectionVC: UIViewController
         
         if let viewControllerName = self.viewController {
             sectionVC = storyboard.instantiateViewControllerWithIdentifier(viewControllerName)
         }
         else {
-            sectionVC = storyboard.instantiateInitialViewController()
+            sectionVC = storyboard.instantiateInitialViewController()!
         }
         
         return sectionVC
