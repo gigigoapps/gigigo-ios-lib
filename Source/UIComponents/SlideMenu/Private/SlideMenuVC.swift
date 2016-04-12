@@ -26,12 +26,14 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     }
     
     private var menuState = MenuState.Close
+    private weak var sectionControllerToShow: UIViewController?
+    
     weak var menuTableView: SlideMenuTableVC?
     @IBOutlet weak private var customContentContainer: UIView!
     
     
     class func menuVC() -> SlideMenuVC? {
-        let menuVC = UIStoryboard.initialVC("SlideMenu") as? SlideMenuVC
+        let menuVC = UIStoryboard.GIGInitialVC("SlideMenu") as? SlideMenuVC
         
         return menuVC
     }
@@ -42,7 +44,10 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let sectionController = self.sectionControllerToShow {
+            self.setSection(sectionController)
+            self.sectionControllerToShow = nil
+        }
     }
     
     
@@ -72,6 +77,11 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     
     
     func setSection(viewController: UIViewController) {
+        guard self.customContentContainer != nil else {
+            self.sectionControllerToShow = viewController
+            return
+        }
+        
         self.addChildViewController(viewController)
         self.customContentContainer.addSubviewWithAutolayout(viewController.view)
     }

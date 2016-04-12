@@ -21,13 +21,16 @@ class SlideMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let menuVC = self.menu.menuVC()
-        
-        self.addChildViewController(menuVC)
-        self.viewContainer.addSubviewWithAutolayout(menuVC.view)
-        
         self.prepareMenu()
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let menuVC = self.menu.menuVC()
+        self.addChildViewController(menuVC)
+        self.viewContainer.addSubviewWithAutolayout(menuVC.view)
     }
     
     

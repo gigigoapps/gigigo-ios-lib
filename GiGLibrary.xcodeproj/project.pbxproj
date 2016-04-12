@@ -3772,7 +3772,7 @@
 				INFOPLIST_FILE = GIGLibraryApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.giglibrary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.giglibraryapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Network/GIGLibraryApp-Bridging-Header.h";
@@ -3794,7 +3794,7 @@
 				INFOPLIST_FILE = GIGLibraryApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.giglibrary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.giglibraryapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Network/GIGLibraryApp-Bridging-Header.h";

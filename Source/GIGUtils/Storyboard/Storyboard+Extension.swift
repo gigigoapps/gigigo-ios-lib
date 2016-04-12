@@ -16,7 +16,7 @@ extension UIStoryboard {
 	}
 	
 	
-    class func initialVC(name: String) -> UIViewController? {
+    class func GIGInitialVC(name: String) -> UIViewController? {
 		let storyboard = UIStoryboard.GIGStoryboard(name)
 		guard let initialVC = storyboard.instantiateInitialViewController() else {
 			LogWarn("Couldn't found initial view controller")
