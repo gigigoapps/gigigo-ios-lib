@@ -13,19 +13,38 @@ import GIGLibrary
 class SlideMenuViewController: UIViewController {
     
     
+    lazy var menu = SlideMenu.shared
+    
     @IBOutlet weak var viewContainer: UIView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let menu = SlideMenu.shared
-        let menuVC = menu.menuVC()
+        let menuVC = self.menu.menuVC()
         
         self.addChildViewController(menuVC)
         self.viewContainer.addSubviewWithAutolayout(menuVC.view)
         
     }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let section = MenuSection(
+            name: "Section1",
+            storyboard: "Main",
+            viewController: "SlideMenuSection1"
+        )
+        
+        self.menu.addSection(section)
+        self.menu.selectSection(0)
+    }
 
+    
+    @IBAction func onMenuButtonTap(sender: AnyObject) {
+        self.menu.userDidTapMenu()
+    }
 
 }

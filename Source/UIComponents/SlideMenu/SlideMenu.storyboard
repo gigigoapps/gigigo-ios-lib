@@ -11,10 +11,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Slide MenuVC-->
         <scene sceneID="o7t-J3-Rk7">
             <objects>
-                <viewController storyboardIdentifier="SlideMenuVC" id="A7I-ea-9T2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SlideMenuVC" id="A7I-ea-9T2" customClass="SlideMenuVC" customModule="GIGLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H41-1A-thf"/>
                         <viewControllerLayoutGuide type="bottom" id="b0D-je-35H"/>
@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_background" translatesAutoresizingMaskIntoConstraints="NO" id="dE8-1E-ESU" userLabel="imageBackground">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dE8-1E-ESU" userLabel="imageBackground">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8A-dM-Pe3" userLabel="MenuTable">
@@ -34,7 +34,7 @@
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJO-I4-jOX" userLabel="CustomContent">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,6 +57,9 @@
                             <outletCollection property="gestureRecognizers" destination="Suz-Bj-vWb" appends="YES" id="qHJ-xI-6UD"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="customContentContainer" destination="wJO-I4-jOX" id="cjQ-CF-MGJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZXU-MJ-6OQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="Suz-Bj-vWb"/>
@@ -86,7 +89,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="429" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_icon_home" translatesAutoresizingMaskIntoConstraints="NO" id="ytj-y8-Qw9" userLabel="imagenMenuSection">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ytj-y8-Qw9" userLabel="imagenMenuSection">
                                                     <rect key="frame" x="30" y="14" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="2bn-Se-71g"/>
@@ -128,7 +131,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="nrs-V3-KIb" firstAttribute="top" secondItem="yHI-0w-D48" secondAttribute="bottom" id="BaN-qF-E7I"/>
                             <constraint firstItem="nrs-V3-KIb" firstAttribute="leading" secondItem="SQI-g9-stM" secondAttribute="leading" id="IGe-ge-boo"/>
@@ -143,8 +146,4 @@
             <point key="canvasLocation" x="1019" y="439"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="menu_background" width="375" height="666"/>
-        <image name="menu_icon_home" width="375" height="666"/>
-    </resources>
 </document>

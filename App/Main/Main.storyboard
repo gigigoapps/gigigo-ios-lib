@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3ms-yN-F2o">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -35,6 +36,16 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbj-rQ-nyy">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIk-Wg-T1j">
+                                <rect key="frame" x="16" y="20" width="91" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="MenuButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onMenuButtonTap:" destination="cBX-M7-2hs" eventType="touchUpInside" id="YgD-1s-xgJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -42,6 +53,8 @@
                             <constraint firstItem="Rbj-rQ-nyy" firstAttribute="top" secondItem="xy0-DP-nYi" secondAttribute="top" id="gCy-AG-wlK"/>
                             <constraint firstItem="euG-zo-uHr" firstAttribute="top" secondItem="Rbj-rQ-nyy" secondAttribute="bottom" id="kZ3-6b-Cqs"/>
                             <constraint firstItem="Rbj-rQ-nyy" firstAttribute="leading" secondItem="xy0-DP-nYi" secondAttribute="leading" id="qQ2-di-nxY"/>
+                            <constraint firstItem="iIk-Wg-T1j" firstAttribute="leading" secondItem="xy0-DP-nYi" secondAttribute="leadingMargin" id="vul-Fg-bvO"/>
+                            <constraint firstItem="iIk-Wg-T1j" firstAttribute="top" secondItem="Ndm-NH-Jwx" secondAttribute="bottom" id="ysc-Xl-jsO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="W27-IN-wdz"/>
@@ -52,6 +65,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dh7-5S-atd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="952" y="1324"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Phr-fI-NYs">
+            <objects>
+                <viewController storyboardIdentifier="SlideMenuSection1" id="Ogw-Q3-AGa" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jI2-8w-OCG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kqj-tM-jCa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DFd-fJ-x3N">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide Menu 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0t-gz-p1X">
+                                <rect key="frame" x="109" y="273" width="103" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333730000001" green="0.32156863810000003" blue="0.30980393290000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="h0t-gz-p1X" firstAttribute="centerY" secondItem="DFd-fJ-x3N" secondAttribute="centerY" id="4Vd-G4-fMx"/>
+                            <constraint firstItem="h0t-gz-p1X" firstAttribute="centerX" secondItem="DFd-fJ-x3N" secondAttribute="centerX" id="gxS-Cg-imF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JJd-fw-XlS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1394" y="1325"/>
         </scene>
         <!--Login Facebook-->
         <scene sceneID="U2R-3K-4fa">

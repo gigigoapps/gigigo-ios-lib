@@ -503,6 +503,7 @@
 		FA133A751CBC225E0007EE06 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */; };
 		FA153EB51C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA153EB41C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift */; };
 		FA1F80741B71EDFA003699DE /* GIGFacebookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */; };
+		FA3021FC1CBD074F00A8F7DE /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3021FB1CBD074F00A8F7DE /* MenuSection.swift */; };
 		FA36E9701C637CD100214598 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E96F1C637CD100214598 /* Dispatch.swift */; };
 		FA3820EE1BE0BEC300BABFEB /* GIGSocialLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3820EA1BE0BEC300BABFEB /* GIGSocialLoginResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA3820EF1BE0BEC300BABFEB /* GIGSocialLoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3820EB1BE0BEC300BABFEB /* GIGSocialLoginResult.m */; };
@@ -973,6 +974,7 @@
 		FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuViewController.swift; path = Menu/SlideMenuViewController.swift; sourceTree = "<group>"; };
 		FA153EB41C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Extension.swift"; sourceTree = "<group>"; };
 		FA1F80731B71EDFA003699DE /* GIGFacebookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGFacebookTests.m; path = GIGSocial/Wrappers/GIGFacebookTests.m; sourceTree = "<group>"; };
+		FA3021FB1CBD074F00A8F7DE /* MenuSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSection.swift; path = UIComponents/SlideMenu/MenuSection.swift; sourceTree = "<group>"; };
 		FA36E96F1C637CD100214598 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		FA3820EA1BE0BEC300BABFEB /* GIGSocialLoginResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGSocialLoginResult.h; sourceTree = "<group>"; };
 		FA3820EB1BE0BEC300BABFEB /* GIGSocialLoginResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGSocialLoginResult.m; sourceTree = "<group>"; };
@@ -2123,6 +2125,7 @@
 				FA4CEADC1CBBBE620029FF4C /* SlideMenu.storyboard */,
 				FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */,
 				FA4CEAE01CBBC0850029FF4C /* SlideMenuVC.swift */,
+				FA3021FB1CBD074F00A8F7DE /* MenuSection.swift */,
 			);
 			name = SlideMenu;
 			sourceTree = "<group>";
@@ -3243,6 +3246,7 @@
 				D99AD2CB1B1DA3A3005BB4E5 /* NSRegularExpression+GIGRegexp.m in Sources */,
 				D99AD2CF1B1DA3A3005BB4E5 /* NSString+GIGRegexp.m in Sources */,
 				D9FD36191B416774000D356F /* GIGLengthValidator.m in Sources */,
+				FA3021FC1CBD074F00A8F7DE /* MenuSection.swift in Sources */,
 				D99AD28D1B1DA3A3005BB4E5 /* GIGEncrypt.m in Sources */,
 				D99AD2DD1B1DA3A3005BB4E5 /* NSString+GIGExtension.m in Sources */,
 				D99AD2C11B1DA3A3005BB4E5 /* GIGLogManager.m in Sources */,
