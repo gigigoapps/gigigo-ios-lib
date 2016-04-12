@@ -12,14 +12,16 @@ import Foundation
 public struct MenuSection {
     
     public let name: String
+    public let icon: UIImage
     public let storyboard: String
     public let viewController: String?
     
     lazy var sectionController: UIViewController! = self.instantiateViewController()
     
     
-    public init(name: String, storyboard: String, viewController: String) {
+    public init(name: String, icon: UIImage, storyboard: String, viewController: String) {
         self.name = name
+        self.icon = icon
         self.storyboard = storyboard
         self.viewController = viewController
     }

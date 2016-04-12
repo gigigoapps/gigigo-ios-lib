@@ -29,7 +29,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8A-dM-Pe3" userLabel="MenuTable">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <connections>
-                                    <segue destination="lHg-97-gQW" kind="embed" identifier="CNTMenuTableSegue" id="dng-Gp-UQc"/>
+                                    <segue destination="lHg-97-gQW" kind="embed" identifier="SlideMenuTableVC" id="dng-Gp-UQc"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJO-I4-jOX" userLabel="CustomContent">
@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="285" y="439"/>
         </scene>
-        <!--View Controller-->
+        <!--Slide Menu TableVC-->
         <scene sceneID="5mi-wm-cqB">
             <objects>
-                <viewController storyboardIdentifier="SlideTableMenu" automaticallyAdjustsScrollViewInsets="NO" id="lHg-97-gQW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SlideMenuTableVC" automaticallyAdjustsScrollViewInsets="NO" id="lHg-97-gQW" customClass="SlideMenuTableVC" customModule="GIGLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yHI-0w-D48"/>
                         <viewControllerLayoutGuide type="bottom" id="SyM-0o-i8l"/>
@@ -82,14 +82,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="429" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="yj1-yO-hLe" customClass="CNTMenuTableCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="yj1-yO-hLe" customClass="MenuSectionCell" customModule="GIGLibrary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="429" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yj1-yO-hLe" id="tT7-f6-Um6">
                                             <rect key="frame" x="0.0" y="0.0" width="429" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ytj-y8-Qw9" userLabel="imagenMenuSection">
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ytj-y8-Qw9" userLabel="imagenMenuSection">
                                                     <rect key="frame" x="30" y="14" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="2bn-Se-71g"/>
@@ -99,21 +99,11 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Inicio&gt;" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="157" translatesAutoresizingMaskIntoConstraints="NO" id="xYZ-CP-CJY" userLabel="labelMenuSection">
                                                     <rect key="frame" x="72" y="20" width="357" height="20"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextLTPro-DemiIt" family="Avenir Next LT Pro" pointSize="17"/>
-                                                    <color key="textColor" red="0.90196078430000004" green="0.1176470588" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rK6-I0-AnK" userLabel="lineSeparator">
-                                                    <rect key="frame" x="0.0" y="59" width="429" height="1"/>
-                                                    <color key="backgroundColor" red="0.90196078430000004" green="0.1176470588" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="79H-Zo-aEP"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="rK6-I0-AnK" secondAttribute="bottom" id="I17-XB-yXm"/>
-                                                <constraint firstAttribute="trailing" secondItem="rK6-I0-AnK" secondAttribute="trailing" id="Ph3-8A-fcs"/>
-                                                <constraint firstItem="rK6-I0-AnK" firstAttribute="leading" secondItem="tT7-f6-Um6" secondAttribute="leading" id="Ubf-8m-50X"/>
                                                 <constraint firstAttribute="centerY" secondItem="xYZ-CP-CJY" secondAttribute="centerY" id="Xgh-dH-e4K"/>
                                                 <constraint firstAttribute="trailing" secondItem="xYZ-CP-CJY" secondAttribute="trailing" id="XiL-6R-iay"/>
                                                 <constraint firstItem="ytj-y8-Qw9" firstAttribute="leading" secondItem="tT7-f6-Um6" secondAttribute="leading" constant="30" id="n9g-xV-Q5q"/>
@@ -123,15 +113,17 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="imageMenuSection" destination="ytj-y8-Qw9" id="gj2-mZ-kbb"/>
-                                            <outlet property="labelMenuSection" destination="xYZ-CP-CJY" id="RpD-Bm-zCx"/>
-                                            <outlet property="separatorLine" destination="rK6-I0-AnK" id="Gm1-pQ-LMp"/>
+                                            <outlet property="imageMenuSection" destination="ytj-y8-Qw9" id="YXf-PB-h6k"/>
+                                            <outlet property="labelMenuSection" destination="xYZ-CP-CJY" id="Pj3-vI-hjB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lHg-97-gQW" id="adT-jN-9D2"/>
+                                </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.2274509804" green="0.2274509804" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="nrs-V3-KIb" firstAttribute="top" secondItem="yHI-0w-D48" secondAttribute="bottom" id="BaN-qF-E7I"/>
                             <constraint firstItem="nrs-V3-KIb" firstAttribute="leading" secondItem="SQI-g9-stM" secondAttribute="leading" id="IGe-ge-boo"/>
@@ -140,6 +132,9 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="tableView" destination="nrs-V3-KIb" id="w50-j4-g9Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMx-rT-o9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

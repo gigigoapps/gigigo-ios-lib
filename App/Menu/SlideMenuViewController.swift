@@ -34,6 +34,7 @@ class SlideMenuViewController: UIViewController {
         
         let section = MenuSection(
             name: "Section1",
+            icon: UIImage(),
             storyboard: "Main",
             viewController: "SlideMenuSection1"
         )

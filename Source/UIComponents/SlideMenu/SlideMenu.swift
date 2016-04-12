@@ -58,6 +58,7 @@ public class SlideMenu {
     
     public func addSection(section: MenuSection) {
         self.sections.append(section)
+        self.menuViewController?.sections = self.sections
     }
     
     public func selectSection(index: Int) {
