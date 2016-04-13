@@ -24,6 +24,8 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
             }
         }
     }
+	
+	var statusBarStyle: UIStatusBarStyle = .Default
     
     private var menuState = MenuState.Close
     private weak var sectionControllerToShow: UIViewController?
@@ -60,6 +62,11 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
         self.menuTableView?.sections = self.sections
         self.menuTableView?.menuTableDelegate = self
     }
+	
+	
+	override func preferredStatusBarStyle() -> UIStatusBarStyle {
+		return self.statusBarStyle
+	}
     
     
     // MARK: - Public Methods
