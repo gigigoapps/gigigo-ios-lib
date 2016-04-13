@@ -12,6 +12,12 @@ import Foundation
 public class SlideMenu {
     
     public static let shared = SlideMenu()
+	
+	public var sectionSelectorColor: UIColor = UIColor.whiteColor() {
+		didSet {
+			SlideMenuConfig.shared.sectionSelectorColor = self.sectionSelectorColor
+		}
+	}
     
     private lazy var menuViewController = SlideMenuVC.menuVC()
     private var sections: [MenuSection] = []
@@ -42,7 +48,7 @@ public class SlideMenu {
     
     public func selectSection(index: Int) {
         let section = self.sections[index]
-        self.menuViewController?.setSection(section.sectionController)
+        self.menuViewController?.setSection(section.sectionController, index: index)
     }
     
 }

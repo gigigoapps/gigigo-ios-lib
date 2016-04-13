@@ -29,6 +29,8 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     
     private var menuState = MenuState.Close
     private weak var sectionControllerToShow: UIViewController?
+	private var sectionIndexToShow: Int?
+	
     
     weak var menuTableView: SlideMenuTableVC?
     @IBOutlet weak private var customContentContainer: UIView!
@@ -47,7 +49,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
         super.viewDidLoad()
 
         if let sectionController = self.sectionControllerToShow {
-            self.setSection(sectionController)
+            self.setSection(sectionController, index: self.sectionIndexToShow ?? 0)
             self.sectionControllerToShow = nil
         }
     }
@@ -61,6 +63,11 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
         self.menuTableView = menuTableView
         self.menuTableView?.sections = self.sections
         self.menuTableView?.menuTableDelegate = self
+		
+		if let index = self.sectionIndexToShow {
+			self.menuTableView?.selectSection(index)
+			self.sectionIndexToShow = nil
+		}
     }
 	
 	
@@ -83,21 +90,29 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     }
     
     
-    func setSection(viewController: UIViewController) {
+	func setSection(viewController: UIViewController, index: Int) {
         guard self.customContentContainer != nil else {
             self.sectionControllerToShow = viewController
+			self.sectionIndexToShow = index
             return
         }
         
         self.addChildViewController(viewController)
         self.customContentContainer.addSubviewWithAutolayout(viewController.view)
+		
+		guard self.menuTableView != nil else {
+			self.sectionIndexToShow = index
+			return
+		}
+		
+		self.menuTableView?.selectSection(index)
     }
     
     
     // MARK: - MenuTableDelegate
     
-    func tableDidSelecteSection(menuSection: MenuSection) {
-        self.setSection(menuSection.sectionController)
+	func tableDidSelecteSection(menuSection: MenuSection, index: Int) {
+        self.setSection(menuSection.sectionController, index: index)
         self.closeMenu()
     }
     

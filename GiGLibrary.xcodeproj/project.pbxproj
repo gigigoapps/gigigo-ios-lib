@@ -541,6 +541,7 @@
 		FA86D0EC1C874115003C5623 /* NSDate+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D0EB1C874115003C5623 /* NSDate+GIGExtension.swift */; };
 		FA88CBAC1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */; };
 		FAA3F8871C60EDD80061AADD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3F8861C60EDD80061AADD /* Log.swift */; };
+		FAB3201D1CBE9F1100098D81 /* SlideMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */; };
 		FACE6D991BBC115900457B4C /* GLALoginFacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */; };
 		FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; };
 		FACE6D9C1BBC116D00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; };
@@ -1025,6 +1026,7 @@
 		FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLALoginFacebookViewController.m; path = Social/GLALoginFacebookViewController.m; sourceTree = "<group>"; };
 		FAA80A821B70E1940076FF9E /* GIGSocialCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGSocialCore.h; path = GIGSocial/GIGSocialCore/GIGSocialCore.h; sourceTree = "<group>"; };
 		FAA80A831B70E1940076FF9E /* GIGSocialCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGSocialCore.m; path = GIGSocial/GIGSocialCore/GIGSocialCore.m; sourceTree = "<group>"; };
+		FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuConfig.swift; path = UIComponents/SlideMenu/Private/SlideMenuConfig.swift; sourceTree = "<group>"; };
 		FACE6D951BBC112B00457B4C /* GLAMultiRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAMultiRequestViewController.h; sourceTree = "<group>"; };
 		FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAMultiRequestViewController.m; sourceTree = "<group>"; };
 		FACE6E481BBC3FDB00457B4C /* GIGSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2051,6 +2053,7 @@
 				FA3022011CBD406700A8F7DE /* SlideMenuVC.swift */,
 				FA3021FE1CBD404D00A8F7DE /* SlideMenuTableVC.swift */,
 				FA3022041CBD4C1100A8F7DE /* MenuSectionCell.swift */,
+				FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */,
 			);
 			name = Private;
 			sourceTree = "<group>";
@@ -3175,6 +3178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB3201D1CBE9F1100098D81 /* SlideMenuConfig.swift in Sources */,
 				D99AD2611B1DA3A3005BB4E5 /* GIGURLImageResponse.m in Sources */,
 				4AACDF981C60DA2400F4E8AE /* ActionSheet.swift in Sources */,
 				D99AD2E51B1DA3A3005BB4E5 /* NSString+GIGSubstring.m in Sources */,

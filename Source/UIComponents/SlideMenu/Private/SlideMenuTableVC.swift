@@ -10,14 +10,14 @@ import UIKit
 
 
 protocol MenuTableDelegate {
-    func tableDidSelecteSection(menuSection: MenuSection)
+	func tableDidSelecteSection(menuSection: MenuSection, index: Int)
 }
 
 
 class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var menuTableDelegate: MenuTableDelegate?
-    
+	
     var sections: [MenuSection]? {
         didSet {
             guard let tableView = self.tableView else {
@@ -27,11 +27,36 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
             tableView.reloadData()
         }
     }
-    
+	
+	
+	private var indexToShow: Int?
+	
     
     @IBOutlet weak private var tableView: UITableView!
-    
-    
+	
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		if let index = self.indexToShow {
+			self.selectSection(index)
+			self.indexToShow = nil
+		}
+	}
+	
+	
+	// MARK - Public Methods
+	
+	func selectSection(index: Int) {
+		guard self.tableView != nil else {
+			self.indexToShow = index
+			return
+		}
+		
+		let indexPath = NSIndexPath(forRow: index, inSection: 0)
+		self.tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.None)
+	}
+	
     
     // MARK: - TableViewDataSource
     
@@ -65,7 +90,7 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
                 return
         }
         
-        delegate.tableDidSelecteSection(menuSection)
+        delegate.tableDidSelecteSection(menuSection, index: indexPath.row)
     }
     
 }
