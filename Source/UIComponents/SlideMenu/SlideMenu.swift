@@ -18,6 +18,12 @@ public class SlideMenu {
 			SlideMenuConfig.shared.sectionSelectorColor = self.sectionSelectorColor
 		}
 	}
+	
+	public var menuBackgroundColor: UIColor = UIColor.blackColor() {
+		didSet {
+			SlideMenuConfig.shared.menuBackgroundColor = self.menuBackgroundColor
+		}
+	}
     
     private lazy var menuViewController = SlideMenuVC.menuVC()
     private var sections: [MenuSection] = []

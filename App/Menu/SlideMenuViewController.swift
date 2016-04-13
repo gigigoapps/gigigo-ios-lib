@@ -41,6 +41,7 @@ class SlideMenuViewController: UIViewController {
     
     private func prepareMenu() {
 		self.menu.sectionSelectorColor = UIColor.blueColor()
+		self.menu.menuBackgroundColor = UIColor.lightGrayColor()
 		
         let section1 = MenuSection(
             name: "Section 1",

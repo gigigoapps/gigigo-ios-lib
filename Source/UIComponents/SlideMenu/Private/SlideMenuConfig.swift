@@ -14,5 +14,6 @@ class SlideMenuConfig {
 	static let shared = SlideMenuConfig()
 	
 	var sectionSelectorColor: UIColor = UIColor.whiteColor()
+	var menuBackgroundColor: UIColor = UIColor.blackColor()
 	
 }

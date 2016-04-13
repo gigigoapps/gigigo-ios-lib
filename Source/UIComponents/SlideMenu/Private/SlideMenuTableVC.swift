@@ -38,6 +38,8 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		self.view.backgroundColor = SlideMenuConfig.shared.menuBackgroundColor
+		
 		if let index = self.indexToShow {
 			self.selectSection(index)
 			self.indexToShow = nil
