@@ -53,9 +53,16 @@ class SlideMenuViewController: UIViewController {
             storyboard: "Main",
             viewController: "SlideMenuSection2"
         )
+		
+		let section3 = MenuSection(
+			name: "Section 3",
+			icon: UIImage(),
+			storyboard: "Main"
+		)
         
         self.menu.addSection(section1)
         self.menu.addSection(section2)
+		self.menu.addSection(section3)
         
         self.menu.selectSection(0)
     }

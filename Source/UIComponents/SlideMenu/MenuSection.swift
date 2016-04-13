@@ -19,7 +19,7 @@ public class MenuSection {
     lazy var sectionController: UIViewController = self.instantiateViewController()
     
     
-    public init(name: String, icon: UIImage, storyboard: String, viewController: String) {
+    public init(name: String, icon: UIImage, storyboard: String, viewController: String? = nil) {
         self.name = name
         self.icon = icon
         self.storyboard = storyboard
