@@ -90,10 +90,10 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
         switch self.menuState {
             
         case .Open:
-            self.closeMenu()
+            self.animate(closeMenu)
             
         case .Close:
-            self.openMenu()
+            self.animate(openMenu)
         }
     }
     
@@ -120,7 +120,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     
 	func tableDidSelecteSection(menuSection: MenuSection, index: Int) {
         self.setSection(menuSection.sectionController, index: index)
-        self.closeMenu()
+        self.animate(closeMenu)
     }
     
     
@@ -142,6 +142,12 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
         self.addChildViewController(viewController)
         self.customContentContainer.addSubviewWithAutolayout(viewController.view)
         viewController.didMoveToParentViewController(self)
+    }
+    
+    private func animate(code: () -> Void) {
+        UIView.animateWithDuration(0.4) { 
+            code()
+        }
     }
     
     private func openMenu() {
