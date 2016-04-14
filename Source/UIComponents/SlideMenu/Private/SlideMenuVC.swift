@@ -130,7 +130,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
         let layer = self.customContentContainer.layer
         
         layer.masksToBounds = false
-        layer.shadowColor = UIColor.darkGrayColor().CGColor
+        layer.shadowColor = UIColor.blackColor().CGColor
         layer.shadowRadius = 10
         layer.shadowOpacity = 1
         layer.shadowOffset = CGSize(width: -5, height: 2)
