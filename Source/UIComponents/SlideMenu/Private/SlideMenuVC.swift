@@ -28,6 +28,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
 	var statusBarStyle: UIStatusBarStyle = .Default
     
     private var menuState = MenuState.Close
+    private var currentController: UIViewController?
     private weak var sectionControllerToShow: UIViewController?
 	private var sectionIndexToShow: Int?
 	
@@ -52,6 +53,13 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
             self.setSection(sectionController, index: self.sectionIndexToShow ?? 0)
             self.sectionControllerToShow = nil
         }
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.setShadowOnContainer()
     }
     
     
@@ -97,8 +105,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
             return
         }
         
-        self.addChildViewController(viewController)
-        self.customContentContainer.addSubviewWithAutolayout(viewController.view)
+        self.setViewController(viewController)
 		
 		guard self.menuTableView != nil else {
 			self.sectionIndexToShow = index
@@ -119,6 +126,24 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     
     // MARK: - Private Methods
     
+    private func setShadowOnContainer() {
+        let layer = self.customContentContainer.layer
+        
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.darkGrayColor().CGColor
+        layer.shadowRadius = 10
+        layer.shadowOpacity = 1
+        layer.shadowOffset = CGSize(width: -5, height: 2)
+        layer.shadowPath = UIBezierPath(rect: self.customContentContainer.bounds).CGPath
+    }
+    
+    private func setViewController(viewController: UIViewController) {
+        self.currentController = viewController
+        self.addChildViewController(viewController)
+        self.customContentContainer.addSubviewWithAutolayout(viewController.view)
+        viewController.didMoveToParentViewController(self)
+    }
+    
     private func openMenu() {
         self.menuState = .Open
         
@@ -126,7 +151,6 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
         let tTranslate = CGAffineTransformMakeTranslation(xPos, 0)
         self.customContentContainer.transform = CGAffineTransformConcat(CGAffineTransformIdentity, tTranslate)
     }
-    
     
     private func closeMenu() {
         self.menuState = .Close

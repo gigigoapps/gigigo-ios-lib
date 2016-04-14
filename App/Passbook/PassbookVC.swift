@@ -14,7 +14,7 @@ import GIGLibrary
 class PassbookVC: UIViewController {
 
 	private let passbook = Passbook()
-	
+
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
