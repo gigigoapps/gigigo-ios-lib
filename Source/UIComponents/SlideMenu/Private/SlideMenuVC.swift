@@ -33,6 +33,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
 	private var sectionIndexToShow: Int?
 	
     
+    private lazy var buttonClose = UIButton()
     weak var menuTableView: SlideMenuTableVC?
     @IBOutlet weak private var customContentContainer: UIView!
     
@@ -48,6 +49,9 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.customContentContainer.addSubview(self.buttonClose)
+        self.buttonClose.addTarget(self, action: #selector(closeMenuAnimated), forControlEvents: .TouchUpInside)
 
         if let sectionController = self.sectionControllerToShow {
             self.setSection(sectionController, index: self.sectionIndexToShow ?? 0)
@@ -60,6 +64,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
         super.viewDidAppear(animated)
         
         self.setShadowOnContainer()
+        self.buttonClose.frame = self.customContentContainer.frame
     }
     
     
@@ -142,6 +147,8 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
         self.addChildViewController(viewController)
         self.customContentContainer.addSubviewWithAutolayout(viewController.view)
         viewController.didMoveToParentViewController(self)
+        
+        self.customContentContainer.bringSubviewToFront(self.buttonClose)
     }
     
     private func animate(code: () -> Void) {
@@ -152,14 +159,20 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     
     private func openMenu() {
         self.menuState = .Open
+        self.buttonClose.enabled = true
         
         let xPos = self.view.width() - (self.view.width() * 0.2)
         let tTranslate = CGAffineTransformMakeTranslation(xPos, 0)
         self.customContentContainer.transform = CGAffineTransformConcat(CGAffineTransformIdentity, tTranslate)
     }
     
+    func closeMenuAnimated() {
+        self.animate(closeMenu)
+    }
+    
     private func closeMenu() {
         self.menuState = .Close
+        self.buttonClose.enabled = false
         
         self.customContentContainer.transform = CGAffineTransformIdentity
     }
