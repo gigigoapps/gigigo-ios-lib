@@ -56,10 +56,15 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="customContentContainer" destination="wJO-I4-jOX" id="cjQ-CF-MGJ"/>
+                        <outlet property="panGesture" destination="Suz-Bj-vWb" id="rWI-9y-4eX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZXU-MJ-6OQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Suz-Bj-vWb"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Suz-Bj-vWb">
+                    <connections>
+                        <action selector="onPanGesture:" destination="A7I-ea-9T2" id="muU-wb-KCq"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="285" y="439"/>
         </scene>
@@ -75,8 +80,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nrs-V3-KIb" userLabel="tableMenu">
-                                <rect key="frame" x="0.0" y="44" width="268" height="559"/>
+                            <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nrs-V3-KIb" userLabel="tableMenu">
+                                <rect key="frame" x="0.0" y="0.0" width="268" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="yj1-yO-hLe" customClass="MenuSectionCell" customModule="GIGLibrary" customModuleProvider="target">
@@ -140,7 +145,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.2274509804" green="0.2274509804" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="nrs-V3-KIb" firstAttribute="top" secondItem="yHI-0w-D48" secondAttribute="bottom" constant="44" id="BaN-qF-E7I"/>
+                            <constraint firstItem="nrs-V3-KIb" firstAttribute="top" secondItem="yHI-0w-D48" secondAttribute="bottom" id="BaN-qF-E7I"/>
                             <constraint firstItem="nrs-V3-KIb" firstAttribute="leading" secondItem="SQI-g9-stM" secondAttribute="leading" id="IGe-ge-boo"/>
                             <constraint firstAttribute="trailing" secondItem="nrs-V3-KIb" secondAttribute="trailing" multiplier="1.4" id="PNe-bT-mZ8"/>
                             <constraint firstItem="SyM-0o-i8l" firstAttribute="top" secondItem="nrs-V3-KIb" secondAttribute="bottom" id="eJw-03-REf"/>
@@ -153,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMx-rT-o9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="661.5" y="406.5"/>
+            <point key="canvasLocation" x="787.5" y="438.5"/>
         </scene>
     </scenes>
 </document>

@@ -15,8 +15,22 @@ enum MenuState {
 }
 
 
+enum MenuDirection {
+    case Left
+    case Right
+}
+
+
 class SlideMenuVC: UIViewController, MenuTableDelegate {
     
+    // MARK: - Constants
+    private let kPercentMenuOpeness: CGFloat = 0.8
+    private let kVelocityThreshold: CGFloat = 500
+    private let kAnimationDuration: NSTimeInterval = 0.4
+    private let kAnimationDurationFast: NSTimeInterval = 0.2
+    
+    
+    // MARK: - Public Properties
     var sections: [MenuSection] = [] {
         didSet {
             if let menuTableView = self.menuTableView {
@@ -27,15 +41,20 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
 	
 	var statusBarStyle: UIStatusBarStyle = .Default
     
+    
+    // MARK: - Private Properties
     private var menuState = MenuState.Close
     private var currentController: UIViewController?
     private weak var sectionControllerToShow: UIViewController?
 	private var sectionIndexToShow: Int?
-	
-    
-    private lazy var buttonClose = UIButton()
-    weak var menuTableView: SlideMenuTableVC?
+	private lazy var buttonClose = UIButton()
+    weak private var menuTableView: SlideMenuTableVC?
     @IBOutlet weak private var customContentContainer: UIView!
+    
+    
+    // Panning
+    private var lastX: CGFloat = 0
+    @IBOutlet private var panGesture: UIPanGestureRecognizer!
     
     
     class func menuVC() -> SlideMenuVC? {
@@ -121,6 +140,73 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     }
     
     
+    // MARK: - Gesture
+    
+    @IBAction func onPanGesture(sender: UIPanGestureRecognizer) {
+        let translation = sender.translationInView(self.customContentContainer)
+
+        switch sender.state {
+        case .Began:
+            self.panGestureBegan()
+        
+        case .Changed:
+            self.panGestureStateChanged(translation)
+            
+        case .Ended:
+            self.panGestureEnded(sender)
+            
+        default:
+            break
+        }
+
+    }
+    
+    private func panGestureBegan() {
+        self.lastX = self.customContentContainer.x();
+    }
+    
+    private func panGestureStateChanged(translation: CGPoint) {
+        var newXPosition = self.lastX + translation.x
+        
+        // Check if position crossed the left bounds
+        newXPosition = max(0, newXPosition)
+        
+        self.translateContent(min(newXPosition, self.view.width() * self.kPercentMenuOpeness))
+    }
+    
+    private func panGestureEnded(gesture: UIPanGestureRecognizer) {
+        let velocity = gesture.velocityInView(self.customContentContainer)
+        let currentXPos = self.customContentContainer.x()
+        
+        let direction = self.determineDirectoWithVelocity(velocity, position: currentXPos)
+        
+        switch direction {
+        case .Left:
+            self.animateFast(closeMenu)
+        
+        case .Right:
+            self.animateFast(openMenu)
+        }
+    }
+    
+    private func determineDirectoWithVelocity(velocity: CGPoint, position: CGFloat) -> MenuDirection {
+        if velocity.x < -self.kVelocityThreshold {
+            return .Left
+        }
+        else if velocity.x > self.kVelocityThreshold {
+            return .Right
+        }
+        else {
+            if position < ((self.view.width() * self.kPercentMenuOpeness) / 2) {
+                return .Left
+            }
+            else {
+                return .Right
+            }
+        }
+    }
+   
+    
     // MARK: - MenuTableDelegate
     
 	func tableDidSelecteSection(menuSection: MenuSection, index: Int) {
@@ -151,19 +237,29 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
         self.customContentContainer.bringSubviewToFront(self.buttonClose)
     }
     
-    private func animate(code: () -> Void) {
-        UIView.animateWithDuration(0.4) { 
+    private func animateFast(code: () -> Void) {
+        UIView.animateWithDuration(self.kAnimationDurationFast) {
             code()
         }
+    }
+    
+    private func animate(code: () -> Void) {
+        UIView.animateWithDuration(self.kAnimationDuration) {
+            code()
+        }
+    }
+    
+    private func translateContent(xPos: CGFloat) {
+        let tTranslate = CGAffineTransformMakeTranslation(xPos, 0)
+        self.customContentContainer.transform = CGAffineTransformConcat(CGAffineTransformIdentity, tTranslate)
     }
     
     private func openMenu() {
         self.menuState = .Open
         self.buttonClose.enabled = true
         
-        let xPos = self.view.width() - (self.view.width() * 0.2)
-        let tTranslate = CGAffineTransformMakeTranslation(xPos, 0)
-        self.customContentContainer.transform = CGAffineTransformConcat(CGAffineTransformIdentity, tTranslate)
+        let xPos = self.view.width() - (self.view.width() * (1 - self.kPercentMenuOpeness))
+        self.translateContent(xPos)
     }
     
     func closeMenuAnimated() {
@@ -174,7 +270,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
         self.menuState = .Close
         self.buttonClose.enabled = false
         
-        self.customContentContainer.transform = CGAffineTransformIdentity
+        self.translateContent(0)
     }
 
 }

@@ -38,6 +38,7 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+        self.tableView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
 		self.view.backgroundColor = SlideMenuConfig.shared.menuBackgroundColor
 		
 		if let index = self.indexToShow {
