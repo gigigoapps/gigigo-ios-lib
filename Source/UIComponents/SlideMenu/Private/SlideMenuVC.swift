@@ -71,6 +71,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
         
         self.customContentContainer.addSubview(self.buttonClose)
         self.buttonClose.addTarget(self, action: #selector(closeMenuAnimated), forControlEvents: .TouchUpInside)
+        self.buttonClose.enabled = false
 
         if let sectionController = self.sectionControllerToShow {
             self.setSection(sectionController, index: self.sectionIndexToShow ?? 0)
