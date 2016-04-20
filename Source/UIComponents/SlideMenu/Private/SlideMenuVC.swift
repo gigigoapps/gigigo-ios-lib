@@ -144,6 +144,9 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     // MARK: - Gesture
     
     @IBAction func onPanGesture(sender: UIPanGestureRecognizer) {
+        if let currentNavigation = self.currentController as? UINavigationController
+            where currentNavigation.viewControllers.count > 1 { return }
+
         let translation = sender.translationInView(self.customContentContainer)
 
         switch sender.state {
