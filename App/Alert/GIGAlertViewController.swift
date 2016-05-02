@@ -18,9 +18,9 @@ class GIGAlertViewController: UIViewController {
         alert.addDefaultButton("Default") { (title) -> Void in
             print("Default button")
         }
-        alert.addCancelButton("Cancel") { (title) -> Void in
-            print("Cancel button")
-        }
+		
+        alert.addCancelButton("Cancel", usingAction: nil)
+		
         alert.addDestructiveButton("Destructive") { (title) -> Void in
             print("Destructive button")
         }

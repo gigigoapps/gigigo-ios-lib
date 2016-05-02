@@ -534,6 +534,9 @@
 		FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; };
 		FA4CEAE31CBBC0AF0029FF4C /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
+		FA6A3A351CD3B16000835521 /* GLABasicFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E18E131BD542FD00611CDA /* GLABasicFormViewController.m */; };
+		FA6A3A361CD3B17B00835521 /* GLABasicFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E18E131BD542FD00611CDA /* GLABasicFormViewController.m */; };
+		FA6A3A371CD3B24F00835521 /* basic_form.json in Resources */ = {isa = PBXBuildFile; fileRef = D9B2F7F51BD549490057422F /* basic_form.json */; };
 		FA723AC71C64AB4500225E79 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC51C64AB4500225E79 /* Request.swift */; };
 		FA723AC81C64AB4500225E79 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC61C64AB4500225E79 /* Response.swift */; };
 		FA74BD001B6F7050001D2BCF /* GIGSocialLoginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74BCFF1B6F7050001D2BCF /* GIGSocialLoginTests.m */; };
@@ -2860,6 +2863,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6A3A371CD3B24F00835521 /* basic_form.json in Resources */,
 				D99AD3841B1DAAE6005BB4E5 /* GET_logout.json in Resources */,
 				D99AD37E1B1DAAE6005BB4E5 /* fixtures.json in Resources */,
 				D99AD37A1B1DAAE6005BB4E5 /* domains.json in Resources */,
@@ -3050,6 +3054,7 @@
 			files = (
 				D99AD3751B1DAAE6005BB4E5 /* GLAMainViewController.m in Sources */,
 				FACE6D9C1BBC116D00457B4C /* GLAMultiRequestViewController.m in Sources */,
+				FA6A3A361CD3B17B00835521 /* GLABasicFormViewController.m in Sources */,
 				D916868C1BC3BBFA00647357 /* GLALoginFacebookViewController.m in Sources */,
 				D99AD3771B1DAAE6005BB4E5 /* main.m in Sources */,
 				D99AD3711B1DAAE6005BB4E5 /* AppDelegate.m in Sources */,
@@ -3295,6 +3300,7 @@
 				D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */,
 				4A23B67B1C74779D00E37E5D /* GIGAlertViewController.swift in Sources */,
 				FA44E49B1C907784009BBBA2 /* PassbookVC.swift in Sources */,
+				FA6A3A351CD3B16000835521 /* GLABasicFormViewController.m in Sources */,
 				D99AD3701B1DAAE6005BB4E5 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
