@@ -26,7 +26,7 @@ public class AlertController: NSObject, AlertInterface {
     }
     
     public func show() {
-        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(self.alert, animated: true) {}
+		Application().presentModal(self.alert)
     }
     
     public func addDefaultButton(title: String, usingAction:(String -> Void)?) {
