@@ -74,7 +74,7 @@ public class Response {
 			}
 			
 			if status != true {
-				self.parseError(json)
+				self.status = self.parseError(json)
 			}
 			else {
 				self.status = .Success
