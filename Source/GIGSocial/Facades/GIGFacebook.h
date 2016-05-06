@@ -26,5 +26,6 @@ typedef void(^GIGFacebookMeCompletion)(BOOL success, NSDictionary *user, NSError
 
 - (void)login:(GIGFacebookLoginCompletion)completionHandler;
 - (void)me:(GIGFacebookMeCompletion)completionHandler;
+- (void)logout;
 
 @end
