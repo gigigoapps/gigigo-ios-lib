@@ -233,12 +233,17 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     }
     
     private func setViewController(viewController: UIViewController) {
-        self.currentController = viewController
         self.addChildViewController(viewController)
         self.customContentContainer.addSubviewWithAutolayout(viewController.view)
         viewController.didMoveToParentViewController(self)
-        
         self.customContentContainer.bringSubviewToFront(self.buttonClose)
+		
+		if let currentController = self.currentController {
+			currentController.removeFromParentViewController()
+			currentController.view.removeFromSuperview()
+		}
+		
+		self.currentController = viewController
     }
     
     private func animateFast(code: () -> Void) {
