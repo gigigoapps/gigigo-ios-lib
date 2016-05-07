@@ -47,6 +47,8 @@
 		7B6B84991BC296F600517C2F /* GIGParseClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84981BC296F600517C2F /* GIGParseClassTests.m */; };
 		7B6B84AD1BC2AEDC00517C2F /* GIGParseClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84981BC296F600517C2F /* GIGParseClassTests.m */; };
 		A910066E1B0CCF520080B812 /* GIGStaticLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = A91006581B0CCE8E0080B812 /* GIGStaticLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A94D4A611CDDF67300CC4CAF /* GIGScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; };
+		A94D4A621CDE356B00CC4CAF /* GIGScannerViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		A99D2DC41C4CFAEB00F23959 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D922639F1BDE251D00735D9D /* CoreData.framework */; };
 		A99D2DC51C4CFAEF00F23959 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92263A21BDE254A00735D9D /* CoreLocation.framework */; };
 		A99D2DC61C4D089400F23959 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92263A21BDE254A00735D9D /* CoreLocation.framework */; };
@@ -717,6 +719,7 @@
 		7BE65FC11BC3CEDE002C335E /* GIGMockClassUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMockClassUser.m; path = Mock/MockExample/GIGMockClassUser.m; sourceTree = "<group>"; };
 		A91006561B0CCE8E0080B812 /* libGIGStaticLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGIGStaticLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91006581B0CCE8E0080B812 /* GIGStaticLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIGStaticLibrary.h; sourceTree = "<group>"; };
+		A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIGScannerViewController.swift; path = GIGScanner/GIGScannerViewController.swift; sourceTree = "<group>"; };
 		D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLibrary.h; sourceTree = "<group>"; };
 		D909EFE91B0DC2FF00DD4D97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D922639F1BDE251D00735D9D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -1193,6 +1196,14 @@
 			path = GIGStaticLibrary;
 			sourceTree = "<group>";
 		};
+		A94D4A5F1CDDF54100CC4CAF /* GIGScanner */ = {
+			isa = PBXGroup;
+			children = (
+				A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */,
+			);
+			name = GIGScanner;
+			sourceTree = "<group>";
+		};
 		D909EFE71B0DC2FF00DD4D97 /* GIGLibraryFramework */ = {
 			isa = PBXGroup;
 			children = (
@@ -1254,6 +1265,7 @@
 			children = (
 				D99AD14E1B1DA3A3005BB4E5 /* GIGConstants.h */,
 				D9FD35DB1B41393C000D356F /* GIGFormulary */,
+				A94D4A5F1CDDF54100CC4CAF /* GIGScanner */,
 				D99AD14F1B1DA3A3005BB4E5 /* GIGGeolocation */,
 				D99AD1521B1DA3A3005BB4E5 /* GIGLayout */,
 				D99AD15D1B1DA3A3005BB4E5 /* GIGNetwork */,
@@ -2536,6 +2548,7 @@
 				D99AD28B1B1DA3A3005BB4E5 /* GIGEncrypt.h in Headers */,
 				D99AD1F91B1DA3A3005BB4E5 /* GIGGeolocation.h in Headers */,
 				D99AD2211B1DA3A3005BB4E5 /* GIGURLConfigTableViewController.h in Headers */,
+				A94D4A621CDE356B00CC4CAF /* GIGScannerViewController.swift in Headers */,
 				D99AD1FD1B1DA3A3005BB4E5 /* GIGLayout.h in Headers */,
 				D99AD2731B1DA3A3005BB4E5 /* UIColor+GIGExtension.h in Headers */,
 				D9FD360E1B4164F5000D356F /* GIGMailValidator.h in Headers */,
@@ -2779,7 +2792,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */;
+			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -3209,6 +3222,7 @@
 				D99AD2A31B1DA3A3005BB4E5 /* UIImage+GIGExtension.m in Sources */,
 				D99AD2EF1B1DA3A3005BB4E5 /* UIView+GIGBorderShadowExtension.m in Sources */,
 				D99AD2131B1DA3A3005BB4E5 /* GIGURLConfigAddDomainViewController.m in Sources */,
+				A94D4A611CDDF67300CC4CAF /* GIGScannerViewController.swift in Sources */,
 				FA133A6E1CBC1F150007EE06 /* Storyboard+Extension.swift in Sources */,
 				D9FD36071B4162A6000D356F /* GIGTextValidator.m in Sources */,
 				D99AD1FB1B1DA3A3005BB4E5 /* GIGGeolocation.m in Sources */,
@@ -3931,7 +3945,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */ = {
+		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA65BFAD1AEFD5F90031A91B /* Debug */,
