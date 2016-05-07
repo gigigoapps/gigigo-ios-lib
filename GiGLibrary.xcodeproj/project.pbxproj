@@ -48,6 +48,7 @@
 		7B6B84AD1BC2AEDC00517C2F /* GIGParseClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84981BC296F600517C2F /* GIGParseClassTests.m */; };
 		A910066E1B0CCF520080B812 /* GIGStaticLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = A91006581B0CCE8E0080B812 /* GIGStaticLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A94D4A611CDDF67300CC4CAF /* GIGScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; };
+		A94D4A621CDE356B00CC4CAF /* GIGScannerViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		A99D2DC41C4CFAEB00F23959 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D922639F1BDE251D00735D9D /* CoreData.framework */; };
 		A99D2DC51C4CFAEF00F23959 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92263A21BDE254A00735D9D /* CoreLocation.framework */; };
 		A99D2DC61C4D089400F23959 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92263A21BDE254A00735D9D /* CoreLocation.framework */; };
@@ -2547,6 +2548,7 @@
 				D99AD28B1B1DA3A3005BB4E5 /* GIGEncrypt.h in Headers */,
 				D99AD1F91B1DA3A3005BB4E5 /* GIGGeolocation.h in Headers */,
 				D99AD2211B1DA3A3005BB4E5 /* GIGURLConfigTableViewController.h in Headers */,
+				A94D4A621CDE356B00CC4CAF /* GIGScannerViewController.swift in Headers */,
 				D99AD1FD1B1DA3A3005BB4E5 /* GIGLayout.h in Headers */,
 				D99AD2731B1DA3A3005BB4E5 /* UIColor+GIGExtension.h in Headers */,
 				D9FD360E1B4164F5000D356F /* GIGMailValidator.h in Headers */,
