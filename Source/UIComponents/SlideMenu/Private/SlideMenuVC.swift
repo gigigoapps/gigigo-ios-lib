@@ -233,6 +233,8 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     }
     
     private func setViewController(viewController: UIViewController) {
+		guard self.currentController != viewController else { return }
+		
         self.addChildViewController(viewController)
         self.customContentContainer.addSubviewWithAutolayout(viewController.view)
         viewController.didMoveToParentViewController(self)
