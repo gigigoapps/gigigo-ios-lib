@@ -535,6 +535,8 @@
 		FA44E49E1C907F8D009BBBA2 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA44E49D1C907F8D009BBBA2 /* PassKit.framework */; };
 		FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; };
 		FA4CEAE31CBBC0AF0029FF4C /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */; };
+		FA56AFF21CDF2F5600ABDA53 /* KeyboardAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56AFF11CDF2F5600ABDA53 /* KeyboardAdaptable.swift */; };
+		FA56AFF51CDF323700ABDA53 /* KeyboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56AFF41CDF323700ABDA53 /* KeyboardVC.swift */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FA6A3A351CD3B16000835521 /* GLABasicFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E18E131BD542FD00611CDA /* GLABasicFormViewController.m */; };
 		FA6A3A361CD3B17B00835521 /* GLABasicFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E18E131BD542FD00611CDA /* GLABasicFormViewController.m */; };
@@ -1012,6 +1014,8 @@
 		FA4BFCD91BBAF21E003FC7E2 /* GIGLoginManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGLoginManagerMock.h; path = GIGSocial/Mocks/GIGLoginManagerMock.h; sourceTree = "<group>"; };
 		FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGLoginManagerMock.m; path = GIGSocial/Mocks/GIGLoginManagerMock.m; sourceTree = "<group>"; };
 		FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenu.swift; path = UIComponents/SlideMenu/SlideMenu.swift; sourceTree = "<group>"; };
+		FA56AFF11CDF2F5600ABDA53 /* KeyboardAdaptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardAdaptable.swift; path = Keyboard/KeyboardAdaptable.swift; sourceTree = "<group>"; };
+		FA56AFF41CDF323700ABDA53 /* KeyboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardVC.swift; path = Keyboard/KeyboardVC.swift; sourceTree = "<group>"; };
 		FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1A1B009B6B006FC484 /* GIGLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1D1B009B6B006FC484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1268,12 +1272,12 @@
 				A94D4A5F1CDDF54100CC4CAF /* GIGScanner */,
 				D99AD14F1B1DA3A3005BB4E5 /* GIGGeolocation */,
 				D99AD1521B1DA3A3005BB4E5 /* GIGLayout */,
+				D99AD18F1B1DA3A3005BB4E5 /* GIGUtils */,
 				D99AD15D1B1DA3A3005BB4E5 /* GIGNetwork */,
 				FA723AC41C64AAF700225E79 /* SwiftNetwork */,
 				FA4CEADA1CBBBE1C0029FF4C /* UIComponents */,
 				FA74BCF41B6F6AB2001D2BCF /* GIGSocial */,
 				FA4192281C8F2F3300BF6988 /* GIGPassbook */,
-				D99AD18F1B1DA3A3005BB4E5 /* GIGUtils */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1669,6 +1673,7 @@
 				4A881C131C5F8650000EC61E /* Alert */,
 				FA44E4991C90775D009BBBA2 /* Passbook */,
 				FA133A721CBC208B0007EE06 /* Menu */,
+				FA56AFF31CDF31FD00ABDA53 /* Keyboard */,
 				D99AD3661B1DAAE6005BB4E5 /* Resources */,
 				D9D059E41BDE440F00927F0E /* Frameworks */,
 				D99AD3881B1DAAEB005BB4E5 /* Supporting Files */,
@@ -2012,8 +2017,9 @@
 				D99AD1B11B1DA3A3005BB4E5 /* FileManager */,
 				D99AD1B91B1DA3A3005BB4E5 /* Image */,
 				D99AD1BC1B1DA3A3005BB4E5 /* Invocation */,
-				FA86D0E81C870438003C5623 /* SwiftJson */,
 				D99AD1BF1B1DA3A3005BB4E5 /* JSON */,
+				FA86D0E81C870438003C5623 /* SwiftJson */,
+				FA56AFEE1CDF2F0A00ABDA53 /* Keyboard */,
 				D99AD1C91B1DA3A3005BB4E5 /* Locale */,
 				D99AD1CC1B1DA3A3005BB4E5 /* Log */,
 				D99AD1CF1B1DA3A3005BB4E5 /* NavigationController */,
@@ -2160,6 +2166,22 @@
 				FA3021FD1CBD3FEC00A8F7DE /* Private */,
 			);
 			name = SlideMenu;
+			sourceTree = "<group>";
+		};
+		FA56AFEE1CDF2F0A00ABDA53 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FA56AFF11CDF2F5600ABDA53 /* KeyboardAdaptable.swift */,
+			);
+			name = Keyboard;
+			sourceTree = "<group>";
+		};
+		FA56AFF31CDF31FD00ABDA53 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FA56AFF41CDF323700ABDA53 /* KeyboardVC.swift */,
+			);
+			name = Keyboard;
 			sourceTree = "<group>";
 		};
 		FA65BF8F1AEFD5F80031A91B = {
@@ -2792,7 +2814,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */;
+			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -3229,6 +3251,7 @@
 				D99AD2791B1DA3A3005BB4E5 /* NSManagedObjectContext+GIGExtension.m in Sources */,
 				D99AD2E91B1DA3A3005BB4E5 /* NSUserDefaults+GIGArchive.m in Sources */,
 				4AACDF9A1C611E7100F4E8AE /* Alert.swift in Sources */,
+				FA56AFF21CDF2F5600ABDA53 /* KeyboardAdaptable.swift in Sources */,
 				D99AD2AD1B1DA3A3005BB4E5 /* NSArray+GIGJSON.m in Sources */,
 				D99AD2071B1DA3A3005BB4E5 /* GIGLayoutGridHorizontal.m in Sources */,
 				D99AD22B1B1DA3A3005BB4E5 /* GIGURLDomainsKeeper.m in Sources */,
@@ -3312,6 +3335,7 @@
 				FACE6D991BBC115900457B4C /* GLALoginFacebookViewController.m in Sources */,
 				FA133A751CBC225E0007EE06 /* SlideMenuViewController.swift in Sources */,
 				D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */,
+				FA56AFF51CDF323700ABDA53 /* KeyboardVC.swift in Sources */,
 				4A23B67B1C74779D00E37E5D /* GIGAlertViewController.swift in Sources */,
 				FA44E49B1C907784009BBBA2 /* PassbookVC.swift in Sources */,
 				FA6A3A351CD3B16000835521 /* GLABasicFormViewController.m in Sources */,
@@ -3945,7 +3969,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */ = {
+		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA65BFAD1AEFD5F90031A91B /* Debug */,
