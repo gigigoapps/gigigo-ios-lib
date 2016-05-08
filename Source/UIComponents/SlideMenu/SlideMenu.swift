@@ -10,8 +10,6 @@ import Foundation
 
 
 public class SlideMenu {
-    
-    public static let shared = SlideMenu()
 	
 	public var sectionSelectorColor: UIColor = UIColor.whiteColor() {
 		didSet {
@@ -28,7 +26,9 @@ public class SlideMenu {
     private lazy var menuViewController = SlideMenuVC.menuVC()
     private var sections: [MenuSection] = []
     
-    
+	
+	public init() { }
+	
     // MARK: - Public methods
     
 	public func menuVC(statusBarStyle: UIStatusBarStyle = .Default) -> UIViewController {

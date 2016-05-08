@@ -13,7 +13,7 @@ import GIGLibrary
 class SlideMenuViewController: UIViewController {
     
     
-    lazy var menu = SlideMenu.shared
+    lazy var menu = SlideMenu()
     
     @IBOutlet weak var viewContainer: UIView!
     
