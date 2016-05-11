@@ -61,6 +61,8 @@ public class Response {
 	convenience init(response: GIGURLJSONResponse) {
 		self.init()
 		
+		self.body = response.json
+		
 		if response.success {
 			guard let json = response.json as? [String: AnyObject] else {
 				self.status = .ErrorParsingJson

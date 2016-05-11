@@ -22,7 +22,6 @@ class SlideMenuViewController: UIViewController {
         super.viewDidLoad()
 
         self.prepareMenu()
-        
     }
     
     override func viewDidAppear(animated: Bool) {
