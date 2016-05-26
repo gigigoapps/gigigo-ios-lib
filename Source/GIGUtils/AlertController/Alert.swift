@@ -10,9 +10,9 @@ import UIKit
 
 protocol AlertInterface {
     func show()
-    func addDefaultButton(title: String, usingAction:(String -> Void))
-    func addCancelButton(title: String, usingAction:(String -> Void))
-    func addDestructiveButton(title: String, usingAction:(String -> Void))
+    func addDefaultButton(title: String, usingAction:(String -> Void)?)
+    func addCancelButton(title: String, usingAction:(String -> Void)?)
+    func addDestructiveButton(title: String, usingAction:(String -> Void)?)
 }
 
 public class Alert: NSObject {
@@ -31,15 +31,15 @@ public class Alert: NSObject {
         self.interface.show()
     }
     
-    public func addDefaultButton(title: String, usingAction:(String -> Void)) {
+    public func addDefaultButton(title: String, usingAction:(String -> Void)?) {
         self.interface.addDefaultButton(title, usingAction: usingAction)
     }
     
-    public func addCancelButton(title: String, usingAction:(String -> Void)) {
+    public func addCancelButton(title: String, usingAction:(String -> Void)?) {
         self.interface.addCancelButton(title, usingAction: usingAction)
     }
     
-    public func addDestructiveButton(title: String, usingAction:(String -> Void)) {
+    public func addDestructiveButton(title: String, usingAction:(String -> Void)?) {
         self.interface.addDestructiveButton(title, usingAction: usingAction)
 
     }

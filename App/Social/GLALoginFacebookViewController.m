@@ -70,6 +70,8 @@
 
 - (IBAction)onButtonLoginTap:(id)sender
 {
+	[self.socialLogin facebookLogout];
+	
 	self.socialLogin.extraPermissions = @[@"email", @"user_birthday"];
 	self.socialLogin.extraFields = @[@"birthday", @"email"];
 	[self.socialLogin loginFacebook:^(GIGSocialLoginResult *result)

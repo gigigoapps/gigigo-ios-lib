@@ -81,4 +81,10 @@
 }
 
 
+- (void)facebookLogout
+{
+	[self.facebook logout];
+}
+
+
 @end

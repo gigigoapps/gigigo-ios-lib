@@ -11,13 +11,22 @@
 
 @implementation GIGURLImageResponse
 
+- (instancetype)initWithData:(NSData *)data headers:(NSDictionary *)headers
+{
+	self = [super initWithData:data headers:headers];
+	if (self)
+	{
+		[self initializeImageWithData:data];
+	}
+	return self;
+}
+
 - (instancetype)initWithData:(NSData *)data
 {
     self = [super initWithData:data];
     if (self)
     {
-        self.image = [UIImage imageWithData:data scale:[UIScreen mainScreen].scale];
-        self.success = (self.image != nil);
+		[self initializeImageWithData:data];
     }
     return self;
 }
@@ -28,5 +37,13 @@
     
     return [self initWithData:data];
 }
+
+
+- (void)initializeImageWithData:(NSData *)data
+{
+	self.image = [UIImage imageWithData:data scale:[UIScreen mainScreen].scale];
+	self.success = (self.image != nil);
+}
+
 
 @end

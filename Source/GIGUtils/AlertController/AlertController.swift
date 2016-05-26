@@ -26,25 +26,28 @@ public class AlertController: NSObject, AlertInterface {
     }
     
     public func show() {
-        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(self.alert, animated: true) {}
+		Application().presentModal(self.alert)
     }
     
-    public func addDefaultButton(title: String, usingAction:(String -> Void)) {
-        let action = UIAlertAction(title: title, style: .Default) { (action) in
+    public func addDefaultButton(title: String, usingAction:(String -> Void)?) {
+        let action = UIAlertAction(title: title, style: .Default) { action in
+			guard let usingAction = usingAction else { return }
             usingAction(action.title!)
         }
         self.alert.addAction(action)
     }
     
-    public func addCancelButton(title: String, usingAction:(String -> Void)) {
-        let action = UIAlertAction(title: title, style: .Cancel) { (action) in
+    public func addCancelButton(title: String, usingAction:(String -> Void)?) {
+        let action = UIAlertAction(title: title, style: .Cancel) { action in
+			guard let usingAction = usingAction else { return }
             usingAction(action.title!)
         }
         self.alert.addAction(action)
     }
     
-    public func addDestructiveButton(title: String, usingAction:(String -> Void)) {
-        let action = UIAlertAction(title: title, style: .Destructive) { (action) in
+    public func addDestructiveButton(title: String, usingAction:(String -> Void)?) {
+        let action = UIAlertAction(title: title, style: .Destructive) { action in
+			guard let usingAction = usingAction else { return }
             usingAction(action.title!)
         }
         self.alert.addAction(action)

@@ -38,5 +38,12 @@ typedef void(^GIGSocialLoginFacebookCompletion)(GIGSocialLoginResult *result);
  */
 - (void)loginFacebook:(GIGSocialLoginFacebookCompletion)completionHandler;
 
+/**
+ *	@abstract Facebook logout.
+ *
+ *	@discussion If login success, internally, the method [facebookUser:] will be called and returns also user's data
+ */
+- (void)facebookLogout;
+
 
 @end

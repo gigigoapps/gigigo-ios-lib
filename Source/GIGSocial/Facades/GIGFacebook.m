@@ -134,4 +134,9 @@
 	}
 }
 
+- (void)logout
+{
+	[self.loginManager logOut];
+}
+
 @end

@@ -61,6 +61,8 @@ public class Response {
 	convenience init(response: GIGURLJSONResponse) {
 		self.init()
 		
+		self.body = response.json
+		
 		if response.success {
 			guard let json = response.json as? [String: AnyObject] else {
 				self.status = .ErrorParsingJson
@@ -74,7 +76,7 @@ public class Response {
 			}
 			
 			if status != true {
-				self.parseError(json)
+				self.status = self.parseError(json)
 			}
 			else {
 				self.status = .Success
@@ -148,6 +150,31 @@ public class Response {
 		default:
 			return .UnknownError
 		}
+	}
+	
+}
+
+
+public enum ResponseError: ErrorType {
+	case BodyNil
+}
+
+public extension Response {
+	
+	public func json() throws -> JSON {
+		guard let json = self.body else {
+			throw ResponseError.BodyNil
+		}
+		
+		return JSON(json: json)
+	}
+	
+	public func image() throws -> UIImage {
+		guard let image = self.body as? UIImage else {
+			throw ResponseError.BodyNil
+		}
+		
+		return image
 	}
 	
 }
