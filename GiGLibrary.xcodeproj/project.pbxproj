@@ -534,6 +534,9 @@
 		FA44E49B1C907784009BBBA2 /* PassbookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44E49A1C907784009BBBA2 /* PassbookVC.swift */; };
 		FA44E49E1C907F8D009BBBA2 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA44E49D1C907F8D009BBBA2 /* PassKit.framework */; };
 		FA4BFCDB1BBAF21E003FC7E2 /* GIGLoginManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFCDA1BBAF21E003FC7E2 /* GIGLoginManagerMock.m */; };
+		FA4CD9CC1CF848720070971D /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
+		FA4CD9D11CF8497D0070971D /* GIGSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FACE6E481BBC3FDB00457B4C /* GIGSocial.framework */; };
+		FA4CD9D41CF8499F0070971D /* GIGPassbook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4192191C8F145000BF6988 /* GIGPassbook.framework */; };
 		FA4CEAE31CBBC0AF0029FF4C /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */; };
 		FA56AFF21CDF2F5600ABDA53 /* KeyboardAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56AFF11CDF2F5600ABDA53 /* KeyboardAdaptable.swift */; };
 		FA56AFF51CDF323700ABDA53 /* KeyboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56AFF41CDF323700ABDA53 /* KeyboardVC.swift */; };
@@ -643,6 +646,27 @@
 			remoteGlobalIDString = FA65BF981AEFD5F90031A91B;
 			remoteInfo = GIGLibrary;
 		};
+		FA4CD9C61CF847BD0070971D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA65BF901AEFD5F80031A91B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA65BF981AEFD5F90031A91B;
+			remoteInfo = GIGLibrary;
+		};
+		FA4CD9CF1CF849730070971D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA65BF901AEFD5F80031A91B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FACE6E471BBC3FDB00457B4C;
+			remoteInfo = GIGSocial;
+		};
+		FA4CD9D21CF8499C0070971D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA65BF901AEFD5F80031A91B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA4192181C8F145000BF6988;
+			remoteInfo = GIGPassbook;
+		};
 		FA680F401B009CA8006FC484 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FA65BF901AEFD5F80031A91B /* Project object */;
@@ -663,13 +687,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = FA65BF981AEFD5F90031A91B;
 			remoteInfo = GIGLibrary;
-		};
-		FADE387E1C7491110061AAB9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA65BF901AEFD5F80031A91B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FA680F191B009B6B006FC484;
-			remoteInfo = GIGLibraryApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1079,6 +1096,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4CD9D41CF8499F0070971D /* GIGPassbook.framework in Frameworks */,
+				FA4CD9D11CF8497D0070971D /* GIGSocial.framework in Frameworks */,
+				FA4CD9CC1CF848720070971D /* GIGLibrary.framework in Frameworks */,
 				FA3F10891B71F1C900517468 /* FBSDKCoreKit.framework in Frameworks */,
 				FA3F108B1B71F1CD00517468 /* FBSDKLoginKit.framework in Frameworks */,
 				D99AD35A1B1DA3B9005BB4E5 /* OCHamcrestIOS.framework in Frameworks */,
@@ -2676,7 +2696,9 @@
 			buildRules = (
 			);
 			dependencies = (
-				FADE387F1C7491110061AAB9 /* PBXTargetDependency */,
+				FA4CD9D31CF8499C0070971D /* PBXTargetDependency */,
+				FA4CD9D01CF849730070971D /* PBXTargetDependency */,
+				FA4CD9C71CF847BD0070971D /* PBXTargetDependency */,
 			);
 			name = GIGLibraryTests;
 			productName = GIGLibraryTests;
@@ -2786,7 +2808,6 @@
 					};
 					D9AD96F91B0A386500CB5E8C = {
 						CreatedOnToolsVersion = 6.3;
-						TestTargetID = FA680F191B009B6B006FC484;
 					};
 					FA4192181C8F145000BF6988 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -3389,6 +3410,21 @@
 			target = FA65BF981AEFD5F90031A91B /* GIGLibrary */;
 			targetProxy = FA44E4971C906ECD009BBBA2 /* PBXContainerItemProxy */;
 		};
+		FA4CD9C71CF847BD0070971D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA65BF981AEFD5F90031A91B /* GIGLibrary */;
+			targetProxy = FA4CD9C61CF847BD0070971D /* PBXContainerItemProxy */;
+		};
+		FA4CD9D01CF849730070971D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FACE6E471BBC3FDB00457B4C /* GIGSocial */;
+			targetProxy = FA4CD9CF1CF849730070971D /* PBXContainerItemProxy */;
+		};
+		FA4CD9D31CF8499C0070971D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA4192181C8F145000BF6988 /* GIGPassbook */;
+			targetProxy = FA4CD9D21CF8499C0070971D /* PBXContainerItemProxy */;
+		};
 		FA680F411B009CA8006FC484 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FA65BF981AEFD5F90031A91B /* GIGLibrary */;
@@ -3403,11 +3439,6 @@
 			isa = PBXTargetDependency;
 			target = FA65BF981AEFD5F90031A91B /* GIGLibrary */;
 			targetProxy = FACE6E5C1BBC408700457B4C /* PBXContainerItemProxy */;
-		};
-		FADE387F1C7491110061AAB9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FA680F191B009B6B006FC484 /* GIGLibraryApp */;
-			targetProxy = FADE387E1C7491110061AAB9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3594,7 +3625,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigigo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GIGLibraryApp.app/GIGLibraryApp";
 			};
 			name = Debug;
 		};
@@ -3618,7 +3648,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigigo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GIGLibraryApp.app/GIGLibraryApp";
 			};
 			name = Release;
 		};
@@ -3633,6 +3662,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = GIGPassbook/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3654,6 +3684,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = GIGPassbook/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3762,6 +3793,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Source/GIGSocial/Libs",
@@ -3788,6 +3820,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Source/GIGSocial/Libs",

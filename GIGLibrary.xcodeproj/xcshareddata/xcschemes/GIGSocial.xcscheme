@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D9AD96F91B0A386500CB5E8C"
+               BuildableName = "GIGLibraryTests.xctest"
+               BlueprintName = "GIGLibraryTests"
+               ReferencedContainer = "container:GIGLibrary.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FACE6E471BBC3FDB00457B4C"
+            BuildableName = "GIGSocial.framework"
+            BlueprintName = "GIGSocial"
+            ReferencedContainer = "container:GIGLibrary.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
