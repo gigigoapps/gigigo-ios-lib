@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		FACA6B291BDF74A2001AA36E /* DeployFrameworks */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = FACA6B2A1BDF74A2001AA36E /* Build configuration list for PBXAggregateTarget "DeployFrameworks" */;
-			buildPhases = (
-				FACA6B2E1BDF7513001AA36E /* Build GIGLibrary */,
-			);
-			dependencies = (
-			);
-			name = DeployFrameworks;
-			productName = GIGLibraryFramework;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		4A23B6791C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A23B6781C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h */; };
 		4A23B67B1C74779D00E37E5D /* GIGAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A23B67A1C74779D00E37E5D /* GIGAlertViewController.swift */; };
@@ -266,7 +252,6 @@
 		FA42A2AD1C6B678300C2D1BB /* SwiftRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */; };
 		FA44E4961C9069A6009BBBA2 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44E4951C9069A6009BBBA2 /* Application.swift */; };
 		FA44E49B1C907784009BBBA2 /* PassbookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44E49A1C907784009BBBA2 /* PassbookVC.swift */; };
-		FA44E49E1C907F8D009BBBA2 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA44E49D1C907F8D009BBBA2 /* PassKit.framework */; };
 		FA4CD9CC1CF848720070971D /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FA4CEAE31CBBC0AF0029FF4C /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */; };
 		FA56AFF21CDF2F5600ABDA53 /* KeyboardAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56AFF11CDF2F5600ABDA53 /* KeyboardAdaptable.swift */; };
@@ -356,7 +341,6 @@
 		7BE65FBD1BC3CEC8002C335E /* GIGMockClassAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMockClassAddress.m; path = Mock/MockExample/GIGMockClassAddress.m; sourceTree = "<group>"; };
 		7BE65FC01BC3CEDE002C335E /* GIGMockClassUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMockClassUser.h; path = Mock/MockExample/GIGMockClassUser.h; sourceTree = "<group>"; };
 		7BE65FC11BC3CEDE002C335E /* GIGMockClassUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMockClassUser.m; path = Mock/MockExample/GIGMockClassUser.m; sourceTree = "<group>"; };
-		A91006581B0CCE8E0080B812 /* GIGStaticLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIGStaticLibrary.h; sourceTree = "<group>"; };
 		A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIGScannerViewController.swift; path = GIGScanner/GIGScannerViewController.swift; sourceTree = "<group>"; };
 		D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLibrary.h; sourceTree = "<group>"; };
 		D909EFE91B0DC2FF00DD4D97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -374,8 +358,6 @@
 		D93CA52C1BEA49600098D37C /* NSData+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GIGExtension.h"; sourceTree = "<group>"; };
 		D93CA52D1BEA49600098D37C /* NSData+GIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GIGExtension.m"; sourceTree = "<group>"; };
 		D9404D4C1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLRequestThreadsTests.m; sourceTree = "<group>"; };
-		D99AD0FC1B1D9716005BB4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D99AD1291B1D9866005BB4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D99AD14E1B1DA3A3005BB4E5 /* GIGConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGConstants.h; sourceTree = "<group>"; };
 		D99AD1501B1DA3A3005BB4E5 /* GIGGeolocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGGeolocation.h; sourceTree = "<group>"; };
 		D99AD1511B1DA3A3005BB4E5 /* GIGGeolocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGGeolocation.m; sourceTree = "<group>"; };
@@ -618,13 +600,10 @@
 		FA3022011CBD406700A8F7DE /* SlideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuVC.swift; path = UIComponents/SlideMenu/Private/SlideMenuVC.swift; sourceTree = "<group>"; };
 		FA3022041CBD4C1100A8F7DE /* MenuSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSectionCell.swift; path = UIComponents/SlideMenu/Private/MenuSectionCell.swift; sourceTree = "<group>"; };
 		FA36E96F1C637CD100214598 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
-		FA41921B1C8F145000BF6988 /* GIGPassbook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIGPassbook.h; sourceTree = "<group>"; };
-		FA41921D1C8F145000BF6988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRequestVC.swift; sourceTree = "<group>"; };
 		FA44E4951C9069A6009BBBA2 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Application.swift; path = Application/Application.swift; sourceTree = "<group>"; };
 		FA44E49A1C907784009BBBA2 /* PassbookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassbookVC.swift; path = Passbook/PassbookVC.swift; sourceTree = "<group>"; };
 		FA44E49C1C907F8C009BBBA2 /* GIGLibraryApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GIGLibraryApp.entitlements; sourceTree = "<group>"; };
-		FA44E49D1C907F8D009BBBA2 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenu.swift; path = UIComponents/SlideMenu/SlideMenu.swift; sourceTree = "<group>"; };
 		FA56AFF11CDF2F5600ABDA53 /* KeyboardAdaptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardAdaptable.swift; path = Keyboard/KeyboardAdaptable.swift; sourceTree = "<group>"; };
 		FA56AFF41CDF323700ABDA53 /* KeyboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardVC.swift; path = Keyboard/KeyboardVC.swift; sourceTree = "<group>"; };
@@ -667,7 +646,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA44E49E1C907F8D009BBBA2 /* PassKit.framework in Frameworks */,
 				FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -744,14 +722,6 @@
 			name = MockExample;
 			sourceTree = "<group>";
 		};
-		A91006571B0CCE8E0080B812 /* GIGStaticLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				A91006581B0CCE8E0080B812 /* GIGStaticLibrary.h */,
-			);
-			path = GIGStaticLibrary;
-			sourceTree = "<group>";
-		};
 		A94D4A5F1CDDF54100CC4CAF /* GIGScanner */ = {
 			isa = PBXGroup;
 			children = (
@@ -798,22 +768,6 @@
 				D934734F1BBBC4E000AB5655 /* GIGURLResponseTests.m */,
 			);
 			path = Response;
-			sourceTree = "<group>";
-		};
-		D99AD0FA1B1D9716005BB4E5 /* GIGStaticLibraryApp */ = {
-			isa = PBXGroup;
-			children = (
-				D99AD0FC1B1D9716005BB4E5 /* Info.plist */,
-			);
-			path = GIGStaticLibraryApp;
-			sourceTree = "<group>";
-		};
-		D99AD1271B1D9866005BB4E5 /* GIGStaticLibraryTests */ = {
-			isa = PBXGroup;
-			children = (
-				D99AD1291B1D9866005BB4E5 /* Info.plist */,
-			);
-			path = GIGStaticLibraryTests;
 			sourceTree = "<group>";
 		};
 		D99AD14D1B1DA3A3005BB4E5 /* Source */ = {
@@ -1620,16 +1574,6 @@
 			name = Private;
 			sourceTree = "<group>";
 		};
-		FA41921A1C8F145000BF6988 /* GIGPassbook */ = {
-			isa = PBXGroup;
-			children = (
-				FA44E49D1C907F8D009BBBA2 /* PassKit.framework */,
-				FA41921B1C8F145000BF6988 /* GIGPassbook.h */,
-				FA41921D1C8F145000BF6988 /* Info.plist */,
-			);
-			path = GIGPassbook;
-			sourceTree = "<group>";
-		};
 		FA44E4941C90694B009BBBA2 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -1688,11 +1632,7 @@
 				D99AD3051B1DA3AF005BB4E5 /* App */,
 				D909EFE71B0DC2FF00DD4D97 /* GIGLibraryFramework */,
 				FA680F1B1B009B6B006FC484 /* GIGLibraryApp */,
-				A91006571B0CCE8E0080B812 /* GIGStaticLibrary */,
-				D99AD0FA1B1D9716005BB4E5 /* GIGStaticLibraryApp */,
 				D9AD96FB1B0A386500CB5E8C /* GIGLibraryTests */,
-				D99AD1271B1D9866005BB4E5 /* GIGStaticLibraryTests */,
-				FA41921A1C8F145000BF6988 /* GIGPassbook */,
 				FA65BF9A1AEFD5F90031A91B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1953,9 +1893,6 @@
 							};
 						};
 					};
-					FACA6B291BDF74A2001AA36E = {
-						CreatedOnToolsVersion = 7.1;
-					};
 				};
 			};
 			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */;
@@ -1979,7 +1916,6 @@
 			projectRoot = "";
 			targets = (
 				FA65BF981AEFD5F90031A91B /* GIGLibrary */,
-				FACA6B291BDF74A2001AA36E /* DeployFrameworks */,
 				FA680F191B009B6B006FC484 /* GIGLibraryApp */,
 				D9AD96F91B0A386500CB5E8C /* GIGLibraryTests */,
 			);
@@ -2020,23 +1956,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		FACA6B2E1BDF7513001AA36E /* Build GIGLibrary */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Build GIGLibrary";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# workaround for bitcode generation problem with Xcode 7.3\nunset TOOLCHAINS\n\n# Merge Script\n\n# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"GIGLibrary\"\n\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk \"iphoneos\"\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\"\n\n# 5\n# Remove .framework file if exists on Desktop from previous run.\nif [ -d \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\" ]; then\nrm -rf \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\nfi\n\n# 6\n# Copy the device version of framework to Desktop.\ncp -r \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\n\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\nlipo -create -output \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\n\n# 8\n# Copy the Swift module mappings for the simulator into the\n# framework.  The device mappings already exist from step 6.\ncp -r \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule\"\n\n# 9\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D9AD96F61B0A386500CB5E8C /* Sources */ = {
@@ -2464,20 +2383,6 @@
 			};
 			name = Release;
 		};
-		FACA6B2B1BDF74A2001AA36E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		FACA6B2C1BDF74A2001AA36E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2513,15 +2418,6 @@
 			buildConfigurations = (
 				FA680F3B1B009B6C006FC484 /* Debug */,
 				FA680F3C1B009B6C006FC484 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FACA6B2A1BDF74A2001AA36E /* Build configuration list for PBXAggregateTarget "DeployFrameworks" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FACA6B2B1BDF74A2001AA36E /* Debug */,
-				FACA6B2C1BDF74A2001AA36E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
