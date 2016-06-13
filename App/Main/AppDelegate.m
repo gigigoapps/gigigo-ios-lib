@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 
-#if GIG_STATIC_LIBRARY
+//#if GIG_STATIC_LIBRARY
 
 @implementation AppDelegate
 
@@ -19,30 +19,30 @@
 }
 
 @end
-
-#else // GIG_DYNAMIC_LIBRARY
-
-#import "GIGSocial.h"
-
-
-@implementation AppDelegate
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-	
-    return [GIGSocialCore application:application didFinishLaunchingWithOptions:launchOptions];
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    [GIGSocialCore applicationDidBecomeActive:application];
-}
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    return [GIGSocialCore application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-}
-
-@end
-
-#endif
+//
+//#else // GIG_DYNAMIC_LIBRARY
+//
+//#import "GIGSocial.h"
+//
+//
+//@implementation AppDelegate
+//
+//- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+//{
+//	
+//    return [GIGSocialCore application:application didFinishLaunchingWithOptions:launchOptions];
+//}
+//
+//- (void)applicationDidBecomeActive:(UIApplication *)application
+//{
+//    [GIGSocialCore applicationDidBecomeActive:application];
+//}
+//
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+//{
+//    return [GIGSocialCore application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+//}
+//
+//@end
+//
+//#endif
