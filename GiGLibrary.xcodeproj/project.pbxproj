@@ -3317,7 +3317,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tests/Libs",
-					"$(PROJECT_DIR)/Source/GIGSocial/Libs",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -3344,7 +3343,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tests/Libs",
-					"$(PROJECT_DIR)/Source/GIGSocial/Libs",
 				);
 				INFOPLIST_FILE = GIGLibraryTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
