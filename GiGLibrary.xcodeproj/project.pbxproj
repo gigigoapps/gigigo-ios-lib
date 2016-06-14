@@ -266,7 +266,6 @@
 		FA88CBAC1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */; };
 		FAA3F8871C60EDD80061AADD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3F8861C60EDD80061AADD /* Log.swift */; };
 		FAB3201D1CBE9F1100098D81 /* SlideMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */; };
-		FACE6D991BBC115900457B4C /* GLALoginFacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */; };
 		FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; };
 		FADE38801C74913E0061AAB9 /* GIGStringValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF10D01B42A731004F01F9 /* GIGStringValidatorTests.m */; };
 		FADE38811C74913E0061AAB9 /* GIGBoolValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF10D91B42A93E004F01F9 /* GIGBoolValidatorTests.m */; };
@@ -616,8 +615,6 @@
 		FA86D0EB1C874115003C5623 /* NSDate+GIGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+GIGExtension.swift"; sourceTree = "<group>"; };
 		FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocale+GIGExtension.swift"; sourceTree = "<group>"; };
 		FAA3F8861C60EDD80061AADD /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		FAA80A7B1B70D0210076FF9E /* GLALoginFacebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLALoginFacebookViewController.h; path = Social/GLALoginFacebookViewController.h; sourceTree = "<group>"; };
-		FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLALoginFacebookViewController.m; path = Social/GLALoginFacebookViewController.m; sourceTree = "<group>"; };
 		FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuConfig.swift; path = UIComponents/SlideMenu/Private/SlideMenuConfig.swift; sourceTree = "<group>"; };
 		FACE6D951BBC112B00457B4C /* GLAMultiRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAMultiRequestViewController.h; sourceTree = "<group>"; };
 		FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAMultiRequestViewController.m; sourceTree = "<group>"; };
@@ -1173,7 +1170,6 @@
 				D99AD35F1B1DAAE6005BB4E5 /* Main */,
 				FACE6D941BBC112B00457B4C /* Network */,
 				D9E18E111BD542D900611CDA /* Formulary */,
-				FAA80A7A1B70CFE40076FF9E /* Social */,
 				4A881C131C5F8650000EC61E /* Alert */,
 				FA44E4991C90775D009BBBA2 /* Passbook */,
 				FA133A721CBC208B0007EE06 /* Menu */,
@@ -1673,15 +1669,6 @@
 			name = SwiftJson;
 			sourceTree = "<group>";
 		};
-		FAA80A7A1B70CFE40076FF9E /* Social */ = {
-			isa = PBXGroup;
-			children = (
-				FAA80A7B1B70D0210076FF9E /* GLALoginFacebookViewController.h */,
-				FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */,
-			);
-			name = Social;
-			sourceTree = "<group>";
-		};
 		FACE6D941BBC112B00457B4C /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -2127,7 +2114,6 @@
 				FA42A2AD1C6B678300C2D1BB /* SwiftRequestVC.swift in Sources */,
 				D99AD3741B1DAAE6005BB4E5 /* GLAMainViewController.m in Sources */,
 				FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */,
-				FACE6D991BBC115900457B4C /* GLALoginFacebookViewController.m in Sources */,
 				FA133A751CBC225E0007EE06 /* SlideMenuViewController.swift in Sources */,
 				D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */,
 				FA56AFF51CDF323700ABDA53 /* KeyboardVC.swift in Sources */,
