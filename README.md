@@ -13,10 +13,18 @@ Main library for iOS projects on Gigigo.
 
 ## How to add it to my project?
 
-GIGLibrary comes in two versions:
+Through Carthage
 
-- A static framework for projects that must support iOS 7. (deprecated)
-- A dynamic framework for projects for iOS 8 and after.
+```
+# GIGLibrary
+git "https://bitbucket.org/gigigo/gigigo-giglibrary-ios.git" ~> 1.0
+
+# GIGSocial
+git "https://bitbucket.org/gigigo/gigigo-gigsocial-ios.git" ~> 1.0
+
+# GIGPassbook
+git "https://bitbucket.org/gigigo/gigigo-gigpassbook-ios.git" ~> 1.0
+```
 
 
 ## What is included?
