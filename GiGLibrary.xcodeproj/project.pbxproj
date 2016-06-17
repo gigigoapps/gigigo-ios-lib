@@ -261,6 +261,7 @@
 		FA6A3A371CD3B24F00835521 /* basic_form.json in Resources */ = {isa = PBXBuildFile; fileRef = D9B2F7F51BD549490057422F /* basic_form.json */; };
 		FA723AC71C64AB4500225E79 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC51C64AB4500225E79 /* Request.swift */; };
 		FA723AC81C64AB4500225E79 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC61C64AB4500225E79 /* Response.swift */; };
+		FA7DC56F1D13FAE8004BE7AC /* GIGDateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7DC56E1D13FAE8004BE7AC /* GIGDateExtensionTests.swift */; };
 		FA86D0EA1C870582003C5623 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D0E91C870582003C5623 /* Json.swift */; };
 		FA86D0EC1C874115003C5623 /* NSDate+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D0EB1C874115003C5623 /* NSDate+GIGExtension.swift */; };
 		FA88CBAC1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */; };
@@ -611,6 +612,8 @@
 		FA680F1D1B009B6B006FC484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA723AC51C64AB4500225E79 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = SwiftNetwork/Request.swift; sourceTree = "<group>"; };
 		FA723AC61C64AB4500225E79 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = SwiftNetwork/Response.swift; sourceTree = "<group>"; };
+		FA7DC56D1D13FAE8004BE7AC /* GIGLibraryTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GIGLibraryTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		FA7DC56E1D13FAE8004BE7AC /* GIGDateExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGDateExtensionTests.swift; sourceTree = "<group>"; };
 		FA86D0E91C870582003C5623 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json.swift; path = SwiftJson/Json.swift; sourceTree = "<group>"; };
 		FA86D0EB1C874115003C5623 /* NSDate+GIGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+GIGExtension.swift"; sourceTree = "<group>"; };
 		FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocale+GIGExtension.swift"; sourceTree = "<group>"; };
@@ -1241,6 +1244,8 @@
 				D99AD3341B1DA3B9005BB4E5 /* GIGRegexpReplacingTests.m */,
 				7B6B84981BC296F600517C2F /* GIGParseClassTests.m */,
 				D9EECF7B1BEA6AC2007FEAD8 /* GIGAttributedStringBuilderTests.m */,
+				FA7DC56E1D13FAE8004BE7AC /* GIGDateExtensionTests.swift */,
+				FA7DC56D1D13FAE8004BE7AC /* GIGLibraryTests-Bridging-Header.h */,
 			);
 			path = GIGUtils;
 			sourceTree = "<group>";
@@ -1860,7 +1865,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = "";
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Gigigo SL";
 				TargetAttributes = {
@@ -1960,6 +1965,7 @@
 				D9FD36481B416DF8000D356F /* GIGNumericValidatorTests.m in Sources */,
 				D99AD34C1B1DA3B9005BB4E5 /* GIGURLStorageTests.m in Sources */,
 				FAEDF6881BE21A3100F05AE2 /* GIGMockClassPrimitive.m in Sources */,
+				FA7DC56F1D13FAE8004BE7AC /* GIGDateExtensionTests.swift in Sources */,
 				FAEDF6891BE21A3100F05AE2 /* GIGMockClassNSObject.m in Sources */,
 				FADE38841C74914B0061AAB9 /* GIGURLCommunicatorMultiRequestFixtureTests.m in Sources */,
 				D9E7A16A1B419A45004D3193 /* GIGCharactersValidatorTests.m in Sources */,
@@ -2143,6 +2149,7 @@
 		D9AD97041B0A386500CB5E8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2163,12 +2170,15 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigigo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/GIGUtils/GIGLibraryTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		D9AD97051B0A386500CB5E8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2185,6 +2195,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigigo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/GIGUtils/GIGLibraryTests-Bridging-Header.h";
 			};
 			name = Release;
 		};

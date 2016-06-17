@@ -14,7 +14,6 @@
 + (NSDate *)dateFromString:(NSString *)dateString format:(NSString *)format locale:(NSLocale *)locale;
 + (NSDate *)randomDate;
 + (NSTimeInterval)timeIntervalSince1970;
-+ (NSDate *)today;
 + (NSDate *)yesterday;
 + (NSDate *)afterYesterday;
 + (NSDate *)tomorrow;

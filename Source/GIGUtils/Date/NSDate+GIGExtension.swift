@@ -22,4 +22,45 @@ public extension NSDate {
 		return date
 	}
 	
+	public class func today() -> NSDate {
+		return NSDate()
+	}
+	
+}
+
+/// Add days to a date
+func +(date: NSDate, days: Int) -> NSDate {
+	let newDate = date.dateByAddingDays(days)
+	return newDate
+}
+
+/// Substract days to a date
+func -(date: NSDate, days: Int) -> NSDate {
+	let newDate = date + (-days)
+	return newDate
+}
+
+
+func >(lhs: NSDate, rhs: NSDate) -> Bool {
+	let result = lhs.compare(rhs)
+	
+	switch result {
+	case .OrderedDescending:
+		return true
+	
+	default:
+		return false
+	}
+}
+
+func <(lhs: NSDate, rhs: NSDate) -> Bool {
+	let result = lhs.compare(rhs)
+	
+	switch result {
+	case .OrderedAscending:
+		return true
+		
+	default:
+		return false
+	}
 }
