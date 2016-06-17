@@ -29,19 +29,19 @@ public extension NSDate {
 }
 
 /// Add days to a date
-func +(date: NSDate, days: Int) -> NSDate {
+public func +(date: NSDate, days: Int) -> NSDate {
 	let newDate = date.dateByAddingDays(days)
 	return newDate
 }
 
 /// Substract days to a date
-func -(date: NSDate, days: Int) -> NSDate {
+public func -(date: NSDate, days: Int) -> NSDate {
 	let newDate = date + (-days)
 	return newDate
 }
 
 
-func >(lhs: NSDate, rhs: NSDate) -> Bool {
+public func >(lhs: NSDate, rhs: NSDate) -> Bool {
 	let result = lhs.compare(rhs)
 	
 	switch result {
@@ -53,7 +53,7 @@ func >(lhs: NSDate, rhs: NSDate) -> Bool {
 	}
 }
 
-func <(lhs: NSDate, rhs: NSDate) -> Bool {
+public func <(lhs: NSDate, rhs: NSDate) -> Bool {
 	let result = lhs.compare(rhs)
 	
 	switch result {
