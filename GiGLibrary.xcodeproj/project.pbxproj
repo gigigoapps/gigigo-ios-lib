@@ -16,6 +16,7 @@
 		7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84931BC2962600517C2F /* GIGParseClass.h */; };
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
 		7B6B84991BC296F600517C2F /* GIGParseClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84981BC296F600517C2F /* GIGParseClassTests.m */; };
+		8F15F6201D14039900B589E0 /* GIGUserDefaultExtensionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F15F61F1D14039900B589E0 /* GIGUserDefaultExtensionTests.m */; };
 		A94D4A611CDDF67300CC4CAF /* GIGScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; };
 		A94D4A621CDE356B00CC4CAF /* GIGScannerViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		D90867691B42A3E300193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
@@ -341,6 +342,7 @@
 		7BE65FBD1BC3CEC8002C335E /* GIGMockClassAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMockClassAddress.m; path = Mock/MockExample/GIGMockClassAddress.m; sourceTree = "<group>"; };
 		7BE65FC01BC3CEDE002C335E /* GIGMockClassUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMockClassUser.h; path = Mock/MockExample/GIGMockClassUser.h; sourceTree = "<group>"; };
 		7BE65FC11BC3CEDE002C335E /* GIGMockClassUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMockClassUser.m; path = Mock/MockExample/GIGMockClassUser.m; sourceTree = "<group>"; };
+		8F15F61F1D14039900B589E0 /* GIGUserDefaultExtensionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGUserDefaultExtensionTests.m; sourceTree = "<group>"; };
 		A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIGScannerViewController.swift; path = GIGScanner/GIGScannerViewController.swift; sourceTree = "<group>"; };
 		D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLibrary.h; sourceTree = "<group>"; };
 		D909EFE91B0DC2FF00DD4D97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1237,15 +1239,18 @@
 		D99AD3301B1DA3B9005BB4E5 /* GIGUtils */ = {
 			isa = PBXGroup;
 			children = (
-				7B6B849A1BC2974E00517C2F /* Mock */,
 				D99AD3311B1DA3B9005BB4E5 /* GIGArrayExtesionTests.m */,
+				D9EECF7B1BEA6AC2007FEAD8 /* GIGAttributedStringBuilderTests.m */,
 				D99AD3321B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m */,
+				7B6B84981BC296F600517C2F /* GIGParseClassTests.m */,
 				D99AD3331B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m */,
 				D99AD3341B1DA3B9005BB4E5 /* GIGRegexpReplacingTests.m */,
 				7B6B84981BC296F600517C2F /* GIGParseClassTests.m */,
 				D9EECF7B1BEA6AC2007FEAD8 /* GIGAttributedStringBuilderTests.m */,
 				FA7DC56E1D13FAE8004BE7AC /* GIGDateExtensionTests.swift */,
 				FA7DC56D1D13FAE8004BE7AC /* GIGLibraryTests-Bridging-Header.h */,
+				8F15F61F1D14039900B589E0 /* GIGUserDefaultExtensionTests.m */,
+				7B6B849A1BC2974E00517C2F /* Mock */,
 			);
 			path = GIGUtils;
 			sourceTree = "<group>";
@@ -1988,6 +1993,7 @@
 				D99AD3541B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
 				D9FD36441B416DF8000D356F /* GIGLengthValidatorTests.m in Sources */,
 				FAEDF6871BE21A3100F05AE2 /* GIGMockClassNull.m in Sources */,
+				8F15F6201D14039900B589E0 /* GIGUserDefaultExtensionTests.m in Sources */,
 				D9404D4D1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m in Sources */,
 				D99AD3441B1DA3B9005BB4E5 /* GIGURLFixturesKeeperTests.m in Sources */,
 				D9E7A1581B419244004D3193 /* GIGDocumentValidatorTests.m in Sources */,

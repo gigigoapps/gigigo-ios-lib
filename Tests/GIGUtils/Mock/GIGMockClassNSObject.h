@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GIGMockClassNSObject : NSObject
+@interface GIGMockClassNSObject : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSString *stringNSObject;
 @property (assign, nonatomic) NSInteger integerNSObject;
