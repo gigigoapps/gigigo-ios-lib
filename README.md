@@ -24,6 +24,9 @@ git "https://bitbucket.org/gigigo/gigigo-gigsocial-ios.git" ~> 1.0
 
 # GIGPassbook
 git "https://bitbucket.org/gigigo/gigigo-gigpassbook-ios.git" ~> 1.0
+
+# GIGRateApp
+git "https://bitbucket.org/gigigo/gigigo-gigrateapp-ios.git" ~> 1.0
 ```
 
 
@@ -34,8 +37,11 @@ git "https://bitbucket.org/gigigo/gigigo-gigpassbook-ios.git" ~> 1.0
 	- GIGLayout: some functions to help with autolayout.
 	- GIGUtils: a lot of extensions on foundation classes.
 	
-- Social: 
+- [Social](https://bitbucket.org/gigigo/gigigo-gigsocial-ios): 
 	- Facebook: login.
 
-- Passbook: 
-    * Add a new passbook from a URL
+- [Passbook](https://bitbucket.org/gigigo/gigigo-gigpassbook-ios): 
+	- Add a new passbook from a URL
+
+- [RateApp](https://bitbucket.org/gigigo/gigigo-gigrateapp-ios):
+	- Prompt the user to rate the application
