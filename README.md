@@ -26,7 +26,7 @@ git "https://bitbucket.org/gigigo/gigigo-gigsocial-ios.git" ~> 1.0
 git "https://bitbucket.org/gigigo/gigigo-gigpassbook-ios.git" ~> 1.0
 
 # GIGRateApp
-git "https://bitbucket.org/gigigo/gigigo-gigrateapp-ios.git" ~> 1.0
+git "https://bitbucket.org/gigigo/gigigo-gigrate-app.git" ~> 1.0
 ```
 
 
@@ -43,5 +43,5 @@ git "https://bitbucket.org/gigigo/gigigo-gigrateapp-ios.git" ~> 1.0
 - [Passbook](https://bitbucket.org/gigigo/gigigo-gigpassbook-ios): 
 	- Add a new passbook from a URL
 
-- [RateApp](https://bitbucket.org/gigigo/gigigo-gigrateapp-ios):
+- [RateApp](https://bitbucket.org/gigigo/gigigo-gigrate-app):
 	- Prompt the user to rate the application
