@@ -8,15 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4A23B6791C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A23B6781C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h */; };
-		4A23B67B1C74779D00E37E5D /* GIGAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A23B67A1C74779D00E37E5D /* GIGAlertViewController.swift */; };
+		4A23B67B1C74779D00E37E5D /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4A6A04821C62524000FED731 /* GIGIOSVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A04811C62524000FED731 /* GIGIOSVersion.swift */; };
 		4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A881C111C5F7C72000EC61E /* AlertController.swift */; };
 		4AACDF981C60DA2400F4E8AE /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */; };
 		4AACDF9A1C611E7100F4E8AE /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF991C611E7100F4E8AE /* Alert.swift */; };
 		7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84931BC2962600517C2F /* GIGParseClass.h */; };
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
-		7B6B84991BC296F600517C2F /* GIGParseClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84981BC296F600517C2F /* GIGParseClassTests.m */; };
-		8F15F6201D14039900B589E0 /* GIGUserDefaultExtensionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F15F61F1D14039900B589E0 /* GIGUserDefaultExtensionTests.m */; };
 		A94D4A611CDDF67300CC4CAF /* GIGScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; };
 		A94D4A621CDE356B00CC4CAF /* GIGScannerViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		D90867691B42A3E300193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
@@ -163,10 +161,6 @@
 		D99AD34C1B1DA3B9005BB4E5 /* GIGURLStorageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3291B1DA3B9005BB4E5 /* GIGURLStorageTests.m */; };
 		D99AD34E1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD32C1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m */; };
 		D99AD3501B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD32E1B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m */; };
-		D99AD3521B1DA3B9005BB4E5 /* GIGArrayExtesionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3311B1DA3B9005BB4E5 /* GIGArrayExtesionTests.m */; };
-		D99AD3541B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3321B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m */; };
-		D99AD3561B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3331B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m */; };
-		D99AD3581B1DA3B9005BB4E5 /* GIGRegexpReplacingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3341B1DA3B9005BB4E5 /* GIGRegexpReplacingTests.m */; };
 		D99AD35A1B1DA3B9005BB4E5 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99AD3361B1DA3B9005BB4E5 /* OCHamcrestIOS.framework */; };
 		D99AD35C1B1DA3BA005BB4E5 /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99AD3371B1DA3B9005BB4E5 /* OCMockitoIOS.framework */; };
 		D99AD3701B1DAAE6005BB4E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3611B1DAAE6005BB4E5 /* AppDelegate.m */; };
@@ -201,7 +195,6 @@
 		D9E7A1671B4198D1004D3193 /* GIGCharactersValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7A1641B4198D1004D3193 /* GIGCharactersValidator.m */; };
 		D9E7A16A1B419A45004D3193 /* GIGCharactersValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7A1691B419A45004D3193 /* GIGCharactersValidatorTests.m */; };
 		D9EECF6E1BEA5A7B007FEAD8 /* GIGURLManagerFixturesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EECF6D1BEA5A7B007FEAD8 /* GIGURLManagerFixturesTests.m */; };
-		D9EECF7C1BEA6AC2007FEAD8 /* GIGAttributedStringBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EECF7B1BEA6AC2007FEAD8 /* GIGAttributedStringBuilderTests.m */; };
 		D9EECF841BEA6B78007FEAD8 /* GIGAttributedStringBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EECF801BEA6AE0007FEAD8 /* GIGAttributedStringBuilder.m */; };
 		D9EECF851BEA6B7C007FEAD8 /* GIGAttributedStringBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D9EECF7F1BEA6AE0007FEAD8 /* GIGAttributedStringBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9FD35EA1B413E1A000D356F /* GIGRegexpValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FD35E81B413E1A000D356F /* GIGRegexpValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -252,7 +245,6 @@
 		FA36E9701C637CD100214598 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36E96F1C637CD100214598 /* Dispatch.swift */; };
 		FA42A2AD1C6B678300C2D1BB /* SwiftRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */; };
 		FA44E4961C9069A6009BBBA2 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44E4951C9069A6009BBBA2 /* Application.swift */; };
-		FA44E49B1C907784009BBBA2 /* PassbookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44E49A1C907784009BBBA2 /* PassbookVC.swift */; };
 		FA4CD9CC1CF848720070971D /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FA4CEAE31CBBC0AF0029FF4C /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */; };
 		FA56AFF21CDF2F5600ABDA53 /* KeyboardAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56AFF11CDF2F5600ABDA53 /* KeyboardAdaptable.swift */; };
@@ -262,13 +254,26 @@
 		FA6A3A371CD3B24F00835521 /* basic_form.json in Resources */ = {isa = PBXBuildFile; fileRef = D9B2F7F51BD549490057422F /* basic_form.json */; };
 		FA723AC71C64AB4500225E79 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC51C64AB4500225E79 /* Request.swift */; };
 		FA723AC81C64AB4500225E79 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC61C64AB4500225E79 /* Response.swift */; };
-		FA7DC56F1D13FAE8004BE7AC /* GIGDateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7DC56E1D13FAE8004BE7AC /* GIGDateExtensionTests.swift */; };
 		FA86D0EA1C870582003C5623 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D0E91C870582003C5623 /* Json.swift */; };
 		FA86D0EC1C874115003C5623 /* NSDate+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D0EB1C874115003C5623 /* NSDate+GIGExtension.swift */; };
 		FA88CBAC1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */; };
 		FAA3F8871C60EDD80061AADD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3F8861C60EDD80061AADD /* Log.swift */; };
 		FAB3201D1CBE9F1100098D81 /* SlideMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */; };
 		FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; };
+		FAD072431D1AF435002F0FE5 /* GIGArrayExtesionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD0722C1D1AF435002F0FE5 /* GIGArrayExtesionTests.m */; };
+		FAD072441D1AF435002F0FE5 /* GIGAttributedStringBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD0722D1D1AF435002F0FE5 /* GIGAttributedStringBuilderTests.m */; };
+		FAD072451D1AF435002F0FE5 /* GIGDateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0722E1D1AF435002F0FE5 /* GIGDateExtensionTests.swift */; };
+		FAD072461D1AF435002F0FE5 /* GIGJSONExtensionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD0722F1D1AF435002F0FE5 /* GIGJSONExtensionTests.m */; };
+		FAD072471D1AF435002F0FE5 /* GIGParseClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD072311D1AF435002F0FE5 /* GIGParseClassTests.m */; };
+		FAD072481D1AF435002F0FE5 /* GIGRegexpMatchingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD072321D1AF435002F0FE5 /* GIGRegexpMatchingTests.m */; };
+		FAD072491D1AF435002F0FE5 /* GIGRegexpReplacingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD072331D1AF435002F0FE5 /* GIGRegexpReplacingTests.m */; };
+		FAD0724A1D1AF435002F0FE5 /* GIGUserDefaultExtensionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD072341D1AF435002F0FE5 /* GIGUserDefaultExtensionTests.m */; };
+		FAD0724B1D1AF435002F0FE5 /* GIGMockClassEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD072371D1AF435002F0FE5 /* GIGMockClassEmpty.m */; };
+		FAD0724C1D1AF435002F0FE5 /* GIGMockClassNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD072391D1AF435002F0FE5 /* GIGMockClassNSObject.m */; };
+		FAD0724D1D1AF435002F0FE5 /* GIGMockClassNull.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD0723B1D1AF435002F0FE5 /* GIGMockClassNull.m */; };
+		FAD0724E1D1AF435002F0FE5 /* GIGMockClassPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD0723D1D1AF435002F0FE5 /* GIGMockClassPrimitive.m */; };
+		FAD0724F1D1AF435002F0FE5 /* GIGMockClassAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD072401D1AF435002F0FE5 /* GIGMockClassAddress.m */; };
+		FAD072501D1AF435002F0FE5 /* GIGMockClassUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD072421D1AF435002F0FE5 /* GIGMockClassUser.m */; };
 		FADE38801C74913E0061AAB9 /* GIGStringValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF10D01B42A731004F01F9 /* GIGStringValidatorTests.m */; };
 		FADE38811C74913E0061AAB9 /* GIGBoolValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF10D91B42A93E004F01F9 /* GIGBoolValidatorTests.m */; };
 		FADE38841C74914B0061AAB9 /* GIGURLCommunicatorMultiRequestFixtureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473451BBBC4E000AB5655 /* GIGURLCommunicatorMultiRequestFixtureTests.m */; };
@@ -282,12 +287,6 @@
 		FAEDF67C1BE20EF700F05AE2 /* GIGURLSessionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D9C804781BD0EEAC00EBDD93 /* GIGURLSessionFactory.h */; };
 		FAEDF67E1BE20EFD00F05AE2 /* GIGURLSessionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C804791BD0EEAC00EBDD93 /* GIGURLSessionFactory.m */; };
 		FAEDF6801BE20F4300F05AE2 /* GIGURLResponses.h in Headers */ = {isa = PBXBuildFile; fileRef = D9C804741BD0ED7000EBDD93 /* GIGURLResponses.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FAEDF6821BE21A0500F05AE2 /* GIGMockClassEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84AF1BC2B4A000517C2F /* GIGMockClassEmpty.m */; };
-		FAEDF6871BE21A3100F05AE2 /* GIGMockClassNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FAC1BC3CB65002C335E /* GIGMockClassNull.m */; };
-		FAEDF6881BE21A3100F05AE2 /* GIGMockClassPrimitive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FB01BC3CB7D002C335E /* GIGMockClassPrimitive.m */; };
-		FAEDF6891BE21A3100F05AE2 /* GIGMockClassNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FB41BC3CB90002C335E /* GIGMockClassNSObject.m */; };
-		FAEDF68A1BE21A5600F05AE2 /* GIGMockClassUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FC11BC3CEDE002C335E /* GIGMockClassUser.m */; };
-		FAEDF68B1BE21A5600F05AE2 /* GIGMockClassAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65FBD1BC3CEC8002C335E /* GIGMockClassAddress.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -329,20 +328,6 @@
 		4AACDF991C611E7100F4E8AE /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = GIGUtils/AlertController/Alert.swift; sourceTree = "<group>"; };
 		7B6B84931BC2962600517C2F /* GIGParseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGParseClass.h; path = Class/GIGParseClass.h; sourceTree = "<group>"; };
 		7B6B84941BC2962600517C2F /* GIGParseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGParseClass.m; path = Class/GIGParseClass.m; sourceTree = "<group>"; };
-		7B6B84981BC296F600517C2F /* GIGParseClassTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGParseClassTests.m; sourceTree = "<group>"; };
-		7B6B84AE1BC2B4A000517C2F /* GIGMockClassEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMockClassEmpty.h; path = Mock/GIGMockClassEmpty.h; sourceTree = "<group>"; };
-		7B6B84AF1BC2B4A000517C2F /* GIGMockClassEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMockClassEmpty.m; path = Mock/GIGMockClassEmpty.m; sourceTree = "<group>"; };
-		7BE65FAB1BC3CB65002C335E /* GIGMockClassNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMockClassNull.h; path = Mock/GIGMockClassNull.h; sourceTree = "<group>"; };
-		7BE65FAC1BC3CB65002C335E /* GIGMockClassNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMockClassNull.m; path = Mock/GIGMockClassNull.m; sourceTree = "<group>"; };
-		7BE65FAF1BC3CB7D002C335E /* GIGMockClassPrimitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMockClassPrimitive.h; path = Mock/GIGMockClassPrimitive.h; sourceTree = "<group>"; };
-		7BE65FB01BC3CB7D002C335E /* GIGMockClassPrimitive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMockClassPrimitive.m; path = Mock/GIGMockClassPrimitive.m; sourceTree = "<group>"; };
-		7BE65FB31BC3CB90002C335E /* GIGMockClassNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMockClassNSObject.h; path = Mock/GIGMockClassNSObject.h; sourceTree = "<group>"; };
-		7BE65FB41BC3CB90002C335E /* GIGMockClassNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMockClassNSObject.m; path = Mock/GIGMockClassNSObject.m; sourceTree = "<group>"; };
-		7BE65FBC1BC3CEC8002C335E /* GIGMockClassAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMockClassAddress.h; path = Mock/MockExample/GIGMockClassAddress.h; sourceTree = "<group>"; };
-		7BE65FBD1BC3CEC8002C335E /* GIGMockClassAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMockClassAddress.m; path = Mock/MockExample/GIGMockClassAddress.m; sourceTree = "<group>"; };
-		7BE65FC01BC3CEDE002C335E /* GIGMockClassUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMockClassUser.h; path = Mock/MockExample/GIGMockClassUser.h; sourceTree = "<group>"; };
-		7BE65FC11BC3CEDE002C335E /* GIGMockClassUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMockClassUser.m; path = Mock/MockExample/GIGMockClassUser.m; sourceTree = "<group>"; };
-		8F15F61F1D14039900B589E0 /* GIGUserDefaultExtensionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGUserDefaultExtensionTests.m; sourceTree = "<group>"; };
 		A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIGScannerViewController.swift; path = GIGScanner/GIGScannerViewController.swift; sourceTree = "<group>"; };
 		D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLibrary.h; sourceTree = "<group>"; };
 		D909EFE91B0DC2FF00DD4D97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -503,10 +488,6 @@
 		D99AD32D1B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GIGURLFixture+GIGTesting.h"; sourceTree = "<group>"; };
 		D99AD32E1B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GIGURLFixture+GIGTesting.m"; sourceTree = "<group>"; };
 		D99AD32F1B1DA3B9005BB4E5 /* GIGTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGTests.h; sourceTree = "<group>"; };
-		D99AD3311B1DA3B9005BB4E5 /* GIGArrayExtesionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGArrayExtesionTests.m; sourceTree = "<group>"; };
-		D99AD3321B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGJSONExtensionTests.m; sourceTree = "<group>"; };
-		D99AD3331B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGRegexpMatchingTests.m; sourceTree = "<group>"; };
-		D99AD3341B1DA3B9005BB4E5 /* GIGRegexpReplacingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGRegexpReplacingTests.m; sourceTree = "<group>"; };
 		D99AD3361B1DA3B9005BB4E5 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		D99AD3371B1DA3B9005BB4E5 /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockitoIOS.framework; sourceTree = "<group>"; };
 		D99AD3601B1DAAE6005BB4E5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -554,7 +535,6 @@
 		D9E7A1641B4198D1004D3193 /* GIGCharactersValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGCharactersValidator.m; path = GIGFormulary/Validators/GIGCharactersValidator.m; sourceTree = "<group>"; };
 		D9E7A1691B419A45004D3193 /* GIGCharactersValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGCharactersValidatorTests.m; sourceTree = "<group>"; };
 		D9EECF6D1BEA5A7B007FEAD8 /* GIGURLManagerFixturesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLManagerFixturesTests.m; sourceTree = "<group>"; };
-		D9EECF7B1BEA6AC2007FEAD8 /* GIGAttributedStringBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGAttributedStringBuilderTests.m; sourceTree = "<group>"; };
 		D9EECF7F1BEA6AE0007FEAD8 /* GIGAttributedStringBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGAttributedStringBuilder.h; sourceTree = "<group>"; };
 		D9EECF801BEA6AE0007FEAD8 /* GIGAttributedStringBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGAttributedStringBuilder.m; sourceTree = "<group>"; };
 		D9FD35E81B413E1A000D356F /* GIGRegexpValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGRegexpValidator.h; path = GIGFormulary/Validators/GIGRegexpValidator.h; sourceTree = "<group>"; };
@@ -604,7 +584,6 @@
 		FA36E96F1C637CD100214598 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRequestVC.swift; sourceTree = "<group>"; };
 		FA44E4951C9069A6009BBBA2 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Application.swift; path = Application/Application.swift; sourceTree = "<group>"; };
-		FA44E49A1C907784009BBBA2 /* PassbookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassbookVC.swift; path = Passbook/PassbookVC.swift; sourceTree = "<group>"; };
 		FA44E49C1C907F8C009BBBA2 /* GIGLibraryApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GIGLibraryApp.entitlements; sourceTree = "<group>"; };
 		FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenu.swift; path = UIComponents/SlideMenu/SlideMenu.swift; sourceTree = "<group>"; };
 		FA56AFF11CDF2F5600ABDA53 /* KeyboardAdaptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardAdaptable.swift; path = Keyboard/KeyboardAdaptable.swift; sourceTree = "<group>"; };
@@ -614,8 +593,6 @@
 		FA680F1D1B009B6B006FC484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA723AC51C64AB4500225E79 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = SwiftNetwork/Request.swift; sourceTree = "<group>"; };
 		FA723AC61C64AB4500225E79 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = SwiftNetwork/Response.swift; sourceTree = "<group>"; };
-		FA7DC56D1D13FAE8004BE7AC /* GIGLibraryTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GIGLibraryTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		FA7DC56E1D13FAE8004BE7AC /* GIGDateExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGDateExtensionTests.swift; sourceTree = "<group>"; };
 		FA86D0E91C870582003C5623 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json.swift; path = SwiftJson/Json.swift; sourceTree = "<group>"; };
 		FA86D0EB1C874115003C5623 /* NSDate+GIGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+GIGExtension.swift"; sourceTree = "<group>"; };
 		FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocale+GIGExtension.swift"; sourceTree = "<group>"; };
@@ -623,6 +600,27 @@
 		FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuConfig.swift; path = UIComponents/SlideMenu/Private/SlideMenuConfig.swift; sourceTree = "<group>"; };
 		FACE6D951BBC112B00457B4C /* GLAMultiRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAMultiRequestViewController.h; sourceTree = "<group>"; };
 		FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAMultiRequestViewController.m; sourceTree = "<group>"; };
+		FAD0722C1D1AF435002F0FE5 /* GIGArrayExtesionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGArrayExtesionTests.m; sourceTree = "<group>"; };
+		FAD0722D1D1AF435002F0FE5 /* GIGAttributedStringBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGAttributedStringBuilderTests.m; sourceTree = "<group>"; };
+		FAD0722E1D1AF435002F0FE5 /* GIGDateExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGDateExtensionTests.swift; sourceTree = "<group>"; };
+		FAD0722F1D1AF435002F0FE5 /* GIGJSONExtensionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGJSONExtensionTests.m; sourceTree = "<group>"; };
+		FAD072301D1AF435002F0FE5 /* GIGLibraryTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GIGLibraryTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		FAD072311D1AF435002F0FE5 /* GIGParseClassTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGParseClassTests.m; sourceTree = "<group>"; };
+		FAD072321D1AF435002F0FE5 /* GIGRegexpMatchingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGRegexpMatchingTests.m; sourceTree = "<group>"; };
+		FAD072331D1AF435002F0FE5 /* GIGRegexpReplacingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGRegexpReplacingTests.m; sourceTree = "<group>"; };
+		FAD072341D1AF435002F0FE5 /* GIGUserDefaultExtensionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGUserDefaultExtensionTests.m; sourceTree = "<group>"; };
+		FAD072361D1AF435002F0FE5 /* GIGMockClassEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGMockClassEmpty.h; sourceTree = "<group>"; };
+		FAD072371D1AF435002F0FE5 /* GIGMockClassEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGMockClassEmpty.m; sourceTree = "<group>"; };
+		FAD072381D1AF435002F0FE5 /* GIGMockClassNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGMockClassNSObject.h; sourceTree = "<group>"; };
+		FAD072391D1AF435002F0FE5 /* GIGMockClassNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGMockClassNSObject.m; sourceTree = "<group>"; };
+		FAD0723A1D1AF435002F0FE5 /* GIGMockClassNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGMockClassNull.h; sourceTree = "<group>"; };
+		FAD0723B1D1AF435002F0FE5 /* GIGMockClassNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGMockClassNull.m; sourceTree = "<group>"; };
+		FAD0723C1D1AF435002F0FE5 /* GIGMockClassPrimitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGMockClassPrimitive.h; sourceTree = "<group>"; };
+		FAD0723D1D1AF435002F0FE5 /* GIGMockClassPrimitive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGMockClassPrimitive.m; sourceTree = "<group>"; };
+		FAD0723F1D1AF435002F0FE5 /* GIGMockClassAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGMockClassAddress.h; sourceTree = "<group>"; };
+		FAD072401D1AF435002F0FE5 /* GIGMockClassAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGMockClassAddress.m; sourceTree = "<group>"; };
+		FAD072411D1AF435002F0FE5 /* GIGMockClassUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGMockClassUser.h; sourceTree = "<group>"; };
+		FAD072421D1AF435002F0FE5 /* GIGMockClassUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGMockClassUser.m; sourceTree = "<group>"; };
 		FAE32DEB1CB69844008DE8BD /* UIView+Autolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -695,33 +693,6 @@
 				7B6B84941BC2962600517C2F /* GIGParseClass.m */,
 			);
 			name = Class;
-			sourceTree = "<group>";
-		};
-		7B6B849A1BC2974E00517C2F /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				7BE65FBB1BC3CE8D002C335E /* MockExample */,
-				7B6B84AE1BC2B4A000517C2F /* GIGMockClassEmpty.h */,
-				7B6B84AF1BC2B4A000517C2F /* GIGMockClassEmpty.m */,
-				7BE65FAB1BC3CB65002C335E /* GIGMockClassNull.h */,
-				7BE65FAC1BC3CB65002C335E /* GIGMockClassNull.m */,
-				7BE65FAF1BC3CB7D002C335E /* GIGMockClassPrimitive.h */,
-				7BE65FB01BC3CB7D002C335E /* GIGMockClassPrimitive.m */,
-				7BE65FB31BC3CB90002C335E /* GIGMockClassNSObject.h */,
-				7BE65FB41BC3CB90002C335E /* GIGMockClassNSObject.m */,
-			);
-			name = Mock;
-			sourceTree = "<group>";
-		};
-		7BE65FBB1BC3CE8D002C335E /* MockExample */ = {
-			isa = PBXGroup;
-			children = (
-				7BE65FC01BC3CEDE002C335E /* GIGMockClassUser.h */,
-				7BE65FC11BC3CEDE002C335E /* GIGMockClassUser.m */,
-				7BE65FBC1BC3CEC8002C335E /* GIGMockClassAddress.h */,
-				7BE65FBD1BC3CEC8002C335E /* GIGMockClassAddress.m */,
-			);
-			name = MockExample;
 			sourceTree = "<group>";
 		};
 		A94D4A5F1CDDF54100CC4CAF /* GIGScanner */ = {
@@ -1193,7 +1164,7 @@
 				D9FD35E31B4139F7000D356F /* GIGFormulary */,
 				D99AD31D1B1DA3B9005BB4E5 /* GIGLayout */,
 				D99AD3201B1DA3B9005BB4E5 /* GIGNetwork */,
-				D99AD3301B1DA3B9005BB4E5 /* GIGUtils */,
+				FAD0722B1D1AF435002F0FE5 /* GIGUtils */,
 				D99AD3351B1DA3B9005BB4E5 /* Libs */,
 			);
 			path = Tests;
@@ -1234,25 +1205,6 @@
 				D99AD32E1B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		D99AD3301B1DA3B9005BB4E5 /* GIGUtils */ = {
-			isa = PBXGroup;
-			children = (
-				D99AD3311B1DA3B9005BB4E5 /* GIGArrayExtesionTests.m */,
-				D9EECF7B1BEA6AC2007FEAD8 /* GIGAttributedStringBuilderTests.m */,
-				D99AD3321B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m */,
-				7B6B84981BC296F600517C2F /* GIGParseClassTests.m */,
-				D99AD3331B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m */,
-				D99AD3341B1DA3B9005BB4E5 /* GIGRegexpReplacingTests.m */,
-				7B6B84981BC296F600517C2F /* GIGParseClassTests.m */,
-				D9EECF7B1BEA6AC2007FEAD8 /* GIGAttributedStringBuilderTests.m */,
-				FA7DC56E1D13FAE8004BE7AC /* GIGDateExtensionTests.swift */,
-				FA7DC56D1D13FAE8004BE7AC /* GIGLibraryTests-Bridging-Header.h */,
-				8F15F61F1D14039900B589E0 /* GIGUserDefaultExtensionTests.m */,
-				7B6B849A1BC2974E00517C2F /* Mock */,
-			);
-			path = GIGUtils;
 			sourceTree = "<group>";
 		};
 		D99AD3351B1DA3B9005BB4E5 /* Libs */ = {
@@ -1591,7 +1543,6 @@
 		FA44E4991C90775D009BBBA2 /* Passbook */ = {
 			isa = PBXGroup;
 			children = (
-				FA44E49A1C907784009BBBA2 /* PassbookVC.swift */,
 			);
 			name = Passbook;
 			sourceTree = "<group>";
@@ -1688,6 +1639,50 @@
 				FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		FAD0722B1D1AF435002F0FE5 /* GIGUtils */ = {
+			isa = PBXGroup;
+			children = (
+				FAD0722C1D1AF435002F0FE5 /* GIGArrayExtesionTests.m */,
+				FAD0722D1D1AF435002F0FE5 /* GIGAttributedStringBuilderTests.m */,
+				FAD0722E1D1AF435002F0FE5 /* GIGDateExtensionTests.swift */,
+				FAD0722F1D1AF435002F0FE5 /* GIGJSONExtensionTests.m */,
+				FAD072301D1AF435002F0FE5 /* GIGLibraryTests-Bridging-Header.h */,
+				FAD072311D1AF435002F0FE5 /* GIGParseClassTests.m */,
+				FAD072321D1AF435002F0FE5 /* GIGRegexpMatchingTests.m */,
+				FAD072331D1AF435002F0FE5 /* GIGRegexpReplacingTests.m */,
+				FAD072341D1AF435002F0FE5 /* GIGUserDefaultExtensionTests.m */,
+				FAD072351D1AF435002F0FE5 /* Mock */,
+			);
+			path = GIGUtils;
+			sourceTree = "<group>";
+		};
+		FAD072351D1AF435002F0FE5 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				FAD072361D1AF435002F0FE5 /* GIGMockClassEmpty.h */,
+				FAD072371D1AF435002F0FE5 /* GIGMockClassEmpty.m */,
+				FAD072381D1AF435002F0FE5 /* GIGMockClassNSObject.h */,
+				FAD072391D1AF435002F0FE5 /* GIGMockClassNSObject.m */,
+				FAD0723A1D1AF435002F0FE5 /* GIGMockClassNull.h */,
+				FAD0723B1D1AF435002F0FE5 /* GIGMockClassNull.m */,
+				FAD0723C1D1AF435002F0FE5 /* GIGMockClassPrimitive.h */,
+				FAD0723D1D1AF435002F0FE5 /* GIGMockClassPrimitive.m */,
+				FAD0723E1D1AF435002F0FE5 /* MockExample */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		FAD0723E1D1AF435002F0FE5 /* MockExample */ = {
+			isa = PBXGroup;
+			children = (
+				FAD0723F1D1AF435002F0FE5 /* GIGMockClassAddress.h */,
+				FAD072401D1AF435002F0FE5 /* GIGMockClassAddress.m */,
+				FAD072411D1AF435002F0FE5 /* GIGMockClassUser.h */,
+				FAD072421D1AF435002F0FE5 /* GIGMockClassUser.m */,
+			);
+			path = MockExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1960,50 +1955,50 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9E7A1611B4195C7004D3193 /* GIGMultiValidatorTests.m in Sources */,
-				D99AD3581B1DA3B9005BB4E5 /* GIGRegexpReplacingTests.m in Sources */,
+				FAD072451D1AF435002F0FE5 /* GIGDateExtensionTests.swift in Sources */,
 				D99AD3421B1DA3B9005BB4E5 /* GIGURLDomainsKeeperTests.m in Sources */,
-				D99AD3561B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m in Sources */,
-				D99AD3521B1DA3B9005BB4E5 /* GIGArrayExtesionTests.m in Sources */,
+				FAD072461D1AF435002F0FE5 /* GIGJSONExtensionTests.m in Sources */,
 				D9EECF6E1BEA5A7B007FEAD8 /* GIGURLManagerFixturesTests.m in Sources */,
-				7B6B84991BC296F600517C2F /* GIGParseClassTests.m in Sources */,
 				D9E10E5F1BBBC7620016C00B /* GIGURLCommunicatorTests.m in Sources */,
+				FAD072431D1AF435002F0FE5 /* GIGArrayExtesionTests.m in Sources */,
 				D9FD36481B416DF8000D356F /* GIGNumericValidatorTests.m in Sources */,
 				D99AD34C1B1DA3B9005BB4E5 /* GIGURLStorageTests.m in Sources */,
-				FAEDF6881BE21A3100F05AE2 /* GIGMockClassPrimitive.m in Sources */,
-				FA7DC56F1D13FAE8004BE7AC /* GIGDateExtensionTests.swift in Sources */,
-				FAEDF6891BE21A3100F05AE2 /* GIGMockClassNSObject.m in Sources */,
 				FADE38841C74914B0061AAB9 /* GIGURLCommunicatorMultiRequestFixtureTests.m in Sources */,
 				D9E7A16A1B419A45004D3193 /* GIGCharactersValidatorTests.m in Sources */,
+				FAD072491D1AF435002F0FE5 /* GIGRegexpReplacingTests.m in Sources */,
 				D99AD34E1B1DA3B9005BB4E5 /* GIGURLDomain+GIGTesting.m in Sources */,
 				D99AD3461B1DA3B9005BB4E5 /* GIGURLFormatterTests.m in Sources */,
 				D9A39D921BD531AB00EAB2E0 /* GIGURLResponseTests.m in Sources */,
 				D9FD36501B416DF8000D356F /* GIGValidatorTests.m in Sources */,
 				D9FD364E1B416DF8000D356F /* GIGTextValidatorTests.m in Sources */,
-				FAEDF68B1BE21A5600F05AE2 /* GIGMockClassAddress.m in Sources */,
+				FAD072441D1AF435002F0FE5 /* GIGAttributedStringBuilderTests.m in Sources */,
+				FAD0724E1D1AF435002F0FE5 /* GIGMockClassPrimitive.m in Sources */,
 				D9FD364C1B416DF8000D356F /* GIGRegexpValidatorTests.m in Sources */,
+				FAD072471D1AF435002F0FE5 /* GIGParseClassTests.m in Sources */,
 				D99AD3501B1DA3B9005BB4E5 /* GIGURLFixture+GIGTesting.m in Sources */,
 				D9E10E631BBBC76C0016C00B /* GIGURLRequestFixtureTests.m in Sources */,
+				FAD0724B1D1AF435002F0FE5 /* GIGMockClassEmpty.m in Sources */,
 				FADE38881C7491510061AAB9 /* GIGURLRequestAuthenticationTests.m in Sources */,
+				FAD072501D1AF435002F0FE5 /* GIGMockClassUser.m in Sources */,
 				FADE38891C7491510061AAB9 /* GIGURLRequestTests.m in Sources */,
+				FAD0724F1D1AF435002F0FE5 /* GIGMockClassAddress.m in Sources */,
+				FAD0724D1D1AF435002F0FE5 /* GIGMockClassNull.m in Sources */,
 				D9E10E671BBBC7760016C00B /* GIGURLImageResponseTests.m in Sources */,
-				FAEDF68A1BE21A5600F05AE2 /* GIGMockClassUser.m in Sources */,
 				D9E7A14F1B4182EB004D3193 /* GIGPostalCodeValidatorTests.m in Sources */,
 				D90867691B42A3E300193560 /* GIGLayoutTests.m in Sources */,
 				D9E10E691BBBC77D0016C00B /* GIGURLJSONResponseTests.m in Sources */,
-				D99AD3541B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
+				FAD0724A1D1AF435002F0FE5 /* GIGUserDefaultExtensionTests.m in Sources */,
 				D9FD36441B416DF8000D356F /* GIGLengthValidatorTests.m in Sources */,
-				FAEDF6871BE21A3100F05AE2 /* GIGMockClassNull.m in Sources */,
-				8F15F6201D14039900B589E0 /* GIGUserDefaultExtensionTests.m in Sources */,
 				D9404D4D1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m in Sources */,
 				D99AD3441B1DA3B9005BB4E5 /* GIGURLFixturesKeeperTests.m in Sources */,
 				D9E7A1581B419244004D3193 /* GIGDocumentValidatorTests.m in Sources */,
+				FAD0724C1D1AF435002F0FE5 /* GIGMockClassNSObject.m in Sources */,
 				D99AD3481B1DA3B9005BB4E5 /* GIGURLParametersFormatterTests.m in Sources */,
 				FADE38801C74913E0061AAB9 /* GIGStringValidatorTests.m in Sources */,
 				D9FD36461B416DF8000D356F /* GIGMailValidatorTests.m in Sources */,
-				D9EECF7C1BEA6AC2007FEAD8 /* GIGAttributedStringBuilderTests.m in Sources */,
 				D9FD364A1B416DF8000D356F /* GIGPhoneValidatorTests.m in Sources */,
+				FAD072481D1AF435002F0FE5 /* GIGRegexpMatchingTests.m in Sources */,
 				D99AD3381B1DA3B9005BB4E5 /* GIGLayoutGridVerticalTests.m in Sources */,
-				FAEDF6821BE21A0500F05AE2 /* GIGMockClassEmpty.m in Sources */,
 				FADE38811C74913E0061AAB9 /* GIGBoolValidatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2129,8 +2124,7 @@
 				FA133A751CBC225E0007EE06 /* SlideMenuViewController.swift in Sources */,
 				D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */,
 				FA56AFF51CDF323700ABDA53 /* KeyboardVC.swift in Sources */,
-				4A23B67B1C74779D00E37E5D /* GIGAlertViewController.swift in Sources */,
-				FA44E49B1C907784009BBBA2 /* PassbookVC.swift in Sources */,
+				4A23B67B1C74779D00E37E5D /* (null) in Sources */,
 				FA6A3A351CD3B16000835521 /* GLABasicFormViewController.m in Sources */,
 				D99AD3701B1DAAE6005BB4E5 /* AppDelegate.m in Sources */,
 			);
