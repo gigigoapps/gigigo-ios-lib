@@ -4,7 +4,7 @@
 
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
 ![Language](https://img.shields.io/badge/Language-Swift-orange.svg)
-![Version](https://img.shields.io/badge/version-0.4-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0-blue.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 
@@ -13,10 +13,21 @@ Main library for iOS projects on Gigigo.
 
 ## How to add it to my project?
 
-GIGLibrary comes in two versions:
+Through Carthage
 
-- A static framework for projects that must support iOS 7. (deprecated)
-- A dynamic framework for projects for iOS 8 and after.
+```
+# GIGLibrary
+git "https://bitbucket.org/gigigo/gigigo-giglibrary-ios.git" ~> 1.0
+
+# GIGSocial
+git "https://bitbucket.org/gigigo/gigigo-gigsocial-ios.git" ~> 1.0
+
+# GIGPassbook
+git "https://bitbucket.org/gigigo/gigigo-gigpassbook-ios.git" ~> 1.0
+
+# GIGRateApp
+git "https://bitbucket.org/gigigo/gigigo-gigrate-app.git" ~> 1.0
+```
 
 
 ## What is included?
@@ -26,8 +37,11 @@ GIGLibrary comes in two versions:
 	- GIGLayout: some functions to help with autolayout.
 	- GIGUtils: a lot of extensions on foundation classes.
 	
-- Social: 
+- [Social](https://bitbucket.org/gigigo/gigigo-gigsocial-ios): 
 	- Facebook: login.
 
-- Passbook: 
-    * Add a new passbook from a URL
+- [Passbook](https://bitbucket.org/gigigo/gigigo-gigpassbook-ios): 
+	- Add a new passbook from a URL
+
+- [RateApp](https://bitbucket.org/gigigo/gigigo-gigrate-app):
+	- Prompt the user to rate the application
