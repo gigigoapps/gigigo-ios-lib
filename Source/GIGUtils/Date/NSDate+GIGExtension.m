@@ -47,11 +47,6 @@
     return [NSDate timeIntervalSinceReferenceDate] + NSTimeIntervalSince1970;
 }
 
-+ (NSDate *)today
-{
-    return [NSDate date];
-}
-
 + (NSDate *)yesterday
 {
     return [[NSDate date] dateByAddingDays:-1];

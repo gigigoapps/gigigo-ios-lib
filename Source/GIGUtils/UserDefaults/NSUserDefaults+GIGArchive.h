@@ -11,7 +11,9 @@
 
 @interface NSUserDefaults (GIGArchive)
 
+- (void)archiveObjects:(NSArray *)objects forKey:(NSString *)key;
 - (void)archiveObject:(id)object forKey:(NSString *)key;
+- (id)unarchiveObjectsForKey:(NSString *)key;
 - (id)unarchiveObjectForKey:(NSString *)key;
 
 @end

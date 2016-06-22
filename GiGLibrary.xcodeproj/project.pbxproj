@@ -16,6 +16,7 @@
 		7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84931BC2962600517C2F /* GIGParseClass.h */; };
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
 		7B6B84991BC296F600517C2F /* GIGParseClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84981BC296F600517C2F /* GIGParseClassTests.m */; };
+		8F15F6201D14039900B589E0 /* GIGUserDefaultExtensionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F15F61F1D14039900B589E0 /* GIGUserDefaultExtensionTests.m */; };
 		A94D4A611CDDF67300CC4CAF /* GIGScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; };
 		A94D4A621CDE356B00CC4CAF /* GIGScannerViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		D90867691B42A3E300193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
@@ -261,12 +262,12 @@
 		FA6A3A371CD3B24F00835521 /* basic_form.json in Resources */ = {isa = PBXBuildFile; fileRef = D9B2F7F51BD549490057422F /* basic_form.json */; };
 		FA723AC71C64AB4500225E79 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC51C64AB4500225E79 /* Request.swift */; };
 		FA723AC81C64AB4500225E79 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA723AC61C64AB4500225E79 /* Response.swift */; };
+		FA7DC56F1D13FAE8004BE7AC /* GIGDateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7DC56E1D13FAE8004BE7AC /* GIGDateExtensionTests.swift */; };
 		FA86D0EA1C870582003C5623 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D0E91C870582003C5623 /* Json.swift */; };
 		FA86D0EC1C874115003C5623 /* NSDate+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D0EB1C874115003C5623 /* NSDate+GIGExtension.swift */; };
 		FA88CBAC1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */; };
 		FAA3F8871C60EDD80061AADD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3F8861C60EDD80061AADD /* Log.swift */; };
 		FAB3201D1CBE9F1100098D81 /* SlideMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */; };
-		FACE6D991BBC115900457B4C /* GLALoginFacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */; };
 		FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; };
 		FADE38801C74913E0061AAB9 /* GIGStringValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF10D01B42A731004F01F9 /* GIGStringValidatorTests.m */; };
 		FADE38811C74913E0061AAB9 /* GIGBoolValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AF10D91B42A93E004F01F9 /* GIGBoolValidatorTests.m */; };
@@ -341,6 +342,7 @@
 		7BE65FBD1BC3CEC8002C335E /* GIGMockClassAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMockClassAddress.m; path = Mock/MockExample/GIGMockClassAddress.m; sourceTree = "<group>"; };
 		7BE65FC01BC3CEDE002C335E /* GIGMockClassUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMockClassUser.h; path = Mock/MockExample/GIGMockClassUser.h; sourceTree = "<group>"; };
 		7BE65FC11BC3CEDE002C335E /* GIGMockClassUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMockClassUser.m; path = Mock/MockExample/GIGMockClassUser.m; sourceTree = "<group>"; };
+		8F15F61F1D14039900B589E0 /* GIGUserDefaultExtensionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGUserDefaultExtensionTests.m; sourceTree = "<group>"; };
 		A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIGScannerViewController.swift; path = GIGScanner/GIGScannerViewController.swift; sourceTree = "<group>"; };
 		D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLibrary.h; sourceTree = "<group>"; };
 		D909EFE91B0DC2FF00DD4D97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -612,12 +614,12 @@
 		FA680F1D1B009B6B006FC484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA723AC51C64AB4500225E79 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = SwiftNetwork/Request.swift; sourceTree = "<group>"; };
 		FA723AC61C64AB4500225E79 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = SwiftNetwork/Response.swift; sourceTree = "<group>"; };
+		FA7DC56D1D13FAE8004BE7AC /* GIGLibraryTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GIGLibraryTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		FA7DC56E1D13FAE8004BE7AC /* GIGDateExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGDateExtensionTests.swift; sourceTree = "<group>"; };
 		FA86D0E91C870582003C5623 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json.swift; path = SwiftJson/Json.swift; sourceTree = "<group>"; };
 		FA86D0EB1C874115003C5623 /* NSDate+GIGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+GIGExtension.swift"; sourceTree = "<group>"; };
 		FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocale+GIGExtension.swift"; sourceTree = "<group>"; };
 		FAA3F8861C60EDD80061AADD /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		FAA80A7B1B70D0210076FF9E /* GLALoginFacebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLALoginFacebookViewController.h; path = Social/GLALoginFacebookViewController.h; sourceTree = "<group>"; };
-		FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLALoginFacebookViewController.m; path = Social/GLALoginFacebookViewController.m; sourceTree = "<group>"; };
 		FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuConfig.swift; path = UIComponents/SlideMenu/Private/SlideMenuConfig.swift; sourceTree = "<group>"; };
 		FACE6D951BBC112B00457B4C /* GLAMultiRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAMultiRequestViewController.h; sourceTree = "<group>"; };
 		FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAMultiRequestViewController.m; sourceTree = "<group>"; };
@@ -1173,7 +1175,6 @@
 				D99AD35F1B1DAAE6005BB4E5 /* Main */,
 				FACE6D941BBC112B00457B4C /* Network */,
 				D9E18E111BD542D900611CDA /* Formulary */,
-				FAA80A7A1B70CFE40076FF9E /* Social */,
 				4A881C131C5F8650000EC61E /* Alert */,
 				FA44E4991C90775D009BBBA2 /* Passbook */,
 				FA133A721CBC208B0007EE06 /* Menu */,
@@ -1238,13 +1239,18 @@
 		D99AD3301B1DA3B9005BB4E5 /* GIGUtils */ = {
 			isa = PBXGroup;
 			children = (
-				7B6B849A1BC2974E00517C2F /* Mock */,
 				D99AD3311B1DA3B9005BB4E5 /* GIGArrayExtesionTests.m */,
+				D9EECF7B1BEA6AC2007FEAD8 /* GIGAttributedStringBuilderTests.m */,
 				D99AD3321B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m */,
+				7B6B84981BC296F600517C2F /* GIGParseClassTests.m */,
 				D99AD3331B1DA3B9005BB4E5 /* GIGRegexpMatchingTests.m */,
 				D99AD3341B1DA3B9005BB4E5 /* GIGRegexpReplacingTests.m */,
 				7B6B84981BC296F600517C2F /* GIGParseClassTests.m */,
 				D9EECF7B1BEA6AC2007FEAD8 /* GIGAttributedStringBuilderTests.m */,
+				FA7DC56E1D13FAE8004BE7AC /* GIGDateExtensionTests.swift */,
+				FA7DC56D1D13FAE8004BE7AC /* GIGLibraryTests-Bridging-Header.h */,
+				8F15F61F1D14039900B589E0 /* GIGUserDefaultExtensionTests.m */,
+				7B6B849A1BC2974E00517C2F /* Mock */,
 			);
 			path = GIGUtils;
 			sourceTree = "<group>";
@@ -1673,15 +1679,6 @@
 			name = SwiftJson;
 			sourceTree = "<group>";
 		};
-		FAA80A7A1B70CFE40076FF9E /* Social */ = {
-			isa = PBXGroup;
-			children = (
-				FAA80A7B1B70D0210076FF9E /* GLALoginFacebookViewController.h */,
-				FAA80A7C1B70D0210076FF9E /* GLALoginFacebookViewController.m */,
-			);
-			name = Social;
-			sourceTree = "<group>";
-		};
 		FACE6D941BBC112B00457B4C /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -1873,7 +1870,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = "";
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Gigigo SL";
 				TargetAttributes = {
@@ -1973,6 +1970,7 @@
 				D9FD36481B416DF8000D356F /* GIGNumericValidatorTests.m in Sources */,
 				D99AD34C1B1DA3B9005BB4E5 /* GIGURLStorageTests.m in Sources */,
 				FAEDF6881BE21A3100F05AE2 /* GIGMockClassPrimitive.m in Sources */,
+				FA7DC56F1D13FAE8004BE7AC /* GIGDateExtensionTests.swift in Sources */,
 				FAEDF6891BE21A3100F05AE2 /* GIGMockClassNSObject.m in Sources */,
 				FADE38841C74914B0061AAB9 /* GIGURLCommunicatorMultiRequestFixtureTests.m in Sources */,
 				D9E7A16A1B419A45004D3193 /* GIGCharactersValidatorTests.m in Sources */,
@@ -1995,6 +1993,7 @@
 				D99AD3541B1DA3B9005BB4E5 /* GIGJSONExtensionTests.m in Sources */,
 				D9FD36441B416DF8000D356F /* GIGLengthValidatorTests.m in Sources */,
 				FAEDF6871BE21A3100F05AE2 /* GIGMockClassNull.m in Sources */,
+				8F15F6201D14039900B589E0 /* GIGUserDefaultExtensionTests.m in Sources */,
 				D9404D4D1BE0D5C0007F6B34 /* GIGURLRequestThreadsTests.m in Sources */,
 				D99AD3441B1DA3B9005BB4E5 /* GIGURLFixturesKeeperTests.m in Sources */,
 				D9E7A1581B419244004D3193 /* GIGDocumentValidatorTests.m in Sources */,
@@ -2127,7 +2126,6 @@
 				FA42A2AD1C6B678300C2D1BB /* SwiftRequestVC.swift in Sources */,
 				D99AD3741B1DAAE6005BB4E5 /* GLAMainViewController.m in Sources */,
 				FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */,
-				FACE6D991BBC115900457B4C /* GLALoginFacebookViewController.m in Sources */,
 				FA133A751CBC225E0007EE06 /* SlideMenuViewController.swift in Sources */,
 				D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */,
 				FA56AFF51CDF323700ABDA53 /* KeyboardVC.swift in Sources */,
@@ -2157,6 +2155,7 @@
 		D9AD97041B0A386500CB5E8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2177,12 +2176,15 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigigo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/GIGUtils/GIGLibraryTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		D9AD97051B0A386500CB5E8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2199,6 +2201,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigigo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/GIGUtils/GIGLibraryTests-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -158,84 +158,6 @@
             </objects>
             <point key="canvasLocation" x="469" y="2536"/>
         </scene>
-        <!--Login Facebook-->
-        <scene sceneID="U2R-3K-4fa">
-            <objects>
-                <viewController storyboardIdentifier="GLAFacebookLoginViewController" title="Login Facebook" id="cij-V4-4Nl" customClass="GLALoginFacebookViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kNl-TI-R23"/>
-                        <viewControllerLayoutGuide type="bottom" id="SDR-F6-MIf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="usg-z4-uHq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJ1-2N-h4s">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facebook Login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kz-ys-4tl">
-                                        <rect key="frame" x="100" y="20" width="121" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UiX-RL-9i3">
-                                        <rect key="frame" x="65" y="101" width="191" height="53"/>
-                                        <color key="backgroundColor" red="0.19808517825246574" green="0.60346948854059967" blue="0.76120205026455023" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="53" id="asp-lE-6fM"/>
-                                            <constraint firstAttribute="width" constant="191" id="xTg-mi-Hmn"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <state key="normal" title="Login">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onButtonLoginTap:" destination="cij-V4-4Nl" eventType="touchUpInside" id="wcH-jc-Y1z"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User not logged yet!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VW-Q2-mQJ">
-                                        <rect key="frame" x="44" y="194" width="300" height="18"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="Drk-TE-EhQ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="UiX-RL-9i3" firstAttribute="centerX" secondItem="MJ1-2N-h4s" secondAttribute="centerX" id="755-jV-hF3"/>
-                                    <constraint firstItem="3Kz-ys-4tl" firstAttribute="top" secondItem="MJ1-2N-h4s" secondAttribute="top" constant="20" id="Ih4-C6-oCZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="5VW-Q2-mQJ" secondAttribute="trailing" constant="26" id="ZAb-91-5pl"/>
-                                    <constraint firstItem="UiX-RL-9i3" firstAttribute="top" secondItem="3Kz-ys-4tl" secondAttribute="bottom" constant="60" id="cLr-MP-FM4"/>
-                                    <constraint firstItem="5VW-Q2-mQJ" firstAttribute="top" secondItem="UiX-RL-9i3" secondAttribute="bottom" constant="40" id="jrc-1C-gu8"/>
-                                    <constraint firstItem="5VW-Q2-mQJ" firstAttribute="leading" secondItem="MJ1-2N-h4s" secondAttribute="leading" constant="44" id="kFG-tx-blH"/>
-                                    <constraint firstAttribute="bottom" secondItem="5VW-Q2-mQJ" secondAttribute="bottom" constant="286" id="nwy-Ww-H5W"/>
-                                    <constraint firstItem="UiX-RL-9i3" firstAttribute="centerX" secondItem="3Kz-ys-4tl" secondAttribute="centerX" id="zto-8U-3wP"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="MJ1-2N-h4s" secondAttribute="trailing" id="2tZ-2w-NL8"/>
-                            <constraint firstItem="SDR-F6-MIf" firstAttribute="top" secondItem="MJ1-2N-h4s" secondAttribute="bottom" id="Wdb-Kn-QjM"/>
-                            <constraint firstItem="MJ1-2N-h4s" firstAttribute="leading" secondItem="usg-z4-uHq" secondAttribute="leading" id="oVJ-q6-vuZ"/>
-                            <constraint firstItem="MJ1-2N-h4s" firstAttribute="top" secondItem="kNl-TI-R23" secondAttribute="bottom" id="oun-8B-046"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Facebook Login" id="SQX-Gq-r8J"/>
-                    <connections>
-                        <outlet property="labelInfo" destination="5VW-Q2-mQJ" id="6xk-oy-dbB"/>
-                        <outlet property="loginButton" destination="UiX-RL-9i3" id="mqN-5B-MQ9"/>
-                        <outlet property="scrollView" destination="MJ1-2N-h4s" id="N7D-eJ-3N7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cgd-WN-nJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="45" y="545"/>
-        </scene>
         <!--Alert View Controller-->
         <scene sceneID="krt-q2-aol">
             <objects>
@@ -254,38 +176,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XP4-QR-pef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="40" y="1219"/>
-        </scene>
-        <!--Passbook-->
-        <scene sceneID="0cb-ID-COq">
-            <objects>
-                <viewController storyboardIdentifier="PassbookVC" id="cYL-aG-Qen" customClass="PassbookVC" customModule="GIGLibraryApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="B3x-ap-ylM"/>
-                        <viewControllerLayoutGuide type="bottom" id="Sr9-jk-RjL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ieu-JV-Mia">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7e-EX-Exo">
-                                <rect key="frame" x="91" y="269" width="139" height="30"/>
-                                <state key="normal" title="Download Passbook"/>
-                                <connections>
-                                    <action selector="onButtonDownloadTap:" destination="cYL-aG-Qen" eventType="touchUpInside" id="71t-VX-jMt"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="f7e-EX-Exo" firstAttribute="centerX" secondItem="Ieu-JV-Mia" secondAttribute="centerX" id="9e9-vr-Avm"/>
-                            <constraint firstItem="f7e-EX-Exo" firstAttribute="centerY" secondItem="Ieu-JV-Mia" secondAttribute="centerY" id="uR9-hL-8KN"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Passbook" id="zPh-ya-qun"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YWu-5i-VZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="40" y="1874"/>
         </scene>
         <!--Swift Requests-->
         <scene sceneID="bT5-WV-PrD">
