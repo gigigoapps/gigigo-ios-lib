@@ -1,3 +1,3 @@
-Libs version -> 4.10.0
+Libs version -> 4.11.0
 
-https://origincache.facebook.com/developers/resources/?id=FacebookSDKs-iOS-20160210.zip
+https://origincache.facebook.com/developers/resources/?id=facebook-ios-sdk-current.zip
