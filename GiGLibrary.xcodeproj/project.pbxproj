@@ -258,6 +258,7 @@
 		FA86D0EC1C874115003C5623 /* NSDate+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D0EB1C874115003C5623 /* NSDate+GIGExtension.swift */; };
 		FA88CBAC1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */; };
 		FAA3F8871C60EDD80061AADD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3F8861C60EDD80061AADD /* Log.swift */; };
+		FAAE2A4F1D227D5C00C5F808 /* Selfie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE2A4E1D227D5C00C5F808 /* Selfie.swift */; };
 		FAB3201D1CBE9F1100098D81 /* SlideMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */; };
 		FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; };
 		FAD072431D1AF435002F0FE5 /* GIGArrayExtesionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD0722C1D1AF435002F0FE5 /* GIGArrayExtesionTests.m */; };
@@ -597,6 +598,7 @@
 		FA86D0EB1C874115003C5623 /* NSDate+GIGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+GIGExtension.swift"; sourceTree = "<group>"; };
 		FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocale+GIGExtension.swift"; sourceTree = "<group>"; };
 		FAA3F8861C60EDD80061AADD /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		FAAE2A4E1D227D5C00C5F808 /* Selfie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selfie.swift; sourceTree = "<group>"; };
 		FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuConfig.swift; path = UIComponents/SlideMenu/Private/SlideMenuConfig.swift; sourceTree = "<group>"; };
 		FACE6D951BBC112B00457B4C /* GLAMultiRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAMultiRequestViewController.h; sourceTree = "<group>"; };
 		FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAMultiRequestViewController.m; sourceTree = "<group>"; };
@@ -1462,6 +1464,8 @@
 				D99AD1B71B1DA3A3005BB4E5 /* GIGRandom.h */,
 				D9EECF7E1BEA6AE0007FEAD8 /* AttributedString */,
 				D99AD1901B1DA3A3005BB4E5 /* Alert */,
+				4A881C101C5F7C2D000EC61E /* AlertController */,
+				4AACDF961C60D98A00F4E8AE /* ActionSheetController */,
 				D99AD1931B1DA3A3005BB4E5 /* Array */,
 				D99AD1961B1DA3A3005BB4E5 /* Bundle */,
 				D99AD1971B1DA3A3005BB4E5 /* NSBundle+GIGExtension.h */,
@@ -1487,11 +1491,10 @@
 				D99AD1D21B1DA3A3005BB4E5 /* Regexp */,
 				D99AD1D81B1DA3A3005BB4E5 /* Screen */,
 				D99AD1DB1B1DA3A3005BB4E5 /* Scroll */,
+				FAAE2A4E1D227D5C00C5F808 /* Selfie.swift */,
 				D99AD1DE1B1DA3A3005BB4E5 /* String */,
 				D99AD1E61B1DA3A3005BB4E5 /* UserDefaults */,
 				D99AD1E91B1DA3A3005BB4E5 /* View */,
-				4A881C101C5F7C2D000EC61E /* AlertController */,
-				4AACDF961C60D98A00F4E8AE /* ActionSheetController */,
 			);
 			name = Public;
 			sourceTree = "<group>";
@@ -2033,6 +2036,7 @@
 				D99AD2A31B1DA3A3005BB4E5 /* UIImage+GIGExtension.m in Sources */,
 				D99AD2EF1B1DA3A3005BB4E5 /* UIView+GIGBorderShadowExtension.m in Sources */,
 				D99AD2131B1DA3A3005BB4E5 /* GIGURLConfigAddDomainViewController.m in Sources */,
+				FAAE2A4F1D227D5C00C5F808 /* Selfie.swift in Sources */,
 				A94D4A611CDDF67300CC4CAF /* GIGScannerViewController.swift in Sources */,
 				FA133A6E1CBC1F150007EE06 /* Storyboard+Extension.swift in Sources */,
 				D9FD36071B4162A6000D356F /* GIGTextValidator.m in Sources */,
