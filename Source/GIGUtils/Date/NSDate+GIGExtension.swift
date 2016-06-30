@@ -64,3 +64,15 @@ public func <(lhs: NSDate, rhs: NSDate) -> Bool {
 		return false
 	}
 }
+
+public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
+	let result = lhs.compare(rhs)
+	
+	switch result {
+	case .OrderedSame:
+		return true
+		
+	default:
+		return false
+	}
+}

@@ -21,7 +21,7 @@ enum MenuDirection {
 }
 
 
-class SlideMenuVC: UIViewController, MenuTableDelegate {
+class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDelegate {
     
     // MARK: - Constants
     private let kPercentMenuOpeness: CGFloat = 0.8
@@ -68,6 +68,8 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		self.panGesture.delegate = self
         
         self.customContentContainer.addSubview(self.buttonClose)
         self.buttonClose.addTarget(self, action: #selector(closeMenuAnimated), forControlEvents: .TouchUpInside)
@@ -142,6 +144,10 @@ class SlideMenuVC: UIViewController, MenuTableDelegate {
     
     
     // MARK: - Gesture
+	
+	func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+		return true
+	}
     
     @IBAction func onPanGesture(sender: UIPanGestureRecognizer) {
         if let currentNavigation = self.currentController as? UINavigationController
