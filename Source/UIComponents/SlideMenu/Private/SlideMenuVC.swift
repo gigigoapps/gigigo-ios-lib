@@ -146,6 +146,11 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
     // MARK: - Gesture
 	
 	func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+		guard let navigation = self.currentController as? UINavigationController
+			where navigation.viewControllers.count > 1 else {
+			return false
+		}
+		
 		return true
 	}
     
