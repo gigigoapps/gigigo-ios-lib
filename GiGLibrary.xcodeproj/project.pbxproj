@@ -257,6 +257,8 @@
 		FA86D0EA1C870582003C5623 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D0E91C870582003C5623 /* Json.swift */; };
 		FA86D0EC1C874115003C5623 /* NSDate+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D0EB1C874115003C5623 /* NSDate+GIGExtension.swift */; };
 		FA88CBAC1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */; };
+		FA89A8BC1D33B7F300AE6E3A /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89A8BB1D33B7F300AE6E3A /* QRGenerator.swift */; };
+		FA89A8C01D33BAC300AE6E3A /* QRVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89A8BE1D33BAA100AE6E3A /* QRVC.swift */; };
 		FAA3F8871C60EDD80061AADD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3F8861C60EDD80061AADD /* Log.swift */; };
 		FAAE2A4F1D227D5C00C5F808 /* Selfie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE2A4E1D227D5C00C5F808 /* Selfie.swift */; };
 		FAB3201D1CBE9F1100098D81 /* SlideMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */; };
@@ -597,6 +599,8 @@
 		FA86D0E91C870582003C5623 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json.swift; path = SwiftJson/Json.swift; sourceTree = "<group>"; };
 		FA86D0EB1C874115003C5623 /* NSDate+GIGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+GIGExtension.swift"; sourceTree = "<group>"; };
 		FA88CBAB1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocale+GIGExtension.swift"; sourceTree = "<group>"; };
+		FA89A8BB1D33B7F300AE6E3A /* QRGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRGenerator.swift; path = QRGenerator/QRGenerator.swift; sourceTree = "<group>"; };
+		FA89A8BE1D33BAA100AE6E3A /* QRVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRVC.swift; path = QR/QRVC.swift; sourceTree = "<group>"; };
 		FAA3F8861C60EDD80061AADD /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		FAAE2A4E1D227D5C00C5F808 /* Selfie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selfie.swift; sourceTree = "<group>"; };
 		FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuConfig.swift; path = UIComponents/SlideMenu/Private/SlideMenuConfig.swift; sourceTree = "<group>"; };
@@ -1028,6 +1032,7 @@
 		D99AD1BF1B1DA3A3005BB4E5 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				FA86D0E81C870438003C5623 /* SwiftJson */,
 				D99AD1C01B1DA3A3005BB4E5 /* GIGJSON.h */,
 				D99AD1C11B1DA3A3005BB4E5 /* NSArray+GIGJSON.h */,
 				D99AD1C21B1DA3A3005BB4E5 /* NSArray+GIGJSON.m */,
@@ -1152,6 +1157,7 @@
 				FA44E4991C90775D009BBBA2 /* Passbook */,
 				FA133A721CBC208B0007EE06 /* Menu */,
 				FA56AFF31CDF31FD00ABDA53 /* Keyboard */,
+				FA89A8BD1D33BA8000AE6E3A /* QR */,
 				D99AD3661B1DAAE6005BB4E5 /* Resources */,
 				D9D059E41BDE440F00927F0E /* Frameworks */,
 				D99AD3881B1DAAEB005BB4E5 /* Supporting Files */,
@@ -1483,11 +1489,11 @@
 				D99AD1B91B1DA3A3005BB4E5 /* Image */,
 				D99AD1BC1B1DA3A3005BB4E5 /* Invocation */,
 				D99AD1BF1B1DA3A3005BB4E5 /* JSON */,
-				FA86D0E81C870438003C5623 /* SwiftJson */,
 				FA56AFEE1CDF2F0A00ABDA53 /* Keyboard */,
 				D99AD1C91B1DA3A3005BB4E5 /* Locale */,
 				D99AD1CC1B1DA3A3005BB4E5 /* Log */,
 				D99AD1CF1B1DA3A3005BB4E5 /* NavigationController */,
+				FA89A8BB1D33B7F300AE6E3A /* QRGenerator.swift */,
 				D99AD1D21B1DA3A3005BB4E5 /* Regexp */,
 				D99AD1D81B1DA3A3005BB4E5 /* Screen */,
 				D99AD1DB1B1DA3A3005BB4E5 /* Scroll */,
@@ -1631,6 +1637,15 @@
 				FA86D0E91C870582003C5623 /* Json.swift */,
 			);
 			name = SwiftJson;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FA89A8BD1D33BA8000AE6E3A /* QR */ = {
+			isa = PBXGroup;
+			children = (
+				FA89A8BE1D33BAA100AE6E3A /* QRVC.swift */,
+			);
+			name = QR;
 			sourceTree = "<group>";
 		};
 		FACE6D941BBC112B00457B4C /* Network */ = {
@@ -2066,6 +2081,7 @@
 				D99AD2E11B1DA3A3005BB4E5 /* NSString+GIGReplace.m in Sources */,
 				FAEDF67E1BE20EFD00F05AE2 /* GIGURLSessionFactory.m in Sources */,
 				D99AD2691B1DA3A3005BB4E5 /* GIGAlert.m in Sources */,
+				FA89A8BC1D33B7F300AE6E3A /* QRGenerator.swift in Sources */,
 				D99AD2951B1DA3A3005BB4E5 /* GIGFileManager.m in Sources */,
 				FA44E4961C9069A6009BBBA2 /* Application.swift in Sources */,
 				D99AD27D1B1DA3A3005BB4E5 /* NSData+GIGString.m in Sources */,
@@ -2127,6 +2143,7 @@
 				FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */,
 				FA133A751CBC225E0007EE06 /* SlideMenuViewController.swift in Sources */,
 				D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */,
+				FA89A8C01D33BAC300AE6E3A /* QRVC.swift in Sources */,
 				FA56AFF51CDF323700ABDA53 /* KeyboardVC.swift in Sources */,
 				4A23B67B1C74779D00E37E5D /* (null) in Sources */,
 				FA6A3A351CD3B16000835521 /* GLABasicFormViewController.m in Sources */,
