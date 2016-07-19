@@ -234,6 +234,7 @@
 		D9FE62191BD65DCF00E2B23C /* GIGCheckFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE62161BD65DCF00E2B23C /* GIGCheckFormField.m */; };
 		D9FE621E1BD6878600E2B23C /* GIGMessageFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE621C1BD6878600E2B23C /* GIGMessageFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */; };
+		FA0C22351D3E397E00433AFD /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C22341D3E397E00433AFD /* Result.swift */; };
 		FA133A6E1CBC1F150007EE06 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA133A6D1CBC1F150007EE06 /* Storyboard+Extension.swift */; };
 		FA133A751CBC225E0007EE06 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */; };
 		FA153EB51C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA153EB41C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift */; };
@@ -576,6 +577,7 @@
 		D9FE62161BD65DCF00E2B23C /* GIGCheckFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGCheckFormField.m; path = Check/GIGCheckFormField.m; sourceTree = "<group>"; };
 		D9FE621C1BD6878600E2B23C /* GIGMessageFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMessageFormField.h; path = Message/GIGMessageFormField.h; sourceTree = "<group>"; };
 		D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMessageFormField.m; path = Message/GIGMessageFormField.m; sourceTree = "<group>"; };
+		FA0C22341D3E397E00433AFD /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/GIGUtils/Result.swift; sourceTree = SOURCE_ROOT; };
 		FA133A6D1CBC1F150007EE06 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Extension.swift"; path = "Storyboard/Storyboard+Extension.swift"; sourceTree = "<group>"; };
 		FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuViewController.swift; path = Menu/SlideMenuViewController.swift; sourceTree = "<group>"; };
 		FA153EB41C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Extension.swift"; sourceTree = "<group>"; };
@@ -1495,6 +1497,7 @@
 				D99AD1CF1B1DA3A3005BB4E5 /* NavigationController */,
 				FA89A8BB1D33B7F300AE6E3A /* QRGenerator.swift */,
 				D99AD1D21B1DA3A3005BB4E5 /* Regexp */,
+				FA0C22341D3E397E00433AFD /* Result.swift */,
 				D99AD1D81B1DA3A3005BB4E5 /* Screen */,
 				D99AD1DB1B1DA3A3005BB4E5 /* Scroll */,
 				FAAE2A4E1D227D5C00C5F808 /* Selfie.swift */,
@@ -2097,6 +2100,7 @@
 				D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */,
 				4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */,
 				D93CA5301BEA49600098D37C /* NSData+GIGExtension.m in Sources */,
+				FA0C22351D3E397E00433AFD /* Result.swift in Sources */,
 				D99AD2B51B1DA3A3005BB4E5 /* NSDictionary+GIGJSON.m in Sources */,
 				D99AD2711B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m in Sources */,
 				FA86D0EA1C870582003C5623 /* Json.swift in Sources */,
