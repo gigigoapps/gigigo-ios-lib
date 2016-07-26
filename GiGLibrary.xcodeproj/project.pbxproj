@@ -234,6 +234,7 @@
 		D9FE62191BD65DCF00E2B23C /* GIGCheckFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE62161BD65DCF00E2B23C /* GIGCheckFormField.m */; };
 		D9FE621E1BD6878600E2B23C /* GIGMessageFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE621C1BD6878600E2B23C /* GIGMessageFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */; };
+		FA02D2DB1D47C071007DD362 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02D2DA1D47C071007DD362 /* InfoPlist.swift */; };
 		FA0C22351D3E397E00433AFD /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C22341D3E397E00433AFD /* Result.swift */; };
 		FA133A6E1CBC1F150007EE06 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA133A6D1CBC1F150007EE06 /* Storyboard+Extension.swift */; };
 		FA133A751CBC225E0007EE06 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */; };
@@ -577,6 +578,7 @@
 		D9FE62161BD65DCF00E2B23C /* GIGCheckFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGCheckFormField.m; path = Check/GIGCheckFormField.m; sourceTree = "<group>"; };
 		D9FE621C1BD6878600E2B23C /* GIGMessageFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGMessageFormField.h; path = Message/GIGMessageFormField.h; sourceTree = "<group>"; };
 		D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGMessageFormField.m; path = Message/GIGMessageFormField.m; sourceTree = "<group>"; };
+		FA02D2DA1D47C071007DD362 /* InfoPlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPlist.swift; sourceTree = "<group>"; };
 		FA0C22341D3E397E00433AFD /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/GIGUtils/Result.swift; sourceTree = SOURCE_ROOT; };
 		FA133A6D1CBC1F150007EE06 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Extension.swift"; path = "Storyboard/Storyboard+Extension.swift"; sourceTree = "<group>"; };
 		FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuViewController.swift; path = Menu/SlideMenuViewController.swift; sourceTree = "<group>"; };
@@ -1489,6 +1491,7 @@
 				D99AD1AE1B1DA3A3005BB4E5 /* Error */,
 				D99AD1B11B1DA3A3005BB4E5 /* FileManager */,
 				D99AD1B91B1DA3A3005BB4E5 /* Image */,
+				FA02D2DA1D47C071007DD362 /* InfoPlist.swift */,
 				D99AD1BC1B1DA3A3005BB4E5 /* Invocation */,
 				D99AD1BF1B1DA3A3005BB4E5 /* JSON */,
 				FA56AFEE1CDF2F0A00ABDA53 /* Keyboard */,
@@ -2034,6 +2037,7 @@
 				D99AD2E51B1DA3A3005BB4E5 /* NSString+GIGSubstring.m in Sources */,
 				D9E7A15E1B419475004D3193 /* GIGMultiValidator.m in Sources */,
 				D9FE620A1BD65D8A00E2B23C /* GIGFormField.m in Sources */,
+				FA02D2DB1D47C071007DD362 /* InfoPlist.swift in Sources */,
 				D99AD2551B1DA3A3005BB4E5 /* GIGURLRequestFactory.m in Sources */,
 				D99AD2171B1DA3A3005BB4E5 /* GIGURLConfigDomainsTableViewController.m in Sources */,
 				FAEDF6761BE20E9200F05AE2 /* GIGBoolValidator.m in Sources */,
