@@ -41,6 +41,9 @@ class GIGDateExtensionTests: XCTestCase {
 		XCTAssert(date == alejandroBirthday())
 	}
 	
+	
+	// MARK: - Adding days tests
+	
 	func test_returnsNextDay_whenAddOneDay() {
 		let dateString = "1985-01-24T00:00:00Z"
 		let date = NSDate.dateFromString(dateString)!
@@ -58,6 +61,9 @@ class GIGDateExtensionTests: XCTestCase {
 		
 		XCTAssert(nextDay == alejandroBirthday())
 	}
+	
+	
+	/// MARK: - Comparing dates tests
 	
 	func test_returnsTrue_whenAskIfTomorrowIsGreatherThanToday() {
 		let today = NSDate.today()
@@ -86,13 +92,76 @@ class GIGDateExtensionTests: XCTestCase {
 	}
 	
 	
+	// MARK: - Setting time tests
+	
+	func test_returns14PM_whenSetting14PM() {
+		let date = self.alejandroBirthday()
+		
+		let resultDate = try! date.setHour(14)
+		
+		// THIS TEST ONLY WORKS IN SPAIN (NOT IN CANARY ISLANDS). We should inyect the timezone
+		let expectedDate = NSDate.dateFromString("1985-01-24T13:00:00Z")! // UTC+1
+		
+		
+		XCTAssert(resultDate.isEqualToDate(expectedDate), "result: \(resultDate) - expected: \(expectedDate)")
+	}
+	
+	func test_returns14_03_10PM_whenSetting14_59_59PM() {
+		let date = self.alejandroBirthday()
+		
+		let resultDate = try! date.setHour(14, minutes: 59, seconds: 59)
+		
+		// THIS TEST ONLY WORKS IN SPAIN (NOT IN CANARY ISLANDS). We should inyect the timezone
+		let expectedDate = NSDate.dateFromString("1985-01-24T13:59:59Z")! // UTC+1
+		
+		
+		XCTAssert(resultDate.isEqualToDate(expectedDate), "result: \(resultDate) - expected: \(expectedDate)")
+	}
+	
+	func test_throwsError_whenSetting24PM() {
+		let date = self.alejandroBirthday()
+		
+		XCTAssertThrowsError(try date.setHour(24))
+	}
+	
+	func test_throwsError_whenSetting14_60PM() {
+		let date = self.alejandroBirthday()
+		
+		XCTAssertThrowsError(try date.setHour(14, minutes: 60))
+	}
+	
+	func test_throwsError_whenSetting14_03_60PM() {
+		let date = self.alejandroBirthday()
+		
+		XCTAssertThrowsError(try date.setHour(14, minutes: 3, seconds: 60))
+	}
+	
+	func test_throwsError_whenSettingNegativeHour() {
+		let date = self.alejandroBirthday()
+		
+		XCTAssertThrowsError(try date.setHour(-3))
+	}
+	
+	func test_throwsError_whenSettingNegativeMinutes() {
+		let date = self.alejandroBirthday()
+		
+		XCTAssertThrowsError(try date.setHour(14, minutes: -10))
+	}
+	
+	func test_throwsError_whenSettingNegativeSeconds() {
+		let date = self.alejandroBirthday()
+		
+		XCTAssertThrowsError(try date.setHour(14, minutes: 3, seconds: -1))
+	}
+	
+	
 	// MARK: - Private Helpers
 	private func alejandroBirthday() -> NSDate {
 		let dateComponents = NSDateComponents()
 		dateComponents.day = 24
 		dateComponents.month = 1
 		dateComponents.year = 1985
-		dateComponents.hour = 1 // I don't know why, but 1 is 12 am
+		dateComponents.hour = 1
 		
 		let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
 		return calendar!.dateFromComponents(dateComponents)!
