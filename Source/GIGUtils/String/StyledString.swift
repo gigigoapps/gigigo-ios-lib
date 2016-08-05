@@ -106,12 +106,29 @@ public enum Style {
 
 public extension String {
     
-    func applyStyles(styles:Style...) -> StyledStringCollection {
+    /**
+     Apply styles to a String
+     
+     - returns:
+     A StyledStringCollection
+     
+     - parameters:
+        - styles: List of styles
+     
+     ````
+     "Cool text".applyStyles(.Bold,
+                             .Underline,
+                             .Color(UIColor.redColor()))
+     ````
+     */
+    
+    public func applyStyles(styles:Style...) -> StyledStringCollection {
         
         var styledString = StyledStringCollection()
         styledString.styles.append(StyledString(string: self, styles: styles))
         return styledString
     }
+    
 }
 
 public extension UILabel {
@@ -178,6 +195,17 @@ extension UIColor {
 
 // MARK: Overriden operators
 
+/**
+ Joins String with a StyledStringCollection
+ 
+ - returns:
+ A StyledStringCollection
+ 
+ 
+ ````
+ "Cool text".applyStyles(.Bold, .Underline, .Color(UIColor.redColor())) + " simple text"
+ ````
+ */
 public func +(left: StyledStringCollection, right: String) -> StyledStringCollection {
     
     var styledCollection = left
@@ -186,6 +214,19 @@ public func +(left: StyledStringCollection, right: String) -> StyledStringCollec
     return styledCollection
 }
 
+/**
+ Joins String with a StyledStringCollection
+ 
+ - returns:
+ A StyledStringCollection
+
+ 
+ ````
+ "This is My " + "Cool text".applyStyles(.Bold,
+                            .Underline,
+                            .Color(UIColor.redColor()))
+ ````
+ */
 public func +(left: String, right: StyledStringCollection) -> StyledStringCollection {
     
     var styledCollection = right
@@ -194,6 +235,19 @@ public func +(left: String, right: StyledStringCollection) -> StyledStringCollec
     return styledCollection
 }
 
+/**
+ Joins String with a StyledStringCollection
+ 
+ - returns:
+ A StyledStringCollection
+ 
+ 
+ ````
+ "This is My ".appleStyles(.Bold) + "Cool text".applyStyles(.Bold,
+                                               .Underline,
+                                               .Color(UIColor.redColor()))
+ ````
+ */
 public func +(left: StyledStringCollection, right: StyledStringCollection) -> StyledStringCollection {
     
     var styledCollection = left
