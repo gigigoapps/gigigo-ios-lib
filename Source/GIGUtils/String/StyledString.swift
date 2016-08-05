@@ -76,6 +76,67 @@ public extension UILabel {
     }
 }
 
+public extension UITextView {
+    
+    /**
+     Set a StyledString to a UITextView
+     
+     ````
+     textView.styledString = "Cool text".style(.Bold,
+                                        .Underline,
+                                        .Color(UIColor.redColor()))
+     ````
+     */
+    
+    var styledString: StyledString {
+        
+        get {
+            
+            return self.styledString
+        }
+        set(newtStyle) {
+            
+            if let font = self.font {
+                self.attributedText = newtStyle.toAttributedString(defaultFont: font)
+            }
+            else {
+                let defaultFont = UIFont.systemFontOfSize(UIFont.systemFontSize())
+                self.attributedText = newtStyle.toAttributedString(defaultFont: defaultFont)
+            }
+        }
+    }
+    
+    /**
+     Set a HTML String to a UITextView
+     
+     ````
+     textView.html = "<b>Important</b> text"
+     ````
+     */
+    
+    var html: String {
+        
+        get {
+            
+            return self.html
+        }
+        set(newtHtml) {
+            var font = UIFont.systemFontOfSize(UIFont.systemFontSize());
+            var textColor = UIColor.blackColor()
+            
+            if let currentFont = self.font {
+                font = currentFont;
+            }
+                
+            if let currentTextColor = self.textColor {
+                textColor = currentTextColor;
+            }
+                
+            self.attributedText = NSAttributedString(fromHTML: newtHtml, font: font, color: textColor)
+        }
+    }
+}
+
 public extension NSAttributedString {
     
     public convenience init?(fromHTML html: String) {
@@ -100,6 +161,7 @@ public struct StyledString {
     public func toAttributedString(defaultFont font:UIFont) -> NSAttributedString {
         
         let attributedString = NSMutableAttributedString()
+        
         let result = styledStringFractions.reduce(attributedString) { (currentAttributedString, singleStyledString) -> NSAttributedString in
             
             let currentString = singleStyledString.string
@@ -107,8 +169,19 @@ public struct StyledString {
             
             let tempAttributedString = NSMutableAttributedString(string: currentString)
             
+            var currentFont = font;
+
             let attributedString = currentStyle.reduce(tempAttributedString) { (string, style) -> NSMutableAttributedString in
-                string.addAttribute(style.key(), value:style.value(forFont: font), range: NSMakeRange(0, string.length))
+                
+                let key = style.key()
+                let value = style.value(forFont: currentFont)
+                
+                string.addAttribute(key, value:value, range: NSMakeRange(0, string.length))
+                
+                if (key == NSFontAttributeName) {
+                    currentFont = style.value(forFont: currentFont) as! UIFont
+                }
+                
                 return string
             }
             
@@ -127,14 +200,19 @@ public enum Style {
     
     case None
     case Bold
+    case Italic
     case Color(UIColor)
     case BackgroundColor(UIColor)
+    case Size(CGFloat)
+    case FontName(String)
     case Font(UIFont)
     case Underline
     case UnderlineThick
     case UnderlineDouble
     case UnderlineColor(UIColor)
-    
+    case Link(NSURL)
+    case BaseLineOffset(CGFloat)
+
     func key() -> String {
         
         switch self {
@@ -143,10 +221,16 @@ public enum Style {
             return ""
         case Bold:
             return NSFontAttributeName
+        case Italic:
+            return NSFontAttributeName
         case Color:
             return NSForegroundColorAttributeName
         case BackgroundColor:
             return NSBackgroundColorAttributeName
+        case Size:
+            return NSFontAttributeName
+        case FontName:
+            return NSFontAttributeName
         case Font:
             return NSFontAttributeName
         case Underline:
@@ -157,6 +241,10 @@ public enum Style {
             return NSUnderlineStyleAttributeName
         case UnderlineColor:
             return NSUnderlineColorAttributeName
+        case Link:
+            return NSLinkAttributeName
+        case BaseLineOffset:
+            return NSBaselineOffsetAttributeName
         }
     }
     
@@ -168,10 +256,16 @@ public enum Style {
             return ""
         case Bold:
             return UIFont(descriptor: font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold), size: 0.0)
+        case Italic:
+            return UIFont(descriptor: font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitItalic), size: 0.0)
         case Color(let color):
             return color
         case BackgroundColor(let color):
             return color
+        case Size(let pointSize):
+            return UIFont(name: font.fontName, size: pointSize)!
+        case FontName(let fontName):
+            return UIFont(name: fontName, size: font.pointSize)!
         case Font(let font):
             return font
         case Underline:
@@ -182,6 +276,10 @@ public enum Style {
             return NSUnderlineStyle.StyleDouble.rawValue
         case UnderlineColor(let color):
             return color
+        case Link(let link):
+            return link
+        case BaseLineOffset(let offset):
+            return offset
         }
     }
 }
@@ -266,6 +364,7 @@ extension UIColor {
         var g: CGFloat = 0
         var b: CGFloat = 0
         var a: CGFloat = 0
+        
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
         
         if (includeAlpha) {
