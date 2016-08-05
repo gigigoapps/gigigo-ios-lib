@@ -21,37 +21,37 @@ class StyledStringTests: XCTestCase {
     
     func test_applySyles_preservesText()
     {
-        self.label.styledString = "texto".applyStyles(.Color(UIColor.redColor()))
+        self.label.styledString = "texto".style(.Color(UIColor.redColor()))
         XCTAssert(self.label.attributedText?.string == "texto")
     }
     
     func test_applySyles_should_concatenate_text()
     {
-        self.label.styledString = "texto" + " texto2" + " texto3".applyStyles(.Color(UIColor.redColor()))
+        self.label.styledString = "texto" + " texto2" + " texto3".style(.Color(UIColor.redColor()))
         XCTAssert(self.label.attributedText?.string == "texto texto2 texto3")
     }
     
     func test_applySyles_should_concatenate_Styles()
     {
-        self.label.styledString = "texto" + " texto2".applyStyles(.Color(UIColor.blueColor())) + " texto3".applyStyles(.Color(UIColor.redColor()))
+        self.label.styledString = "texto" + " texto2".style(.Color(UIColor.blueColor())) + " texto3".style(.Color(UIColor.redColor()))
         XCTAssert(self.label.attributedText?.string == "texto texto2 texto3")
     }
     
     func test_applySyles_should_concatenate_StyleFirstAndTextSecond()
     {
-        self.label.styledString = "texto ".applyStyles(.Color(UIColor.blueColor())) + "texto2"
+        self.label.styledString = "texto ".style(.Color(UIColor.blueColor())) + "texto2"
         XCTAssert(self.label.attributedText?.string == "texto texto2")
     }
     
     func test_applySyles_should_concatenate_textFirstAndStyleSecond()
     {
-        self.label.styledString =  "texto" + " texto2".applyStyles(.Color(UIColor.blueColor()))
+        self.label.styledString =  "texto" + " texto2".style(.Color(UIColor.blueColor()))
         XCTAssert(self.label.attributedText?.string == "texto texto2")
     }
     
     func test_applySyles_shouldSetRedText() {
      
-        self.label.styledString = "texto" + "rojo".applyStyles(.Color(UIColor.redColor()))
+        self.label.styledString = "texto" + "rojo".style(.Color(UIColor.redColor()))
         
         let firstWordcolor = self.label.attributedText?.attribute(named:NSForegroundColorAttributeName, forText:"texto")
         let secondWordcolor = self.label.attributedText?.attribute(named:NSForegroundColorAttributeName, forText:"rojo") as! UIColor
@@ -62,7 +62,7 @@ class StyledStringTests: XCTestCase {
     
     func test_applySyles_shouldSetRedTextAndUnderlinedText() {
         
-        self.label.styledString = "texto" + "subrayado".applyStyles(.Color(UIColor.redColor()), .Underline)
+        self.label.styledString = "texto" + "subrayado".style(.Color(UIColor.redColor()), .Underline)
         
         let color = self.label.attributedText?.attribute(named: NSForegroundColorAttributeName, forText: "subrayado") as! UIColor
         let underlineStyle = self.label.attributedText?.attribute(named: NSUnderlineStyleAttributeName, forText: "subrayado")
@@ -73,7 +73,7 @@ class StyledStringTests: XCTestCase {
     
     func test_applySyles_shouldSetBackgroundColor() {
         
-        self.label.styledString = "texto" + "con background".applyStyles(.BackgroundColor(UIColor.redColor()))
+        self.label.styledString = "texto" + "con background".style(.BackgroundColor(UIColor.redColor()))
         
         let backgroundColor = self.label.attributedText?.attribute(named: NSBackgroundColorAttributeName, forText: "con background") as! UIColor
         
@@ -83,7 +83,7 @@ class StyledStringTests: XCTestCase {
     func test_applySyles_shouldSetRightFont() {
         
         let font = UIFont(name: "ChalkboardSE-Light", size: 15)!
-        self.label.styledString = "texto" + "con background".applyStyles(.Font(font))
+        self.label.styledString = "texto" + "con background".style(.Font(font))
         
         let resultFont = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "con background") as! UIFont
         
@@ -92,7 +92,7 @@ class StyledStringTests: XCTestCase {
     
     func test_applySyles_shouldSetBoldColor() {
         
-        self.label.styledString = "texto" + "con background".applyStyles(.Bold)
+        self.label.styledString = "texto" + "con background".style(.Bold)
         
         let font = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "con background") as! UIFont
         

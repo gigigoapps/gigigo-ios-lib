@@ -17,13 +17,13 @@ public extension String {
         - styles: List of styles
      
      ````
-     "Cool text".applyStyles(.Bold,
-                             .Underline,
-                             .Color(UIColor.redColor()))
+     "Cool text".style(.Bold,
+                       .Underline,
+                       .Color(UIColor.redColor()))
      ````
      */
     
-    public func applyStyles(styles:Style...) -> StyledString {
+    public func style(styles:Style...) -> StyledString {
         
         var styledString = StyledString()
         styledString.styledStringFractions.append(StyledStringFraction(string: self, styles: styles))
@@ -37,9 +37,9 @@ public extension UILabel {
      Set a StyledString to a Label
      
      ````
-     label.styledString = "Cool text".applyStyles(.Bold,
-                                                  .Underline,
-                                                  .Color(UIColor.redColor()))
+     label.styledString = "Cool text".style(.Bold,
+                                            .Underline,
+                                            .Color(UIColor.redColor()))
      ````
      */
     
@@ -196,7 +196,7 @@ public enum Style {
  
  
  ````
- "Cool text".applyStyles(.Bold, .Underline, .Color(UIColor.redColor())) + " simple text"
+ "Cool text".style(.Bold, .Underline, .Color(UIColor.redColor())) + " simple text"
  ````
  */
 public func +(left: StyledString, right: String) -> StyledString {
@@ -215,7 +215,7 @@ public func +(left: StyledString, right: String) -> StyledString {
  
  
  ````
- "This is My " + "Cool text".applyStyles(.Bold,
+ "This is My " + "Cool text".style(.Bold,
  .Underline,
  .Color(UIColor.redColor()))
  ````
@@ -236,7 +236,7 @@ public func +(left: String, right: StyledString) -> StyledString {
  
  
  ````
- "This is My ".appleStyles(.Bold) + "Cool text".applyStyles(.Bold,
+ "This is My ".appleStyles(.Bold) + "Cool text".style(.Bold,
  .Underline,
  .Color(UIColor.redColor()))
  ````

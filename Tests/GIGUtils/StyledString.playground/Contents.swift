@@ -12,13 +12,13 @@ label.numberOfLines = 2
 // MARK: Styled String Example
 
 label.styledString = "Este es mi texto "
-                    + "con estilo ".applyStyles(.Bold,
-                                                .Underline,
-                                                .UnderlineDouble,
-                                                .UnderlineColor(UIColor.yellowColor()))
-                    + "rojo \n".applyStyles(.Color(.redColor()),
-                                            .Bold)
-                    + "mola".applyStyles(.BackgroundColor(UIColor.redColor()))
+                    + "con estilo ".style(.Bold,
+                                          .Underline,
+                                          .UnderlineDouble,
+                                          .UnderlineColor(UIColor.yellowColor()))
+                    + "rojo \n".style(.Color(.redColor()),
+                                      .Bold)
+                    + "mola".style(.BackgroundColor(UIColor.redColor()))
 
 label
 
