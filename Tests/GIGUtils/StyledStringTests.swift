@@ -31,6 +31,24 @@ class StyledStringTests: XCTestCase {
         XCTAssert(self.label.attributedText?.string == "texto texto2 texto3")
     }
     
+    func test_applySyles_should_concatenate_Styles()
+    {
+        self.label.styledString = "texto" + " texto2".applyStyles(.Color(UIColor.blueColor())) + " texto3".applyStyles(.Color(UIColor.redColor()))
+        XCTAssert(self.label.attributedText?.string == "texto texto2 texto3")
+    }
+    
+    func test_applySyles_should_concatenate_StyleFirstAndTextSecond()
+    {
+        self.label.styledString = "texto ".applyStyles(.Color(UIColor.blueColor())) + "texto2"
+        XCTAssert(self.label.attributedText?.string == "texto texto2")
+    }
+    
+    func test_applySyles_should_concatenate_textFirstAndStyleSecond()
+    {
+        self.label.styledString =  "texto" + " texto2".applyStyles(.Color(UIColor.blueColor()))
+        XCTAssert(self.label.attributedText?.string == "texto texto2")
+    }
+    
     func test_applySyles_shouldSetRedText() {
      
         self.label.styledString = "texto" + "rojo".applyStyles(.Color(UIColor.redColor()))
