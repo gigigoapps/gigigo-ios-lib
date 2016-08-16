@@ -85,7 +85,14 @@ public class JSON: SequenceType, CustomStringConvertible {
 	
 	
 	public func toInt() -> Int? {
-		return self.json as? Int
+		if let value = self.json as? Int {
+			return value
+		}
+		else if let value = self.toString() {
+			return Int(value)
+		}
+		
+		return nil
 	}
 	
 	
