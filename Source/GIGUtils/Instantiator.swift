@@ -51,6 +51,8 @@ let loginVC: LoginVC? = try? instantiator.viewController()
 */
 public struct Instantiator<ViewController: Instantiable> {
 	
+	public init() { }
+	
 	/**
 	Instantiate the
 	
