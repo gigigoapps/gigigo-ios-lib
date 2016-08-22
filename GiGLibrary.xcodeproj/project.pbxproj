@@ -266,6 +266,7 @@
 		FAA3F8871C60EDD80061AADD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3F8861C60EDD80061AADD /* Log.swift */; };
 		FAAE2A4F1D227D5C00C5F808 /* Selfie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE2A4E1D227D5C00C5F808 /* Selfie.swift */; };
 		FAB3201D1CBE9F1100098D81 /* SlideMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */; };
+		FACDEF9B1D6B0B90002E3D39 /* Instantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDEF9A1D6B0B90002E3D39 /* Instantiator.swift */; };
 		FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */; };
 		FAD072431D1AF435002F0FE5 /* GIGArrayExtesionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD0722C1D1AF435002F0FE5 /* GIGArrayExtesionTests.m */; };
 		FAD072441D1AF435002F0FE5 /* GIGAttributedStringBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD0722D1D1AF435002F0FE5 /* GIGAttributedStringBuilderTests.m */; };
@@ -613,6 +614,7 @@
 		FAA3F8861C60EDD80061AADD /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		FAAE2A4E1D227D5C00C5F808 /* Selfie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selfie.swift; sourceTree = "<group>"; };
 		FAB3201C1CBE9F1100098D81 /* SlideMenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuConfig.swift; path = UIComponents/SlideMenu/Private/SlideMenuConfig.swift; sourceTree = "<group>"; };
+		FACDEF9A1D6B0B90002E3D39 /* Instantiator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instantiator.swift; sourceTree = "<group>"; };
 		FACE6D951BBC112B00457B4C /* GLAMultiRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLAMultiRequestViewController.h; sourceTree = "<group>"; };
 		FACE6D961BBC112B00457B4C /* GLAMultiRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLAMultiRequestViewController.m; sourceTree = "<group>"; };
 		FAD0722C1D1AF435002F0FE5 /* GIGArrayExtesionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGArrayExtesionTests.m; sourceTree = "<group>"; };
@@ -1497,6 +1499,7 @@
 				D99AD1AE1B1DA3A3005BB4E5 /* Error */,
 				D99AD1B11B1DA3A3005BB4E5 /* FileManager */,
 				D99AD1B91B1DA3A3005BB4E5 /* Image */,
+				FACDEF9A1D6B0B90002E3D39 /* Instantiator.swift */,
 				FA02D2DA1D47C071007DD362 /* InfoPlist.swift */,
 				D99AD1BC1B1DA3A3005BB4E5 /* Invocation */,
 				D99AD1BF1B1DA3A3005BB4E5 /* JSON */,
@@ -1919,7 +1922,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */;
+			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -2045,6 +2048,7 @@
 				4AACDF981C60DA2400F4E8AE /* ActionSheet.swift in Sources */,
 				D99AD2E51B1DA3A3005BB4E5 /* NSString+GIGSubstring.m in Sources */,
 				D9E7A15E1B419475004D3193 /* GIGMultiValidator.m in Sources */,
+				FACDEF9B1D6B0B90002E3D39 /* Instantiator.swift in Sources */,
 				D9FE620A1BD65D8A00E2B23C /* GIGFormField.m in Sources */,
 				FA02D2DB1D47C071007DD362 /* InfoPlist.swift in Sources */,
 				D99AD2551B1DA3A3005BB4E5 /* GIGURLRequestFactory.m in Sources */,
@@ -2431,7 +2435,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */ = {
+		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA65BFAD1AEFD5F90031A91B /* Debug */,
