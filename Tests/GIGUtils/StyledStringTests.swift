@@ -108,15 +108,6 @@ class StyledStringTests: XCTestCase {
         XCTAssert(font.isBold() == true)
     }
     
-    func test_htmlLabel_preservesLabelColor() {
-
-        self.label.textColor = UIColor.redColor()
-        self.label.html = "texto <b>importante</b>"
-        
-        let color = self.label.attributedText?.attribute(named:NSForegroundColorAttributeName, forText: "importante") as! UIColor
-        
-        XCTAssert(color == UIColor.redColor())
-    }
 }
 
 // MARK: Helpers
