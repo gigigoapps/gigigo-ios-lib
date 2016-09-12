@@ -15,7 +15,6 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 @property (copy, nonatomic) GIGGeolocationCompletion completion;
-@property (copy, nonatomic) GeolocationResult completionHandler;
 
 @end
 
@@ -47,12 +46,6 @@
     return ([CLLocationManager locationServicesEnabled] && [self isAuthorizedStatus:[CLLocationManager authorizationStatus]]);
 }
 
-- (void)locate:(GeolocationResult)completion
-{
-    self.completionHandler = completion;
-    [self start];
-}
-
 - (void)locateCompletion:(GIGGeolocationCompletion)completion
 {
     self.completion = completion;
@@ -65,26 +58,23 @@
 {
     if ([CLLocationManager locationServicesEnabled])
     {
-        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])
+        if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
         {
-            [self.locationManager requestAlwaysAuthorization];
+            [self.locationManager requestWhenInUseAuthorization];
         }
         
         [self.locationManager startUpdatingLocation];
     }
 	else
-    {
-        NSError *error = [NSError errorWithDomain:@"com.giglibrary.geolocation"
-                                             code:-1
-                                         userInfo:@{NSLocalizedDescriptionKey: @"Location services are disabled"}];
+	{
 		if (self.completion)
 		{
+			NSError *error = [NSError errorWithDomain:@"com.giglibrary.geolocation"
+												 code:-1
+											 userInfo:@{NSLocalizedDescriptionKey: @"Location services are disabled"}];
+			
 			self.completion(NO, nil, error);
 		}
-        if (self.completionHandler)
-        {
-            self.completionHandler(NO, NO, nil, error);
-        }
 	}
 }
 
@@ -95,18 +85,12 @@
         self.completion(YES, location, nil);
     }
     
-    if (self.completionHandler)
-    {
-        self.completionHandler(YES, YES, location, nil);
-    }
-    
     [self stop];
 }
 
 - (void)stop
 {
     self.completion = nil;
-    self.completionHandler = nil;
     [self.locationManager stopUpdatingLocation];
 }
 
@@ -139,10 +123,9 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    BOOL authorized = [self isAuthorizedStatus:CLLocationManager.authorizationStatus];
-    
     if (self.completion)
     {
+        BOOL authorized = [self isAuthorizedStatus:CLLocationManager.authorizationStatus];
         if (self.locationManager.location)
         {
             self.completion(authorized, self.locationManager.location, error);
@@ -150,18 +133,6 @@
         else
         {
             self.completion(authorized, nil, error);
-        }
-    }
-    
-    if ( self.completionHandler)
-    {
-        if (self.locationManager.location)
-        {
-            self.completionHandler(YES ,authorized, self.locationManager.location, error);
-        }
-        else
-        {
-            self.completionHandler(NO ,authorized, nil, error);
         }
     }
     
