@@ -10,7 +10,7 @@ import Foundation
 
 public enum Result<SuccessType, ErrorType> {
 	
-	case Success(SuccessType)
-	case Error(ErrorType)
+	case success(SuccessType)
+	case error(ErrorType)
 	
 }

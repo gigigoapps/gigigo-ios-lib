@@ -11,16 +11,16 @@ import Foundation
 
 public enum LogLevel: Int {
 	/// No log will be shown.
-	case None = 0
+	case none = 0
 	
 	/// Only warnings and errors.
-	case Error = 1
+	case error = 1
 	
 	/// Errors and relevant information.
-	case Info = 2
+	case info = 2
 	
 	/// Request and Responses will be displayed.
-	case Debug = 3
+	case debug = 3
 }
 
 
@@ -29,39 +29,39 @@ public func >=(levelA: LogLevel, levelB: LogLevel) -> Bool {
 }
 
 
-public class LogManager {
-	public static let shared = LogManager()
+open class LogManager {
+	open static let shared = LogManager()
 	
-	public var appName: String?
-	public var logLevel: LogLevel = .None
+	open var appName: String?
+	open var logLevel: LogLevel = .none
 }
 
 
-public func Log(log: String) {
-	guard LogManager.shared.logLevel != .None else { return }
+public func Log(_ log: String) {
+	guard LogManager.shared.logLevel != .none else { return }
 	
 	let appName = LogManager.shared.appName ?? "Gigigo Log Manager"
 	
 	print("\(appName) :: " + log)
 }
 
-public func LogInfo(log: String) {
-	guard LogManager.shared.logLevel >= .Info else { return }
+public func LogInfo(_ log: String) {
+	guard LogManager.shared.logLevel >= .info else { return }
 	
 	Log(log)
 }
 
-public func LogWarn(message: String, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
-	guard LogManager.shared.logLevel >= .Error else { return }
+public func LogWarn(_ message: String, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
+	guard LogManager.shared.logLevel >= .error else { return }
 	
 	let caller = "\(filename.lastPathComponent)(\(line)) \(funcname)"
 	Log("🚸🚸🚸 WARNING: " + message)
 	Log("🚸🚸🚸 ⤷ FROM CALLER: " + caller + "\n")
 }
 
-public func LogError(error: NSError?, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
+public func LogError(_ error: NSError?, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
 	guard
-		LogManager.shared.logLevel >= .Error,
+		LogManager.shared.logLevel >= .error,
 		let err = error
 		else { return }
 	

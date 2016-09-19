@@ -10,24 +10,24 @@ import UIKit
 
 
 enum MenuState {
-    case Open
-    case Close
+    case open
+    case close
 }
 
 
 enum MenuDirection {
-    case Left
-    case Right
+    case left
+    case right
 }
 
 
 class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDelegate {
     
     // MARK: - Constants
-    private let kPercentMenuOpeness: CGFloat = 0.8
-    private let kVelocityThreshold: CGFloat = 500
-    private let kAnimationDuration: NSTimeInterval = 0.4
-    private let kAnimationDurationFast: NSTimeInterval = 0.2
+    fileprivate let kPercentMenuOpeness: CGFloat = 0.8
+    fileprivate let kVelocityThreshold: CGFloat = 500
+    fileprivate let kAnimationDuration: TimeInterval = 0.4
+    fileprivate let kAnimationDurationFast: TimeInterval = 0.2
     
     
     // MARK: - Public Properties
@@ -39,22 +39,22 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
         }
     }
 	
-	var statusBarStyle: UIStatusBarStyle = .Default
+	var statusBarStyle: UIStatusBarStyle = .default
     
     
     // MARK: - Private Properties
-    private var menuState = MenuState.Close
-    private var currentController: UIViewController?
-    private weak var sectionControllerToShow: UIViewController?
-	private var sectionIndexToShow: Int?
-	private lazy var buttonClose = UIButton()
-    weak private var menuTableView: SlideMenuTableVC?
-    @IBOutlet weak private var customContentContainer: UIView!
+    fileprivate var menuState = MenuState.close
+    fileprivate var currentController: UIViewController?
+    fileprivate weak var sectionControllerToShow: UIViewController?
+	fileprivate var sectionIndexToShow: Int?
+	fileprivate lazy var buttonClose = UIButton()
+    weak fileprivate var menuTableView: SlideMenuTableVC?
+    @IBOutlet weak fileprivate var customContentContainer: UIView!
     
     
     // Panning
-    private var lastX: CGFloat = 0
-    @IBOutlet private var panGesture: UIPanGestureRecognizer!
+    fileprivate var lastX: CGFloat = 0
+    @IBOutlet fileprivate var panGesture: UIPanGestureRecognizer!
     
     
     class func menuVC() -> SlideMenuVC? {
@@ -72,8 +72,8 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
 		self.panGesture.delegate = self
         
         self.customContentContainer.addSubview(self.buttonClose)
-        self.buttonClose.addTarget(self, action: #selector(closeMenuAnimated), forControlEvents: .TouchUpInside)
-        self.buttonClose.enabled = false
+        self.buttonClose.addTarget(self, action: #selector(closeMenuAnimated), for: .touchUpInside)
+        self.buttonClose.isEnabled = false
 
         if let sectionController = self.sectionControllerToShow {
             self.setSection(sectionController, index: self.sectionIndexToShow ?? 0)
@@ -82,7 +82,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         self.setShadowOnContainer()
@@ -90,8 +90,8 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard let menuTableView = segue.destinationViewController as? SlideMenuTableVC where segue.identifier == "SlideMenuTableVC" else {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let menuTableView = segue.destination as? SlideMenuTableVC , segue.identifier == "SlideMenuTableVC" else {
             return
         }
         
@@ -106,7 +106,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
     }
 	
 	
-	override func preferredStatusBarStyle() -> UIStatusBarStyle {
+	override var preferredStatusBarStyle : UIStatusBarStyle {
 		return self.statusBarStyle
 	}
     
@@ -116,16 +116,16 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
     func userDidTapMenuButton() {
         switch self.menuState {
             
-        case .Open:
+        case .open:
             self.animate(closeMenu)
             
-        case .Close:
+        case .close:
             self.animate(openMenu)
         }
     }
     
     
-	func setSection(viewController: UIViewController, index: Int) {
+	func setSection(_ viewController: UIViewController, index: Int) {
         guard self.customContentContainer != nil else {
             self.sectionControllerToShow = viewController
 			self.sectionIndexToShow = index
@@ -145,29 +145,29 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
     
     // MARK: - Gesture
 	
-	func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+	func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
 		guard let navigation = self.currentController as? UINavigationController
-			where navigation.viewControllers.count > 1 else {
+			, navigation.viewControllers.count > 1 else {
 			return false
 		}
 		
 		return true
 	}
     
-    @IBAction func onPanGesture(sender: UIPanGestureRecognizer) {
+    @IBAction func onPanGesture(_ sender: UIPanGestureRecognizer) {
         if let currentNavigation = self.currentController as? UINavigationController
-            where currentNavigation.viewControllers.count > 1 { return }
+            , currentNavigation.viewControllers.count > 1 { return }
 
-        let translation = sender.translationInView(self.customContentContainer)
+        let translation = sender.translation(in: self.customContentContainer)
 
         switch sender.state {
-        case .Began:
+        case .began:
             self.panGestureBegan()
         
-        case .Changed:
+        case .changed:
             self.panGestureStateChanged(translation)
             
-        case .Ended:
+        case .ended:
             self.panGestureEnded(sender)
             
         default:
@@ -176,11 +176,11 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
 
     }
     
-    private func panGestureBegan() {
+    fileprivate func panGestureBegan() {
         self.lastX = self.customContentContainer.x();
     }
     
-    private func panGestureStateChanged(translation: CGPoint) {
+    fileprivate func panGestureStateChanged(_ translation: CGPoint) {
         var newXPosition = self.lastX + translation.x
         
         // Check if position crossed the left bounds
@@ -189,34 +189,34 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
         self.translateContent(min(newXPosition, self.view.width() * self.kPercentMenuOpeness))
     }
     
-    private func panGestureEnded(gesture: UIPanGestureRecognizer) {
-        let velocity = gesture.velocityInView(self.customContentContainer)
+    fileprivate func panGestureEnded(_ gesture: UIPanGestureRecognizer) {
+        let velocity = gesture.velocity(in: self.customContentContainer)
         let currentXPos = self.customContentContainer.x()
         
         let direction = self.determineDirectoWithVelocity(velocity, position: currentXPos)
         
         switch direction {
-        case .Left:
+        case .left:
             self.animateFast(closeMenu)
         
-        case .Right:
+        case .right:
             self.animateFast(openMenu)
         }
     }
     
-    private func determineDirectoWithVelocity(velocity: CGPoint, position: CGFloat) -> MenuDirection {
+    fileprivate func determineDirectoWithVelocity(_ velocity: CGPoint, position: CGFloat) -> MenuDirection {
         if velocity.x < -self.kVelocityThreshold {
-            return .Left
+            return .left
         }
         else if velocity.x > self.kVelocityThreshold {
-            return .Right
+            return .right
         }
         else {
             if position < ((self.view.width() * self.kPercentMenuOpeness) / 2) {
-                return .Left
+                return .left
             }
             else {
-                return .Right
+                return .right
             }
         }
     }
@@ -224,7 +224,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
     
     // MARK: - MenuTableDelegate
     
-	func tableDidSelecteSection(menuSection: MenuSection, index: Int) {
+	func tableDidSelecteSection(_ menuSection: MenuSection, index: Int) {
         self.setSection(menuSection.sectionController, index: index)
         self.animate(closeMenu)
     }
@@ -232,24 +232,24 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
     
     // MARK: - Private Methods
     
-    private func setShadowOnContainer() {
+    fileprivate func setShadowOnContainer() {
         let layer = self.customContentContainer.layer
         
         layer.masksToBounds = false
-        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 10
         layer.shadowOpacity = 1
         layer.shadowOffset = CGSize(width: -5, height: 2)
-        layer.shadowPath = UIBezierPath(rect: self.customContentContainer.bounds).CGPath
+        layer.shadowPath = UIBezierPath(rect: self.customContentContainer.bounds).cgPath
     }
     
-    private func setViewController(viewController: UIViewController) {
+    fileprivate func setViewController(_ viewController: UIViewController) {
 		guard self.currentController != viewController else { return }
 		
         self.addChildViewController(viewController)
         self.customContentContainer.addSubviewWithAutolayout(viewController.view)
-        viewController.didMoveToParentViewController(self)
-        self.customContentContainer.bringSubviewToFront(self.buttonClose)
+        viewController.didMove(toParentViewController: self)
+        self.customContentContainer.bringSubview(toFront: self.buttonClose)
 		
 		if let currentController = self.currentController {
 			currentController.removeFromParentViewController()
@@ -259,26 +259,26 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
 		self.currentController = viewController
     }
     
-    private func animateFast(code: () -> Void) {
-        UIView.animateWithDuration(self.kAnimationDurationFast) {
+    fileprivate func animateFast(_ code: @escaping () -> Void) {
+        UIView.animate(withDuration: self.kAnimationDurationFast, animations: {
             code()
-        }
+        }) 
     }
     
-    private func animate(code: () -> Void) {
-        UIView.animateWithDuration(self.kAnimationDuration) {
+    fileprivate func animate(_ code: @escaping () -> Void) {
+        UIView.animate(withDuration: self.kAnimationDuration, animations: {
             code()
-        }
+        }) 
     }
     
-    private func translateContent(xPos: CGFloat) {
-        let tTranslate = CGAffineTransformMakeTranslation(xPos, 0)
-        self.customContentContainer.transform = CGAffineTransformConcat(CGAffineTransformIdentity, tTranslate)
+    fileprivate func translateContent(_ xPos: CGFloat) {
+        let tTranslate = CGAffineTransform(translationX: xPos, y: 0)
+        self.customContentContainer.transform = CGAffineTransform.identity.concatenating(tTranslate)
     }
     
-    private func openMenu() {
-        self.menuState = .Open
-        self.buttonClose.enabled = true
+    fileprivate func openMenu() {
+        self.menuState = .open
+        self.buttonClose.isEnabled = true
         
         let xPos = self.view.width() - (self.view.width() * (1 - self.kPercentMenuOpeness))
         self.translateContent(xPos)
@@ -288,9 +288,9 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
         self.animate(closeMenu)
     }
     
-    private func closeMenu() {
-        self.menuState = .Close
-        self.buttonClose.enabled = false
+    fileprivate func closeMenu() {
+        self.menuState = .close
+        self.buttonClose.isEnabled = false
         
         self.translateContent(0)
     }

@@ -2,11 +2,10 @@
 //  LocationVC.swift
 //  GiGLibrary
 //
-//  Created by  Eduardo Parada on 19/9/16.
+//  Created by  Eduardo Parada on 6/9/16.
 //  Copyright © 2016 Gigigo SL. All rights reserved.
 //
 
-import UIKit
 
 class LocationVC: UIViewController {
     
@@ -31,10 +30,10 @@ class LocationVC: UIViewController {
             self.labelLocation.text = "Esperando ..."
             
             if (authorized && status) {
-                self.labelLocation.text = "Localizacion correcta, latitud: \(location.coordinate.latitude)   y longitud: \(location.coordinate.longitude)"
+                self.labelLocation.text = "Localizacion correcta, latitud: \(location?.coordinate.latitude)   y longitud: \(location?.coordinate.longitude)"
             }
             else {
-                self.labelLocation.text = error.localizedDescription
+                self.labelLocation.text = error?.localizedDescription
             }
         }
     }

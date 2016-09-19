@@ -9,19 +9,19 @@
 import Foundation
 
 
-public class Application {
+open class Application {
 	
 	public init(){}
 	
-	public func presentModal(viewController: UIViewController) {
+	open func presentModal(_ viewController: UIViewController) {
 		let topVC = self.topViewController()
-        dispatch_async(dispatch_get_main_queue(), {
-            topVC?.presentViewController(viewController, animated: true, completion: nil)
+        DispatchQueue.main.async(execute: {
+            topVC?.present(viewController, animated: true, completion: nil)
         })
 	}
 	
-	private func topViewController() -> UIViewController? {
-		let app = UIApplication.sharedApplication()
+	fileprivate func topViewController() -> UIViewController? {
+		let app = UIApplication.shared
 		let window = app.keyWindow
 		var rootVC = window?.rootViewController
 		while let presentedController = rootVC?.presentedViewController {

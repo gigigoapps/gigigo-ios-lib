@@ -9,12 +9,12 @@
 import Foundation
 
 
-public class MenuSection {
+open class MenuSection {
     
-    public let name: String
-    public let icon: UIImage
-    public let storyboard: String
-    public let viewController: String?
+    open let name: String
+    open let icon: UIImage
+    open let storyboard: String
+    open let viewController: String?
     
     lazy var sectionController: UIViewController = self.instantiateViewController()
     
@@ -27,12 +27,12 @@ public class MenuSection {
     }
     
     
-    private func instantiateViewController() -> UIViewController {
-        let storyboard = UIStoryboard(name: self.storyboard, bundle: NSBundle.mainBundle())
+    fileprivate func instantiateViewController() -> UIViewController {
+        let storyboard = UIStoryboard(name: self.storyboard, bundle: Bundle.main)
         let sectionVC: UIViewController
         
         if let viewControllerName = self.viewController {
-            sectionVC = storyboard.instantiateViewControllerWithIdentifier(viewControllerName)
+            sectionVC = storyboard.instantiateViewController(withIdentifier: viewControllerName)
         }
         else {
             sectionVC = storyboard.instantiateInitialViewController()!

@@ -23,7 +23,7 @@ public extension String {
      ````
      */
     
-    public func style(styles:Style...) -> StyledString {
+    public func style(_ styles:Style...) -> StyledString {
         
         var styledString = StyledString()
         styledString.styledStringFractions.append(StyledStringFraction(string: self, styles: styles))
@@ -100,7 +100,7 @@ public extension UITextView {
                 self.attributedText = newtStyle.toAttributedString(defaultFont: font)
             }
             else {
-                let defaultFont = UIFont.systemFontOfSize(UIFont.systemFontSize())
+                let defaultFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
                 self.attributedText = newtStyle.toAttributedString(defaultFont: defaultFont)
             }
         }
@@ -121,8 +121,8 @@ public extension UITextView {
             return self.html
         }
         set(newtHtml) {
-            var font = UIFont.systemFontOfSize(UIFont.systemFontSize());
-            var textColor = UIColor.blackColor()
+            var font = UIFont.systemFont(ofSize: UIFont.systemFontSize);
+            var textColor = UIColor.black
             
             if let currentFont = self.font {
                 font = currentFont;
@@ -141,14 +141,26 @@ public extension NSAttributedString {
     
     public convenience init?(fromHTML html: String) {
         
-        try? self.init(data: html.dataUsingEncoding(NSUTF8StringEncoding)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding], documentAttributes: nil)
+        try? self.init(data: html.data(using: String.Encoding.utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                                                                                NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil)
     }
     
     public convenience init?(fromHTML html: String, font:UIFont, color:UIColor) {
         
         let style = "<style>body{color:\(color.hexString(false)); font-family: '\(font.fontName)'; font-size:" + String(format: "%.0f", font.pointSize) + "px;}</style>"
-        let completeHtml = style.stringByAppendingString(html)
+        let completeHtml = style + html
         self.init(fromHTML:completeHtml)
+    }
+}
+
+extension Data {
+    var attributedString: NSAttributedString? {
+        do {
+            return try NSAttributedString(data: self, options:[NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        return nil
     }
 }
 
@@ -167,7 +179,7 @@ public struct StyledString {
             let attributedString = self.attributedStringFrom(styledStringFraction:singleStyledString, font: font)
             
             let finalAttributedString = NSMutableAttributedString(attributedString: currentAttributedString)
-            finalAttributedString.appendAttributedString(attributedString)
+            finalAttributedString.append(attributedString)
             
             return finalAttributedString
         }
@@ -176,7 +188,7 @@ public struct StyledString {
     
     // MARK: PRIVATE
 
-    func attributedStringFrom(styledStringFraction styledStringFraction: StyledStringFraction, font:UIFont) -> NSAttributedString {
+    func attributedStringFrom(styledStringFraction: StyledStringFraction, font:UIFont) -> NSAttributedString {
         
         let currentString = styledStringFraction.string
         let currentStyle = styledStringFraction.styles
@@ -205,52 +217,52 @@ public struct StyledString {
 
 public enum Style {
     
-    case None
-    case Bold
-    case Italic
-    case Color(UIColor)
-    case BackgroundColor(UIColor)
-    case Size(CGFloat)
-    case FontName(String)
-    case Font(UIFont)
-    case Underline
-    case UnderlineThick
-    case UnderlineDouble
-    case UnderlineColor(UIColor)
-    case Link(NSURL)
-    case BaseLineOffset(CGFloat)
+    case none
+    case bold
+    case italic
+    case color(UIColor)
+    case backgroundColor(UIColor)
+    case size(CGFloat)
+    case fontName(String)
+    case font(UIFont)
+    case underline
+    case underlineThick
+    case underlineDouble
+    case underlineColor(UIColor)
+    case link(URL)
+    case baseLineOffset(CGFloat)
 
     func key() -> String {
         
         switch self {
             
-        case None:
+        case .none:
             return ""
-        case Bold:
+        case .bold:
             return NSFontAttributeName
-        case Italic:
+        case .italic:
             return NSFontAttributeName
-        case Color:
+        case .color:
             return NSForegroundColorAttributeName
-        case BackgroundColor:
+        case .backgroundColor:
             return NSBackgroundColorAttributeName
-        case Size:
+        case .size:
             return NSFontAttributeName
-        case FontName:
+        case .fontName:
             return NSFontAttributeName
-        case Font:
+        case .font:
             return NSFontAttributeName
-        case Underline:
+        case .underline:
             return NSUnderlineStyleAttributeName
-        case UnderlineThick:
+        case .underlineThick:
             return NSUnderlineStyleAttributeName
-        case UnderlineDouble:
+        case .underlineDouble:
             return NSUnderlineStyleAttributeName
-        case UnderlineColor:
+        case .underlineColor:
             return NSUnderlineColorAttributeName
-        case Link:
+        case .link:
             return NSLinkAttributeName
-        case BaseLineOffset:
+        case .baseLineOffset:
             return NSBaselineOffsetAttributeName
         }
     }
@@ -259,44 +271,44 @@ public enum Style {
         
         switch self {
             
-        case None:
-            return ""
-        case Bold:
-            if let fontDescriptor = font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold) {
+        case .none:
+            return "" as AnyObject
+        case .bold:
+            if let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitBold) {
                 return UIFont(descriptor: fontDescriptor, size: 0.0)
             }
             else {
                 return font
             }
-        case Italic:
-            if let fontDescriptor = font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitItalic) {
+        case .italic:
+            if let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitItalic) {
                 return UIFont(descriptor: fontDescriptor, size: 0.0)
             }
             else {
                 return font
             }
-        case Color(let color):
+        case .color(let color):
             return color
-        case BackgroundColor(let color):
+        case .backgroundColor(let color):
             return color
-        case Size(let pointSize):
+        case .size(let pointSize):
             return UIFont(name: font.fontName, size: pointSize)!
-        case FontName(let fontName):
+        case .fontName(let fontName):
             return UIFont(name: fontName, size: font.pointSize)!
-        case Font(let font):
+        case .font(let font):
             return font
-        case Underline:
-            return NSUnderlineStyle.StyleSingle.rawValue
-        case UnderlineThick:
-            return NSUnderlineStyle.StyleThick.rawValue
-        case UnderlineDouble:
-            return NSUnderlineStyle.StyleDouble.rawValue
-        case UnderlineColor(let color):
+        case .underline:
+            return NSUnderlineStyle.styleSingle.rawValue as AnyObject
+        case .underlineThick:
+            return NSUnderlineStyle.styleThick.rawValue as AnyObject
+        case .underlineDouble:
+            return NSUnderlineStyle.styleDouble.rawValue as AnyObject
+        case .underlineColor(let color):
             return color
-        case Link(let link):
-            return link
-        case BaseLineOffset(let offset):
-            return offset
+        case .link(let link):
+            return link as AnyObject
+        case .baseLineOffset(let offset):
+            return offset as AnyObject
         }
     }
 }
@@ -317,7 +329,7 @@ public enum Style {
 public func +(left: StyledString, right: String) -> StyledString {
     
     var styledText = left
-    styledText.styledStringFractions.append(StyledStringFraction(string: right, styles: [Style.None]))
+    styledText.styledStringFractions.append(StyledStringFraction(string: right, styles: [Style.none]))
     
     return styledText
 }
@@ -338,7 +350,7 @@ public func +(left: StyledString, right: String) -> StyledString {
 public func +(left: String, right: StyledString) -> StyledString {
     
     var styledText = right
-    styledText.styledStringFractions.insert(StyledStringFraction(string:left, styles:[Style.None]), atIndex: 0)
+    styledText.styledStringFractions.insert(StyledStringFraction(string:left, styles:[Style.none]), at: 0)
     
     return styledText
 }
@@ -359,7 +371,7 @@ public func +(left: String, right: StyledString) -> StyledString {
 public func +(left: StyledString, right: StyledString) -> StyledString {
     
     var styledText = left
-    styledText.styledStringFractions.appendContentsOf(right.styledStringFractions)
+    styledText.styledStringFractions.append(contentsOf: right.styledStringFractions)
     
     return styledText
 }
@@ -375,7 +387,7 @@ struct StyledStringFraction {
 
 extension UIColor {
     
-    public func hexString(includeAlpha: Bool) -> String {
+    public func hexString(_ includeAlpha: Bool) -> String {
         
         var r: CGFloat = 0
         var g: CGFloat = 0

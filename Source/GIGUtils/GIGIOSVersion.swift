@@ -8,7 +8,7 @@
 
 import Foundation
 
-let Device = UIDevice.currentDevice()
+let Device = UIDevice.current
 let iosVersion = NSString(string: Device.systemVersion).doubleValue
 
 let MAJORTHANIOS8 = (iosVersion > 8.0)
