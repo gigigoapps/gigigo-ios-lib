@@ -20,13 +20,13 @@ class KeyboardVC: UIViewController, KeyboardAdaptable {
         // Do any additional setup after loading the view.
     }
 	
-	override func viewDidAppear(animated: Bool) {
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
 		self.startKeyboard()
 	}
 	
-	override func viewWillDisappear(animated: Bool) {
+	override func viewWillDisappear(_ animated: Bool) {
 		self.stopKeyboard()
 		
 		super.viewWillDisappear(animated)
