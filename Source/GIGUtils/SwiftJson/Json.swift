@@ -82,13 +82,18 @@ public class JSON: SequenceType, CustomStringConvertible {
 	public func toBool() -> Bool? {
 		return self.json as? Bool
 	}
-	
-	
+		
 	public func toInt() -> Int? {
-		return self.json as? Int
+		if let value = self.json as? Int {
+			return value
+		}
+		else if let value = self.toString() {
+			return Int(value)
+		}
+		
+		return nil
 	}
-	
-	
+		
 	public func toString() -> String? {
 		return self.json as? String
 	}
@@ -100,7 +105,19 @@ public class JSON: SequenceType, CustomStringConvertible {
 		
 		return NSDate.dateFromString(dateString, format: format)
 	}
-	
+    
+    public func toDouble() -> Double? {
+        return self.json as? Double
+    }
+    
+    public func toDictionary() -> [String: AnyObject]? {
+        
+        guard let dic = self.json as? [String: AnyObject] else {
+            return [:]
+        }
+        
+        return dic
+    }
 	
 	// MARK - Sequence Methods
 	
