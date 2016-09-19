@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     
-    self.title = (self.domain != nil) ? @"Edit Domain" : @"Add Domain";
+    self.title = (self.domain != nil) ? NSLocalizedString(@"Edit Domain", nil) : NSLocalizedString(@"Add Domain", nil);
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
     
@@ -140,7 +140,7 @@
 
 - (void)addNameField
 {
-    self.nameField = [self textFieldWithPlaceholder:@"name" returnKey:UIReturnKeyNext];
+    self.nameField = [self textFieldWithPlaceholder:NSLocalizedString(@"name", nil) returnKey:UIReturnKeyNext];
     self.nameField.text = self.domain.name;
     
     [self.view addSubview:self.nameField];
@@ -152,7 +152,7 @@
 
 - (void)addUrlField
 {
-    self.urlField = [self textFieldWithPlaceholder:@"url" returnKey:UIReturnKeyGo];
+    self.urlField = [self textFieldWithPlaceholder:NSLocalizedString(@"url", nil) returnKey:UIReturnKeyGo];
     self.urlField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.urlField.text = self.domain.url;
     
