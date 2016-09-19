@@ -77,7 +77,7 @@ class StyledStringTests: XCTestCase {
         
         let backgroundColor = self.label.attributedText?.attribute(named: NSBackgroundColorAttributeName, forText: "con background") as! UIColor
         
-        XCTAssert(backgroundColor == UIColor.redColor())
+        XCTAssert(equalColors(backgroundColor, c2: UIColor.redColor()))
     }
     
     func test_applySyles_shouldSetRightFont() {
@@ -88,6 +88,18 @@ class StyledStringTests: XCTestCase {
         let resultFont = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "con background") as! UIFont
         
         XCTAssert(resultFont == font)
+    }
+    
+    func test_chanceInFontDoesNotAffectNextStrings() {
+        
+        let newFont = UIFont(name: "ChalkboardSE-Light", size: 15)!
+        self.label.styledString = "texto con " + "fuente1".style(.FontName("ChalkboardSE-Light")) + "y texto con " + "fuente por defecto"
+
+        let changedFont = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "fuente1") as! UIFont
+        let defaultFont = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "fuente por defecto")
+
+        XCTAssert(changedFont.fontName == newFont.fontName)
+        XCTAssert(defaultFont == nil)
     }
     
     func test_applySyles_shouldSetBoldColor() {
@@ -108,14 +120,14 @@ class StyledStringTests: XCTestCase {
         XCTAssert(font.isBold() == true)
     }
     
-    func test_htmlLabel_preservesLabelColor() {
+    func test_fromHTML_preservesLabelColor() {
 
         self.label.textColor = UIColor.redColor()
         self.label.html = "texto <b>importante</b>"
         
         let color = self.label.attributedText?.attribute(named:NSForegroundColorAttributeName, forText: "importante") as! UIColor
         
-        XCTAssert(color == UIColor.redColor())
+        XCTAssert(equalColors(color, c2: UIColor.redColor()))
     }
 }
 
@@ -145,4 +157,22 @@ extension UIFont {
         
         return ((self.fontDescriptor().symbolicTraits.rawValue & (UIFontDescriptorSymbolicTraits.TraitBold).rawValue) != 0)
     }
+}
+
+private func equalColors (c1:UIColor, c2:UIColor) -> Bool{
+    
+    var red:CGFloat = 0
+    var green:CGFloat  = 0
+    var blue:CGFloat = 0
+    var alpha:CGFloat  = 0
+    c1.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+    
+    var red2:CGFloat = 0
+    var green2:CGFloat  = 0
+    var blue2:CGFloat = 0
+    var alpha2:CGFloat  = 0
+    c2.getRed(&red2, green: &green2, blue: &blue2, alpha: &alpha2)
+    
+    return (Int(green*255) == Int(green2*255))
+    
 }

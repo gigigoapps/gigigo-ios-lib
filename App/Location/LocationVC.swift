@@ -2,10 +2,11 @@
 //  LocationVC.swift
 //  GiGLibrary
 //
-//  Created by  Eduardo Parada on 6/9/16.
+//  Created by  Eduardo Parada on 19/9/16.
 //  Copyright © 2016 Gigigo SL. All rights reserved.
 //
 
+import UIKit
 
 class LocationVC: UIViewController {
     

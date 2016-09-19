@@ -158,39 +158,46 @@ public struct StyledString {
     
     var styledStringFractions: [StyledStringFraction] = []
     
+    // MARK: PUBLIC
+    
     public func toAttributedString(defaultFont font:UIFont) -> NSAttributedString {
         
-        let attributedString = NSMutableAttributedString()
-        
-        let result = styledStringFractions.reduce(attributedString) { (currentAttributedString, singleStyledString) -> NSAttributedString in
+        let result = styledStringFractions.reduce(NSAttributedString()) { (currentAttributedString, singleStyledString) -> NSAttributedString in
             
-            let currentString = singleStyledString.string
-            let currentStyle = singleStyledString.styles
-            
-            let tempAttributedString = NSMutableAttributedString(string: currentString)
-            
-            var currentFont = font;
-
-            let attributedString = currentStyle.reduce(tempAttributedString) { (string, style) -> NSMutableAttributedString in
-                
-                let key = style.key()
-                let value = style.value(forFont: currentFont)
-                
-                string.addAttribute(key, value:value, range: NSMakeRange(0, string.length))
-                
-                if (key == NSFontAttributeName) {
-                    currentFont = style.value(forFont: currentFont) as! UIFont
-                }
-                
-                return string
-            }
+            let attributedString = self.attributedStringFrom(styledStringFraction:singleStyledString, font: font)
             
             let finalAttributedString = NSMutableAttributedString(attributedString: currentAttributedString)
-            
             finalAttributedString.appendAttributedString(attributedString)
-            return finalAttributedString;
+            
+            return finalAttributedString
         }
         return result
+    }
+    
+    // MARK: PRIVATE
+
+    func attributedStringFrom(styledStringFraction styledStringFraction: StyledStringFraction, font:UIFont) -> NSAttributedString {
+        
+        let currentString = styledStringFraction.string
+        let currentStyle = styledStringFraction.styles
+        
+        
+        var currentFont = font;
+        
+        let tempAttributedString = NSMutableAttributedString(string: currentString)
+        let attributedString = currentStyle.reduce(tempAttributedString) { (string, style) -> NSMutableAttributedString in
+            
+            let key = style.key()
+            let value = style.value(forFont: currentFont)
+            
+            string.addAttribute(key, value:value, range: NSMakeRange(0, string.length))
+            
+            if (key == NSFontAttributeName) {
+                currentFont = style.value(forFont: currentFont) as! UIFont
+            }
+            return string
+        }
+        return attributedString;
     }
 }
 
@@ -255,9 +262,19 @@ public enum Style {
         case None:
             return ""
         case Bold:
-            return UIFont(descriptor: font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold), size: 0.0)
+            if let fontDescriptor = font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold) {
+                return UIFont(descriptor: fontDescriptor, size: 0.0)
+            }
+            else {
+                return font
+            }
         case Italic:
-            return UIFont(descriptor: font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitItalic), size: 0.0)
+            if let fontDescriptor = font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitItalic) {
+                return UIFont(descriptor: fontDescriptor, size: 0.0)
+            }
+            else {
+                return font
+            }
         case Color(let color):
             return color
         case BackgroundColor(let color):

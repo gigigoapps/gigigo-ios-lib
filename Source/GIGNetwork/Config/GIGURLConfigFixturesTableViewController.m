@@ -26,7 +26,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Fixtures";
+    self.title = NSLocalizedString(@"Fixtures", nil);;
     
     self.manager = [GIGURLManager sharedManager];
     self.notificationCenter = [NSNotificationCenter defaultCenter];
