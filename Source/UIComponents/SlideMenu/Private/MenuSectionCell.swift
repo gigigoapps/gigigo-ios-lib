@@ -10,9 +10,9 @@ import UIKit
 
 class MenuSectionCell: UITableViewCell {
     
-    @IBOutlet weak private var imageMenuSection: UIImageView!
-    @IBOutlet weak private var labelMenuSection: UILabel!
-	@IBOutlet weak private var viewSelector: UIView!
+    @IBOutlet weak fileprivate var imageMenuSection: UIImageView!
+    @IBOutlet weak fileprivate var labelMenuSection: UILabel!
+	@IBOutlet weak fileprivate var viewSelector: UIView!
 	
 	
 	override func awakeFromNib() {
@@ -20,24 +20,24 @@ class MenuSectionCell: UITableViewCell {
 	}
 	
 	
-    func bindMenuSection(menuSection: MenuSection) {
+    func bindMenuSection(_ menuSection: MenuSection) {
         self.labelMenuSection.text = menuSection.name
         self.imageMenuSection.image = menuSection.icon
 		self.viewSelector.alpha = 0
     }
 	
 	
-	override func setSelected(selected: Bool, animated: Bool) {
+	override func setSelected(_ selected: Bool, animated: Bool) {
 		super.setSelected(selected, animated: animated)
 		
-		UIView.animateWithDuration(0.4) { 
+		UIView.animate(withDuration: 0.4, animations: { 
 			if selected {
 				self.viewSelector.alpha = 1
 			}
 			else {
 				self.viewSelector.alpha = 0
 			}
-		}
+		}) 
 	}
 
 }

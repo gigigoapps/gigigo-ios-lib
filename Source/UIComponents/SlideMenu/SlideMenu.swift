@@ -9,29 +9,29 @@
 import Foundation
 
 
-public class SlideMenu {
+open class SlideMenu {
 	
-	public var sectionSelectorColor: UIColor = UIColor.whiteColor() {
+	open var sectionSelectorColor: UIColor = UIColor.white {
 		didSet {
 			SlideMenuConfig.shared.sectionSelectorColor = self.sectionSelectorColor
 		}
 	}
 	
-	public var menuBackgroundColor: UIColor = UIColor.blackColor() {
+	open var menuBackgroundColor: UIColor = UIColor.black {
 		didSet {
 			SlideMenuConfig.shared.menuBackgroundColor = self.menuBackgroundColor
 		}
 	}
     
-    private lazy var menuViewController = SlideMenuVC.menuVC()
-    private var sections: [MenuSection] = []
+    fileprivate lazy var menuViewController = SlideMenuVC.menuVC()
+    fileprivate var sections: [MenuSection] = []
     
 	
 	public init() { }
 	
     // MARK: - Public methods
     
-	public func menuVC(statusBarStyle: UIStatusBarStyle = .Default) -> UIViewController {
+	open func menuVC(_ statusBarStyle: UIStatusBarStyle = .default) -> UIViewController {
         guard let menuVC = self.menuViewController else {
             LogWarn("Couldn't instantiate menu")
             return UIViewController()
@@ -42,17 +42,17 @@ public class SlideMenu {
         return menuVC
     }
     
-    public func userDidTapMenu() {
+    open func userDidTapMenu() {
         self.menuViewController?.userDidTapMenuButton()
     }
 
     
-    public func addSection(section: MenuSection) {
+    open func addSection(_ section: MenuSection) {
         self.sections.append(section)
         self.menuViewController?.sections = self.sections
     }
     
-    public func selectSection(index: Int) {
+    open func selectSection(_ index: Int) {
         let section = self.sections[index]
         self.menuViewController?.setSection(section.sectionController, index: index)
     }

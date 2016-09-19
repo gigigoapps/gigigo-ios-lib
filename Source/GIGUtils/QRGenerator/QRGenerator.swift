@@ -9,31 +9,31 @@
 import Foundation
 
 
-public class QR {
+open class QR {
 	
-	public class func generate(string: String) -> UIImage? {
+	open class func generate(_ string: String) -> UIImage? {
 		guard let outputImage: CIImage = self.generate(string) else { return nil }
-		let image = UIImage(CIImage: outputImage)
+		let image = UIImage(ciImage: outputImage)
 		
 		return image
 	}
 	
-	public class func generate(string: String, onView: UIImageView) {
+	open class func generate(_ string: String, onView: UIImageView) {
 		guard let image: CIImage = self.generate(string) else { return }
 		
 		let scaleX = onView.frame.size.width / image.extent.size.width
 		let scaleY = onView.frame.size.height / image.extent.size.height
 		
-		let transformedImage = image.imageByApplyingTransform(CGAffineTransformMakeScale(scaleX, scaleY))
+		let transformedImage = image.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
 		
-		onView.image = UIImage(CIImage: transformedImage)
+		onView.image = UIImage(ciImage: transformedImage)
 	}
 	
 	
 	// MARK: - Private Helpers
 	
-	private class func generate(string: String) -> CIImage? {
-		let stringData = string.dataUsingEncoding(NSUTF8StringEncoding)
+	fileprivate class func generate(_ string: String) -> CIImage? {
+		let stringData = string.data(using: String.Encoding.utf8)
 		let filter = CIFilter(name: "CIQRCodeGenerator")
 		filter?.setValue(stringData, forKey: "inputMessage")
 		filter?.setValue("H", forKey: "inputCorrectionLevel")

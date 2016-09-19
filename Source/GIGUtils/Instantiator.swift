@@ -9,9 +9,9 @@
 import Foundation
 
 
-public enum ErrorInstantiation: ErrorType {
-	case InstantiateFromIdentifier
-	case InstantiateIntial
+public enum ErrorInstantiation: Error {
+	case instantiateFromIdentifier
+	case instantiateIntial
 }
 
 
@@ -20,7 +20,7 @@ public protocol Instantiable {
 	static func storyboard() -> String
 	
 	/// Needs to be overriden, but is recomended to use and extension in your project
-	static func bundle() -> NSBundle
+	static func bundle() -> Bundle
 	
 	/// Override is optional. If nil, instantiateInitialViewController will be used. Nil by default
 	static func identifier() -> String?	//
@@ -67,12 +67,12 @@ public struct Instantiator<ViewController: Instantiable> {
 		var viewController: UIViewController?
 		
 		if let identifier = ViewController.identifier() {
-			viewController = storyboard.instantiateViewControllerWithIdentifier(identifier)
+			viewController = storyboard.instantiateViewController(withIdentifier: identifier)
 		
 		} else {
 			guard let vc = storyboard.instantiateInitialViewController() else {
 				self.logError()
-				throw ErrorInstantiation.InstantiateIntial
+				throw ErrorInstantiation.instantiateIntial
 			}
 			
 			viewController = vc
@@ -80,13 +80,13 @@ public struct Instantiator<ViewController: Instantiable> {
 		
 		guard let downcastedVC = viewController as? ViewController else {
 			self.logError()
-			throw ErrorInstantiation.InstantiateFromIdentifier
+			throw ErrorInstantiation.instantiateFromIdentifier
 		}
 		
 		return downcastedVC
 	}
 	
-	private func logError() {
+	fileprivate func logError() {
 		let identifierLog = ViewController.identifier() != nil ? ViewController.identifier() : "initial view controller"
 		LogWarn("Could not instantiate view controller from storyboard: \(ViewController.storyboard()), identifier: \(identifierLog)")
 	}

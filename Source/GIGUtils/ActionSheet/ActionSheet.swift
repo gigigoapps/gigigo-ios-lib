@@ -9,9 +9,9 @@
 import UIKit
 
 @available(iOS 8.0, *)
-public class ActionSheet: AlertController {
+open class ActionSheet: AlertController {
     
     public override init(title: String, message: String) {
-        super.init(title: title, message: message, style: .ActionSheet)
+        super.init(title: title, message: message, style: .actionSheet)
     }
 }

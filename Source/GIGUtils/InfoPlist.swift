@@ -9,8 +9,8 @@
 import Foundation
 
 
-public func InfoDictionary(key: String) -> String {
-	guard let constant = NSBundle.mainBundle().infoDictionary?[key] as? String else {
+public func InfoDictionary(_ key: String) -> String {
+	guard let constant = Bundle.main.infoDictionary?[key] as? String else {
 		return "CONSTANT NOT FOUND"
 	}
 	

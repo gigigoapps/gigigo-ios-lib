@@ -27,7 +27,7 @@ class GIGDateExtensionTests: XCTestCase {
     func test_returnsNil_whenFormatIsWrong() {
 		let dateString = "wrong format"
 		
-		let date = NSDate.dateFromString(dateString)
+		let date = Date.dateFromString(dateString)
 		
 		XCTAssert(date == nil)
     }
@@ -35,7 +35,7 @@ class GIGDateExtensionTests: XCTestCase {
 	func test_returnsCorrectDate_whenFormatIsCorrect() {
 		let dateString = "1985-01-24T00:00:00Z"
 		
-		let date = NSDate.dateFromString(dateString)
+		let date = Date.dateFromString(dateString)
 		
 		XCTAssert(date != nil)
 		XCTAssert(date == alejandroBirthday())
@@ -46,7 +46,7 @@ class GIGDateExtensionTests: XCTestCase {
 	
 	func test_returnsNextDay_whenAddOneDay() {
 		let dateString = "1985-01-24T00:00:00Z"
-		let date = NSDate.dateFromString(dateString)!
+		let date = Date.dateFromString(dateString)!
 		
 		let nextDay = date + 1
 		
@@ -55,7 +55,7 @@ class GIGDateExtensionTests: XCTestCase {
 	
 	func test_returnsPreviusDay_whenSubstractOneDay() {
 		let dateString = "1985-01-25T00:00:00Z"
-		let date = NSDate.dateFromString(dateString)!
+		let date = Date.dateFromString(dateString)!
 		
 		let nextDay = date - 1
 		
@@ -66,27 +66,27 @@ class GIGDateExtensionTests: XCTestCase {
 	/// MARK: - Comparing dates tests
 	
 	func test_returnsTrue_whenAskIfTomorrowIsGreatherThanToday() {
-		let today = NSDate.today()
+		let today = Date.today()
 		let tomorrow = today + 1
 		
 		XCTAssert(tomorrow > today)
 	}
 	
 	func test_returnsFalse_whenAskIfTodayIsGreatherThanToday() {
-		let today = NSDate.today()
+		let today = Date.today()
 		
 		XCTAssert((today > today) == false)
 	}
 	
 	func test_returnsTrue_whenAskIfTodayIsMinorThanTomorrow() {
-		let today = NSDate.today()
+		let today = Date.today()
 		let tomorrow = today + 1
 		
 		XCTAssert(today < tomorrow)
 	}
 	
 	func test_returnsFalse_whenAskIfTodayIsLessThanToday() {
-		let today = NSDate.today()
+		let today = Date.today()
 		
 		XCTAssert((today < today) == false)
 	}
@@ -100,10 +100,10 @@ class GIGDateExtensionTests: XCTestCase {
 		let resultDate = try! date.setHour(14)
 		
 		// THIS TEST ONLY WORKS IN SPAIN (NOT IN CANARY ISLANDS). We should inyect the timezone
-		let expectedDate = NSDate.dateFromString("1985-01-24T13:00:00Z")! // UTC+1
+		let expectedDate = Date.dateFromString("1985-01-24T13:00:00Z")! // UTC+1
 		
 		
-		XCTAssert(resultDate.isEqualToDate(expectedDate), "result: \(resultDate) - expected: \(expectedDate)")
+		XCTAssert(resultDate == expectedDate, "result: \(resultDate) - expected: \(expectedDate)")
 	}
 	
 	func test_returns14_03_10PM_whenSetting14_59_59PM() {
@@ -112,10 +112,10 @@ class GIGDateExtensionTests: XCTestCase {
 		let resultDate = try! date.setHour(14, minutes: 59, seconds: 59)
 		
 		// THIS TEST ONLY WORKS IN SPAIN (NOT IN CANARY ISLANDS). We should inyect the timezone
-		let expectedDate = NSDate.dateFromString("1985-01-24T13:59:59Z")! // UTC+1
+		let expectedDate = Date.dateFromString("1985-01-24T13:59:59Z")! // UTC+1
 		
 		
-		XCTAssert(resultDate.isEqualToDate(expectedDate), "result: \(resultDate) - expected: \(expectedDate)")
+		XCTAssert(resultDate == expectedDate, "result: \(resultDate) - expected: \(expectedDate)")
 	}
 	
 	func test_throwsError_whenSetting24PM() {
@@ -156,26 +156,26 @@ class GIGDateExtensionTests: XCTestCase {
 	
 	
 	// MARK: - Private Helpers
-	private func alejandroBirthday() -> NSDate {
-		let dateComponents = NSDateComponents()
+	fileprivate func alejandroBirthday() -> Date {
+		var dateComponents = DateComponents()
 		dateComponents.day = 24
 		dateComponents.month = 1
 		dateComponents.year = 1985
 		dateComponents.hour = 1
 		
-		let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-		return calendar!.dateFromComponents(dateComponents)!
+		let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+		return calendar.date(from: dateComponents)!
 	}
 	
-	private func alejandroBirthdayNextDay() -> NSDate {
-		let dateComponents = NSDateComponents()
+	fileprivate func alejandroBirthdayNextDay() -> Date {
+		var dateComponents = DateComponents()
 		dateComponents.day = 25
 		dateComponents.month = 1
 		dateComponents.year = 1985
 		dateComponents.hour = 1 // I don't know why, but 1 is 12 am
 		
-		let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-		return calendar!.dateFromComponents(dateComponents)!
+		let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+		return calendar.date(from: dateComponents)!
 	}
 
 }

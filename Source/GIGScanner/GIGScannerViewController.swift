@@ -11,18 +11,18 @@ import AVFoundation
 
 protocol GIGScannerDelegate {
     
-    func didSuccessfullyScan(scannedValue: String, tye: String)
+    func didSuccessfullyScan(_ scannedValue: String, tye: String)
 }
 
 class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     
     var delegate: GIGScannerDelegate?
-    private let session: AVCaptureSession
-    private let device: AVCaptureDevice
-    private let output: AVCaptureMetadataOutput
-    private var preview: AVCaptureVideoPreviewLayer?
-    private var input: AVCaptureDeviceInput?
+    fileprivate let session: AVCaptureSession
+    fileprivate let device: AVCaptureDevice
+    fileprivate let output: AVCaptureMetadataOutput
+    fileprivate var preview: AVCaptureVideoPreviewLayer?
+    fileprivate var input: AVCaptureDeviceInput?
 
     
     // MARK: - INIT
@@ -30,7 +30,7 @@ class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjects
     required init?(coder aDecoder: NSCoder) {
         
         self.session = AVCaptureSession()
-        self.device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        self.device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         self.output = AVCaptureMetadataOutput()
         
         do {
@@ -57,28 +57,28 @@ class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjects
     
     func isCameraAvailable() -> Bool {
         
-       let authCamera = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
+       let authCamera = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
         
         switch authCamera {
             
-        case AVAuthorizationStatus.Authorized:
+        case AVAuthorizationStatus.authorized:
             return true
             
-        case AVAuthorizationStatus.Denied:
+        case AVAuthorizationStatus.denied:
             return false
             
-        case AVAuthorizationStatus.Restricted:
+        case AVAuthorizationStatus.restricted:
             return false
             
-        case AVAuthorizationStatus.NotDetermined:
-            AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: { success in
-                return true
+        case AVAuthorizationStatus.notDetermined:
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { success in
+//                return true
             })
             return true
         }
     }
     
-    func setupScanner(metadataObject: [AnyObject]?) {
+    func setupScanner(_ metadataObject: [AnyObject]?) {
         guard let metadata = metadataObject else {return}
         self.output.metadataObjectTypes = [metadata]
         
@@ -95,17 +95,17 @@ class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjects
         self.session.stopRunning()
     }
     
-    func enableTorch(enable: Bool) {
+    func enableTorch(_ enable: Bool) {
 
         try! self.device.lockForConfiguration()
         
         if self.device.hasTorch {
             
             if enable {
-                self.device.torchMode = .On
+                self.device.torchMode = .on
             }
             else {
-                self.device.torchMode = .Off
+                self.device.torchMode = .off
             }
 
         }
@@ -113,14 +113,14 @@ class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjects
         self.device.unlockForConfiguration()
     }
     
-    func focusCamera(focusPoint: CGPoint) {
+    func focusCamera(_ focusPoint: CGPoint) {
         
         do {
             try self.device.lockForConfiguration()
             self.device.focusPointOfInterest = focusPoint
-            self.device.focusMode = AVCaptureFocusMode.ContinuousAutoFocus
+            self.device.focusMode = AVCaptureFocusMode.continuousAutoFocus
             self.device.exposurePointOfInterest = focusPoint
-            self.device.exposureMode = AVCaptureExposureMode.ContinuousAutoExposure
+            self.device.exposureMode = AVCaptureExposureMode.continuousAutoExposure
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -134,9 +134,9 @@ class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjects
             self.session.addInput(self.input)
         }
         self.session.addOutput(self.output)
-        self.output.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+        self.output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
         
-        self.setupScanner(self.setupOutputWithDefaultValues())
+        self.setupScanner(self.setupOutputWithDefaultValues() as [AnyObject]?)
         self.setupPreviewLayer()
     }
     
@@ -156,7 +156,7 @@ class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjects
     }
     
     
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
     
         for metadata in metadataObjects {
             

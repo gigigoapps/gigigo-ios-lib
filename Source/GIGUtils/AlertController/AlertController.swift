@@ -9,7 +9,7 @@
 import Foundation
 
 @available(iOS 8.0, *)
-public class AlertController: NSObject, AlertInterface {
+open class AlertController: NSObject, AlertInterface {
     
     var alert: UIAlertController
     
@@ -18,35 +18,35 @@ public class AlertController: NSObject, AlertInterface {
     }
     
     public init(title: String, message: String) {
-        self.alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        self.alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
     }
     
     internal init(title: String, message: String, style:UIAlertControllerStyle) {
         self.alert = UIAlertController(title: title, message: message, preferredStyle: style)
     }
     
-    public func show() {
+    open func show() {
 		Application().presentModal(self.alert)
     }
     
-    public func addDefaultButton(title: String, usingAction:(String -> Void)?) {
-        let action = UIAlertAction(title: title, style: .Default) { action in
+    open func addDefaultButton(_ title: String, usingAction:((String) -> Void)?) {
+        let action = UIAlertAction(title: title, style: .default) { action in
 			guard let usingAction = usingAction else { return }
             usingAction(action.title!)
         }
         self.alert.addAction(action)
     }
     
-    public func addCancelButton(title: String, usingAction:(String -> Void)?) {
-        let action = UIAlertAction(title: title, style: .Cancel) { action in
+    open func addCancelButton(_ title: String, usingAction:((String) -> Void)?) {
+        let action = UIAlertAction(title: title, style: .cancel) { action in
 			guard let usingAction = usingAction else { return }
             usingAction(action.title!)
         }
         self.alert.addAction(action)
     }
     
-    public func addDestructiveButton(title: String, usingAction:(String -> Void)?) {
-        let action = UIAlertAction(title: title, style: .Destructive) { action in
+    open func addDestructiveButton(_ title: String, usingAction:((String) -> Void)?) {
+        let action = UIAlertAction(title: title, style: .destructive) { action in
 			guard let usingAction = usingAction else { return }
             usingAction(action.title!)
         }

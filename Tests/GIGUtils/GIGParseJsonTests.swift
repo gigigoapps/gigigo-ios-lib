@@ -8,6 +8,26 @@
 
 import XCTest
 import GIGLibrary
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class GIGParseJsonTests: XCTestCase {
     override func setUp() {
@@ -32,12 +52,12 @@ class GIGParseJsonTests: XCTestCase {
             "date": dateString,
             "double": 22.1,
             "dictionary": ["key":"value"]
-            ])
+            ] as AnyObject)
         
         XCTAssertTrue(json["string"]!.toString() == "Text")
         XCTAssertTrue(json["int"]!.toInt() == 12)
         XCTAssertTrue(json["bool"]!.toBool()!)
-        XCTAssertTrue(json["date"]!.toDate() == NSDate.dateFromString(dateString)!)
+        XCTAssertTrue(json["date"]!.toDate() == Date.dateFromString(dateString)!)
         XCTAssertTrue(json["double"]!.toDouble() == 22.1)
         
         let dic = json["dictionary"]!.toDictionary()
@@ -60,13 +80,13 @@ class GIGParseJsonTests: XCTestCase {
             "boolFake": 12,
             "dateFake": 12,
             "doubleFake": "double"
-            ])
+            ] as AnyObject)
         
         
         XCTAssertFalse(json["string"]!.toString() == "Text2")
         XCTAssertFalse(json["int"]!.toInt() == 12)
         XCTAssertFalse(json["bool"]!.toBool()!)
-        XCTAssertFalse(json["date"]!.toDate()! == NSDate.dateFromString(dateString)!)
+        XCTAssertFalse(json["date"]!.toDate()! == Date.dateFromString(dateString)!)
         XCTAssertFalse(json["double"]!.toDouble() == 22.1)
         
         let dic = json["dictionary"]!.toDictionary()

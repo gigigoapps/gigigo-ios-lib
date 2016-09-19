@@ -11,79 +11,79 @@ import GIGLibrary
 
 class StyledStringTests: XCTestCase {
     
-    var label = UILabel(frame: CGRectMake(0, 0, 0, 0))
+    var label = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     
     override func setUp() {
         super.setUp()
         
-        self.label = UILabel(frame: CGRectMake(0, 0, 0, 0))
+        self.label = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     }
     
     func test_applySyles_preservesText()
     {
-        self.label.styledString = "texto".style(.Color(UIColor.redColor()))
+        self.label.styledString = "texto".style(.color(UIColor.red))
         XCTAssert(self.label.attributedText?.string == "texto")
     }
     
     func test_applySyles_should_concatenate_text()
     {
-        self.label.styledString = "texto" + " texto2" + " texto3".style(.Color(UIColor.redColor()))
+        self.label.styledString = "texto" + " texto2" + " texto3".style(.color(UIColor.red))
         XCTAssert(self.label.attributedText?.string == "texto texto2 texto3")
     }
     
     func test_applySyles_should_concatenate_Styles()
     {
-        self.label.styledString = "texto" + " texto2".style(.Color(UIColor.blueColor())) + " texto3".style(.Color(UIColor.redColor()))
+        self.label.styledString = "texto" + " texto2".style(.color(UIColor.blue)) + " texto3".style(.color(UIColor.red))
         XCTAssert(self.label.attributedText?.string == "texto texto2 texto3")
     }
     
     func test_applySyles_should_concatenate_StyleFirstAndTextSecond()
     {
-        self.label.styledString = "texto ".style(.Color(UIColor.blueColor())) + "texto2"
+        self.label.styledString = "texto ".style(.color(UIColor.blue)) + "texto2"
         XCTAssert(self.label.attributedText?.string == "texto texto2")
     }
     
     func test_applySyles_should_concatenate_textFirstAndStyleSecond()
     {
-        self.label.styledString =  "texto" + " texto2".style(.Color(UIColor.blueColor()))
+        self.label.styledString =  "texto" + " texto2".style(.color(UIColor.blue))
         XCTAssert(self.label.attributedText?.string == "texto texto2")
     }
     
     func test_applySyles_shouldSetRedText() {
      
-        self.label.styledString = "texto" + "rojo".style(.Color(UIColor.redColor()))
+        self.label.styledString = "texto" + "rojo".style(.color(UIColor.red))
         
         let firstWordcolor = self.label.attributedText?.attribute(named:NSForegroundColorAttributeName, forText:"texto")
         let secondWordcolor = self.label.attributedText?.attribute(named:NSForegroundColorAttributeName, forText:"rojo") as! UIColor
         
         XCTAssert(firstWordcolor == nil)
-        XCTAssert(secondWordcolor == UIColor.redColor())
+        XCTAssert(secondWordcolor == UIColor.red)
     }
     
     func test_applySyles_shouldSetRedTextAndUnderlinedText() {
         
-        self.label.styledString = "texto" + "subrayado".style(.Color(UIColor.redColor()), .Underline)
+        self.label.styledString = "texto" + "subrayado".style(.color(UIColor.red), .underline)
         
         let color = self.label.attributedText?.attribute(named: NSForegroundColorAttributeName, forText: "subrayado") as! UIColor
         let underlineStyle = self.label.attributedText?.attribute(named: NSUnderlineStyleAttributeName, forText: "subrayado")
 
-        XCTAssert(color == UIColor.redColor())
+        XCTAssert(color == UIColor.red)
         XCTAssert(underlineStyle != nil)
     }
     
     func test_applySyles_shouldSetBackgroundColor() {
         
-        self.label.styledString = "texto" + "con background".style(.BackgroundColor(UIColor.redColor()))
+        self.label.styledString = "texto" + "con background".style(.backgroundColor(UIColor.red))
         
         let backgroundColor = self.label.attributedText?.attribute(named: NSBackgroundColorAttributeName, forText: "con background") as! UIColor
         
-        XCTAssert(equalColors(backgroundColor, c2: UIColor.redColor()))
+        XCTAssert(equalColors(backgroundColor, c2: UIColor.red))
     }
     
     func test_applySyles_shouldSetRightFont() {
         
         let font = UIFont(name: "ChalkboardSE-Light", size: 15)!
-        self.label.styledString = "texto" + "con background".style(.Font(font))
+        self.label.styledString = "texto" + "con background".style(.font(font))
         
         let resultFont = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "con background") as! UIFont
         
@@ -93,7 +93,7 @@ class StyledStringTests: XCTestCase {
     func test_chanceInFontDoesNotAffectNextStrings() {
         
         let newFont = UIFont(name: "ChalkboardSE-Light", size: 15)!
-        self.label.styledString = "texto con " + "fuente1".style(.FontName("ChalkboardSE-Light")) + "y texto con " + "fuente por defecto"
+        self.label.styledString = "texto con " + "fuente1".style(.fontName("ChalkboardSE-Light")) + "y texto con " + "fuente por defecto"
 
         let changedFont = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "fuente1") as! UIFont
         let defaultFont = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "fuente por defecto")
@@ -104,7 +104,7 @@ class StyledStringTests: XCTestCase {
     
     func test_applySyles_shouldSetBoldColor() {
         
-        self.label.styledString = "texto" + "con background".style(.Bold)
+        self.label.styledString = "texto" + "con background".style(.bold)
         
         let font = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "con background") as! UIFont
         
@@ -122,12 +122,12 @@ class StyledStringTests: XCTestCase {
     
     func test_fromHTML_preservesLabelColor() {
 
-        self.label.textColor = UIColor.redColor()
+        self.label.textColor = UIColor.red
         self.label.html = "texto <b>importante</b>"
         
         let color = self.label.attributedText?.attribute(named:NSForegroundColorAttributeName, forText: "importante") as! UIColor
         
-        XCTAssert(equalColors(color, c2: UIColor.redColor()))
+        XCTAssert(equalColors(color, c2: UIColor.red))
     }
 }
 
@@ -138,16 +138,16 @@ extension NSAttributedString {
     func attribute(named name: String, forText text: String) -> AnyObject? {
         
         let string = self.string
-        let substringRangeOptional = string.rangeOfString(text)
+        let substringRangeOptional = string.range(of: text)
         
         guard let substringRange = substringRangeOptional else { return nil }
         
-        let start = string.startIndex.distanceTo(substringRange.startIndex)
-        let length = substringRange.startIndex.distanceTo(substringRange.endIndex)
+        let start = string.characters.distance(from: string.startIndex, to: substringRange.lowerBound)
+        let length = string.characters.distance(from: substringRange.lowerBound, to: substringRange.upperBound)
         
         var attributedRange = NSMakeRange(0, length-1)
-        let attribute = self.attribute(name, atIndex: start, effectiveRange: &attributedRange)
-        return attribute
+        let attribute = self.attribute(name, at: start, effectiveRange: &attributedRange)
+        return attribute as AnyObject?
     }
 }
 
@@ -155,11 +155,11 @@ extension UIFont {
     
     func isBold() -> Bool {
         
-        return ((self.fontDescriptor().symbolicTraits.rawValue & (UIFontDescriptorSymbolicTraits.TraitBold).rawValue) != 0)
+        return ((self.fontDescriptor.symbolicTraits.rawValue & (UIFontDescriptorSymbolicTraits.traitBold).rawValue) != 0)
     }
 }
 
-private func equalColors (c1:UIColor, c2:UIColor) -> Bool{
+private func equalColors (_ c1:UIColor, c2:UIColor) -> Bool{
     
     var red:CGFloat = 0
     var green:CGFloat  = 0

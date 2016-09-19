@@ -9,15 +9,15 @@
 
 import Foundation
 
-public func gig_dispatch_background(code: () -> Void) {
-	dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), code)
+public func gig_dispatch_background(_ code: @escaping () -> Void) {
+	DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async(execute: code)
 }
 
-public func gig_dispatch_main(code: () -> Void) {
-	dispatch_async(dispatch_get_main_queue(), code)
+public func gig_dispatch_main(_ code: @escaping () -> Void) {
+	DispatchQueue.main.async(execute: code)
 }
 
-public func gig_dispatch_main_after(seconds: UInt64, code: () -> Void) {
-	let popTime = dispatch_time(DISPATCH_TIME_NOW, (Int64)(seconds * NSEC_PER_SEC));
-	dispatch_after(popTime, dispatch_get_main_queue(), code);
+public func gig_dispatch_main_after(_ seconds: UInt64, code: @escaping () -> Void) {
+	let popTime = DispatchTime.now() + Double((Int64)(seconds * NSEC_PER_SEC)) / Double(NSEC_PER_SEC);
+	DispatchQueue.main.asyncAfter(deadline: popTime, execute: code);
 }

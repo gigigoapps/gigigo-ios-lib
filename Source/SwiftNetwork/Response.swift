@@ -14,28 +14,28 @@ public let kGIGNetworkErrorMessage = "GIGNETWORK_ERROR_MESSAGE"
 
 
 public enum ResponseStatus {
-	case Success
-	case ErrorParsingJson
-	case SessionExpired
-	case Timeout
-	case NoInternet
-	case ApiError
-	case UnknownError
+	case success
+	case errorParsingJson
+	case sessionExpired
+	case timeout
+	case noInternet
+	case apiError
+	case unknownError
 }
 
 
-public class Response {
+open class Response {
 	
-	public var status: ResponseStatus
-	public var statusCode: Int
-	public var body: AnyObject?
-	public var error: NSError?
+	open var status: ResponseStatus
+	open var statusCode: Int
+	open var body: AnyObject?
+	open var error: NSError?
 	
 	
 	// MARK: - Initializers
 	
 	init() {
-		self.status = .UnknownError
+		self.status = .unknownError
 		self.statusCode = 0
 	}
 	
@@ -47,44 +47,44 @@ public class Response {
 			response.success,
 			let data = response.data
 			else {
-				self.statusCode = response.error.code ?? -1
-				self.error = response.error
-				self.status = self.parseError(self.error)
+				self.statusCode = response.error._code
+				self.error = response.error as NSError?
+                self.status = self.parse(error: self.error)
 				return
 		}
 		
 		self.statusCode = 200
-		self.status = .Success
-		self.body = data
+		self.status = .success
+		self.body = data as AnyObject?
 	}
 	
 	convenience init(response: GIGURLJSONResponse) {
 		self.init()
 		
-		self.body = response.json
+		self.body = response.json as AnyObject?
 		
 		if response.success {
 			guard let json = response.json as? [String: AnyObject] else {
-				self.status = .ErrorParsingJson
+				self.status = .errorParsingJson
 				return
 			}
 			
 			guard let status = self.parseStatus(json) else {
-				self.error = response.error
-				self.status = self.parseError(self.error)
+				self.error = response.error as NSError?
+                self.status = self.parse(error: self.error!)
 				return
 			}
 			
 			if status != true {
-				self.status = self.parseError(json)
+                self.status = self.parse(json: json)
 			}
 			else {
-				self.status = .Success
+				self.status = .success
 				self.body = json["data"]
 			}
 		}
 		else {
-			self.status = self.parseError(response.error)
+            self.status = self.parse(error: response.error as NSError)
 		}
 	}
 	
@@ -93,21 +93,21 @@ public class Response {
 		
 		if response.success {
 			guard let image = response.image else {
-				self.status = .UnknownError
+				self.status = .unknownError
 				return
 			}
-			self.status = .Success
+			self.status = .success
 			self.body = image
 		}
 		else {
-			self.status = self.parseError(response.error)
+            self.status = self.parse(error: response.error as NSError)
 		}
 	}
 	
 	
 	// MARK: - Private Helpers
 	
-	private func parseStatus(json: [String: AnyObject]) -> Bool? {
+	fileprivate func parseStatus(_ json: [String: AnyObject]) -> Bool? {
 		if let statusBool = json["status"] as? Bool {
 			return statusBool
 		}
@@ -119,51 +119,51 @@ public class Response {
 		}
 	}
 	
-	private func parseError(json: [String: AnyObject]) ->  ResponseStatus {
+	fileprivate func parse(json: [String: AnyObject]) ->  ResponseStatus {
 		let error = json["error"] as? [String: AnyObject] ?? json
 		
 		guard
 			let code = error["code"] as? Int,
 			let message = error["message"] as? String
-			else { return .UnknownError }
+			else { return .unknownError }
 		
 		let userInfo = [kGIGNetworkErrorMessage: message]
 		self.error = NSError(domain: kGIGNetworkErrorDomain, code: code, userInfo: userInfo)
 		
-		return self.parseError(self.error)
+        return self.parse(error: self.error)
 	}
 	
-	private func parseError(error: NSError?) -> ResponseStatus {
-		guard let err = error else { return .UnknownError }
+	fileprivate func parse(error: NSError?) -> ResponseStatus {
+		guard let err = error else { return .unknownError }
 		
 		self.statusCode = err.code
 		
 		switch err.code {
 		case 401:
-			return .SessionExpired
+			return .sessionExpired
 		case -1001:
-			return .Timeout
+			return .timeout
 		case -1009:
-			return .NoInternet
+			return .noInternet
 		case 10000...20000:
-			return .ApiError
+			return .apiError
 		default:
-			return .UnknownError
+			return .unknownError
 		}
 	}
 	
 }
 
 
-public enum ResponseError: ErrorType {
-	case BodyNil
+public enum ResponseError: Error {
+	case bodyNil
 }
 
 public extension Response {
 	
 	public func json() throws -> JSON {
 		guard let json = self.body else {
-			throw ResponseError.BodyNil
+			throw ResponseError.bodyNil
 		}
 		
 		return JSON(json: json)
@@ -171,7 +171,7 @@ public extension Response {
 	
 	public func image() throws -> UIImage {
 		guard let image = self.body as? UIImage else {
-			throw ResponseError.BodyNil
+			throw ResponseError.bodyNil
 		}
 		
 		return image
