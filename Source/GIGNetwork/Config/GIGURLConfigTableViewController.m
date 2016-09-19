@@ -16,6 +16,9 @@
 NSInteger const GIGURLConfigDomainRow = 0;
 NSInteger const GIGURLConfigFixtureRow = 1;
 NSInteger const GIGURLConfigNumberOfRows = 2;
+NSString * const GIGConfigTitle = @"Config";
+NSString * const GIGDomainTitle = @"Domain";
+NSString * const GIGFixtureTitle = @"Fixtures";
 
 
 @interface GIGURLConfigTableViewController ()
@@ -32,7 +35,7 @@ NSInteger const GIGURLConfigNumberOfRows = 2;
 {
     [super viewDidLoad];
     
-    self.title = @"Config";
+    self.title = GIGConfigTitle;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(tapDone)];
     
     self.manager = [GIGURLManager sharedManager];
@@ -87,14 +90,14 @@ NSInteger const GIGURLConfigNumberOfRows = 2;
         case GIGURLConfigDomainRow:
         {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.textLabel.text = @"Domains";
+            cell.textLabel.text = GIGDomainTitle;
             cell.detailTextLabel.text = self.manager.domain.name;
         }
             break;
         case GIGURLConfigFixtureRow:
         {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.textLabel.text = @"Fixtures";
+            cell.textLabel.text = GIGFixtureTitle;
             cell.detailTextLabel.text = self.manager.fixture.name;
         }
         default:

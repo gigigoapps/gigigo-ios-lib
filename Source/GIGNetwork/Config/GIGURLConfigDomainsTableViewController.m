@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Domains";
+    self.title =  NSLocalizedString(@"Domains", nil);
     [self displayNormalLayout];
     
     self.manager = [GIGURLManager sharedManager];
