@@ -90,6 +90,18 @@ class StyledStringTests: XCTestCase {
         XCTAssert(resultFont == font)
     }
     
+    func test_chanceInFontDoesNotAffectNextStrings() {
+        
+        let newFont = UIFont(name: "ChalkboardSE-Light", size: 15)!
+        self.label.styledString = "texto con " + "fuente1".style(.FontName("ChalkboardSE-Light")) + "y texto con " + "fuente por defecto"
+
+        let changedFont = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "fuente1") as! UIFont
+        let defaultFont = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "fuente por defecto")
+
+        XCTAssert(changedFont.fontName == newFont.fontName)
+        XCTAssert(defaultFont == nil)
+    }
+    
     func test_applySyles_shouldSetBoldColor() {
         
         self.label.styledString = "texto" + "con background".style(.Bold)
@@ -108,7 +120,7 @@ class StyledStringTests: XCTestCase {
         XCTAssert(font.isBold() == true)
     }
     
-    func test_htmlLabel_preservesLabelColor() {
+    func test_fromHTML_preservesLabelColor() {
 
         self.label.textColor = UIColor.redColor()
         self.label.html = "texto <b>importante</b>"
