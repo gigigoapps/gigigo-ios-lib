@@ -262,19 +262,9 @@ public enum Style {
         case None:
             return ""
         case Bold:
-            if let fontDescriptor = font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold) {
-                return UIFont(descriptor: fontDescriptor, size: 0.0)
-            }
-            else {
-                return font
-            }
+            return UIFont(descriptor: (font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold))!, size: 0.0)
         case Italic:
-            if let fontDescriptor = font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitItalic) {
-                return UIFont(descriptor: fontDescriptor, size: 0.0)
-            }
-            else {
-                return font
-            }
+            return UIFont(descriptor: (font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitItalic))!, size: 0.0)
         case Color(let color):
             return color
         case BackgroundColor(let color):

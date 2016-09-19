@@ -77,7 +77,7 @@ class StyledStringTests: XCTestCase {
         
         let backgroundColor = self.label.attributedText?.attribute(named: NSBackgroundColorAttributeName, forText: "con background") as! UIColor
         
-        XCTAssert(backgroundColor == UIColor.redColor())
+        XCTAssert(equalColors(backgroundColor, c2: UIColor.redColor()))
     }
     
     func test_applySyles_shouldSetRightFont() {
@@ -127,7 +127,7 @@ class StyledStringTests: XCTestCase {
         
         let color = self.label.attributedText?.attribute(named:NSForegroundColorAttributeName, forText: "importante") as! UIColor
         
-        XCTAssert(color == UIColor.redColor())
+        XCTAssert(equalColors(color, c2: UIColor.redColor()))
     }
 }
 
@@ -157,4 +157,22 @@ extension UIFont {
         
         return ((self.fontDescriptor().symbolicTraits.rawValue & (UIFontDescriptorSymbolicTraits.TraitBold).rawValue) != 0)
     }
+}
+
+private func equalColors (c1:UIColor, c2:UIColor) -> Bool{
+    
+    var red:CGFloat = 0
+    var green:CGFloat  = 0
+    var blue:CGFloat = 0
+    var alpha:CGFloat  = 0
+    c1.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+    
+    var red2:CGFloat = 0
+    var green2:CGFloat  = 0
+    var blue2:CGFloat = 0
+    var alpha2:CGFloat  = 0
+    c2.getRed(&red2, green: &green2, blue: &blue2, alpha: &alpha2)
+    
+    return (Int(green*255) == Int(green2*255))
+    
 }
