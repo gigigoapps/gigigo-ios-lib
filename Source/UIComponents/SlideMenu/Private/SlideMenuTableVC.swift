@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol MenuTableDelegate {
-	func tableDidSelecteSection(menuSection: MenuSection, index: Int)
+	func tableDidSelecteSection(_ menuSection: MenuSection, index: Int)
 }
 
 
@@ -29,10 +29,10 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
     }
 	
 	
-	private var indexToShow: Int?
+	fileprivate var indexToShow: Int?
 	
     
-    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak fileprivate var tableView: UITableView!
 	
 	
 	override func viewDidLoad() {
@@ -50,30 +50,30 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
 	
 	// MARK - Public Methods
 	
-	func selectSection(index: Int) {
+	func selectSection(_ index: Int) {
 		guard self.tableView != nil else {
 			self.indexToShow = index
 			return
 		}
 		
-		let indexPath = NSIndexPath(forRow: index, inSection: 0)
-		self.tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.None)
+		let indexPath = IndexPath(row: index, section: 0)
+		self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.none)
 	}
 	
     
     // MARK: - TableViewDataSource
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sections?.count ?? 0
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
-            let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? MenuSectionCell,
-            let menuSection = self.sections?[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? MenuSectionCell,
+            let menuSection = self.sections?[(indexPath as NSIndexPath).row]
             else {
-                let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
                 return cell!
         }
         
@@ -85,15 +85,15 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
     
     // MARK: - TableViewDelegate
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard
-            let menuSection = self.sections?[indexPath.row],
+            let menuSection = self.sections?[(indexPath as NSIndexPath).row],
             let delegate = self.menuTableDelegate
             else {
                 return
         }
         
-        delegate.tableDidSelecteSection(menuSection, index: indexPath.row)
+        delegate.tableDidSelecteSection(menuSection, index: (indexPath as NSIndexPath).row)
     }
     
 }

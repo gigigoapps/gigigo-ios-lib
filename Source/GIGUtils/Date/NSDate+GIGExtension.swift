@@ -23,25 +23,25 @@ Cases:
 - Author: Alejandro Jiménez
 - Since: 1.1.3
 */
-public enum ErrorDate: ErrorType {
-	case InvalidHour
-	case InvalidMinutes
-	case InvalidSeconds
+public enum ErrorDate: Error {
+	case invalidHour
+	case invalidMinutes
+	case invalidSeconds
 }
 
-public extension NSDate {
+public extension Date {
 	
 	/// Date from string with ISO format.
-	public class func dateFromString(dateString: String, format: String = DateISOFormat) -> NSDate? {
-		let dateFormat = NSDateFormatter()
+	public static func dateFromString(_ dateString: String, format: String = DateISOFormat) -> Date? {
+		let dateFormat = DateFormatter()
 		dateFormat.dateFormat = format
 
-		let date = dateFormat.dateFromString(dateString)
+		let date = dateFormat.date(from: dateString)
 		return date
 	}
 	
-	public class func today() -> NSDate {
-		return NSDate()
+	public static func today() -> Date {
+		return Date()
 	}
 	
 	
@@ -63,68 +63,68 @@ public extension NSDate {
 	- Author: Alejandro Jiménez
 	- Since: 1.1.3
 	*/
-	public func setHour(hour: Int, minutes: Int = 0, seconds: Int = 0) throws -> NSDate {
-		guard 0 <= hour && hour < 24			else { throw ErrorDate.InvalidHour }
-		guard 0 <= minutes && minutes < 60	else { throw ErrorDate.InvalidMinutes }
-		guard 0 <= seconds && seconds < 60	else { throw ErrorDate.InvalidSeconds }
+	public func setHour(_ hour: Int, minutes: Int = 0, seconds: Int = 0) throws -> Date {
+		guard 0 <= hour && hour < 24			else { throw ErrorDate.invalidHour }
+		guard 0 <= minutes && minutes < 60	else { throw ErrorDate.invalidMinutes }
+		guard 0 <= seconds && seconds < 60	else { throw ErrorDate.invalidSeconds }
 		
-		let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-		let components = calendar.components(([.Day, .Month, .Year]), fromDate: self)
+		let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+		var components = (calendar as NSCalendar).components(([.day, .month, .year]), from: self)
 		components.hour = hour
 		components.minute = minutes
 		components.second = seconds
 		
-		return calendar.dateFromComponents(components)!
+		return calendar.date(from: components)!
 	}
 	
 }
 
 
 /// Add days to a date
-public func +(date: NSDate, days: Int) -> NSDate {
-	let newDate = date.dateByAddingDays(days)
-	return newDate
+public func +(date: Date, days: Int) -> Date {
+	let newDate = (date as NSDate).addingDays(days)
+	return newDate!
 }
 
 /// Substract days to a date
-public func -(date: NSDate, days: Int) -> NSDate {
+public func -(date: Date, days: Int) -> Date {
 	let newDate = date + (-days)
 	return newDate
 }
 
 
-public func >(lhs: NSDate, rhs: NSDate) -> Bool {
-	let result = lhs.compare(rhs)
-	
-	switch result {
-	case .OrderedDescending:
-		return true
-	
-	default:
-		return false
-	}
-}
-
-public func <(lhs: NSDate, rhs: NSDate) -> Bool {
-	let result = lhs.compare(rhs)
-	
-	switch result {
-	case .OrderedAscending:
-		return true
-		
-	default:
-		return false
-	}
-}
-
-public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
-	let result = lhs.compare(rhs)
-	
-	switch result {
-	case .OrderedSame:
-		return true
-		
-	default:
-		return false
-	}
-}
+//public func >(lhs: Date, rhs: Date) -> Bool {
+//	let result = lhs.compare(rhs)
+//	
+//	switch result {
+//	case .orderedDescending:
+//		return true
+//	
+//	default:
+//		return false
+//	}
+//}
+//
+//public func <(lhs: Date, rhs: Date) -> Bool {
+//	let result = lhs.compare(rhs)
+//	
+//	switch result {
+//	case .orderedAscending:
+//		return true
+//		
+//	default:
+//		return false
+//	}
+//}
+//
+//public func ==(lhs: Date, rhs: Date) -> Bool {
+//	let result = lhs.compare(rhs)
+//	
+//	switch result {
+//	case .orderedSame:
+//		return true
+//		
+//	default:
+//		return false
+//	}
+//}

@@ -13,7 +13,6 @@
 		4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A881C111C5F7C72000EC61E /* AlertController.swift */; };
 		4AACDF981C60DA2400F4E8AE /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */; };
 		4AACDF9A1C611E7100F4E8AE /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF991C611E7100F4E8AE /* Alert.swift */; };
-		7B20BB9E1D901895006149BB /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B20BB9D1D901895006149BB /* LocationVC.swift */; };
 		7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84931BC2962600517C2F /* GIGParseClass.h */; };
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
 		7BA7BBA51D7D724500644B6C /* GIGParseJsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */; };
@@ -21,6 +20,7 @@
 		A51F6D771D50C0410052D95A /* StyledStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6D761D50C0410052D95A /* StyledStringTests.swift */; };
 		A94D4A611CDDF67300CC4CAF /* GIGScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; };
 		A94D4A621CDE356B00CC4CAF /* GIGScannerViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9E7577C1D90033E00CCB6BC /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E7577B1D90033E00CCB6BC /* LocationVC.swift */; };
 		D90867691B42A3E300193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
 		D909EFEA1B0DC2FF00DD4D97 /* GIGLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D93CA5301BEA49600098D37C /* NSData+GIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D93CA52D1BEA49600098D37C /* NSData+GIGExtension.m */; };
@@ -336,7 +336,6 @@
 		4A881C111C5F7C72000EC61E /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertController.swift; path = GIGUtils/AlertController/AlertController.swift; sourceTree = "<group>"; };
 		4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionSheet.swift; path = ActionSheet/ActionSheet.swift; sourceTree = "<group>"; };
 		4AACDF991C611E7100F4E8AE /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = GIGUtils/AlertController/Alert.swift; sourceTree = "<group>"; };
-		7B20BB9D1D901895006149BB /* LocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationVC.swift; path = Location/LocationVC.swift; sourceTree = "<group>"; };
 		7B6B84931BC2962600517C2F /* GIGParseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGParseClass.h; path = Class/GIGParseClass.h; sourceTree = "<group>"; };
 		7B6B84941BC2962600517C2F /* GIGParseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGParseClass.m; path = Class/GIGParseClass.m; sourceTree = "<group>"; };
 		7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGParseJsonTests.swift; sourceTree = "<group>"; };
@@ -344,6 +343,7 @@
 		A51F6D741D50BBB30052D95A /* StyledString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledString.swift; sourceTree = "<group>"; };
 		A51F6D761D50C0410052D95A /* StyledStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledStringTests.swift; sourceTree = "<group>"; };
 		A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIGScannerViewController.swift; path = GIGScanner/GIGScannerViewController.swift; sourceTree = "<group>"; };
+		A9E7577B1D90033E00CCB6BC /* LocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLibrary.h; sourceTree = "<group>"; };
 		D909EFE91B0DC2FF00DD4D97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D922639F1BDE251D00735D9D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -707,14 +707,6 @@
 			name = AlertController;
 			sourceTree = "<group>";
 		};
-		7B20BB9C1D901877006149BB /* Localion */ = {
-			isa = PBXGroup;
-			children = (
-				7B20BB9D1D901895006149BB /* LocationVC.swift */,
-			);
-			name = Localion;
-			sourceTree = "<group>";
-		};
 		7B6B84921BC2959500517C2F /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -730,6 +722,14 @@
 				A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */,
 			);
 			name = GIGScanner;
+			sourceTree = "<group>";
+		};
+		A9E7577A1D90033E00CCB6BC /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				A9E7577B1D90033E00CCB6BC /* LocationVC.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		D909EFE71B0DC2FF00DD4D97 /* GIGLibraryFramework */ = {
@@ -1174,8 +1174,8 @@
 		D99AD3051B1DA3AF005BB4E5 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				7B20BB9C1D901877006149BB /* Localion */,
 				D99AD35F1B1DAAE6005BB4E5 /* Main */,
+				A9E7577A1D90033E00CCB6BC /* Location */,
 				FACE6D941BBC112B00457B4C /* Network */,
 				D9E18E111BD542D900611CDA /* Formulary */,
 				4A881C131C5F8650000EC61E /* Alert */,
@@ -1938,7 +1938,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */;
+			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -2158,7 +2158,7 @@
 				D9FD36191B416774000D356F /* GIGLengthValidator.m in Sources */,
 				FA3021FC1CBD074F00A8F7DE /* MenuSection.swift in Sources */,
 				D99AD28D1B1DA3A3005BB4E5 /* GIGEncrypt.m in Sources */,
-				7B20BB9E1D901895006149BB /* LocationVC.swift in Sources */,
+				A9E7577C1D90033E00CCB6BC /* LocationVC.swift in Sources */,
 				D99AD2DD1B1DA3A3005BB4E5 /* NSString+GIGExtension.m in Sources */,
 				D99AD2C11B1DA3A3005BB4E5 /* GIGLogManager.m in Sources */,
 				D99AD21B1B1DA3A3005BB4E5 /* GIGURLConfigFixtureDetailTableViewController.m in Sources */,
@@ -2233,7 +2233,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/GIGUtils/GIGLibraryTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2258,7 +2258,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigigo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/GIGUtils/GIGLibraryTests-Bridging-Header.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -2306,6 +2306,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2349,6 +2350,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2379,7 +2381,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2403,7 +2405,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigigo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -2430,7 +2432,6 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Network/GIGLibraryApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -2452,7 +2453,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Network/GIGLibraryApp-Bridging-Header.h";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -2468,7 +2468,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */ = {
+		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA65BFAD1AEFD5F90031A91B /* Debug */,

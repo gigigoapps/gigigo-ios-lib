@@ -24,7 +24,7 @@ class SlideMenuViewController: UIViewController {
         self.prepareMenu()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let menuVC = self.menu.menuVC()
@@ -39,7 +39,7 @@ class SlideMenuViewController: UIViewController {
 
     
     private func prepareMenu() {
-		self.menu.sectionSelectorColor = UIColor.blueColor()
+		self.menu.sectionSelectorColor = UIColor.blue
 		self.menu.menuBackgroundColor = UIColor(fromHex: 0x242424)
 		
         let section1 = MenuSection(

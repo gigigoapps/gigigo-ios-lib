@@ -15,7 +15,7 @@ class SwiftRequestVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		LogManager.shared.logLevel = .Debug
+		LogManager.shared.logLevel = .debug
 	}
 	
 	@IBAction func onButtonSwiftRequestTap(sender: UIButton) {
@@ -67,12 +67,12 @@ class SwiftRequestVC: UIViewController {
 	private func processResponse(response: Response) {
 		switch response.status {
 
-		case .Success:
+		case .success:
 			Log("Success: \n\(response.body!)")
-		case .ErrorParsingJson, .NoInternet, .SessionExpired, .Timeout, .UnknownError:
+		case .errorParsingJson, .noInternet, .sessionExpired, .timeout, .unknownError:
 			Log("Some kind of error")
 			LogError(response.error)
-		case .ApiError:
+		case .apiError:
 			Log("API error")
 			LogError(response.error)
 		}

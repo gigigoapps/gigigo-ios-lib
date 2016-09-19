@@ -9,21 +9,21 @@
 import Foundation
 
 
-public extension NSLocale {
+public extension Locale {
 	
 	/// Returns language + region. Example: en-US
-	public class func currentLanguage() -> String {
-		return self.preferredLanguages().first!
+	public static func currentLanguage() -> String {
+		return self.preferredLanguages.first!
 	}
 	
 	/// Returns only language. Expample: es
-	public class func currentLanguageCode() -> String {
-		return self.currentLanguage().componentsSeparatedByString("-").first!
+	public static func currentLanguageCode() -> String {
+		return self.currentLanguage().components(separatedBy: "-").first!
 	}
 	
 	/// Returns only region. Example: US
-	public class func currentRegionCode() -> String {
-		return self.currentLanguage().componentsSeparatedByString("-").last!
+	public static func currentRegionCode() -> String {
+		return self.currentLanguage().components(separatedBy: "-").last!
 	}
 	
 }

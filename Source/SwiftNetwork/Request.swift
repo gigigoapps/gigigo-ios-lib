@@ -9,18 +9,18 @@
 import Foundation
 
 
-public class Request: GIGURLCommunicator {
+open class Request: GIGURLCommunicator {
 	
-	public var method: String
-	public var endpoint: String
-	public var headers: [String: String]?
-	public var urlParams: [String: AnyObject]?
-	public var bodyParams: [String: AnyObject]?
-	public var verbose = false
+	open var method: String
+	open var endpoint: String
+	open var headers: [String: String]?
+	open var urlParams: [String: AnyHashable]?
+	open var bodyParams: [String: AnyHashable]?
+	open var verbose = false
 	
-	private var manager: GIGURLManager
+	fileprivate var manager: GIGURLManager
 	
-	public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: AnyObject]? = nil, bodyParams: [String: AnyObject]? = nil, verbose: Bool = false) {
+	public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: AnyHashable]? = nil, bodyParams: [String: AnyHashable]? = nil, verbose: Bool = false) {
 		self.method = method
 		self.endpoint = endpoint
 		self.headers = headers
@@ -37,11 +37,11 @@ public class Request: GIGURLCommunicator {
 	
 	// MARK: - Public Method
 	
-	public func fetchData(completionHandler: Response -> Void) {
+	open func fetchData(_ completionHandler: @escaping (Response) -> Void) {
 		let request = self.buildRequest()
 		request.responseClass = self.dataClass()
 		
-		self.sendRequest(request) { urlResponse in
+		self.send(request) { urlResponse in
 			guard let dataResponse = urlResponse as? GIGURLResponse else {
 				completionHandler(Response())
 				return
@@ -53,11 +53,11 @@ public class Request: GIGURLCommunicator {
 	}
 	
 	
-	public func fetchJson(completionHandler: (Response) -> Void) {
+	open func fetchJson(_ completionHandler: @escaping (Response) -> Void) {
 		let request = self.buildRequest()
 		request.responseClass = self.jsonClass()
 		
-		self.sendRequest(request) { urlResponse in
+		self.send(request) { urlResponse in
 			guard let jsonResponse = urlResponse as? GIGURLJSONResponse else {
 				completionHandler(Response())
 				return
@@ -68,11 +68,11 @@ public class Request: GIGURLCommunicator {
 		}
 	}
 	
-	public func fetchImage(completionHandler: (Response) -> Void) {
+	open func fetchImage(_ completionHandler: @escaping (Response) -> Void) {
 		let request = self.buildRequest()
 		request.responseClass = self.imageClass()
 		
-		self.sendRequest(request) { urlResponse in
+		self.send(request) { urlResponse in
 			guard let imageResponse = urlResponse as? GIGURLImageResponse else {
 				completionHandler(Response())
 				return
@@ -86,38 +86,38 @@ public class Request: GIGURLCommunicator {
 	
 	// MARK: - Private Helpers
 	
-	private func buildRequest() -> GIGURLRequest {
+	fileprivate func buildRequest() -> GIGURLRequest {
 		let url = self.buildURL()
 		let request = GIGURLRequest(method: self.method, url: url)
-		request.headers = self.headers
-		request.json = self.bodyParams
-		request.logLevel = self.verbose ? .Verbose : .None
+		request?.headers = self.headers
+		request?.json = self.bodyParams
+		request?.logLevel = self.verbose ? .verbose : .none
 		
-		return request
+		return request!
 	}
 	
-	private func buildURL() -> String {
-		let url = NSURLComponents(string: self.manager.domain.url)
-		url?.path = url?.path?.stringByAppendingString(self.endpoint)
+	fileprivate func buildURL() -> String {
+		var url = URLComponents(string: self.manager.domain.url)
+		url?.path = (url?.path)! + self.endpoint
 		
 		url?.queryItems = self.urlParams?.map { key, value in
-			NSURLQueryItem(name: key, value: String(value))
+			URLQueryItem(name: key, value: String(describing: value))
 		}
 		
 		return url?.string ?? "NOT VALID URL"
 	}
 	
-	private func jsonClass() -> AnyClass {
+	fileprivate func jsonClass() -> AnyClass {
 		let className = NSStringFromClass(GIGURLJSONResponse.self)
 		return NSClassFromString(className) as! GIGURLJSONResponse.Type
 	}
 	
-	private func imageClass() -> AnyClass {
+	fileprivate func imageClass() -> AnyClass {
 		let className = NSStringFromClass(GIGURLImageResponse.self)
 		return NSClassFromString(className) as! GIGURLImageResponse.Type
 	}
 	
-	private func dataClass() -> AnyClass {
+	fileprivate func dataClass() -> AnyClass {
 		let className = NSStringFromClass(GIGURLResponse.self)
 		return NSClassFromString(className) as! GIGURLResponse.Type
 	}

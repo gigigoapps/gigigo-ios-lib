@@ -11,12 +11,12 @@ import UIKit
 
 extension UIStoryboard {
 	
-    class func GIGStoryboard(name: String) -> UIStoryboard {
-		return UIStoryboard(name: name, bundle: NSBundle(identifier: "com.gigigo.GIGLibrary"))
+    class func GIGStoryboard(_ name: String) -> UIStoryboard {
+		return UIStoryboard(name: name, bundle: Bundle(identifier: "com.gigigo.GIGLibrary"))
 	}
 	
 	
-    class func GIGInitialVC(name: String) -> UIViewController? {
+    class func GIGInitialVC(_ name: String) -> UIViewController? {
 		let storyboard = UIStoryboard.GIGStoryboard(name)
 		guard let initialVC = storyboard.instantiateInitialViewController() else {
 			LogWarn("Couldn't found initial view controller")

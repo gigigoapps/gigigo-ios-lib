@@ -9,13 +9,13 @@
 import Foundation
 
 
-public class JSON: SequenceType, CustomStringConvertible {
+open class JSON: Sequence, CustomStringConvertible {
 	
-	private var json: AnyObject
+	fileprivate var json: AnyObject
 	
-	public var description: String {
-		if let data = try! NSJSONSerialization.dataWithJSONObject(self.json, options: .PrettyPrinted) as NSData? {
-			if let description = String(data: data, encoding: NSUTF8StringEncoding) {
+	open var description: String {
+		if let data = try! JSONSerialization.data(withJSONObject: self.json, options: .prettyPrinted) as Data? {
+			if let description = String(data: data, encoding: String.Encoding.utf8) {
 				return description
 			}
 			else {
@@ -34,14 +34,14 @@ public class JSON: SequenceType, CustomStringConvertible {
 		self.json = json
 	}
 	
-	public subscript(path: String) -> JSON? {
+	open subscript(path: String) -> JSON? {
 		get {
 			guard var jsonDict = self.json as? [String: AnyObject] else {
 				return nil
 			}
 			
 			var json = self.json
-			let pathArray = path.componentsSeparatedByString(".")
+			let pathArray = path.components(separatedBy: ".")
 			
 			for key in pathArray {
 				
@@ -61,17 +61,17 @@ public class JSON: SequenceType, CustomStringConvertible {
 		}
 	}
     
-    public subscript(index: Int) -> JSON? {
+    open subscript(index: Int) -> JSON? {
         get {
-            guard let array = self.json as? [AnyObject] where array.count > index else { return nil }
+            guard let array = self.json as? [AnyObject] , array.count > index else { return nil }
             
             return JSON(json: array[index])
         }
     }
 	
-	public class func dataToJson(data: NSData) throws -> JSON {
-		let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
-		let json = JSON(json: jsonObject)
+	open class func dataToJson(_ data: Data) throws -> JSON {
+		let jsonObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+		let json = JSON(json: jsonObject as AnyObject)
 		
 		return json
 	}
@@ -79,11 +79,11 @@ public class JSON: SequenceType, CustomStringConvertible {
 	
 	// MARK - Public methods
 	
-	public func toBool() -> Bool? {
+	open func toBool() -> Bool? {
 		return self.json as? Bool
 	}
 		
-	public func toInt() -> Int? {
+	open func toInt() -> Int? {
 		if let value = self.json as? Int {
 			return value
 		}
@@ -94,23 +94,23 @@ public class JSON: SequenceType, CustomStringConvertible {
 		return nil
 	}
 		
-	public func toString() -> String? {
+	open func toString() -> String? {
 		return self.json as? String
 	}
 	
-	public func toDate(format: String = DateISOFormat) -> NSDate? {
+	open func toDate(_ format: String = DateISOFormat) -> Date? {
 		guard let dateString = self.json as? String else {
 			return nil
 		}
 		
-		return NSDate.dateFromString(dateString, format: format)
+		return Date.dateFromString(dateString, format: format)
 	}
     
-    public func toDouble() -> Double? {
+    open func toDouble() -> Double? {
         return self.json as? Double
     }
     
-    public func toDictionary() -> [String: AnyObject]? {
+    open func toDictionary() -> [String: AnyObject]? {
         
         guard let dic = self.json as? [String: AnyObject] else {
             return [:]
@@ -121,10 +121,10 @@ public class JSON: SequenceType, CustomStringConvertible {
 	
 	// MARK - Sequence Methods
 	
-	public func generate() -> AnyGenerator<JSON> {
+	open func makeIterator() -> AnyIterator<JSON> {
 		var index = 0
 		
-		return AnyGenerator{ () -> JSON? in
+		return AnyIterator{ () -> JSON? in
 			guard let array = self.json as? [AnyObject] else { return nil }
 			guard array.count > index else { return nil }
 			
