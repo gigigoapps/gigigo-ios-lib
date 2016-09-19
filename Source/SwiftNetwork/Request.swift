@@ -14,13 +14,13 @@ open class Request: GIGURLCommunicator {
 	open var method: String
 	open var endpoint: String
 	open var headers: [String: String]?
-	open var urlParams: [String: AnyObject]?
-	open var bodyParams: [String: AnyObject]?
+	open var urlParams: [String: AnyHashable]?
+	open var bodyParams: [String: AnyHashable]?
 	open var verbose = false
 	
 	fileprivate var manager: GIGURLManager
 	
-	public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: AnyObject]? = nil, bodyParams: [String: AnyObject]? = nil, verbose: Bool = false) {
+	public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: AnyHashable]? = nil, bodyParams: [String: AnyHashable]? = nil, verbose: Bool = false) {
 		self.method = method
 		self.endpoint = endpoint
 		self.headers = headers
