@@ -27,6 +27,9 @@ git "https://bitbucket.org/gigigo/gigigo-gigpassbook-ios.git" ~> 1.0
 
 # GIGRateApp
 git "https://bitbucket.org/gigigo/gigigo-gigrate-app.git" ~> 1.0
+
+# GIGFormulary
+git "https://bitbucket.org/gigigo/gigigo-giglibformulary-ios" ~> 1.0
 ```
 
 
