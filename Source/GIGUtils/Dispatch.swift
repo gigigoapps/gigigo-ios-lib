@@ -14,7 +14,7 @@ public func gig_dispatch_background(_ code: @escaping () -> Void) {
 }
 
 public func gig_dispatch_main(_ code: @escaping () -> Void) {
-	DispatchQueue.main.async(execute: code)
+	DispatchQueue.main.async(execute: code) 
 }
 
 public func gig_dispatch_main_after(_ seconds: UInt64, code: @escaping () -> Void) {
