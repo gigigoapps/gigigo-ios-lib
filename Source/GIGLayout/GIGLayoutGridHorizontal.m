@@ -7,6 +7,7 @@
 //
 
 #import "GIGLayoutGridHorizontal.h"
+#import <GIGLibrary/GIGLibrary-Swift.h>
 
 @implementation GIGLayoutGridHorizontal
 
@@ -46,9 +47,7 @@
 - (void)initGrid
 {
     self.container = [[UIView alloc] init];
-    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.container setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self addSubview:self.container];
+    [self addSubviewWithAutolayout:self.container];
     
 }
 
