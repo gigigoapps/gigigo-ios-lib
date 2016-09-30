@@ -231,6 +231,7 @@ public enum Style {
     case underlineColor(UIColor)
     case link(URL)
     case baseLineOffset(CGFloat)
+    case letterSpacing(CGFloat)
 
     func key() -> String {
         
@@ -264,6 +265,8 @@ public enum Style {
             return NSLinkAttributeName
         case .baseLineOffset:
             return NSBaselineOffsetAttributeName
+        case .letterSpacing:
+            return NSKernAttributeName
         }
     }
     
@@ -309,6 +312,8 @@ public enum Style {
             return link as AnyObject
         case .baseLineOffset(let offset):
             return offset as AnyObject
+        case .letterSpacing(let spacing):
+            return spacing as AnyObject
         }
     }
 }
