@@ -18,7 +18,7 @@ class SwiftRequestVC: UIViewController {
 		LogManager.shared.logLevel = .debug
 	}
 	
-	@IBAction func onButtonSwiftRequestTap(sender: UIButton) {
+	@IBAction func onButtonSwiftRequestTap(_ sender: UIButton) {
 		let request = Request(
 			method: "GET",
 			baseUrl: "http://api-discover-mcd.s.gigigoapps.com",
@@ -33,7 +33,7 @@ class SwiftRequestVC: UIViewController {
 		request.fetchJson(processResponse)
 	}
 	
-	@IBAction func onButtonOrchextraApiRequestTap(sender: AnyObject) {
+	@IBAction func onButtonOrchextraApiRequestTap(_ sender: AnyObject) {
 		Request(
 			method: "POST",
 			baseUrl: "https://api.s.orchextra.io/v1",
@@ -51,7 +51,7 @@ class SwiftRequestVC: UIViewController {
 	}
 	
 	
-	@IBAction func onButtonImageDownloadTap(sender: AnyObject) {
+	@IBAction func onButtonImageDownloadTap(_ sender: AnyObject) {
 		Request(
 			method: "GET",
 			baseUrl: "http://api-discover-mcd.s.gigigoapps.com/media/image/qLXSBtDE/100/185/90",
@@ -64,7 +64,7 @@ class SwiftRequestVC: UIViewController {
 	
 	
 	
-	private func processResponse(response: Response) {
+	fileprivate func processResponse(_ response: Response) {
 		switch response.status {
 
 		case .success:

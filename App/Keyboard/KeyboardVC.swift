@@ -44,7 +44,7 @@ class KeyboardVC: UIViewController, KeyboardAdaptable {
 	}
 
 
-	@IBAction func onButtonTap(sender: AnyObject) {
+	@IBAction func onButtonTap(_ sender: AnyObject) {
 		self.view.endEditing(true)
 	}
 	

@@ -11,27 +11,33 @@ import Foundation
 
 open class JSON: Sequence, CustomStringConvertible {
 	
-	fileprivate var json: AnyObject
+	fileprivate var json: Any
 	
 	open var description: String {
-		if let data = try! JSONSerialization.data(withJSONObject: self.json, options: .prettyPrinted) as Data? {
+		if let data = try? JSONSerialization.data(withJSONObject: self.json, options: .prettyPrinted) as Data {
 			if let description = String(data: data, encoding: String.Encoding.utf8) {
 				return description
 			}
 			else {
-				return self.json.description
+				return String(describing: self.json)
 			}
 		}
 		else {
-			return self.json.description
+			return String(describing: self.json)
 		}
 	}
 	
 	
 	// MARK - Initializers
-	
+
+	// deprecated
+	@available(*, deprecated: 2.0.2, message: "Use init(from any: Any) instead", renamed: "init(from:)")
 	public init(json: AnyObject) {
 		self.json = json
+	}
+	
+	public init(from any: Any) {
+		self.json = any
 	}
 	
 	open subscript(path: String) -> JSON? {
@@ -57,7 +63,7 @@ open class JSON: Sequence, CustomStringConvertible {
 				}
 			}
 			
-			return JSON(json: json)
+			return JSON(from: json)
 		}
 	}
     
@@ -65,13 +71,13 @@ open class JSON: Sequence, CustomStringConvertible {
         get {
             guard let array = self.json as? [AnyObject] , array.count > index else { return nil }
             
-            return JSON(json: array[index])
+            return JSON(from: array[index])
         }
     }
 	
 	open class func dataToJson(_ data: Data) throws -> JSON {
 		let jsonObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-		let json = JSON(json: jsonObject as AnyObject)
+		let json = JSON(from: jsonObject as AnyObject)
 		
 		return json
 	}
@@ -110,9 +116,9 @@ open class JSON: Sequence, CustomStringConvertible {
         return self.json as? Double
     }
     
-    open func toDictionary() -> [String: AnyObject]? {
+    open func toDictionary() -> [String: Any]? {
         
-        guard let dic = self.json as? [String: AnyObject] else {
+        guard let dic = self.json as? [String: Any] else {
             return [:]
         }
         
@@ -129,7 +135,7 @@ open class JSON: Sequence, CustomStringConvertible {
 			guard array.count > index else { return nil }
 			
 			let item = array[index]
-			let json = JSON(json: item)
+			let json = JSON(from: item)
 			index += 1
 			
 			return json
