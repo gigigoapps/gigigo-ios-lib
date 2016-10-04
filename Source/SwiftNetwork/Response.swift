@@ -166,7 +166,7 @@ public extension Response {
 			throw ResponseError.bodyNil
 		}
 		
-		return JSON(json: json)
+		return JSON(from: json)
 	}
 	
 	public func image() throws -> UIImage {

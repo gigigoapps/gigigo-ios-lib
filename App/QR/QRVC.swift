@@ -21,7 +21,7 @@ class QRVC: UIViewController, UITextFieldDelegate, KeyboardAdaptable {
 		
 	}
 
-	@IBAction func editingChanged(sender: AnyObject) {
+	@IBAction func editingChanged(_ sender: AnyObject) {
 		self.imageQR.image = nil
 		guard let string = self.textInput.text else { return }
 		

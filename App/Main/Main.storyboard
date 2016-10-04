@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="3ms-yN-F2o">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="3ms-yN-F2o">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -223,19 +223,19 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efe-9A-00e">
                                 <state key="normal" title="Make McDonald Config Request"/>
                                 <connections>
-                                    <action selector="onButtonSwiftRequestTap:" destination="cwX-pq-dTT" eventType="touchUpInside" id="zIy-PH-7ve"/>
+                                    <action selector="onButtonSwiftRequestTap:" destination="cwX-pq-dTT" eventType="touchUpInside" id="ShL-IQ-BP4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8F-M4-Ccm">
                                 <state key="normal" title="Make Ochextra API Login Request"/>
                                 <connections>
-                                    <action selector="onButtonOrchextraApiRequestTap:" destination="cwX-pq-dTT" eventType="touchUpInside" id="cRX-uT-zDS"/>
+                                    <action selector="onButtonOrchextraApiRequestTap:" destination="cwX-pq-dTT" eventType="touchUpInside" id="A2O-iH-SD1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdX-uq-qmj">
                                 <state key="normal" title="Make McDonald Image Request"/>
                                 <connections>
-                                    <action selector="onButtonImageDownloadTap:" destination="cwX-pq-dTT" eventType="touchUpInside" id="41R-3w-cv4"/>
+                                    <action selector="onButtonImageDownloadTap:" destination="cwX-pq-dTT" eventType="touchUpInside" id="Tyn-8J-ADV"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -33,12 +33,12 @@ class SlideMenuViewController: UIViewController {
     }
     
     
-    @IBAction func onMenuButtonTap(sender: AnyObject) {
+    @IBAction func onMenuButtonTap(_ sender: AnyObject) {
         self.menu.userDidTapMenu()
     }
 
     
-    private func prepareMenu() {
+    fileprivate func prepareMenu() {
 		self.menu.sectionSelectorColor = UIColor.blue
 		self.menu.menuBackgroundColor = UIColor(fromHex: 0x242424)
 		
