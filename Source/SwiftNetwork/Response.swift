@@ -23,12 +23,7 @@ public enum ResponseStatus {
 	case unknownError
 }
 
-public enum ResponseError: Error {
-	case bodyNil
-	case unexpectedDataType
-}
-
-open class Response {
+open class Response: Selfie {
 	
 	open var status: ResponseStatus
 	open var statusCode: Int
@@ -60,16 +55,10 @@ open class Response {
 				self.status = .success
 			}
 			
-			if let contentType = self.headers?["Content-Type"] as? String {
-				switch contentType {
-					
-				case "application/json":
-					self.parseJSON()
-					
-				default: break
-				}
+			if let contentType = self.headers?["Content-Type"] as? String,
+				contentType.contains("application/json"){
+				self.parseJSON()
 			}
-			
 		} else {
 			self.statusCode = self.error?.code ?? -1
 			self.status = self.parseError(error: self.error)
@@ -140,12 +129,12 @@ open class Response {
 	}
 	
 	func logResponse() {
-		Log("******** RESPONSE ********")
-		Log(" - URL:\t" + self.logURL())
-		Log(" - CODE:\t" + "\(self.statusCode)")
+		print("******** RESPONSE ********")
+		print(" - URL:\t" + self.logURL())
+		print(" - CODE:\t" + "\(self.statusCode)")
 		self.logHeaders()
 		self.logData()
-		Log("*************************\n")
+		print("*************************\n")
 	}
 	
 	private func logURL() -> String {
@@ -159,15 +148,15 @@ open class Response {
 	private func logHeaders() {
 		guard let headers = self.headers else { return }
 		
-		Log(" - HEADERS: {")
+		print(" - HEADERS: {")
 		
 		for key in headers.keys {
 			if let value = headers[key] {
-				Log("\t\t\(key): \(value)")
+				print("\t\t\(key): \(value)")
 			}
 		}
 		
-		Log("}")
+		print("}")
 	}
 	
 	private func logData() {
@@ -176,14 +165,19 @@ open class Response {
 		}
 		
 		if let json = try? JSON.dataToJson(body) {
-			Log(" - JSON:\n\(json)")
+			print(" - JSON:\n\(json)")
 		} else if let string = String(data: body, encoding: .utf8) {
-			Log(" - DATA:\n\(string)")
+			print(" - DATA:\n\(string)")
 		}
 		
 	}
 }
 
+
+public enum ResponseError: Error {
+	case bodyNil
+	case unexpectedDataType
+}
 
 public extension Response {
 	
