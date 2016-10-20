@@ -40,6 +40,8 @@ open class Request: Selfie {
 		let session = URLSession.shared
 		
 		if self.verbose {
+			LogManager.shared.logLevel = .debug
+			LogManager.shared.appName = "GIGLibrary - SwiftRequest"
 			self.logRequest()
 		}
 		
@@ -87,10 +89,6 @@ open class Request: Selfie {
 	}
 	
 	fileprivate func logRequest() {
-		if !self.verbose {
-			return
-		}
-		
 		let url = self.request?.url?.absoluteString ?? "no url set"
 		let method = self.request?.httpMethod ?? "no method set"
 		
