@@ -20,17 +20,18 @@ class SwiftRequestVC: UIViewController {
 	
 	@IBAction func onButtonSwiftRequestTap(_ sender: UIButton) {
 		let request = Request(
-			method: "GET",
-			baseUrl: "http://api-discover-mcd.s.gigigoapps.com",
+			method: "POST",
+			baseUrl: "https://api-discover-mcd.q.gigigoapps.com",
 			endpoint: "/configuration",
-			urlParams: [
-                "this_is": "a_trout",
-                "probando": "repeticion"
-            ]
+			headers: [
+				"x-app-version": "IOS_2.1",
+				"x-app-country": "BR",
+				"x-app-language": "es",
+			]
 		)
 		request.verbose = true
 		
-		request.fetchJson(processResponse)
+		request.fetch(completionHandler: processResponse)
 	}
 	
 	@IBAction func onButtonOrchextraApiRequestTap(_ sender: AnyObject) {
@@ -47,7 +48,7 @@ class SwiftRequestVC: UIViewController {
 			],
 			verbose: true
 		)
-		.fetchJson(processResponse)
+		.fetch(completionHandler: processResponse)
 	}
 	
 	
@@ -58,7 +59,7 @@ class SwiftRequestVC: UIViewController {
 			endpoint: "",
 			verbose: true
 		)
-		.fetchImage(processResponse)
+		.fetch(completionHandler: processResponse)
 
 	}
 	
@@ -68,7 +69,7 @@ class SwiftRequestVC: UIViewController {
 		switch response.status {
 
 		case .success:
-			Log("Success: \n\(response.body!)")
+			Log("Success: \n\(try! response.json())")
 		case .errorParsingJson, .noInternet, .sessionExpired, .timeout, .unknownError:
 			Log("Some kind of error")
 			LogError(response.error)
