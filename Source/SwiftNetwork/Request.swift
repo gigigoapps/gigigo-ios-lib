@@ -20,6 +20,7 @@ open class Request: Selfie {
 	open var verbose = false
 	
 	private var request: URLRequest?
+	private var task: URLSessionTask?
 	
 	public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: AnyHashable]? = nil, bodyParams: [String: AnyHashable]? = nil, verbose: Bool = false) {
 		self.method = method
@@ -45,7 +46,8 @@ open class Request: Selfie {
 			self.logRequest()
 		}
 		
-		let task = session.dataTask(with: request) { data, urlResponse, error in
+		self.cancel()
+		self.task = session.dataTask(with: request) { data, urlResponse, error in
 			let response = Response(data: data, response: urlResponse, error: error)
 			
 			if self.verbose {
@@ -58,6 +60,10 @@ open class Request: Selfie {
 		}
 		
 		task.resume()
+	}
+	
+	public func cancel() {
+		self.task?.cancel()
 	}
 	
 	
