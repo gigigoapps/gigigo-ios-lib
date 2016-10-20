@@ -41,7 +41,7 @@ open class Request: Selfie {
 		
 		if self.verbose {
 			LogManager.shared.logLevel = .debug
-			LogManager.shared.appName = "GIGLibrary - SwiftRequest"
+			LogManager.shared.appName = "GIGLibrary"
 			self.logRequest()
 		}
 		
@@ -92,12 +92,12 @@ open class Request: Selfie {
 		let url = self.request?.url?.absoluteString ?? "no url set"
 		let method = self.request?.httpMethod ?? "no method set"
 		
-		Log("******** REQUEST ********")
-		Log(" - URL:\t\t\(url)")
-		Log(" - METHOD:\t\(method)")
+		print("******** REQUEST ********")
+		print(" - URL:\t\t\(url)")
+		print(" - METHOD:\t\(method)")
 		self.logBody()
 		self.logHeaders()
-		Log("*************************\n")
+		print("*************************\n")
 	}
 	
 	fileprivate func logBody() {
@@ -106,21 +106,21 @@ open class Request: Selfie {
 			let json = try? JSON.dataToJson(body)
 			else { return }
 		
-		Log(" - BODY:\n\(json)")
+		print(" - BODY:\n\(json)")
 	}
 	
 	fileprivate func logHeaders() {
 		guard let headers = self.request?.allHTTPHeaderFields, !headers.isEmpty else { return }
 		
-		Log(" - HEADERS: {")
+		print(" - HEADERS: {")
 		
 		for key in headers.keys {
 			if let value = headers[key] {
-				Log("\t\t\(key): \(value)")
+				print("\t\t\(key): \(value)")
 			}
 		}
 		
-		Log("}")
+		print("}")
 	}
 	
 }
