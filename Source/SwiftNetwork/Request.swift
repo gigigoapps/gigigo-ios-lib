@@ -9,95 +9,74 @@
 import Foundation
 
 
-open class Request: GIGURLCommunicator {
+open class Request: Selfie {
 	
 	open var method: String
+	open var baseURL: String
 	open var endpoint: String
 	open var headers: [String: String]?
-	open var urlParams: [String: AnyHashable]?
-	open var bodyParams: [String: AnyHashable]?
+	open var urlParams: [String: Any]?
+	open var bodyParams: [String: Any]?
 	open var verbose = false
 	
-	fileprivate var manager: GIGURLManager
+	private var request: URLRequest?
 	
 	public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: AnyHashable]? = nil, bodyParams: [String: AnyHashable]? = nil, verbose: Bool = false) {
 		self.method = method
+		self.baseURL = baseUrl
 		self.endpoint = endpoint
 		self.headers = headers
 		self.urlParams = urlParams
 		self.bodyParams = bodyParams
 		self.verbose = verbose
-		
-		self.manager = GIGURLManager()
-		self.manager.domain = GIGURLDomain(name: "domain", url: baseUrl)
-		
-		super.init(manager: self.manager)
 	}
 	
 	
 	// MARK: - Public Method
 	
-	open func fetchData(_ completionHandler: @escaping (Response) -> Void) {
-		let request = self.buildRequest()
-		request.responseClass = self.dataClass()
+	open func fetch(completionHandler: @escaping (Response) -> Void) {
+		guard let request = self.buildRequest() else { return }
+		self.request = request
+		let session = URLSession.shared
 		
-		self.send(request) { urlResponse in
-			guard let dataResponse = urlResponse as? GIGURLResponse else {
-				completionHandler(Response())
-				return
+		if self.verbose {
+			self.logRequest()
+		}
+		
+		let task = session.dataTask(with: request) { data, urlResponse, error in
+			let response = Response(data: data, response: urlResponse, error: error)
+			
+			if self.verbose {
+				response.logResponse()
 			}
 			
-			let response = Response(response: dataResponse)
-			completionHandler(response)
-		}
-	}
-	
-	
-	open func fetchJson(_ completionHandler: @escaping (Response) -> Void) {
-		let request = self.buildRequest()
-		request.responseClass = self.jsonClass()
-		
-		self.send(request) { urlResponse in
-			guard let jsonResponse = urlResponse as? GIGURLJSONResponse else {
-				completionHandler(Response())
-				return
+			DispatchQueue.main.async {
+				completionHandler(response)
 			}
-			
-			let response = Response(response: jsonResponse)
-			completionHandler(response)
 		}
-	}
-	
-	open func fetchImage(_ completionHandler: @escaping (Response) -> Void) {
-		let request = self.buildRequest()
-		request.responseClass = self.imageClass()
 		
-		self.send(request) { urlResponse in
-			guard let imageResponse = urlResponse as? GIGURLImageResponse else {
-				completionHandler(Response())
-				return
-			}
-			
-			let response = Response(response: imageResponse)
-			completionHandler(response)
-		}
+		task.resume()
 	}
 	
 	
 	// MARK: - Private Helpers
 	
-	fileprivate func buildRequest() -> GIGURLRequest {
-		let url = self.buildURL()
-		let request = GIGURLRequest(method: self.method, url: url)
-		request?.headers = self.headers
-		request?.json = self.bodyParams
-		request?.logLevel = self.verbose ? .verbose : .none
+	fileprivate func buildRequest() -> URLRequest? {
+		guard let url = URL(string: self.buildURL()) else { LogWarn("not a valid URL"); return nil }
+
+		var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 15)
+		request.httpMethod = self.method
+		request.allHTTPHeaderFields = self.headers
 		
-		return request!
+		if let body = self.bodyParams, self.method != "GET" {
+			request.httpBody = JSON(from: body).toData()
+		}
+		
+		return request
 	}
 	
 	fileprivate func buildURL() -> String {
-		var url = URLComponents(string: self.manager.domain.url)
+		var url = URLComponents(string: self.baseURL)
 		url?.path = (url?.path)! + self.endpoint
 		
 		url?.queryItems = self.urlParams?.map { key, value in
@@ -107,18 +86,43 @@ open class Request: GIGURLCommunicator {
 		return url?.string ?? "NOT VALID URL"
 	}
 	
-	fileprivate func jsonClass() -> AnyClass {
-		let className = NSStringFromClass(GIGURLJSONResponse.self)
-		return NSClassFromString(className) as! GIGURLJSONResponse.Type
+	fileprivate func logRequest() {
+		if !self.verbose {
+			return
+		}
+		
+		let url = self.request?.url?.absoluteString ?? "no url set"
+		let method = self.request?.httpMethod ?? "no method set"
+		
+		Log("******** REQUEST ********")
+		Log(" - URL:\t\t\(url)")
+		Log(" - METHOD:\t\(method)")
+		self.logBody()
+		self.logHeaders()
+		Log("*************************\n")
 	}
 	
-	fileprivate func imageClass() -> AnyClass {
-		let className = NSStringFromClass(GIGURLImageResponse.self)
-		return NSClassFromString(className) as! GIGURLImageResponse.Type
+	fileprivate func logBody() {
+		guard
+			let body = self.request?.httpBody,
+			let json = try? JSON.dataToJson(body)
+			else { return }
+		
+		Log(" - BODY:\n\(json)")
 	}
 	
-	fileprivate func dataClass() -> AnyClass {
-		let className = NSStringFromClass(GIGURLResponse.self)
-		return NSClassFromString(className) as! GIGURLResponse.Type
+	fileprivate func logHeaders() {
+		guard let headers = self.request?.allHTTPHeaderFields, !headers.isEmpty else { return }
+		
+		Log(" - HEADERS: {")
+		
+		for key in headers.keys {
+			if let value = headers[key] {
+				Log("\t\t\(key): \(value)")
+			}
+		}
+		
+		Log("}")
 	}
+	
 }

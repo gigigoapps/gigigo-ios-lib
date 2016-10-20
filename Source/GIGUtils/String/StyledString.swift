@@ -1,7 +1,7 @@
 
 import UIKit
 
-// MARK: PUBLIC 
+// MARK: PUBLIC
 
 // MARK: Extensions
 
@@ -14,12 +14,12 @@ public extension String {
      A StyledString
      
      - parameters:
-        - styles: List of styles
+     - styles: List of styles
      
      ````
      "Cool text".style(.Bold,
-                       .Underline,
-                       .Color(UIColor.redColor()))
+     .Underline,
+     .Color(UIColor.redColor()))
      ````
      */
     
@@ -38,8 +38,8 @@ public extension UILabel {
      
      ````
      label.styledString = "Cool text".style(.Bold,
-                                            .Underline,
-                                            .Color(UIColor.redColor()))
+     .Underline,
+     .Color(UIColor.redColor()))
      ````
      */
     
@@ -83,8 +83,8 @@ public extension UITextView {
      
      ````
      textView.styledString = "Cool text".style(.Bold,
-                                        .Underline,
-                                        .Color(UIColor.redColor()))
+     .Underline,
+     .Color(UIColor.redColor()))
      ````
      */
     
@@ -127,11 +127,11 @@ public extension UITextView {
             if let currentFont = self.font {
                 font = currentFont;
             }
-                
+            
             if let currentTextColor = self.textColor {
                 textColor = currentTextColor;
             }
-                
+            
             self.attributedText = NSAttributedString(fromHTML: newtHtml, font: font, color: textColor)
         }
     }
@@ -187,7 +187,7 @@ public struct StyledString {
     }
     
     // MARK: PRIVATE
-
+    
     func attributedStringFrom(styledStringFraction: StyledStringFraction, font:UIFont) -> NSAttributedString {
         
         let currentString = styledStringFraction.string
@@ -232,7 +232,10 @@ public enum Style {
     case link(URL)
     case baseLineOffset(CGFloat)
     case letterSpacing(CGFloat)
-
+    case centerAligment
+    case leftAligment
+    case rightAligment
+    
     func key() -> String {
         
         switch self {
@@ -267,6 +270,12 @@ public enum Style {
             return NSBaselineOffsetAttributeName
         case .letterSpacing:
             return NSKernAttributeName
+        case .centerAligment:
+            return NSParagraphStyleAttributeName
+        case .leftAligment:
+            return NSParagraphStyleAttributeName
+        case .rightAligment:
+            return NSParagraphStyleAttributeName
         }
     }
     
@@ -314,6 +323,18 @@ public enum Style {
             return offset as AnyObject
         case .letterSpacing(let spacing):
             return spacing as AnyObject
+        case .centerAligment:
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+            return paragraphStyle
+        case .leftAligment:
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .left
+            return paragraphStyle
+        case .rightAligment:
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .right
+            return paragraphStyle
         }
     }
 }
