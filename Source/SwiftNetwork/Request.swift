@@ -59,7 +59,7 @@ open class Request: Selfie {
 			}
 		}
 		
-		task.resume()
+		self.task?.resume()
 	}
 	
 	public func cancel() {
