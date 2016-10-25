@@ -90,8 +90,15 @@ open class Request: Selfie {
 		request.httpMethod = self.method
 		request.allHTTPHeaderFields = self.headers
 		
+		// Set body is not GET
 		if let body = self.bodyParams, self.method != "GET" {
 			request.httpBody = JSON(from: body).toData()
+			
+			// Add Content-Type if it wasn't set
+			if let containsContentType = request.allHTTPHeaderFields?.keys.contains("Content-Type"),
+				!containsContentType {
+				request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+			}
 		}
 		
 		return request
