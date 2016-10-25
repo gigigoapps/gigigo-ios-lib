@@ -26,7 +26,7 @@ public protocol Instantiable {
 	static func identifier() -> String?	//
 }
 
-extension Instantiable where Self: UIViewController {
+public extension Instantiable where Self: UIViewController {
 	static func identifier() -> String? {
 		return nil
 	}
