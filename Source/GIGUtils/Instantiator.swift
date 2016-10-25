@@ -19,16 +19,20 @@ public enum ErrorInstantiation: Error {
 public protocol Instantiable {
 	static func storyboard() -> String
 	
-	/// Needs to be overriden, but is recomended to use and extension in your project
+	/// Override is optional. By default it gets the Bundle for Self
 	static func bundle() -> Bundle
 	
 	/// Override is optional. If nil, instantiateInitialViewController will be used. Nil by default
 	static func identifier() -> String?	//
 }
 
-extension Instantiable {
+extension Instantiable where Self: UIViewController {
 	static func identifier() -> String? {
 		return nil
+	}
+	
+	static func bundle() -> Bundle {
+		return Bundle(for: Self.self)
 	}
 }
 
@@ -54,11 +58,12 @@ public struct Instantiator<ViewController: Instantiable> {
 	public init() { }
 	
 	/**
-	Instantiate the
+	Instantiate the ViewController
 	
 	- throws: An error of type ErrorInstantiation
-	- returns: An ViewController object (already downcasted)
+	- returns: A ViewController object (already downcasted)
 	- Author: Alejandro Jiménez
+	- Version: 2.1.4
 	- Since: 1.2.1
 	*/
 	public func viewController() throws -> ViewController {
