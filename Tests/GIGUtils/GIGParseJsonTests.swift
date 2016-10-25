@@ -45,7 +45,7 @@ class GIGParseJsonTests: XCTestCase {
     func test_correct_format_json() {
         let dateString = "1985-01-25T00:00:00Z"
         
-        let json: JSON = JSON(json: [
+        let json: JSON = JSON(from: [
             "string": "Text",
             "int": 12,
             "bool": true,
@@ -68,7 +68,7 @@ class GIGParseJsonTests: XCTestCase {
     func test_incorrect_format_json() {
         let dateString = "1985-02-25T00:00:00Z"
         
-        let json: JSON = JSON(json: [
+        let json: JSON = JSON(from: [
             "string": "Text",
             "int": 11,
             "bool": false,
