@@ -23,12 +23,14 @@ public enum ResponseStatus {
 	case unknownError
 }
 
-
-open class Response {
+open class Response: Selfie {
 	
 	open var status: ResponseStatus
 	open var statusCode: Int
-	open var body: AnyObject?
+	open var url: URL?
+	open var headers: [AnyHashable: Any]?
+	open var body: Data?
+	open var data: JSON?
 	open var error: NSError?
 	
 	
@@ -39,101 +41,75 @@ open class Response {
 		self.statusCode = 0
 	}
 	
-	
-	convenience init(response: GIGURLResponse) {
+	convenience init(data: Data?, response: URLResponse?, error: Error?) {
 		self.init()
 		
-		guard
-			response.success,
-			let data = response.data
-			else {
-				self.statusCode = response.error._code
-				self.error = response.error as NSError?
-                self.status = self.parse(error: self.error)
-				return
-		}
-		
-		self.statusCode = 200
-		self.status = .success
-		self.body = data as AnyObject?
-	}
-	
-	convenience init(response: GIGURLJSONResponse) {
-		self.init()
-		
-		self.body = response.json as AnyObject?
-		
-		if response.success {
-			guard let json = response.json as? [String: AnyObject] else {
-				self.status = .errorParsingJson
-				return
-			}
+		self.error = error as? NSError
+		if let response = response as? HTTPURLResponse {
+			self.url = response.url
+			self.headers = response.allHeaderFields
+			self.body = data
+			self.statusCode = response.statusCode
 			
-			guard let status = self.parseStatus(json) else {
-				self.error = response.error as NSError?
-                self.status = self.parse(error: self.error!)
-				return
-			}
-			
-			if status != true {
-                self.status = self.parse(json: json)
-			}
-			else {
+			if (200...300).contains(self.statusCode) {
 				self.status = .success
-				self.body = json["data"]
 			}
-		}
-		else {
-            self.status = self.parse(error: response.error as NSError)
-		}
-	}
-	
-	convenience init(response: GIGURLImageResponse) {
-		self.init()
-		
-		if response.success {
-			guard let image = response.image else {
-				self.status = .unknownError
-				return
+			
+			if let contentType = self.headers?["Content-Type"] as? String,
+				contentType.contains("application/json"){
+				self.parseJSON()
 			}
-			self.status = .success
-			self.body = image
-		}
-		else {
-            self.status = self.parse(error: response.error as NSError)
+		} else {
+			self.statusCode = self.error?.code ?? -1
+			self.status = self.parseError(error: self.error)
 		}
 	}
 	
 	
 	// MARK: - Private Helpers
 	
-	fileprivate func parseStatus(_ json: [String: AnyObject]) -> Bool? {
-		if let statusBool = json["status"] as? Bool {
+	private func parseJSON() {
+		guard
+			let body = self.body,
+			let json = try? JSON.dataToJson(body)
+			else { return LogWarn("Response is not a JSON") }
+		
+		let success = self.parseStatus(json: json)
+		
+		if success {
+			self.status = .success
+			self.data = json["data"]
+		} else {
+			self.status = self.parseError(json: json)
+		}
+		
+	}
+	
+	private func parseStatus(json: JSON) -> Bool {
+		if let statusBool = json["status"]?.toBool() {
 			return statusBool
-		}
-		else if let statusString = json["status"] as? String {
+		} else if let statusString = json["status"]?.toString() {
 			return statusString == "OK"
-		}
-		else {
-			return nil
+		} else {
+			return false
 		}
 	}
 	
-	fileprivate func parse(json: [String: AnyObject]) ->  ResponseStatus {
-		let error = json["error"] as? [String: AnyObject] ?? json
+	private func parseError(json: JSON) ->  ResponseStatus {
+		let error = json["error"]
 		
 		guard
-			let code = error["code"] as? Int,
-			let message = error["message"] as? String
-			else { return .unknownError }
+			let code = error?["code"]?.toInt(),
+			let message = error?["message"]?.toString()
+			else { return self.parseError(error: self.error) }
 		
 		let userInfo = [kGIGNetworkErrorMessage: message]
 		self.error = NSError(domain: kGIGNetworkErrorDomain, code: code, userInfo: userInfo)
 		
-        return self.parse(error: self.error)
+		return self.parseError(error: self.error)
 	}
 	
-	fileprivate func parse(error: NSError?) -> ResponseStatus {
+	fileprivate func parseError(error: NSError?) -> ResponseStatus {
 		guard let err = error else { return .unknownError }
 		
 		self.statusCode = err.code
@@ -152,26 +128,74 @@ open class Response {
 		}
 	}
 	
+	func logResponse() {
+		print("******** RESPONSE ********")
+		print(" - URL:\t" + self.logURL())
+		print(" - CODE:\t" + "\(self.statusCode)")
+		self.logHeaders()
+		self.logData()
+		print("*************************\n")
+	}
+	
+	private func logURL() -> String {
+		guard let url = self.url?.absoluteString else {
+			return "NO URL"
+		}
+		
+		return url
+	}
+	
+	private func logHeaders() {
+		guard let headers = self.headers else { return }
+		
+		print(" - HEADERS: {")
+		
+		for key in headers.keys {
+			if let value = headers[key] {
+				print("\t\t\(key): \(value)")
+			}
+		}
+		
+		print("}")
+	}
+	
+	private func logData() {
+		guard let body = self.body else {
+			return
+		}
+		
+		if let json = try? JSON.dataToJson(body) {
+			print(" - JSON:\n\(json)")
+		} else if let string = String(data: body, encoding: .utf8) {
+			print(" - DATA:\n\(string)")
+		}
+		
+	}
 }
 
 
 public enum ResponseError: Error {
 	case bodyNil
+	case unexpectedDataType
 }
 
 public extension Response {
 	
 	public func json() throws -> JSON {
-		guard let json = self.body else {
+		guard let json = self.data else {
 			throw ResponseError.bodyNil
 		}
 		
-		return JSON(from: json)
+		return json
 	}
 	
 	public func image() throws -> UIImage {
-		guard let image = self.body as? UIImage else {
+		guard let imageData = self.body else {
 			throw ResponseError.bodyNil
+		}
+		
+		guard let image = UIImage(data: imageData, scale: UIScreen.main.scale) else {
+			throw ResponseError.unexpectedDataType
 		}
 		
 		return image

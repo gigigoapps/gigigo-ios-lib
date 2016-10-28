@@ -20,17 +20,18 @@ class SwiftRequestVC: UIViewController {
 	
 	@IBAction func onButtonSwiftRequestTap(_ sender: UIButton) {
 		let request = Request(
-			method: "GET",
-			baseUrl: "http://api-discover-mcd.s.gigigoapps.com",
+			method: "POST",
+			baseUrl: "https://api-discover-mcd.q.gigigoapps.com",
 			endpoint: "/configuration",
-			urlParams: [
-                "this_is": "a_trout",
-                "probando": "repeticion"
-            ]
+			headers: [
+				"x-app-version": "IOS_2.1",
+				"x-app-country": "BR",
+				"x-app-language": "es",
+			]
 		)
 		request.verbose = true
 		
-		request.fetchJson(processResponse)
+		request.fetch(completionHandler: processResponse)
 	}
 	
 	@IBAction func onButtonOrchextraApiRequestTap(_ sender: AnyObject) {
@@ -47,10 +48,9 @@ class SwiftRequestVC: UIViewController {
 			],
 			verbose: true
 		)
-		.fetchJson(processResponse)
+		.fetch(completionHandler: processResponse)
 	}
-	
-	
+		
 	@IBAction func onButtonImageDownloadTap(_ sender: AnyObject) {
 		Request(
 			method: "GET",
@@ -58,17 +58,67 @@ class SwiftRequestVC: UIViewController {
 			endpoint: "",
 			verbose: true
 		)
-		.fetchImage(processResponse)
+		.fetch(completionHandler: processResponse)
 
 	}
 	
-	
-	
+    @IBAction func onButtonMcdonalLogin(_ sender: AnyObject) {
+        var AppHeaders: [String: String] {
+            return [
+                "X-app-version": "IOS_2.3",
+                "X-app-country": "BR",
+                "X-app-language": "es"
+            ]
+        }
+        
+        let request = Request(
+            method: "POST",
+            baseUrl: "https://api-discover-mcd.q.gigigoapps.com",
+            endpoint: "/security/login",
+            headers: AppHeaders,
+            bodyParams: [
+                "grantType": "password",
+                "email" : "eduardo.parada@gigigo.com",
+                "password" : "g4l4t341",
+                "deviceId" : UIDevice.current.identifierForVendor?.uuidString ?? "No identifier"
+            ],
+            verbose: true
+        )
+        
+        request.fetch { response in
+            switch response.status {
+                
+            case .success:
+                print("success")
+                break
+            case .errorParsingJson:
+                print("❌❌❌ errorParsingJson")
+                break
+            case .sessionExpired:
+                print("❌❌❌ sessionExpired")
+                break
+            case .timeout:
+                print("❌❌❌ timeout")
+                break
+            case .noInternet:
+                print("❌❌❌ noInternet")
+                break
+            case .apiError:
+                let dataString = String(data: response.body!, encoding: String.Encoding.utf8)
+                print("❌❌❌ apiError code: \(response.error!.code) - dataString: \(dataString)")
+                break
+            case .unknownError:
+                print("❌❌❌ unknownError")
+                break
+            }
+        }
+    }
+		
 	fileprivate func processResponse(_ response: Response) {
 		switch response.status {
 
 		case .success:
-			Log("Success: \n\(response.body!)")
+			Log("Success: \n\(try! response.json())")
 		case .errorParsingJson, .noInternet, .sessionExpired, .timeout, .unknownError:
 			Log("Some kind of error")
 			LogError(response.error)

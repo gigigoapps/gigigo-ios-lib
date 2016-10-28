@@ -11,7 +11,7 @@ import Foundation
 
 open class JSON: Sequence, CustomStringConvertible {
 	
-	fileprivate var json: Any
+	private var json: Any
 	
 	open var description: String {
 		if let data = try? JSONSerialization.data(withJSONObject: self.json, options: .prettyPrinted) as Data {
@@ -84,6 +84,17 @@ open class JSON: Sequence, CustomStringConvertible {
 	
 	
 	// MARK - Public methods
+	
+	open func toData() -> Data? {
+		do {
+			let data = try JSONSerialization.data(withJSONObject: self.json)
+			return data
+		}
+		catch let error as NSError {
+			LogError(error)
+			return nil
+		}
+	}
 	
 	open func toBool() -> Bool? {
 		return self.json as? Bool
