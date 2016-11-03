@@ -42,7 +42,7 @@ open class JSON: Sequence, CustomStringConvertible {
 	
 	open subscript(path: String) -> JSON? {
 		get {
-			guard var jsonDict = self.json as? [String: AnyObject] else {
+			guard var jsonDict = self.json as? [String: Any] else {
 				return nil
 			}
 			
@@ -54,7 +54,7 @@ open class JSON: Sequence, CustomStringConvertible {
 				if let jsonObject = jsonDict[key] {
 					json = jsonObject
 					
-					if let jsonDictNext = jsonObject as? [String : AnyObject] {
+					if let jsonDictNext = jsonObject as? [String : Any] {
 						jsonDict = jsonDictNext
 					}
 				}
@@ -69,7 +69,7 @@ open class JSON: Sequence, CustomStringConvertible {
     
     open subscript(index: Int) -> JSON? {
         get {
-            guard let array = self.json as? [AnyObject] , array.count > index else { return nil }
+            guard let array = self.json as? [Any] , array.count > index else { return nil }
             
             return JSON(from: array[index])
         }
@@ -77,7 +77,7 @@ open class JSON: Sequence, CustomStringConvertible {
 	
 	open class func dataToJson(_ data: Data) throws -> JSON {
 		let jsonObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-		let json = JSON(from: jsonObject as AnyObject)
+		let json = JSON(from: jsonObject)
 		
 		return json
 	}
@@ -142,7 +142,7 @@ open class JSON: Sequence, CustomStringConvertible {
 		var index = 0
 		
 		return AnyIterator{ () -> JSON? in
-			guard let array = self.json as? [AnyObject] else { return nil }
+			guard let array = self.json as? [Any] else { return nil }
 			guard array.count > index else { return nil }
 			
 			let item = array[index]

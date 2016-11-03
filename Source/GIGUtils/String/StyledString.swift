@@ -235,6 +235,7 @@ public enum Style {
     case centerAligment
     case leftAligment
     case rightAligment
+    case lineSpacing(CGFloat)
     
     func key() -> String {
         
@@ -275,6 +276,8 @@ public enum Style {
         case .leftAligment:
             return NSParagraphStyleAttributeName
         case .rightAligment:
+            return NSParagraphStyleAttributeName
+        case .lineSpacing:
             return NSParagraphStyleAttributeName
         }
     }
@@ -334,6 +337,10 @@ public enum Style {
         case .rightAligment:
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = .right
+            return paragraphStyle
+        case .lineSpacing(let space):
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = space
             return paragraphStyle
         }
     }
