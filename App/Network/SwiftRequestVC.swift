@@ -118,7 +118,7 @@ class SwiftRequestVC: UIViewController {
 		switch response.status {
 
 		case .success:
-			Log("Success: \n\(try! response.json())")
+			Log("Success: \n\(try? response.json())")
 		case .errorParsingJson, .noInternet, .sessionExpired, .timeout, .unknownError:
 			Log("Some kind of error")
 			LogError(response.error)

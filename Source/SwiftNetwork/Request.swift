@@ -22,7 +22,7 @@ open class Request: Selfie {
 	private var request: URLRequest?
 	private var task: URLSessionTask?
 	
-	public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: AnyHashable]? = nil, bodyParams: [String: AnyHashable]? = nil, verbose: Bool = false) {
+	public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false) {
 		self.method = method
 		self.baseURL = baseUrl
 		self.endpoint = endpoint
