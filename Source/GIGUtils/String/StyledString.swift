@@ -63,15 +63,15 @@ public extension UILabel {
      ````
      */
     
-    var html: String {
+    var html: String? {
         
         get {
             
             return self.html
         }
         set(newtHtml) {
-            
-            self.attributedText = NSAttributedString(fromHTML: newtHtml, font: self.font, color: self.textColor)
+            let string = newtHtml ?? ""
+            self.attributedText = NSAttributedString(fromHTML: string, font: self.font, color: self.textColor)
         }
     }
 }
