@@ -114,13 +114,14 @@ public extension UITextView {
      ````
      */
     
-    var html: String {
+    var html: String? {
         
         get {
             
             return self.html
         }
         set(newtHtml) {
+            let string = newtHtml ?? ""
             var font = UIFont.systemFont(ofSize: UIFont.systemFontSize);
             var textColor = UIColor.black
             
@@ -132,7 +133,7 @@ public extension UITextView {
                 textColor = currentTextColor;
             }
             
-            self.attributedText = NSAttributedString(fromHTML: newtHtml, font: font, color: textColor)
+            self.attributedText = NSAttributedString(fromHTML: string, font: font, color: textColor)
         }
     }
 }
