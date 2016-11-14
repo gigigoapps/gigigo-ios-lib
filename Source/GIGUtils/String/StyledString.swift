@@ -71,7 +71,7 @@ public extension UILabel {
         }
         set(newtHtml) {
             let string = newtHtml ?? ""
-            self.attributedText = NSAttributedString(fromHTML: string, font: self.font, color: self.textColor)
+            self.attributedText = NSAttributedString(fromHTML: string, font: self.font, color: self.textColor, aligment: self.textAlignment)
         }
     }
 }
@@ -133,7 +133,7 @@ public extension UITextView {
                 textColor = currentTextColor;
             }
             
-            self.attributedText = NSAttributedString(fromHTML: string, font: font, color: textColor)
+            self.attributedText = NSAttributedString(fromHTML: string, font: font, color: textColor, aligment: self.textAlignment)
         }
     }
 }
@@ -146,9 +146,9 @@ public extension NSAttributedString {
                                                                                 NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil)
     }
     
-    public convenience init?(fromHTML html: String, font:UIFont, color:UIColor) {
-        
-        let style = "<style>body{color:\(color.hexString(false)); font-family: '\(font.fontName)'; font-size:" + String(format: "%.0f", font.pointSize) + "px;}</style>"
+    public convenience init?(fromHTML html: String, font:UIFont, color:UIColor, aligment: NSTextAlignment = .left) {
+        let textAligment = aligmentString(fromAligment: aligment)
+        let style = "<style>body{color:\(color.hexString(false)); font-family: '\(font.fontName)'; font-size:" + String(format: "%.0f", font.pointSize) + "px; text-align: \(textAligment);}</style>"
         let completeHtml = style + html
         self.init(fromHTML:completeHtml)
     }
@@ -437,5 +437,21 @@ extension UIColor {
             
             return String(format: "#%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255))
         }
+    }
+}
+
+func aligmentString(fromAligment aligment: NSTextAlignment) -> String {
+    
+    switch aligment {
+    case .left:
+        return "left"
+    case .right:
+        return "right"
+    case .center:
+        return "center"
+    case .justified:
+        return "justified"
+    default:
+        return "left"
     }
 }
