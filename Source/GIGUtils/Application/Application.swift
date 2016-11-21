@@ -28,14 +28,29 @@ open class Application {
 	
 	// MARK: - App Actions
 	
-	open func presentModal(_ viewController: UIViewController) {
-		let topVC = self.topViewController()
-        DispatchQueue.main.async(execute: {
-            topVC?.present(viewController, animated: true, completion: nil)
-        })
+	public func openUrl(url urlString: String) {
+		guard let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) else {
+			return LogWarn("Can not open url: \(urlString)")
+		}
+		
+		if #available(iOS 10.0, *) {
+			UIApplication.shared.open(url)
+		} else {
+			UIApplication.shared.openURL(url)
+		}
 	}
 	
-	fileprivate func topViewController() -> UIViewController? {
+	public func presentModal(_ viewController: UIViewController) {
+		let topVC = self.topViewController()
+		DispatchQueue.main.async(execute: {
+			topVC?.present(viewController, animated: true, completion: nil)
+		})
+	}
+	
+	
+	// MARK: - Private Helpers
+	
+	private func topViewController() -> UIViewController? {
 		let app = UIApplication.shared
 		let window = app.keyWindow
 		var rootVC = window?.rootViewController
