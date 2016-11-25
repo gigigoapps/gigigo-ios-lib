@@ -243,6 +243,7 @@
 		FA0C22351D3E397E00433AFD /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C22341D3E397E00433AFD /* Result.swift */; };
 		FA133A6E1CBC1F150007EE06 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA133A6D1CBC1F150007EE06 /* Storyboard+Extension.swift */; };
 		FA133A751CBC225E0007EE06 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */; };
+		FA137A3A1DE5B12C0025BE53 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA137A391DE5B12C0025BE53 /* StringExtension.swift */; };
 		FA153EB51C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA153EB41C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift */; };
 		FA3021FC1CBD074F00A8F7DE /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3021FB1CBD074F00A8F7DE /* MenuSection.swift */; };
 		FA3021FF1CBD404D00A8F7DE /* SlideMenuTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3021FE1CBD404D00A8F7DE /* SlideMenuTableVC.swift */; };
@@ -595,6 +596,7 @@
 		FA0C22341D3E397E00433AFD /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/GIGUtils/Result.swift; sourceTree = SOURCE_ROOT; };
 		FA133A6D1CBC1F150007EE06 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Extension.swift"; path = "Storyboard/Storyboard+Extension.swift"; sourceTree = "<group>"; };
 		FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuViewController.swift; path = Menu/SlideMenuViewController.swift; sourceTree = "<group>"; };
+		FA137A391DE5B12C0025BE53 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		FA153EB41C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Extension.swift"; sourceTree = "<group>"; };
 		FA3021FB1CBD074F00A8F7DE /* MenuSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSection.swift; path = UIComponents/SlideMenu/MenuSection.swift; sourceTree = "<group>"; };
 		FA3021FE1CBD404D00A8F7DE /* SlideMenuTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuTableVC.swift; path = UIComponents/SlideMenu/Private/SlideMenuTableVC.swift; sourceTree = "<group>"; };
@@ -1143,6 +1145,7 @@
 				D99AD1E41B1DA3A3005BB4E5 /* NSString+GIGSubstring.h */,
 				D99AD1E51B1DA3A3005BB4E5 /* NSString+GIGSubstring.m */,
 				A51F6D741D50BBB30052D95A /* StyledString.swift */,
+				FA137A391DE5B12C0025BE53 /* StringExtension.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -2159,6 +2162,7 @@
 				FA723AC81C64AB4500225E79 /* Response.swift in Sources */,
 				D99AD2811B1DA3A3005BB4E5 /* NSDate+GIGExtension.m in Sources */,
 				D99AD24D1B1DA3A3005BB4E5 /* GIGURLRequest.m in Sources */,
+				FA137A3A1DE5B12C0025BE53 /* StringExtension.swift in Sources */,
 				FA36E9701C637CD100214598 /* Dispatch.swift in Sources */,
 				D99AD25D1B1DA3A3005BB4E5 /* GIGURLStorage.m in Sources */,
 				D99AD2CB1B1DA3A3005BB4E5 /* NSRegularExpression+GIGRegexp.m in Sources */,
@@ -2375,11 +2379,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 2.1.2;
+				CURRENT_PROJECT_VERSION = 2.2.3;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 2.1;
-				DYLIB_CURRENT_VERSION = 2.1.2;
+				DYLIB_CURRENT_VERSION = 2.2.3;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/GIGLibraryFramework/Info.plist";
@@ -2403,10 +2407,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 2.1.2;
+				CURRENT_PROJECT_VERSION = 2.2.3;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 2.1;
-				DYLIB_CURRENT_VERSION = 2.1.2;
+				DYLIB_CURRENT_VERSION = 2.2.3;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/GIGLibraryFramework/Info.plist";
