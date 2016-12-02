@@ -108,9 +108,11 @@ open class Request: Selfie {
 		var url = URLComponents(string: self.baseURL)
 		url?.path = (url?.path)! + self.endpoint
 		
-		url?.queryItems = self.urlParams?.map { key, value in
+		let urlParams = self.urlParams?.map { key, value in
 			URLQueryItem(name: key, value: String(describing: value))
 		}
+		
+		url?.queryItems = concat(url?.queryItems, urlParams)
 		
 		return url?.string ?? "NOT VALID URL"
 	}
@@ -150,4 +152,17 @@ open class Request: Selfie {
 		print("}")
 	}
 	
+}
+
+
+func concat(_ lhs: [URLQueryItem]?, _ rhs: [URLQueryItem]?) -> [URLQueryItem] {
+	guard let left = lhs else {
+		return rhs ?? []
+	}
+	
+	guard let right = rhs else {
+		return left
+	}
+	
+	return left + right
 }

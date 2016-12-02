@@ -54,8 +54,12 @@ class SwiftRequestVC: UIViewController {
 	@IBAction func onButtonImageDownloadTap(_ sender: AnyObject) {
 		Request(
 			method: "GET",
-			baseUrl: "http://api-discover-mcd.s.gigigoapps.com/media/image/qLXSBtDE/100/185/90",
+			baseUrl: "http://api-discover-mcd.s.gigigoapps.com/media/image/qLXSBtDE/100/185/90?query1=1&query2=2",
 			endpoint: "",
+			urlParams: [
+				"query2": "2",
+				"query3": "3"
+			],
 			verbose: true
 		)
 		.fetch(completionHandler: processResponse)
