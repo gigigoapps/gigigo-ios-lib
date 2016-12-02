@@ -142,7 +142,16 @@ public extension NSAttributedString {
     
     public convenience init?(fromHTML html: String) {
         
-        try? self.init(data: html.data(using: String.Encoding.utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+        let htmlData: Data
+        
+        if let data = html.data(using: String.Encoding.utf8) {
+            htmlData = data
+        } else {
+            htmlData = Data()
+            LogWarn("Could not convert to data from: " + html)
+        }
+        
+        try? self.init(data: htmlData, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
                                                                                 NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil)
     }
     
@@ -189,7 +198,7 @@ public struct StyledString {
     
     // MARK: PRIVATE
     
-    func attributedStringFrom(styledStringFraction: StyledStringFraction, font:UIFont) -> NSAttributedString {
+    func attributedStringFrom(styledStringFraction: StyledStringFraction, font: UIFont) -> NSAttributedString {
         
         let currentString = styledStringFraction.string
         let currentStyle = styledStringFraction.styles
@@ -206,7 +215,7 @@ public struct StyledString {
             string.addAttribute(key, value:value, range: NSMakeRange(0, string.length))
             
             if (key == NSFontAttributeName) {
-                currentFont = style.value(forFont: currentFont) as! UIFont
+                currentFont = style.value(forFont: currentFont) as? UIFont ?? UIFont.systemFont(ofSize: 14)
             }
             return string
         }
@@ -308,9 +317,18 @@ public enum Style {
         case .backgroundColor(let color):
             return color
         case .size(let pointSize):
-            return UIFont(name: font.fontName, size: pointSize)!
+            if let font = UIFont(name: font.fontName, size: pointSize) {
+                return font
+            } else {
+                return UIFont.systemFont(ofSize: pointSize)
+            }
         case .fontName(let fontName):
-            return UIFont(name: fontName, size: font.pointSize)!
+            if let font = UIFont(name: fontName, size: font.pointSize) {
+                return font
+            } else {
+                LogWarn("Could not find font with name: " + fontName)
+                return UIFont.systemFont(ofSize: font.pointSize)
+            }
         case .font(let font):
             return font
         case .underline:
