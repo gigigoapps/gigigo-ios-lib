@@ -135,6 +135,14 @@ open class JSON: Sequence, CustomStringConvertible {
         
         return dic
     }
+    
+    open func toArray() -> [Any]? {
+        guard let array = self.json as? [Any] else {
+            return []
+        }
+        
+        return array
+    }
 	
 	// MARK - Sequence Methods
 	

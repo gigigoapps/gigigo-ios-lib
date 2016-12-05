@@ -51,7 +51,10 @@ class GIGParseJsonTests: XCTestCase {
             "bool": true,
             "date": dateString,
             "double": 22.1,
-            "dictionary": ["key":"value"]
+            "dictionary": ["key":"value"],
+            "arrayNumber": [1,2,3,4],
+            "arrayString": ["a","b","c","d","e"],
+            "arrayDic": [["key":1,"value":"a"],["key":2,"value":"a"]]
             ] as AnyObject)
         
         XCTAssertTrue(json["string"]!.toString() == "Text")
@@ -63,6 +66,20 @@ class GIGParseJsonTests: XCTestCase {
         let dic = json["dictionary"]!.toDictionary()
         XCTAssertTrue (dic?.count > 0)
         XCTAssertTrue(dic!["key"] as! String == "value")
+        
+        let arrayNumber = json["arrayNumber"]!.toArray()
+        XCTAssertTrue (arrayNumber?.count == 4)
+        
+        let arrayString = json["arrayString"]!.toArray()
+        XCTAssertTrue (arrayString?.count == 5)
+        
+        let arrayDic = json["arrayDic"]!.toArray()
+        XCTAssertTrue (arrayDic?.count == 2)
+        for dic in arrayDic! {
+            let json = JSON(from: dic)
+            let dic = json.toDictionary()
+            XCTAssertTrue(dic!["value"] as! String == "a")
+        }
     }
     
     func test_incorrect_format_json() {
