@@ -225,8 +225,18 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
     // MARK: - MenuTableDelegate
     
 	func tableDidSelecteSection(_ menuSection: MenuSection, index: Int) {
-        self.setSection(menuSection.sectionController, index: index)
-        self.animate(closeMenu)
+        
+        guard let _ = menuSection.modeButtonType else {
+            self.setSection(menuSection.sectionController, index: index)
+            self.animate(closeMenu)
+            return
+        }
+        
+        guard  let completion = menuSection.completionButtonType else {
+            LogWarn("completion Button Type nil!")
+            return
+        }
+        completion()
     }
     
     

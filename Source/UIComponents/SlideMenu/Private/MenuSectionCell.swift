@@ -13,6 +13,8 @@ class MenuSectionCell: UITableViewCell {
     @IBOutlet weak fileprivate var imageMenuSection: UIImageView!
     @IBOutlet weak fileprivate var labelMenuSection: UILabel!
 	@IBOutlet weak fileprivate var viewSelector: UIView!
+    
+    var modeButtonType : Bool? = false
 	
 	
 	override func awakeFromNib() {
@@ -24,20 +26,32 @@ class MenuSectionCell: UITableViewCell {
         self.labelMenuSection.text = menuSection.name
         self.imageMenuSection.image = menuSection.icon
 		self.viewSelector.alpha = 0
+        
+        guard let modeButtonType = menuSection.modeButtonType else {
+            return
+        }
+        
+        self.modeButtonType = modeButtonType
     }
 	
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
 		super.setSelected(selected, animated: animated)
 		
-		UIView.animate(withDuration: 0.4, animations: { 
-			if selected {
-				self.viewSelector.alpha = 1
-			}
-			else {
-				self.viewSelector.alpha = 0
-			}
-		}) 
+        guard let modeButtonType = self.modeButtonType else {
+            return
+        }
+
+        if !modeButtonType {
+            UIView.animate(withDuration: 0.4, animations: {
+                if selected {
+                    self.viewSelector.alpha = 1
+                }
+                else {
+                    self.viewSelector.alpha = 0
+                }
+            })
+        }
 	}
 
 }
