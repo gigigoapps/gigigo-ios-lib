@@ -14,8 +14,6 @@ class MenuSectionCell: UITableViewCell {
     @IBOutlet weak fileprivate var labelMenuSection: UILabel!
 	@IBOutlet weak fileprivate var viewSelector: UIView!
     
-    var modeButtonType : Bool? = false
-	
 	
 	override func awakeFromNib() {
 		self.viewSelector.backgroundColor = SlideMenuConfig.shared.sectionSelectorColor
@@ -25,32 +23,26 @@ class MenuSectionCell: UITableViewCell {
     func bindMenuSection(_ menuSection: MenuSection) {
         self.labelMenuSection.text = menuSection.name
         self.imageMenuSection.image = menuSection.icon
-		self.viewSelector.alpha = 0
         
         guard let modeButtonType = menuSection.modeButtonType else {
             return
         }
         
-        self.modeButtonType = modeButtonType
+        if modeButtonType {
+            self.viewSelector.backgroundColor = UIColor.clear
+        } else {
+            self.viewSelector.backgroundColor = SlideMenuConfig.shared.sectionSelectorColor
+        }
     }
 	
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
 		super.setSelected(selected, animated: animated)
 		
-        guard let modeButtonType = self.modeButtonType else {
-            return
-        }
-
-        if !modeButtonType {
-            UIView.animate(withDuration: 0.4, animations: {
-                if selected {
-                    self.viewSelector.alpha = 1
-                }
-                else {
-                    self.viewSelector.alpha = 0
-                }
-            })
+        if selected {
+            self.viewSelector.alpha = 1
+        } else {
+            self.viewSelector.alpha = 0
         }
 	}
 

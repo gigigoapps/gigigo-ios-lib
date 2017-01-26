@@ -101,7 +101,6 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
 		
 		if let index = self.sectionIndexToShow {
 			self.menuTableView?.selectSection(index)
-			self.sectionIndexToShow = nil
 		}
     }
 	
