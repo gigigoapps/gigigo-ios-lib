@@ -42,7 +42,7 @@ class SwiftRequestVC: UIViewController {
 			bodyParams: [
 				"grantType": "password",
 				"identifier": "test@orchextra.io",
-				"password": "GigigoMadrid1",
+				"password": "12345",
 				"staySigned": true,
 				"createCookie": false
 			],
@@ -83,7 +83,7 @@ class SwiftRequestVC: UIViewController {
             bodyParams: [
                 "grantType": "password",
                 "email" : "eduardo.parada@gigigo.com",
-                "password" : "g4l4t341",
+                "password" : "12345",
                 "deviceId" : UIDevice.current.identifierForVendor?.uuidString ?? "No identifier"
             ],
             verbose: true

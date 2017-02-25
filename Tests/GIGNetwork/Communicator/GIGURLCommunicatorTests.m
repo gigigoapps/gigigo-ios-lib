@@ -113,23 +113,6 @@
 
 #pragma mark - TESTS (Mocks)
 
-// FIXME: the test is broken but only baró can understand it
-//- (void)test_Response_Mock_Config
-//{
-//    NSData *expectedData = [self dataFromJSONFile:@"GET_config.json"];
-//    [MKTGiven([self.managerMock useFixture]) willReturnBool:YES];
-//    [MKTGiven([self.managerMock mockForRequest:HC_anything()]) willReturn:expectedData];
-//    
-//	GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:nil url:nil sessionFactory:nil requestFactory:nil logger:nil manager:self.managerMock];
-//    request.requestTag = @"config";
-//    request.completion = ^(GIGURLResponse *response) {
-//        XCTAssertNotNil(response);
-//        XCTAssertNotNil(response.data);
-//        XCTAssertTrue([response.data isEqual:expectedData]);
-//    };
-//    [request send];
-//}
-
 - (void)test_Response_Mock_FileNotFound
 {
     GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:nil url:nil sessionFactory:nil requestFactory:nil logger:nil manager:self.managerMock];
