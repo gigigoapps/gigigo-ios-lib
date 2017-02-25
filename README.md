@@ -4,11 +4,11 @@
 
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
 ![Language](https://img.shields.io/badge/Language-Swift-orange.svg)
-![Version](https://img.shields.io/badge/version-1.0-blue.svg)
+![Version](https://img.shields.io/badge/version-2.2-blue.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 
-Main library for iOS projects on Gigigo.
+Main library for Gigigo iOS projects.
 
 
 ## How to add it to my project?
@@ -16,20 +16,7 @@ Main library for iOS projects on Gigigo.
 Through Carthage
 
 ```
-# GIGLibrary
-git "https://bitbucket.org/gigigo/gigigo-giglibrary-ios.git" ~> 1.0
-
-# GIGSocial
-git "https://bitbucket.org/gigigo/gigigo-gigsocial-ios.git" ~> 1.0
-
-# GIGPassbook
-git "https://bitbucket.org/gigigo/gigigo-gigpassbook-ios.git" ~> 1.0
-
-# GIGRateApp
-git "https://bitbucket.org/gigigo/gigigo-gigrate-app.git" ~> 1.0
-
-# GIGFormulary
-git "https://bitbucket.org/gigigo/gigigo-giglibformulary-ios" ~> 1.0
+git "https://bitbucket.org/gigigo/gigigo-giglibrary-ios.git" ~> 2.2
 ```
 
 
@@ -37,14 +24,9 @@ git "https://bitbucket.org/gigigo/gigigo-giglibformulary-ios" ~> 1.0
 
 - Core:
 	- GIGNetwork: classes to manage network requests.
+	- SwiftNetwork: Swift classes to manage gigigo's requestst. Standard Gigigo JSON is parsed by default.
 	- GIGLayout: some functions to help with autolayout.
 	- GIGUtils: a lot of extensions on foundation classes.
-	
-- [Social](https://bitbucket.org/gigigo/gigigo-gigsocial-ios): 
-	- Facebook: login.
-
-- [Passbook](https://bitbucket.org/gigigo/gigigo-gigpassbook-ios): 
-	- Add a new passbook from a URL
-
-- [RateApp](https://bitbucket.org/gigigo/gigigo-gigrate-app):
-	- Prompt the user to rate the application
+	- GIGScanner: QR scanner using native iOS API
+	- GIGLocation: Wrapper on CLLocation API
+	- SlideMenu: A basic lateral slide menu
