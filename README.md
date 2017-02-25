@@ -16,7 +16,7 @@ Main library for Gigigo iOS projects.
 Through Carthage
 
 ```
-git "https://bitbucket.org/gigigo/gigigo-giglibrary-ios.git" ~> 2.2
+github "gigigoapps/gigigo-ios-lib" ~> 2.2
 ```
 
 
