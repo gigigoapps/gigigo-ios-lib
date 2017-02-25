@@ -51,8 +51,8 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
 	// MARK - Public Methods
 	
 	func selectSection(_ index: Int) {
+        self.indexToShow = index
 		guard self.tableView != nil else {
-			self.indexToShow = index
 			return
 		}
 		
@@ -94,6 +94,17 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
         }
         
         delegate.tableDidSelecteSection(menuSection, index: (indexPath as NSIndexPath).row)
+
+        guard let modeButtonType = menuSection.modeButtonType else {
+            self.indexToShow = indexPath.row
+            return
+        }
+        
+        if modeButtonType {
+            guard let index = self.indexToShow else {
+                return
+            }
+            self.selectSection(index)
+        }
     }
-    
 }

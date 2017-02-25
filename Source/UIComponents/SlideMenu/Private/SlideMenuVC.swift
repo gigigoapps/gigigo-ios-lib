@@ -101,7 +101,6 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
 		
 		if let index = self.sectionIndexToShow {
 			self.menuTableView?.selectSection(index)
-			self.sectionIndexToShow = nil
 		}
     }
 	
@@ -225,8 +224,18 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
     // MARK: - MenuTableDelegate
     
 	func tableDidSelecteSection(_ menuSection: MenuSection, index: Int) {
-        self.setSection(menuSection.sectionController, index: index)
-        self.animate(closeMenu)
+        
+        guard let _ = menuSection.modeButtonType else {
+            self.setSection(menuSection.sectionController, index: index)
+            self.animate(closeMenu)
+            return
+        }
+        
+        guard  let completion = menuSection.completionButtonType else {
+            LogWarn("completion Button Type nil!")
+            return
+        }
+        completion()
     }
     
     

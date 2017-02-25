@@ -44,6 +44,14 @@ public extension Date {
 		return Date()
 	}
 	
+	public func string(with format: String = DateISOFormat) -> String {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = format
+		dateFormatter.amSymbol = ""
+		dateFormatter.pmSymbol = ""
+		return dateFormatter.string(from: self)
+	}
+	
 	
 	/**
 	Set the time to a NSDate

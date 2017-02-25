@@ -108,11 +108,11 @@ open class Request: Selfie {
 		var url = URLComponents(string: self.baseURL)
 		url?.path = (url?.path)! + self.endpoint
 		
-		let urlParams = self.urlParams?.map { key, value in
-			URLQueryItem(name: key, value: String(describing: value))
-		}
-		
+        if let urlParams = self.urlParams?.map({ key, value in
+            URLQueryItem(name: key, value: String(describing: value))
+        }) {
 		url?.queryItems = concat(url?.queryItems, urlParams)
+        }
 		
 		return url?.string ?? "NOT VALID URL"
 	}

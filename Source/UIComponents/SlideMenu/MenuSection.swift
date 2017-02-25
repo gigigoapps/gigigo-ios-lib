@@ -15,15 +15,19 @@ open class MenuSection {
     open let icon: UIImage
     open let storyboard: String
     open let viewController: String?
+    open var modeButtonType: Bool?
+    open var completionButtonType: (() -> Void)?
     
     lazy var sectionController: UIViewController = self.instantiateViewController()
     
     
-    public init(name: String, icon: UIImage, storyboard: String, viewController: String? = nil) {
+    public init(name: String, icon: UIImage, storyboard: String, viewController: String? = nil, modeButtonType: Bool? = nil,  completionButtonType: (() -> Void)? = nil) {
         self.name = name
         self.icon = icon
         self.storyboard = storyboard
         self.viewController = viewController
+        self.modeButtonType = modeButtonType
+        self.completionButtonType = completionButtonType
     }
     
     
