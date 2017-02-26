@@ -1,0 +1,4 @@
+osx_image: xcode8.2
+language: objective-c
+xcode_project: GIGLibrary.xcodeproj
+xcode_scheme: GIGLibrary
