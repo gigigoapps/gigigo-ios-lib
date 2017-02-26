@@ -98,10 +98,7 @@ class GIGDateExtensionTests: XCTestCase {
 		let date = self.alejandroBirthday()
 		
 		let resultDate = try! date.setHour(14)
-		
-		// THIS TEST ONLY WORKS IN SPAIN (NOT IN CANARY ISLANDS). We should inyect the timezone
-		let expectedDate = Date.dateFromString("1985-01-24T13:00:00Z")! // UTC+1
-		
+		let expectedDate = Date.dateFromString("1985-01-24T14:00:00", format: "yyyy-MM-dd'T'HH:mm:ss")!
 		
 		XCTAssert(resultDate == expectedDate, "result: \(resultDate) - expected: \(expectedDate)")
 	}
@@ -110,10 +107,7 @@ class GIGDateExtensionTests: XCTestCase {
 		let date = self.alejandroBirthday()
 		
 		let resultDate = try! date.setHour(14, minutes: 59, seconds: 59)
-		
-		// THIS TEST ONLY WORKS IN SPAIN (NOT IN CANARY ISLANDS). We should inyect the timezone
-		let expectedDate = Date.dateFromString("1985-01-24T13:59:59Z")! // UTC+1
-		
+		let expectedDate = Date.dateFromString("1985-01-24T14:59:59", format: "yyyy-MM-dd'T'HH:mm:ss")!
 		
 		XCTAssert(resultDate == expectedDate, "result: \(resultDate) - expected: \(expectedDate)")
 	}
@@ -173,7 +167,7 @@ class GIGDateExtensionTests: XCTestCase {
 		dateComponents.day = 25
 		dateComponents.month = 1
 		dateComponents.year = 1985
-		dateComponents.hour = 12 // I don't know why, but 1 is 12 am
+		dateComponents.hour = 12
 		dateComponents.timeZone = TimeZone(secondsFromGMT: 0)
 		
 		let calendar = Calendar(identifier: Calendar.Identifier.gregorian)

@@ -72,7 +72,7 @@ public extension Date {
 	- Since: 1.1.3
 	*/
 	public func setHour(_ hour: Int, minutes: Int = 0, seconds: Int = 0) throws -> Date {
-		guard 0 <= hour && hour < 24			else { throw ErrorDate.invalidHour }
+		guard 0 <= hour && hour < 24		else { throw ErrorDate.invalidHour }
 		guard 0 <= minutes && minutes < 60	else { throw ErrorDate.invalidMinutes }
 		guard 0 <= seconds && seconds < 60	else { throw ErrorDate.invalidSeconds }
 		
@@ -84,7 +84,6 @@ public extension Date {
 		
 		return calendar.date(from: components)!
 	}
-	
 }
 
 
