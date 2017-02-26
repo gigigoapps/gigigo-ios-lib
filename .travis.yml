@@ -1,6 +1,5 @@
 osx_image: xcode8.2
 language: objective-c
-
-script:
-  - xcodebuild -project GIGLibrary.xcodeproj -scheme GIGLibrary -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6" test
-  
+xcode_project: GIGLibrary.xcodeproj
+xcode_scheme: GIGLibrary
+xcode_sdk: iphonesimulator10.2
