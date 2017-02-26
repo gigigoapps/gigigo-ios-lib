@@ -33,7 +33,7 @@ class GIGDateExtensionTests: XCTestCase {
     }
 	
 	func test_returnsCorrectDate_whenFormatIsCorrect() {
-		let dateString = "1985-01-24T00:00:00Z"
+		let dateString = "1985-01-24T12:00:00Z"
 		
 		let date = Date.dateFromString(dateString)
 		
@@ -45,7 +45,7 @@ class GIGDateExtensionTests: XCTestCase {
 	// MARK: - Adding days tests
 	
 	func test_returnsNextDay_whenAddOneDay() {
-		let dateString = "1985-01-24T00:00:00Z"
+		let dateString = "1985-01-24T12:00:00Z"
 		let date = Date.dateFromString(dateString)!
 		
 		let nextDay = date + 1
@@ -54,7 +54,7 @@ class GIGDateExtensionTests: XCTestCase {
 	}
 	
 	func test_returnsPreviusDay_whenSubstractOneDay() {
-		let dateString = "1985-01-25T00:00:00Z"
+		let dateString = "1985-01-25T12:00:00Z"
 		let date = Date.dateFromString(dateString)!
 		
 		let nextDay = date - 1
@@ -161,7 +161,8 @@ class GIGDateExtensionTests: XCTestCase {
 		dateComponents.day = 24
 		dateComponents.month = 1
 		dateComponents.year = 1985
-		dateComponents.hour = 1
+		dateComponents.hour = 12
+		dateComponents.timeZone = TimeZone(secondsFromGMT: 0)
 		
 		let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
 		return calendar.date(from: dateComponents)!
@@ -172,7 +173,8 @@ class GIGDateExtensionTests: XCTestCase {
 		dateComponents.day = 25
 		dateComponents.month = 1
 		dateComponents.year = 1985
-		dateComponents.hour = 1 // I don't know why, but 1 is 12 am
+		dateComponents.hour = 12 // I don't know why, but 1 is 12 am
+		dateComponents.timeZone = TimeZone(secondsFromGMT: 0)
 		
 		let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
 		return calendar.date(from: dateComponents)!
