@@ -2,6 +2,7 @@
 
 ----
 
+[![Build Status](https://travis-ci.org/gigigoapps/gigigo-ios-lib.svg?branch=master)](https://travis-ci.org/gigigoapps/gigigo-ios-lib)
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
 ![Language](https://img.shields.io/badge/Language-Swift-orange.svg)
 ![Version](https://img.shields.io/badge/version-2.2-blue.svg)
