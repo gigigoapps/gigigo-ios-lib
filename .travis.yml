@@ -1,4 +1,21 @@
 osx_image: xcode8.2
 language: objective-c
+env:
+  global:
+  - FRAMEWORK_NAME=GIGLibrary
 script:
-  - set -o pipefail && xcodebuild -project GIGLibrary.xcodeproj -scheme GIGLibrary -sdk iphonesimulator -destination "OS=10.1,platform=iOS Simulator,name=iPhone 6" test | xcpretty
+- set -o pipefail && xcodebuild -project GIGLibrary.xcodeproj -scheme GIGLibrary -sdk
+  iphonesimulator -destination "OS=10.1,platform=iOS Simulator,name=iPhone 6" test
+  | xcpretty
+before_deploy:
+- carthage build --no-skip-current
+- carthage archive $FRAMEWORK_NAME
+deploy:
+  provider: releases
+  api_key:
+    secure: C9YT59reHk0El/KIWkuPBeEtHJ6+2Mbe7zFbOl5PLM42lcNkcNxzvdO4qpkkBut7JSuUwtg89wJUChH/alcGmeuhs6iIdA7DQIgkw/ouc1NzaFYBUZZp9TD3phKnhgWg07Xkp6G//mFqFxNO7wUhMY1Hxdn78JZZGMOm9RG1KQ9fWCcldTLE8riczQIXSsEZaq9+elk39wb1L+va4kaROHGninvDbyql5sDYd5pTSu5vjhfdG2SRGDEdB4aTyWX2Mdn6sTV7bFsbjoUFbfjF7o7HZW8NJ97ry4USCqi2xpubvdW3zCKXLTy4ZmgmYVBVjtDbnyv/+oyhhdvM/MPXNe2CfgMhdULxezN1gh7Jf47yhtCFnVEFVjFiRRLheJT3v1Jr0Y1O3n4oI4PZ0wXqT5I0lUV+iJOrAnPZmI78xXFu2GN0sRQKWNQEiqkhbO5eXI80IT+jcgUz9uDB+/8Yr/Z7RzTugY1spL2e63oUtxGhCFZRgvYbkvlAWql5bLzQdV4TAwZp8bc1rN2MWeupHX8E17t4Pcen6/setwViCUD+LV2aFngXYHua2nedqLYSZQT0vMPqPBsUberwFxPD8jFA987JrGh5ussisQHvv0/sabdlyTemrT6jYr5JLhh4dhz0F4r8cb85a5f47UkOx4wIk2765yJP4hT6Iz7zucA=
+  file: "$FRAMEWORK_NAME.framework.zip"
+  skip_cleanup: true
+  on:
+    repo: gigigoapps/gigigo-ios-lib
+    tags: true
