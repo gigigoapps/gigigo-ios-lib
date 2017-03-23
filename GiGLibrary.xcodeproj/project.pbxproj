@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02F2F7F71E82C8760098E4AF /* ProgressPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F7F61E82C8760098E4AF /* ProgressPageControl.swift */; };
+		02F2F7F91E82C88F0098E4AF /* ProgressDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F7F81E82C88F0098E4AF /* ProgressDurationView.swift */; };
+		02F2F7FC1E82D71E0098E4AF /* ProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F7FB1E82D71E0098E4AF /* ProgressVC.swift */; };
 		4A23B6791C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A23B6781C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h */; };
 		4A23B67B1C74779D00E37E5D /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4A6A04821C62524000FED731 /* GIGIOSVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A04811C62524000FED731 /* GIGIOSVersion.swift */; };
@@ -333,6 +336,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02F2F7F61E82C8760098E4AF /* ProgressPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressPageControl.swift; path = UIComponents/ProgressPageControl/ProgressPageControl.swift; sourceTree = "<group>"; };
+		02F2F7F81E82C88F0098E4AF /* ProgressDurationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressDurationView.swift; path = UIComponents/ProgressDurationView/ProgressDurationView.swift; sourceTree = "<group>"; };
+		02F2F7FB1E82D71E0098E4AF /* ProgressVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressVC.swift; sourceTree = "<group>"; };
 		4A23B6781C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GIGLibraryApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A23B67A1C74779D00E37E5D /* GIGAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIGAlertViewController.swift; path = Alert/GIGAlertViewController.swift; sourceTree = "<group>"; };
 		4A6A04811C62524000FED731 /* GIGIOSVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGIOSVersion.swift; sourceTree = "<group>"; };
@@ -680,6 +686,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02F2F7F41E82C7AB0098E4AF /* ProgressPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				02F2F7F61E82C8760098E4AF /* ProgressPageControl.swift */,
+			);
+			name = ProgressPageControl;
+			sourceTree = "<group>";
+		};
+		02F2F7F51E82C7B60098E4AF /* ProgressDurationView */ = {
+			isa = PBXGroup;
+			children = (
+				02F2F7F81E82C88F0098E4AF /* ProgressDurationView.swift */,
+			);
+			name = ProgressDurationView;
+			sourceTree = "<group>";
+		};
+		02F2F7FA1E82D6F40098E4AF /* ProgressPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				02F2F7FB1E82D71E0098E4AF /* ProgressVC.swift */,
+			);
+			name = ProgressPageControl;
+			sourceTree = "<group>";
+		};
 		4A881C101C5F7C2D000EC61E /* AlertController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1184,6 +1214,7 @@
 			isa = PBXGroup;
 			children = (
 				D99AD35F1B1DAAE6005BB4E5 /* Main */,
+				02F2F7FA1E82D6F40098E4AF /* ProgressPageControl */,
 				A9E7577A1D90033E00CCB6BC /* Location */,
 				FACE6D941BBC112B00457B4C /* Network */,
 				D9E18E111BD542D900611CDA /* Formulary */,
@@ -1588,6 +1619,8 @@
 		FA4CEADA1CBBBE1C0029FF4C /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				02F2F7F51E82C7B60098E4AF /* ProgressDurationView */,
+				02F2F7F41E82C7AB0098E4AF /* ProgressPageControl */,
 				FA4CEADB1CBBBE330029FF4C /* SlideMenu */,
 			);
 			name = UIComponents;
@@ -2075,6 +2108,7 @@
 				FAEDF6761BE20E9200F05AE2 /* GIGBoolValidator.m in Sources */,
 				FA723AC71C64AB4500225E79 /* Request.swift in Sources */,
 				D9FD35FC1B415CAE000D356F /* GIGNumericValidator.m in Sources */,
+				02F2F7F71E82C8760098E4AF /* ProgressPageControl.swift in Sources */,
 				D99AD2451B1DA3A3005BB4E5 /* GIGURLFile.m in Sources */,
 				D9FE61FD1BD65CC900E2B23C /* GIGFormController.m in Sources */,
 				D99AD2A71B1DA3A3005BB4E5 /* NSInvocation+GIGExtension.m in Sources */,
@@ -2104,6 +2138,7 @@
 				D99AD22B1B1DA3A3005BB4E5 /* GIGURLDomainsKeeper.m in Sources */,
 				D99AD2851B1DA3A3005BB4E5 /* NSDictionary+GIGExtension.m in Sources */,
 				FA3022031CBD406700A8F7DE /* SlideMenuVC.swift in Sources */,
+				02F2F7F91E82C88F0098E4AF /* ProgressDurationView.swift in Sources */,
 				D99AD2C51B1DA3A3005BB4E5 /* UINavigationController+GIGExtension.m in Sources */,
 				D99AD26D1B1DA3A3005BB4E5 /* NSArray+GIGExtension.m in Sources */,
 				D9EECF841BEA6B78007FEAD8 /* GIGAttributedStringBuilder.m in Sources */,
@@ -2136,6 +2171,7 @@
 				D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */,
 				4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */,
 				D93CA5301BEA49600098D37C /* NSData+GIGExtension.m in Sources */,
+				02F2F7FC1E82D71E0098E4AF /* ProgressVC.swift in Sources */,
 				FA0C22351D3E397E00433AFD /* Result.swift in Sources */,
 				D99AD2B51B1DA3A3005BB4E5 /* NSDictionary+GIGJSON.m in Sources */,
 				D99AD2711B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m in Sources */,

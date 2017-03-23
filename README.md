@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/gigigoapps/gigigo-ios-lib.svg?branch=master)](https://travis-ci.org/gigigoapps/gigigo-ios-lib)
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
 ![Language](https://img.shields.io/badge/Language-Swift-orange.svg)
-![Version](https://img.shields.io/badge/version-2.2-blue.svg)
+![Version](https://img.shields.io/badge/version-2.3-blue.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 
@@ -17,7 +17,7 @@ Main library for Gigigo iOS projects.
 Through Carthage
 
 ```
-github "gigigoapps/gigigo-ios-lib" ~> 2.2
+github "gigigoapps/gigigo-ios-lib" ~> 2.3
 ```
 
 
@@ -31,3 +31,4 @@ github "gigigoapps/gigigo-ios-lib" ~> 2.2
 	- GIGScanner: QR scanner using native iOS API
 	- GIGLocation: Wrapper on CLLocation API
 	- SlideMenu: A basic lateral slide menu
+	- ProgressPageControl: A page control with a progress bar in the selected page.
