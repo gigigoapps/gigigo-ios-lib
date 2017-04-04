@@ -16,6 +16,7 @@
 		4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A881C111C5F7C72000EC61E /* AlertController.swift */; };
 		4AACDF981C60DA2400F4E8AE /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */; };
 		4AACDF9A1C611E7100F4E8AE /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF991C611E7100F4E8AE /* Alert.swift */; };
+		61FE84FD1E93FB45002A5D0B /* GIGInfiniteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FE84FC1E93FB45002A5D0B /* GIGInfiniteCollectionView.swift */; };
 		7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84931BC2962600517C2F /* GIGParseClass.h */; };
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
 		7BA7BBA51D7D724500644B6C /* GIGParseJsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */; };
@@ -345,6 +346,7 @@
 		4A881C111C5F7C72000EC61E /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertController.swift; path = GIGUtils/AlertController/AlertController.swift; sourceTree = "<group>"; };
 		4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionSheet.swift; path = ActionSheet/ActionSheet.swift; sourceTree = "<group>"; };
 		4AACDF991C611E7100F4E8AE /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = GIGUtils/AlertController/Alert.swift; sourceTree = "<group>"; };
+		61FE84FC1E93FB45002A5D0B /* GIGInfiniteCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGInfiniteCollectionView.swift; sourceTree = "<group>"; };
 		7B6B84931BC2962600517C2F /* GIGParseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGParseClass.h; path = Class/GIGParseClass.h; sourceTree = "<group>"; };
 		7B6B84941BC2962600517C2F /* GIGParseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGParseClass.m; path = Class/GIGParseClass.m; sourceTree = "<group>"; };
 		7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGParseJsonTests.swift; sourceTree = "<group>"; };
@@ -741,6 +743,15 @@
 			children = (
 			);
 			name = AlertController;
+			sourceTree = "<group>";
+		};
+		61FE84F91E93FA4F002A5D0B /* InfiniteCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				61FE84FC1E93FB45002A5D0B /* GIGInfiniteCollectionView.swift */,
+			);
+			name = InfiniteCollectionView;
+			path = UIComponents/InfiniteCollectionView;
 			sourceTree = "<group>";
 		};
 		7B6B84921BC2959500517C2F /* Class */ = {
@@ -1619,6 +1630,7 @@
 		FA4CEADA1CBBBE1C0029FF4C /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				61FE84F91E93FA4F002A5D0B /* InfiniteCollectionView */,
 				02F2F7F51E82C7B60098E4AF /* ProgressDurationView */,
 				02F2F7F41E82C7AB0098E4AF /* ProgressPageControl */,
 				FA4CEADB1CBBBE330029FF4C /* SlideMenu */,
@@ -2115,6 +2127,7 @@
 				D9E7A1671B4198D1004D3193 /* GIGCharactersValidator.m in Sources */,
 				D9E4661D1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */,
 				D99AD2651B1DA3A3005BB4E5 /* GIGURLResponse.m in Sources */,
+				61FE84FD1E93FB45002A5D0B /* GIGInfiniteCollectionView.swift in Sources */,
 				D9FE62191BD65DCF00E2B23C /* GIGCheckFormField.m in Sources */,
 				D99AD2751B1DA3A3005BB4E5 /* UIColor+GIGExtension.m in Sources */,
 				D99AD2231B1DA3A3005BB4E5 /* GIGURLConfigTableViewController.m in Sources */,
