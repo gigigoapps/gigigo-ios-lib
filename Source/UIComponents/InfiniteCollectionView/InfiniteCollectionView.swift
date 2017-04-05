@@ -1,5 +1,5 @@
 //
-//  GIGInfiniteCollectionView.swift
+//  InfiniteCollectionView.swift
 //  GIGLibrary
 //
 //  Created by Jerilyn Goncalves on 28/03/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol GIGInfiniteCollectionViewDataSource: class {
+protocol InfiniteCollectionViewDataSource: class {
     
     /**
      Provides cell for infinite collection. Works just like the regular `cellForItemAtIndexPath`, however, consumer
@@ -40,7 +40,7 @@ protocol GIGInfiniteCollectionViewDataSource: class {
 
 }
 
-protocol GIGInfiniteCollectionViewDelegate: class {
+protocol InfiniteCollectionViewDelegate: class {
     
     /**
      Notifies that a cell has been selected.
@@ -82,17 +82,16 @@ protocol GIGInfiniteCollectionViewDelegate: class {
 }
 
 /// UICollectionView with infinite paginated scroll
-class GIGInfiniteCollectionView: UICollectionView {
+class InfiniteCollectionView: UICollectionView {
 
     // MARK: Public attributes
     
-    weak var infiniteDataSource: GIGInfiniteCollectionViewDataSource?
-    weak var infiniteDelegate: GIGInfiniteCollectionViewDelegate?
+    weak var infiniteDataSource: InfiniteCollectionViewDataSource?
+    weak var infiniteDelegate: InfiniteCollectionViewDelegate?
     override var dataSource: UICollectionViewDataSource? {
         didSet {
             guard let dataSource = self.dataSource else { return }
             if !dataSource.isEqual(self) {
-                logWarn("GIGInfiniteCollectionView 'dataSource' must not be modified.  Set 'infiniteDataSource' instead.")
                 self.dataSource = self
             }
         }
@@ -101,7 +100,6 @@ class GIGInfiniteCollectionView: UICollectionView {
         didSet {
             guard let delegate = self.delegate else { return }
             if !delegate.isEqual(self) {
-                logWarn("GIGInfiniteCollectionView 'delegate' must not be modified.  Set 'infiniteDelegate' instead.")
                 self.delegate = self
             }
         }
@@ -239,7 +237,7 @@ class GIGInfiniteCollectionView: UICollectionView {
 
 // MARK: - UICollectionViewDataSource
 
-extension GIGInfiniteCollectionView: UICollectionViewDataSource {
+extension InfiniteCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let numberOfItems = getNumberOfItems()
@@ -257,7 +255,7 @@ extension GIGInfiniteCollectionView: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 
-extension GIGInfiniteCollectionView: UICollectionViewDelegate {
+extension InfiniteCollectionView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
      
@@ -278,7 +276,7 @@ extension GIGInfiniteCollectionView: UICollectionViewDelegate {
 
 // MARK: - UIScrollViewDelegate
 
-extension GIGInfiniteCollectionView: UIScrollViewDelegate {
+extension InfiniteCollectionView: UIScrollViewDelegate {
     
     // When 'scrollToItem:' is called, this delegate method is triggered
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
