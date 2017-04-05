@@ -31,7 +31,7 @@ import UIKit
     /// To set the current page
     ///
     /// - Since: 2.3
-    var currentPage: Int = 0 {
+    open var currentPage: Int = 0 {
         didSet {
             if self.currentPage > (self.numberOfPages - 1) {
                 LogWarn("You cannot set the current page greater than numberOfPages")
