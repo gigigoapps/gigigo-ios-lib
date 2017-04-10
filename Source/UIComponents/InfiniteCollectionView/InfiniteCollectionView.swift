@@ -157,34 +157,27 @@ open class InfiniteCollectionView: UICollectionView {
         guard getNumberOfItems() > 0 else {
             return
         }
-        
         let currentOffset = contentOffset
         let contentWidth = CGFloat(getNumberOfItems()) * cellWidth
-        
         // Calculate the centre of content X position offset and the current distance from that centre point
         let centerOffsetX: CGFloat = (3 * contentWidth - bounds.size.width) / 2
         let distFromCentre = centerOffsetX - currentOffset.x
-        
         if fabs(distFromCentre) > (contentWidth / 4) {
-            
             // Total cells (including partial cells) from centre
             let cellcount = distFromCentre/cellWidth
             // Amount of cells to shift (whole number) - conditional statement due to nature of +ve or -ve cellcount
             let shiftCells = Int((cellcount > 0) ? floor(cellcount) : ceil(cellcount))
             // Amount left over to correct for
             let offsetCorrection = (abs(cellcount).truncatingRemainder(dividingBy: 1)) * cellWidth
-            
             // Scroll back to the centre of the view, offset by the correction to ensure it's not noticeable
             if contentOffset.x < centerOffsetX { //left scrolling
                 contentOffset = CGPoint(x: centerOffsetX - offsetCorrection, y: currentOffset.y)
             } else if contentOffset.x > centerOffsetX { //right scrolling
                 contentOffset = CGPoint(x: centerOffsetX + offsetCorrection, y: currentOffset.y)
             }
-            
             // Make content shift as per shiftCells
             let offset = getCorrectedIndex(indexToCorrect: shiftCells)
             indexOffset += offset
-            
             // Reload content
             self.reloadContent()
         }
@@ -248,12 +241,10 @@ extension InfiniteCollectionView: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let numberOfItems = getNumberOfItems()
         return  3 * numberOfItems
-
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let dataSource = self.infiniteDataSource else { return UICollectionViewCell() }
-        
         let cell = dataSource.cellForItemAtIndexPath(collectionView: self,
                                                      dequeueIndexPath: indexPath,
                                                      usableIndexPath: getUsableIndexPathForRow(indexPath.row))
@@ -304,7 +295,6 @@ extension InfiniteCollectionView: UIScrollViewDelegate {
         guard let visibleIndexPath = self.visibleIndexPath() else {
             return
         }
-        
         let visibleUsableIndexPath = getUsableIndexPathForRow(visibleIndexPath.row)
         if lastVisibleUsableIndexPath !=  visibleUsableIndexPath {
             infiniteDelegate?.didDisplayCellAtIndexPath(collectionView: self,
