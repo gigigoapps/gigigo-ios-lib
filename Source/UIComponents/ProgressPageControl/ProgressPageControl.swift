@@ -104,6 +104,7 @@ import UIKit
         else {
             return
         }
+        progress.layoutIfNeeded()
         self.startPageAnimation(of: progress, withDuration: duration, to: to, fromZero: fromZero)
     }
     
