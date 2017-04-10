@@ -16,7 +16,9 @@
 		4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A881C111C5F7C72000EC61E /* AlertController.swift */; };
 		4AACDF981C60DA2400F4E8AE /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */; };
 		4AACDF9A1C611E7100F4E8AE /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF991C611E7100F4E8AE /* Alert.swift */; };
-		61FE84FD1E93FB45002A5D0B /* InfiniteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FE84FC1E93FB45002A5D0B /* InfiniteCollectionView.swift */; };
+		61F2ACEC1E9B9780003E20C4 /* InfiniteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACEB1E9B9780003E20C4 /* InfiniteCollectionView.swift */; };
+		61F2ACEE1E9B9D53003E20C4 /* InfiniteCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACED1E9B9D53003E20C4 /* InfiniteCollectionVC.swift */; };
+		61F2ACF11E9BA297003E20C4 /* InfiniteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACF01E9BA297003E20C4 /* InfiniteCollectionViewCell.swift */; };
 		7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84931BC2962600517C2F /* GIGParseClass.h */; };
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
 		7BA7BBA51D7D724500644B6C /* GIGParseJsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */; };
@@ -346,7 +348,9 @@
 		4A881C111C5F7C72000EC61E /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertController.swift; path = GIGUtils/AlertController/AlertController.swift; sourceTree = "<group>"; };
 		4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionSheet.swift; path = ActionSheet/ActionSheet.swift; sourceTree = "<group>"; };
 		4AACDF991C611E7100F4E8AE /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = GIGUtils/AlertController/Alert.swift; sourceTree = "<group>"; };
-		61FE84FC1E93FB45002A5D0B /* InfiniteCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCollectionView.swift; sourceTree = "<group>"; };
+		61F2ACEB1E9B9780003E20C4 /* InfiniteCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCollectionView.swift; sourceTree = "<group>"; };
+		61F2ACED1E9B9D53003E20C4 /* InfiniteCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfiniteCollectionVC.swift; path = App/InfiniteCollection/InfiniteCollectionVC.swift; sourceTree = SOURCE_ROOT; };
+		61F2ACF01E9BA297003E20C4 /* InfiniteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCollectionViewCell.swift; sourceTree = "<group>"; };
 		7B6B84931BC2962600517C2F /* GIGParseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGParseClass.h; path = Class/GIGParseClass.h; sourceTree = "<group>"; };
 		7B6B84941BC2962600517C2F /* GIGParseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGParseClass.m; path = Class/GIGParseClass.m; sourceTree = "<group>"; };
 		7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGParseJsonTests.swift; sourceTree = "<group>"; };
@@ -745,10 +749,19 @@
 			name = AlertController;
 			sourceTree = "<group>";
 		};
+		61F2ACEF1E9B9D59003E20C4 /* InfiniteCollection */ = {
+			isa = PBXGroup;
+			children = (
+				61F2ACED1E9B9D53003E20C4 /* InfiniteCollectionVC.swift */,
+				61F2ACF01E9BA297003E20C4 /* InfiniteCollectionViewCell.swift */,
+			);
+			path = InfiniteCollection;
+			sourceTree = "<group>";
+		};
 		61FE84F91E93FA4F002A5D0B /* InfiniteCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				61FE84FC1E93FB45002A5D0B /* InfiniteCollectionView.swift */,
+				61F2ACEB1E9B9780003E20C4 /* InfiniteCollectionView.swift */,
 			);
 			name = InfiniteCollectionView;
 			path = UIComponents/InfiniteCollectionView;
@@ -1226,6 +1239,7 @@
 			children = (
 				D99AD35F1B1DAAE6005BB4E5 /* Main */,
 				02F2F7FA1E82D6F40098E4AF /* ProgressPageControl */,
+				61F2ACEF1E9B9D59003E20C4 /* InfiniteCollection */,
 				A9E7577A1D90033E00CCB6BC /* Location */,
 				FACE6D941BBC112B00457B4C /* Network */,
 				D9E18E111BD542D900611CDA /* Formulary */,
@@ -2127,7 +2141,6 @@
 				D9E7A1671B4198D1004D3193 /* GIGCharactersValidator.m in Sources */,
 				D9E4661D1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */,
 				D99AD2651B1DA3A3005BB4E5 /* GIGURLResponse.m in Sources */,
-				61FE84FD1E93FB45002A5D0B /* InfiniteCollectionView.swift in Sources */,
 				D9FE62191BD65DCF00E2B23C /* GIGCheckFormField.m in Sources */,
 				D99AD2751B1DA3A3005BB4E5 /* UIColor+GIGExtension.m in Sources */,
 				D99AD2231B1DA3A3005BB4E5 /* GIGURLConfigTableViewController.m in Sources */,
@@ -2156,8 +2169,10 @@
 				D99AD26D1B1DA3A3005BB4E5 /* NSArray+GIGExtension.m in Sources */,
 				D9EECF841BEA6B78007FEAD8 /* GIGAttributedStringBuilder.m in Sources */,
 				D99AD2FF1B1DA3A3005BB4E5 /* UIView+GIGSubviewsExtension.m in Sources */,
+				61F2ACF11E9BA297003E20C4 /* InfiniteCollectionViewCell.swift in Sources */,
 				FA3022051CBD4C1100A8F7DE /* MenuSectionCell.swift in Sources */,
 				D99AD2911B1DA3A3005BB4E5 /* NSError+GIGExtension.m in Sources */,
+				61F2ACEC1E9B9780003E20C4 /* InfiniteCollectionView.swift in Sources */,
 				FAEDF67A1BE20EA400F05AE2 /* GIGStringValidator.m in Sources */,
 				FAA3F8871C60EDD80061AADD /* Log.swift in Sources */,
 				D99AD2D71B1DA3A3005BB4E5 /* UIScrollView+GIGScrollTo.m in Sources */,
@@ -2179,6 +2194,7 @@
 				D99AD22F1B1DA3A3005BB4E5 /* GIGURLFixture.m in Sources */,
 				D99AD2591B1DA3A3005BB4E5 /* GIGURLRequestLogger.m in Sources */,
 				D99AD3031B1DA3A3005BB4E5 /* UIView+GIGTransformExtension.m in Sources */,
+				61F2ACEE1E9B9D53003E20C4 /* InfiniteCollectionVC.swift in Sources */,
 				D99AD2B11B1DA3A3005BB4E5 /* NSData+GIGJSON.m in Sources */,
 				D9FD36221B416CCB000D356F /* GIGPhoneValidator.m in Sources */,
 				D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */,
