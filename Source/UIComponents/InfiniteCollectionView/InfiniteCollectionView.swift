@@ -110,7 +110,6 @@ open class InfiniteCollectionView: UICollectionView {
     // MARK: - Initializer
     
     required public init?(coder aDecoder: NSCoder) {
-        
         super.init(coder: aDecoder)
         dataSource = self
         delegate = self
@@ -120,7 +119,6 @@ open class InfiniteCollectionView: UICollectionView {
     // MARK: - Life cycle
     
     override open func layoutSubviews() {
-        
         super.layoutSubviews()
         centreIfNeeded()
     }
@@ -128,7 +126,6 @@ open class InfiniteCollectionView: UICollectionView {
     // MARK: - Public methods
     
     open func displayNext() {
-        
         if let visibleIndexPath = indexPathsForVisibleItems.last {
             let nextIndexPath = IndexPath(row: visibleIndexPath.row + 1, section: 0)
             scrollToItem(at: nextIndexPath, at: .left, animated: true)
@@ -140,7 +137,6 @@ open class InfiniteCollectionView: UICollectionView {
     // MARK: UI setup
     
     private func setup() {
-        
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
             layout.minimumInteritemSpacing = 0
@@ -158,7 +154,6 @@ open class InfiniteCollectionView: UICollectionView {
     // MARK: Helpers
     
     private func centreIfNeeded() {
-        
         guard getNumberOfItems() > 0 else {
             return
         }
@@ -196,7 +191,6 @@ open class InfiniteCollectionView: UICollectionView {
     }
     
     fileprivate func reloadContent() {
-        
         if loaded {
             reloadData()
         } else {
@@ -215,9 +209,9 @@ open class InfiniteCollectionView: UICollectionView {
     }
     
     fileprivate func getNumberOfItems() -> Int {
-        
         if let numberOfItems = infiniteDataSource?.numberOfItems(collectionView: self) {
-            return numberOfItems <= 3 ?  numberOfItems * 2 : numberOfItems // Hack for the infinite collection to work when looping with 3 items or less
+            // Hack for the infinite collection to work when looping with 3 items or less
+            return numberOfItems <= 3 ?  numberOfItems * 2 : numberOfItems
         } else {
             return 0
         }
@@ -225,7 +219,6 @@ open class InfiniteCollectionView: UICollectionView {
     }
     
     fileprivate func getCorrectedIndex(indexToCorrect: Int) -> Int {
-        
         let numberOfItems = getNumberOfItems()
         if indexToCorrect < numberOfItems && indexToCorrect >= 0 {
             return indexToCorrect
@@ -238,7 +231,6 @@ open class InfiniteCollectionView: UICollectionView {
     }
     
     fileprivate func getUsableIndexPathForRow(_ row: Int) -> IndexPath {
-        
         var row = getCorrectedIndex(indexToCorrect: row - indexOffset)
         if let numberOfItems = infiniteDataSource?.numberOfItems(collectionView: self), numberOfItems <= 3 {
             if row >= numberOfItems {
@@ -260,10 +252,11 @@ extension InfiniteCollectionView: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let dataSource = self.infiniteDataSource else { return UICollectionViewCell() }
         
-        let cell = dataSource.cellForItemAtIndexPath(collectionView: self, dequeueIndexPath: indexPath, usableIndexPath: getUsableIndexPathForRow(indexPath.row))
+        let cell = dataSource.cellForItemAtIndexPath(collectionView: self,
+                                                     dequeueIndexPath: indexPath,
+                                                     usableIndexPath: getUsableIndexPathForRow(indexPath.row))
         cell.clipsToBounds = true
         return cell
     }
@@ -274,8 +267,8 @@ extension InfiniteCollectionView: UICollectionViewDataSource {
 extension InfiniteCollectionView: UICollectionViewDelegate {
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-     
-        infiniteDelegate?.didSelectCellAtIndexPath(collectionView: collectionView, indexPath: getUsableIndexPathForRow(indexPath.row))
+        infiniteDelegate?.didSelectCellAtIndexPath(collectionView: collectionView,
+                                                   indexPath: getUsableIndexPathForRow(indexPath.row))
     }
 
 }
@@ -295,7 +288,6 @@ extension InfiniteCollectionView: UIScrollViewDelegate {
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         guard let savedContentOffsetX = lastContentOffsetX, !isDecelerating else {
             lastContentOffsetX = contentOffset.x
             return
@@ -309,22 +301,25 @@ extension InfiniteCollectionView: UIScrollViewDelegate {
     }
     
     fileprivate func paginated() {
-        
         guard let visibleIndexPath = self.visibleIndexPath() else {
             return
         }
         
         let visibleUsableIndexPath = getUsableIndexPathForRow(visibleIndexPath.row)
         if lastVisibleUsableIndexPath !=  visibleUsableIndexPath {
-            infiniteDelegate?.didDisplayCellAtIndexPath(collectionView: self, dequeueIndexPath: visibleIndexPath, usableIndexPath: visibleUsableIndexPath, movedForward: isMovingForward)
-            infiniteDelegate?.didEndDisplayingCellAtIndexPath(collectionView: self, dequeueIndexPath: lastVisibleIndexPath, usableIndexPath: lastVisibleUsableIndexPath)
+            infiniteDelegate?.didDisplayCellAtIndexPath(collectionView: self,
+                                                        dequeueIndexPath: visibleIndexPath,
+                                                        usableIndexPath: visibleUsableIndexPath,
+                                                        movedForward: isMovingForward)
+            infiniteDelegate?.didEndDisplayingCellAtIndexPath(collectionView: self,
+                                                              dequeueIndexPath: lastVisibleIndexPath,
+                                                              usableIndexPath: lastVisibleUsableIndexPath)
             lastVisibleIndexPath = visibleIndexPath
             lastVisibleUsableIndexPath = visibleUsableIndexPath
         }
     }
     
     fileprivate func visibleIndexPath() -> IndexPath? {
-        
         let visibleRect = CGRect(origin: contentOffset, size: bounds.size)
         let visibilePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         let visibleIndexPath = indexPathForItem(at: visibilePoint)
