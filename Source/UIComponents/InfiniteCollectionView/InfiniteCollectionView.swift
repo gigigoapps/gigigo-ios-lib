@@ -77,8 +77,8 @@ open class InfiniteCollectionView: UICollectionView {
 
     // MARK: Public attributes
     
-    weak var infiniteDataSource: InfiniteCollectionViewDataSource?
-    weak var infiniteDelegate: InfiniteCollectionViewDelegate?
+    weak open var infiniteDataSource: InfiniteCollectionViewDataSource?
+    weak open var infiniteDelegate: InfiniteCollectionViewDelegate?
     override open var dataSource: UICollectionViewDataSource? {
         didSet {
             guard let dataSource = self.dataSource else { return }
