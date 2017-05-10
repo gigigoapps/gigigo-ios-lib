@@ -21,7 +21,19 @@ open class SlideMenu {
 		didSet {
 			SlideMenuConfig.shared.menuBackgroundColor = self.menuBackgroundColor
 		}
-	}
+    }
+    
+    open var menuHighlightColor: UIColor = UIColor.white {
+        didSet {
+            SlideMenuConfig.shared.menuHighlightColor = self.menuHighlightColor
+        }
+    }
+    
+    open var menuTitleColor: UIColor = UIColor.white {
+        didSet {
+            SlideMenuConfig.shared.menuTitleColor = self.menuTitleColor
+        }
+    }
     
     fileprivate lazy var menuViewController = SlideMenuVC.menuVC()
     fileprivate var sections: [MenuSection] = []
