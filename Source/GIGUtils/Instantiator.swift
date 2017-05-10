@@ -93,7 +93,7 @@ public struct Instantiator<ViewController: Instantiable> {
 	
 	fileprivate func logError() {
 		let identifierLog = ViewController.identifier() != nil ? ViewController.identifier() : "initial view controller"
-		LogWarn("Could not instantiate view controller from storyboard: \(ViewController.storyboard()), identifier: \(identifierLog)")
+		LogWarn("Could not instantiate view controller from storyboard: \(ViewController.storyboard()), identifier: \(String(describing: identifierLog))")
 	}
 	
 }

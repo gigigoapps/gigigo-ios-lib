@@ -109,7 +109,7 @@ class SwiftRequestVC: UIViewController {
                 break
             case .apiError:
                 let dataString = String(data: response.body!, encoding: String.Encoding.utf8)
-                print("❌❌❌ apiError code: \(response.error!.code) - dataString: \(dataString)")
+                print("❌❌❌ apiError code: \(response.error!.code) - dataString: \(String(describing: dataString))")
                 break
             case .unknownError:
                 print("❌❌❌ unknownError")
@@ -122,7 +122,7 @@ class SwiftRequestVC: UIViewController {
 		switch response.status {
 
 		case .success:
-			Log("Success: \n\(try? response.json())")
+			Log("Success: \n\(String(describing: try? response.json()))")
 		case .errorParsingJson, .noInternet, .sessionExpired, .timeout, .unknownError:
 			Log("Some kind of error")
 			LogError(response.error)

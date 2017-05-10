@@ -30,7 +30,7 @@ class LocationVC: UIViewController {
             self.labelLocation.text = "Esperando ..."
             
             if (authorized && status) {
-                self.labelLocation.text = "Localizacion correcta, latitud: \(location?.coordinate.latitude)   y longitud: \(location?.coordinate.longitude)"
+                self.labelLocation.text = "Localizacion correcta, latitud: \(String(describing: location?.coordinate.latitude))   y longitud: \(String(describing: location?.coordinate.longitude))"
             }
             else {
                 self.labelLocation.text = error?.localizedDescription
