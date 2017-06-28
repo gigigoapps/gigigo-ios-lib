@@ -44,7 +44,7 @@ open class Response: Selfie {
 	convenience init(data: Data?, response: URLResponse?, error: Error?) {
 		self.init()
 		
-		self.error = error as? NSError
+		self.error = error as NSError?
 		if let response = response as? HTTPURLResponse {
 			self.url = response.url
 			self.headers = response.allHeaderFields

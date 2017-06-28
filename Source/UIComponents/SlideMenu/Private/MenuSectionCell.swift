@@ -33,6 +33,10 @@ class MenuSectionCell: UITableViewCell {
         } else {
             self.viewSelector.backgroundColor = SlideMenuConfig.shared.sectionSelectorColor
         }
+        
+        if let menuTitleColor = SlideMenuConfig.shared.menuTitleColor {
+            self.labelMenuSection.textColor = menuTitleColor
+        }
     }
 	
 	
@@ -41,9 +45,16 @@ class MenuSectionCell: UITableViewCell {
 		
         if selected {
             self.viewSelector.alpha = 1
+            
+            if let colorHightLight = SlideMenuConfig.shared.menuHighlightColor {
+                self.labelMenuSection.textColor = colorHightLight
+            }
         } else {
             self.viewSelector.alpha = 0
+            
+            if let menuTitleColor = SlideMenuConfig.shared.menuTitleColor {
+                self.labelMenuSection.textColor = menuTitleColor
+            }
         }
 	}
-
 }
