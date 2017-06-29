@@ -11,11 +11,11 @@ import ImageIO
 
 public extension UIImageView {
 	
-    public func imageFromURL(urlString: String, placeholder: UIImage?, completion: ((UIImage?, NSError?) -> Void)? = nil) {
+	public func imageFromURL(urlString: String, placeholder: UIImage?) {
 		if urlString.contains("gif") {
 			loadGif(urlString: urlString)
 		} else {
-			ImageDownloader.shared.download(url: urlString, for: self, placeholder: placeholder, completion: completion)
+			ImageDownloader.shared.download(url: urlString, for: self, placeholder: placeholder)
 		}
 	}
 	
