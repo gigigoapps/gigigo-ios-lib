@@ -61,7 +61,7 @@ struct ImageDownloader {
 			switch response.status {
 				
 			case .success:
-				DispatchQueue(label: "com.gigigo.imagedownloader", qos: .background).async {
+				DispatchQueue.global().async {
 					if let image = try? response.image() {
 						let width = view.width() * UIScreen.main.scale
 						let height = view.height() * UIScreen.main.scale
