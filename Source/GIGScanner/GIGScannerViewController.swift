@@ -9,12 +9,12 @@
 import UIKit
 import AVFoundation
 
-protocol GIGScannerDelegate {
+public protocol GIGScannerDelegate {
     
     func didSuccessfullyScan(_ scannedValue: String, tye: String)
 }
 
-class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+open class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     
     var delegate: GIGScannerDelegate?
@@ -27,7 +27,7 @@ class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjects
     
     // MARK: - INIT
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         
         self.session = AVCaptureSession()
         self.device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -40,7 +40,6 @@ class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjects
             //Error handling, if needed
         }
         
-        
         super.init(coder: aDecoder)
     }
     
@@ -48,14 +47,14 @@ class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjects
         
     }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         self.setupScannerWithProperties()
     }
     
     
     // MARK: - PUBLIC
     
-    func isCameraAvailable() -> Bool {
+    public func isCameraAvailable() -> Bool {
         
        let authCamera = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
         
@@ -78,7 +77,7 @@ class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjects
         }
     }
     
-    func setupScanner(_ metadataObject: [AnyObject]?) {
+    public func setupScanner(_ metadataObject: [AnyObject]?) {
         guard let metadata = metadataObject else {return}
         self.output.metadataObjectTypes = [metadata]
         
@@ -87,15 +86,15 @@ class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjects
         }
     }
     
-    func startScanning() {
+    public func startScanning() {
         self.session.startRunning()
     }
     
-    func stopScanning() {
+    public func stopScanning() {
         self.session.stopRunning()
     }
     
-    func enableTorch(_ enable: Bool) {
+    public func enableTorch(_ enable: Bool) {
 
         try! self.device.lockForConfiguration()
         
@@ -113,7 +112,7 @@ class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjects
         self.device.unlockForConfiguration()
     }
     
-    func focusCamera(_ focusPoint: CGPoint) {
+    public func focusCamera(_ focusPoint: CGPoint) {
         
         do {
             try self.device.lockForConfiguration()
@@ -156,7 +155,7 @@ class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputObjects
     }
     
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    public func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
     
         for metadata in metadataObjects {
             
