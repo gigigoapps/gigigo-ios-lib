@@ -27,6 +27,7 @@
 		A55EE0771DACFDFF002E4EDF /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EE0761DACFDFF002E4EDF /* ImageExtension.swift */; };
 		A94D4A611CDDF67300CC4CAF /* GIGScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; };
 		A94D4A621CDE356B00CC4CAF /* GIGScannerViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		A95E67D71F5D343B001D8B19 /* GIGScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67D61F5D343B001D8B19 /* GIGScannerVC.swift */; };
 		A9E7577C1D90033E00CCB6BC /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E7577B1D90033E00CCB6BC /* LocationVC.swift */; };
 		D90867691B42A3E300193560 /* GIGLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD31F1B1DA3B9005BB4E5 /* GIGLayoutTests.m */; };
 		D909EFEA1B0DC2FF00DD4D97 /* GIGLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -359,6 +360,7 @@
 		A51F6D761D50C0410052D95A /* StyledStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledStringTests.swift; sourceTree = "<group>"; };
 		A55EE0761DACFDFF002E4EDF /* ImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIGScannerViewController.swift; path = GIGScanner/GIGScannerViewController.swift; sourceTree = "<group>"; };
+		A95E67D61F5D343B001D8B19 /* GIGScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIGScannerVC.swift; path = GIGScanner/GIGScannerVC.swift; sourceTree = "<group>"; };
 		A9E7577B1D90033E00CCB6BC /* LocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		D909EFE81B0DC2FF00DD4D97 /* GIGLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGLibrary.h; sourceTree = "<group>"; };
 		D909EFE91B0DC2FF00DD4D97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -779,6 +781,7 @@
 		A94D4A5F1CDDF54100CC4CAF /* GIGScanner */ = {
 			isa = PBXGroup;
 			children = (
+				A95E67D61F5D343B001D8B19 /* GIGScannerVC.swift */,
 				A94D4A601CDDF67300CC4CAF /* GIGScannerViewController.swift */,
 			);
 			name = GIGScanner;
@@ -2199,6 +2202,7 @@
 				D9FD36221B416CCB000D356F /* GIGPhoneValidator.m in Sources */,
 				D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */,
 				4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */,
+				A95E67D71F5D343B001D8B19 /* GIGScannerVC.swift in Sources */,
 				D93CA5301BEA49600098D37C /* NSData+GIGExtension.m in Sources */,
 				02F2F7FC1E82D71E0098E4AF /* ProgressVC.swift in Sources */,
 				FA0C22351D3E397E00433AFD /* Result.swift in Sources */,
