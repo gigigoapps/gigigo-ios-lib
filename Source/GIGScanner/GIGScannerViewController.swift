@@ -78,11 +78,11 @@ open class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputOb
     }
     
     public func setupScanner(_ metadataObject: [AnyObject]?) {
-        guard let metadata = metadataObject else {return}
-        self.output.metadataObjectTypes = [metadata]
+        guard let metadata = metadataObject as? [AVMetadataObject.ObjectType] else {return}
+        self.output.metadataObjectTypes = metadata
         
         if self.output.availableMetadataObjectTypes.count > 0 {
-            self.output.metadataObjectTypes = metadata as! [AVMetadataObject.ObjectType]
+            self.output.metadataObjectTypes = metadata
         }
     }
     
