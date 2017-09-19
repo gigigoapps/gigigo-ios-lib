@@ -139,7 +139,7 @@ open class GIGScannerViewController: UIViewController, AVCaptureMetadataOutputOb
         self.setupPreviewLayer()
     }
     
-    func setupOutputWithDefaultValues() -> [String] {
+    func setupOutputWithDefaultValues() -> [AVMetadataObject.ObjectType] {
         let metadata = [AVMetadataObject.ObjectType.upce, AVMetadataObject.ObjectType.code39, AVMetadataObject.ObjectType.code39Mod43,
                         AVMetadataObject.ObjectType.ean13, AVMetadataObject.ObjectType.ean8, AVMetadataObject.ObjectType.code93, AVMetadataObject.ObjectType.code128,
                         AVMetadataObject.ObjectType.pdf417, AVMetadataObject.ObjectType.aztec, AVMetadataObject.ObjectType.qr];

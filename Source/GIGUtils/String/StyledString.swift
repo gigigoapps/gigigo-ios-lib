@@ -151,8 +151,16 @@ public extension NSAttributedString {
             LogWarn("Could not convert to data from: " + html)
         }
         
-        try? self.init(data: htmlData, options: [NSAttributedString.DocumentAttributeKey.documentType: NSAttributedString.DocumentType.html,
-                                                                                NSAttributedString.DocumentAttributeKey.characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
+        do {
+            try? self.init(
+                data: htmlData,
+                options: [
+                    NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
+                    NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue
+                ],
+                documentAttributes: nil
+            )
+        }
     }
     
     public convenience init?(fromHTML html: String, font:UIFont, color:UIColor, aligment: NSTextAlignment = .left) {
@@ -166,7 +174,13 @@ public extension NSAttributedString {
 extension Data {
     var attributedString: NSAttributedString? {
         do {
-            return try NSAttributedString(data: self, options:[NSAttributedString.DocumentAttributeKey.documentType:NSAttributedString.DocumentType.html, NSAttributedString.DocumentAttributeKey.characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
+            return try NSAttributedString(
+                data: self,
+                options:[
+                    NSAttributedString.DocumentReadingOptionKey.documentType:NSAttributedString.DocumentType.html,
+                    NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue
+                ],
+                documentAttributes: nil)
         } catch let error as NSError {
             print(error.localizedDescription)
         }

@@ -104,18 +104,19 @@ open class Request: Selfie {
 		return request
 	}
 	
-	fileprivate func buildURL() -> String {
-		var url = URLComponents(string: self.baseURL)
-		url?.path = (url?.path)! + self.endpoint
-		
+    fileprivate func buildURL() -> String {
+        var url = URLComponents(string: self.baseURL)        
+        url?.path += self.endpoint
+        
         if let urlParams = self.urlParams?.map({ key, value in
             URLQueryItem(name: key, value: String(describing: value))
         }) {
-		url?.queryItems = concat(url?.queryItems, urlParams)
+            let urlConcat = concat(url?.queryItems, urlParams)
+            url?.queryItems = urlConcat
         }
-		
-		return url?.string ?? "NOT VALID URL"
-	}
+        
+        return url?.string ?? "NOT VALID URL"
+    }
 	
 	fileprivate func logRequest() {
 		let url = self.request?.url?.absoluteString ?? "no url set"
