@@ -24,7 +24,7 @@ open class QR {
 		let scaleX = onView.frame.size.width / image.extent.size.width
 		let scaleY = onView.frame.size.height / image.extent.size.height
 		
-		let transformedImage = image.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
+		let transformedImage = image.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
 		
 		onView.image = UIImage(ciImage: transformedImage)
 	}

@@ -309,7 +309,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
         self.translateContent(xPos)
     }
     
-    func closeMenuAnimated() {
+    @objc func closeMenuAnimated() {
         self.animate(closeMenu)
     }
     

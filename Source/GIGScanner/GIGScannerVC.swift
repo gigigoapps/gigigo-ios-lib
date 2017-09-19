@@ -24,7 +24,7 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
 
     override open func viewDidLoad() {
         super.viewDidLoad()
-        self.captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        self.captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
 
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice)
@@ -35,16 +35,16 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
             captureSession?.addOutput(captureMetadataOutput)
             
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeUPCECode,
-                                                         AVMetadataObjectTypeCode39Code,
-                                                         AVMetadataObjectTypeCode39Mod43Code,
-                                                         AVMetadataObjectTypeEAN13Code,
-                                                         AVMetadataObjectTypeEAN8Code,
-                                                         AVMetadataObjectTypeCode93Code,
-                                                         AVMetadataObjectTypeCode128Code,
-                                                         AVMetadataObjectTypePDF417Code,
-                                                         AVMetadataObjectTypeAztecCode,
-                                                         AVMetadataObjectTypeQRCode]
+            captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.upce,
+                                                         AVMetadataObject.ObjectType.code39,
+                                                         AVMetadataObject.ObjectType.code39Mod43,
+                                                         AVMetadataObject.ObjectType.ean13,
+                                                         AVMetadataObject.ObjectType.ean8,
+                                                         AVMetadataObject.ObjectType.code93,
+                                                         AVMetadataObject.ObjectType.code128,
+                                                         AVMetadataObject.ObjectType.pdf417,
+                                                         AVMetadataObject.ObjectType.aztec,
+                                                         AVMetadataObject.ObjectType.qr]
             
             self.addPreviewLayer()
             
@@ -89,16 +89,16 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         do {
             try self.captureDevice.lockForConfiguration()
             self.captureDevice.focusPointOfInterest = focusPoint
-            self.captureDevice.focusMode = AVCaptureFocusMode.continuousAutoFocus
+            self.captureDevice.focusMode = AVCaptureDevice.FocusMode.continuousAutoFocus
             self.captureDevice.exposurePointOfInterest = focusPoint
-            self.captureDevice.exposureMode = AVCaptureExposureMode.continuousAutoExposure
+            self.captureDevice.exposureMode = AVCaptureDevice.ExposureMode.continuousAutoExposure
         } catch let error as NSError {
             print(error.localizedDescription)
         }
     }
     
     public func isCameraAvailable() -> Bool? {
-        let authStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        let authStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         switch authStatus {
         case .authorized:
             return true
@@ -113,8 +113,8 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     // MARK: - PRIVATE
     
     private func addPreviewLayer() {
-        self.previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
-        self.previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        self.previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession!)
+        self.previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         self.previewLayer?.frame = self.view.bounds
         guard let preview = self.previewLayer else {
             LogWarn("We couldn't add preview layer in the view")
@@ -123,14 +123,14 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     }
     
     private func requestCameraAccess() {
-        AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { success in
+        AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { success in
             
         })
     }
     
     // MARK: - AVCaptureMetadataOutputObjectsDelegate
 
-    public func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    public func metadataOutput(captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
         for metadata in metadataObjects {
             
@@ -139,7 +139,7 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
                 let type = readableCode?.type
                 else {return}
             
-            self.scannerOutput?.didSuccessfullyScan(value, type: type)
+            self.scannerOutput?.didSuccessfullyScan(value, type: type.rawValue)
         }
     }
 }
