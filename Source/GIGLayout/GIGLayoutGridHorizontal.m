@@ -44,10 +44,14 @@
     return self;
 }
 
+- (void)extracted {
+    [self addSubviewWithAutolayout:self.container];
+}
+
 - (void)initGrid
 {
     self.container = [[UIView alloc] init];
-    [self addSubviewWithAutolayout:self.container];
+    [self extracted];
     
 }
 

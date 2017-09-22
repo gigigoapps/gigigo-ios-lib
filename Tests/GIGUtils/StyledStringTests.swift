@@ -53,8 +53,8 @@ class StyledStringTests: XCTestCase {
      
         self.label.styledString = "texto" + "rojo".style(.color(UIColor.red))
         
-        let firstWordcolor = self.label.attributedText?.attribute(named:NSForegroundColorAttributeName, forText:"texto")
-        let secondWordcolor = self.label.attributedText?.attribute(named:NSForegroundColorAttributeName, forText:"rojo") as! UIColor
+		let firstWordcolor = self.label.attributedText?.attribute(named:NSAttributedStringKey.foregroundColor.rawValue, forText:"texto")
+		let secondWordcolor = self.label.attributedText?.attribute(named:NSAttributedStringKey.foregroundColor.rawValue, forText:"rojo") as! UIColor
         
         XCTAssert(firstWordcolor == nil)
         XCTAssert(secondWordcolor == UIColor.red)
@@ -64,8 +64,8 @@ class StyledStringTests: XCTestCase {
         
         self.label.styledString = "texto" + "subrayado".style(.color(UIColor.red), .underline)
         
-        let color = self.label.attributedText?.attribute(named: NSForegroundColorAttributeName, forText: "subrayado") as! UIColor
-        let underlineStyle = self.label.attributedText?.attribute(named: NSUnderlineStyleAttributeName, forText: "subrayado")
+		let color = self.label.attributedText?.attribute(named: NSAttributedStringKey.foregroundColor.rawValue, forText: "subrayado") as! UIColor
+		let underlineStyle = self.label.attributedText?.attribute(named: NSAttributedStringKey.underlineStyle.rawValue, forText: "subrayado")
 
         XCTAssert(color == UIColor.red)
         XCTAssert(underlineStyle != nil)
@@ -75,7 +75,7 @@ class StyledStringTests: XCTestCase {
         
         self.label.styledString = "texto" + "con background".style(.backgroundColor(UIColor.red))
         
-        let backgroundColor = self.label.attributedText?.attribute(named: NSBackgroundColorAttributeName, forText: "con background") as! UIColor
+		let backgroundColor = self.label.attributedText?.attribute(named: NSAttributedStringKey.backgroundColor.rawValue, forText: "con background") as! UIColor
         
         XCTAssert(equalColors(backgroundColor, c2: UIColor.red))
     }
@@ -85,7 +85,7 @@ class StyledStringTests: XCTestCase {
         let font = UIFont(name: "ChalkboardSE-Light", size: 15)!
         self.label.styledString = "texto" + "con background".style(.font(font))
         
-        let resultFont = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "con background") as! UIFont
+		let resultFont = self.label.attributedText?.attribute(named: NSAttributedStringKey.font.rawValue, forText: "con background") as! UIFont
         
         XCTAssert(resultFont == font)
     }
@@ -95,8 +95,8 @@ class StyledStringTests: XCTestCase {
         let newFont = UIFont(name: "ChalkboardSE-Light", size: 15)!
         self.label.styledString = "texto con " + "fuente1".style(.fontName("ChalkboardSE-Light")) + "y texto con " + "fuente por defecto"
 
-        let changedFont = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "fuente1") as! UIFont
-        let defaultFont = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "fuente por defecto")
+		let changedFont = self.label.attributedText?.attribute(named: NSAttributedStringKey.font.rawValue, forText: "fuente1") as! UIFont
+		let defaultFont = self.label.attributedText?.attribute(named: NSAttributedStringKey.font.rawValue, forText: "fuente por defecto")
 
         XCTAssert(changedFont.fontName == newFont.fontName)
         XCTAssert(defaultFont == nil)
@@ -106,16 +106,18 @@ class StyledStringTests: XCTestCase {
         
         self.label.styledString = "texto" + "con background".style(.bold)
         
-        let font = self.label.attributedText?.attribute(named: NSFontAttributeName, forText: "con background") as! UIFont
+		let font = self.label.attributedText?.attribute(named: NSAttributedStringKey.font.rawValue, forText: "con background") as! UIFont
         
         XCTAssert(font.isBold() == true)
     }
     
     func test_fromHTML_returnTheRightString() {
         
+        self.label.font = UIFont(name: "Arial", size: 14)
+        
         self.label.html = "texto <b>importante</b>"
         
-        let font = self.label.attributedText?.attribute(named:NSFontAttributeName, forText: "importante") as! UIFont
+		let font = self.label.attributedText?.attribute(named:NSAttributedStringKey.font.rawValue, forText: "importante") as! UIFont
         
         XCTAssert(font.isBold() == true)
     }
@@ -125,7 +127,7 @@ class StyledStringTests: XCTestCase {
         self.label.textColor = UIColor.red
         self.label.html = "texto <b>importante</b>"
         
-        let color = self.label.attributedText?.attribute(named:NSForegroundColorAttributeName, forText: "importante") as! UIColor
+		let color = self.label.attributedText?.attribute(named:NSAttributedStringKey.foregroundColor.rawValue, forText: "importante") as! UIColor
         
         XCTAssert(equalColors(color, c2: UIColor.red))
     }
@@ -146,7 +148,7 @@ extension NSAttributedString {
         let length = string.characters.distance(from: substringRange.lowerBound, to: substringRange.upperBound)
         
         var attributedRange = NSMakeRange(0, length-1)
-        let attribute = self.attribute(name, at: start, effectiveRange: &attributedRange)
+		let attribute = self.attribute(NSAttributedStringKey(rawValue: name), at: start, effectiveRange: &attributedRange)
         return attribute as AnyObject?
     }
 }

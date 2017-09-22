@@ -40,6 +40,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
     }
 	
 	var statusBarStyle: UIStatusBarStyle = .default
+    open var completion: (() -> Void)?
     
     
     // MARK: - Private Properties
@@ -121,6 +122,11 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
         case .close:
             self.animate(openMenu)
         }
+        
+        guard let completion = self.completion else {
+            return
+        }
+        completion()
     }
     
     
@@ -201,6 +207,11 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
         case .right:
             self.animateFast(openMenu)
         }
+        
+        guard let completion = self.completion else {
+            return
+        }
+        completion()
     }
     
     fileprivate func determineDirectoWithVelocity(_ velocity: CGPoint, position: CGFloat) -> MenuDirection {
@@ -228,6 +239,11 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
         guard let _ = menuSection.modeButtonType else {
             self.setSection(menuSection.sectionController, index: index)
             self.animate(closeMenu)
+            guard  let completion = menuSection.completionButtonType else {
+                LogWarn("completion Button Type nil!")
+                return
+            }
+            completion()
             return
         }
         
@@ -293,7 +309,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
         self.translateContent(xPos)
     }
     
-    func closeMenuAnimated() {
+    @objc func closeMenuAnimated() {
         self.animate(closeMenu)
     }
     

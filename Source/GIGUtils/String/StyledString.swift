@@ -151,8 +151,16 @@ public extension NSAttributedString {
             LogWarn("Could not convert to data from: " + html)
         }
         
-        try? self.init(data: htmlData, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-                                                                                NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil)
+        do {
+            try? self.init(
+                data: htmlData,
+                options: [
+                    NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
+                    NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue
+                ],
+                documentAttributes: nil
+            )
+        }
     }
     
     public convenience init?(fromHTML html: String, font:UIFont, color:UIColor, aligment: NSTextAlignment = .left) {
@@ -166,7 +174,13 @@ public extension NSAttributedString {
 extension Data {
     var attributedString: NSAttributedString? {
         do {
-            return try NSAttributedString(data: self, options:[NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil)
+            return try NSAttributedString(
+                data: self,
+                options:[
+                    NSAttributedString.DocumentReadingOptionKey.documentType:NSAttributedString.DocumentType.html,
+                    NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue
+                ],
+                documentAttributes: nil)
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -212,9 +226,9 @@ public struct StyledString {
             let key = style.key()
             let value = style.value(forFont: currentFont)
             
-            string.addAttribute(key, value:value, range: NSMakeRange(0, string.length))
+            string.addAttribute(NSAttributedStringKey(rawValue: key), value:value, range: NSMakeRange(0, string.length))
             
-            if (key == NSFontAttributeName) {
+            if (key == NSAttributedStringKey.font.rawValue) {
                 currentFont = style.value(forFont: currentFont) as? UIFont ?? UIFont.systemFont(ofSize: 14)
             }
             return string
@@ -254,41 +268,41 @@ public enum Style {
         case .none:
             return ""
         case .bold:
-            return NSFontAttributeName
+            return NSAttributedStringKey.font.rawValue
         case .italic:
-            return NSFontAttributeName
+            return NSAttributedStringKey.font.rawValue
         case .color:
-            return NSForegroundColorAttributeName
+            return NSAttributedStringKey.foregroundColor.rawValue
         case .backgroundColor:
-            return NSBackgroundColorAttributeName
+            return NSAttributedStringKey.backgroundColor.rawValue
         case .size:
-            return NSFontAttributeName
+            return NSAttributedStringKey.font.rawValue
         case .fontName:
-            return NSFontAttributeName
+            return NSAttributedStringKey.font.rawValue
         case .font:
-            return NSFontAttributeName
+            return NSAttributedStringKey.font.rawValue
         case .underline:
-            return NSUnderlineStyleAttributeName
+            return NSAttributedStringKey.underlineStyle.rawValue
         case .underlineThick:
-            return NSUnderlineStyleAttributeName
+            return NSAttributedStringKey.underlineStyle.rawValue
         case .underlineDouble:
-            return NSUnderlineStyleAttributeName
+            return NSAttributedStringKey.underlineStyle.rawValue
         case .underlineColor:
-            return NSUnderlineColorAttributeName
+            return NSAttributedStringKey.underlineColor.rawValue
         case .link:
-            return NSLinkAttributeName
+            return NSAttributedStringKey.link.rawValue
         case .baseLineOffset:
-            return NSBaselineOffsetAttributeName
+            return NSAttributedStringKey.baselineOffset.rawValue
         case .letterSpacing:
-            return NSKernAttributeName
+            return NSAttributedStringKey.kern.rawValue
         case .centerAligment:
-            return NSParagraphStyleAttributeName
+            return NSAttributedStringKey.paragraphStyle.rawValue
         case .leftAligment:
-            return NSParagraphStyleAttributeName
+            return NSAttributedStringKey.paragraphStyle.rawValue
         case .rightAligment:
-            return NSParagraphStyleAttributeName
+            return NSAttributedStringKey.paragraphStyle.rawValue
         case .lineSpacing:
-            return NSParagraphStyleAttributeName
+            return NSAttributedStringKey.paragraphStyle.rawValue
         }
     }
     

@@ -18,7 +18,6 @@
 // classes
 #import "GIGDigest.h"
 #import "GIGFileManager.h"
-#import "GIGAlert.h"
 #import "GIGEncrypt.h"
 #import "GIGLogManager.h"
 #import "GIGAttributedStringBuilder.h"

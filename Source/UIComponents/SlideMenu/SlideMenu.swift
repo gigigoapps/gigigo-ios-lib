@@ -43,13 +43,14 @@ open class SlideMenu {
 	
     // MARK: - Public methods
     
-	open func menuVC(_ statusBarStyle: UIStatusBarStyle = .default) -> UIViewController {
+    open func menuVC(_ statusBarStyle: UIStatusBarStyle = .default, completion: (() -> Void)? = nil) -> UIViewController {
         guard let menuVC = self.menuViewController else {
             LogWarn("Couldn't instantiate menu")
             return UIViewController()
         }
 		
 		self.menuViewController?.statusBarStyle = statusBarStyle
+        self.menuViewController?.completion = completion
         
         return menuVC
     }

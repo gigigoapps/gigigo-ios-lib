@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import GIGLibrary
+@testable import GIGLibrary
 
 
 class GIGDateExtensionTests: XCTestCase {
