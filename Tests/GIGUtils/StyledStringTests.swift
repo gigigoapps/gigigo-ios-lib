@@ -113,6 +113,8 @@ class StyledStringTests: XCTestCase {
     
     func test_fromHTML_returnTheRightString() {
         
+        self.label.font = UIFont(name: "Arial", size: 14)
+        
         self.label.html = "texto <b>importante</b>"
         
         let font = self.label.attributedText?.attribute(named:NSFontAttributeName, forText: "importante") as! UIFont
