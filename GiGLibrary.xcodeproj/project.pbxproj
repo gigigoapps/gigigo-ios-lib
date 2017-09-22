@@ -247,6 +247,7 @@
 		D9FE621E1BD6878600E2B23C /* GIGMessageFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = D9FE621C1BD6878600E2B23C /* GIGMessageFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FE621D1BD6878600E2B23C /* GIGMessageFormField.m */; };
 		FA02D2DB1D47C071007DD362 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02D2DA1D47C071007DD362 /* InfoPlist.swift */; };
+		FA0A9CB91F751B6300674F38 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA0C22351D3E397E00433AFD /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C22341D3E397E00433AFD /* Result.swift */; };
 		FA133A6E1CBC1F150007EE06 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA133A6D1CBC1F150007EE06 /* Storyboard+Extension.swift */; };
 		FA133A751CBC225E0007EE06 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */; };
@@ -335,6 +336,17 @@
 			files = (
 				D9637D7A1B0C90C000FD8E4D /* GIGLibrary.framework in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0A9CB81F751B5200674F38 /* Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FA0A9CB91F751B6300674F38 /* GIGLibrary.framework in Frameworks */,
+			);
+			name = Frameworks;
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -1922,6 +1934,7 @@
 				D9AD96F61B0A386500CB5E8C /* Sources */,
 				D9AD96F71B0A386500CB5E8C /* Frameworks */,
 				D9AD96F81B0A386500CB5E8C /* Resources */,
+				FA0A9CB81F751B5200674F38 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1983,7 +1996,9 @@
 				TargetAttributes = {
 					D9AD96F91B0A386500CB5E8C = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = SU5BA5HAQK;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 					FA65BF981AEFD5F90031A91B = {
 						CreatedOnToolsVersion = 6.3;
@@ -2284,9 +2299,12 @@
 		D9AD97041B0A386500CB5E8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = SU5BA5HAQK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tests/Libs",
@@ -2306,17 +2324,22 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigigo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/GIGUtils/GIGLibraryTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		D9AD97051B0A386500CB5E8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = SU5BA5HAQK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tests/Libs",
@@ -2332,8 +2355,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigigo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/GIGUtils/GIGLibraryTests-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
