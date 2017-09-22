@@ -29,12 +29,6 @@ open class JSON: Sequence, CustomStringConvertible {
 	
 	
 	// MARK - Initializers
-
-	// deprecated
-	@available(*, deprecated: 2.0.2, message: "Use init(from any: Any) instead", renamed: "init(from:)")
-	public init(json: AnyObject) {
-		self.json = json
-	}
 	
 	public init(from any: Any) {
 		self.json = any

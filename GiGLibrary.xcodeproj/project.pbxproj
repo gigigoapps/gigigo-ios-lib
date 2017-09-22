@@ -88,8 +88,6 @@
 		D99AD2611B1DA3A3005BB4E5 /* GIGURLImageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD18C1B1DA3A3005BB4E5 /* GIGURLImageResponse.m */; };
 		D99AD2631B1DA3A3005BB4E5 /* GIGURLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D99AD18D1B1DA3A3005BB4E5 /* GIGURLResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D99AD2651B1DA3A3005BB4E5 /* GIGURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD18E1B1DA3A3005BB4E5 /* GIGURLResponse.m */; };
-		D99AD2671B1DA3A3005BB4E5 /* GIGAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = D99AD1911B1DA3A3005BB4E5 /* GIGAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D99AD2691B1DA3A3005BB4E5 /* GIGAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD1921B1DA3A3005BB4E5 /* GIGAlert.m */; };
 		D99AD26B1B1DA3A3005BB4E5 /* NSArray+GIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = D99AD1941B1DA3A3005BB4E5 /* NSArray+GIGExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D99AD26D1B1DA3A3005BB4E5 /* NSArray+GIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD1951B1DA3A3005BB4E5 /* NSArray+GIGExtension.m */; };
 		D99AD26F1B1DA3A3005BB4E5 /* NSBundle+GIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = D99AD1971B1DA3A3005BB4E5 /* NSBundle+GIGExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -444,8 +442,6 @@
 		D99AD18C1B1DA3A3005BB4E5 /* GIGURLImageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLImageResponse.m; sourceTree = "<group>"; };
 		D99AD18D1B1DA3A3005BB4E5 /* GIGURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLResponse.h; sourceTree = "<group>"; };
 		D99AD18E1B1DA3A3005BB4E5 /* GIGURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLResponse.m; sourceTree = "<group>"; };
-		D99AD1911B1DA3A3005BB4E5 /* GIGAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGAlert.h; sourceTree = "<group>"; };
-		D99AD1921B1DA3A3005BB4E5 /* GIGAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGAlert.m; sourceTree = "<group>"; };
 		D99AD1941B1DA3A3005BB4E5 /* NSArray+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GIGExtension.h"; sourceTree = "<group>"; };
 		D99AD1951B1DA3A3005BB4E5 /* NSArray+GIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GIGExtension.m"; sourceTree = "<group>"; };
 		D99AD1971B1DA3A3005BB4E5 /* NSBundle+GIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBundle+GIGExtension.h"; path = "Bundle/NSBundle+GIGExtension.h"; sourceTree = "<group>"; };
@@ -997,15 +993,6 @@
 				FA133A701CBC1FE20007EE06 /* Private */,
 			);
 			path = GIGUtils;
-			sourceTree = "<group>";
-		};
-		D99AD1901B1DA3A3005BB4E5 /* Alert */ = {
-			isa = PBXGroup;
-			children = (
-				D99AD1911B1DA3A3005BB4E5 /* GIGAlert.h */,
-				D99AD1921B1DA3A3005BB4E5 /* GIGAlert.m */,
-			);
-			path = Alert;
 			sourceTree = "<group>";
 		};
 		D99AD1931B1DA3A3005BB4E5 /* Array */ = {
@@ -1573,7 +1560,6 @@
 				D99AD1B61B1DA3A3005BB4E5 /* GIGLocalization.h */,
 				D99AD1B71B1DA3A3005BB4E5 /* GIGRandom.h */,
 				D9EECF7E1BEA6AE0007FEAD8 /* AttributedString */,
-				D99AD1901B1DA3A3005BB4E5 /* Alert */,
 				4A881C101C5F7C2D000EC61E /* AlertController */,
 				4AACDF961C60D98A00F4E8AE /* ActionSheetController */,
 				D99AD1931B1DA3A3005BB4E5 /* Array */,
@@ -1854,7 +1840,6 @@
 				D99AD2D91B1DA3A3005BB4E5 /* GIGString.h in Headers */,
 				D99AD29D1B1DA3A3005BB4E5 /* GIGRandom.h in Headers */,
 				D99AD23D1B1DA3A3005BB4E5 /* GIGNetwork.h in Headers */,
-				D99AD2671B1DA3A3005BB4E5 /* GIGAlert.h in Headers */,
 				D99AD2F91B1DA3A3005BB4E5 /* UIView+GIGNibExtension.h in Headers */,
 				D99AD1FF1B1DA3A3005BB4E5 /* GIGLayoutBase.h in Headers */,
 				D99AD2251B1DA3A3005BB4E5 /* GIGURLDomain.h in Headers */,
@@ -2200,7 +2185,6 @@
 				D9FD35EC1B413E1A000D356F /* GIGRegexpValidator.m in Sources */,
 				D99AD2E11B1DA3A3005BB4E5 /* NSString+GIGReplace.m in Sources */,
 				FAEDF67E1BE20EFD00F05AE2 /* GIGURLSessionFactory.m in Sources */,
-				D99AD2691B1DA3A3005BB4E5 /* GIGAlert.m in Sources */,
 				FA89A8BC1D33B7F300AE6E3A /* QRGenerator.swift in Sources */,
 				D99AD2951B1DA3A3005BB4E5 /* GIGFileManager.m in Sources */,
 				FA44E4961C9069A6009BBBA2 /* Application.swift in Sources */,
