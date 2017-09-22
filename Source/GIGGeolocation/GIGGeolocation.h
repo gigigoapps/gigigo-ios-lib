@@ -18,7 +18,6 @@ typedef void(^GeolocationResult)(BOOL status, BOOL authorized, CLLocation *locat
 @interface GIGGeolocation : NSObject
 
 - (BOOL)isAuthorized;
-- (void)locateCompletion:(GIGGeolocationCompletion)completion DEPRECATED_MSG_ATTRIBUTE("Recomended use Locate instead locateCompletion");
 - (void)locate:(GeolocationResult)completion;
 
 

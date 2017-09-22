@@ -32,23 +32,6 @@ open class Request: Selfie {
 		self.verbose = verbose
 	}
 	
-	
-	// MARK: - Public Method
-	@available(*, deprecated: 2.1, message: "Use fetch(completionHandler:) instead", renamed: "fetch(completionHandler:)")
-	open func fetchData(completionHandler: @escaping (Response) -> Void) {
-		self.fetch(completionHandler: completionHandler)
-	}
-	
-	@available(*, deprecated: 2.1, message: "Use fetch(completionHandler:) instead", renamed: "fetch(completionHandler:)")
-	open func fetchJson(completionHandler: @escaping (Response) -> Void) {
-		self.fetch(completionHandler: completionHandler)
-	}
-	
-	@available(*, deprecated: 2.1, message: "Use fetch(completionHandler:) instead", renamed: "fetch(completionHandler:)")
-	open func fetchImage(completionHandler: @escaping (Response) -> Void) {
-		self.fetch(completionHandler: completionHandler)
-	}
-	
 	open func fetch(completionHandler: @escaping (Response) -> Void) {
 		guard let request = self.buildRequest() else { return }
 		self.request = request
