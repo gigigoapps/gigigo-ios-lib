@@ -32,6 +32,7 @@ open class Response: Selfie {
 	open var body: Data?
 	open var data: JSON?
 	open var error: NSError?
+    var standardType: StandardType = .gigigo
 	
 	
 	// MARK: - Initializers
@@ -41,9 +42,10 @@ open class Response: Selfie {
 		self.statusCode = 0
 	}
 	
-	convenience init(data: Data?, response: URLResponse?, error: Error?) {
+    convenience init(data: Data?, response: URLResponse?, error: Error?, standardType: StandardType = .gigigo) {
 		self.init()
 		
+        self.standardType = standardType
 		self.error = error as NSError?
 		if let response = response as? HTTPURLResponse {
 			self.url = response.url
@@ -57,7 +59,7 @@ open class Response: Selfie {
 			
 			if let contentType = self.headers?["Content-Type"] as? String,
 				contentType.contains("application/json"){
-				self.parseJSON()
+                self.parseJSON()
 			}
 		} else {
 			self.statusCode = self.error?.code ?? -1
@@ -67,22 +69,26 @@ open class Response: Selfie {
 	
 	
 	// MARK: - Private Helpers
-	
+    
 	private func parseJSON() {
 		guard
 			let body = self.body,
 			let json = try? JSON.dataToJson(body)
 			else { return LogWarn("Response is not a JSON") }
 		
-		let success = self.parseStatus(json: json)
-		
-		if success {
-			self.status = .success
-			self.data = json["data"]
-		} else {
-			self.status = self.parseError(json: json)
-		}
-		
+        
+        switch self.standardType {
+        case .gigigo:
+            let success = self.parseStatus(json: json)
+            if success {
+                self.status = .success
+                self.data = json["data"]
+            } else {
+                self.status = self.parseError(json: json)
+            }
+        case .basic:
+            self.data = json
+        }
 	}
 	
 	private func parseStatus(json: JSON) -> Bool {
