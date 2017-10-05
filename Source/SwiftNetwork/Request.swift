@@ -8,6 +8,10 @@
 
 import Foundation
 
+public enum StandardType {
+    case gigigo
+    case basic
+}
 
 open class Request: Selfie {
 	
@@ -18,11 +22,12 @@ open class Request: Selfie {
 	open var urlParams: [String: Any]?
 	open var bodyParams: [String: Any]?
 	open var verbose = false
+    open var standardType: StandardType = .gigigo
 	
 	private var request: URLRequest?
 	private var task: URLSessionTask?
 	
-	public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false) {
+    public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
 		self.method = method
 		self.baseURL = baseUrl
 		self.endpoint = endpoint
@@ -30,6 +35,7 @@ open class Request: Selfie {
 		self.urlParams = urlParams
 		self.bodyParams = bodyParams
 		self.verbose = verbose
+        self.standardType = standard
 	}
 	
 	open func fetch(completionHandler: @escaping (Response) -> Void) {
@@ -45,7 +51,7 @@ open class Request: Selfie {
 		
 		self.cancel()
 		self.task = session.dataTask(with: request) { data, urlResponse, error in
-			let response = Response(data: data, response: urlResponse, error: error)
+            let response = Response(data: data, response: urlResponse, error: error, standardType: self.standardType)
 			
 			if self.verbose {
 				response.logResponse()

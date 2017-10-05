@@ -65,6 +65,17 @@ class SwiftRequestVC: UIViewController {
 		.fetch(completionHandler: processResponse)
 
 	}
+    
+    @IBAction func onButtonRequestNoGigigoTap(_ sender: AnyObject) {
+        Request(
+            method: "GET",
+            baseUrl: "http://private-3b5b1-ejemplo13.apiary-mock.com/ejemplo13/questions/a",
+            endpoint: "",
+            verbose: true,
+            standard: .basic
+            )
+            .fetch(completionHandler: processResponse)
+    }
 	
     @IBAction func onButtonMcdonalLogin(_ sender: AnyObject) {
         var AppHeaders: [String: String] {
