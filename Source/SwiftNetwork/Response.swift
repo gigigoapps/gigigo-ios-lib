@@ -58,7 +58,7 @@ open class Response: Selfie {
 			}
 			
 			if let contentType = self.headers?["Content-Type"] as? String,
-				contentType.contains("application/json"){
+				contentType.contains("json"){
                 self.parseJSON()
 			}
 		} else {
