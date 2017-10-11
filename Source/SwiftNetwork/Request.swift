@@ -27,6 +27,20 @@ open class Request: Selfie {
 	private var request: URLRequest?
 	private var task: URLSessionTask?
 	
+    @available(*, deprecated: 3.0.4, message: "use instead the new initializer method")
+    public convenience init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false) {
+        self.init(
+            method: method,
+            baseUrl: baseUrl,
+            endpoint: endpoint,
+            headers: headers,
+            urlParams: urlParams,
+            bodyParams: bodyParams,
+            verbose: verbose,
+            standard: .gigigo
+        )
+    }
+    
     public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
 		self.method = method
 		self.baseURL = baseUrl
