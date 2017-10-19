@@ -152,7 +152,7 @@ public extension NSAttributedString {
         }
         
         do {
-            try? self.init(
+            try self.init(
                 data: htmlData,
                 options: [
                     NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
@@ -160,6 +160,8 @@ public extension NSAttributedString {
                 ],
                 documentAttributes: nil
             )
+        } catch {
+            return nil
         }
     }
     

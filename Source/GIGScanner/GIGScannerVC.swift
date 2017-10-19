@@ -21,18 +21,18 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     var previewLayer: AVCaptureVideoPreviewLayer?
     var codeFrameView: UIView?
     var captureDevice: AVCaptureDevice!
-
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         self.captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
-
+        
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice)
-            captureSession = AVCaptureSession()
-            captureSession?.addInput(input)
+            self.captureSession = AVCaptureSession()
+            self.captureSession?.addInput(input)
             
             let captureMetadataOutput = AVCaptureMetadataOutput()
-            captureSession?.addOutput(captureMetadataOutput)
+            self.captureSession?.addOutput(captureMetadataOutput)
             
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.upce,
@@ -59,7 +59,7 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     }
     
     // MARK: - PUBLIC
-
+    
     public func startScanning() {
         self.captureSession?.startRunning()
     }
@@ -69,15 +69,14 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     }
     
     public func enableTorch(_ enable: Bool) {
-
-        try! self.captureDevice.lockForConfiguration()
+        
+        try? self.captureDevice.lockForConfiguration()
         
         if self.captureDevice.hasTorch {
             
             if enable {
                 self.captureDevice.torchMode = .on
-            }
-            else {
+            } else {
                 self.captureDevice.torchMode = .off
             }
         }
@@ -97,16 +96,15 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         }
     }
     
-    public func isCameraAvailable() -> Bool? {
+    public func isCameraAvailable(completion: @escaping (Bool) -> Void) {
         let authStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         switch authStatus {
         case .authorized:
-            return true
+            completion(true)
         case .denied, .restricted:
-            return false
+            completion(false)
         case .notDetermined:
-            self.requestCameraAccess()
-            return nil
+            self.requestCameraAccess(completion: completion)
         }
     }
     
@@ -122,16 +120,15 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         self.view.layer.addSublayer(preview)
     }
     
-    private func requestCameraAccess() {
+    private func requestCameraAccess(completion: @escaping (Bool) -> Void) {
         AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { success in
-            
+            completion(success)
         })
     }
     
     // MARK: - AVCaptureMetadataOutputObjectsDelegate
-
-    public func metadataOutput(captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        
+    
+    public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         for metadata in metadataObjects {
             
             let readableCode = metadata as? AVMetadataMachineReadableCodeObject
@@ -143,3 +140,4 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         }
     }
 }
+
