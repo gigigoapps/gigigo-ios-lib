@@ -55,7 +55,7 @@ public extension MultiDelegable {
 
 /// Class with workaround for declaring arramappys with `weak` references
 public class WeakWrapper {
-    weak var value: AnyObject?
+    public weak var value: AnyObject?
     
     init(value: AnyObject) {
         self.value = value
