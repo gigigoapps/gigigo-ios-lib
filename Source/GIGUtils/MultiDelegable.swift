@@ -9,7 +9,7 @@
 import Foundation
 
 //// Protocol for enabling multiple delegation, forwarding delegate messages to multiple objects instead of being restricted to a single delegate object.
-protocol MultiDelegable: class {
+public protocol MultiDelegable: class {
     
     /// Delegate type
     associatedtype Observer
@@ -17,7 +17,7 @@ protocol MultiDelegable: class {
     var observers: [WeakWrapper] { get set }
 }
 
-extension MultiDelegable {
+public extension MultiDelegable {
     
     /// Subscribes an object to the delegate messages.
     /// - parameters:
@@ -54,7 +54,7 @@ extension MultiDelegable {
 }
 
 /// Class with workaround for declaring arramappys with `weak` references
-class WeakWrapper {
+public class WeakWrapper {
     weak var value: AnyObject?
     
     init(value: AnyObject) {
