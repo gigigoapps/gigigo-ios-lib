@@ -143,7 +143,7 @@ public extension NSAttributedString {
     public convenience init?(fromHTML html: String) {
         
         let htmlData: Data
-        
+        print(html)
         if let data = html.data(using: String.Encoding.utf8) {
             htmlData = data
         } else {
@@ -167,9 +167,9 @@ public extension NSAttributedString {
     
     public convenience init?(fromHTML html: String, font:UIFont, color:UIColor, aligment: NSTextAlignment = .left) {
         let textAligment = aligmentString(fromAligment: aligment)
-        let style = "<style>body{color:\(color.hexString(false)); font-family: '\(font.fontName)'; font-size:" + String(format: "%.0f", font.pointSize) + "px; text-align: \(textAligment);}</style>"
+        let style = "<style>body{color:\(color.hexString(false)); font-family: '-apple-system','\(font.fontName)'; font-size:" + String(format: "%.0f", font.pointSize) + "px; text-align: \(textAligment);}</style>"
         let completeHtml = style + html
-        self.init(fromHTML:completeHtml)
+        self.init(fromHTML: completeHtml)
     }
 }
 
