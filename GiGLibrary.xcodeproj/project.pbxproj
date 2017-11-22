@@ -761,6 +761,13 @@
 			name = AlertController;
 			sourceTree = "<group>";
 		};
+		6154BEFD1FC5D87A00A28C17 /* MultiDelegate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MultiDelegate;
+			sourceTree = "<group>";
+		};
 		61F2ACEF1E9B9D59003E20C4 /* InfiniteCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -1250,6 +1257,7 @@
 				D9E18E111BD542D900611CDA /* Formulary */,
 				4A881C131C5F8650000EC61E /* Alert */,
 				FA133A721CBC208B0007EE06 /* Menu */,
+				6154BEFD1FC5D87A00A28C17 /* MultiDelegate */,
 				FA56AFF31CDF31FD00ABDA53 /* Keyboard */,
 				FA89A8BD1D33BA8000AE6E3A /* QR */,
 				D99AD3661B1DAAE6005BB4E5 /* Resources */,
