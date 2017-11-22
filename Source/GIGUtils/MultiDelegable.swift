@@ -12,7 +12,7 @@ import Foundation
 public protocol MultiDelegable: class {
     
     /// Delegate type
-    associatedtype Observer
+    associatedtype Observer: AnyObject
     /// Subscribed delegate objects
     var observers: [WeakWrapper] { get set }
 }
@@ -23,7 +23,8 @@ public extension MultiDelegable {
     /// - parameters:
     ///     - observer: Delegate object to add as observer.
     func add(observer: Observer) {
-        if !self.observers.contains(where: { String(describing: $0.value ?? "" as AnyObject) == String(describing: observer) }) {
+        
+        if !self.observers.contains(where: { String(describing: $0.value ?? "" as AnyObject) == String(ObjectIdentifier(observer).hashValue) }) {
             self.observers.append(WeakWrapper(value: observer as AnyObject))
         } else {
             self.remove(observer: observer)
@@ -35,7 +36,7 @@ public extension MultiDelegable {
     /// - parameters:
     ///     - observer: Delegate object to add as observer.
     func remove(observer: Observer) {
-        if let index = self.observers.index(where: { String(describing: $0.value ?? "" as AnyObject) == String(describing: observer) }) {
+        if let index = self.observers.index(where: { String(describing: $0.value ?? "" as AnyObject) == String(ObjectIdentifier(observer).hashValue) }) {
             self.observers.remove(at: index)
         }
         self.observers = self.observers.flatMap({ $0.value != nil ? $0 : nil }) // Remove nil objects
