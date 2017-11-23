@@ -143,7 +143,6 @@ public extension NSAttributedString {
     public convenience init?(fromHTML html: String) {
         
         let htmlData: Data
-        print(html)
         if let data = html.data(using: String.Encoding.utf8) {
             htmlData = data
         } else {
