@@ -166,8 +166,17 @@ public extension NSAttributedString {
     
     public convenience init?(fromHTML html: String, font:UIFont, color:UIColor, aligment: NSTextAlignment = .left) {
         let textAligment = aligmentString(fromAligment: aligment)
-        let style = "<style>body{color:\(color.hexString(false)); font-family: '-apple-system','\(font.fontName)'; font-size:" + String(format: "%.0f", font.pointSize) + "px; text-align: \(textAligment);}</style>"
+        let style = "<style>body{color:\(color.hexString(false)); font-family: '\(font.fontName)'; font-size:  \(String(format: "%.0f", font.pointSize))px; text-align: \(textAligment);}</style>"
         let completeHtml = style + html
+        print(completeHtml)
+        self.init(fromHTML: completeHtml)
+    }
+    
+    public convenience init?(fromHTML html: String, pointSize: CGFloat, color:UIColor, aligment: NSTextAlignment = .left) {
+        let textAligment = aligmentString(fromAligment: aligment)
+        let style = "<style>body{color:\(color.hexString(false)); font-family: '-apple-system'; font-size: \(pointSize)px; text-align: \(textAligment);}</style>"
+        let completeHtml = style + html
+        print(completeHtml)
         self.init(fromHTML: completeHtml)
     }
 }
