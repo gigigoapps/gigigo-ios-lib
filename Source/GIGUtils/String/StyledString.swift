@@ -164,20 +164,18 @@ public extension NSAttributedString {
         }
     }
     
-    public convenience init?(fromHTML html: String, font:UIFont, color:UIColor, aligment: NSTextAlignment = .left) {
-        let textAligment = aligmentString(fromAligment: aligment)
-        let style = "<style>body{color:\(color.hexString(false)); font-family: '\(font.fontName)'; font-size:  \(String(format: "%.0f", font.pointSize))px; text-align: \(textAligment);}</style>"
-        let completeHtml = style + html
-        print(completeHtml)
-        self.init(fromHTML: completeHtml)
+    public convenience init?(fromHTML html: String, font: UIFont, color: UIColor, aligment: NSTextAlignment = .left) {
+        self.init(fromHTML: NSAttributedString.createHtml(from: html, fontName: font.fontName, pointSize: font.pointSize, color: color, aligment: aligment))
     }
     
-    public convenience init?(fromHTML html: String, pointSize: CGFloat, color:UIColor, aligment: NSTextAlignment = .left) {
+    public convenience init?(fromHTML html: String, pointSize: CGFloat, color: UIColor, aligment: NSTextAlignment = .left) {
+        self.init(fromHTML: NSAttributedString.createHtml(from: html, fontName: "-apple-system", pointSize: pointSize, color: color, aligment: aligment))
+    }
+    
+    private class func createHtml(from string: String, fontName: String, pointSize: CGFloat, color: UIColor, aligment: NSTextAlignment) -> String {
         let textAligment = aligmentString(fromAligment: aligment)
-        let style = "<style>body{color:\(color.hexString(false)); font-family: '-apple-system'; font-size: \(pointSize)px; text-align: \(textAligment);}</style>"
-        let completeHtml = style + html
-        print(completeHtml)
-        self.init(fromHTML: completeHtml)
+        let style = "<style>body{color:\(color.hexString(false)); font-family: '\(fontName)'; font-size: \(String(format: "%.0f", pointSize)))px; text-align: \(textAligment);}</style>"
+        return style + string
     }
 }
 
