@@ -174,7 +174,7 @@ public extension NSAttributedString {
     
     private class func createHtml(from string: String, fontName: String, pointSize: CGFloat, color: UIColor, aligment: NSTextAlignment) -> String {
         let textAligment = aligmentString(fromAligment: aligment)
-        let style = "<style>body{color:\(color.hexString(false)); font-family: '\(fontName)'; font-size: \(String(format: "%.0f", pointSize)))px; text-align: \(textAligment);}</style>"
+        let style = "<style>body{color:\(color.hexString(false)); font-family: '\(fontName)'; font-size: \(String(format: "%.0f", pointSize))px; text-align: \(textAligment);}</style>"
         return style + string
     }
 }
