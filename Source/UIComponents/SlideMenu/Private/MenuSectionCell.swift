@@ -22,7 +22,13 @@ class MenuSectionCell: UITableViewCell {
 	
     func bindMenuSection(_ menuSection: MenuSection) {
         self.labelMenuSection.text = menuSection.name
-        self.imageMenuSection.image = menuSection.icon
+        if let iconFromURL = menuSection.iconURLString {
+            self.imageMenuSection.imageFromURL(
+                urlString: iconFromURL,
+                placeholder: menuSection.icon)
+        } else {
+            self.imageMenuSection.image = menuSection.icon
+        }
         
         guard let modeButtonType = menuSection.modeButtonType else {
             return
@@ -38,7 +44,6 @@ class MenuSectionCell: UITableViewCell {
             self.labelMenuSection.textColor = menuTitleColor
         }
     }
-	
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
 		super.setSelected(selected, animated: animated)
