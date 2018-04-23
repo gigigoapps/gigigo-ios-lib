@@ -68,7 +68,7 @@ open class ExpandableTextView: UIView {
     // MARK: - Private methods
     
     private class func instantiate() -> ExpandableTextView? {
-        guard let expandableTextView = Bundle.main.loadNibNamed("ExpandableTextView", owner: self, options: nil)?.first as? ExpandableTextView else {
+        guard let expandableTextView = Bundle(identifier: "com.gigigo.GIGLibrary")?.loadNibNamed("ExpandableTextView", owner: self, options: nil)?.first as? ExpandableTextView else {
             return ExpandableTextView()
         }
         return expandableTextView
