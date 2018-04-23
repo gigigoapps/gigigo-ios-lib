@@ -16,9 +16,12 @@ open class ExpandableTextView: UIView {
     @IBOutlet weak open var hyperlinkTextView: HyperlinkTextView!
     @IBOutlet weak open var expandButton: UIButton!
     
+    // MARK: - Public properties
+    
+    open var isCollapsed: Bool = true
+    
     // MARK: - Private properties
     
-    private var isCollapsed: Bool = true
     private var shortText: String?
     private var longText: String?
     private var collapseText: String?
