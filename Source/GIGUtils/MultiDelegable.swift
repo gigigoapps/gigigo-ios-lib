@@ -40,7 +40,7 @@ public extension MultiDelegable {
         if let index = self.observers.index(where: { $0.identifier() == identifier }) {
             self.observers.remove(at: index)
         }
-        self.observers = self.observers.flatMap({ $0.value != nil ? $0 : nil }) // Remove nil objects
+        self.observers = self.observers.compactMap({ $0.value != nil ? $0 : nil }) // Remove nil objects
     }
     
     /// Executes a delegate method.
