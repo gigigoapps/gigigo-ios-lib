@@ -33,7 +33,7 @@ open class ExpandableTextView: UIView {
     ///   - shortText: Title for the alert
     ///   - longText: Message for the alert
     /// - Returns: The `ExpandableTextView` instance
-    open class func instantiate(shortText: String, longText: String, collapseText: String, expandText: String, hyperlinkDelegate: HyperlinkTextViewDelegate?) -> ExpandableTextView? {
+    open class func instantiate(shortText: String, longText: String, hyperlinkDelegate: HyperlinkTextViewDelegate?) -> ExpandableTextView? {
         let expandableTextView = self.instantiate()
         expandableTextView?.shortText = shortText
         expandableTextView?.longText = longText
