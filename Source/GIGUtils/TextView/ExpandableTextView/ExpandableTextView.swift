@@ -14,7 +14,6 @@ open class ExpandableTextView: UIView {
     // MARK: IBOutlet
     @IBOutlet weak open var stackView: UIStackView!
     @IBOutlet weak open var hyperlinkTextView: HyperlinkTextView!
-    @IBOutlet weak open var expandButton: UIButton!
     
     // MARK: - Public properties
     
@@ -24,8 +23,6 @@ open class ExpandableTextView: UIView {
     
     private var shortText: String?
     private var longText: String?
-    private var collapseText: String?
-    private var expandText: String?
     
     // MARK: - Public methods
     
@@ -40,8 +37,6 @@ open class ExpandableTextView: UIView {
         let expandableTextView = self.instantiate()
         expandableTextView?.shortText = shortText
         expandableTextView?.longText = longText
-        expandableTextView?.collapseText = collapseText
-        expandableTextView?.expandText = expandText
         expandableTextView?.hyperlinkTextView.hyperlinkDelegate = hyperlinkDelegate
         expandableTextView?.setup()
         return expandableTextView
@@ -50,11 +45,8 @@ open class ExpandableTextView: UIView {
     open func collapse() {
         guard !self.isCollapsed else { return }
         self.isCollapsed = true
-        guard
-            let shortText = self.shortText,
-            let expandText = self.expandText else { return }
+        guard let shortText = self.shortText else { return }
         self.hyperlinkTextView.setText(htmlText: shortText)
-        self.expandButton.setTitle(expandText, for: .normal)
     }
     
     open func expand() {
@@ -62,16 +54,14 @@ open class ExpandableTextView: UIView {
         self.isCollapsed = false
         guard
             let shortText = self.shortText,
-            let longText = self.longText,
-            let collapseText = self.collapseText else { return }
+            let longText = self.longText else { return }
         self.hyperlinkTextView.setText(htmlText: shortText + "<br>" + longText)
-        self.expandButton.setTitle(collapseText, for: .normal)
     }
     
     // MARK: - Private methods
     
     private class func instantiate() -> ExpandableTextView? {
-        guard let expandableTextView = Bundle(identifier: "com.gigigo.GIGLibrary")?.loadNibNamed("ExpandableTextView", owner: self, options: nil)?.first as? ExpandableTextView else {
+        guard let expandableTextView = Bundle(for: ExpandableTextView.self).loadNibNamed("ExpandableTextView", owner: self, options: nil)?.first as? ExpandableTextView else {
             return ExpandableTextView()
         }
         return expandableTextView
@@ -80,10 +70,7 @@ open class ExpandableTextView: UIView {
     // MARK: - Private helpers
     
     private func setup() {
-        guard
-            let shortText = self.shortText,
-            let expandText = self.expandText else { return }
+        guard let shortText = self.shortText else { return }
         self.hyperlinkTextView.setText(htmlText: shortText)
-        self.expandButton.setTitle(expandText, for: .normal)
     }
 }
