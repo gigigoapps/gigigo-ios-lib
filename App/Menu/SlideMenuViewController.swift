@@ -56,10 +56,10 @@ class SlideMenuViewController: UIViewController {
         
         let section2 = MenuSection(
             name: "Section 2",
-            icon: UIImage(),
-            storyboard: "Main",
-            viewController: "SlideMenuSection2"
-        )
+            iconURLString: "https://squigglepark.com/wp-content/uploads/2017/01/circle_heart-800x509.png",
+            iconPlaceholder: nil,
+            storyboard: "SlideMenuSection2")
+        
 		
 		let section3 = MenuSection(
 			name: "Section 3",

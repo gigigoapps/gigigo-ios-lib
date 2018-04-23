@@ -55,7 +55,13 @@ open class Request: Selfie {
 	open func fetch(completionHandler: @escaping (Response) -> Void) {
 		guard let request = self.buildRequest() else { return }
 		self.request = request
-		let session = URLSession.shared
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForResource = 15
+        if #available(iOS 11, *) {
+            configuration.waitsForConnectivity = true
+        }
+        
+        let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
 		
 		if self.verbose {
 			LogManager.shared.logLevel = .debug

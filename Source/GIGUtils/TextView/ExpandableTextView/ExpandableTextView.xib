@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ExpandableTextView" customModule="GIGLibrary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="230"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8IP-xZ-KrI">
+                    <rect key="frame" x="0.0" y="0.0" width="343" height="230"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w0p-Fo-V7y" customClass="HyperlinkTextView" customModule="GIGLibrary" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="230"/>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="8IP-xZ-KrI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5B9-7r-wgZ"/>
+                <constraint firstAttribute="bottom" secondItem="8IP-xZ-KrI" secondAttribute="bottom" id="83c-bB-6SE"/>
+                <constraint firstItem="8IP-xZ-KrI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Rrr-kQ-5wR"/>
+                <constraint firstAttribute="trailing" secondItem="8IP-xZ-KrI" secondAttribute="trailing" id="mCw-EF-pDX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="hyperlinkTextView" destination="w0p-Fo-V7y" id="6u5-GP-vEH"/>
+                <outlet property="stackView" destination="8IP-xZ-KrI" id="hlh-ae-bPx"/>
+            </connections>
+            <point key="canvasLocation" x="38.5" y="-533"/>
+        </view>
+    </objects>
+</document>

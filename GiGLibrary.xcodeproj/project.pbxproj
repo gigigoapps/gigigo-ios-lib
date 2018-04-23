@@ -17,6 +17,9 @@
 		4AACDF981C60DA2400F4E8AE /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */; };
 		4AACDF9A1C611E7100F4E8AE /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF991C611E7100F4E8AE /* Alert.swift */; };
 		617C5A601FBD7F69001DFCAC /* MultiDelegable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617C5A5F1FBD7F69001DFCAC /* MultiDelegable.swift */; };
+		618616A6208DEC4D001B4603 /* ExpandableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618616A4208DEC4D001B4603 /* ExpandableTextView.swift */; };
+		618616A7208DEC4D001B4603 /* ExpandableTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 618616A5208DEC4D001B4603 /* ExpandableTextView.xib */; };
+		618616AC208DF099001B4603 /* HyperlinkTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618616AB208DF04C001B4603 /* HyperlinkTextView.swift */; };
 		61F2ACEC1E9B9780003E20C4 /* InfiniteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACEB1E9B9780003E20C4 /* InfiniteCollectionView.swift */; };
 		61F2ACEE1E9B9D53003E20C4 /* InfiniteCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACED1E9B9D53003E20C4 /* InfiniteCollectionVC.swift */; };
 		61F2ACF11E9BA297003E20C4 /* InfiniteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACF01E9BA297003E20C4 /* InfiniteCollectionViewCell.swift */; };
@@ -361,6 +364,9 @@
 		4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionSheet.swift; path = ActionSheet/ActionSheet.swift; sourceTree = "<group>"; };
 		4AACDF991C611E7100F4E8AE /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = GIGUtils/AlertController/Alert.swift; sourceTree = "<group>"; };
 		617C5A5F1FBD7F69001DFCAC /* MultiDelegable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiDelegable.swift; sourceTree = "<group>"; };
+		618616A4208DEC4D001B4603 /* ExpandableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTextView.swift; sourceTree = "<group>"; };
+		618616A5208DEC4D001B4603 /* ExpandableTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandableTextView.xib; sourceTree = "<group>"; };
+		618616AB208DF04C001B4603 /* HyperlinkTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperlinkTextView.swift; sourceTree = "<group>"; };
 		61F2ACEB1E9B9780003E20C4 /* InfiniteCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCollectionView.swift; sourceTree = "<group>"; };
 		61F2ACED1E9B9D53003E20C4 /* InfiniteCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfiniteCollectionVC.swift; path = App/InfiniteCollection/InfiniteCollectionVC.swift; sourceTree = SOURCE_ROOT; };
 		61F2ACF01E9BA297003E20C4 /* InfiniteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -768,6 +774,32 @@
 			name = MultiDelegate;
 			sourceTree = "<group>";
 		};
+		6186169F208DEBA3001B4603 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				618616A3208DEC22001B4603 /* ExpandableTextView */,
+				618616A0208DEBE8001B4603 /* HyperlinkTextView */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
+		618616A0208DEBE8001B4603 /* HyperlinkTextView */ = {
+			isa = PBXGroup;
+			children = (
+				618616AB208DF04C001B4603 /* HyperlinkTextView.swift */,
+			);
+			path = HyperlinkTextView;
+			sourceTree = "<group>";
+		};
+		618616A3208DEC22001B4603 /* ExpandableTextView */ = {
+			isa = PBXGroup;
+			children = (
+				618616A4208DEC4D001B4603 /* ExpandableTextView.swift */,
+				618616A5208DEC4D001B4603 /* ExpandableTextView.xib */,
+			);
+			path = ExpandableTextView;
+			sourceTree = "<group>";
+		};
 		61F2ACEF1E9B9D59003E20C4 /* InfiniteCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -791,6 +823,7 @@
 			children = (
 				7B6B84931BC2962600517C2F /* GIGParseClass.h */,
 				7B6B84941BC2962600517C2F /* GIGParseClass.m */,
+				D99AD1981B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -1576,7 +1609,6 @@
 				D99AD1931B1DA3A3005BB4E5 /* Array */,
 				D99AD1961B1DA3A3005BB4E5 /* Bundle */,
 				D99AD1971B1DA3A3005BB4E5 /* NSBundle+GIGExtension.h */,
-				D99AD1981B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m */,
 				7B6B84921BC2959500517C2F /* Class */,
 				D99AD1991B1DA3A3005BB4E5 /* Color */,
 				D99AD19C1B1DA3A3005BB4E5 /* CoreData */,
@@ -1604,6 +1636,7 @@
 				FAAE2A4E1D227D5C00C5F808 /* Selfie.swift */,
 				D99AD1DE1B1DA3A3005BB4E5 /* String */,
 				D99AD1E61B1DA3A3005BB4E5 /* UserDefaults */,
+				6186169F208DEBA3001B4603 /* TextView */,
 				D99AD1E91B1DA3A3005BB4E5 /* View */,
 			);
 			name = Public;
@@ -2053,6 +2086,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3022021CBD406700A8F7DE /* SlideMenu.storyboard in Resources */,
+				618616A7208DEC4D001B4603 /* ExpandableTextView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2136,6 +2170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB3201D1CBE9F1100098D81 /* SlideMenuConfig.swift in Sources */,
+				618616A6208DEC4D001B4603 /* ExpandableTextView.swift in Sources */,
 				D99AD2611B1DA3A3005BB4E5 /* GIGURLImageResponse.m in Sources */,
 				4AACDF981C60DA2400F4E8AE /* ActionSheet.swift in Sources */,
 				D99AD2E51B1DA3A3005BB4E5 /* NSString+GIGSubstring.m in Sources */,
@@ -2210,6 +2245,7 @@
 				61F2ACEE1E9B9D53003E20C4 /* InfiniteCollectionVC.swift in Sources */,
 				D99AD2B11B1DA3A3005BB4E5 /* NSData+GIGJSON.m in Sources */,
 				D9FD36221B416CCB000D356F /* GIGPhoneValidator.m in Sources */,
+				618616AC208DF099001B4603 /* HyperlinkTextView.swift in Sources */,
 				D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */,
 				4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */,
 				A95E67D71F5D343B001D8B19 /* GIGScannerVC.swift in Sources */,

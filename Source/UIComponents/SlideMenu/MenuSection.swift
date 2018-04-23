@@ -17,13 +17,28 @@ open class MenuSection {
     open let viewController: String?
     open var modeButtonType: Bool?
     open var completionButtonType: (() -> Void)?
-    
+    open var iconURLString: String?
+
     lazy var sectionController: UIViewController = self.instantiateViewController()
     
     
     public init(name: String, icon: UIImage, storyboard: String, viewController: String? = nil, modeButtonType: Bool? = nil,  completionButtonType: (() -> Void)? = nil) {
         self.name = name
         self.icon = icon
+        self.storyboard = storyboard
+        self.viewController = viewController
+        self.modeButtonType = modeButtonType
+        self.completionButtonType = completionButtonType
+    }
+    
+    public init(name: String, iconURLString: String, iconPlaceholder: UIImage?, storyboard: String, viewController: String? = nil, modeButtonType: Bool? = nil,  completionButtonType: (() -> Void)? = nil) {
+        self.name = name
+        if let placeholder = iconPlaceholder {
+            self.icon = placeholder
+        } else {
+            self.icon = UIImage()
+        }
+        self.iconURLString = iconURLString
         self.storyboard = storyboard
         self.viewController = viewController
         self.modeButtonType = modeButtonType
