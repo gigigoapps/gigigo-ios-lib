@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/gigigoapps/gigigo-ios-lib.svg?branch=master)](https://travis-ci.org/gigigoapps/gigigo-ios-lib)
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
 ![Language](https://img.shields.io/badge/Language-Swift-orange.svg)
-![Version](https://img.shields.io/badge/version-3.0.13-blue.svg)
+![Version](https://img.shields.io/badge/version-3.0.14-blue.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 

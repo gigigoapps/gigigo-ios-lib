@@ -40,7 +40,7 @@ open class HyperlinkTextView: UITextView {
     
     // MARK: - Custom initializer
     
-    init(htmlText: String, font: UIFont?) {
+    public init(htmlText: String, font: UIFont?) {
         super.init(frame: .zero, textContainer: nil)
         self.font = font
         let styledAttributedText = self.setupAttributedString(from: htmlText)
