@@ -10,6 +10,8 @@
 		02F2F7F71E82C8760098E4AF /* ProgressPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F7F61E82C8760098E4AF /* ProgressPageControl.swift */; };
 		02F2F7F91E82C88F0098E4AF /* ProgressDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F7F81E82C88F0098E4AF /* ProgressDurationView.swift */; };
 		02F2F7FC1E82D71E0098E4AF /* ProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F7FB1E82D71E0098E4AF /* ProgressVC.swift */; };
+		230A6AA020908FB700BC886D /* ScreenRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A6A9F20908FB700BC886D /* ScreenRecordVC.swift */; };
+		238FA1CD2090700500E398C8 /* ScreenRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FA1CC2090700400E398C8 /* ScreenRecord.swift */; };
 		4A23B6791C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A23B6781C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h */; };
 		4A23B67B1C74779D00E37E5D /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4A6A04821C62524000FED731 /* GIGIOSVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A04811C62524000FED731 /* GIGIOSVersion.swift */; };
@@ -357,6 +359,8 @@
 		02F2F7F61E82C8760098E4AF /* ProgressPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressPageControl.swift; path = UIComponents/ProgressPageControl/ProgressPageControl.swift; sourceTree = "<group>"; };
 		02F2F7F81E82C88F0098E4AF /* ProgressDurationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressDurationView.swift; path = UIComponents/ProgressDurationView/ProgressDurationView.swift; sourceTree = "<group>"; };
 		02F2F7FB1E82D71E0098E4AF /* ProgressVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressVC.swift; sourceTree = "<group>"; };
+		230A6A9F20908FB700BC886D /* ScreenRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScreenRecordVC.swift; path = ScreenRecord/ScreenRecordVC.swift; sourceTree = "<group>"; };
+		238FA1CC2090700400E398C8 /* ScreenRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecord.swift; sourceTree = "<group>"; };
 		4A23B6781C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GIGLibraryApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A23B67A1C74779D00E37E5D /* GIGAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIGAlertViewController.swift; path = Alert/GIGAlertViewController.swift; sourceTree = "<group>"; };
 		4A6A04811C62524000FED731 /* GIGIOSVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGIOSVersion.swift; sourceTree = "<group>"; };
@@ -732,6 +736,22 @@
 				02F2F7FB1E82D71E0098E4AF /* ProgressVC.swift */,
 			);
 			name = ProgressPageControl;
+			sourceTree = "<group>";
+		};
+		230A6A9E20908F8E00BC886D /* ScreenRecord */ = {
+			isa = PBXGroup;
+			children = (
+				230A6A9F20908FB700BC886D /* ScreenRecordVC.swift */,
+			);
+			name = ScreenRecord;
+			sourceTree = "<group>";
+		};
+		238FA1CB20906FE100E398C8 /* ScreenRecord */ = {
+			isa = PBXGroup;
+			children = (
+				238FA1CC2090700400E398C8 /* ScreenRecord.swift */,
+			);
+			path = ScreenRecord;
 			sourceTree = "<group>";
 		};
 		4A881C101C5F7C2D000EC61E /* AlertController */ = {
@@ -1282,6 +1302,7 @@
 		D99AD3051B1DA3AF005BB4E5 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				230A6A9E20908F8E00BC886D /* ScreenRecord */,
 				D99AD35F1B1DAAE6005BB4E5 /* Main */,
 				02F2F7FA1E82D6F40098E4AF /* ProgressPageControl */,
 				61F2ACEF1E9B9D59003E20C4 /* InfiniteCollection */,
@@ -1594,6 +1615,7 @@
 		FA133A6F1CBC1FD50007EE06 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				238FA1CB20906FE100E398C8 /* ScreenRecord */,
 				FA44E4941C90694B009BBBA2 /* Application */,
 				4AC0299B1C73831700FF22BF /* AlertController */,
 				D99AD1B81B1DA3A3005BB4E5 /* GIGUtils.h */,
@@ -2222,6 +2244,7 @@
 				FA3022051CBD4C1100A8F7DE /* MenuSectionCell.swift in Sources */,
 				D99AD2911B1DA3A3005BB4E5 /* NSError+GIGExtension.m in Sources */,
 				61F2ACEC1E9B9780003E20C4 /* InfiniteCollectionView.swift in Sources */,
+				230A6AA020908FB700BC886D /* ScreenRecordVC.swift in Sources */,
 				FAEDF67A1BE20EA400F05AE2 /* GIGStringValidator.m in Sources */,
 				FAA3F8871C60EDD80061AADD /* Log.swift in Sources */,
 				D99AD2D71B1DA3A3005BB4E5 /* UIScrollView+GIGScrollTo.m in Sources */,
@@ -2269,6 +2292,7 @@
 				617C5A601FBD7F69001DFCAC /* MultiDelegable.swift in Sources */,
 				FA723AC81C64AB4500225E79 /* Response.swift in Sources */,
 				D99AD2811B1DA3A3005BB4E5 /* NSDate+GIGExtension.m in Sources */,
+				238FA1CD2090700500E398C8 /* ScreenRecord.swift in Sources */,
 				D99AD24D1B1DA3A3005BB4E5 /* GIGURLRequest.m in Sources */,
 				FA137A3A1DE5B12C0025BE53 /* StringExtension.swift in Sources */,
 				FA36E9701C637CD100214598 /* Dispatch.swift in Sources */,
