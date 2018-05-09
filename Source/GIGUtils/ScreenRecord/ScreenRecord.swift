@@ -22,7 +22,7 @@ public protocol ScreenRecordInput {
 
 open class ScreenRecord: NSObject {
     
-    weak var view: ScreenRecordUI?
+    public weak var view: ScreenRecordUI?
     var recorder: RPScreenRecorder
     
     public override init() {
