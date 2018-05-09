@@ -9,13 +9,13 @@
 import Foundation
 import ReplayKit
 
-protocol ScreenRecordUI: class {
+public protocol ScreenRecordUI: class {
     func dismissView()
     func showPreview(viewController: UIViewController)
     func errorRecording(error: Error)
 }
 
-protocol ScreenRecordInput {
+public protocol ScreenRecordInput {
     func startRecording()
     func stopRecording()
 }
@@ -25,7 +25,7 @@ open class ScreenRecord: NSObject {
     weak var view: ScreenRecordUI?
     var recorder: RPScreenRecorder
     
-    override init() {
+    public override init() {
         self.recorder = RPScreenRecorder.shared()
         self.recorder.isMicrophoneEnabled = true
     }
