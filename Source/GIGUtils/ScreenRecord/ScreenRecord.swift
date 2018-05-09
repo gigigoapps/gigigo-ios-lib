@@ -20,7 +20,7 @@ protocol ScreenRecordInput {
     func stopRecording()
 }
 
-class ScreenRecord: NSObject {
+open class ScreenRecord: NSObject {
     
     weak var view: ScreenRecordUI?
     var recorder: RPScreenRecorder
@@ -34,7 +34,7 @@ class ScreenRecord: NSObject {
 // MARK: ScreenRecordInput
 extension ScreenRecord: ScreenRecordInput {
     
-    func startRecording() {
+    open func startRecording() {
         if #available(iOS 10.0, *) {
             self.recorder.startRecording { [unowned self] (error) in
                 if let unwrappedError = error {
@@ -44,7 +44,7 @@ extension ScreenRecord: ScreenRecordInput {
         }
     }
     
-    func stopRecording() {
+    open func stopRecording() {
         if #available(iOS 10.0, *) {
             self.recorder.stopRecording { [unowned self] (preview, error) in
                 if let unwrappedPreview = preview {
@@ -62,7 +62,7 @@ extension ScreenRecord: ScreenRecordInput {
 // MARK: RPPreviewViewControllerDelegate
 extension ScreenRecord: RPPreviewViewControllerDelegate {
     
-    func previewControllerDidFinish(_ previewController: RPPreviewViewController) {
+    public func previewControllerDidFinish(_ previewController: RPPreviewViewController) {
         self.view?.dismissView()
     }
 }
