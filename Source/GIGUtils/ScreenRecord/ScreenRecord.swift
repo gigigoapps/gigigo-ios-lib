@@ -27,7 +27,7 @@ open class ScreenRecord: NSObject {
     
     public override init() {
         self.recorder = RPScreenRecorder.shared()
-        self.recorder.isMicrophoneEnabled = true
+        self.recorder.isMicrophoneEnabled = false
     }
 }
 
