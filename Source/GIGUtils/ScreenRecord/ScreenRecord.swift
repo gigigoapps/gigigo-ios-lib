@@ -25,9 +25,9 @@ open class ScreenRecord: NSObject {
     public weak var view: ScreenRecordUI?
     var recorder: RPScreenRecorder
     
-    public override init() {
+    public init(microphoneEnable: Bool) {
         self.recorder = RPScreenRecorder.shared()
-        self.recorder.isMicrophoneEnabled = false
+        self.recorder.isMicrophoneEnabled = microphoneEnable
     }
 }
 

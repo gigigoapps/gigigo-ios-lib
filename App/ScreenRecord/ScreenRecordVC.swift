@@ -11,7 +11,7 @@ import UIKit
 class ScreenRecordVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
-    let screenRecord = ScreenRecord()
+    let screenRecord = ScreenRecord(microphoneEnable: true)
     
     override func viewDidLoad() {
         super.viewDidLoad()
