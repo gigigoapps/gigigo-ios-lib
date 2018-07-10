@@ -67,11 +67,11 @@ public class ReachabilityWrapper: ReachabilityInput {
     
     // MARK: - Reachability methods
     
-    func isReachable() -> Bool {
+    public func isReachable() -> Bool {
         return self.reachability?.connection != Reachability.Connection.none
     }
     
-    func isReachableViaWiFi() -> Bool {
+    public func isReachableViaWiFi() -> Bool {
         return self.reachability?.connection == .wifi
     }
         
