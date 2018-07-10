@@ -39,9 +39,17 @@ public class ReachabilityWrapper: ReachabilityInput {
     // MARK: - Life cycle
     
     private init() {
-        
         self.reachability = Reachability()
-        
+        self.startNotifier()
+    }
+    
+    deinit {
+       self.stopNotifier()
+    }
+    
+    // MARK: - Reachability methods
+    
+    public func startNotifier() {
         // Listen to reachability changes
         NotificationCenter.default.addObserver(
             self,
@@ -51,11 +59,10 @@ public class ReachabilityWrapper: ReachabilityInput {
         )
         
         self.currentStatus = self.networkStatus()
-        
         try? self.reachability?.startNotifier()
     }
     
-    deinit {
+    public func stopNotifier() {
         NotificationCenter.default.removeObserver(
             self,
             name: .reachabilityChanged,
@@ -65,7 +72,6 @@ public class ReachabilityWrapper: ReachabilityInput {
         self.reachability?.stopNotifier()
     }
     
-    // MARK: - Reachability methods
     
     public func isReachable() -> Bool {
         return self.reachability?.connection != Reachability.Connection.none
