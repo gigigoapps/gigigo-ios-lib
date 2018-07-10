@@ -32,6 +32,7 @@
 		8F8C8EFF20F495C000F5CE2C /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F8C8EFD20F4944500F5CE2C /* Reachability.framework */; };
 		8F8C8F0020F495C000F5CE2C /* Reachability.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8F8C8EFD20F4944500F5CE2C /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F8C8F0120F495DD00F5CE2C /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F8C8EFD20F4944500F5CE2C /* Reachability.framework */; };
+		8FD136FB20F4B90E001C67D0 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F8C8EFD20F4944500F5CE2C /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A51F6D751D50BBB30052D95A /* StyledString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6D741D50BBB30052D95A /* StyledString.swift */; };
 		A51F6D771D50C0410052D95A /* StyledStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6D761D50C0410052D95A /* StyledStringTests.swift */; };
 		A55EE0771DACFDFF002E4EDF /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EE0761DACFDFF002E4EDF /* ImageExtension.swift */; };
@@ -353,6 +354,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8FD136FB20F4B90E001C67D0 /* Reachability.framework in Frameworks */,
 				FA0A9CB91F751B6300674F38 /* GIGLibrary.framework in Frameworks */,
 			);
 			name = Frameworks;
