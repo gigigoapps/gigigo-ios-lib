@@ -12,9 +12,12 @@ import GIGLibrary
 
 class SwiftRequestVC: UIViewController {
 	
+    let reachability: ReachabilityWrapper = ReachabilityWrapper.shared
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+        self.reachability.delegate = self
 		LogManager.shared.logLevel = .debug
 	}
 	
@@ -141,9 +144,18 @@ class SwiftRequestVC: UIViewController {
 			Log("API error")
 			LogError(response.error)
 		}
-        
-
-        
 	}
-	
+}
+
+extension SwiftRequestVC: ReachabilityWrapperDelegate {
+    func reachabilityChanged(with status: NetworkStatus) {
+        switch status {
+        case .notReachable:
+            Log("Network status not reachable")
+        case .reachableViaWiFi:
+            Log("Network status reachable via Wifi")
+        case .reachableViaMobileData:
+            Log("Network status reachable via data")
+        }
+    }
 }
