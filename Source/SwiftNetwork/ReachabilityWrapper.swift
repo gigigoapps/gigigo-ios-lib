@@ -25,19 +25,17 @@ protocol ReachabilityInput {
 }
 
 public class ReachabilityWrapper: ReachabilityInput {
-    
     // MARK: Singleton
     public static let shared = ReachabilityWrapper()
     
     // MARK: Public properties
     public weak var delegate: ReachabilityWrapperDelegate?
-
+    
     // MARK: Private properties
     private let reachability: Reachability?
     private var currentStatus = NetworkStatus.notReachable
     
     // MARK: - Life cycle
-    
     private init() {
         self.reachability = Reachability()
         self.startNotifier()
@@ -48,7 +46,6 @@ public class ReachabilityWrapper: ReachabilityInput {
     }
     
     // MARK: - Reachability methods
-    
     public func startNotifier() {
         // Listen to reachability changes
         NotificationCenter.default.addObserver(
@@ -72,7 +69,6 @@ public class ReachabilityWrapper: ReachabilityInput {
         self.reachability?.stopNotifier()
     }
     
-    
     public func isReachable() -> Bool {
         return self.reachability?.connection != Reachability.Connection.none
     }
@@ -82,7 +78,6 @@ public class ReachabilityWrapper: ReachabilityInput {
     }
         
     // MARK: - Private methods
-    
     private func networkStatus() -> NetworkStatus {
         if let connection = self.reachability?.connection {
             switch connection {
@@ -98,7 +93,6 @@ public class ReachabilityWrapper: ReachabilityInput {
     }
     
     // MARK: - Reachability Change
-    
     @objc func reachabilityChanged(_ notification: NSNotification) {
         guard let reachability = notification.object as? Reachability else { return }
         if self.networkStatus() != self.currentStatus {
