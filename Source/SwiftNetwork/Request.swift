@@ -13,9 +13,22 @@ public enum StandardType {
     case basic
 }
 
+/// See https://tools.ietf.org/html/rfc7231#section-4.3
+public enum HTTPMethod: String {
+    case get     = "GET"
+    case post    = "POST"
+    case put     = "PUT"
+    case delete  = "DELETE"
+    case options = "OPTIONS"
+    case head    = "HEAD"
+    case patch   = "PATCH"
+    case trace   = "TRACE"
+    case connect = "CONNECT"
+}
+
 open class Request: Selfie {
 	
-	open var method: String
+	open var method: HTTPMethod
 	open var baseURL: String
 	open var endpoint: String
 	open var headers: [String: String]?
@@ -28,7 +41,7 @@ open class Request: Selfie {
 	private weak var task: URLSessionTask?
 	
     // TODO , para versiones futuras borrar este metodo
-    public convenience init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false) {
+    public convenience init(method: HTTPMethod, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false) {
         self.init(
             method: method,
             baseUrl: baseUrl,
@@ -41,7 +54,7 @@ open class Request: Selfie {
         )
     }
     
-    public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
+    public init(method: HTTPMethod, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
 		self.method = method
 		self.baseURL = baseUrl
 		self.endpoint = endpoint
@@ -101,11 +114,11 @@ open class Request: Selfie {
 		guard let url = URL(string: self.buildURL()) else { LogWarn("not a valid URL"); return nil }
 
 		var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 15)
-		request.httpMethod = self.method
+		request.httpMethod = self.method.rawValue
 		request.allHTTPHeaderFields = self.headers
 		
 		// Set body is not GET
-		if let body = self.bodyParams, self.method != "GET" {
+		if let body = self.bodyParams, self.method != HTTPMethod.get {
 			request.httpBody = JSON(from: body).toData()
 			
 			// Add Content-Type if it wasn't set

@@ -9,7 +9,6 @@
 import UIKit
 import GIGLibrary
 
-
 class SwiftRequestVC: UIViewController {
 	
 	override func viewDidLoad() {
@@ -20,7 +19,7 @@ class SwiftRequestVC: UIViewController {
 	
 	@IBAction func onButtonSwiftRequestTap(_ sender: UIButton) {
 		let request = Request(
-			method: "POST",
+			method: HTTPMethod.post,
 			baseUrl: "https://api-discover-mcd.q.gigigoapps.com",
 			endpoint: "/configuration",
 			headers: [
@@ -36,7 +35,7 @@ class SwiftRequestVC: UIViewController {
 	
 	@IBAction func onButtonOrchextraApiRequestTap(_ sender: AnyObject) {
 		Request(
-			method: "POST",
+			method: HTTPMethod.post,
 			baseUrl: "https://api.s.orchextra.io/v1",
 			endpoint: "/security/token",
 			bodyParams: [
@@ -53,7 +52,7 @@ class SwiftRequestVC: UIViewController {
 		
 	@IBAction func onButtonImageDownloadTap(_ sender: AnyObject) {
 		Request(
-			method: "GET",
+			method: HTTPMethod.get,
 			baseUrl: "http://api-discover-mcd.s.gigigoapps.com/media/image/qLXSBtDE/100/185/90?query1=1&query2=2",
 			endpoint: "",
 			urlParams: [
@@ -68,7 +67,7 @@ class SwiftRequestVC: UIViewController {
     
     @IBAction func onButtonRequestNoGigigoTap(_ sender: AnyObject) {
         Request(
-            method: "GET",
+            method: HTTPMethod.get,
             baseUrl: "http://private-3b5b1-ejemplo13.apiary-mock.com/ejemplo13/questions/a",
             endpoint: "",
             verbose: true,
@@ -87,7 +86,7 @@ class SwiftRequestVC: UIViewController {
         }
         
         let request = Request(
-            method: "POST",
+            method: HTTPMethod.post,
             baseUrl: "https://api-discover-mcd.q.gigigoapps.com",
             endpoint: "/security/login",
             headers: AppHeaders,
