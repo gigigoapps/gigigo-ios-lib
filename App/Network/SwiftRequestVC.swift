@@ -19,18 +19,18 @@ class SwiftRequestVC: UIViewController {
 	}
 	
 	@IBAction func onButtonSwiftRequestTap(_ sender: UIButton) {
-		let request = Request(
-			method: "POST",
-			baseUrl: "https://api-discover-mcd.q.gigigoapps.com",
-			endpoint: "/configuration",
-			headers: [
-				"x-app-version": "IOS_2.1",
-				"x-app-country": "BR",
-				"x-app-language": "es",
-			]
-		)
-		request.verbose = true
-		
+        var url = URL(string: "https://api-discover-mcd.q.gigigoapps.com")!
+        url.appendPathComponent("configuration")
+        
+        let request = Request(method: "POST",
+                          completeURL: url,
+                          headers: [
+                            "x-app-version": "IOS_2.1",
+                            "x-app-country": "BR",
+                            "x-app-language": "es",
+                            ])
+        request.verbose = true
+        
 		request.fetch(completionHandler: processResponse)
 	}
 	

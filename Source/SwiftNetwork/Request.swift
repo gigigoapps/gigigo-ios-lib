@@ -16,7 +16,8 @@ public enum StandardType {
 open class Request: Selfie {
 	
 	open var method: String
-	open var baseURL: String
+    open var baseURL: String
+	open var completeURL: URL?
 	open var endpoint: String
 	open var headers: [String: String]?
 	open var urlParams: [String: Any]?
@@ -42,9 +43,21 @@ open class Request: Selfie {
     }
     
     public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
+        self.method = method
+        self.baseURL = baseUrl
+        self.endpoint = endpoint
+        self.headers = headers
+        self.urlParams = urlParams
+        self.bodyParams = bodyParams
+        self.verbose = verbose
+        self.standardType = standard
+    }
+    
+    public init(method: String, completeURL: URL, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
 		self.method = method
-		self.baseURL = baseUrl
-		self.endpoint = endpoint
+        self.completeURL = completeURL
+        self.baseURL = completeURL.absoluteString
+		self.endpoint = ""
 		self.headers = headers
 		self.urlParams = urlParams
 		self.bodyParams = bodyParams
@@ -98,8 +111,18 @@ open class Request: Selfie {
 	// MARK: - Private Helpers
 	
 	fileprivate func buildRequest() -> URLRequest? {
-		guard let url = URL(string: self.buildURL()) else { LogWarn("not a valid URL"); return nil }
-
+        var finalURL: URL?
+        
+        // Compose URL
+        if let completeURL = completeURL {
+            finalURL = addParams(to: URLComponents(url: completeURL, resolvingAgainstBaseURL: false))
+        } else if let urlString = self.buildURL() {
+            finalURL = addParams(to: URLComponents(string: urlString))
+        }
+        
+        guard let url = finalURL else { LogWarn("not a valid URL"); return nil }
+        
+        // Compose request
 		var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 15)
 		request.httpMethod = self.method
 		request.allHTTPHeaderFields = self.headers
@@ -118,18 +141,24 @@ open class Request: Selfie {
 		return request
 	}
 	
-    fileprivate func buildURL() -> String {
-        var url = URLComponents(string: self.baseURL)        
-        url?.path += self.endpoint
+    fileprivate func addParams(to urlComponents: URLComponents?) -> URL? {
+        guard var urlComponents = urlComponents else { return nil }
         
         if let urlParams = self.urlParams?.map({ key, value in
             URLQueryItem(name: key, value: String(describing: value))
         }) {
-            let urlConcat = concat(url?.queryItems, urlParams)
-            url?.queryItems = urlConcat
+            let urlConcat = concat(urlComponents.queryItems, urlParams)
+            urlComponents.queryItems = urlConcat
         }
+        guard let string = urlComponents.string else { return nil }
+        return URL(string: string)
+    }
+    
+    fileprivate func buildURL() -> String? {
+        var url = URLComponents(string: self.baseURL)
+        url?.path += self.endpoint
         
-        return url?.string ?? "NOT VALID URL"
+        return url?.string
     }
 	
 	fileprivate func logRequest() {
