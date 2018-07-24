@@ -28,6 +28,11 @@
 		7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84931BC2962600517C2F /* GIGParseClass.h */; };
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
 		7BA7BBA51D7D724500644B6C /* GIGParseJsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */; };
+		8F8C8EFB20F4842500F5CE2C /* ReachabilityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8C8EFA20F4842500F5CE2C /* ReachabilityWrapper.swift */; };
+		8F8C8EFF20F495C000F5CE2C /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F8C8EFD20F4944500F5CE2C /* Reachability.framework */; };
+		8F8C8F0020F495C000F5CE2C /* Reachability.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8F8C8EFD20F4944500F5CE2C /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F8C8F0120F495DD00F5CE2C /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F8C8EFD20F4944500F5CE2C /* Reachability.framework */; };
+		8FD136FB20F4B90E001C67D0 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F8C8EFD20F4944500F5CE2C /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A51F6D751D50BBB30052D95A /* StyledString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6D741D50BBB30052D95A /* StyledString.swift */; };
 		A51F6D771D50C0410052D95A /* StyledStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6D761D50C0410052D95A /* StyledStringTests.swift */; };
 		A55EE0771DACFDFF002E4EDF /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EE0761DACFDFF002E4EDF /* ImageExtension.swift */; };
@@ -339,6 +344,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D9637D7A1B0C90C000FD8E4D /* GIGLibrary.framework in CopyFiles */,
+				8F8C8F0020F495C000F5CE2C /* Reachability.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +354,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8FD136FB20F4B90E001C67D0 /* Reachability.framework in Frameworks */,
 				FA0A9CB91F751B6300674F38 /* GIGLibrary.framework in Frameworks */,
 			);
 			name = Frameworks;
@@ -377,6 +384,8 @@
 		7B6B84931BC2962600517C2F /* GIGParseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGParseClass.h; path = Class/GIGParseClass.h; sourceTree = "<group>"; };
 		7B6B84941BC2962600517C2F /* GIGParseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGParseClass.m; path = Class/GIGParseClass.m; sourceTree = "<group>"; };
 		7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGParseJsonTests.swift; sourceTree = "<group>"; };
+		8F8C8EFA20F4842500F5CE2C /* ReachabilityWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReachabilityWrapper.swift; path = SwiftNetwork/ReachabilityWrapper.swift; sourceTree = "<group>"; };
+		8F8C8EFD20F4944500F5CE2C /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		A5057DA51D536857006E1F6A /* StyledString.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StyledString.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A51F6D741D50BBB30052D95A /* StyledString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledString.swift; sourceTree = "<group>"; };
 		A51F6D761D50C0410052D95A /* StyledStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledStringTests.swift; sourceTree = "<group>"; };
@@ -700,6 +709,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F8C8F0120F495DD00F5CE2C /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +718,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */,
+				8F8C8EFF20F495C000F5CE2C /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,6 +857,14 @@
 				D99AD1981B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m */,
 			);
 			name = Class;
+			sourceTree = "<group>";
+		};
+		8F8C8EFC20F4944500F5CE2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F8C8EFD20F4944500F5CE2C /* Reachability.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A94D4A5F1CDDF54100CC4CAF /* GIGScanner */ = {
@@ -1755,6 +1774,7 @@
 				FA680F1B1B009B6B006FC484 /* GIGLibraryApp */,
 				D9AD96FB1B0A386500CB5E8C /* GIGLibraryTests */,
 				FA65BF9A1AEFD5F90031A91B /* Products */,
+				8F8C8EFC20F4944500F5CE2C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1780,6 +1800,7 @@
 		FA723AC41C64AAF700225E79 /* SwiftNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				8F8C8EFA20F4842500F5CE2C /* ReachabilityWrapper.swift */,
 				FA723AC51C64AB4500225E79 /* Request.swift */,
 				FA723AC61C64AB4500225E79 /* Response.swift */,
 			);
@@ -2265,6 +2286,7 @@
 				D99AD22F1B1DA3A3005BB4E5 /* GIGURLFixture.m in Sources */,
 				D99AD2591B1DA3A3005BB4E5 /* GIGURLRequestLogger.m in Sources */,
 				D99AD3031B1DA3A3005BB4E5 /* UIView+GIGTransformExtension.m in Sources */,
+				8F8C8EFB20F4842500F5CE2C /* ReachabilityWrapper.swift in Sources */,
 				61F2ACEE1E9B9D53003E20C4 /* InfiniteCollectionVC.swift in Sources */,
 				D99AD2B11B1DA3A3005BB4E5 /* NSData+GIGJSON.m in Sources */,
 				D9FD36221B416CCB000D356F /* GIGPhoneValidator.m in Sources */,
@@ -2543,7 +2565,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 3.0;
 				DYLIB_CURRENT_VERSION = 3.0;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/GIGLibraryFramework/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2571,7 +2596,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 3.0;
 				DYLIB_CURRENT_VERSION = 3.0;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/GIGLibraryFramework/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2594,6 +2622,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PREFIX_HEADER = App/PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -2622,6 +2654,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PREFIX_HEADER = App/PrefixHeader.pch;
 				INFOPLIST_FILE = GIGLibraryApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

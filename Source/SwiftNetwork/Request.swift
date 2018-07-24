@@ -25,7 +25,7 @@ open class Request: Selfie {
     open var standardType: StandardType = .gigigo
 	
 	private var request: URLRequest?
-	private var task: URLSessionTask?
+	private weak var task: URLSessionTask?
 	
     // TODO , para versiones futuras borrar este metodo
     public convenience init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false) {
@@ -71,6 +71,11 @@ open class Request: Selfie {
 		
 		self.cancel()
 		self.task = session.dataTask(with: request) { data, urlResponse, error in
+            
+            defer {
+                session.finishTasksAndInvalidate()
+            }
+            
             let response = Response(data: data, response: urlResponse, error: error, standardType: self.standardType)
 			
 			if self.verbose {
