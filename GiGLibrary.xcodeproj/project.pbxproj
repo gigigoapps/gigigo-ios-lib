@@ -12,6 +12,7 @@
 		02F2F7FC1E82D71E0098E4AF /* ProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F7FB1E82D71E0098E4AF /* ProgressVC.swift */; };
 		230A6AA020908FB700BC886D /* ScreenRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A6A9F20908FB700BC886D /* ScreenRecordVC.swift */; };
 		238FA1CD2090700500E398C8 /* ScreenRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FA1CC2090700400E398C8 /* ScreenRecord.swift */; };
+		302BF87121087B3600F11850 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302BF87021087B3600F11850 /* Reachability.swift */; };
 		4A23B6791C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A23B6781C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h */; };
 		4A23B67B1C74779D00E37E5D /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4A6A04821C62524000FED731 /* GIGIOSVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A04811C62524000FED731 /* GIGIOSVersion.swift */; };
@@ -29,10 +30,6 @@
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
 		7BA7BBA51D7D724500644B6C /* GIGParseJsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */; };
 		8F8C8EFB20F4842500F5CE2C /* ReachabilityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8C8EFA20F4842500F5CE2C /* ReachabilityWrapper.swift */; };
-		8F8C8EFF20F495C000F5CE2C /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F8C8EFD20F4944500F5CE2C /* Reachability.framework */; };
-		8F8C8F0020F495C000F5CE2C /* Reachability.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8F8C8EFD20F4944500F5CE2C /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8F8C8F0120F495DD00F5CE2C /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F8C8EFD20F4944500F5CE2C /* Reachability.framework */; };
-		8FD136FB20F4B90E001C67D0 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F8C8EFD20F4944500F5CE2C /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A51F6D751D50BBB30052D95A /* StyledString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6D741D50BBB30052D95A /* StyledString.swift */; };
 		A51F6D771D50C0410052D95A /* StyledStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6D761D50C0410052D95A /* StyledStringTests.swift */; };
 		A55EE0771DACFDFF002E4EDF /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EE0761DACFDFF002E4EDF /* ImageExtension.swift */; };
@@ -344,7 +341,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D9637D7A1B0C90C000FD8E4D /* GIGLibrary.framework in CopyFiles */,
-				8F8C8F0020F495C000F5CE2C /* Reachability.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +350,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8FD136FB20F4B90E001C67D0 /* Reachability.framework in Frameworks */,
 				FA0A9CB91F751B6300674F38 /* GIGLibrary.framework in Frameworks */,
 			);
 			name = Frameworks;
@@ -368,6 +363,7 @@
 		02F2F7FB1E82D71E0098E4AF /* ProgressVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressVC.swift; sourceTree = "<group>"; };
 		230A6A9F20908FB700BC886D /* ScreenRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScreenRecordVC.swift; path = ScreenRecord/ScreenRecordVC.swift; sourceTree = "<group>"; };
 		238FA1CC2090700400E398C8 /* ScreenRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecord.swift; sourceTree = "<group>"; };
+		302BF87021087B3600F11850 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		4A23B6781C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GIGLibraryApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A23B67A1C74779D00E37E5D /* GIGAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIGAlertViewController.swift; path = Alert/GIGAlertViewController.swift; sourceTree = "<group>"; };
 		4A6A04811C62524000FED731 /* GIGIOSVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGIOSVersion.swift; sourceTree = "<group>"; };
@@ -385,7 +381,6 @@
 		7B6B84941BC2962600517C2F /* GIGParseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGParseClass.m; path = Class/GIGParseClass.m; sourceTree = "<group>"; };
 		7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGParseJsonTests.swift; sourceTree = "<group>"; };
 		8F8C8EFA20F4842500F5CE2C /* ReachabilityWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReachabilityWrapper.swift; path = SwiftNetwork/ReachabilityWrapper.swift; sourceTree = "<group>"; };
-		8F8C8EFD20F4944500F5CE2C /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		A5057DA51D536857006E1F6A /* StyledString.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StyledString.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A51F6D741D50BBB30052D95A /* StyledString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledString.swift; sourceTree = "<group>"; };
 		A51F6D761D50C0410052D95A /* StyledStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledStringTests.swift; sourceTree = "<group>"; };
@@ -709,7 +704,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F8C8F0120F495DD00F5CE2C /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,7 +712,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */,
-				8F8C8EFF20F495C000F5CE2C /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,6 +756,22 @@
 				238FA1CC2090700400E398C8 /* ScreenRecord.swift */,
 			);
 			path = ScreenRecord;
+			sourceTree = "<group>";
+		};
+		302BF86C210878CD00F11850 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				302BF86D210878D300F11850 /* External */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		302BF86D210878D300F11850 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				302BF87021087B3600F11850 /* Reachability.swift */,
+			);
+			path = External;
 			sourceTree = "<group>";
 		};
 		4A881C101C5F7C2D000EC61E /* AlertController */ = {
@@ -857,14 +866,6 @@
 				D99AD1981B1DA3A3005BB4E5 /* NSBundle+GIGExtension.m */,
 			);
 			name = Class;
-			sourceTree = "<group>";
-		};
-		8F8C8EFC20F4944500F5CE2C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8F8C8EFD20F4944500F5CE2C /* Reachability.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A94D4A5F1CDDF54100CC4CAF /* GIGScanner */ = {
@@ -1768,13 +1769,13 @@
 			isa = PBXGroup;
 			children = (
 				D99AD14D1B1DA3A3005BB4E5 /* Source */,
+				302BF86C210878CD00F11850 /* Libs */,
 				D99AD31C1B1DA3B9005BB4E5 /* Tests */,
 				D99AD3051B1DA3AF005BB4E5 /* App */,
 				D909EFE71B0DC2FF00DD4D97 /* GIGLibraryFramework */,
 				FA680F1B1B009B6B006FC484 /* GIGLibraryApp */,
 				D9AD96FB1B0A386500CB5E8C /* GIGLibraryTests */,
 				FA65BF9A1AEFD5F90031A91B /* Products */,
-				8F8C8EFC20F4944500F5CE2C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2266,6 +2267,7 @@
 				D99AD2911B1DA3A3005BB4E5 /* NSError+GIGExtension.m in Sources */,
 				61F2ACEC1E9B9780003E20C4 /* InfiniteCollectionView.swift in Sources */,
 				230A6AA020908FB700BC886D /* ScreenRecordVC.swift in Sources */,
+				302BF87121087B3600F11850 /* Reachability.swift in Sources */,
 				FAEDF67A1BE20EA400F05AE2 /* GIGStringValidator.m in Sources */,
 				FAA3F8871C60EDD80061AADD /* Log.swift in Sources */,
 				D99AD2D71B1DA3A3005BB4E5 /* UIScrollView+GIGScrollTo.m in Sources */,
