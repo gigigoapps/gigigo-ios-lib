@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Reachability
 
 public enum NetworkStatus {
     case notReachable
@@ -19,7 +18,7 @@ public protocol ReachabilityWrapperDelegate: class {
      func reachabilityChanged(with status: NetworkStatus)
 }
 
-protocol ReachabilityInput {
+public protocol ReachabilityInput {
     func isReachable() -> Bool
     func isReachableViaWiFi() -> Bool
 }

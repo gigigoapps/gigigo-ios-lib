@@ -12,7 +12,6 @@ cache:
   - Carthage
 before_script:
   - open -b com.apple.iphonesimulator
-  - carthage bootstrap --cache-builds --platform iOS
 script:
   - set -o pipefail && xcodebuild -project $PROJECT.xcodeproj -scheme $SCHEME -sdk iphonesimulator -destination "platform=iOS Simulator,OS=$OS,name=$DEVICE" test | xcpretty
 before_deploy:
