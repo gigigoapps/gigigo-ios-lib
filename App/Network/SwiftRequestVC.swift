@@ -19,18 +19,20 @@ class SwiftRequestVC: UIViewController {
 	}
 	
 	@IBAction func onButtonSwiftRequestTap(_ sender: UIButton) {
-        var url = URL(string: "https://api-discover-mcd.q.gigigoapps.com")!
+        guard var url = URL(string: "https://api-discover-mcd.q.gigigoapps.com") else {
+            LogWarn("URL not valid")
+            return
+        }
         url.appendPathComponent("configuration")
         
         let request = Request(method: "POST",
-                          completeURL: url,
-                          headers: [
-                            "x-app-version": "IOS_2.1",
-                            "x-app-country": "BR",
-                            "x-app-language": "es",
-                            ])
+                              completeURL: url,
+                              headers: [
+                                "x-app-version": "IOS_2.1",
+                                "x-app-country": "BR",
+                                "x-app-language": "es"
+            ])
         request.verbose = true
-        
 		request.fetch(completionHandler: processResponse)
 	}
 	
@@ -141,9 +143,5 @@ class SwiftRequestVC: UIViewController {
 			Log("API error")
 			LogError(response.error)
 		}
-        
-
-        
 	}
-	
 }
