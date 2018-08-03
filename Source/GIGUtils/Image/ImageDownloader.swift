@@ -55,7 +55,9 @@ struct ImageDownloader {
 	
 	private func downloadNext() {
 		guard let view = ImageDownloader.stack.popLast() else { return }
-		guard let request = ImageDownloader.queue[view] else { return }
+		guard let request = ImageDownloader.queue[view] else {
+            self.downloadNext()
+            return }
 		
 		request.fetch { response in
 			switch response.status {
