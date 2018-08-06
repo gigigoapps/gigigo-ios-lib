@@ -57,17 +57,16 @@ struct ImageDownloader {
 		guard let view = ImageDownloader.stack.popLast() else { return }
 		guard let request = ImageDownloader.queue[view] else {
             self.downloadNext()
-            return }
+            return
+        }
 		
 		request.fetch { response in
 			switch response.status {
 				
 			case .success:
 				DispatchQueue.global().async {
-					if let image = try? response.image() {
-						
+					if let image = try? response.image() {						
 						DispatchQueue.main.sync {
-                            
                             let width = view.width() * UIScreen.main.scale
                             let height = view.height() * UIScreen.main.scale
                             let resized = image.imageProportionally(with: CGSize(width: width, height: height))
@@ -83,6 +82,7 @@ struct ImageDownloader {
 							self.downloadNext()
 						}
 					} else {
+                        LogWarn("Al descargar la imagen,o se ha recibido un body vacio o no se se ha reconocido el tipo de imagen que es.")
 						self.downloadNext()
 					}
 				}
