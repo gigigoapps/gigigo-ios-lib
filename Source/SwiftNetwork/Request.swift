@@ -26,7 +26,8 @@ open class Request: Selfie {
 	
 	private var request: URLRequest?
 	private weak var task: URLSessionTask?
-	
+    private let reachability: ReachabilityWrapper = ReachabilityWrapper.shared
+    
     // TODO , para versiones futuras borrar este metodo
     public convenience init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false) {
         self.init(
@@ -54,6 +55,11 @@ open class Request: Selfie {
 	
 	open func fetch(completionHandler: @escaping (Response) -> Void) {
 		guard let request = self.buildRequest() else { return }
+        guard self.reachability.isReachable() else {
+            let response = Response.noInternet()
+            completionHandler(response)
+            return
+        }
 		self.request = request
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForResource = 15
@@ -70,6 +76,7 @@ open class Request: Selfie {
 		}
 		
 		self.cancel()
+        
 		self.task = session.dataTask(with: request) { data, urlResponse, error in
             
             defer {

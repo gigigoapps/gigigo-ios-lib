@@ -137,7 +137,10 @@ class SwiftRequestVC: UIViewController {
 
 		case .success:
 			Log("Success: \n\(String(describing: try? response.json()))")
-		case .errorParsingJson, .noInternet, .sessionExpired, .timeout, .unknownError:
+        case .noInternet:
+            Log("No internet")
+            LogError(response.error)
+        case .errorParsingJson, .sessionExpired, .timeout, .unknownError:
 			Log("Some kind of error")
 			LogError(response.error)
 		case .apiError:
