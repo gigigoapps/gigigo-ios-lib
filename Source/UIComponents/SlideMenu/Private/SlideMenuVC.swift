@@ -80,6 +80,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
             self.setSection(sectionController, index: self.sectionIndexToShow ?? 0)
             self.sectionControllerToShow = nil
         }
+        self.buttonClose.frame = self.customContentContainer.frame
     }
     
     
@@ -87,7 +88,6 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
         super.viewDidAppear(animated)
         
         self.setShadowOnContainer()
-        self.buttonClose.frame = self.customContentContainer.frame
     }
     
     

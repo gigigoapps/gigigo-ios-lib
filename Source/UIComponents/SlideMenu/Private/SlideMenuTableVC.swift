@@ -50,14 +50,22 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
 	
 	// MARK - Public Methods
 	
-	func selectSection(_ index: Int) {
+    func selectSection(_ index: Int, menuSectionClicked: MenuSection? = nil) {
         self.indexToShow = index
 		guard self.tableView != nil else {
 			return
 		}
 		
 		let indexPath = IndexPath(row: index, section: 0)
-		self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.none)
+        guard let modeButtonType = menuSectionClicked?.modeButtonType else {
+            self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.none)
+            return
+        }
+        if modeButtonType {
+            self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
+        } else {
+            self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.none)
+        }
 	}
 	
     
@@ -104,7 +112,7 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
             guard let index = self.indexToShow else {
                 return
             }
-            self.selectSection(index)
+            self.selectSection(index, menuSectionClicked: menuSection)
         }
     }
 }
