@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.name             = 'GIGLibrary'
   s.version          = '3.0.18'
   s.summary          = 'Main library for Gigigo iOS projects.'
+  s.swift_version    = '4.1.0'
   
   s.description      = <<-DESC
 # What is included
