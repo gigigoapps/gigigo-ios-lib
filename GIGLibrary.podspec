@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/gigigoapps/gigigo-ios-lib'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'jcarlosestela' => 'jose.estela@gigigo.com' }
-  s.source           = { :git => 'https://github.com/gigigoapps/gigigo-ios-lib.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/gigigoapps/gigigo-ios-lib.git', :tag => 'v' + s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 
