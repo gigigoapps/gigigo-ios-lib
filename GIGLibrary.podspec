@@ -9,32 +9,27 @@
 Pod::Spec.new do |s|
   s.name             = 'GIGLibrary'
   s.version          = '3.0.18'
-  s.summary          = 'A short description of GIGLibrary.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
+  s.summary          = 'Main library for Gigigo iOS projects.'
+  
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+# What is included
+- GIGNetwork: classes to manage network requests.
+- SwiftNetwork: Swift classes to manage gigigo's requestst. Standard Gigigo JSON is parsed by default.
+- GIGLayout: some functions to help with autolayout.
+- GIGUtils: a lot of extensions on foundation classes.
+- GIGScanner: QR scanner using native iOS API
+- GIGLocation: Wrapper on CLLocation API
+- SlideMenu: A basic lateral slide menu
+- ProgressPageControl: A page control with a progress bar in the selected page.
                        DESC
 
-  s.homepage         = 'https://github.com/jcarlosestela/Orchextra'
+  s.homepage         = 'https://github.com/gigigoapps/gigigo-ios-lib'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'jcarlosestela' => 'jose.estela@gigigo.com' }
-  s.source           = { :git => 'https://github.com/jcarlosestela/Orchextra.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/gigigoapps/gigigo-ios-lib.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'Source/**/*.{h,m,swift}'
-  
-  # s.resource_bundles = {
-   #  'Orchextra' => ['Orchextra/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
