@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0273BC7321393A2E005A1105 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273BC7221393A2E005A1105 /* Reachability.swift */; };
 		02F2F7F71E82C8760098E4AF /* ProgressPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F7F61E82C8760098E4AF /* ProgressPageControl.swift */; };
 		02F2F7F91E82C88F0098E4AF /* ProgressDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F7F81E82C88F0098E4AF /* ProgressDurationView.swift */; };
 		02F2F7FC1E82D71E0098E4AF /* ProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F7FB1E82D71E0098E4AF /* ProgressVC.swift */; };
 		230A6AA020908FB700BC886D /* ScreenRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A6A9F20908FB700BC886D /* ScreenRecordVC.swift */; };
 		238FA1CD2090700500E398C8 /* ScreenRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FA1CC2090700400E398C8 /* ScreenRecord.swift */; };
-		302BF87121087B3600F11850 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302BF87021087B3600F11850 /* Reachability.swift */; };
 		4A23B6791C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A23B6781C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h */; };
 		4A23B67B1C74779D00E37E5D /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4A6A04821C62524000FED731 /* GIGIOSVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A04811C62524000FED731 /* GIGIOSVersion.swift */; };
@@ -358,12 +358,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0273BC7221393A2E005A1105 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		02F2F7F61E82C8760098E4AF /* ProgressPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressPageControl.swift; path = UIComponents/ProgressPageControl/ProgressPageControl.swift; sourceTree = "<group>"; };
 		02F2F7F81E82C88F0098E4AF /* ProgressDurationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressDurationView.swift; path = UIComponents/ProgressDurationView/ProgressDurationView.swift; sourceTree = "<group>"; };
 		02F2F7FB1E82D71E0098E4AF /* ProgressVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressVC.swift; sourceTree = "<group>"; };
 		230A6A9F20908FB700BC886D /* ScreenRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScreenRecordVC.swift; path = ScreenRecord/ScreenRecordVC.swift; sourceTree = "<group>"; };
 		238FA1CC2090700400E398C8 /* ScreenRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecord.swift; sourceTree = "<group>"; };
-		302BF87021087B3600F11850 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		4A23B6781C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GIGLibraryApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A23B67A1C74779D00E37E5D /* GIGAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIGAlertViewController.swift; path = Alert/GIGAlertViewController.swift; sourceTree = "<group>"; };
 		4A6A04811C62524000FED731 /* GIGIOSVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGIOSVersion.swift; sourceTree = "<group>"; };
@@ -718,6 +718,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0273BC7021393A2E005A1105 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				0273BC7121393A2E005A1105 /* External */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		0273BC7121393A2E005A1105 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				0273BC7221393A2E005A1105 /* Reachability.swift */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
 		02F2F7F41E82C7AB0098E4AF /* ProgressPageControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -756,22 +772,6 @@
 				238FA1CC2090700400E398C8 /* ScreenRecord.swift */,
 			);
 			path = ScreenRecord;
-			sourceTree = "<group>";
-		};
-		302BF86C210878CD00F11850 /* Libs */ = {
-			isa = PBXGroup;
-			children = (
-				302BF86D210878D300F11850 /* External */,
-			);
-			path = Libs;
-			sourceTree = "<group>";
-		};
-		302BF86D210878D300F11850 /* External */ = {
-			isa = PBXGroup;
-			children = (
-				302BF87021087B3600F11850 /* Reachability.swift */,
-			);
-			path = External;
 			sourceTree = "<group>";
 		};
 		4A881C101C5F7C2D000EC61E /* AlertController */ = {
@@ -937,6 +937,7 @@
 				D99AD15D1B1DA3A3005BB4E5 /* GIGNetwork */,
 				FA723AC41C64AAF700225E79 /* SwiftNetwork */,
 				FA4CEADA1CBBBE1C0029FF4C /* UIComponents */,
+				0273BC7021393A2E005A1105 /* Libs */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1769,7 +1770,6 @@
 			isa = PBXGroup;
 			children = (
 				D99AD14D1B1DA3A3005BB4E5 /* Source */,
-				302BF86C210878CD00F11850 /* Libs */,
 				D99AD31C1B1DA3B9005BB4E5 /* Tests */,
 				D99AD3051B1DA3AF005BB4E5 /* App */,
 				D909EFE71B0DC2FF00DD4D97 /* GIGLibraryFramework */,
@@ -2267,7 +2267,7 @@
 				D99AD2911B1DA3A3005BB4E5 /* NSError+GIGExtension.m in Sources */,
 				61F2ACEC1E9B9780003E20C4 /* InfiniteCollectionView.swift in Sources */,
 				230A6AA020908FB700BC886D /* ScreenRecordVC.swift in Sources */,
-				302BF87121087B3600F11850 /* Reachability.swift in Sources */,
+				0273BC7321393A2E005A1105 /* Reachability.swift in Sources */,
 				FAEDF67A1BE20EA400F05AE2 /* GIGStringValidator.m in Sources */,
 				FAA3F8871C60EDD80061AADD /* Log.swift in Sources */,
 				D99AD2D71B1DA3A3005BB4E5 /* UIScrollView+GIGScrollTo.m in Sources */,
