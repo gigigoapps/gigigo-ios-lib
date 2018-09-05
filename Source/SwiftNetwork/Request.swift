@@ -28,7 +28,7 @@ public enum HTTPMethod: String {
 
 open class Request: Selfie {
 	
-	open var method: HTTPMethod
+	open var method: String
 	open var baseURL: String
 	open var endpoint: String
 	open var headers: [String: String]?
@@ -41,7 +41,7 @@ open class Request: Selfie {
 	private weak var task: URLSessionTask?
 	
     // TODO , para versiones futuras borrar este metodo
-    public convenience init(method: HTTPMethod, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false) {
+    public convenience init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false) {
         self.init(
             method: method,
             baseUrl: baseUrl,
@@ -54,15 +54,26 @@ open class Request: Selfie {
         )
     }
     
-    public init(method: HTTPMethod, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
-		self.method = method
-		self.baseURL = baseUrl
-		self.endpoint = endpoint
-		self.headers = headers
-		self.urlParams = urlParams
-		self.bodyParams = bodyParams
-		self.verbose = verbose
+    public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
+        self.method = method
+        self.baseURL = baseUrl
+        self.endpoint = endpoint
+        self.headers = headers
+        self.urlParams = urlParams
+        self.bodyParams = bodyParams
+        self.verbose = verbose
         self.standardType = standard
+    }
+    
+    public convenience init(method: HTTPMethod, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
+        self.init(method: method.rawValue,
+                  baseUrl: baseUrl,
+                  endpoint: endpoint,
+                  headers: headers,
+                  urlParams: urlParams,
+                  bodyParams: bodyParams,
+                  verbose: verbose,
+                  standard: standard)
 	}
 	
 	open func fetch(completionHandler: @escaping (Response) -> Void) {
@@ -114,11 +125,11 @@ open class Request: Selfie {
 		guard let url = URL(string: self.buildURL()) else { LogWarn("not a valid URL"); return nil }
 
 		var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 15)
-		request.httpMethod = self.method.rawValue
+		request.httpMethod = self.method
 		request.allHTTPHeaderFields = self.headers
 		
 		// Set body is not GET
-		if let body = self.bodyParams, self.method != HTTPMethod.get {
+		if let body = self.bodyParams, self.method != HTTPMethod.get.rawValue {
 			request.httpBody = JSON(from: body).toData()
 			
 			// Add Content-Type if it wasn't set
