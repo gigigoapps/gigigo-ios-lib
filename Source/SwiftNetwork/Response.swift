@@ -67,6 +67,13 @@ open class Response: Selfie {
 		}
 	}
 	
+    // MARK: - Instance methods
+    
+    class func noInternet() -> Response {
+        let error = NSError(domain: NSURLErrorDomain, code: NSURLErrorNotConnectedToInternet, message: "No Internet")
+        let response = Response(data: nil, response: nil, error: error)
+        return response
+    }
 	
 	// MARK: - Private Helpers
     
