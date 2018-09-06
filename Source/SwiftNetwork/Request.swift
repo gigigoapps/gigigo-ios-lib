@@ -29,14 +29,15 @@ public enum HTTPMethod: String {
 open class Request: Selfie {
 	
 	open var method: String
-  open var baseURL: String
+    open var baseURL: String
 	open var completeURL: URL?
 	open var endpoint: String
 	open var headers: [String: String]?
 	open var urlParams: [String: Any]?
 	open var bodyParams: [String: Any]?
 	open var verbose = false
-  open var standardType: StandardType = .gigigo
+    open var logInfo: RequestLogInfo?
+    open var standardType: StandardType = .gigigo
 	
 	private var request: URLRequest?
 	private weak var task: URLSessionTask?
@@ -56,7 +57,19 @@ open class Request: Selfie {
         )
     }
     
-    public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
+    public convenience init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
+        self.init(method: method,
+            baseUrl: baseUrl,
+            endpoint: endpoint,
+            headers: headers,
+            urlParams: urlParams,
+            bodyParams: bodyParams,
+            verbose: verbose,
+            standard: standard,
+            logInfo: nil)
+    }
+
+    public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo, logInfo: RequestLogInfo? = nil) {
         self.method = method
         self.baseURL = baseUrl
         self.endpoint = endpoint
@@ -65,21 +78,33 @@ open class Request: Selfie {
         self.bodyParams = bodyParams
         self.verbose = verbose
         self.standardType = standard
-    }
-    
-    public init(method: HTTPMethod, completeURL: URL, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
-		    self.method = method.rawValue
-        self.completeURL = completeURL
-        self.baseURL = completeURL.absoluteString
-    		self.endpoint = ""
-		    self.headers = headers
-    		self.urlParams = urlParams
-		    self.bodyParams = bodyParams
-    		self.verbose = verbose
-        self.standardType = standard
+        self.logInfo = logInfo
     }
 
-	
+    public convenience init(method: HTTPMethod, completeURL: URL, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
+        self.init(method: method,
+            completeURL: completeURL, 
+            headers: headers, 
+            urlParams: urlParams, 
+            bodyParams: bodyParams, 
+            verbose: verbose, 
+            standard: standard, 
+            logInfo: nil)
+    }
+
+    public init(method: HTTPMethod, completeURL: URL, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo, logInfo: RequestLogInfo? = nil) {
+        self.method = method.rawValue
+        self.completeURL = completeURL
+        self.baseURL = completeURL.absoluteString
+        self.endpoint = ""
+        self.headers = headers
+        self.urlParams = urlParams
+        self.bodyParams = bodyParams
+        self.verbose = verbose
+        self.standardType = standard
+        self.logInfo = logInfo
+    }
+
 	open func fetch(completionHandler: @escaping (Response) -> Void) {
 		guard let request = self.buildRequest() else { return }
         guard self.reachability.isReachable() else {
@@ -97,8 +122,10 @@ open class Request: Selfie {
         let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
 		
 		if self.verbose {
-			LogManager.shared.logLevel = .debug
-			LogManager.shared.appName = "GIGLibrary"
+            if self.logInfo == nil {
+                LogManager.shared.logLevel = .debug
+                LogManager.shared.appName = "GIGLibrary"
+            }
 			self.logRequest()
 		}
 		
@@ -113,7 +140,7 @@ open class Request: Selfie {
             let response = Response(data: data, response: urlResponse, error: error, standardType: self.standardType)
 			
 			if self.verbose {
-				response.logResponse()
+				response.logResponse(self.logInfo)
 			}
 			
 			DispatchQueue.main.async {
@@ -131,6 +158,19 @@ open class Request: Selfie {
 	
 	// MARK: - Private Helpers
 	
+    fileprivate func printLog(_ message: String, logInfo: RequestLogInfo) {
+        switch logInfo.logLevel {
+        case .debug:
+            gigLogDebug(message, module: logInfo.module, filename: logInfo.filename, line: logInfo.line, funcname: logInfo.funcname)
+        case .error:
+            gigLogError(NSError(code: 0, message: message), module: logInfo.module, filename: logInfo.filename, line: logInfo.line, funcname: logInfo.funcname)
+        case .info:
+            gigLogInfo(message, module: logInfo.module, filename: logInfo.filename, line: logInfo.line, funcname: logInfo.funcname)
+        default:
+            break
+        }
+    }
+    
 	fileprivate func buildRequest() -> URLRequest? {
         var finalURL: URL?
         
@@ -141,8 +181,18 @@ open class Request: Selfie {
             finalURL = addParams(to: URLComponents(string: urlString))
         }
         
-        guard let url = finalURL else { LogWarn("not a valid URL"); return nil }
-        
+        guard let url = finalURL else { 
+            if self.verbose {
+                let error = "not a valid URL"
+                if let logInfo = self.logInfo {
+                    printLog(error, logInfo: logInfo)
+                } else {
+                    print(error)
+                }
+            }
+            return nil
+        }
+
         // Compose request
 		var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 15)
 		request.httpMethod = self.method
@@ -186,35 +236,41 @@ open class Request: Selfie {
 		let url = self.request?.url?.absoluteString ?? "no url set"
 		let method = self.request?.httpMethod ?? "no method set"
 		
-		print("******** REQUEST ********")
-		print(" - URL:\t\t\(url)")
-		print(" - METHOD:\t\(method)")
-		self.logBody()
-		self.logHeaders()
-		print("*************************\n")
+		var log = "\n******** REQUEST ********\n"
+		log += " - URL:\t\t\(url)\n"
+		log += " - METHOD:\t\(method)\n"
+		let body = self.logBody()
+		let headers = self.logHeaders()
+		log += body + headers + "*************************\n\n"
+        
+        if let logInfo = self.logInfo {
+            printLog(log, logInfo: logInfo)
+        } else {
+            print(log)
+        }
 	}
 	
-	fileprivate func logBody() {
+	fileprivate func logBody() -> String {
 		guard
 			let body = self.request?.httpBody,
 			let json = try? JSON.dataToJson(body)
-			else { return }
+			else { return "" }
 		
-		print(" - BODY:\n\(json)")
+		return " - BODY:\n\(json)\n"
 	}
 	
-	fileprivate func logHeaders() {
-		guard let headers = self.request?.allHTTPHeaderFields, !headers.isEmpty else { return }
+	fileprivate func logHeaders() -> String {
+		guard let headers = self.request?.allHTTPHeaderFields, !headers.isEmpty else { return "" }
 		
-		print(" - HEADERS: {")
+		var logString = " - HEADERS: {"
 		
 		for key in headers.keys {
 			if let value = headers[key] {
-				print("\t\t\(key): \(value)")
+				logString += "\n\t\t\(key): \(value)"
 			}
 		}
 		
-		print("}")
+		return logString + "\n}\n"
 	}
 	
 }

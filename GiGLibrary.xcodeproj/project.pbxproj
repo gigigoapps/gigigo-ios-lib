@@ -13,6 +13,7 @@
 		02F2F7FC1E82D71E0098E4AF /* ProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F7FB1E82D71E0098E4AF /* ProgressVC.swift */; };
 		230A6AA020908FB700BC886D /* ScreenRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A6A9F20908FB700BC886D /* ScreenRecordVC.swift */; };
 		238FA1CD2090700500E398C8 /* ScreenRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238FA1CC2090700400E398C8 /* ScreenRecord.swift */; };
+		30A01A3121426C6900B7ACFB /* RequestLogInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A01A3021426C6900B7ACFB /* RequestLogInfo.swift */; };
 		4A23B6791C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A23B6781C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h */; };
 		4A23B67B1C74779D00E37E5D /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4A6A04821C62524000FED731 /* GIGIOSVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A04811C62524000FED731 /* GIGIOSVersion.swift */; };
@@ -364,6 +365,7 @@
 		02F2F7FB1E82D71E0098E4AF /* ProgressVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressVC.swift; sourceTree = "<group>"; };
 		230A6A9F20908FB700BC886D /* ScreenRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScreenRecordVC.swift; path = ScreenRecord/ScreenRecordVC.swift; sourceTree = "<group>"; };
 		238FA1CC2090700400E398C8 /* ScreenRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecord.swift; sourceTree = "<group>"; };
+		30A01A3021426C6900B7ACFB /* RequestLogInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLogInfo.swift; sourceTree = "<group>"; };
 		4A23B6781C7476C600E37E5D /* GIGLibraryApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GIGLibraryApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A23B67A1C74779D00E37E5D /* GIGAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIGAlertViewController.swift; path = Alert/GIGAlertViewController.swift; sourceTree = "<group>"; };
 		4A6A04811C62524000FED731 /* GIGIOSVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGIOSVersion.swift; sourceTree = "<group>"; };
@@ -1804,6 +1806,7 @@
 				8F8C8EFA20F4842500F5CE2C /* ReachabilityWrapper.swift */,
 				FA723AC51C64AB4500225E79 /* Request.swift */,
 				FA723AC61C64AB4500225E79 /* Response.swift */,
+				30A01A3021426C6900B7ACFB /* RequestLogInfo.swift */,
 			);
 			name = SwiftNetwork;
 			sourceTree = "<group>";
@@ -2219,6 +2222,7 @@
 				4AACDF981C60DA2400F4E8AE /* ActionSheet.swift in Sources */,
 				D99AD2E51B1DA3A3005BB4E5 /* NSString+GIGSubstring.m in Sources */,
 				D9E7A15E1B419475004D3193 /* GIGMultiValidator.m in Sources */,
+				30A01A3121426C6900B7ACFB /* RequestLogInfo.swift in Sources */,
 				FACDEF9B1D6B0B90002E3D39 /* Instantiator.swift in Sources */,
 				D9FE620A1BD65D8A00E2B23C /* GIGFormField.m in Sources */,
 				FA02D2DB1D47C071007DD362 /* InfoPlist.swift in Sources */,
@@ -2618,10 +2622,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = App/PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -2650,10 +2651,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = App/PrefixHeader.pch;
 				INFOPLIST_FILE = GIGLibraryApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

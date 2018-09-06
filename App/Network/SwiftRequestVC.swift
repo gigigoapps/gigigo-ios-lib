@@ -9,6 +9,26 @@
 import UIKit
 import GIGLibrary
 
+class Test: LoggableModule {
+    static var logLevel: LogLevel {
+        set {
+            try? LogManager.shared.setLogLevel(newValue, forModule: self)
+        }
+        get {
+            return LogManager.shared.logLevel(forModule: self) ?? .none
+        }
+    }
+    
+    static var logStyle: LogStyle {
+        set {
+            try? LogManager.shared.setLogStyle(newValue, forModule: self)
+        }
+        get {
+            return LogManager.shared.logStyle(forModule: self) ?? .none
+        }
+    }
+}
+
 class SwiftRequestVC: UIViewController {
 	
     let reachability: ReachabilityWrapper = ReachabilityWrapper.shared
@@ -18,6 +38,8 @@ class SwiftRequestVC: UIViewController {
 		
         self.reachability.delegate = self
 		LogManager.shared.logLevel = .debug
+        Test.logLevel = .debug
+        Test.logStyle = .funny
 	}
 	
 	@IBAction func onButtonSwiftRequestTap(_ sender: UIButton) {
@@ -47,7 +69,8 @@ class SwiftRequestVC: UIViewController {
 				"staySigned": true,
 				"createCookie": false
 			],
-			verbose: true
+			verbose: true,
+            logInfo: DefaultRequestLogInfo(module: Test.self, logLevel: .error)
 		)
 		.fetch(completionHandler: processResponse)
 	}
