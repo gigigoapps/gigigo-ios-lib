@@ -13,6 +13,19 @@ public enum StandardType {
     case basic
 }
 
+/// See https://tools.ietf.org/html/rfc7231#section-4.3
+public enum HTTPMethod: String {
+    case get     = "GET"
+    case post    = "POST"
+    case put     = "PUT"
+    case delete  = "DELETE"
+    case options = "OPTIONS"
+    case head    = "HEAD"
+    case patch   = "PATCH"
+    case trace   = "TRACE"
+    case connect = "CONNECT"
+}
+
 open class Request: Selfie {
 	
 	open var method: String
@@ -43,14 +56,25 @@ open class Request: Selfie {
     }
     
     public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
-		self.method = method
-		self.baseURL = baseUrl
-		self.endpoint = endpoint
-		self.headers = headers
-		self.urlParams = urlParams
-		self.bodyParams = bodyParams
-		self.verbose = verbose
+        self.method = method
+        self.baseURL = baseUrl
+        self.endpoint = endpoint
+        self.headers = headers
+        self.urlParams = urlParams
+        self.bodyParams = bodyParams
+        self.verbose = verbose
         self.standardType = standard
+    }
+    
+    public convenience init(method: HTTPMethod, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
+        self.init(method: method.rawValue,
+                  baseUrl: baseUrl,
+                  endpoint: endpoint,
+                  headers: headers,
+                  urlParams: urlParams,
+                  bodyParams: bodyParams,
+                  verbose: verbose,
+                  standard: standard)
 	}
 	
 	open func fetch(completionHandler: @escaping (Response) -> Void) {
@@ -112,7 +136,7 @@ open class Request: Selfie {
 		request.allHTTPHeaderFields = self.headers
 		
 		// Set body is not GET
-		if let body = self.bodyParams, self.method != "GET" {
+		if let body = self.bodyParams, self.method != HTTPMethod.get.rawValue {
 			request.httpBody = JSON(from: body).toData()
 			
 			// Add Content-Type if it wasn't set
