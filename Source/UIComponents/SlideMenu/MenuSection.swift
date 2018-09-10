@@ -15,23 +15,26 @@ open class MenuSection {
     open let icon: UIImage
     open let storyboard: String
     open let viewController: String?
+    open var completion: ((UIViewController) -> Void)?
+
     open var modeButtonType: Bool?
     open var completionButtonType: (() -> Void)?
     open var iconURLString: String?
-
+    
     lazy var sectionController: UIViewController = self.instantiateViewController()
     
     
-    public init(name: String, icon: UIImage, storyboard: String, viewController: String? = nil, modeButtonType: Bool? = nil,  completionButtonType: (() -> Void)? = nil) {
+    public init(name: String, icon: UIImage, storyboard: String, viewController: String? = nil, completion: ((UIViewController) -> Void)? = nil, modeButtonType: Bool? = nil,  completionButtonType: (() -> Void)? = nil) {
         self.name = name
         self.icon = icon
         self.storyboard = storyboard
         self.viewController = viewController
+        self.completion = completion
         self.modeButtonType = modeButtonType
         self.completionButtonType = completionButtonType
     }
     
-    public init(name: String, iconURLString: String, iconPlaceholder: UIImage?, storyboard: String, viewController: String? = nil, modeButtonType: Bool? = nil,  completionButtonType: (() -> Void)? = nil) {
+    public init(name: String, iconURLString: String, iconPlaceholder: UIImage?, storyboard: String, viewController: String? = nil, completion: ((UIViewController) -> Void)? = nil, modeButtonType: Bool? = nil,  completionButtonType: (() -> Void)? = nil) {
         self.name = name
         if let placeholder = iconPlaceholder {
             self.icon = placeholder
@@ -41,6 +44,7 @@ open class MenuSection {
         self.iconURLString = iconURLString
         self.storyboard = storyboard
         self.viewController = viewController
+        self.completion = completion
         self.modeButtonType = modeButtonType
         self.completionButtonType = completionButtonType
     }
@@ -56,7 +60,7 @@ open class MenuSection {
         else {
             sectionVC = storyboard.instantiateInitialViewController()!
         }
-        
+        self.completion?(sectionVC)
         return sectionVC
     }
     
