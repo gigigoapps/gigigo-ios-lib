@@ -9,7 +9,6 @@
 import UIKit
 import GIGLibrary
 
-
 class SwiftRequestVC: UIViewController {
 	
     let reachability: ReachabilityWrapper = ReachabilityWrapper.shared
@@ -22,26 +21,23 @@ class SwiftRequestVC: UIViewController {
 	}
 	
 	@IBAction func onButtonSwiftRequestTap(_ sender: UIButton) {
-        guard var url = URL(string: "https://api-discover-mcd.q.gigigoapps.com") else {
-            LogWarn("URL not valid")
-            return
-        }
-        url.appendPathComponent("configuration")
-        
-        let request = Request(method: "POST",
-                              completeURL: url,
-                              headers: [
-                                "x-app-version": "IOS_2.1",
-                                "x-app-country": "BR",
-                                "x-app-language": "es"
-            ])
-        request.verbose = true
+		let request = Request(
+			method: HTTPMethod.post.rawValue,
+			baseUrl: "https://api-discover-mcd.q.gigigoapps.com",
+			endpoint: "/configuration",
+			headers: [
+				"x-app-version": "IOS_2.1",
+				"x-app-country": "BR",
+				"x-app-language": "es",
+			]
+		)
+		request.verbose = true
 		request.fetch(completionHandler: processResponse)
 	}
 	
 	@IBAction func onButtonOrchextraApiRequestTap(_ sender: AnyObject) {
 		Request(
-			method: "POST",
+			method: HTTPMethod.post.rawValue,
 			baseUrl: "https://api.s.orchextra.io/v1",
 			endpoint: "/security/token",
 			bodyParams: [
@@ -58,7 +54,7 @@ class SwiftRequestVC: UIViewController {
 		
 	@IBAction func onButtonImageDownloadTap(_ sender: AnyObject) {
 		Request(
-			method: "GET",
+			method: HTTPMethod.get.rawValue,
 			baseUrl: "http://api-discover-mcd.s.gigigoapps.com/media/image/qLXSBtDE/100/185/90?query1=1&query2=2",
 			endpoint: "",
 			urlParams: [
@@ -73,7 +69,7 @@ class SwiftRequestVC: UIViewController {
     
     @IBAction func onButtonRequestNoGigigoTap(_ sender: AnyObject) {
         Request(
-            method: "GET",
+            method: HTTPMethod.get.rawValue,
             baseUrl: "http://private-3b5b1-ejemplo13.apiary-mock.com/ejemplo13/questions/a",
             endpoint: "",
             verbose: true,
@@ -92,7 +88,7 @@ class SwiftRequestVC: UIViewController {
         }
         
         let request = Request(
-            method: "POST",
+            method: HTTPMethod.post.rawValue,
             baseUrl: "https://api-discover-mcd.q.gigigoapps.com",
             endpoint: "/security/login",
             headers: AppHeaders,
