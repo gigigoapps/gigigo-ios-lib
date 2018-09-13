@@ -13,17 +13,30 @@ public enum StandardType {
     case basic
 }
 
+/// See https://tools.ietf.org/html/rfc7231#section-4.3
+public enum HTTPMethod: String {
+    case get     = "GET"
+    case post    = "POST"
+    case put     = "PUT"
+    case delete  = "DELETE"
+    case options = "OPTIONS"
+    case head    = "HEAD"
+    case patch   = "PATCH"
+    case trace   = "TRACE"
+    case connect = "CONNECT"
+}
+
 open class Request: Selfie {
 	
 	open var method: String
-    open var baseURL: String
+  open var baseURL: String
 	open var completeURL: URL?
 	open var endpoint: String
 	open var headers: [String: String]?
 	open var urlParams: [String: Any]?
 	open var bodyParams: [String: Any]?
 	open var verbose = false
-    open var standardType: StandardType = .gigigo
+  open var standardType: StandardType = .gigigo
 	
 	private var request: URLRequest?
 	private weak var task: URLSessionTask?
@@ -54,17 +67,18 @@ open class Request: Selfie {
         self.standardType = standard
     }
     
-    public init(method: String, completeURL: URL, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
-		self.method = method
+    public init(method: HTTPMethod, completeURL: URL, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
+		    self.method = method.rawValue
         self.completeURL = completeURL
         self.baseURL = completeURL.absoluteString
-		self.endpoint = ""
-		self.headers = headers
-		self.urlParams = urlParams
-		self.bodyParams = bodyParams
-		self.verbose = verbose
+    		self.endpoint = ""
+		    self.headers = headers
+    		self.urlParams = urlParams
+		    self.bodyParams = bodyParams
+    		self.verbose = verbose
         self.standardType = standard
-	}
+    }
+
 	
 	open func fetch(completionHandler: @escaping (Response) -> Void) {
 		guard let request = self.buildRequest() else { return }
@@ -135,7 +149,7 @@ open class Request: Selfie {
 		request.allHTTPHeaderFields = self.headers
 		
 		// Set body is not GET
-		if let body = self.bodyParams, self.method != "GET" {
+		if let body = self.bodyParams, self.method != HTTPMethod.get.rawValue {
 			request.httpBody = JSON(from: body).toData()
 			
 			// Add Content-Type if it wasn't set
