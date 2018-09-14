@@ -216,6 +216,9 @@ public extension Response {
     }
     
     private func isGifData() -> Bool {
-        return url?.absoluteString.contains("gif") ?? false
+        guard let url = url else {
+            return false
+        }
+        return url.pathExtension == "gif"
     }
 }
