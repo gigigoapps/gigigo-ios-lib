@@ -51,7 +51,10 @@ class SlideMenuViewController: UIViewController {
             name: "Section 1",
             icon: UIImage(),
             storyboard: "Main",
-            viewController: "SlideMenuSection1"
+            viewController: "SlideMenuSection1",
+            completion: { (sectionVC) in
+                print("Instantiated section: 1")
+            }
         )
         
         let section2 = MenuSection(
@@ -59,14 +62,20 @@ class SlideMenuViewController: UIViewController {
             iconURLString: "https://squigglepark.com/wp-content/uploads/2017/01/circle_heart-800x509.png",
             iconPlaceholder: nil,
             storyboard: "Main",
-            viewController: "SlideMenuSection2"
-)
+            viewController: "SlideMenuSection2",
+            completion: { (sectionVC) in
+                print("Instantiated section: 2")
+            }
+        )
         
 		
 		let section3 = MenuSection(
 			name: "Section 3",
 			icon: UIImage(),
-			storyboard: "Main"
+			storyboard: "Main",
+            completion: { (sectionVC) in
+                print("Instantiated section: 3")
+            }
 		)
         
         self.menu.addSection(section1)
