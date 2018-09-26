@@ -29,13 +29,14 @@ public enum HTTPMethod: String {
 open class Request: Selfie {
 	
 	open var method: String
-	open var baseURL: String
+  open var baseURL: String
+	open var completeURL: URL?
 	open var endpoint: String
 	open var headers: [String: String]?
 	open var urlParams: [String: Any]?
 	open var bodyParams: [String: Any]?
 	open var verbose = false
-    open var standardType: StandardType = .gigigo
+  open var standardType: StandardType = .gigigo
 	
 	private var request: URLRequest?
 	private weak var task: URLSessionTask?
@@ -66,16 +67,18 @@ open class Request: Selfie {
         self.standardType = standard
     }
     
-    public convenience init(method: HTTPMethod, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
-        self.init(method: method.rawValue,
-                  baseUrl: baseUrl,
-                  endpoint: endpoint,
-                  headers: headers,
-                  urlParams: urlParams,
-                  bodyParams: bodyParams,
-                  verbose: verbose,
-                  standard: standard)
-	}
+    public init(method: HTTPMethod, completeURL: URL, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
+		    self.method = method.rawValue
+        self.completeURL = completeURL
+        self.baseURL = completeURL.absoluteString
+    		self.endpoint = ""
+		    self.headers = headers
+    		self.urlParams = urlParams
+		    self.bodyParams = bodyParams
+    		self.verbose = verbose
+        self.standardType = standard
+    }
+
 	
 	open func fetch(completionHandler: @escaping (Response) -> Void) {
 		guard let request = self.buildRequest() else { return }
@@ -129,8 +132,18 @@ open class Request: Selfie {
 	// MARK: - Private Helpers
 	
 	fileprivate func buildRequest() -> URLRequest? {
-		guard let url = URL(string: self.buildURL()) else { LogWarn("not a valid URL"); return nil }
-
+        var finalURL: URL?
+        
+        // Compose URL
+        if let completeURL = completeURL {
+            finalURL = addParams(to: URLComponents(url: completeURL, resolvingAgainstBaseURL: false))
+        } else if let urlString = self.buildURL() {
+            finalURL = addParams(to: URLComponents(string: urlString))
+        }
+        
+        guard let url = finalURL else { LogWarn("not a valid URL"); return nil }
+        
+        // Compose request
 		var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 15)
 		request.httpMethod = self.method
 		request.allHTTPHeaderFields = self.headers
@@ -149,18 +162,24 @@ open class Request: Selfie {
 		return request
 	}
 	
-    fileprivate func buildURL() -> String {
-        var url = URLComponents(string: self.baseURL)        
-        url?.path += self.endpoint
+    fileprivate func addParams(to urlComponents: URLComponents?) -> URL? {
+        guard var urlComponents = urlComponents else { return nil }
         
         if let urlParams = self.urlParams?.map({ key, value in
             URLQueryItem(name: key, value: String(describing: value))
         }) {
-            let urlConcat = concat(url?.queryItems, urlParams)
-            url?.queryItems = urlConcat
+            let urlConcat = concat(urlComponents.queryItems, urlParams)
+            urlComponents.queryItems = urlConcat
         }
+        guard let string = urlComponents.string else { return nil }
+        return URL(string: string)
+    }
+    
+    fileprivate func buildURL() -> String? {
+        var url = URLComponents(string: self.baseURL)
+        url?.path += self.endpoint
         
-        return url?.string ?? "NOT VALID URL"
+        return url?.string
     }
 	
 	fileprivate func logRequest() {

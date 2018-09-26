@@ -44,7 +44,7 @@ struct ImageDownloader {
 	// MARK: - Private Helpers
 	
 	private func loadImage(url: String, in view: UIImageView) {
-		let request = Request(method: HTTPMethod.get, baseUrl: url, endpoint: "")
+		let request = Request(method: HTTPMethod.get.rawValue, baseUrl: url, endpoint: "")
 		ImageDownloader.queue[view] = request
 		ImageDownloader.stack.append(view)
 		
