@@ -206,12 +206,26 @@ public extension Response {
 		guard let imageData = self.body else {
 			throw ResponseError.bodyNil
 		}
-		
-		guard let image = UIImage(data: imageData, scale: UIScreen.main.scale) else {
-			throw ResponseError.unexpectedDataType
-		}
-		
-		return image
+        guard !isGifData(), let image = UIImage(data: imageData, scale: UIScreen.main.scale) else {
+            throw ResponseError.unexpectedDataType
+        }
+        return image
 	}
 	
+    public func gif() throws -> UIImage {
+        guard let imageData = self.body else {
+            throw ResponseError.bodyNil
+        }
+        guard isGifData(), let imageGif = UIImage.gif(data: imageData) else {
+            throw ResponseError.unexpectedDataType
+        }
+        return imageGif
+    }
+    
+    private func isGifData() -> Bool {
+        guard let url = url else {
+            return false
+        }
+        return url.pathExtension == "gif"
+    }
 }

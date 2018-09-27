@@ -16,7 +16,7 @@ struct ImageDownloader {
 	static var images: [String: UIImage] = [:]
 	
 	
-	init() {
+	private init() {
 		NotificationCenter.default.addObserver(forName: .UIApplicationDidReceiveMemoryWarning, object: nil, queue: nil) { _ in
 			ImageDownloader.images.removeAll()
 			ImageDownloader.stack.removeAll()
@@ -36,10 +36,9 @@ struct ImageDownloader {
 			view.image = image
 		} else {
 			view.image = placeholder
-			self.loadImage(url: url, in: view)
+            self.loadImage(url: url, in: view)
 		}
 	}
-	
 	
 	// MARK: - Private Helpers
 	
@@ -52,20 +51,21 @@ struct ImageDownloader {
 			self.downloadNext()
 		}
 	}
-	
+    
 	private func downloadNext() {
 		guard let view = ImageDownloader.stack.popLast() else { return }
-		guard let request = ImageDownloader.queue[view] else { return }
+		guard let request = ImageDownloader.queue[view] else {
+            self.downloadNext()
+            return
+        }
 		
 		request.fetch { response in
 			switch response.status {
 				
 			case .success:
 				DispatchQueue.global().async {
-					if let image = try? response.image() {
-						
+					if let image = try? response.image() {						
 						DispatchQueue.main.sync {
-                            
                             let width = view.width() * UIScreen.main.scale
                             let height = view.height() * UIScreen.main.scale
                             let resized = image.imageProportionally(with: CGSize(width: width, height: height))
@@ -80,7 +80,21 @@ struct ImageDownloader {
 							}
 							self.downloadNext()
 						}
-					} else {
+                    } else if let imageGif = try? response.gif() {
+                        DispatchQueue.main.sync {
+                            ImageDownloader.images[request.baseURL] = imageGif
+                            
+                            if let currentRequest = ImageDownloader.queue[view], request.baseURL == currentRequest.baseURL {
+                                self.setAnimated(image: imageGif, in: view)
+                            }
+                            
+                            if let index = ImageDownloader.queue.index(forKey: view) {
+                                ImageDownloader.queue.remove(at: index)
+                            }
+                            self.downloadNext()
+                        }
+                    } else {
+                        LogWarn("Al descargar la imagen,o se ha recibido un body vacio o no se se ha reconocido el tipo de imagen que es.")
 						self.downloadNext()
 					}
 				}
