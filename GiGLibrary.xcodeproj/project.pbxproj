@@ -19,6 +19,9 @@
 		4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A881C111C5F7C72000EC61E /* AlertController.swift */; };
 		4AACDF981C60DA2400F4E8AE /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */; };
 		4AACDF9A1C611E7100F4E8AE /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACDF991C611E7100F4E8AE /* Alert.swift */; };
+		616C53E4217E02E800A9013E /* SlideMenuSection1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C53E0217E024600A9013E /* SlideMenuSection1VC.swift */; };
+		616C53E5217E02EB00A9013E /* SlideMenuSection2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C53E2217E025100A9013E /* SlideMenuSection2VC.swift */; };
+		616C53E8217E082D00A9013E /* MainNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616C53E7217E082D00A9013E /* MainNavigationViewController.m */; };
 		617C5A601FBD7F69001DFCAC /* MultiDelegable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617C5A5F1FBD7F69001DFCAC /* MultiDelegable.swift */; };
 		618616A6208DEC4D001B4603 /* ExpandableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618616A4208DEC4D001B4603 /* ExpandableTextView.swift */; };
 		618616A7208DEC4D001B4603 /* ExpandableTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 618616A5208DEC4D001B4603 /* ExpandableTextView.xib */; };
@@ -370,6 +373,10 @@
 		4A881C111C5F7C72000EC61E /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertController.swift; path = GIGUtils/AlertController/AlertController.swift; sourceTree = "<group>"; };
 		4AACDF971C60DA2400F4E8AE /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionSheet.swift; path = ActionSheet/ActionSheet.swift; sourceTree = "<group>"; };
 		4AACDF991C611E7100F4E8AE /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = GIGUtils/AlertController/Alert.swift; sourceTree = "<group>"; };
+		616C53E0217E024600A9013E /* SlideMenuSection1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuSection1VC.swift; sourceTree = "<group>"; };
+		616C53E2217E025100A9013E /* SlideMenuSection2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuSection2VC.swift; sourceTree = "<group>"; };
+		616C53E6217E082D00A9013E /* MainNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainNavigationViewController.h; sourceTree = "<group>"; };
+		616C53E7217E082D00A9013E /* MainNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainNavigationViewController.m; sourceTree = "<group>"; };
 		617C5A5F1FBD7F69001DFCAC /* MultiDelegable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiDelegable.swift; sourceTree = "<group>"; };
 		618616A4208DEC4D001B4603 /* ExpandableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTextView.swift; sourceTree = "<group>"; };
 		618616A5208DEC4D001B4603 /* ExpandableTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandableTextView.xib; sourceTree = "<group>"; };
@@ -1407,6 +1414,8 @@
 				D99AD3601B1DAAE6005BB4E5 /* AppDelegate.h */,
 				D99AD3611B1DAAE6005BB4E5 /* AppDelegate.m */,
 				D99AD3621B1DAAE6005BB4E5 /* Main.storyboard */,
+				616C53E6217E082D00A9013E /* MainNavigationViewController.h */,
+				616C53E7217E082D00A9013E /* MainNavigationViewController.m */,
 				D99AD3631B1DAAE6005BB4E5 /* GLAMainViewController.h */,
 				D99AD3641B1DAAE6005BB4E5 /* GLAMainViewController.m */,
 			);
@@ -1705,6 +1714,8 @@
 			isa = PBXGroup;
 			children = (
 				FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */,
+				616C53E0217E024600A9013E /* SlideMenuSection1VC.swift */,
+				616C53E2217E025100A9013E /* SlideMenuSection2VC.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -2349,10 +2360,13 @@
 			files = (
 				FA42A2AD1C6B678300C2D1BB /* SwiftRequestVC.swift in Sources */,
 				D99AD3741B1DAAE6005BB4E5 /* GLAMainViewController.m in Sources */,
+				616C53E5217E02EB00A9013E /* SlideMenuSection2VC.swift in Sources */,
 				FACE6D9B1BBC116B00457B4C /* GLAMultiRequestViewController.m in Sources */,
 				FA133A751CBC225E0007EE06 /* SlideMenuViewController.swift in Sources */,
+				616C53E4217E02E800A9013E /* SlideMenuSection1VC.swift in Sources */,
 				D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */,
 				FA89A8C01D33BAC300AE6E3A /* QRVC.swift in Sources */,
+				616C53E8217E082D00A9013E /* MainNavigationViewController.m in Sources */,
 				FA56AFF51CDF323700ABDA53 /* KeyboardVC.swift in Sources */,
 				4A23B67B1C74779D00E37E5D /* (null) in Sources */,
 				FA6A3A351CD3B16000835521 /* GLABasicFormViewController.m in Sources */,
