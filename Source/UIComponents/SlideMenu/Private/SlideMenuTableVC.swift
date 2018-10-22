@@ -55,7 +55,8 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
 		guard self.tableView != nil else {
 			return
 		}
-		
+        self.setNeedsStatusBarAppearanceUpdate()
+
 		let indexPath = IndexPath(row: index, section: 0)
         guard let modeButtonType = menuSectionClicked?.modeButtonType else {
             self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.none)

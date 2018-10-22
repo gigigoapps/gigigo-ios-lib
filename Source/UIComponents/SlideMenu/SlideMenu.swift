@@ -35,6 +35,12 @@ open class SlideMenu {
         }
     }
     
+    open var menuSectionBasedStatusBarStyle: Bool = false {
+        didSet {
+            SlideMenuConfig.shared.menuSectionBasedStatusBarStyle = self.menuSectionBasedStatusBarStyle
+        }
+    }
+    
     fileprivate lazy var menuViewController = SlideMenuVC.menuVC()
     fileprivate var sections: [MenuSection] = []
     
@@ -58,7 +64,6 @@ open class SlideMenu {
     open func userDidTapMenu() {
         self.menuViewController?.userDidTapMenuButton()
     }
-
     
     open func addSection(_ section: MenuSection) {
         self.sections.append(section)

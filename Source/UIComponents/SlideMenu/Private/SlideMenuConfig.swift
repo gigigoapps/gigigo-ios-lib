@@ -17,5 +17,5 @@ class SlideMenuConfig {
     var menuBackgroundColor: UIColor = UIColor.black
     var menuHighlightColor: UIColor?
     var menuTitleColor: UIColor?
-	
+    var menuSectionBasedStatusBarStyle: Bool = false
 }

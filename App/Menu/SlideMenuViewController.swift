@@ -37,6 +37,9 @@ class SlideMenuViewController: UIViewController {
         self.menu.userDidTapMenu()
     }
 
+    override var preferredStatusBarStyle:  UIStatusBarStyle  {
+        return self.childViewControllers.first?.preferredStatusBarStyle ?? .default
+    }
     
     fileprivate func prepareMenu() {
         

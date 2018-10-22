@@ -107,9 +107,12 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
 	
 	
 	override var preferredStatusBarStyle : UIStatusBarStyle {
-		return self.statusBarStyle
+        if SlideMenuConfig.shared.menuSectionBasedStatusBarStyle {
+            return self.currentController?.preferredStatusBarStyle ?? self.statusBarStyle
+        } else {
+            return self.statusBarStyle
+        }
 	}
-    
     
     // MARK: - Public Methods
     
