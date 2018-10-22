@@ -140,15 +140,38 @@ open class Response: Selfie {
 			return .unknownError
 		}
 	}
+    
+    func logResponse() {
+        self.logResponse(nil)
+    }
 	
-	func logResponse() {
-		print("******** RESPONSE ********")
-		print(" - URL:\t" + self.logURL())
-		print(" - CODE:\t" + "\(self.statusCode)")
-		self.logHeaders()
-		self.logData()
-		print("*************************\n")
+    func logResponse(_ logInfo: RequestLogInfo?) {
+		var log = "\n******** RESPONSE ********\n"
+		log += " - URL:\t" + self.logURL() + "\n"
+		log += " - CODE:\t" + "\(self.statusCode)\n"
+		let headers = self.logHeaders()
+		let data = self.logData()
+		log += headers + data + "*************************\n\n"
+        
+        if let logInfo = logInfo {
+            printLog(log, logInfo: logInfo)
+        } else {
+            print(log)
+        }
 	}
+    
+    fileprivate func printLog(_ message: String, logInfo: RequestLogInfo) {
+        switch logInfo.logLevel {
+        case .debug:
+            gigLogDebug(message, module: logInfo.module, filename: logInfo.filename, line: logInfo.line, funcname: logInfo.funcname)
+        case .error:
+            gigLogError(NSError(code: 0, message: message), module: logInfo.module, filename: logInfo.filename, line: logInfo.line, funcname: logInfo.funcname)
+        case .info:
+            gigLogInfo(message, module: logInfo.module, filename: logInfo.filename, line: logInfo.line, funcname: logInfo.funcname)
+        default:
+            break
+        }
+    }
 	
 	private func logURL() -> String {
 		guard let url = self.url?.absoluteString else {
@@ -158,31 +181,32 @@ open class Response: Selfie {
 		return url
 	}
 	
-	private func logHeaders() {
-		guard let headers = self.headers else { return }
+	private func logHeaders() -> String {
+		guard let headers = self.headers else { return "" }
 		
-		print(" - HEADERS: {")
+		var log = " - HEADERS: {"
 		
 		for key in headers.keys {
 			if let value = headers[key] {
-				print("\t\t\(key): \(value)")
+				log += "\n\t\t\(key): \(value)"
 			}
 		}
 		
-		print("}")
+		return log + "\n}\n"
 	}
 	
-	private func logData() {
+	private func logData() -> String {
 		guard let body = self.body else {
-			return
+			return ""
 		}
 		
 		if let json = try? JSON.dataToJson(body) {
-			print(" - JSON:\n\(json)")
+			return " - JSON:\n\(json)\n"
 		} else if let string = String(data: body, encoding: .utf8) {
-			print(" - DATA:\n\(string)")
-		}
-		
+			return" - DATA:\n\(string)\n"
+        } else {
+            return ""
+        }
 	}
 }
 
