@@ -1,9 +1,9 @@
-
 import UIKit
 
 // MARK: PUBLIC
 
 // MARK: Extensions
+// swiftlint:disable file_length
 
 public extension String {
     
@@ -23,7 +23,7 @@ public extension String {
      ````
      */
     
-    public func style(_ styles:Style...) -> StyledString {
+    public func style(_ styles: Style...) -> StyledString {
         
         var styledString = StyledString()
         styledString.styledStringFractions.append(StyledStringFraction(string: self, styles: styles))
@@ -46,11 +46,9 @@ public extension UILabel {
     var styledString: StyledString {
         
         get {
-            
             return self.styledString
         }
         set(newtStyle) {
-            
             self.attributedText = newtStyle.toAttributedString(defaultFont: self.font)
         }
     }
@@ -66,9 +64,9 @@ public extension UILabel {
     var html: String? {
         
         get {
-            
             return self.html
         }
+        
         set(newtHtml) {
             let string = newtHtml ?? ""
             self.attributedText = NSAttributedString(fromHTML: string, font: self.font, color: self.textColor, aligment: self.textAlignment)
@@ -91,15 +89,14 @@ public extension UITextView {
     var styledString: StyledString {
         
         get {
-            
             return self.styledString
         }
+        
         set(newtStyle) {
             
             if let font = self.font {
                 self.attributedText = newtStyle.toAttributedString(defaultFont: font)
-            }
-            else {
+            } else {
                 let defaultFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
                 self.attributedText = newtStyle.toAttributedString(defaultFont: defaultFont)
             }
@@ -117,20 +114,20 @@ public extension UITextView {
     var html: String? {
         
         get {
-            
             return self.html
         }
+        
         set(newtHtml) {
             let string = newtHtml ?? ""
-            var font = UIFont.systemFont(ofSize: UIFont.systemFontSize);
+            var font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
             var textColor = UIColor.black
             
             if let currentFont = self.font {
-                font = currentFont;
+                font = currentFont
             }
             
             if let currentTextColor = self.textColor {
-                textColor = currentTextColor;
+                textColor = currentTextColor
             }
             
             self.attributedText = NSAttributedString(fromHTML: string, font: font, color: textColor, aligment: self.textAlignment)
@@ -184,8 +181,8 @@ extension Data {
         do {
             return try NSAttributedString(
                 data: self,
-                options:[
-                    NSAttributedString.DocumentReadingOptionKey.documentType:NSAttributedString.DocumentType.html,
+                options: [
+                    NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
                     NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue
                 ],
                 documentAttributes: nil)
@@ -204,11 +201,11 @@ public struct StyledString {
     
     // MARK: PUBLIC
     
-    public func toAttributedString(defaultFont font:UIFont) -> NSAttributedString {
+    public func toAttributedString(defaultFont font: UIFont) -> NSAttributedString {
         
         let result = styledStringFractions.reduce(NSAttributedString()) { (currentAttributedString, singleStyledString) -> NSAttributedString in
             
-            let attributedString = self.attributedStringFrom(styledStringFraction:singleStyledString, font: font)
+            let attributedString = self.attributedStringFrom(styledStringFraction: singleStyledString, font: font)
             
             let finalAttributedString = NSMutableAttributedString(attributedString: currentAttributedString)
             finalAttributedString.append(attributedString)
@@ -225,8 +222,7 @@ public struct StyledString {
         let currentString = styledStringFraction.string
         let currentStyle = styledStringFraction.styles
         
-        
-        var currentFont = font;
+        var currentFont = font
         
         let tempAttributedString = NSMutableAttributedString(string: currentString)
         let attributedString = currentStyle.reduce(tempAttributedString) { (string, style) -> NSMutableAttributedString in
@@ -234,14 +230,14 @@ public struct StyledString {
             let key = style.key()
             let value = style.value(forFont: currentFont)
             
-            string.addAttribute(NSAttributedStringKey(rawValue: key), value:value, range: NSMakeRange(0, string.length))
+            string.addAttribute(NSAttributedString.Key(rawValue: key), value: value, range: NSRange(location: 0, length: string.length))
             
-            if (key == NSAttributedStringKey.font.rawValue) {
+            if key == NSAttributedString.Key.font.rawValue {
                 currentFont = style.value(forFont: currentFont) as? UIFont ?? UIFont.systemFont(ofSize: 14)
             }
             return string
         }
-        return attributedString;
+        return attributedString
     }
 }
 
@@ -269,6 +265,7 @@ public enum Style {
     case rightAligment
     case lineSpacing(CGFloat)
     
+    // swiftlint:disable cyclomatic_complexity
     func key() -> String {
         
         switch self {
@@ -276,44 +273,44 @@ public enum Style {
         case .none:
             return ""
         case .bold:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .italic:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .color:
-            return NSAttributedStringKey.foregroundColor.rawValue
+            return NSAttributedString.Key.foregroundColor.rawValue
         case .backgroundColor:
-            return NSAttributedStringKey.backgroundColor.rawValue
+            return NSAttributedString.Key.backgroundColor.rawValue
         case .size:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .fontName:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .font:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .underline:
-            return NSAttributedStringKey.underlineStyle.rawValue
+            return NSAttributedString.Key.underlineStyle.rawValue
         case .underlineThick:
-            return NSAttributedStringKey.underlineStyle.rawValue
+            return NSAttributedString.Key.underlineStyle.rawValue
         case .underlineDouble:
-            return NSAttributedStringKey.underlineStyle.rawValue
+            return NSAttributedString.Key.underlineStyle.rawValue
         case .underlineColor:
-            return NSAttributedStringKey.underlineColor.rawValue
+            return NSAttributedString.Key.underlineColor.rawValue
         case .link:
-            return NSAttributedStringKey.link.rawValue
+            return NSAttributedString.Key.link.rawValue
         case .baseLineOffset:
-            return NSAttributedStringKey.baselineOffset.rawValue
+            return NSAttributedString.Key.baselineOffset.rawValue
         case .letterSpacing:
-            return NSAttributedStringKey.kern.rawValue
+            return NSAttributedString.Key.kern.rawValue
         case .centerAligment:
-            return NSAttributedStringKey.paragraphStyle.rawValue
+            return NSAttributedString.Key.paragraphStyle.rawValue
         case .leftAligment:
-            return NSAttributedStringKey.paragraphStyle.rawValue
+            return NSAttributedString.Key.paragraphStyle.rawValue
         case .rightAligment:
-            return NSAttributedStringKey.paragraphStyle.rawValue
+            return NSAttributedString.Key.paragraphStyle.rawValue
         case .lineSpacing:
-            return NSAttributedStringKey.paragraphStyle.rawValue
+            return NSAttributedString.Key.paragraphStyle.rawValue
         }
     }
-    
+    // swiftlint:disable function_body_length
     func value(forFont font: UIFont) -> AnyObject {
         
         switch self {
@@ -323,15 +320,13 @@ public enum Style {
         case .bold:
             if let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitBold) {
                 return UIFont(descriptor: fontDescriptor, size: 0.0)
-            }
-            else {
+            } else {
                 return font
             }
         case .italic:
             if let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitItalic) {
                 return UIFont(descriptor: fontDescriptor, size: 0.0)
-            }
-            else {
+            } else {
                 return font
             }
         case .color(let color):
@@ -400,7 +395,7 @@ public enum Style {
  "Cool text".style(.Bold, .Underline, .Color(UIColor.redColor())) + " simple text"
  ````
  */
-public func +(left: StyledString, right: String) -> StyledString {
+public func + (left: StyledString, right: String) -> StyledString {
     
     var styledText = left
     styledText.styledStringFractions.append(StyledStringFraction(string: right, styles: [Style.none]))
@@ -421,10 +416,10 @@ public func +(left: StyledString, right: String) -> StyledString {
  .Color(UIColor.redColor()))
  ````
  */
-public func +(left: String, right: StyledString) -> StyledString {
+public func + (left: String, right: StyledString) -> StyledString {
     
     var styledText = right
-    styledText.styledStringFractions.insert(StyledStringFraction(string:left, styles:[Style.none]), at: 0)
+    styledText.styledStringFractions.insert(StyledStringFraction(string: left, styles: [Style.none]), at: 0)
     
     return styledText
 }
@@ -442,14 +437,13 @@ public func +(left: String, right: StyledString) -> StyledString {
  .Color(UIColor.redColor()))
  ````
  */
-public func +(left: StyledString, right: StyledString) -> StyledString {
+public func + (left: StyledString, right: StyledString) -> StyledString {
     
     var styledText = left
     styledText.styledStringFractions.append(contentsOf: right.styledStringFractions)
     
     return styledText
 }
-
 
 // MARK: PRIVATE
 
@@ -470,11 +464,9 @@ extension UIColor {
         
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
         
-        if (includeAlpha) {
-            
+        if includeAlpha {
             return String(format: "#%02X%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255), Int(a * 255))
         } else {
-            
             return String(format: "#%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255))
         }
     }
@@ -495,3 +487,4 @@ func aligmentString(fromAligment aligment: NSTextAlignment) -> String {
         return "left"
     }
 }
+
