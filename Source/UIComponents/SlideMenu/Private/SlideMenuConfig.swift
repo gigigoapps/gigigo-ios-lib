@@ -18,4 +18,5 @@ class SlideMenuConfig {
     var menuHighlightColor: UIColor?
     var menuTitleColor: UIColor?
     var menuSectionBasedStatusBarStyle: Bool = false
+    var accessibilityIdentifier: String = "SlideMenuView"
 }
