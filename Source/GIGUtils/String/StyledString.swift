@@ -230,9 +230,9 @@ public struct StyledString {
             let key = style.key()
             let value = style.value(forFont: currentFont)
             
-            string.addAttribute(NSAttributedString.Key(rawValue: key), value: value, range: NSRange(location: 0, length: string.length))
+            string.addAttribute(NSAttributedStringKey(rawValue: key), value: value, range: NSRange(location: 0, length: string.length))
             
-            if key == NSAttributedString.Key.font.rawValue {
+            if key == NSAttributedStringKey.font.rawValue {
                 currentFont = style.value(forFont: currentFont) as? UIFont ?? UIFont.systemFont(ofSize: 14)
             }
             return string
@@ -273,41 +273,41 @@ public enum Style {
         case .none:
             return ""
         case .bold:
-            return NSAttributedString.Key.font.rawValue
+            return NSAttributedStringKey.font.rawValue
         case .italic:
-            return NSAttributedString.Key.font.rawValue
+            return NSAttributedStringKey.font.rawValue
         case .color:
-            return NSAttributedString.Key.foregroundColor.rawValue
+            return NSAttributedStringKey.foregroundColor.rawValue
         case .backgroundColor:
-            return NSAttributedString.Key.backgroundColor.rawValue
+            return NSAttributedStringKey.backgroundColor.rawValue
         case .size:
-            return NSAttributedString.Key.font.rawValue
+            return NSAttributedStringKey.font.rawValue
         case .fontName:
-            return NSAttributedString.Key.font.rawValue
+            return NSAttributedStringKey.font.rawValue
         case .font:
-            return NSAttributedString.Key.font.rawValue
+            return NSAttributedStringKey.font.rawValue
         case .underline:
-            return NSAttributedString.Key.underlineStyle.rawValue
+            return NSAttributedStringKey.underlineStyle.rawValue
         case .underlineThick:
-            return NSAttributedString.Key.underlineStyle.rawValue
+            return NSAttributedStringKey.underlineStyle.rawValue
         case .underlineDouble:
-            return NSAttributedString.Key.underlineStyle.rawValue
+            return NSAttributedStringKey.underlineStyle.rawValue
         case .underlineColor:
-            return NSAttributedString.Key.underlineColor.rawValue
+            return NSAttributedStringKey.underlineColor.rawValue
         case .link:
-            return NSAttributedString.Key.link.rawValue
+            return NSAttributedStringKey.link.rawValue
         case .baseLineOffset:
-            return NSAttributedString.Key.baselineOffset.rawValue
+            return NSAttributedStringKey.baselineOffset.rawValue
         case .letterSpacing:
-            return NSAttributedString.Key.kern.rawValue
+            return NSAttributedStringKey.kern.rawValue
         case .centerAligment:
-            return NSAttributedString.Key.paragraphStyle.rawValue
+            return NSAttributedStringKey.paragraphStyle.rawValue
         case .leftAligment:
-            return NSAttributedString.Key.paragraphStyle.rawValue
+            return NSAttributedStringKey.paragraphStyle.rawValue
         case .rightAligment:
-            return NSAttributedString.Key.paragraphStyle.rawValue
+            return NSAttributedStringKey.paragraphStyle.rawValue
         case .lineSpacing:
-            return NSAttributedString.Key.paragraphStyle.rawValue
+            return NSAttributedStringKey.paragraphStyle.rawValue
         }
     }
     // swiftlint:disable function_body_length
