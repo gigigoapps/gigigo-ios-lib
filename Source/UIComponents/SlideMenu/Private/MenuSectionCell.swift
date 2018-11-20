@@ -22,6 +22,7 @@ class MenuSectionCell: UITableViewCell {
 	
     func bindMenuSection(_ menuSection: MenuSection) {
         self.labelMenuSection.text = menuSection.name
+        self.accessibilityIdentifier = menuSection.accessibilityIdentifier
         if let iconFromURL = menuSection.iconURLString {
             self.imageMenuSection.imageFromURL(
                 urlString: iconFromURL,
@@ -44,7 +45,6 @@ class MenuSectionCell: UITableViewCell {
             self.labelMenuSection.textColor = menuTitleColor
         }
         
-        self.accessibilityIdentifier = menuSection.accessibilityIdentifier
     }
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
