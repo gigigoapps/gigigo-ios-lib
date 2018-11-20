@@ -55,6 +55,7 @@ class SlideMenuViewController: UIViewController {
             icon: UIImage(),
             storyboard: "Main",
             viewController: "SlideMenuSection1",
+            accessibilityIdentifier: "SlideMenuSection1",
             completion: { (sectionVC) in
                 print("Instantiated section: 1")
             }
@@ -66,6 +67,7 @@ class SlideMenuViewController: UIViewController {
             iconPlaceholder: nil,
             storyboard: "Main",
             viewController: "SlideMenuSection2",
+            accessibilityIdentifier: "SlideMenuSection2",
             completion: { (sectionVC) in
                 print("Instantiated section: 2")
             }
@@ -76,6 +78,7 @@ class SlideMenuViewController: UIViewController {
 			name: "Section 3",
 			icon: UIImage(),
 			storyboard: "Main",
+            accessibilityIdentifier: "SlideMenuSection3",
             completion: { (sectionVC) in
                 print("Instantiated section: 3")
             }
