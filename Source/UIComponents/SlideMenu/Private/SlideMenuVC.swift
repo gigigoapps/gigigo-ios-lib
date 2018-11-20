@@ -69,7 +69,7 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		
+		self.view.accessibilityIdentifier = SlideMenuConfig.shared.accessibilityIdentifier
 		self.panGesture.delegate = self
         
         self.customContentContainer.addSubview(self.buttonClose)

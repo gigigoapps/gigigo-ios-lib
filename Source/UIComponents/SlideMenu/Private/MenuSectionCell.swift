@@ -43,6 +43,8 @@ class MenuSectionCell: UITableViewCell {
         if let menuTitleColor = SlideMenuConfig.shared.menuTitleColor {
             self.labelMenuSection.textColor = menuTitleColor
         }
+        
+        self.accessibilityIdentifier = menuSection.accessibilityIdentifier
     }
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
