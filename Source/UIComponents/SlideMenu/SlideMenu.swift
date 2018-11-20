@@ -41,6 +41,12 @@ open class SlideMenu {
         }
     }
     
+    open var accessibilityIdentifier: String = "SlideMenuView" {
+        didSet {
+            SlideMenuConfig.shared.accessibilityIdentifier = self.accessibilityIdentifier
+        }
+    }
+    
     fileprivate lazy var menuViewController = SlideMenuVC.menuVC()
     fileprivate var sections: [MenuSection] = []
     
