@@ -1,7 +1,7 @@
 import UIKit
 
 extension UIView: ViewStylable {
-    func styleView(_ style: ViewStyle) {
+    public func withViewStyle(_ style: ViewStyle) {
         self.backgroundColor = style.backgroundColor
 
         // Shadow

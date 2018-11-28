@@ -43,6 +43,7 @@
 		64D89ECC21AE7E9D0090F9D3 /* UILabel+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89ECB21AE7E9D0090F9D3 /* UILabel+Stylable.swift */; };
 		64D89ECE21AE7ED50090F9D3 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89ECD21AE7ED50090F9D3 /* LabelStyle.swift */; };
 		64D89ECF21AE88D00090F9D3 /* UITextView+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9921ADA1AB0090F9D3 /* UITextView+Stylable.swift */; };
+		64F9D58E21AE9E4F00F1C1D1 /* StylableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9D58C21AE9DD500F1C1D1 /* StylableTests.swift */; };
 		7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84931BC2962600517C2F /* GIGParseClass.h */; };
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
 		7BA7BBA51D7D724500644B6C /* GIGParseJsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */; };
@@ -412,6 +413,7 @@
 		64D89EA921ADA1AB0090F9D3 /* UIView+Borders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Borders.swift"; sourceTree = "<group>"; };
 		64D89ECB21AE7E9D0090F9D3 /* UILabel+Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Stylable.swift"; sourceTree = "<group>"; };
 		64D89ECD21AE7ED50090F9D3 /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
+		64F9D58C21AE9DD500F1C1D1 /* StylableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylableTests.swift; sourceTree = "<group>"; };
 		7B6B84931BC2962600517C2F /* GIGParseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGParseClass.h; path = Class/GIGParseClass.h; sourceTree = "<group>"; };
 		7B6B84941BC2962600517C2F /* GIGParseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGParseClass.m; path = Class/GIGParseClass.m; sourceTree = "<group>"; };
 		7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGParseJsonTests.swift; sourceTree = "<group>"; };
@@ -1013,7 +1015,6 @@
 				D99AD14F1B1DA3A3005BB4E5 /* GIGGeolocation */,
 				D99AD1521B1DA3A3005BB4E5 /* GIGLayout */,
 				D99AD18F1B1DA3A3005BB4E5 /* GIGUtils */,
-				64D89E9121ADA1950090F9D3 /* Style */,
 				D99AD15D1B1DA3A3005BB4E5 /* GIGNetwork */,
 				FA723AC41C64AAF700225E79 /* SwiftNetwork */,
 				FA4CEADA1CBBBE1C0029FF4C /* UIComponents */,
@@ -1152,6 +1153,7 @@
 		D99AD18F1B1DA3A3005BB4E5 /* GIGUtils */ = {
 			isa = PBXGroup;
 			children = (
+				64D89E9121ADA1950090F9D3 /* Style */,
 				FA133A6F1CBC1FD50007EE06 /* Public */,
 				617C5A5F1FBD7F69001DFCAC /* MultiDelegable.swift */,
 				FA133A701CBC1FE20007EE06 /* Private */,
@@ -1934,6 +1936,7 @@
 				FAD072331D1AF435002F0FE5 /* GIGRegexpReplacingTests.m */,
 				FAD072341D1AF435002F0FE5 /* GIGUserDefaultExtensionTests.m */,
 				A51F6D761D50C0410052D95A /* StyledStringTests.swift */,
+				64F9D58C21AE9DD500F1C1D1 /* StylableTests.swift */,
 				A5057DA51D536857006E1F6A /* StyledString.playground */,
 				FAD072351D1AF435002F0FE5 /* Mock */,
 				7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */,
@@ -2269,6 +2272,7 @@
 				FAD0724B1D1AF435002F0FE5 /* GIGMockClassEmpty.m in Sources */,
 				FADE38881C7491510061AAB9 /* GIGURLRequestAuthenticationTests.m in Sources */,
 				FAD072501D1AF435002F0FE5 /* GIGMockClassUser.m in Sources */,
+				64F9D58E21AE9E4F00F1C1D1 /* StylableTests.swift in Sources */,
 				FADE38891C7491510061AAB9 /* GIGURLRequestTests.m in Sources */,
 				FAD0724F1D1AF435002F0FE5 /* GIGMockClassAddress.m in Sources */,
 				FAD0724D1D1AF435002F0FE5 /* GIGMockClassNull.m in Sources */,

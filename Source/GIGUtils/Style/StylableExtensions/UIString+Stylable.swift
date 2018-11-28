@@ -1,7 +1,7 @@
 import UIKit
 
-extension String {
-    func style(_ style: TextStyle) -> NSAttributedString {
+public extension String {
+    func withStyle(_ style: TextStyle) -> NSAttributedString {
         let attributes = [NSAttributedStringKey.font: style.font,
                           NSAttributedStringKey.foregroundColor: style.foregroundColor,
                           NSAttributedStringKey.backgroundColor: style.backgroundColor
