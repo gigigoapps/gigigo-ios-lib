@@ -30,6 +30,19 @@
 		61F2ACEC1E9B9780003E20C4 /* InfiniteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACEB1E9B9780003E20C4 /* InfiniteCollectionView.swift */; };
 		61F2ACEE1E9B9D53003E20C4 /* InfiniteCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACED1E9B9D53003E20C4 /* InfiniteCollectionVC.swift */; };
 		61F2ACF11E9BA297003E20C4 /* InfiniteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACF01E9BA297003E20C4 /* InfiniteCollectionViewCell.swift */; };
+		64D89EAE21ADA1AB0090F9D3 /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9321ADA1AB0090F9D3 /* Stylable.swift */; };
+		64D89EB521ADA1AB0090F9D3 /* UIView+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9B21ADA1AB0090F9D3 /* UIView+Stylable.swift */; };
+		64D89EB721ADA1AB0090F9D3 /* UITextField+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9D21ADA1AB0090F9D3 /* UITextField+Stylable.swift */; };
+		64D89EB821ADA1AB0090F9D3 /* UIString+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9E21ADA1AB0090F9D3 /* UIString+Stylable.swift */; };
+		64D89EB921ADA1AB0090F9D3 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89EA021ADA1AB0090F9D3 /* TextStyle.swift */; };
+		64D89EBD21ADA1AB0090F9D3 /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89EA421ADA1AB0090F9D3 /* TextFieldStyle.swift */; };
+		64D89EBE21ADA1AB0090F9D3 /* ViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89EA521ADA1AB0090F9D3 /* ViewStyle.swift */; };
+		64D89EC121ADA1AB0090F9D3 /* UIView+Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89EA921ADA1AB0090F9D3 /* UIView+Borders.swift */; };
+		64D89EC921ADAE250090F9D3 /* UIButton+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9A21ADA1AB0090F9D3 /* UIButton+Stylable.swift */; };
+		64D89ECA21ADAE370090F9D3 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89EA621ADA1AB0090F9D3 /* ButtonStyle.swift */; };
+		64D89ECC21AE7E9D0090F9D3 /* UILabel+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89ECB21AE7E9D0090F9D3 /* UILabel+Stylable.swift */; };
+		64D89ECE21AE7ED50090F9D3 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89ECD21AE7ED50090F9D3 /* LabelStyle.swift */; };
+		64D89ECF21AE88D00090F9D3 /* UITextView+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9921ADA1AB0090F9D3 /* UITextView+Stylable.swift */; };
 		7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84931BC2962600517C2F /* GIGParseClass.h */; };
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
 		7BA7BBA51D7D724500644B6C /* GIGParseJsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */; };
@@ -386,6 +399,19 @@
 		61F2ACEB1E9B9780003E20C4 /* InfiniteCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCollectionView.swift; sourceTree = "<group>"; };
 		61F2ACED1E9B9D53003E20C4 /* InfiniteCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfiniteCollectionVC.swift; path = App/InfiniteCollection/InfiniteCollectionVC.swift; sourceTree = SOURCE_ROOT; };
 		61F2ACF01E9BA297003E20C4 /* InfiniteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCollectionViewCell.swift; sourceTree = "<group>"; };
+		64D89E9321ADA1AB0090F9D3 /* Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
+		64D89E9921ADA1AB0090F9D3 /* UITextView+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Stylable.swift"; sourceTree = "<group>"; };
+		64D89E9A21ADA1AB0090F9D3 /* UIButton+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Stylable.swift"; sourceTree = "<group>"; };
+		64D89E9B21ADA1AB0090F9D3 /* UIView+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Stylable.swift"; sourceTree = "<group>"; };
+		64D89E9D21ADA1AB0090F9D3 /* UITextField+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Stylable.swift"; sourceTree = "<group>"; };
+		64D89E9E21ADA1AB0090F9D3 /* UIString+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIString+Stylable.swift"; sourceTree = "<group>"; };
+		64D89EA021ADA1AB0090F9D3 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		64D89EA421ADA1AB0090F9D3 /* TextFieldStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
+		64D89EA521ADA1AB0090F9D3 /* ViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStyle.swift; sourceTree = "<group>"; };
+		64D89EA621ADA1AB0090F9D3 /* ButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		64D89EA921ADA1AB0090F9D3 /* UIView+Borders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Borders.swift"; sourceTree = "<group>"; };
+		64D89ECB21AE7E9D0090F9D3 /* UILabel+Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Stylable.swift"; sourceTree = "<group>"; };
+		64D89ECD21AE7ED50090F9D3 /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
 		7B6B84931BC2962600517C2F /* GIGParseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGParseClass.h; path = Class/GIGParseClass.h; sourceTree = "<group>"; };
 		7B6B84941BC2962600517C2F /* GIGParseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGParseClass.m; path = Class/GIGParseClass.m; sourceTree = "<group>"; };
 		7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGParseJsonTests.swift; sourceTree = "<group>"; };
@@ -867,6 +893,50 @@
 			path = UIComponents/InfiniteCollectionView;
 			sourceTree = "<group>";
 		};
+		64D89E9121ADA1950090F9D3 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				64D89E9321ADA1AB0090F9D3 /* Stylable.swift */,
+				64D89E9421ADA1AB0090F9D3 /* StylableExtensions */,
+				64D89E9F21ADA1AB0090F9D3 /* Styles */,
+				64D89EA721ADA1AB0090F9D3 /* UIKitExtensions */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		64D89E9421ADA1AB0090F9D3 /* StylableExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				64D89E9E21ADA1AB0090F9D3 /* UIString+Stylable.swift */,
+				64D89E9D21ADA1AB0090F9D3 /* UITextField+Stylable.swift */,
+				64D89E9921ADA1AB0090F9D3 /* UITextView+Stylable.swift */,
+				64D89ECB21AE7E9D0090F9D3 /* UILabel+Stylable.swift */,
+				64D89E9A21ADA1AB0090F9D3 /* UIButton+Stylable.swift */,
+				64D89E9B21ADA1AB0090F9D3 /* UIView+Stylable.swift */,
+			);
+			path = StylableExtensions;
+			sourceTree = "<group>";
+		};
+		64D89E9F21ADA1AB0090F9D3 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				64D89EA021ADA1AB0090F9D3 /* TextStyle.swift */,
+				64D89EA421ADA1AB0090F9D3 /* TextFieldStyle.swift */,
+				64D89EA621ADA1AB0090F9D3 /* ButtonStyle.swift */,
+				64D89ECD21AE7ED50090F9D3 /* LabelStyle.swift */,
+				64D89EA521ADA1AB0090F9D3 /* ViewStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		64D89EA721ADA1AB0090F9D3 /* UIKitExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				64D89EA921ADA1AB0090F9D3 /* UIView+Borders.swift */,
+			);
+			path = UIKitExtensions;
+			sourceTree = "<group>";
+		};
 		7B6B84921BC2959500517C2F /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -943,6 +1013,7 @@
 				D99AD14F1B1DA3A3005BB4E5 /* GIGGeolocation */,
 				D99AD1521B1DA3A3005BB4E5 /* GIGLayout */,
 				D99AD18F1B1DA3A3005BB4E5 /* GIGUtils */,
+				64D89E9121ADA1950090F9D3 /* Style */,
 				D99AD15D1B1DA3A3005BB4E5 /* GIGNetwork */,
 				FA723AC41C64AAF700225E79 /* SwiftNetwork */,
 				FA4CEADA1CBBBE1C0029FF4C /* UIComponents */,
@@ -2227,6 +2298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64D89ECF21AE88D00090F9D3 /* UITextView+Stylable.swift in Sources */,
 				FAB3201D1CBE9F1100098D81 /* SlideMenuConfig.swift in Sources */,
 				618616A6208DEC4D001B4603 /* ExpandableTextView.swift in Sources */,
 				D99AD2611B1DA3A3005BB4E5 /* GIGURLImageResponse.m in Sources */,
@@ -2237,8 +2309,10 @@
 				FACDEF9B1D6B0B90002E3D39 /* Instantiator.swift in Sources */,
 				D9FE620A1BD65D8A00E2B23C /* GIGFormField.m in Sources */,
 				FA02D2DB1D47C071007DD362 /* InfoPlist.swift in Sources */,
+				64D89EB521ADA1AB0090F9D3 /* UIView+Stylable.swift in Sources */,
 				D99AD2551B1DA3A3005BB4E5 /* GIGURLRequestFactory.m in Sources */,
 				D99AD2171B1DA3A3005BB4E5 /* GIGURLConfigDomainsTableViewController.m in Sources */,
+				64D89ECA21ADAE370090F9D3 /* ButtonStyle.swift in Sources */,
 				FAEDF6761BE20E9200F05AE2 /* GIGBoolValidator.m in Sources */,
 				FA723AC71C64AB4500225E79 /* Request.swift in Sources */,
 				D9FD35FC1B415CAE000D356F /* GIGNumericValidator.m in Sources */,
@@ -2252,14 +2326,17 @@
 				D9FE62191BD65DCF00E2B23C /* GIGCheckFormField.m in Sources */,
 				D99AD2751B1DA3A3005BB4E5 /* UIColor+GIGExtension.m in Sources */,
 				D99AD2231B1DA3A3005BB4E5 /* GIGURLConfigTableViewController.m in Sources */,
+				64D89EAE21ADA1AB0090F9D3 /* Stylable.swift in Sources */,
 				4A6A04821C62524000FED731 /* GIGIOSVersion.swift in Sources */,
 				FA3021FF1CBD404D00A8F7DE /* SlideMenuTableVC.swift in Sources */,
 				D9FD35F21B413E28000D356F /* GIGValidator.m in Sources */,
 				D99AD2A31B1DA3A3005BB4E5 /* UIImage+GIGExtension.m in Sources */,
+				64D89EBD21ADA1AB0090F9D3 /* TextFieldStyle.swift in Sources */,
 				D99AD2EF1B1DA3A3005BB4E5 /* UIView+GIGBorderShadowExtension.m in Sources */,
 				D99AD2131B1DA3A3005BB4E5 /* GIGURLConfigAddDomainViewController.m in Sources */,
 				FAAE2A4F1D227D5C00C5F808 /* Selfie.swift in Sources */,
 				A94D4A611CDDF67300CC4CAF /* GIGScannerViewController.swift in Sources */,
+				64D89EBE21ADA1AB0090F9D3 /* ViewStyle.swift in Sources */,
 				FA133A6E1CBC1F150007EE06 /* Storyboard+Extension.swift in Sources */,
 				D9FD36071B4162A6000D356F /* GIGTextValidator.m in Sources */,
 				D99AD1FB1B1DA3A3005BB4E5 /* GIGGeolocation.m in Sources */,
@@ -2297,6 +2374,7 @@
 				FA44E4961C9069A6009BBBA2 /* Application.swift in Sources */,
 				D99AD27D1B1DA3A3005BB4E5 /* NSData+GIGString.m in Sources */,
 				D99AD2271B1DA3A3005BB4E5 /* GIGURLDomain.m in Sources */,
+				64D89EC921ADAE250090F9D3 /* UIButton+Stylable.swift in Sources */,
 				D9FE620E1BD65D8A00E2B23C /* GIGFormFieldsBuilder.m in Sources */,
 				D99AD2371B1DA3A3005BB4E5 /* GIGURLFormatter.m in Sources */,
 				FA88CBAC1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift in Sources */,
@@ -2320,22 +2398,28 @@
 				D99AD2891B1DA3A3005BB4E5 /* GIGDigest.m in Sources */,
 				A55EE0771DACFDFF002E4EDF /* ImageExtension.swift in Sources */,
 				D99AD2D31B1DA3A3005BB4E5 /* UIScreen+GIGExtension.m in Sources */,
+				64D89EB921ADA1AB0090F9D3 /* TextStyle.swift in Sources */,
 				7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */,
 				D99AD2491B1DA3A3005BB4E5 /* GIGURLManager.m in Sources */,
 				A51F6D751D50BBB30052D95A /* StyledString.swift in Sources */,
+				64D89EB821ADA1AB0090F9D3 /* UIString+Stylable.swift in Sources */,
+				64D89ECC21AE7E9D0090F9D3 /* UILabel+Stylable.swift in Sources */,
 				D99AD2F31B1DA3A3005BB4E5 /* UIView+GIGDebugExtension.m in Sources */,
 				D99AD21F1B1DA3A3005BB4E5 /* GIGURLConfigFixturesTableViewController.m in Sources */,
 				D99AD2FB1B1DA3A3005BB4E5 /* UIView+GIGNibExtension.m in Sources */,
 				D99AD2331B1DA3A3005BB4E5 /* GIGURLFixturesKeeper.m in Sources */,
 				D9E7A1551B4191AA004D3193 /* GIGDocumentValidator.m in Sources */,
 				617C5A601FBD7F69001DFCAC /* MultiDelegable.swift in Sources */,
+				64D89EB721ADA1AB0090F9D3 /* UITextField+Stylable.swift in Sources */,
 				FA723AC81C64AB4500225E79 /* Response.swift in Sources */,
 				D99AD2811B1DA3A3005BB4E5 /* NSDate+GIGExtension.m in Sources */,
 				238FA1CD2090700500E398C8 /* ScreenRecord.swift in Sources */,
 				D99AD24D1B1DA3A3005BB4E5 /* GIGURLRequest.m in Sources */,
 				FA137A3A1DE5B12C0025BE53 /* StringExtension.swift in Sources */,
 				FA36E9701C637CD100214598 /* Dispatch.swift in Sources */,
+				64D89ECE21AE7ED50090F9D3 /* LabelStyle.swift in Sources */,
 				D99AD25D1B1DA3A3005BB4E5 /* GIGURLStorage.m in Sources */,
+				64D89EC121ADA1AB0090F9D3 /* UIView+Borders.swift in Sources */,
 				D99AD2CB1B1DA3A3005BB4E5 /* NSRegularExpression+GIGRegexp.m in Sources */,
 				D99AD2CF1B1DA3A3005BB4E5 /* NSString+GIGRegexp.m in Sources */,
 				D9FD36191B416774000D356F /* GIGLengthValidator.m in Sources */,
