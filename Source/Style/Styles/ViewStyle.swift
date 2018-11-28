@@ -34,11 +34,4 @@ public struct ViewStyle {
         self.cornerRadius = cornerRadius
         self.backgroundColor = backgroundColor
     }
-    
-    // MARK: - Styles
-    static var example: ViewStyle {
-        return ViewStyle(borderColor: .gray,
-                         borderWidth: 0.5,
-                         someBorders: [.bottom])
-    }
 }

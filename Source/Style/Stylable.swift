@@ -9,11 +9,3 @@ protocol ViewStylable {
     associatedtype VStyle
     func styleView(_ style: VStyle)
 }
-
-//String -> atributtedString
-//Views (Labels, Textfields
-//    Buttons
-//    
-//    PageControl
-//    Bar
-//ViewController

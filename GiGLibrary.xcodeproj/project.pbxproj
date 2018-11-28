@@ -31,7 +31,7 @@
 		61F2ACEE1E9B9D53003E20C4 /* InfiniteCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACED1E9B9D53003E20C4 /* InfiniteCollectionVC.swift */; };
 		61F2ACF11E9BA297003E20C4 /* InfiniteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACF01E9BA297003E20C4 /* InfiniteCollectionViewCell.swift */; };
 		64D89EAE21ADA1AB0090F9D3 /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9321ADA1AB0090F9D3 /* Stylable.swift */; };
-		64D89EB521ADA1AB0090F9D3 /* UIView+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9B21ADA1AB0090F9D3 /* UIView+Stylable.swift */; };
+		64D89EB521ADA1AB0090F9D3 /* UIView+ViewStylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9B21ADA1AB0090F9D3 /* UIView+ViewStylable.swift */; };
 		64D89EB721ADA1AB0090F9D3 /* UITextField+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9D21ADA1AB0090F9D3 /* UITextField+Stylable.swift */; };
 		64D89EB821ADA1AB0090F9D3 /* UIString+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9E21ADA1AB0090F9D3 /* UIString+Stylable.swift */; };
 		64D89EB921ADA1AB0090F9D3 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89EA021ADA1AB0090F9D3 /* TextStyle.swift */; };
@@ -402,7 +402,7 @@
 		64D89E9321ADA1AB0090F9D3 /* Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
 		64D89E9921ADA1AB0090F9D3 /* UITextView+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Stylable.swift"; sourceTree = "<group>"; };
 		64D89E9A21ADA1AB0090F9D3 /* UIButton+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Stylable.swift"; sourceTree = "<group>"; };
-		64D89E9B21ADA1AB0090F9D3 /* UIView+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Stylable.swift"; sourceTree = "<group>"; };
+		64D89E9B21ADA1AB0090F9D3 /* UIView+ViewStylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ViewStylable.swift"; sourceTree = "<group>"; };
 		64D89E9D21ADA1AB0090F9D3 /* UITextField+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Stylable.swift"; sourceTree = "<group>"; };
 		64D89E9E21ADA1AB0090F9D3 /* UIString+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIString+Stylable.swift"; sourceTree = "<group>"; };
 		64D89EA021ADA1AB0090F9D3 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
@@ -912,7 +912,7 @@
 				64D89E9921ADA1AB0090F9D3 /* UITextView+Stylable.swift */,
 				64D89ECB21AE7E9D0090F9D3 /* UILabel+Stylable.swift */,
 				64D89E9A21ADA1AB0090F9D3 /* UIButton+Stylable.swift */,
-				64D89E9B21ADA1AB0090F9D3 /* UIView+Stylable.swift */,
+				64D89E9B21ADA1AB0090F9D3 /* UIView+ViewStylable.swift */,
 			);
 			path = StylableExtensions;
 			sourceTree = "<group>";
@@ -2309,7 +2309,7 @@
 				FACDEF9B1D6B0B90002E3D39 /* Instantiator.swift in Sources */,
 				D9FE620A1BD65D8A00E2B23C /* GIGFormField.m in Sources */,
 				FA02D2DB1D47C071007DD362 /* InfoPlist.swift in Sources */,
-				64D89EB521ADA1AB0090F9D3 /* UIView+Stylable.swift in Sources */,
+				64D89EB521ADA1AB0090F9D3 /* UIView+ViewStylable.swift in Sources */,
 				D99AD2551B1DA3A3005BB4E5 /* GIGURLRequestFactory.m in Sources */,
 				D99AD2171B1DA3A3005BB4E5 /* GIGURLConfigDomainsTableViewController.m in Sources */,
 				64D89ECA21ADAE370090F9D3 /* ButtonStyle.swift in Sources */,

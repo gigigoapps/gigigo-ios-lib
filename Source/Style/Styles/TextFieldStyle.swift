@@ -7,8 +7,7 @@ public struct TextFieldStyle {
     let borderStyle: UITextBorderStyle
     let viewStyle: ViewStyle?
     
-    // MARK: - Init
-	private init(font: UIFont,
+	public init(font: UIFont,
 	             tintColor: UIColor = .blue,
 	             textColor: UIColor = .black,
                  borderStyle: UITextBorderStyle = .line,
@@ -19,12 +18,4 @@ public struct TextFieldStyle {
         self.borderStyle = borderStyle
         self.viewStyle = viewStyle
     }
-
-    // MARK: - Styles
-	
-    public static var example: TextFieldStyle {
-        return TextFieldStyle(font: UIFont.systemFont(ofSize: 13.0),
-                              textColor: .gray)
-    }
-
 }
