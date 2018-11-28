@@ -12,6 +12,8 @@ public struct ViewStyle {
     var shadowRadius: CGFloat
     var backgroundColor: UIColor
     
+    /// If set dottedBorders, someBorders not apply
+    /// If set dottedBorders, someBorders not apply
     public init(borderColor: UIColor = .clear,
                 borderWidth: CGFloat = 0.0,
                 someBorders: [Border] = [],

@@ -2,8 +2,11 @@ import UIKit
 
 extension UIButton: Stylable {
     public func withStyle(_ style: ButtonStyle) {
-        self.titleLabel?.attributedText = self.titleLabel?.text?.withStyle(style.textStyle)
-        self.setTitleColor(style.textStyle.foregroundColor, for: .normal)
+        self.setAttributedTitle(self.currentTitle?.withStyle(style.textStyle), for: .normal)
+        
+        if let tintColor = style.tintColor {
+            self.tintColor = tintColor
+        }
         
         if let viewStyle = style.viewStyle {
             self.withViewStyle(viewStyle)

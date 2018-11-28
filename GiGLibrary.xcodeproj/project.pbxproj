@@ -30,6 +30,7 @@
 		61F2ACEC1E9B9780003E20C4 /* InfiniteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACEB1E9B9780003E20C4 /* InfiniteCollectionView.swift */; };
 		61F2ACEE1E9B9D53003E20C4 /* InfiniteCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACED1E9B9D53003E20C4 /* InfiniteCollectionVC.swift */; };
 		61F2ACF11E9BA297003E20C4 /* InfiniteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACF01E9BA297003E20C4 /* InfiniteCollectionViewCell.swift */; };
+		644D9B6521AEB6C6002817A7 /* TextViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644D9B6421AEB6C6002817A7 /* TextViewStyle.swift */; };
 		64D89EAE21ADA1AB0090F9D3 /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9321ADA1AB0090F9D3 /* Stylable.swift */; };
 		64D89EB521ADA1AB0090F9D3 /* UIView+ViewStylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9B21ADA1AB0090F9D3 /* UIView+ViewStylable.swift */; };
 		64D89EB721ADA1AB0090F9D3 /* UITextField+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9D21ADA1AB0090F9D3 /* UITextField+Stylable.swift */; };
@@ -400,6 +401,7 @@
 		61F2ACEB1E9B9780003E20C4 /* InfiniteCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCollectionView.swift; sourceTree = "<group>"; };
 		61F2ACED1E9B9D53003E20C4 /* InfiniteCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfiniteCollectionVC.swift; path = App/InfiniteCollection/InfiniteCollectionVC.swift; sourceTree = SOURCE_ROOT; };
 		61F2ACF01E9BA297003E20C4 /* InfiniteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCollectionViewCell.swift; sourceTree = "<group>"; };
+		644D9B6421AEB6C6002817A7 /* TextViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewStyle.swift; sourceTree = "<group>"; };
 		64D89E9321ADA1AB0090F9D3 /* Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
 		64D89E9921ADA1AB0090F9D3 /* UITextView+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Stylable.swift"; sourceTree = "<group>"; };
 		64D89E9A21ADA1AB0090F9D3 /* UIButton+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Stylable.swift"; sourceTree = "<group>"; };
@@ -924,6 +926,7 @@
 			children = (
 				64D89EA021ADA1AB0090F9D3 /* TextStyle.swift */,
 				64D89EA421ADA1AB0090F9D3 /* TextFieldStyle.swift */,
+				644D9B6421AEB6C6002817A7 /* TextViewStyle.swift */,
 				64D89EA621ADA1AB0090F9D3 /* ButtonStyle.swift */,
 				64D89ECD21AE7ED50090F9D3 /* LabelStyle.swift */,
 				64D89EA521ADA1AB0090F9D3 /* ViewStyle.swift */,
@@ -2323,6 +2326,7 @@
 				02F2F7F71E82C8760098E4AF /* ProgressPageControl.swift in Sources */,
 				D99AD2451B1DA3A3005BB4E5 /* GIGURLFile.m in Sources */,
 				D9FE61FD1BD65CC900E2B23C /* GIGFormController.m in Sources */,
+				644D9B6521AEB6C6002817A7 /* TextViewStyle.swift in Sources */,
 				D99AD2A71B1DA3A3005BB4E5 /* NSInvocation+GIGExtension.m in Sources */,
 				D9E7A1671B4198D1004D3193 /* GIGCharactersValidator.m in Sources */,
 				D9E4661D1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */,

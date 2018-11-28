@@ -1,6 +1,6 @@
 import UIKit
 
-public struct TextFieldStyle {
+public struct TextViewStyle {
     let font: UIFont
     let tintColor: UIColor
     let textColor: UIColor
