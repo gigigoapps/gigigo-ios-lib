@@ -264,9 +264,9 @@ public struct StyledString {
             let key = style.key()
             let value = style.value(forFont: currentFont)
             
-            string.addAttribute(NSAttributedStringKey(rawValue: key), value: value, range: NSRange(location: 0, length: string.length))
+            string.addAttribute(NSAttributedString.Key(rawValue: key), value: value, range: NSRange(location: 0, length: string.length))
             
-            if key == NSAttributedStringKey.font.rawValue {
+            if key == NSAttributedString.Key.font.rawValue {
                 currentFont = style.value(forFont: currentFont) as? UIFont ?? UIFont.systemFont(ofSize: 14)
             }
             return string
@@ -307,41 +307,41 @@ public enum Style {
         case .none:
             return ""
         case .bold:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .italic:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .color:
-            return NSAttributedStringKey.foregroundColor.rawValue
+            return NSAttributedString.Key.foregroundColor.rawValue
         case .backgroundColor:
-            return NSAttributedStringKey.backgroundColor.rawValue
+            return NSAttributedString.Key.backgroundColor.rawValue
         case .size:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .fontName:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .font:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .underline:
-            return NSAttributedStringKey.underlineStyle.rawValue
+            return NSAttributedString.Key.underlineStyle.rawValue
         case .underlineThick:
-            return NSAttributedStringKey.underlineStyle.rawValue
+            return NSAttributedString.Key.underlineStyle.rawValue
         case .underlineDouble:
-            return NSAttributedStringKey.underlineStyle.rawValue
+            return NSAttributedString.Key.underlineStyle.rawValue
         case .underlineColor:
-            return NSAttributedStringKey.underlineColor.rawValue
+            return NSAttributedString.Key.underlineColor.rawValue
         case .link:
-            return NSAttributedStringKey.link.rawValue
+            return NSAttributedString.Key.link.rawValue
         case .baseLineOffset:
-            return NSAttributedStringKey.baselineOffset.rawValue
+            return NSAttributedString.Key.baselineOffset.rawValue
         case .letterSpacing:
-            return NSAttributedStringKey.kern.rawValue
+            return NSAttributedString.Key.kern.rawValue
         case .centerAligment:
-            return NSAttributedStringKey.paragraphStyle.rawValue
+            return NSAttributedString.Key.paragraphStyle.rawValue
         case .leftAligment:
-            return NSAttributedStringKey.paragraphStyle.rawValue
+            return NSAttributedString.Key.paragraphStyle.rawValue
         case .rightAligment:
-            return NSAttributedStringKey.paragraphStyle.rawValue
+            return NSAttributedString.Key.paragraphStyle.rawValue
         case .lineSpacing:
-            return NSAttributedStringKey.paragraphStyle.rawValue
+            return NSAttributedString.Key.paragraphStyle.rawValue
         }
     }
     // swiftlint:disable function_body_length
@@ -383,11 +383,11 @@ public enum Style {
         case .font(let font):
             return font
         case .underline:
-            return NSUnderlineStyle.styleSingle.rawValue as AnyObject
+            return NSUnderlineStyle.single.rawValue as AnyObject
         case .underlineThick:
-            return NSUnderlineStyle.styleThick.rawValue as AnyObject
+            return NSUnderlineStyle.thick.rawValue as AnyObject
         case .underlineDouble:
-            return NSUnderlineStyle.styleDouble.rawValue as AnyObject
+            return NSUnderlineStyle.double.rawValue as AnyObject
         case .underlineColor(let color):
             return color
         case .link(let link):
