@@ -37,40 +37,50 @@ public extension UILabel {
      Set a StyledString to a Label
      
      ````
-     label.styledString = "Cool text".style(.Bold,
+     label.styledString("Cool text".style(.Bold,
      .Underline,
-     .Color(UIColor.redColor()))
+     .Color(UIColor.redColor())))
      ````
      */
-    
-    var styledString: StyledString {
+    var styledString: StyledString? {
         
+        @available(*, deprecated, renamed: "styledString()")
         get {
-            return self.styledString
+            return nil
         }
+        
         set(newtStyle) {
-            self.attributedText = newtStyle.toAttributedString(defaultFont: self.font)
+            self.attributedText = newtStyle?.toAttributedString(defaultFont: self.font)
         }
+    }
+    
+    func styledString(_ styledString: StyledString) {
+        self.attributedText = styledString.toAttributedString(defaultFont: self.font)
     }
     
     /**
      Set a HTML String to a Label
      
      ````
-     label.html = "<b>Important</b> text"
+     label.html("<b>Important</b> text")
      ````
      */
     
     var html: String? {
         
+        @available(*, deprecated, renamed: "html()")
         get {
-            return self.html
+            return nil
         }
         
         set(newtHtml) {
             let string = newtHtml ?? ""
             self.attributedText = NSAttributedString(fromHTML: string, font: self.font, color: self.textColor, aligment: self.textAlignment)
         }
+    }
+    
+    func html(_ html: String?) {
+        self.attributedText = NSAttributedString(fromHTML: html ?? "", font: self.font, color: self.textColor, aligment: self.textAlignment)
     }
 }
 
@@ -80,41 +90,50 @@ public extension UITextView {
      Set a StyledString to a UITextView
      
      ````
-     textView.styledString = "Cool text".style(.Bold,
+     textView.styledString("Cool text".style(.Bold,
      .Underline,
-     .Color(UIColor.redColor()))
+     .Color(UIColor.redColor())))
      ````
      */
     
-    var styledString: StyledString {
+    var styledString: StyledString? {
         
+        @available(*, deprecated, renamed: "styledString()")
         get {
-            return self.styledString
+            return nil
         }
         
         set(newtStyle) {
             
             if let font = self.font {
-                self.attributedText = newtStyle.toAttributedString(defaultFont: font)
+                self.attributedText = newtStyle?.toAttributedString(defaultFont: font)
             } else {
                 let defaultFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
-                self.attributedText = newtStyle.toAttributedString(defaultFont: defaultFont)
+                self.attributedText = newtStyle?.toAttributedString(defaultFont: defaultFont)
             }
         }
     }
     
+    func styledString(_ styledString: StyledString) {
+        if let font = self.font {
+            self.attributedText = styledString.toAttributedString(defaultFont: font)
+        } else {
+            let defaultFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+            self.attributedText = styledString.toAttributedString(defaultFont: defaultFont)
+        }
+    }
     /**
      Set a HTML String to a UITextView
      
      ````
-     textView.html = "<b>Important</b> text"
+     textView.html("<b>Important</b> text")
      ````
      */
-    
     var html: String? {
         
+        @available(*, deprecated, renamed: "html()")
         get {
-            return self.html
+            return nil
         }
         
         set(newtHtml) {
@@ -132,6 +151,21 @@ public extension UITextView {
             
             self.attributedText = NSAttributedString(fromHTML: string, font: font, color: textColor, aligment: self.textAlignment)
         }
+    }
+    
+    func html(_ html: String?) {
+        var font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+        var textColor = UIColor.black
+        
+        if let currentFont = self.font {
+            font = currentFont
+        }
+        
+        if let currentTextColor = self.textColor {
+            textColor = currentTextColor
+        }
+        
+        self.attributedText = NSAttributedString(fromHTML: html ?? "", font: font, color: textColor, aligment: self.textAlignment)
     }
 }
 
