@@ -42,6 +42,18 @@ public extension UILabel {
      .Color(UIColor.redColor())))
      ````
      */
+    var styledString: StyledString? {
+        
+        @available(*, deprecated, renamed: "styledString()")
+        get {
+            return nil
+        }
+        
+        set(newtStyle) {
+            self.attributedText = newtStyle?.toAttributedString(defaultFont: self.font)
+        }
+    }
+    
     func styledString(_ styledString: StyledString) {
         self.attributedText = styledString.toAttributedString(defaultFont: self.font)
     }
@@ -53,6 +65,20 @@ public extension UILabel {
      label.html("<b>Important</b> text")
      ````
      */
+    
+    var html: String? {
+        
+        @available(*, deprecated, renamed: "html()")
+        get {
+            return nil
+        }
+        
+        set(newtHtml) {
+            let string = newtHtml ?? ""
+            self.attributedText = NSAttributedString(fromHTML: string, font: self.font, color: self.textColor, aligment: self.textAlignment)
+        }
+    }
+    
     func html(_ html: String?) {
         self.attributedText = NSAttributedString(fromHTML: html ?? "", font: self.font, color: self.textColor, aligment: self.textAlignment)
     }
@@ -70,6 +96,24 @@ public extension UITextView {
      ````
      */
     
+    var styledString: StyledString? {
+        
+        @available(*, deprecated, renamed: "styledString()")
+        get {
+            return nil
+        }
+        
+        set(newtStyle) {
+            
+            if let font = self.font {
+                self.attributedText = newtStyle?.toAttributedString(defaultFont: font)
+            } else {
+                let defaultFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+                self.attributedText = newtStyle?.toAttributedString(defaultFont: defaultFont)
+            }
+        }
+    }
+    
     func styledString(_ styledString: StyledString) {
         if let font = self.font {
             self.attributedText = styledString.toAttributedString(defaultFont: font)
@@ -85,6 +129,30 @@ public extension UITextView {
      textView.html("<b>Important</b> text")
      ````
      */
+    var html: String? {
+        
+        @available(*, deprecated, renamed: "html()")
+        get {
+            return nil
+        }
+        
+        set(newtHtml) {
+            let string = newtHtml ?? ""
+            var font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+            var textColor = UIColor.black
+            
+            if let currentFont = self.font {
+                font = currentFont
+            }
+            
+            if let currentTextColor = self.textColor {
+                textColor = currentTextColor
+            }
+            
+            self.attributedText = NSAttributedString(fromHTML: string, font: font, color: textColor, aligment: self.textAlignment)
+        }
+    }
+    
     func html(_ html: String?) {
         var font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
         var textColor = UIColor.black
