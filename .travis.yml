@@ -1,5 +1,6 @@
 osx_image: xcode10.1
 language: objective-c
+cache: false
 env:
   global:
   - FRAMEWORK_NAME=GIGLibrary
