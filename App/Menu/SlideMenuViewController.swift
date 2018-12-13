@@ -28,7 +28,7 @@ class SlideMenuViewController: UIViewController {
         super.viewDidAppear(animated)
         
         let menuVC = self.menu.menuVC()
-        self.addChildViewController(menuVC)
+        self.addChild(menuVC)
         self.viewContainer.addSubviewWithAutolayout(menuVC.view)
     }
     
@@ -38,7 +38,7 @@ class SlideMenuViewController: UIViewController {
     }
 
     override var preferredStatusBarStyle:  UIStatusBarStyle  {
-        return self.childViewControllers.first?.preferredStatusBarStyle ?? .default
+        return self.children.first?.preferredStatusBarStyle ?? .default
     }
     
     fileprivate func prepareMenu() {
