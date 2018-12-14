@@ -1,13 +1,12 @@
 osx_image: xcode10.1
 language: objective-c
-cache: false
 env:
   global:
   - FRAMEWORK_NAME=GIGLibrary
   - PROJECT=GIGLibrary
   - SCHEME=GIGLibrary
   - OS=12.1
-  - DEVICE="iPhone 7"
+  - DEVICE="iPhone 8"
 cache:
   directories:
   - Carthage
