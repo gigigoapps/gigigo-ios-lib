@@ -23,7 +23,7 @@
 {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Request should complete"];
     
-    GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"http://www.gigigo.com" manager:nil];
+    GIGURLRequest *request = [[GIGURLRequest alloc] initWithMethod:@"GET" url:@"https://www.google.es" manager:nil];
     
     __block BOOL isMainThread = NO;
     request.completion = ^(GIGURLResponse *response) {
@@ -34,7 +34,7 @@
     
     [request send];
     
-    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+    [self waitForExpectationsWithTimeout:2.0 handler:nil];
     
     XCTAssert(isMainThread);
 }
