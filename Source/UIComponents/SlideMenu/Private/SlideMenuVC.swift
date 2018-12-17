@@ -274,13 +274,13 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
     fileprivate func setViewController(_ viewController: UIViewController) {
 		guard self.currentController != viewController else { return }
 		
-        self.addChildViewController(viewController)
+        self.addChild(viewController)
         self.customContentContainer.addSubviewWithAutolayout(viewController.view)
-        viewController.didMove(toParentViewController: self)
-        self.customContentContainer.bringSubview(toFront: self.buttonClose)
+        viewController.didMove(toParent: self)
+        self.customContentContainer.bringSubviewToFront(self.buttonClose)
 		
 		if let currentController = self.currentController {
-			currentController.removeFromParentViewController()
+            currentController.removeFromParent()
 			currentController.view.removeFromSuperview()
 		}
 		

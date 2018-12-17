@@ -17,7 +17,7 @@ struct ImageDownloader {
 	
 	
 	private init() {
-		NotificationCenter.default.addObserver(forName: .UIApplicationDidReceiveMemoryWarning, object: nil, queue: nil) { _ in
+        NotificationCenter.default.addObserver(forName: UIApplication.didReceiveMemoryWarningNotification, object: nil, queue: nil) { _ in
 			ImageDownloader.images = [:]
 			ImageDownloader.stack = []
 			ImageDownloader.queue = [:]

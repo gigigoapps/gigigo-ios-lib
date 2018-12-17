@@ -1,17 +1,15 @@
-osx_image: xcode9.3
+osx_image: xcode10.1
 language: objective-c
 env:
   global:
   - FRAMEWORK_NAME=GIGLibrary
   - PROJECT=GIGLibrary
   - SCHEME=GIGLibrary
-  - OS=11.1
-  - DEVICE="iPhone 7"
+  - OS=12.1
+  - DEVICE="iPhone 8"
 cache:
   directories:
   - Carthage
-before_script:
-  - open -b com.apple.iphonesimulator
 script:
   - set -o pipefail && xcodebuild -project $PROJECT.xcodeproj -scheme $SCHEME -sdk iphonesimulator -destination "platform=iOS Simulator,OS=$OS,name=$DEVICE" test | xcpretty
 before_deploy:

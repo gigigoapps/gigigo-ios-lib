@@ -146,7 +146,7 @@ open class InfiniteCollectionView: UICollectionView {
         }
         isPagingEnabled = true
         bounces = false
-        decelerationRate = UIScrollViewDecelerationRateFast
+        decelerationRate = UIScrollView.DecelerationRate.fast
         showsHorizontalScrollIndicator = false
         showsVerticalScrollIndicator = false
     }
@@ -162,7 +162,7 @@ open class InfiniteCollectionView: UICollectionView {
         // Calculate the centre of content X position offset and the current distance from that centre point
         let centerOffsetX: CGFloat = (3 * contentWidth - bounds.size.width) / 2
         let distFromCentre = centerOffsetX - currentOffset.x
-        if fabs(distFromCentre) > (contentWidth / 4) {
+        if abs(distFromCentre) > (contentWidth / 4) {
             // Total cells (including partial cells) from centre
             let cellcount = distFromCentre/cellWidth
             // Amount of cells to shift (whole number) - conditional statement due to nature of +ve or -ve cellcount
