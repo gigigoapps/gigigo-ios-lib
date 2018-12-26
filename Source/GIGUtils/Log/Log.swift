@@ -167,16 +167,18 @@ public class LogManager {
     
     // LOG FUNCTIONS
     
-    public func log(_ module: LoggableModule.Type?, message: String, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
+    public func log(_ module: LoggableModule.Type?, message: String, filename: NSString = #file, line: Int = #line, funcname: String = #function, handler: ((String) -> Void)? = nil) {
         self.queue.sync {
             let settings = self.getSettingsForModuleNonSynchronized(module)
             guard settings.logLevel != .none else { return }
             let moduleName = settings.moduleName ?? module?.Identifier ?? "Gigigo Log Manager"
-            print("[\(moduleName)]::" + message)
+            let debugMessage = "[\(moduleName)]::" + message
+            print(debugMessage)
+            handler?(debugMessage)
         }
     }
     
-    public func logInfo(_ module: LoggableModule.Type?, message: String, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
+    public func logInfo(_ module: LoggableModule.Type?, message: String, filename: NSString = #file, line: Int = #line, funcname: String = #function, handler: ((String) -> Void)? = nil) {
         self.queue.sync {
             let settings = self.getSettingsForModuleNonSynchronized(module)
             guard settings.logLevel >= .info else { return }
@@ -184,11 +186,13 @@ public class LogManager {
             let className = filename.lastPathComponent.components(separatedBy: ".").first!
             let emoji = (settings.logStyle == .funny) ? " ⓘ" : ""
             let caller = "[Info\(emoji)] \(className)(\(line)) - \(funcname): "
-            print("[\(moduleName)]::\(caller)::" + message)
+            let debugMessage = "[\(moduleName)]::\(caller)::" + message
+            print(debugMessage)
+            handler?(debugMessage)
         }
     }
     
-    public func logDebug(_ module: LoggableModule.Type?, message: String, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
+    public func logDebug(_ module: LoggableModule.Type?, message: String, filename: NSString = #file, line: Int = #line, funcname: String = #function, handler: ((String) -> Void)? = nil) {
         self.queue.sync {
             let settings = self.getSettingsForModuleNonSynchronized(module)
             guard settings.logLevel >= .debug else { return }
@@ -196,11 +200,13 @@ public class LogManager {
             let className = filename.lastPathComponent.components(separatedBy: ".").first!
             let emoji = (settings.logStyle == .funny) ? " 🐛" : ""
             let caller = "[Debug\(emoji)] \(className)(\(line)) - \(funcname): "
-            print("[\(moduleName)]::\(caller)::" + message)
+            let debugMessage = "[\(moduleName)]::\(caller)::" + message
+            print(debugMessage)
+            handler?(debugMessage)
         }
     }
     
-    public func logError(_ module: LoggableModule.Type?, error: Error?, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
+    public func logError(_ module: LoggableModule.Type?, error: Error?, filename: NSString = #file, line: Int = #line, funcname: String = #function, handler: ((String) -> Void)? = nil) {
         self.queue.sync {
             let settings = self.getSettingsForModuleNonSynchronized(module)
             guard settings.logLevel >= .error,
@@ -210,11 +216,13 @@ public class LogManager {
             let className = filename.lastPathComponent.components(separatedBy: ".").first!
             let emoji = (settings.logStyle == .funny) ? " 🔥" : ""
             let caller = "[Error\(emoji)] \(className)(\(line)) - \(funcname): \(err.localizedDescription)"
-            print("[\(moduleName)]::\(caller)")
+            let debugMessage = "[\(moduleName)]::\(caller)"
+            print(debugMessage)
+            handler?(debugMessage)
         }
     }
     
-    public func logWarn(_ module: LoggableModule.Type?, message: String, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
+    public func logWarn(_ module: LoggableModule.Type?, message: String, filename: NSString = #file, line: Int = #line, funcname: String = #function, handler: ((String) -> Void)? = nil) {
         self.queue.sync {
             let settings = self.getSettingsForModuleNonSynchronized(module)
             guard settings.logLevel >= .error else { return }
@@ -222,7 +230,9 @@ public class LogManager {
             let className = filename.lastPathComponent.components(separatedBy: ".").first!
             let emoji = (settings.logStyle == .funny) ? " 🔥" : ""
             let caller = "[Warn\(emoji)] \(className)(\(line)) - \(funcname): "
-            print("[\(moduleName)]::\(caller)::" + message)
+            let debugMessage = "[\(moduleName)]::\(caller)::" + message
+            print(debugMessage)
+            handler?(debugMessage)
         }
     }
     
@@ -291,22 +301,22 @@ public func LogError(_ error: NSError?, filename: NSString = #file, line: Int = 
 
 // NEW LOG METHODS
 
-public func gigLog(_ log: String, module: LoggableModule.Type? = nil, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
-    LogManager.shared.log(module, message: log, filename: filename, line: line, funcname: funcname)
+public func gigLog(_ log: String, module: LoggableModule.Type? = nil, filename: NSString = #file, line: Int = #line, funcname: String = #function, handler: ((String) -> Void)? = nil) {
+    LogManager.shared.log(module, message: log, filename: filename, line: line, funcname: funcname, handler: handler)
 }
 
-public func gigLogInfo(_ log: String, module: LoggableModule.Type? = nil, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
-    LogManager.shared.logInfo(module, message: log, filename: filename, line: line, funcname: funcname)
+public func gigLogInfo(_ log: String, module: LoggableModule.Type? = nil, filename: NSString = #file, line: Int = #line, funcname: String = #function, handler: ((String) -> Void)? = nil) {
+    LogManager.shared.logInfo(module, message: log, filename: filename, line: line, funcname: funcname, handler: handler)
 }
 
-public func gigLogDebug(_ log: String, module: LoggableModule.Type? = nil, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
-    LogManager.shared.logDebug(module, message: log, filename: filename, line: line, funcname: funcname)
+public func gigLogDebug(_ log: String, module: LoggableModule.Type? = nil, filename: NSString = #file, line: Int = #line, funcname: String = #function, handler: ((String) -> Void)? = nil) {
+    LogManager.shared.logDebug(module, message: log, filename: filename, line: line, funcname: funcname, handler: handler)
 }   
 
-public func gigLogWarn(_ message: String, module: LoggableModule.Type? = nil, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
-    LogManager.shared.logWarn(module, message: message, filename: filename, line: line, funcname: funcname)
+public func gigLogWarn(_ message: String, module: LoggableModule.Type? = nil, filename: NSString = #file, line: Int = #line, funcname: String = #function, handler: ((String) -> Void)? = nil) {
+    LogManager.shared.logWarn(module, message: message, filename: filename, line: line, funcname: funcname, handler: handler)
 }
 
-public func gigLogError(_ error: Error?, module: LoggableModule.Type? = nil, filename: NSString = #file, line: Int = #line, funcname: String = #function) {
-    LogManager.shared.logError(module, error: error, filename: filename, line: line, funcname: funcname)
+public func gigLogError(_ error: Error?, module: LoggableModule.Type? = nil, filename: NSString = #file, line: Int = #line, funcname: String = #function, handler: ((String) -> Void)? = nil) {
+    LogManager.shared.logError(module, error: error, filename: filename, line: line, funcname: funcname, handler: handler)
 }

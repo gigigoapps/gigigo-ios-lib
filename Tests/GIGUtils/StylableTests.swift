@@ -16,11 +16,11 @@ class StylableTests: XCTestCase {
                                   isUnderlined: true,
                                   letterSpacing: 3)
         let attrString = stringToTest.withStyle(textStyle)
-        XCTAssertEqual(attrString.attribute(named: NSAttributedStringKey.font.rawValue, forText: stringToTest)as! UIFont, UIFont.systemFont(ofSize: 10))
-        XCTAssertEqual(attrString.attribute(named: NSAttributedStringKey.foregroundColor.rawValue, forText: stringToTest)as! UIColor, .blue)
-        XCTAssertEqual(attrString.attribute(named: NSAttributedStringKey.backgroundColor.rawValue, forText: stringToTest)as! UIColor, .green)
-        XCTAssertNotNil(attrString.attribute(named: NSAttributedStringKey.strikethroughStyle.rawValue, forText: stringToTest))
-        XCTAssertNotNil(attrString.attribute(named: NSAttributedStringKey.underlineStyle.rawValue, forText: stringToTest))
+        XCTAssertEqual(attrString.attribute(named: NSAttributedString.Key.font.rawValue, forText: stringToTest)as! UIFont, UIFont.systemFont(ofSize: 10))
+        XCTAssertEqual(attrString.attribute(named: NSAttributedString.Key.foregroundColor.rawValue, forText: stringToTest)as! UIColor, .blue)
+        XCTAssertEqual(attrString.attribute(named: NSAttributedString.Key.backgroundColor.rawValue, forText: stringToTest)as! UIColor, .green)
+        XCTAssertNotNil(attrString.attribute(named: NSAttributedString.Key.strikethroughStyle.rawValue, forText: stringToTest))
+        XCTAssertNotNil(attrString.attribute(named: NSAttributedString.Key.underlineStyle.rawValue, forText: stringToTest))
 //        XCTAssert(attrString.attribute(named: NSAttributedStringKey.kern.rawValue, forText: stringToTest) as! CGFloat == 3)
     }
     

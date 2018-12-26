@@ -21,7 +21,7 @@ open class AlertController: NSObject, AlertInterface {
         self.alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
     }
     
-    internal init(title: String, message: String, style:UIAlertControllerStyle) {
+    internal init(title: String, message: String, style:UIAlertController.Style) {
         self.alert = UIAlertController(title: title, message: message, preferredStyle: style)
     }
     
