@@ -42,6 +42,24 @@ class SwiftRequestVC: UIViewController {
         Test.logStyle = .funny
 	}
 	
+    @IBAction func onButtonDownloadFile(_ sender: Any) {
+        let request = Request(
+            method: HTTPMethod.post.rawValue,
+            baseUrl: "https://s3-eu-west-1.amazonaws.com/ferringo-ci/Pruebas/3DModels/fly-optimized.scnassets.zip",
+            endpoint: "",
+            headers: [:]
+        )
+        request.verbose = true
+        
+        let documentsDirectoryURL = try? FileManager.default.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
+        guard let finalURL = documentsDirectoryURL?.appendingPathComponent("fly-optimized.scnassets.zip", isDirectory: false) else { return LogWarn("Error when append text") }
+        
+        
+        request.fetch(withDownloadUrlFile: finalURL) { response in
+            
+        }
+    }
+    
 	@IBAction func onButtonSwiftRequestTap(_ sender: UIButton) {
 		let request = Request(
 			method: HTTPMethod.post.rawValue,

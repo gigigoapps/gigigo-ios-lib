@@ -150,6 +150,63 @@ open class Request: Selfie {
 		
 		self.task?.resume()
 	}
+    
+    open func fetch(withDownloadUrlFile: URL, completionHandler: @escaping (Response) -> Void) {
+        guard let request = self.buildRequest() else { return }
+        guard self.reachability.isReachable() else {
+            let response = Response.noInternet()
+            completionHandler(response)
+            return
+        }
+        self.request = request
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForResource = 15
+        if #available(iOS 11, *) {
+            configuration.waitsForConnectivity = true
+        }
+        
+        let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
+        
+        if self.verbose {
+            if self.logInfo == nil {
+                LogManager.shared.logLevel = .debug
+                LogManager.shared.appName = "GIGLibrary"
+            }
+            self.logRequest()
+        }
+        
+        self.cancel()
+        
+        self.task = session.downloadTask(with: request) { location, response, error in
+            guard let location = location else {
+                LogWarn("Location of file is nil")
+                completionHandler(Response(data: nil, response: nil, error: ErrorInstantiation.instantiateIntial))
+                return
+            }
+            
+            let response = Response(data: nil, response: response, error: error, standardType: StandardType.basic)
+            
+            do {
+                if FileManager.default.fileExists(atPath: withDownloadUrlFile.path) {
+                    try FileManager.default.removeItem(at: withDownloadUrlFile)
+                }
+                try FileManager.default.moveItem(at: location, to: withDownloadUrlFile)
+                response.statusCode = 200
+            } catch let error {
+                LogWarn(error.localizedDescription)
+            }
+            
+            if self.verbose {
+                response.logResponse(self.logInfo)
+            }
+            
+            DispatchQueue.main.async {
+                completionHandler(response)
+            }
+        }
+        
+        self.task?.resume()
+    }
 	
 	public func cancel() {
 		self.task?.cancel()
