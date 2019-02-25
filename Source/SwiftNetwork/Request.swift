@@ -120,7 +120,7 @@ open class Request: Selfie {
             configuration.waitsForConnectivity = true
         }
         
-        configuration.requestCachePolicy = self.cache
+        self.controlCache(config: configuration)
         
         let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
 		
@@ -217,6 +217,16 @@ open class Request: Selfie {
 	
 	
 	// MARK: - Private Helpers
+    
+    private func controlCache(config: URLSessionConfiguration) {
+        config.requestCachePolicy = self.cache
+        switch self.cache {
+        case .reloadIgnoringLocalAndRemoteCacheData, .reloadRevalidatingCacheData, .reloadIgnoringLocalCacheData:
+            config.urlCache = nil
+        default:
+            break
+        }
+    }
 	
     fileprivate func printLog(_ message: String, logInfo: RequestLogInfo) {
         switch logInfo.logLevel {
