@@ -76,7 +76,7 @@ open class HyperlinkTextView: UITextView {
         let textRange = NSRange(location: 0, length: styledAttributedText.string.count)
         let style = NSMutableParagraphStyle()
         style.paragraphSpacing = 10
-        styledAttributedText.addAttribute(NSAttributedStringKey.paragraphStyle, value: style, range: textRange)
+        styledAttributedText.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: textRange)
         return styledAttributedText
     }
     
@@ -120,7 +120,7 @@ open class HyperlinkTextView: UITextView {
         
         // Grab the link from the String
         let attributedSubstring = self.attributedText.attributedSubstring(from: offsetRange)
-        if let hyperlinkURL = attributedSubstring.attribute(NSAttributedStringKey.link, at: 0, effectiveRange: nil) as? NSURL,
+        if let hyperlinkURL = attributedSubstring.attribute(NSAttributedString.Key.link, at: 0, effectiveRange: nil) as? NSURL,
             let hyperlink = hyperlinkURL.absoluteString,
             let URL = URL.init(string: hyperlink) {
             self.hyperlinkDelegate?.didTapOnHyperlink(URL: URL)

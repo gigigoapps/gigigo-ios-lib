@@ -38,6 +38,7 @@ open class Request: Selfie {
 	open var verbose = false
     open var logInfo: RequestLogInfo?
     open var standardType: StandardType = .gigigo
+    open var cache: NSURLRequest.CachePolicy = NSURLRequest.CachePolicy.useProtocolCachePolicy
 	
 	private var request: URLRequest?
 	private weak var task: URLSessionTask?
@@ -119,6 +120,8 @@ open class Request: Selfie {
             configuration.waitsForConnectivity = true
         }
         
+        self.controlCache(config: configuration)
+        
         let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
 		
 		if self.verbose {
@@ -150,6 +153,63 @@ open class Request: Selfie {
 		
 		self.task?.resume()
 	}
+    
+    open func fetch(withDownloadUrlFile: URL, completionHandler: @escaping (Response) -> Void) {
+        guard let request = self.buildRequest() else { return }
+        guard self.reachability.isReachable() else {
+            let response = Response.noInternet()
+            completionHandler(response)
+            return
+        }
+        self.request = request
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForResource = 15
+        if #available(iOS 11, *) {
+            configuration.waitsForConnectivity = true
+        }
+        
+        let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
+        
+        if self.verbose {
+            if self.logInfo == nil {
+                LogManager.shared.logLevel = .debug
+                LogManager.shared.appName = "GIGLibrary"
+            }
+            self.logRequest()
+        }
+        
+        self.cancel()
+        
+        self.task = session.downloadTask(with: request) { location, response, error in
+            guard let location = location else {
+                LogWarn("Location of file is nil")
+                completionHandler(Response(data: nil, response: nil, error: ErrorInstantiation.instantiateIntial))
+                return
+            }
+            
+            let response = Response(data: nil, response: response, error: error, standardType: StandardType.basic)
+            
+            do {
+                if FileManager.default.fileExists(atPath: withDownloadUrlFile.path) {
+                    try FileManager.default.removeItem(at: withDownloadUrlFile)
+                }
+                try FileManager.default.moveItem(at: location, to: withDownloadUrlFile)
+                response.statusCode = 200
+            } catch let error {
+                LogWarn(error.localizedDescription)
+            }
+            
+            if self.verbose {
+                response.logResponse(self.logInfo)
+            }
+            
+            DispatchQueue.main.async {
+                completionHandler(response)
+            }
+        }
+        
+        self.task?.resume()
+    }
 	
 	public func cancel() {
 		self.task?.cancel()
@@ -157,15 +217,25 @@ open class Request: Selfie {
 	
 	
 	// MARK: - Private Helpers
+    
+    private func controlCache(config: URLSessionConfiguration) {
+        config.requestCachePolicy = self.cache
+        switch self.cache {
+        case .reloadIgnoringLocalAndRemoteCacheData, .reloadRevalidatingCacheData, .reloadIgnoringLocalCacheData:
+            config.urlCache = nil
+        default:
+            break
+        }
+    }
 	
     fileprivate func printLog(_ message: String, logInfo: RequestLogInfo) {
         switch logInfo.logLevel {
         case .debug:
-            gigLogDebug(message, module: logInfo.module, filename: logInfo.filename, line: logInfo.line, funcname: logInfo.funcname)
+            gigLogDebug(message, module: logInfo.module, filename: logInfo.filename, line: logInfo.line, funcname: logInfo.funcname, handler: logInfo.handler)
         case .error:
-            gigLogError(NSError(code: 0, message: message), module: logInfo.module, filename: logInfo.filename, line: logInfo.line, funcname: logInfo.funcname)
+            gigLogError(NSError(code: 0, message: message), module: logInfo.module, filename: logInfo.filename, line: logInfo.line, funcname: logInfo.funcname, handler: logInfo.handler)
         case .info:
-            gigLogInfo(message, module: logInfo.module, filename: logInfo.filename, line: logInfo.line, funcname: logInfo.funcname)
+            gigLogInfo(message, module: logInfo.module, filename: logInfo.filename, line: logInfo.line, funcname: logInfo.funcname, handler: logInfo.handler)
         default:
             break
         }

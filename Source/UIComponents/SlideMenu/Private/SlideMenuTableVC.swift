@@ -59,13 +59,13 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
 
 		let indexPath = IndexPath(row: index, section: 0)
         guard let modeButtonType = menuSectionClicked?.modeButtonType else {
-            self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.none)
+            self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableView.ScrollPosition.none)
             return
         }
         if modeButtonType {
-            self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
+            self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableView.ScrollPosition.none)
         } else {
-            self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.none)
+            self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableView.ScrollPosition.none)
         }
 	}
 	

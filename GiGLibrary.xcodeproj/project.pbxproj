@@ -30,6 +30,23 @@
 		61F2ACEC1E9B9780003E20C4 /* InfiniteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACEB1E9B9780003E20C4 /* InfiniteCollectionView.swift */; };
 		61F2ACEE1E9B9D53003E20C4 /* InfiniteCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACED1E9B9D53003E20C4 /* InfiniteCollectionVC.swift */; };
 		61F2ACF11E9BA297003E20C4 /* InfiniteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F2ACF01E9BA297003E20C4 /* InfiniteCollectionViewCell.swift */; };
+		644D9B6521AEB6C6002817A7 /* TextViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644D9B6421AEB6C6002817A7 /* TextViewStyle.swift */; };
+		64A850E721BFF73D00E947AA /* StyleSetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A850E621BFF73D00E947AA /* StyleSetterViewController.swift */; };
+		64A850E921C00E9700E947AA /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A850E821C00E9700E947AA /* Styles.swift */; };
+		64D89EAE21ADA1AB0090F9D3 /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9321ADA1AB0090F9D3 /* Stylable.swift */; };
+		64D89EB521ADA1AB0090F9D3 /* UIView+ViewStylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9B21ADA1AB0090F9D3 /* UIView+ViewStylable.swift */; };
+		64D89EB721ADA1AB0090F9D3 /* UITextField+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9D21ADA1AB0090F9D3 /* UITextField+Stylable.swift */; };
+		64D89EB821ADA1AB0090F9D3 /* UIString+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9E21ADA1AB0090F9D3 /* UIString+Stylable.swift */; };
+		64D89EB921ADA1AB0090F9D3 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89EA021ADA1AB0090F9D3 /* TextStyle.swift */; };
+		64D89EBD21ADA1AB0090F9D3 /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89EA421ADA1AB0090F9D3 /* TextFieldStyle.swift */; };
+		64D89EBE21ADA1AB0090F9D3 /* ViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89EA521ADA1AB0090F9D3 /* ViewStyle.swift */; };
+		64D89EC121ADA1AB0090F9D3 /* UIView+Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89EA921ADA1AB0090F9D3 /* UIView+Borders.swift */; };
+		64D89EC921ADAE250090F9D3 /* UIButton+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9A21ADA1AB0090F9D3 /* UIButton+Stylable.swift */; };
+		64D89ECA21ADAE370090F9D3 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89EA621ADA1AB0090F9D3 /* ButtonStyle.swift */; };
+		64D89ECC21AE7E9D0090F9D3 /* UILabel+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89ECB21AE7E9D0090F9D3 /* UILabel+Stylable.swift */; };
+		64D89ECE21AE7ED50090F9D3 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89ECD21AE7ED50090F9D3 /* LabelStyle.swift */; };
+		64D89ECF21AE88D00090F9D3 /* UITextView+Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D89E9921ADA1AB0090F9D3 /* UITextView+Stylable.swift */; };
+		64F9D58E21AE9E4F00F1C1D1 /* StylableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9D58C21AE9DD500F1C1D1 /* StylableTests.swift */; };
 		7B6B84951BC2962600517C2F /* GIGParseClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B6B84931BC2962600517C2F /* GIGParseClass.h */; };
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
 		7BA7BBA51D7D724500644B6C /* GIGParseJsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */; };
@@ -386,6 +403,23 @@
 		61F2ACEB1E9B9780003E20C4 /* InfiniteCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCollectionView.swift; sourceTree = "<group>"; };
 		61F2ACED1E9B9D53003E20C4 /* InfiniteCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfiniteCollectionVC.swift; path = App/InfiniteCollection/InfiniteCollectionVC.swift; sourceTree = SOURCE_ROOT; };
 		61F2ACF01E9BA297003E20C4 /* InfiniteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCollectionViewCell.swift; sourceTree = "<group>"; };
+		644D9B6421AEB6C6002817A7 /* TextViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewStyle.swift; sourceTree = "<group>"; };
+		64A850E621BFF73D00E947AA /* StyleSetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSetterViewController.swift; sourceTree = "<group>"; };
+		64A850E821C00E9700E947AA /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		64D89E9321ADA1AB0090F9D3 /* Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
+		64D89E9921ADA1AB0090F9D3 /* UITextView+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Stylable.swift"; sourceTree = "<group>"; };
+		64D89E9A21ADA1AB0090F9D3 /* UIButton+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Stylable.swift"; sourceTree = "<group>"; };
+		64D89E9B21ADA1AB0090F9D3 /* UIView+ViewStylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ViewStylable.swift"; sourceTree = "<group>"; };
+		64D89E9D21ADA1AB0090F9D3 /* UITextField+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Stylable.swift"; sourceTree = "<group>"; };
+		64D89E9E21ADA1AB0090F9D3 /* UIString+Stylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIString+Stylable.swift"; sourceTree = "<group>"; };
+		64D89EA021ADA1AB0090F9D3 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		64D89EA421ADA1AB0090F9D3 /* TextFieldStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
+		64D89EA521ADA1AB0090F9D3 /* ViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStyle.swift; sourceTree = "<group>"; };
+		64D89EA621ADA1AB0090F9D3 /* ButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		64D89EA921ADA1AB0090F9D3 /* UIView+Borders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Borders.swift"; sourceTree = "<group>"; };
+		64D89ECB21AE7E9D0090F9D3 /* UILabel+Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Stylable.swift"; sourceTree = "<group>"; };
+		64D89ECD21AE7ED50090F9D3 /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
+		64F9D58C21AE9DD500F1C1D1 /* StylableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylableTests.swift; sourceTree = "<group>"; };
 		7B6B84931BC2962600517C2F /* GIGParseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GIGParseClass.h; path = Class/GIGParseClass.h; sourceTree = "<group>"; };
 		7B6B84941BC2962600517C2F /* GIGParseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGParseClass.m; path = Class/GIGParseClass.m; sourceTree = "<group>"; };
 		7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGParseJsonTests.swift; sourceTree = "<group>"; };
@@ -867,6 +901,60 @@
 			path = UIComponents/InfiniteCollectionView;
 			sourceTree = "<group>";
 		};
+		64A850E521BFF71B00E947AA /* StyleSetter */ = {
+			isa = PBXGroup;
+			children = (
+				64A850E621BFF73D00E947AA /* StyleSetterViewController.swift */,
+				64A850E821C00E9700E947AA /* Styles.swift */,
+			);
+			path = StyleSetter;
+			sourceTree = "<group>";
+		};
+		64D89E9121ADA1950090F9D3 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				64D89E9321ADA1AB0090F9D3 /* Stylable.swift */,
+				64D89E9421ADA1AB0090F9D3 /* StylableExtensions */,
+				64D89E9F21ADA1AB0090F9D3 /* Styles */,
+				64D89EA721ADA1AB0090F9D3 /* UIKitExtensions */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		64D89E9421ADA1AB0090F9D3 /* StylableExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				64D89E9E21ADA1AB0090F9D3 /* UIString+Stylable.swift */,
+				64D89E9D21ADA1AB0090F9D3 /* UITextField+Stylable.swift */,
+				64D89E9921ADA1AB0090F9D3 /* UITextView+Stylable.swift */,
+				64D89ECB21AE7E9D0090F9D3 /* UILabel+Stylable.swift */,
+				64D89E9A21ADA1AB0090F9D3 /* UIButton+Stylable.swift */,
+				64D89E9B21ADA1AB0090F9D3 /* UIView+ViewStylable.swift */,
+			);
+			path = StylableExtensions;
+			sourceTree = "<group>";
+		};
+		64D89E9F21ADA1AB0090F9D3 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				64D89EA021ADA1AB0090F9D3 /* TextStyle.swift */,
+				64D89EA421ADA1AB0090F9D3 /* TextFieldStyle.swift */,
+				644D9B6421AEB6C6002817A7 /* TextViewStyle.swift */,
+				64D89EA621ADA1AB0090F9D3 /* ButtonStyle.swift */,
+				64D89ECD21AE7ED50090F9D3 /* LabelStyle.swift */,
+				64D89EA521ADA1AB0090F9D3 /* ViewStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		64D89EA721ADA1AB0090F9D3 /* UIKitExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				64D89EA921ADA1AB0090F9D3 /* UIView+Borders.swift */,
+			);
+			path = UIKitExtensions;
+			sourceTree = "<group>";
+		};
 		7B6B84921BC2959500517C2F /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -1332,6 +1420,7 @@
 		D99AD3051B1DA3AF005BB4E5 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				64A850E521BFF71B00E947AA /* StyleSetter */,
 				230A6A9E20908F8E00BC886D /* ScreenRecord */,
 				D99AD35F1B1DAAE6005BB4E5 /* Main */,
 				02F2F7FA1E82D6F40098E4AF /* ProgressPageControl */,
@@ -1647,6 +1736,7 @@
 		FA133A6F1CBC1FD50007EE06 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				64D89E9121ADA1950090F9D3 /* Style */,
 				238FA1CB20906FE100E398C8 /* ScreenRecord */,
 				FA44E4941C90694B009BBBA2 /* Application */,
 				4AC0299B1C73831700FF22BF /* AlertController */,
@@ -1863,6 +1953,7 @@
 				FAD072331D1AF435002F0FE5 /* GIGRegexpReplacingTests.m */,
 				FAD072341D1AF435002F0FE5 /* GIGUserDefaultExtensionTests.m */,
 				A51F6D761D50C0410052D95A /* StyledStringTests.swift */,
+				64F9D58C21AE9DD500F1C1D1 /* StylableTests.swift */,
 				A5057DA51D536857006E1F6A /* StyledString.playground */,
 				FAD072351D1AF435002F0FE5 /* Mock */,
 				7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */,
@@ -2198,6 +2289,7 @@
 				FAD0724B1D1AF435002F0FE5 /* GIGMockClassEmpty.m in Sources */,
 				FADE38881C7491510061AAB9 /* GIGURLRequestAuthenticationTests.m in Sources */,
 				FAD072501D1AF435002F0FE5 /* GIGMockClassUser.m in Sources */,
+				64F9D58E21AE9E4F00F1C1D1 /* StylableTests.swift in Sources */,
 				FADE38891C7491510061AAB9 /* GIGURLRequestTests.m in Sources */,
 				FAD0724F1D1AF435002F0FE5 /* GIGMockClassAddress.m in Sources */,
 				FAD0724D1D1AF435002F0FE5 /* GIGMockClassNull.m in Sources */,
@@ -2227,6 +2319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64D89ECF21AE88D00090F9D3 /* UITextView+Stylable.swift in Sources */,
 				FAB3201D1CBE9F1100098D81 /* SlideMenuConfig.swift in Sources */,
 				618616A6208DEC4D001B4603 /* ExpandableTextView.swift in Sources */,
 				D99AD2611B1DA3A3005BB4E5 /* GIGURLImageResponse.m in Sources */,
@@ -2237,14 +2330,17 @@
 				FACDEF9B1D6B0B90002E3D39 /* Instantiator.swift in Sources */,
 				D9FE620A1BD65D8A00E2B23C /* GIGFormField.m in Sources */,
 				FA02D2DB1D47C071007DD362 /* InfoPlist.swift in Sources */,
+				64D89EB521ADA1AB0090F9D3 /* UIView+ViewStylable.swift in Sources */,
 				D99AD2551B1DA3A3005BB4E5 /* GIGURLRequestFactory.m in Sources */,
 				D99AD2171B1DA3A3005BB4E5 /* GIGURLConfigDomainsTableViewController.m in Sources */,
+				64D89ECA21ADAE370090F9D3 /* ButtonStyle.swift in Sources */,
 				FAEDF6761BE20E9200F05AE2 /* GIGBoolValidator.m in Sources */,
 				FA723AC71C64AB4500225E79 /* Request.swift in Sources */,
 				D9FD35FC1B415CAE000D356F /* GIGNumericValidator.m in Sources */,
 				02F2F7F71E82C8760098E4AF /* ProgressPageControl.swift in Sources */,
 				D99AD2451B1DA3A3005BB4E5 /* GIGURLFile.m in Sources */,
 				D9FE61FD1BD65CC900E2B23C /* GIGFormController.m in Sources */,
+				644D9B6521AEB6C6002817A7 /* TextViewStyle.swift in Sources */,
 				D99AD2A71B1DA3A3005BB4E5 /* NSInvocation+GIGExtension.m in Sources */,
 				D9E7A1671B4198D1004D3193 /* GIGCharactersValidator.m in Sources */,
 				D9E4661D1B411E9F00EC6C72 /* GIGURLJSONResponse.m in Sources */,
@@ -2252,14 +2348,17 @@
 				D9FE62191BD65DCF00E2B23C /* GIGCheckFormField.m in Sources */,
 				D99AD2751B1DA3A3005BB4E5 /* UIColor+GIGExtension.m in Sources */,
 				D99AD2231B1DA3A3005BB4E5 /* GIGURLConfigTableViewController.m in Sources */,
+				64D89EAE21ADA1AB0090F9D3 /* Stylable.swift in Sources */,
 				4A6A04821C62524000FED731 /* GIGIOSVersion.swift in Sources */,
 				FA3021FF1CBD404D00A8F7DE /* SlideMenuTableVC.swift in Sources */,
 				D9FD35F21B413E28000D356F /* GIGValidator.m in Sources */,
 				D99AD2A31B1DA3A3005BB4E5 /* UIImage+GIGExtension.m in Sources */,
+				64D89EBD21ADA1AB0090F9D3 /* TextFieldStyle.swift in Sources */,
 				D99AD2EF1B1DA3A3005BB4E5 /* UIView+GIGBorderShadowExtension.m in Sources */,
 				D99AD2131B1DA3A3005BB4E5 /* GIGURLConfigAddDomainViewController.m in Sources */,
 				FAAE2A4F1D227D5C00C5F808 /* Selfie.swift in Sources */,
 				A94D4A611CDDF67300CC4CAF /* GIGScannerViewController.swift in Sources */,
+				64D89EBE21ADA1AB0090F9D3 /* ViewStyle.swift in Sources */,
 				FA133A6E1CBC1F150007EE06 /* Storyboard+Extension.swift in Sources */,
 				D9FD36071B4162A6000D356F /* GIGTextValidator.m in Sources */,
 				D99AD1FB1B1DA3A3005BB4E5 /* GIGGeolocation.m in Sources */,
@@ -2297,6 +2396,7 @@
 				FA44E4961C9069A6009BBBA2 /* Application.swift in Sources */,
 				D99AD27D1B1DA3A3005BB4E5 /* NSData+GIGString.m in Sources */,
 				D99AD2271B1DA3A3005BB4E5 /* GIGURLDomain.m in Sources */,
+				64D89EC921ADAE250090F9D3 /* UIButton+Stylable.swift in Sources */,
 				D9FE620E1BD65D8A00E2B23C /* GIGFormFieldsBuilder.m in Sources */,
 				D99AD2371B1DA3A3005BB4E5 /* GIGURLFormatter.m in Sources */,
 				FA88CBAC1C7DF13000CD0FF2 /* NSLocale+GIGExtension.swift in Sources */,
@@ -2309,6 +2409,7 @@
 				D9FD36221B416CCB000D356F /* GIGPhoneValidator.m in Sources */,
 				618616AC208DF099001B4603 /* HyperlinkTextView.swift in Sources */,
 				D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */,
+				64A850E721BFF73D00E947AA /* StyleSetterViewController.swift in Sources */,
 				4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */,
 				A95E67D71F5D343B001D8B19 /* GIGScannerVC.swift in Sources */,
 				D93CA5301BEA49600098D37C /* NSData+GIGExtension.m in Sources */,
@@ -2320,22 +2421,29 @@
 				D99AD2891B1DA3A3005BB4E5 /* GIGDigest.m in Sources */,
 				A55EE0771DACFDFF002E4EDF /* ImageExtension.swift in Sources */,
 				D99AD2D31B1DA3A3005BB4E5 /* UIScreen+GIGExtension.m in Sources */,
+				64D89EB921ADA1AB0090F9D3 /* TextStyle.swift in Sources */,
 				7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */,
 				D99AD2491B1DA3A3005BB4E5 /* GIGURLManager.m in Sources */,
 				A51F6D751D50BBB30052D95A /* StyledString.swift in Sources */,
+				64D89EB821ADA1AB0090F9D3 /* UIString+Stylable.swift in Sources */,
+				64D89ECC21AE7E9D0090F9D3 /* UILabel+Stylable.swift in Sources */,
 				D99AD2F31B1DA3A3005BB4E5 /* UIView+GIGDebugExtension.m in Sources */,
 				D99AD21F1B1DA3A3005BB4E5 /* GIGURLConfigFixturesTableViewController.m in Sources */,
 				D99AD2FB1B1DA3A3005BB4E5 /* UIView+GIGNibExtension.m in Sources */,
 				D99AD2331B1DA3A3005BB4E5 /* GIGURLFixturesKeeper.m in Sources */,
 				D9E7A1551B4191AA004D3193 /* GIGDocumentValidator.m in Sources */,
+				64A850E921C00E9700E947AA /* Styles.swift in Sources */,
 				617C5A601FBD7F69001DFCAC /* MultiDelegable.swift in Sources */,
+				64D89EB721ADA1AB0090F9D3 /* UITextField+Stylable.swift in Sources */,
 				FA723AC81C64AB4500225E79 /* Response.swift in Sources */,
 				D99AD2811B1DA3A3005BB4E5 /* NSDate+GIGExtension.m in Sources */,
 				238FA1CD2090700500E398C8 /* ScreenRecord.swift in Sources */,
 				D99AD24D1B1DA3A3005BB4E5 /* GIGURLRequest.m in Sources */,
 				FA137A3A1DE5B12C0025BE53 /* StringExtension.swift in Sources */,
 				FA36E9701C637CD100214598 /* Dispatch.swift in Sources */,
+				64D89ECE21AE7ED50090F9D3 /* LabelStyle.swift in Sources */,
 				D99AD25D1B1DA3A3005BB4E5 /* GIGURLStorage.m in Sources */,
+				64D89EC121ADA1AB0090F9D3 /* UIView+Borders.swift in Sources */,
 				D99AD2CB1B1DA3A3005BB4E5 /* NSRegularExpression+GIGRegexp.m in Sources */,
 				D99AD2CF1B1DA3A3005BB4E5 /* NSString+GIGRegexp.m in Sources */,
 				D9FD36191B416774000D356F /* GIGLengthValidator.m in Sources */,
@@ -2425,7 +2533,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/GIGUtils/GIGLibraryTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -2455,7 +2563,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/GIGUtils/GIGLibraryTests-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -2596,7 +2704,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -2622,7 +2730,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -2643,7 +2751,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = GIGLibraryApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.giglibraryapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2651,7 +2759,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Network/GIGLibraryApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -2668,14 +2776,14 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = App/PrefixHeader.pch;
 				INFOPLIST_FILE = GIGLibraryApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.giglibraryapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Network/GIGLibraryApp-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

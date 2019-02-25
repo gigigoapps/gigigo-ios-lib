@@ -17,10 +17,10 @@ struct ImageDownloader {
 	
 	
 	private init() {
-		NotificationCenter.default.addObserver(forName: .UIApplicationDidReceiveMemoryWarning, object: nil, queue: nil) { _ in
-			ImageDownloader.images.removeAll()
-			ImageDownloader.stack.removeAll()
-			ImageDownloader.queue.removeAll()
+        NotificationCenter.default.addObserver(forName: UIApplication.didReceiveMemoryWarningNotification, object: nil, queue: nil) { _ in
+			ImageDownloader.images = [:]
+			ImageDownloader.stack = []
+			ImageDownloader.queue = [:]
 		}
 	}
 	
@@ -32,14 +32,18 @@ struct ImageDownloader {
 			ImageDownloader.queue.removeValue(forKey: view)
 		}
 		
-		if let image = ImageDownloader.images[url] {
-			view.image = image
-		} else {
-			view.image = placeholder
+        if let image = ImageDownloader.images[url] {
+            DispatchQueue.main.async {
+                view.image = image
+            }
+        } else {
+            DispatchQueue.main.async {
+                view.image = placeholder
+            }
             self.loadImage(url: url, in: view)
-		}
-	}
-	
+        }
+    }
+    
 	// MARK: - Private Helpers
 	
 	private func loadImage(url: String, in view: UIImageView) {
@@ -65,7 +69,7 @@ struct ImageDownloader {
 			case .success:
 				DispatchQueue.global().async {
 					if let image = try? response.image() {						
-						DispatchQueue.main.sync {
+						DispatchQueue.main.async {
                             let width = view.width() * UIScreen.main.scale
                             let height = view.height() * UIScreen.main.scale
                             let resized = image.imageProportionally(with: CGSize(width: width, height: height))
@@ -81,7 +85,7 @@ struct ImageDownloader {
 							self.downloadNext()
 						}
                     } else if let imageGif = try? response.gif() {
-                        DispatchQueue.main.sync {
+                        DispatchQueue.main.async {
                             ImageDownloader.images[request.baseURL] = imageGif
                             
                             if let currentRequest = ImageDownloader.queue[view], request.baseURL == currentRequest.baseURL {

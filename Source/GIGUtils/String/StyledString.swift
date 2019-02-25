@@ -37,40 +37,50 @@ public extension UILabel {
      Set a StyledString to a Label
      
      ````
-     label.styledString = "Cool text".style(.Bold,
+     label.styledString("Cool text".style(.Bold,
      .Underline,
-     .Color(UIColor.redColor()))
+     .Color(UIColor.redColor())))
      ````
      */
-    
-    var styledString: StyledString {
+    var styledString: StyledString? {
         
+        @available(*, deprecated, renamed: "styledString()")
         get {
-            return self.styledString
+            return nil
         }
+        
         set(newtStyle) {
-            self.attributedText = newtStyle.toAttributedString(defaultFont: self.font)
+            self.attributedText = newtStyle?.toAttributedString(defaultFont: self.font)
         }
+    }
+    
+    func styledString(_ styledString: StyledString) {
+        self.attributedText = styledString.toAttributedString(defaultFont: self.font)
     }
     
     /**
      Set a HTML String to a Label
      
      ````
-     label.html = "<b>Important</b> text"
+     label.html("<b>Important</b> text")
      ````
      */
     
     var html: String? {
         
+        @available(*, deprecated, renamed: "html()")
         get {
-            return self.html
+            return nil
         }
         
         set(newtHtml) {
             let string = newtHtml ?? ""
             self.attributedText = NSAttributedString(fromHTML: string, font: self.font, color: self.textColor, aligment: self.textAlignment)
         }
+    }
+    
+    func html(_ html: String?) {
+        self.attributedText = NSAttributedString(fromHTML: html ?? "", font: self.font, color: self.textColor, aligment: self.textAlignment)
     }
 }
 
@@ -80,41 +90,50 @@ public extension UITextView {
      Set a StyledString to a UITextView
      
      ````
-     textView.styledString = "Cool text".style(.Bold,
+     textView.styledString("Cool text".style(.Bold,
      .Underline,
-     .Color(UIColor.redColor()))
+     .Color(UIColor.redColor())))
      ````
      */
     
-    var styledString: StyledString {
+    var styledString: StyledString? {
         
+        @available(*, deprecated, renamed: "styledString()")
         get {
-            return self.styledString
+            return nil
         }
         
         set(newtStyle) {
             
             if let font = self.font {
-                self.attributedText = newtStyle.toAttributedString(defaultFont: font)
+                self.attributedText = newtStyle?.toAttributedString(defaultFont: font)
             } else {
                 let defaultFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
-                self.attributedText = newtStyle.toAttributedString(defaultFont: defaultFont)
+                self.attributedText = newtStyle?.toAttributedString(defaultFont: defaultFont)
             }
         }
     }
     
+    func styledString(_ styledString: StyledString) {
+        if let font = self.font {
+            self.attributedText = styledString.toAttributedString(defaultFont: font)
+        } else {
+            let defaultFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+            self.attributedText = styledString.toAttributedString(defaultFont: defaultFont)
+        }
+    }
     /**
      Set a HTML String to a UITextView
      
      ````
-     textView.html = "<b>Important</b> text"
+     textView.html("<b>Important</b> text")
      ````
      */
-    
     var html: String? {
         
+        @available(*, deprecated, renamed: "html()")
         get {
-            return self.html
+            return nil
         }
         
         set(newtHtml) {
@@ -132,6 +151,21 @@ public extension UITextView {
             
             self.attributedText = NSAttributedString(fromHTML: string, font: font, color: textColor, aligment: self.textAlignment)
         }
+    }
+    
+    func html(_ html: String?) {
+        var font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+        var textColor = UIColor.black
+        
+        if let currentFont = self.font {
+            font = currentFont
+        }
+        
+        if let currentTextColor = self.textColor {
+            textColor = currentTextColor
+        }
+        
+        self.attributedText = NSAttributedString(fromHTML: html ?? "", font: font, color: textColor, aligment: self.textAlignment)
     }
 }
 
@@ -230,9 +264,9 @@ public struct StyledString {
             let key = style.key()
             let value = style.value(forFont: currentFont)
             
-            string.addAttribute(NSAttributedStringKey(rawValue: key), value: value, range: NSRange(location: 0, length: string.length))
+            string.addAttribute(NSAttributedString.Key(rawValue: key), value: value, range: NSRange(location: 0, length: string.length))
             
-            if key == NSAttributedStringKey.font.rawValue {
+            if key == NSAttributedString.Key.font.rawValue {
                 currentFont = style.value(forFont: currentFont) as? UIFont ?? UIFont.systemFont(ofSize: 14)
             }
             return string
@@ -273,41 +307,41 @@ public enum Style {
         case .none:
             return ""
         case .bold:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .italic:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .color:
-            return NSAttributedStringKey.foregroundColor.rawValue
+            return NSAttributedString.Key.foregroundColor.rawValue
         case .backgroundColor:
-            return NSAttributedStringKey.backgroundColor.rawValue
+            return NSAttributedString.Key.backgroundColor.rawValue
         case .size:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .fontName:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .font:
-            return NSAttributedStringKey.font.rawValue
+            return NSAttributedString.Key.font.rawValue
         case .underline:
-            return NSAttributedStringKey.underlineStyle.rawValue
+            return NSAttributedString.Key.underlineStyle.rawValue
         case .underlineThick:
-            return NSAttributedStringKey.underlineStyle.rawValue
+            return NSAttributedString.Key.underlineStyle.rawValue
         case .underlineDouble:
-            return NSAttributedStringKey.underlineStyle.rawValue
+            return NSAttributedString.Key.underlineStyle.rawValue
         case .underlineColor:
-            return NSAttributedStringKey.underlineColor.rawValue
+            return NSAttributedString.Key.underlineColor.rawValue
         case .link:
-            return NSAttributedStringKey.link.rawValue
+            return NSAttributedString.Key.link.rawValue
         case .baseLineOffset:
-            return NSAttributedStringKey.baselineOffset.rawValue
+            return NSAttributedString.Key.baselineOffset.rawValue
         case .letterSpacing:
-            return NSAttributedStringKey.kern.rawValue
+            return NSAttributedString.Key.kern.rawValue
         case .centerAligment:
-            return NSAttributedStringKey.paragraphStyle.rawValue
+            return NSAttributedString.Key.paragraphStyle.rawValue
         case .leftAligment:
-            return NSAttributedStringKey.paragraphStyle.rawValue
+            return NSAttributedString.Key.paragraphStyle.rawValue
         case .rightAligment:
-            return NSAttributedStringKey.paragraphStyle.rawValue
+            return NSAttributedString.Key.paragraphStyle.rawValue
         case .lineSpacing:
-            return NSAttributedStringKey.paragraphStyle.rawValue
+            return NSAttributedString.Key.paragraphStyle.rawValue
         }
     }
     // swiftlint:disable function_body_length
@@ -349,11 +383,11 @@ public enum Style {
         case .font(let font):
             return font
         case .underline:
-            return NSUnderlineStyle.styleSingle.rawValue as AnyObject
+            return NSUnderlineStyle.single.rawValue as AnyObject
         case .underlineThick:
-            return NSUnderlineStyle.styleThick.rawValue as AnyObject
+            return NSUnderlineStyle.thick.rawValue as AnyObject
         case .underlineDouble:
-            return NSUnderlineStyle.styleDouble.rawValue as AnyObject
+            return NSUnderlineStyle.double.rawValue as AnyObject
         case .underlineColor(let color):
             return color
         case .link(let link):
