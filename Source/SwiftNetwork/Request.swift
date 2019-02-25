@@ -38,6 +38,7 @@ open class Request: Selfie {
 	open var verbose = false
     open var logInfo: RequestLogInfo?
     open var standardType: StandardType = .gigigo
+    open var cache: NSURLRequest.CachePolicy = NSURLRequest.CachePolicy.useProtocolCachePolicy
 	
 	private var request: URLRequest?
 	private weak var task: URLSessionTask?
@@ -118,6 +119,8 @@ open class Request: Selfie {
         if #available(iOS 11, *) {
             configuration.waitsForConnectivity = true
         }
+        
+        configuration.requestCachePolicy = self.cache
         
         let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
 		
