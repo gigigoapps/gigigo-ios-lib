@@ -54,11 +54,19 @@ public extension KeyboardAdaptable where Self: UIViewController {
 			
 			self.animateKeyboardChanges(notification,
 				changes: {
-					var appHeight = UIApplication.shared.keyWindow?.height()
-					if self.navigationController != nil {
-						appHeight = appHeight! - 64
-					}
-					self.view.setHeight(appHeight! - size.height)
+                    if var appHeight = UIApplication.shared.keyWindow?.height() {
+                        if self.navigationController != nil {
+                            appHeight = appHeight - (self.navigationController?.navigationBar.frame.size.height ?? 0)
+                        }
+                        if #available(iOS 11.0, *) {
+                            let safeAreaInsetsBottomHeight = (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0)
+                            let safeAreaInsetsTopHeight = (UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0)
+                            let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+                            self.view.setHeight(appHeight - safeAreaInsetsBottomHeight + safeAreaInsetsTopHeight - statusBarHeight - size.height)
+                        } else {
+                            self.view.setHeight(appHeight - size.height)
+                        }
+                    }
 				},
 				onCompletion: {
 					self.keyboardDidShow()
@@ -73,11 +81,13 @@ public extension KeyboardAdaptable where Self: UIViewController {
 			
 			self.animateKeyboardChanges(notification,
 				changes:  {
-					var appHeight = UIApplication.shared.keyWindow?.height()
-					if self.navigationController != nil {
-						appHeight = appHeight! - 64
-					}
-					self.view.setHeight(appHeight!)
+                    if var appHeight = UIApplication.shared.keyWindow?.height() {
+                        if self.navigationController != nil {
+                            appHeight = appHeight - (self.navigationController?.navigationBar.frame.size.height ?? 0)
+                        }
+                        let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+                        self.view.setHeight(appHeight - statusBarHeight)
+                    }
 				},
 				onCompletion: {
 					self.keyboardDidHide()
