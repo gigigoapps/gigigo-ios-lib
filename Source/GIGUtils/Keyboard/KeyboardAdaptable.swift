@@ -41,7 +41,7 @@ public extension KeyboardAdaptable where Self: UIViewController {
 	func keyboardDidShow(){}
 	func keyboardWillHide(){}
 	func keyboardDidHide(){}
-    func keyboardChangeFrame(){}
+    func keyboardChangeFrame(_ size: CGSize){}
 	
 	
 	// MARK: - Private Helpers
@@ -52,28 +52,7 @@ public extension KeyboardAdaptable where Self: UIViewController {
                 return LogWarn("Couldn't get keyboard size")
             }
             
-            self.keyboardChangeFrame()
-            
-            self.animateKeyboardChanges(notification,
-             changes: {
-                    /*if var appHeight = UIApplication.shared.keyWindow?.height(), !Keyboard.isKeyboardShownValue() {
-                        if self.navigationController != nil {
-                            appHeight = appHeight - (self.navigationController?.navigationBar.frame.size.height ?? 0)
-                        }
-                        if #available(iOS 11.0, *) {
-                            let safeAreaInsetsBottomHeight = (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0)
-                            let safeAreaInsetsTopHeight = (UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0)
-                            let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
-                            self.view.setHeight(appHeight - safeAreaInsetsBottomHeight + safeAreaInsetsTopHeight - statusBarHeight - size.height)
-                        } else {
-                            self.view.setHeight(appHeight - size.height)
-                        }
-                    }*/
-                },
-                onCompletion: {
-                    self.keyboardChangeFrame()
-                }
-            )
+            self.keyboardChangeFrame(size)
         }
     }
 	
@@ -83,7 +62,6 @@ public extension KeyboardAdaptable where Self: UIViewController {
             guard let size = Keyboard.size(notification) else {
                 return LogWarn("Couldn't get keyboard size")
             }
-			Keyboard.changeIsKeyboardShownValue(true)
 			self.animateKeyboardChanges(notification,
 				changes: {
                     if var appHeight = UIApplication.shared.keyWindow?.height() {
@@ -110,7 +88,6 @@ public extension KeyboardAdaptable where Self: UIViewController {
 	fileprivate func manageKeyboardHideEvent() {
 		Keyboard.willHide { notification in
 			self.keyboardWillHide()
-			Keyboard.changeIsKeyboardShownValue(false)
 			self.animateKeyboardChanges(notification,
 				changes:  {
                     if var appHeight = UIApplication.shared.keyWindow?.height() {
@@ -151,14 +128,6 @@ public extension KeyboardAdaptable where Self: UIViewController {
 class Keyboard {
 	
 	fileprivate static var observers: [AnyObject] = []
-    fileprivate static var isKeyboardShown: Bool = false
-    class func changeIsKeyboardShownValue(_ isKeyboardShown: Bool) {
-        self.isKeyboardShown = isKeyboardShown
-    }
-    
-    class func isKeyboardShownValue() -> Bool {
-        return self.isKeyboardShown
-    }
 	
 	class func removeObservers() {
 		for observer in self.observers {
