@@ -56,7 +56,37 @@ public extension KeyboardAdaptable where Self: UIViewController {
             
             self.animateKeyboardChanges(notification,
              changes: {
-                    if var appHeight = UIApplication.shared.keyWindow?.height(), !Keyboard.isKeyboardShownValue() {
+                    /*if var appHeight = UIApplication.shared.keyWindow?.height(), !Keyboard.isKeyboardShownValue() {
+                        if self.navigationController != nil {
+                            appHeight = appHeight - (self.navigationController?.navigationBar.frame.size.height ?? 0)
+                        }
+                        if #available(iOS 11.0, *) {
+                            let safeAreaInsetsBottomHeight = (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0)
+                            let safeAreaInsetsTopHeight = (UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0)
+                            let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+                            self.view.setHeight(appHeight - safeAreaInsetsBottomHeight + safeAreaInsetsTopHeight - statusBarHeight - size.height)
+                        } else {
+                            self.view.setHeight(appHeight - size.height)
+                        }
+                    }*/
+                },
+                onCompletion: {
+                    self.keyboardChangeFrame()
+                }
+            )
+        }
+    }
+	
+	fileprivate func manageKeyboardShowEvent() {
+		Keyboard.willShow { notification in
+			self.keyboardWillShow()
+            guard let size = Keyboard.size(notification) else {
+                return LogWarn("Couldn't get keyboard size")
+            }
+			Keyboard.changeIsKeyboardShownValue(true)
+			self.animateKeyboardChanges(notification,
+				changes: {
+                    if var appHeight = UIApplication.shared.keyWindow?.height() {
                         if self.navigationController != nil {
                             appHeight = appHeight - (self.navigationController?.navigationBar.frame.size.height ?? 0)
                         }
@@ -69,21 +99,6 @@ public extension KeyboardAdaptable where Self: UIViewController {
                             self.view.setHeight(appHeight - size.height)
                         }
                     }
-                },
-                onCompletion: {
-                    self.keyboardChangeFrame()
-                }
-            )
-        }
-    }
-	
-	fileprivate func manageKeyboardShowEvent() {
-		Keyboard.willShow { notification in
-			self.keyboardWillShow()
-			Keyboard.changeIsKeyboardShownValue(true)
-			self.animateKeyboardChanges(notification,
-				changes: {
-                    
 				},
 				onCompletion: {
 					self.keyboardDidShow()
