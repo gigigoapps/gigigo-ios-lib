@@ -16,7 +16,7 @@ public protocol KeyboardAdaptable {
 	
 	func keyboardWillHide()
 	func keyboardDidHide()
-	
+    func keyboardChangeFrame(_ size: CGSize)
 }
 
 
