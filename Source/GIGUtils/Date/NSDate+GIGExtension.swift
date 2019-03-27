@@ -32,7 +32,7 @@ public enum ErrorDate: Error {
 public extension Date {
 	
 	/// Date from string with ISO format.
-	public static func dateFromString(_ dateString: String, format: String = DateISOFormat) -> Date? {
+    static func dateFromString(_ dateString: String, format: String = DateISOFormat) -> Date? {
 		let dateFormat = DateFormatter()
 		dateFormat.dateFormat = format
 
@@ -40,11 +40,11 @@ public extension Date {
 		return date
 	}
 	
-	public static func today() -> Date {
+    static func today() -> Date {
 		return Date()
 	}
 	
-	public func string(with format: String = DateISOFormat) -> String {
+    func string(with format: String = DateISOFormat) -> String {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = format
 		dateFormatter.amSymbol = ""
@@ -71,7 +71,7 @@ public extension Date {
 	- Author: Alejandro Jiménez
 	- Since: 1.1.3
 	*/
-	public func setHour(_ hour: Int, minutes: Int = 0, seconds: Int = 0) throws -> Date {
+    func setHour(_ hour: Int, minutes: Int = 0, seconds: Int = 0) throws -> Date {
 		guard 0 <= hour && hour < 24		else { throw ErrorDate.invalidHour }
 		guard 0 <= minutes && minutes < 60	else { throw ErrorDate.invalidMinutes }
 		guard 0 <= seconds && seconds < 60	else { throw ErrorDate.invalidSeconds }

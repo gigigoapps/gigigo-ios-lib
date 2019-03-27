@@ -36,7 +36,7 @@ public extension Instantiable {
      - Since: 1.2.1
      */
     
-    public static func instantiateFromStoryboard() throws -> Self {
+    static func instantiateFromStoryboard() throws -> Self {
         let bundle = Self.bundle
         let storyboard = UIStoryboard(name: Self.storyboard, bundle: bundle)
         var viewController: UIViewController?

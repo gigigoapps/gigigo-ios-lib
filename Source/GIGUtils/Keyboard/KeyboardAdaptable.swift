@@ -16,7 +16,7 @@ public protocol KeyboardAdaptable {
 	
 	func keyboardWillHide()
 	func keyboardDidHide()
-	
+    func keyboardChangeFrame(_ size: CGSize)
 }
 
 
@@ -25,13 +25,14 @@ public extension KeyboardAdaptable where Self: UIViewController {
 	// MARK: - Public Methods
 	
 	/// Must call this method on viewWillAppear
-	public func startKeyboard() {
+    func startKeyboard() {
 		self.manageKeyboardShowEvent()
 		self.manageKeyboardHideEvent()
+        self.manageKeyboardChangeFrameEvent()
 	}
 	
 	/// Must call this method on viewWillDisappear
-	public func stopKeyboard() {
+    func stopKeyboard() {
 		Keyboard.removeObservers()
 	}
 	
@@ -40,25 +41,42 @@ public extension KeyboardAdaptable where Self: UIViewController {
 	func keyboardDidShow(){}
 	func keyboardWillHide(){}
 	func keyboardDidHide(){}
+    func keyboardChangeFrame(_ size: CGSize){}
 	
 	
 	// MARK: - Private Helpers
+    
+    fileprivate func manageKeyboardChangeFrameEvent() {
+        Keyboard.willChange { notification in
+            guard let size = Keyboard.size(notification) else {
+                return LogWarn("Couldn't get keyboard size")
+            }
+            
+            self.keyboardChangeFrame(size)
+        }
+    }
 	
 	fileprivate func manageKeyboardShowEvent() {
 		Keyboard.willShow { notification in
-			guard let size = Keyboard.size(notification) else {
-				return LogWarn("Couldn't get keyboard size")
-			}
-			
 			self.keyboardWillShow()
-			
+            guard let size = Keyboard.size(notification) else {
+                return LogWarn("Couldn't get keyboard size")
+            }
 			self.animateKeyboardChanges(notification,
 				changes: {
-					var appHeight = UIApplication.shared.keyWindow?.height()
-					if self.navigationController != nil {
-						appHeight = appHeight! - 64
-					}
-					self.view.setHeight(appHeight! - size.height)
+                    if var appHeight = UIApplication.shared.keyWindow?.height() {
+                        if self.navigationController != nil {
+                            appHeight = appHeight - (self.navigationController?.navigationBar.frame.size.height ?? 0)
+                        }
+                        if #available(iOS 11.0, *) {
+                            let safeAreaInsetsBottomHeight = (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0)
+                            let safeAreaInsetsTopHeight = (UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0)
+                            let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+                            self.view.setHeight(appHeight - safeAreaInsetsBottomHeight + safeAreaInsetsTopHeight - statusBarHeight - size.height)
+                        } else {
+                            self.view.setHeight(appHeight - size.height)
+                        }
+                    }
 				},
 				onCompletion: {
 					self.keyboardDidShow()
@@ -70,14 +88,15 @@ public extension KeyboardAdaptable where Self: UIViewController {
 	fileprivate func manageKeyboardHideEvent() {
 		Keyboard.willHide { notification in
 			self.keyboardWillHide()
-			
 			self.animateKeyboardChanges(notification,
 				changes:  {
-					var appHeight = UIApplication.shared.keyWindow?.height()
-					if self.navigationController != nil {
-						appHeight = appHeight! - 64
-					}
-					self.view.setHeight(appHeight!)
+                    if var appHeight = UIApplication.shared.keyWindow?.height() {
+                        if self.navigationController != nil {
+                            appHeight = appHeight - (self.navigationController?.navigationBar.frame.size.height ?? 0)
+                        }
+                        let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+                        self.view.setHeight(appHeight - statusBarHeight)
+                    }
 				},
 				onCompletion: {
 					self.keyboardDidHide()
@@ -129,6 +148,10 @@ class Keyboard {
 	class func willHide(_ notificationHandler: @escaping (Notification) -> Void) {
 		self.keyboardEvent(UIResponder.keyboardWillHideNotification.rawValue, notificationHandler: notificationHandler)
 	}
+    
+    class func willChange(_ notificationHandler: @escaping (Notification) -> Void) {
+        self.keyboardEvent(UIResponder.keyboardWillChangeFrameNotification.rawValue, notificationHandler: notificationHandler)
+    }
 	
 	class func size(_ notification: Notification) -> CGSize? {
 		guard

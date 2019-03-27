@@ -11,7 +11,7 @@ import ImageIO
 
 public extension UIImageView {
 	
-	public func imageFromURL(urlString: String, placeholder: UIImage?) {
+    func imageFromURL(urlString: String, placeholder: UIImage?) {
         ImageDownloader.shared.download(url: urlString, for: self, placeholder: placeholder)
 	}
 	
