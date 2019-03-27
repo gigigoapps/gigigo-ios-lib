@@ -218,7 +218,7 @@ public enum ResponseError: Error {
 
 public extension Response {
 	
-	public func json() throws -> JSON {
+    func json() throws -> JSON {
 		guard let json = self.data else {
 			throw ResponseError.bodyNil
 		}
@@ -226,7 +226,7 @@ public extension Response {
 		return json
 	}
 	
-	public func image() throws -> UIImage {
+    func image() throws -> UIImage {
 		guard let imageData = self.body else {
 			throw ResponseError.bodyNil
 		}
@@ -236,7 +236,7 @@ public extension Response {
         return image
 	}
 	
-    public func gif() throws -> UIImage {
+    func gif() throws -> UIImage {
         guard let imageData = self.body else {
             throw ResponseError.bodyNil
         }

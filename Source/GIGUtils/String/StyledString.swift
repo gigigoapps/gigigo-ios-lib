@@ -23,7 +23,7 @@ public extension String {
      ````
      */
     
-    public func style(_ styles: Style...) -> StyledString {
+    func style(_ styles: Style...) -> StyledString {
         
         var styledString = StyledString()
         styledString.styledStringFractions.append(StyledStringFraction(string: self, styles: styles))
@@ -171,7 +171,7 @@ public extension UITextView {
 
 public extension NSAttributedString {
     
-    public convenience init?(fromHTML html: String) {
+    convenience init?(fromHTML html: String) {
         
         let htmlData: Data
         if let data = html.data(using: String.Encoding.utf8) {
@@ -195,11 +195,11 @@ public extension NSAttributedString {
         }
     }
     
-    public convenience init?(fromHTML html: String, font: UIFont, color: UIColor, aligment: NSTextAlignment = .left) {
+    convenience init?(fromHTML html: String, font: UIFont, color: UIColor, aligment: NSTextAlignment = .left) {
         self.init(fromHTML: NSAttributedString.createHtml(from: html, fontName: font.fontName, pointSize: font.pointSize, color: color, aligment: aligment))
     }
     
-    public convenience init?(fromHTML html: String, pointSize: CGFloat, color: UIColor, aligment: NSTextAlignment = .left) {
+    convenience init?(fromHTML html: String, pointSize: CGFloat, color: UIColor, aligment: NSTextAlignment = .left) {
         self.init(fromHTML: NSAttributedString.createHtml(from: html, fontName: "-apple-system", pointSize: pointSize, color: color, aligment: aligment))
     }
     

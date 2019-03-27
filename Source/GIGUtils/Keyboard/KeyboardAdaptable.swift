@@ -25,14 +25,14 @@ public extension KeyboardAdaptable where Self: UIViewController {
 	// MARK: - Public Methods
 	
 	/// Must call this method on viewWillAppear
-	public func startKeyboard() {
+    func startKeyboard() {
 		self.manageKeyboardShowEvent()
 		self.manageKeyboardHideEvent()
         self.manageKeyboardChangeFrameEvent()
 	}
 	
 	/// Must call this method on viewWillDisappear
-	public func stopKeyboard() {
+    func stopKeyboard() {
 		Keyboard.removeObservers()
 	}
 	
