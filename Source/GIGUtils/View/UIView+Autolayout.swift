@@ -11,7 +11,7 @@ import UIKit
 
 public extension UIView {
 
-    @objc public func addSubviewWithAutolayout(_ childView: UIView) {
+    @objc func addSubviewWithAutolayout(_ childView: UIView) {
         childView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(childView)
         

@@ -11,7 +11,7 @@ import Foundation
 
 public extension NSManagedObjectContext {
 	
-	public func createEntity(_ name: String) -> NSManagedObject? {
+    func createEntity(_ name: String) -> NSManagedObject? {
 		guard let entity = NSEntityDescription.entity(forEntityName: name, in: self) else {
 			return nil
 		}
@@ -19,12 +19,12 @@ public extension NSManagedObjectContext {
 		return NSManagedObject(entity: entity, insertInto: self)
 	}
 	
-	public func fetchFirst(_ entityName: String, predicateString: String) -> NSManagedObject? {
+    func fetchFirst(_ entityName: String, predicateString: String) -> NSManagedObject? {
 		let result = self.fetchList(entityName, predicateString: predicateString)
 		return result?.first
 	}
 	
-	public func fetchList(_ entityName: String, predicateString: String) -> [NSManagedObject]? {
+    func fetchList(_ entityName: String, predicateString: String) -> [NSManagedObject]? {
         let fetch : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
 		fetch.predicate = NSPredicate(format: predicateString)
 		
