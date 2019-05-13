@@ -38,6 +38,7 @@ open class Request: Selfie {
 	open var verbose = false
     open var logInfo: RequestLogInfo?
     open var standardType: StandardType = .gigigo
+    open var timeout: TimeInterval = 15.0
     open var cache: NSURLRequest.CachePolicy = NSURLRequest.CachePolicy.useProtocolCachePolicy
 	
 	private var request: URLRequest?
@@ -45,7 +46,7 @@ open class Request: Selfie {
     private let reachability: ReachabilityWrapper = ReachabilityWrapper.shared
     
     // TODO , para versiones futuras borrar este metodo
-    public convenience init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false) {
+    public convenience init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, timeout: TimeInterval? = nil, verbose: Bool = false) {
         self.init(
             method: method,
             baseUrl: baseUrl,
@@ -53,47 +54,51 @@ open class Request: Selfie {
             headers: headers,
             urlParams: urlParams,
             bodyParams: bodyParams,
+            timeout: timeout,
             verbose: verbose,
             standard: .gigigo
         )
     }
     
-    public convenience init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
+    public convenience init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, timeout: TimeInterval? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
         self.init(method: method,
             baseUrl: baseUrl,
             endpoint: endpoint,
             headers: headers,
             urlParams: urlParams,
             bodyParams: bodyParams,
+            timeout: timeout,
             verbose: verbose,
             standard: standard,
             logInfo: nil)
     }
 
-    public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo, logInfo: RequestLogInfo? = nil) {
+    public init(method: String, baseUrl: String, endpoint: String, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, timeout: TimeInterval? = nil, verbose: Bool = false, standard: StandardType = .gigigo, logInfo: RequestLogInfo? = nil) {
         self.method = method
         self.baseURL = baseUrl
         self.endpoint = endpoint
         self.headers = headers
         self.urlParams = urlParams
         self.bodyParams = bodyParams
+        self.timeout = timeout ?? self.timeout
         self.verbose = verbose
         self.standardType = standard
         self.logInfo = logInfo
     }
 
-    public convenience init(method: HTTPMethod, completeURL: URL, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
+    public convenience init(method: HTTPMethod, completeURL: URL, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, timeout: TimeInterval? = nil, verbose: Bool = false, standard: StandardType = .gigigo) {
         self.init(method: method,
             completeURL: completeURL, 
             headers: headers, 
             urlParams: urlParams, 
-            bodyParams: bodyParams, 
-            verbose: verbose, 
-            standard: standard, 
+            bodyParams: bodyParams,
+            timeout: timeout,
+            verbose: verbose,
+            standard: standard,
             logInfo: nil)
     }
 
-    public init(method: HTTPMethod, completeURL: URL, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, verbose: Bool = false, standard: StandardType = .gigigo, logInfo: RequestLogInfo? = nil) {
+    public init(method: HTTPMethod, completeURL: URL, headers: [String: String]? = nil, urlParams: [String: Any]? = nil, bodyParams: [String: Any]? = nil, timeout: TimeInterval? = nil, verbose: Bool = false, standard: StandardType = .gigigo, logInfo: RequestLogInfo? = nil) {
         self.method = method.rawValue
         self.completeURL = completeURL
         self.baseURL = completeURL.absoluteString
@@ -101,6 +106,7 @@ open class Request: Selfie {
         self.headers = headers
         self.urlParams = urlParams
         self.bodyParams = bodyParams
+        self.timeout = timeout ?? self.timeout
         self.verbose = verbose
         self.standardType = standard
         self.logInfo = logInfo
@@ -115,7 +121,7 @@ open class Request: Selfie {
         }
 		self.request = request
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForResource = 15
+        configuration.timeoutIntervalForResource = self.timeout
         if #available(iOS 11, *) {
             configuration.waitsForConnectivity = true
         }
@@ -163,7 +169,7 @@ open class Request: Selfie {
         }
         self.request = request
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForResource = 15
+        configuration.timeoutIntervalForResource = self.timeout
         if #available(iOS 11, *) {
             configuration.waitsForConnectivity = true
         }
@@ -264,7 +270,7 @@ open class Request: Selfie {
         }
 
         // Compose request
-		var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 15)
+		var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: self.timeout)
 		request.httpMethod = self.method
 		request.allHTTPHeaderFields = self.headers
 		
