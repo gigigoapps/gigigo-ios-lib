@@ -77,6 +77,7 @@ open class SlideMenu {
     }
     
     open func selectSection(_ index: Int) {
+		guard index >= 0 && index < self.sections.count else { return }
         let section = self.sections[index]
         self.menuViewController?.setSection(section.sectionController, index: index)
     }
