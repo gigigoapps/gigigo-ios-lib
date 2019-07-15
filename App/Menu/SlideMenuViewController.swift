@@ -30,6 +30,14 @@ class SlideMenuViewController: UIViewController {
         let menuVC = self.menu.menuVC()
         self.addChild(menuVC)
         self.viewContainer.addSubviewWithAutolayout(menuVC.view)
+
+			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2) {
+				self.menu.updateBadge(to: "5", atSection: "Section 1")
+
+				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {
+					self.menu.updateBadge(to: nil, atSection: "Section 1")
+				}
+			}
     }
     
     
@@ -52,7 +60,8 @@ class SlideMenuViewController: UIViewController {
         //-- Element --
         let section1 = MenuSection(
             name: "Section 1",
-            icon: UIImage(),
+            icon: UIImage(named: "menu_section_stickers")!,
+						badge: "!",
             storyboard: "Main",
             viewController: "SlideMenuSection1",
             accessibilityIdentifier: "SlideMenuSection1",

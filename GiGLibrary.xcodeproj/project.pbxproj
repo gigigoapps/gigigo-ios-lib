@@ -679,17 +679,17 @@
 		FA133A731CBC21EE0007EE06 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuViewController.swift; path = Menu/SlideMenuViewController.swift; sourceTree = "<group>"; };
 		FA137A391DE5B12C0025BE53 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		FA153EB41C96C2F700E12BE5 /* NSManagedObjectContext+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Extension.swift"; sourceTree = "<group>"; };
-		FA3021FB1CBD074F00A8F7DE /* MenuSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSection.swift; path = UIComponents/SlideMenu/MenuSection.swift; sourceTree = "<group>"; };
-		FA3021FE1CBD404D00A8F7DE /* SlideMenuTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuTableVC.swift; path = UIComponents/SlideMenu/Private/SlideMenuTableVC.swift; sourceTree = "<group>"; };
+		FA3021FB1CBD074F00A8F7DE /* MenuSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = MenuSection.swift; path = UIComponents/SlideMenu/MenuSection.swift; sourceTree = "<group>"; tabWidth = 4; };
+		FA3021FE1CBD404D00A8F7DE /* SlideMenuTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuTableVC.swift; path = UIComponents/SlideMenu/Private/SlideMenuTableVC.swift; sourceTree = "<group>"; tabWidth = 4; };
 		FA3022001CBD406700A8F7DE /* SlideMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SlideMenu.storyboard; path = UIComponents/SlideMenu/Private/SlideMenu.storyboard; sourceTree = "<group>"; };
-		FA3022011CBD406700A8F7DE /* SlideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuVC.swift; path = UIComponents/SlideMenu/Private/SlideMenuVC.swift; sourceTree = "<group>"; };
-		FA3022041CBD4C1100A8F7DE /* MenuSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuSectionCell.swift; path = UIComponents/SlideMenu/Private/MenuSectionCell.swift; sourceTree = "<group>"; };
+		FA3022011CBD406700A8F7DE /* SlideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuVC.swift; path = UIComponents/SlideMenu/Private/SlideMenuVC.swift; sourceTree = "<group>"; tabWidth = 4; };
+		FA3022041CBD4C1100A8F7DE /* MenuSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = MenuSectionCell.swift; path = UIComponents/SlideMenu/Private/MenuSectionCell.swift; sourceTree = "<group>"; tabWidth = 4; };
 		FA36E96F1C637CD100214598 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		FA3BA31C1DCB7CD80004B8D9 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		FA42A2AC1C6B678300C2D1BB /* SwiftRequestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRequestVC.swift; sourceTree = "<group>"; };
 		FA44E4951C9069A6009BBBA2 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Application.swift; path = Application/Application.swift; sourceTree = "<group>"; };
 		FA44E49C1C907F8C009BBBA2 /* GIGLibraryApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GIGLibraryApp.entitlements; sourceTree = "<group>"; };
-		FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenu.swift; path = UIComponents/SlideMenu/SlideMenu.swift; sourceTree = "<group>"; };
+		FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = SlideMenu.swift; path = UIComponents/SlideMenu/SlideMenu.swift; sourceTree = "<group>"; tabWidth = 4; };
 		FA56AFF11CDF2F5600ABDA53 /* KeyboardAdaptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardAdaptable.swift; path = Keyboard/KeyboardAdaptable.swift; sourceTree = "<group>"; };
 		FA56AFF41CDF323700ABDA53 /* KeyboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardVC.swift; path = Keyboard/KeyboardVC.swift; sourceTree = "<group>"; };
 		FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2195,7 +2195,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */;
+			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -2799,7 +2799,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */ = {
+		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA65BFAD1AEFD5F90031A91B /* Debug */,
