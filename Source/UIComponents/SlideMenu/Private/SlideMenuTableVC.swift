@@ -68,6 +68,21 @@ class SlideMenuTableVC: UIViewController, UITableViewDataSource, UITableViewDele
             self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableView.ScrollPosition.none)
         }
 	}
+
+	func updateSection(at index: Int) {
+		guard let tableView = self.tableView else { return }
+
+		let indexPath = IndexPath(row: index, section: 0)
+		guard tableView.cellForRow(at: indexPath) != nil else { return }
+
+		DispatchQueue.main.async {
+			tableView.reloadRows(at: [indexPath], with: .none)
+
+			if index == self.indexToShow {
+				 self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableView.ScrollPosition.none)
+			}
+		}
+	}
 	
     
     // MARK: - TableViewDataSource

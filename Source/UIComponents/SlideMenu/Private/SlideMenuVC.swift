@@ -149,6 +149,10 @@ class SlideMenuVC: UIViewController, MenuTableDelegate, UIGestureRecognizerDeleg
 		
 		self.menuTableView?.selectSection(index)
     }
+
+	func updateSection(at index: Int) {
+		self.menuTableView?.updateSection(at: index)
+	}
     
     
     // MARK: - Gesture
