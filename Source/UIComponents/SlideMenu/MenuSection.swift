@@ -13,6 +13,7 @@ open class MenuSection {
     
     public let name: String
     public let icon: UIImage
+	public var badge: String?
     public let storyboard: String
     public let viewController: String?
     public let accessibilityIdentifier: String?
@@ -25,9 +26,10 @@ open class MenuSection {
     lazy var sectionController: UIViewController = self.instantiateViewController()
     
     
-    public init(name: String, icon: UIImage, storyboard: String, viewController: String? = nil, accessibilityIdentifier: String?, completion: ((UIViewController) -> Void)? = nil, modeButtonType: Bool? = nil,  completionButtonType: (() -> Void)? = nil) {
+	public init(name: String, icon: UIImage, badge: String? = nil, storyboard: String, viewController: String? = nil, accessibilityIdentifier: String?, completion: ((UIViewController) -> Void)? = nil, modeButtonType: Bool? = nil,  completionButtonType: (() -> Void)? = nil) {
         self.name = name
         self.icon = icon
+		self.badge = badge
         self.storyboard = storyboard
         self.viewController = viewController
         self.accessibilityIdentifier = accessibilityIdentifier
@@ -36,7 +38,7 @@ open class MenuSection {
         self.completionButtonType = completionButtonType
     }
     
-    public init(name: String, iconURLString: String, iconPlaceholder: UIImage?, storyboard: String, viewController: String? = nil, accessibilityIdentifier: String?, completion: ((UIViewController) -> Void)? = nil, modeButtonType: Bool? = nil,  completionButtonType: (() -> Void)? = nil) {
+    public init(name: String, iconURLString: String, badge: String? = nil, iconPlaceholder: UIImage?, storyboard: String, viewController: String? = nil, accessibilityIdentifier: String?, completion: ((UIViewController) -> Void)? = nil, modeButtonType: Bool? = nil,  completionButtonType: (() -> Void)? = nil) {
         self.name = name
         if let placeholder = iconPlaceholder {
             self.icon = placeholder
@@ -44,6 +46,7 @@ open class MenuSection {
             self.icon = UIImage()
         }
         self.iconURLString = iconURLString
+		self.badge = badge
         self.storyboard = storyboard
         self.viewController = viewController
         self.accessibilityIdentifier = accessibilityIdentifier
