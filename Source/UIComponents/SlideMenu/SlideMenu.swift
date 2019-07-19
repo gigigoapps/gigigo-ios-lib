@@ -76,6 +76,21 @@ open class SlideMenu {
         self.menuViewController?.sections = self.sections
     }
     
+    open func updateBadge(to badge: String?, atSection section: String) {
+        guard let index = self.sections.firstIndex(where: { $0.name == section }) else { return }
+        
+        self.updateBadge(to: badge, sectionAtIndex: index)
+    }
+    
+    open func updateBadge(to badge: String?, sectionAtIndex index: Int) {
+        guard (0..<self.sections.count).contains(index) else { return }
+        
+        self.sections[index].badge = badge
+        self.menuViewController?.sections[index].badge = badge
+        
+        self.menuViewController?.updateSection(at: index)
+    }
+    
     open func selectSection(_ index: Int) {
 		guard index >= 0 && index < self.sections.count else { return }
         let section = self.sections[index]

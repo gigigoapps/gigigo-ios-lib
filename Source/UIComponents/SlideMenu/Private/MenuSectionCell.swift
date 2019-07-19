@@ -30,6 +30,14 @@ class MenuSectionCell: UITableViewCell {
         } else {
             self.imageMenuSection.image = menuSection.icon
         }
+
+		if #available(iOS 9.0, *) {
+			if let badge = menuSection.badge {
+				self.addBadge(badge)
+			} else {
+				self.removeBadge()
+			}
+		}
         
         guard let modeButtonType = menuSection.modeButtonType else {
             return
@@ -44,7 +52,8 @@ class MenuSectionCell: UITableViewCell {
         if let menuTitleColor = SlideMenuConfig.shared.menuTitleColor {
             self.labelMenuSection.textColor = menuTitleColor
         }
-        
+
+
     }
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
@@ -63,5 +72,42 @@ class MenuSectionCell: UITableViewCell {
                 self.labelMenuSection.textColor = menuTitleColor
             }
         }
+	}
+
+	// MARK: - Private
+
+	private let badgeViewIdentifier = "badge"
+
+	@available(iOS 9.0, *)
+	private func addBadge(_ badge: String) {
+		let label = UILabel()
+		label.text = "\(badge.first ?? "!")"
+		label.textAlignment = .center
+		label.textColor = .white
+		label.backgroundColor = .red
+		label.sizeToFit()
+		
+		let size = max(label.bounds.height, label.bounds.width)
+		label.clipsToBounds = true
+		label.layer.cornerRadius = size / 2
+
+		self.imageMenuSection.addSubview(label)
+		label.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			label.widthAnchor.constraint(equalToConstant: size),
+			label.heightAnchor.constraint(equalToConstant: size),
+			label.topAnchor.constraint(equalTo: self.imageMenuSection.topAnchor, constant: -(size/2)),
+			label.rightAnchor.constraint(equalTo: self.imageMenuSection.rightAnchor, constant: ((1/3)*size))
+			])
+
+		label.accessibilityIdentifier = badgeViewIdentifier
+	}
+
+	private func removeBadge() {
+		guard let badgeLabel = self.imageMenuSection.subviews.first(where: {
+			$0.accessibilityIdentifier == badgeViewIdentifier
+		}) else { return }
+
+		badgeLabel.removeFromSuperview()
 	}
 }
