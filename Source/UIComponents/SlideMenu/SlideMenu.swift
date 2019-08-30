@@ -76,6 +76,10 @@ open class SlideMenu {
         self.menuViewController?.sections = self.sections
     }
     
+    open func clearBadges() {
+        self.sections.forEach { self.updateBadge(to: nil, atSection: $0.name) }
+    }
+    
     open func updateBadge(to badge: String?, atSection section: String) {
         guard let index = self.sections.firstIndex(where: { $0.name == section }) else { return }
         

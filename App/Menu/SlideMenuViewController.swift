@@ -33,9 +33,10 @@ class SlideMenuViewController: UIViewController {
 
 			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2) {
 				self.menu.updateBadge(to: "5", atSection: "Section 1")
+				self.menu.updateBadge(to: "1", atSection: "Section 2")
 
 				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {
-					self.menu.updateBadge(to: nil, atSection: "Section 1")
+					self.menu.clearBadges()
 				}
 			}
     }
