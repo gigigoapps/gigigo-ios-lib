@@ -21,6 +21,7 @@ public enum ResponseStatus {
 	case noInternet
 	case apiError
 	case unknownError
+	case untrustedCertificate
 }
 
 open class Response: Selfie {
@@ -134,6 +135,8 @@ open class Response: Selfie {
 			return .timeout
 		case -1009:
 			return .noInternet
+		case -1202:
+			return .untrustedCertificate
 		case 10000...20000:
 			return .apiError
 		default:
