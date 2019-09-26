@@ -169,6 +169,7 @@ class SwiftRequestVC: UIViewController {
                 break
                 
             case .untrustedCertificate:
+                print("❌❌❌ untrustedCertificate")
                 break
             }
         }
@@ -190,7 +191,8 @@ class SwiftRequestVC: UIViewController {
 			Log("API error")
 			LogError(response.error)
         case .untrustedCertificate:
-            break
+            Log("untrustedCertificate")
+            LogError(response.error)
         }
 	}
 }
