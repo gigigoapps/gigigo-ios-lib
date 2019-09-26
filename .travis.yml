@@ -5,7 +5,7 @@ env:
   - FRAMEWORK_NAME=GIGLibrary
   - PROJECT=GIGLibrary
   - SCHEME=GIGLibrary
-  - OS=12.1
+  - OS=11.4
   - DEVICE="iPhone 8"
 cache:
   directories:
