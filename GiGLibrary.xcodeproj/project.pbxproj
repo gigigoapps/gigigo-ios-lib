@@ -2169,7 +2169,7 @@
 			attributes = {
 				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Gigigo SL";
 				TargetAttributes = {
 					D9AD96F91B0A386500CB5E8C = {
@@ -2181,12 +2181,12 @@
 					FA65BF981AEFD5F90031A91B = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = SU5BA5HAQK;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1100;
 					};
 					FA680F191B009B6B006FC484 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = SU5BA5HAQK;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1100;
 						SystemCapabilities = {
 							com.apple.Wallet = {
 								enabled = 1;
@@ -2195,7 +2195,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */;
+			buildConfigurationList = FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -2685,7 +2685,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BITCODE_GENERATION_MODE = bitcode;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 3.0;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -2704,7 +2704,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -2714,7 +2714,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BITCODE_GENERATION_MODE = bitcode;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 3.0;
 				DEFINES_MODULE = YES;
@@ -2730,7 +2730,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -2759,7 +2759,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Network/GIGLibraryApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -2783,7 +2783,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Network/GIGLibraryApp-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -2799,7 +2799,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GiGLibrary" */ = {
+		FA65BF931AEFD5F80031A91B /* Build configuration list for PBXProject "GIGLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA65BFAD1AEFD5F90031A91B /* Debug */,
