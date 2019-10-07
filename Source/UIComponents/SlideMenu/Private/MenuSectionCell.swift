@@ -81,6 +81,7 @@ class MenuSectionCell: UITableViewCell {
 	@available(iOS 9.0, *)
 	private func addBadge(_ badge: String) {
 		let label = UILabel()
+		label.font = .systemFont(ofSize: 15)
 		label.text = "\(badge.first ?? "!")"
 		label.textAlignment = .center
 		label.textColor = .white
@@ -96,8 +97,8 @@ class MenuSectionCell: UITableViewCell {
 		NSLayoutConstraint.activate([
 			label.widthAnchor.constraint(equalToConstant: size),
 			label.heightAnchor.constraint(equalToConstant: size),
-			label.topAnchor.constraint(equalTo: self.imageMenuSection.topAnchor, constant: -(size/2)),
-			label.rightAnchor.constraint(equalTo: self.imageMenuSection.rightAnchor, constant: ((1/3)*size))
+			label.topAnchor.constraint(equalTo: self.imageMenuSection.topAnchor),
+			label.rightAnchor.constraint(equalTo: self.imageMenuSection.rightAnchor),
 			])
 
 		label.accessibilityIdentifier = badgeViewIdentifier
