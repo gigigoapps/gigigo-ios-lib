@@ -55,7 +55,7 @@ public class ReachabilityWrapper: ReachabilityInput {
         )
         
         self.currentStatus = self.networkStatus()
-        try? self.reachability?.startNotifier()
+        ((try? self.reachability?.startNotifier()) as ()??)
     }
     
     public func stopNotifier() {

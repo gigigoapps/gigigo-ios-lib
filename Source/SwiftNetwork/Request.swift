@@ -35,6 +35,7 @@ open class Request: Selfie {
 	open var headers: [String: String]?
 	open var urlParams: [String: Any]?
 	open var bodyParams: [String: Any]?
+    open var bodyParamsArray: [[String: Any]]?
 	open var verbose = false
     open var logInfo: RequestLogInfo?
     open var standardType: StandardType = .gigigo
@@ -275,8 +276,12 @@ open class Request: Selfie {
 		request.allHTTPHeaderFields = self.headers
 		
 		// Set body is not GET
-		if let body = self.bodyParams, self.method != HTTPMethod.get.rawValue {
-			request.httpBody = JSON(from: body).toData()
+		if self.method != HTTPMethod.get.rawValue {
+            if let bodyParamsArray = self.bodyParamsArray {
+                request.httpBody = JSON(from: bodyParamsArray).toData()
+            } else if let body = self.bodyParams {
+                request.httpBody = JSON(from: body).toData()
+            }
 			
 			// Add Content-Type if it wasn't set
 			if let containsContentType = request.allHTTPHeaderFields?.keys.contains("Content-Type"),

@@ -1,11 +1,11 @@
-osx_image: xcode10.1
+osx_image: xcode11
 language: objective-c
 env:
   global:
   - FRAMEWORK_NAME=GIGLibrary
   - PROJECT=GIGLibrary
   - SCHEME=GIGLibrary
-  - OS=12.1
+  - OS=13.0
   - DEVICE="iPhone 8"
 cache:
   directories:

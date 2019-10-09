@@ -37,7 +37,7 @@ public extension MultiDelegable {
     ///     - observer: Delegate object to add as observer.
     func remove(observer: Observer) {
         let identifier = String(ObjectIdentifier(observer as AnyObject).hashValue)
-        if let index = self.observers.index(where: { $0.identifier() == identifier }) {
+        if let index = self.observers.firstIndex(where: { $0.identifier() == identifier }) {
             self.observers.remove(at: index)
         }
         self.observers = self.observers.compactMap({ $0.value != nil ? $0 : nil }) // Remove nil objects

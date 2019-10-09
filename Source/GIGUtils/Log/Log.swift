@@ -251,7 +251,7 @@ public class LogManager {
     }
     
     private func removeSettingsNonSynchronized(_ module: LoggableModule.Type) {
-        guard let index = self.modules.index(where: { $0.Identifier == module.Identifier }) else { return }
+        guard let index = self.modules.firstIndex(where: { $0.Identifier == module.Identifier }) else { return }
         self.modules.remove(at: index)
         self.settingsById.removeValue(forKey: module.Identifier)
     }

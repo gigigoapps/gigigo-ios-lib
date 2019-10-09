@@ -167,8 +167,13 @@ class SwiftRequestVC: UIViewController {
             case .unknownError:
                 print("❌❌❌ unknownError")
                 break
+                
+            case .untrustedCertificate:
+                print("❌❌❌ untrustedCertificate")
+                break
             }
         }
+        
     }
 		
 	fileprivate func processResponse(_ response: Response) {
@@ -185,7 +190,10 @@ class SwiftRequestVC: UIViewController {
 		case .apiError:
 			Log("API error")
 			LogError(response.error)
-		}
+        case .untrustedCertificate:
+            Log("untrustedCertificate")
+            LogError(response.error)
+        }
 	}
 }
 
