@@ -67,47 +67,41 @@ struct ImageDownloader {
 			switch response.status {
 				
 			case .success:
-				DispatchQueue.global().async {
-					if let image = try? response.image() {
-                        var resized = UIImage()
-                        DispatchQueue.main.async {
-                            DispatchQueue.global(qos: .background).async {
-                                let width = view.width() * UIScreen.main.scale
-                                let height = view.height() * UIScreen.main.scale
-                                resized = image.imageProportionally(with: CGSize(width: width, height: height))
-                                ImageDownloader.images[request.baseURL] = resized
-                            }
-                            
-                            if let currentRequest = ImageDownloader.queue[view], request.baseURL == currentRequest.baseURL {
-                                self.setAnimated(image: resized, in: view)
-                            }
+                if let image = try? response.image() {
+                    var resized = UIImage()
+                    DispatchQueue(label: "com.gigigo.imagedownloader", qos: .background).async {
+                        let width = view.width() * UIScreen.main.scale
+                        let height = view.height() * UIScreen.main.scale
+                        resized = image.imageProportionally(with: CGSize(width: width, height: height))
+                        ImageDownloader.images[request.baseURL] = resized
+                    }
+                    
+                    DispatchQueue.main.async {
+                        if let currentRequest = ImageDownloader.queue[view], request.baseURL == currentRequest.baseURL {
+                            self.setAnimated(image: resized, in: view)
+                        }                    
+                        if let index = ImageDownloader.queue.index(forKey: view) {
+                            ImageDownloader.queue.remove(at: index)
+                        }
+                        self.downloadNext()
+                    }
+                } else if let imageGif = try? response.gif() {
+                    DispatchQueue.main.async {
+                        ImageDownloader.images[request.baseURL] = imageGif
+                        
+                        if let currentRequest = ImageDownloader.queue[view], request.baseURL == currentRequest.baseURL {
+                            self.setAnimated(image: imageGif, in: view)
                         }
                         
                         if let index = ImageDownloader.queue.index(forKey: view) {
                             ImageDownloader.queue.remove(at: index)
                         }
-                        
-                        DispatchQueue.main.async {
-                            self.downloadNext()
-                        }
-                    } else if let imageGif = try? response.gif() {
-                        DispatchQueue.main.async {
-                            ImageDownloader.images[request.baseURL] = imageGif
-                            
-                            if let currentRequest = ImageDownloader.queue[view], request.baseURL == currentRequest.baseURL {
-                                self.setAnimated(image: imageGif, in: view)
-                            }
-                            
-                            if let index = ImageDownloader.queue.index(forKey: view) {
-                                ImageDownloader.queue.remove(at: index)
-                            }
-                            self.downloadNext()
-                        }
-                    } else {
-                        LogWarn("Al descargar la imagen,o se ha recibido un body vacio o no se se ha reconocido el tipo de imagen que es.")
-						self.downloadNext()
-					}
-				}
+                        self.downloadNext()
+                    }
+                } else {
+                    LogWarn("Al descargar la imagen,o se ha recibido un body vacio o no se se ha reconocido el tipo de imagen que es.")
+                    self.downloadNext()
+                }
 				
 			default:
 				LogError(response.error)
