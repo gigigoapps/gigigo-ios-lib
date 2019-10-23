@@ -59,7 +59,6 @@ struct ImageDownloader {
 	private func downloadNext() {
 		guard let view = ImageDownloader.stack.popLast() else { return }
 		guard let request = ImageDownloader.queue[view] else {
-            self.downloadNext()
             return
         }
 		
@@ -68,11 +67,10 @@ struct ImageDownloader {
 				
 			case .success:
                 if let image = try? response.image() {
-                    var resized = UIImage()
                     DispatchQueue(label: "com.gigigo.imagedownloader", qos: .background).async {
                         let width = view.width() * UIScreen.main.scale
                         let height = view.height() * UIScreen.main.scale
-                        resized = image.imageProportionally(with: CGSize(width: width, height: height))
+                        let resized = image.imageProportionally(with: CGSize(width: width, height: height))
                         ImageDownloader.images[request.baseURL] = resized
                     
                         DispatchQueue.main.async {
