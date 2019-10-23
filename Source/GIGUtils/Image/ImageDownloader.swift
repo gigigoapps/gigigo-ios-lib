@@ -74,16 +74,16 @@ struct ImageDownloader {
                         let height = view.height() * UIScreen.main.scale
                         resized = image.imageProportionally(with: CGSize(width: width, height: height))
                         ImageDownloader.images[request.baseURL] = resized
-                    }
                     
-                    DispatchQueue.main.async {
-                        if let currentRequest = ImageDownloader.queue[view], request.baseURL == currentRequest.baseURL {
-                            self.setAnimated(image: resized, in: view)
-                        }                    
-                        if let index = ImageDownloader.queue.index(forKey: view) {
-                            ImageDownloader.queue.remove(at: index)
+                        DispatchQueue.main.async {
+                            if let currentRequest = ImageDownloader.queue[view], request.baseURL == currentRequest.baseURL {
+                                self.setAnimated(image: resized, in: view)
+                            }                    
+                            if let index = ImageDownloader.queue.index(forKey: view) {
+                                ImageDownloader.queue.remove(at: index)
+                            }
+                            self.downloadNext()
                         }
-                        self.downloadNext()
                     }
                 } else if let imageGif = try? response.gif() {
                     DispatchQueue.main.async {
