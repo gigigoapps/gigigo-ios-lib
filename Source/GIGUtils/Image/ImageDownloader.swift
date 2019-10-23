@@ -68,22 +68,28 @@ struct ImageDownloader {
 				
 			case .success:
 				DispatchQueue.global().async {
-					if let image = try? response.image() {						
-						DispatchQueue.main.async {
+					if let image = try? response.image() {
+                        var resized = UIImage()
+						DispatchQueue.global(qos: .background).async {
                             let width = view.width() * UIScreen.main.scale
                             let height = view.height() * UIScreen.main.scale
-                            let resized = image.imageProportionally(with: CGSize(width: width, height: height))
+                            resized = image.imageProportionally(with: CGSize(width: width, height: height))
                             ImageDownloader.images[request.baseURL] = resized
-
-							if let currentRequest = ImageDownloader.queue[view], request.baseURL == currentRequest.baseURL {
-								self.setAnimated(image: resized, in: view)
-							}
-							
-							if let index = ImageDownloader.queue.index(forKey: view) {
-								ImageDownloader.queue.remove(at: index)
-							}
-							self.downloadNext()
 						}
+                        
+                        DispatchQueue.main.async {
+                            if let currentRequest = ImageDownloader.queue[view], request.baseURL == currentRequest.baseURL {
+                                self.setAnimated(image: resized, in: view)
+                            }
+                        }
+                        
+                        if let index = ImageDownloader.queue.index(forKey: view) {
+                            ImageDownloader.queue.remove(at: index)
+                        }
+                        
+                        DispatchQueue.main.async {
+                            self.downloadNext()
+                        }
                     } else if let imageGif = try? response.gif() {
                         DispatchQueue.main.async {
                             ImageDownloader.images[request.baseURL] = imageGif
