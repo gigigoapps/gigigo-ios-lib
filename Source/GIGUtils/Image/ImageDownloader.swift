@@ -68,14 +68,18 @@ struct ImageDownloader {
 			case .success:
                 if let image = try? response.image() {
                     DispatchQueue(label: "com.gigigo.imagedownloader", qos: .background).async {
+                        var finalImage = image
                         let width = view.width() * UIScreen.main.scale
                         let height = view.height() * UIScreen.main.scale
-                        let resized = image.imageProportionally(with: CGSize(width: width, height: height))
-                        ImageDownloader.images[request.baseURL] = resized
+                        if let resized = image.imageProportionally(with: CGSize(width: width, height: height)) {
+                            finalImage = resized
+                        }
+                        ImageDownloader.images.updateValue(finalImage, forKey: request.baseURL)
+
                     
                         DispatchQueue.main.async {
                             if let currentRequest = ImageDownloader.queue[view], request.baseURL == currentRequest.baseURL {
-                                self.setAnimated(image: resized, in: view)
+                                self.setAnimated(image: finalImage, in: view)
                             }                    
                             if let index = ImageDownloader.queue.index(forKey: view) {
                                 ImageDownloader.queue.remove(at: index)
@@ -85,8 +89,8 @@ struct ImageDownloader {
                     }
                 } else if let imageGif = try? response.gif() {
                     DispatchQueue.main.async {
-                        ImageDownloader.images[request.baseURL] = imageGif
-                        
+                        ImageDownloader.images.updateValue(imageGif, forKey: request.baseURL)
+
                         if let currentRequest = ImageDownloader.queue[view], request.baseURL == currentRequest.baseURL {
                             self.setAnimated(image: imageGif, in: view)
                         }
