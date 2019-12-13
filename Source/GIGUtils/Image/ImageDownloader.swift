@@ -74,7 +74,7 @@ struct ImageDownloader {
                         let height = view.height() * UIScreen.main.scale
                         if let resized = image.imageProportionally(with: CGSize(width: width, height: height)) {
                             finalImage = resized
-                            ImageDownloader.images[request.baseURL] = finalImage
+                            ImageDownloader.images.updateValue(finalImage, forKey: request.baseURL)
                         }
                         
                         DispatchQueue.main.async {
