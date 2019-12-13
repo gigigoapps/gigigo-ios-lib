@@ -74,11 +74,10 @@ struct ImageDownloader {
                         let height = view.height() * UIScreen.main.scale
                         if let resized = image.imageProportionally(with: CGSize(width: width, height: height)) {
                             finalImage = resized
+                            ImageDownloader.images[request.baseURL] = finalImage
                         }
                         
                         DispatchQueue.main.async {
-                            ImageDownloader.images.updateValue(finalImage, forKey: request.baseURL)
-                            
                             if let currentRequest = ImageDownloader.queue[view], request.baseURL == currentRequest.baseURL {
                                 self.setAnimated(image: finalImage, in: view)
                             }                    
