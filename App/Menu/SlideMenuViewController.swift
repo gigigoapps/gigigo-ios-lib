@@ -73,8 +73,8 @@ class SlideMenuViewController: UIViewController {
         
         let section2 = MenuSection(
             name: "Section 2",
-            iconURLString: "https://squigglepark.com/wp-content/uploads/2017/01/circle_heart-800x509.png",
-            iconPlaceholder: nil,
+            iconURLString: "https://d84sonex3w38u.cloudfront.net/media/image/configuration$k3XB0pE1/200/200/original?country=br",
+            iconPlaceholder: UIImage(named: "menu_section_stickers")!,
             storyboard: "Main",
             viewController: "SlideMenuSection2",
             accessibilityIdentifier: "SlideMenuSection2",
@@ -94,9 +94,81 @@ class SlideMenuViewController: UIViewController {
             }
 		)
         
+        let section4 = MenuSection(
+            name: "Section 4",
+            iconURLString: "https://d84sonex3w38u.cloudfront.net/media/image/home$q2XzgLfV/750/629/90?country=br",
+            iconPlaceholder: UIImage(named: "menu_section_stickers")!,
+            storyboard: "Main",
+            viewController: "SlideMenuSection4",
+            accessibilityIdentifier: "SlideMenuSection4",
+            completion: { (sectionVC) in
+                print("Instantiated section: 4")
+        }
+        )
+        
+        let section5 = MenuSection(
+            name: "Section 5",
+            icon: UIImage(),
+            storyboard: "Main",
+            accessibilityIdentifier: "SlideMenuSection5",
+            completion: { (sectionVC) in
+                print("Instantiated section: 5")
+        }
+        )
+        
+        let section6 = MenuSection(
+            name: "Section 6",
+            iconURLString: "https://d84sonex3w38u.cloudfront.net/media/image/configuration$kdXSP17v/200/200/original?country=br",
+            iconPlaceholder: UIImage(named: "menu_section_stickers")!,
+            storyboard: "Main",
+            viewController: "SlideMenuSection6",
+            accessibilityIdentifier: "SlideMenuSection6",
+            completion: { (sectionVC) in
+                print("Instantiated section: 6")
+        })
+        
+        let section7 = MenuSection(
+            name: "Section 7",
+            icon: UIImage(),
+            storyboard: "Main",
+            accessibilityIdentifier: "SlideMenuSection7",
+            completion: { (sectionVC) in
+                print("Instantiated section: 7")
+        }
+        )
+        
+        
+        let section8 = MenuSection(
+            name: "Section 8",
+            icon: UIImage(),
+            storyboard: "Main",
+            accessibilityIdentifier: "SlideMenuSection8",
+            completion: { (sectionVC) in
+                print("Instantiated section: 8")
+        }
+        )
+        
+        
+        let section9 = MenuSection(
+            name: "Section 9",
+            iconURLString: "https://d84sonex3w38u.cloudfront.net/media/image/configuration$k3XB0pE1/200/200/original?country=br",
+            iconPlaceholder: UIImage(named: "menu_section_stickers")!,
+            storyboard: "Main",
+            viewController: "SlideMenuSection9",
+            accessibilityIdentifier: "SlideMenuSection9",
+            completion: { (sectionVC) in
+                print("Instantiated section: 9")
+        })
+        
         self.menu.addSection(section1)
         self.menu.addSection(section2)
 		self.menu.addSection(section3)
+        self.menu.addSection(section4)
+        self.menu.addSection(section5)
+        self.menu.addSection(section6)
+        self.menu.addSection(section7)
+        self.menu.addSection(section8)
+        self.menu.addSection(section9)
         
         self.menu.selectSection(0)
     }
