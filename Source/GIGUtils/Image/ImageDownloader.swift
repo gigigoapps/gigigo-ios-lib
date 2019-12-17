@@ -51,7 +51,7 @@ struct ImageDownloader {
         ImageDownloader.queue[view] = request
         ImageDownloader.stack.append(view)
         
-        if ImageDownloader.stack.count <= 3 {
+        if ImageDownloader.queue.count <= 3 {
             self.downloadNext()
         }
     }
