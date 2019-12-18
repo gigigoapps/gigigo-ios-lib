@@ -51,7 +51,7 @@ struct ImageDownloader {
         ImageDownloader.queue[view] = request
         ImageDownloader.stack.append(view)
         
-        if ImageDownloader.queue.count <= 3 {
+        if ImageDownloader.stack.count <= 3 {
             self.downloadNext()
         }
     }
@@ -74,7 +74,6 @@ struct ImageDownloader {
                         let height = view.height() * UIScreen.main.scale
                         if let resized = image.imageProportionally(with: CGSize(width: width, height: height)) {
                             finalImage = resized
-                            ImageDownloader.images.updateValue(finalImage, forKey: request.baseURL)
                         }
                         
                         DispatchQueue.main.async {
@@ -83,6 +82,7 @@ struct ImageDownloader {
                             }                    
                             if let index = ImageDownloader.queue.index(forKey: view) {
                                 ImageDownloader.queue.remove(at: index)
+                                ImageDownloader.images.updateValue(finalImage, forKey: request.baseURL)
                             }
                             self.downloadNext()
                         }
