@@ -3,6 +3,7 @@ import UIKit
 // MARK: PUBLIC
 
 // MARK: Extensions
+
 // swiftlint:disable file_length
 
 public extension String {
@@ -122,6 +123,7 @@ public extension UITextView {
             self.attributedText = styledString.toAttributedString(defaultFont: defaultFont)
         }
     }
+    
     /**
      Set a HTML String to a UITextView
      
@@ -186,7 +188,7 @@ public extension NSAttributedString {
                 data: htmlData,
                 options: [
                     NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
-                    NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue
+                    NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue,
                 ],
                 documentAttributes: nil
             )
@@ -196,16 +198,17 @@ public extension NSAttributedString {
     }
     
     convenience init?(fromHTML html: String, font: UIFont, color: UIColor, aligment: NSTextAlignment = .left) {
-        self.init(fromHTML: NSAttributedString.createHtml(from: html, fontName: font.fontName, pointSize: font.pointSize, color: color, aligment: aligment))
+        self.init(fromHTML: NSAttributedString.createHtml(from: html, font: font, pointSize: font.pointSize, color: color, aligment: aligment))
     }
     
     convenience init?(fromHTML html: String, pointSize: CGFloat, color: UIColor, aligment: NSTextAlignment = .left) {
-        self.init(fromHTML: NSAttributedString.createHtml(from: html, fontName: "-apple-system", pointSize: pointSize, color: color, aligment: aligment))
+        self.init(fromHTML: NSAttributedString.createHtml(from: html, font: UIFont.systemFont(ofSize: UIFont.systemFontSize), pointSize: pointSize, color: color, aligment: aligment))
     }
     
-    private class func createHtml(from string: String, fontName: String, pointSize: CGFloat, color: UIColor, aligment: NSTextAlignment) -> String {
-        let textAligment = aligmentString(fromAligment: aligment)
-        let style = "<style>body{color:\(color.hexString(false)); font-family: '\(fontName)'; font-size: \(String(format: "%.0f", pointSize))px; text-align: \(textAligment);}</style>"
+    private class func createHtml(from string: String, font: UIFont, pointSize: CGFloat, color: UIColor, aligment: NSTextAlignment) -> String {
+        let fontName = font.isSystemFont() ? "-apple-system" : font.fontName
+        let htmlFontWeight = font.isSystemFont() ? "font-weight:\(font.htmlWeight());" : ""
+        let style = "<style>body{color:\(color.hexString(false)); font-family: '\(fontName)'; font-size: \(String(format: "%.0f", pointSize))px;\(htmlFontWeight)}</style>"
         return style + string
     }
 }
@@ -217,7 +220,7 @@ extension Data {
                 data: self,
                 options: [
                     NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
-                    NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue
+                    NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue,
                 ],
                 documentAttributes: nil)
         } catch let error as NSError {
@@ -237,7 +240,7 @@ public struct StyledString {
     
     public func toAttributedString(defaultFont font: UIFont) -> NSAttributedString {
         
-        let result = styledStringFractions.reduce(NSAttributedString()) { (currentAttributedString, singleStyledString) -> NSAttributedString in
+        let result = self.styledStringFractions.reduce(NSAttributedString()) { (currentAttributedString, singleStyledString) -> NSAttributedString in
             
             let attributedString = self.attributedStringFrom(styledStringFraction: singleStyledString, font: font)
             
@@ -344,6 +347,7 @@ public enum Style {
             return NSAttributedString.Key.paragraphStyle.rawValue
         }
     }
+    
     // swiftlint:disable function_body_length
     func value(forFont font: UIFont) -> AnyObject {
         
@@ -424,7 +428,6 @@ public enum Style {
  - returns:
  A StyledString
  
- 
  ````
  "Cool text".style(.Bold, .Underline, .Color(UIColor.redColor())) + " simple text"
  ````
@@ -442,7 +445,6 @@ public func + (left: StyledString, right: String) -> StyledString {
  
  - returns:
  A StyledString
- 
  
  ````
  "This is My " + "Cool text".style(.Bold,
@@ -463,7 +465,6 @@ public func + (left: String, right: StyledString) -> StyledString {
  
  - returns:
  A StyledString
- 
  
  ````
  "This is My ".appleStyles(.Bold) + "Cool text".style(.Bold,
@@ -522,3 +523,77 @@ func aligmentString(fromAligment aligment: NSTextAlignment) -> String {
     }
 }
 
+// swiftlint:disable cyclomatic_complexity
+
+extension UIFont {
+    
+    func isSystemFont() -> Bool {
+        return self.familyName == UIFont.systemFont(ofSize: UIFont.systemFontSize).familyName
+    }
+    
+    func weight() -> UIFont.Weight {
+        
+        let fontAttributeKey = UIFontDescriptor.AttributeName(rawValue: "NSCTFontUIUsageAttribute")
+        if let fontWeight = self.fontDescriptor.fontAttributes[fontAttributeKey] as? String {
+            switch fontWeight {
+                
+            case "CTFontBoldUsage":
+                return UIFont.Weight.bold
+                
+            case "CTFontBlackUsage":
+                return UIFont.Weight.black
+                
+            case "CTFontHeavyUsage":
+                return UIFont.Weight.heavy
+                
+            case "CTFontUltraLightUsage":
+                return UIFont.Weight.ultraLight
+                
+            case "CTFontThinUsage":
+                return UIFont.Weight.thin
+                
+            case "CTFontLightUsage":
+                return UIFont.Weight.light
+                
+            case "CTFontMediumUsage":
+                return UIFont.Weight.medium
+                
+            case "CTFontDemiUsage":
+                return UIFont.Weight.semibold
+                
+            case "CTFontRegularUsage":
+                return UIFont.Weight.regular
+                
+            default:
+                return UIFont.Weight.regular
+            }
+        }
+        
+        return UIFont.Weight.regular
+    }
+    
+    func htmlWeight() -> Int {
+        switch self.weight() {
+        case UIFont.Weight.thin:
+            return 100
+        case UIFont.Weight.ultraLight:
+            return 200
+        case UIFont.Weight.light:
+            return 300
+        case UIFont.Weight.regular:
+            return 400
+        case UIFont.Weight.medium:
+            return 500
+        case UIFont.Weight.semibold:
+            return 600
+        case UIFont.Weight.bold:
+            return 700
+        case UIFont.Weight.black, UIFont.Weight.heavy:
+            return 900
+        default:
+            return 400
+        }
+    }
+}
+
+// swiftlint:enable cyclomatic_complexity
