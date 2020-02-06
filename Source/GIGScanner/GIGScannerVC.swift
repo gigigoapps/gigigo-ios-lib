@@ -105,7 +105,9 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
             completion(false)
         case .notDetermined:
             self.requestCameraAccess(completion: completion)
-        }
+		default:
+			self.requestCameraAccess(completion: completion)
+		}
     }
     
     // MARK: - PRIVATE
@@ -140,4 +142,3 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         }
     }
 }
-
