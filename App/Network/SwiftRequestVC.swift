@@ -175,7 +175,31 @@ class SwiftRequestVC: UIViewController {
         }
         
     }
-		
+    
+    @IBAction func onButtonUploadFile(_ sender: AnyObject) {
+        
+        let request = Request(
+            method: HTTPMethod.post.rawValue,
+            baseUrl: "https://catbox.moe",
+            endpoint: "/user/api.php",
+            verbose: true
+        )
+        
+        let fileUploadData = FileUploadData(
+            data: UIImage(named: "gigigo_office")!.pngData()!,
+            mimeType: "image/png",
+            filename: "gigigo_office",
+            name: "fileToUpload"
+        )
+        
+        request.upload(
+        file: fileUploadData,
+        params: ["reqtype": "fileupload"]) { response in
+            guard let body = response.body, let decodedBody = String(data: body, encoding: .utf8) else { return }
+            LogInfo("Uploaded to: \(decodedBody)")
+        }
+    }
+
 	fileprivate func processResponse(_ response: Response) {
 		switch response.status {
 

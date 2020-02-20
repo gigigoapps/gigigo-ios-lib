@@ -26,6 +26,20 @@ public enum HTTPMethod: String {
     case connect = "CONNECT"
 }
 
+public struct FileUploadData {
+    var data: Data
+    var mimeType: String
+    var filename: String
+    var name: String
+    
+    public init(data: Data, mimeType: String, filename: String, name: String) {
+        self.data = data
+        self.mimeType = mimeType
+        self.filename = filename
+        self.name = name
+    }
+}
+
 open class Request: Selfie {
 	
 	open var method: String
@@ -112,7 +126,7 @@ open class Request: Selfie {
         self.standardType = standard
         self.logInfo = logInfo
     }
-
+    
 	open func fetch(completionHandler: @escaping (Response) -> Void) {
 		guard let request = self.buildRequest() else { return }
         guard self.reachability.isReachable() else {
@@ -214,6 +228,54 @@ open class Request: Selfie {
                 completionHandler(response)
             }
         }
+        
+        self.task?.resume()
+    }
+    
+    open func upload(file: FileUploadData, params: [String: Any], completionHandler: @escaping (Response) -> Void) {
+        
+        guard var request = self.buildRequest(), let boundary = self.generateBoundary() else { return }
+        guard self.reachability.isReachable() else {
+            let response = Response.noInternet()
+            completionHandler(response)
+            return
+        }
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        self.request = request
+
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForResource = self.timeout
+        if #available(iOS 11, *) {
+            configuration.waitsForConnectivity = true
+        }
+        
+        let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
+        
+        if self.verbose {
+            if self.logInfo == nil {
+                LogManager.shared.logLevel = .debug
+                LogManager.shared.appName = "GIGLibrary"
+            }
+            self.logRequest()
+        }
+        
+        self.cancel()
+                
+        var data = self.buildUploadData(file: file, params: params, boundary: boundary)
+        
+        
+        self.task = session.uploadTask(with: request, from: data, completionHandler: { data, urlResponse, error in
+            
+            let response = Response(data: data, response: urlResponse, error: error, standardType: self.standardType)
+
+            if self.verbose {
+                response.logResponse(self.logInfo)
+            }
+            
+            DispatchQueue.main.async {
+                completionHandler(response)
+            }
+        })
         
         self.task?.resume()
     }
@@ -353,6 +415,54 @@ open class Request: Selfie {
 		
 		return logString + "\n}\n"
 	}
+    
+    fileprivate func generateBoundary() -> String? {
+
+        let lowerCaseLettersInASCII = UInt8(ascii: "a")...UInt8(ascii: "z")
+        let upperCaseLettersInASCII = UInt8(ascii: "A")...UInt8(ascii: "Z")
+        let digitsInASCII = UInt8(ascii: "0")...UInt8(ascii: "9")
+        
+        let sequenceOfRanges = [lowerCaseLettersInASCII, upperCaseLettersInASCII, digitsInASCII].joined()
+        guard let toString = String(data: Data(sequenceOfRanges), encoding: .utf8) else { return nil }
+        
+        var randomString = ""
+        for _ in 0..<20 { randomString += String(toString.randomElement()!) }
+        
+        let boundary = randomString + "\(Int(Date.timeIntervalSinceReferenceDate))"
+        
+        return boundary
+    }
+    
+    fileprivate func buildUploadData(file: FileUploadData, params: [String: Any], boundary: String) -> Data {
+        
+        var data = Data()
+        
+        for (key, value) in params {
+            guard
+                let boundary = "\r\n--\(boundary)\r\n".data(using: .utf8),
+                let key = "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8),
+                let value = "\(value)".data(using: .utf8) else {
+                return data
+            }
+            data.append(boundary)
+            data.append(key)
+            data.append(value)
+        }
+        
+        guard
+            let boundary = "\r\n--\(boundary)\r\n".data(using: .utf8),
+            let contentDisposition = "Content-Disposition: form-data; name=\"\(file.name)\"; filename=\"\(file.filename)\"\r\n".data(using: .utf8),
+            let contentType = "Content-Type: \(file.mimeType)\r\n\r\n".data(using: .utf8) else {
+                return data
+        }
+        data.append(boundary)
+        data.append(contentDisposition)
+        data.append(contentType)
+        data.append(file.data)
+        data.append(boundary)
+        
+        return data
+    }
 	
 }
 
