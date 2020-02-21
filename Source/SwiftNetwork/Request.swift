@@ -261,10 +261,10 @@ open class Request: Selfie {
         
         self.cancel()
                 
-        var data = self.buildUploadData(files: files, params: params, boundary: boundary)
+        let data = self.buildUploadData(files: files, params: params, boundary: boundary)
+        request.httpBody = data
         
-        
-        self.task = session.uploadTask(with: request, from: data, completionHandler: { data, urlResponse, error in
+        self.task = session.uploadTask(with: request, from: nil, completionHandler: { data, urlResponse, error in
             
             let response = Response(data: data, response: urlResponse, error: error, standardType: self.standardType)
 
