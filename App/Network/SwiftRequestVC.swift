@@ -193,7 +193,7 @@ class SwiftRequestVC: UIViewController {
         )
         
         request.upload(
-        file: fileUploadData,
+        files: [fileUploadData],
         params: ["reqtype": "fileupload"]) { response in
             guard let body = response.body, let decodedBody = String(data: body, encoding: .utf8) else { return }
             LogInfo("Uploaded to: \(decodedBody)")

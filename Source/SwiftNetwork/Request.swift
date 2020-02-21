@@ -232,7 +232,7 @@ open class Request: Selfie {
         self.task?.resume()
     }
     
-    open func upload(file: FileUploadData, params: [String: Any], completionHandler: @escaping (Response) -> Void) {
+    open func upload(files: [FileUploadData], params: [String: Any], completionHandler: @escaping (Response) -> Void) {
         
         guard var request = self.buildRequest(), let boundary = self.generateBoundary() else { return }
         guard self.reachability.isReachable() else {
@@ -261,7 +261,7 @@ open class Request: Selfie {
         
         self.cancel()
                 
-        var data = self.buildUploadData(file: file, params: params, boundary: boundary)
+        var data = self.buildUploadData(files: files, params: params, boundary: boundary)
         
         
         self.task = session.uploadTask(with: request, from: data, completionHandler: { data, urlResponse, error in
@@ -433,7 +433,7 @@ open class Request: Selfie {
         return boundary
     }
     
-    fileprivate func buildUploadData(file: FileUploadData, params: [String: Any], boundary: String) -> Data {
+    fileprivate func buildUploadData(files: [FileUploadData], params: [String: Any], boundary: String) -> Data {
         
         var data = Data()
         
@@ -449,17 +449,19 @@ open class Request: Selfie {
             data.append(value)
         }
         
-        guard
-            let boundary = "\r\n--\(boundary)\r\n".data(using: .utf8),
-            let contentDisposition = "Content-Disposition: form-data; name=\"\(file.name)\"; filename=\"\(file.filename)\"\r\n".data(using: .utf8),
-            let contentType = "Content-Type: \(file.mimeType)\r\n\r\n".data(using: .utf8) else {
-                return data
+        for file in files {
+            guard
+                let boundary = "\r\n--\(boundary)\r\n".data(using: .utf8),
+                let contentDisposition = "Content-Disposition: form-data; name=\"\(file.name)\"; filename=\"\(file.filename)\"\r\n".data(using: .utf8),
+                let contentType = "Content-Type: \(file.mimeType)\r\n\r\n".data(using: .utf8) else {
+                    return data
+            }
+            data.append(boundary)
+            data.append(contentDisposition)
+            data.append(contentType)
+            data.append(file.data)
+            data.append(boundary)
         }
-        data.append(boundary)
-        data.append(contentDisposition)
-        data.append(contentType)
-        data.append(file.data)
-        data.append(boundary)
         
         return data
     }
