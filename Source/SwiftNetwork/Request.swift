@@ -135,25 +135,16 @@ open class Request: Selfie {
             return
         }
 		self.request = request
+        self.logRequest()
+		self.cancel()
+        
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForResource = self.timeout
         if #available(iOS 11, *) {
             configuration.waitsForConnectivity = true
         }
-        
         self.controlCache(config: configuration)
-        
         let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
-		
-		if self.verbose {
-            if self.logInfo == nil {
-                LogManager.shared.logLevel = .debug
-                LogManager.shared.appName = "GIGLibrary"
-            }
-			self.logRequest()
-		}
-		
-		self.cancel()
         
 		self.task = session.dataTask(with: request) { data, urlResponse, error in
             
@@ -183,24 +174,16 @@ open class Request: Selfie {
             return
         }
         self.request = request
+        self.logRequest()
+        self.cancel()
+        
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForResource = self.timeout
         if #available(iOS 11, *) {
             configuration.waitsForConnectivity = true
         }
-        
         let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
-        
-        if self.verbose {
-            if self.logInfo == nil {
-                LogManager.shared.logLevel = .debug
-                LogManager.shared.appName = "GIGLibrary"
-            }
-            self.logRequest()
-        }
-        
-        self.cancel()
-        
+
         self.task = session.downloadTask(with: request) { location, response, error in
             guard let location = location else {
                 LogWarn("Location of file is nil")
@@ -240,29 +223,19 @@ open class Request: Selfie {
             completionHandler(response)
             return
         }
+        
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request.httpBody = self.buildUploadData(files: files, params: params, boundary: boundary)
         self.request = request
-
+        self.logRequest()
+        self.cancel()
+        
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForResource = self.timeout
         if #available(iOS 11, *) {
             configuration.waitsForConnectivity = true
         }
-        
         let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
-        
-        if self.verbose {
-            if self.logInfo == nil {
-                LogManager.shared.logLevel = .debug
-                LogManager.shared.appName = "GIGLibrary"
-            }
-            self.logRequest()
-        }
-        
-        self.cancel()
-                
-        let data = self.buildUploadData(files: files, params: params, boundary: boundary)
-        request.httpBody = data
         
         self.task = session.uploadTask(with: request, from: nil, completionHandler: { data, urlResponse, error in
             
@@ -376,6 +349,13 @@ open class Request: Selfie {
     }
 	
 	fileprivate func logRequest() {
+        guard self.verbose else { return }
+        
+        if self.logInfo == nil {
+            LogManager.shared.logLevel = .debug
+            LogManager.shared.appName = "GIGLibrary"
+        }
+        
 		let url = self.request?.url?.absoluteString ?? "no url set"
 		let method = self.request?.httpMethod ?? "no method set"
 		
