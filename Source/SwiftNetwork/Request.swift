@@ -414,12 +414,12 @@ open class Request: Selfie {
     }
     
     fileprivate func buildUploadData(files: [FileUploadData], params: [String: Any], boundary: String) -> Data {
-        
         var data = Data()
+        guard let boundaryData = "\r\n--\(boundary)\r\n".data(using: .utf8) else { return data }
+
         print("- BODY:\n") // !!!
         for (key, value) in params {
             guard
-                let boundaryData = "\r\n--\(boundary)\r\n".data(using: .utf8),
                 let keyData = "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8),
                 let valueData = "\(value)".data(using: .utf8) else {
                 return data
@@ -434,7 +434,6 @@ open class Request: Selfie {
         
         for file in files {
             guard
-                let boundaryData = "\r\n--\(boundary)\r\n".data(using: .utf8),
                 let contentDispositionData = "Content-Disposition: form-data; name=\"\(file.name)\"; filename=\"\(file.filename)\"\r\n".data(using: .utf8),
                 let contentTypeData = "Content-Type: \(file.mimeType)\r\n\r\n".data(using: .utf8) else {
                     return data
@@ -447,10 +446,9 @@ open class Request: Selfie {
             data.append(contentTypeData)
             print(file.data)
             data.append(file.data)
-            print("\\r\\n--\(boundary)\\r\\n")
-            data.append(boundaryData)
         }
-        
+        print("\\r\\n--\(boundary)\\r\\n")
+        data.append(boundaryData)
         return data
     }
 }
