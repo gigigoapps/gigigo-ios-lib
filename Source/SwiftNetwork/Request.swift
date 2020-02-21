@@ -416,38 +416,44 @@ open class Request: Selfie {
     fileprivate func buildUploadData(files: [FileUploadData], params: [String: Any], boundary: String) -> Data {
         
         var data = Data()
-        
+        print("- BODY:\n") // !!!
         for (key, value) in params {
             guard
-                let boundary = "\r\n--\(boundary)\r\n".data(using: .utf8),
-                let key = "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8),
-                let value = "\(value)".data(using: .utf8) else {
+                let boundaryData = "\r\n--\(boundary)\r\n".data(using: .utf8),
+                let keyData = "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8),
+                let valueData = "\(value)".data(using: .utf8) else {
                 return data
             }
-            data.append(boundary)
-            data.append(key)
-            data.append(value)
+            print("\\r\\n--\(boundary)\\r\\n")
+            data.append(boundaryData)
+            print("Content-Disposition: form-data; name=\"\(key)\"\\r\\n\\r\\n")
+            data.append(keyData)
+            print(value)
+            data.append(valueData)
         }
         
         for file in files {
             guard
-                let boundary = "\r\n--\(boundary)\r\n".data(using: .utf8),
-                let contentDisposition = "Content-Disposition: form-data; name=\"\(file.name)\"; filename=\"\(file.filename)\"\r\n".data(using: .utf8),
-                let contentType = "Content-Type: \(file.mimeType)\r\n\r\n".data(using: .utf8) else {
+                let boundaryData = "\r\n--\(boundary)\r\n".data(using: .utf8),
+                let contentDispositionData = "Content-Disposition: form-data; name=\"\(file.name)\"; filename=\"\(file.filename)\"\r\n".data(using: .utf8),
+                let contentTypeData = "Content-Type: \(file.mimeType)\r\n\r\n".data(using: .utf8) else {
                     return data
             }
-            data.append(boundary)
-            data.append(contentDisposition)
-            data.append(contentType)
+            print("\\r\\n--\(boundary)\\r\\n")
+            data.append(boundaryData)
+            print("Content-Disposition: form-data; name=\"\(file.name)\"; filename=\"\(file.filename)\"\\r\\n")
+            data.append(contentDispositionData)
+            print("Content-Type: \(file.mimeType)\\r\\n\\r\\n")
+            data.append(contentTypeData)
+            print(file.data)
             data.append(file.data)
-            data.append(boundary)
+            print("\\r\\n--\(boundary)\\r\\n")
+            data.append(boundaryData)
         }
         
         return data
     }
-	
 }
-
 
 func concat(_ lhs: [URLQueryItem]?, _ rhs: [URLQueryItem]?) -> [URLQueryItem] {
 	guard let left = lhs else {
