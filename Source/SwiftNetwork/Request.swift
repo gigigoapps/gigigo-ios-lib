@@ -215,6 +215,17 @@ open class Request: Selfie {
         self.task?.resume()
     }
     
+    /**
+    Upload a set of files with a `multipart` request
+    
+    - parameters:
+        - files: Collection of `FileUploadData` with file information and data
+        - params: The  rest of parameters that are not files
+        - completionHandler: Completion closure for managing response
+    
+    - Author: Jerilyn Gonçalves
+    - Since: 3.4.8
+    */
     open func upload(files: [FileUploadData], params: [String: Any], completionHandler: @escaping (Response) -> Void) {
         
         guard var request = self.buildRequest(), let boundary = self.generateBoundary() else { return }
@@ -417,18 +428,14 @@ open class Request: Selfie {
         var data = Data()
         guard let boundaryData = "\r\n--\(boundary)\r\n".data(using: .utf8) else { return data }
 
-        print("- BODY:\n") // !!!
         for (key, value) in params {
             guard
                 let keyData = "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8),
                 let valueData = "\(value)".data(using: .utf8) else {
                 return data
             }
-            print("\\r\\n--\(boundary)\\r\\n")
             data.append(boundaryData)
-            print("Content-Disposition: form-data; name=\"\(key)\"\\r\\n\\r\\n")
             data.append(keyData)
-            print(value)
             data.append(valueData)
         }
         
@@ -438,16 +445,11 @@ open class Request: Selfie {
                 let contentTypeData = "Content-Type: \(file.mimeType)\r\n\r\n".data(using: .utf8) else {
                     return data
             }
-            print("\\r\\n--\(boundary)\\r\\n")
             data.append(boundaryData)
-            print("Content-Disposition: form-data; name=\"\(file.name)\"; filename=\"\(file.filename)\"\\r\\n")
             data.append(contentDispositionData)
-            print("Content-Type: \(file.mimeType)\\r\\n\\r\\n")
             data.append(contentTypeData)
-            print(file.data)
             data.append(file.data)
         }
-        print("\\r\\n--\(boundary)\\r\\n")
         data.append(boundaryData)
         return data
     }
