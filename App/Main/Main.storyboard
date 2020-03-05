@@ -452,14 +452,23 @@
                                     <action selector="onButtonDownloadFile:" destination="cwX-pq-dTT" eventType="touchUpInside" id="AAg-n3-2Ma"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBA-Gb-rVE">
+                                <rect key="frame" x="140" y="353" width="95" height="30"/>
+                                <state key="normal" title="Upload image"/>
+                                <connections>
+                                    <action selector="onButtonUploadFile:" destination="cwX-pq-dTT" eventType="touchUpInside" id="vbB-lf-o6o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="R8F-M4-Ccm" firstAttribute="centerX" secondItem="zZh-L3-Qfb" secondAttribute="centerX" id="4QB-fs-XjB"/>
+                            <constraint firstItem="HBA-Gb-rVE" firstAttribute="top" secondItem="hcn-L9-xgt" secondAttribute="bottom" constant="21" id="7dd-c2-iJb"/>
                             <constraint firstItem="gdX-uq-qmj" firstAttribute="top" secondItem="R8F-M4-Ccm" secondAttribute="bottom" constant="20" id="9aK-yI-bYT"/>
                             <constraint firstItem="hcn-L9-xgt" firstAttribute="centerX" secondItem="zZh-L3-Qfb" secondAttribute="centerX" id="Bbe-gO-frY"/>
                             <constraint firstItem="gdX-uq-qmj" firstAttribute="centerX" secondItem="zZh-L3-Qfb" secondAttribute="centerX" id="GG8-rl-AD2"/>
                             <constraint firstItem="efe-9A-00e" firstAttribute="top" secondItem="7Fb-Da-Pub" secondAttribute="bottom" constant="50" id="MIm-2V-dDc"/>
+                            <constraint firstItem="HBA-Gb-rVE" firstAttribute="centerX" secondItem="zZh-L3-Qfb" secondAttribute="centerX" id="OrO-Sc-AsM"/>
                             <constraint firstItem="iE4-IT-exE" firstAttribute="centerX" secondItem="zZh-L3-Qfb" secondAttribute="centerX" id="auf-nv-Nqn"/>
                             <constraint firstItem="iE4-IT-exE" firstAttribute="top" secondItem="mLv-rv-jED" secondAttribute="bottom" constant="21" id="bBY-dI-1gI"/>
                             <constraint firstItem="hcn-L9-xgt" firstAttribute="top" secondItem="iE4-IT-exE" secondAttribute="bottom" constant="21" id="cvW-w3-g8z"/>

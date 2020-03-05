@@ -26,6 +26,20 @@ public enum HTTPMethod: String {
     case connect = "CONNECT"
 }
 
+public struct FileUploadData {
+    var data: Data
+    var mimeType: String
+    var filename: String
+    var name: String
+    
+    public init(data: Data, mimeType: String, filename: String, name: String) {
+        self.data = data
+        self.mimeType = mimeType
+        self.filename = filename
+        self.name = name
+    }
+}
+
 open class Request: Selfie {
 	
 	open var method: String
@@ -112,7 +126,7 @@ open class Request: Selfie {
         self.standardType = standard
         self.logInfo = logInfo
     }
-
+    
 	open func fetch(completionHandler: @escaping (Response) -> Void) {
 		guard let request = self.buildRequest() else { return }
         guard self.reachability.isReachable() else {
@@ -121,25 +135,16 @@ open class Request: Selfie {
             return
         }
 		self.request = request
+        self.logRequest()
+		self.cancel()
+        
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForResource = self.timeout
         if #available(iOS 11, *) {
             configuration.waitsForConnectivity = true
         }
-        
         self.controlCache(config: configuration)
-        
         let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
-		
-		if self.verbose {
-            if self.logInfo == nil {
-                LogManager.shared.logLevel = .debug
-                LogManager.shared.appName = "GIGLibrary"
-            }
-			self.logRequest()
-		}
-		
-		self.cancel()
         
 		self.task = session.dataTask(with: request) { data, urlResponse, error in
             
@@ -169,24 +174,16 @@ open class Request: Selfie {
             return
         }
         self.request = request
+        self.logRequest()
+        self.cancel()
+        
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForResource = self.timeout
         if #available(iOS 11, *) {
             configuration.waitsForConnectivity = true
         }
-        
         let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
-        
-        if self.verbose {
-            if self.logInfo == nil {
-                LogManager.shared.logLevel = .debug
-                LogManager.shared.appName = "GIGLibrary"
-            }
-            self.logRequest()
-        }
-        
-        self.cancel()
-        
+
         self.task = session.downloadTask(with: request) { location, response, error in
             guard let location = location else {
                 LogWarn("Location of file is nil")
@@ -214,6 +211,55 @@ open class Request: Selfie {
                 completionHandler(response)
             }
         }
+        
+        self.task?.resume()
+    }
+    
+    /**
+    Upload a set of files with a `multipart` request
+    
+    - parameters:
+        - files: Collection of `FileUploadData` with file information and data
+        - params: The  rest of parameters that are not files
+        - completionHandler: Completion closure for managing response
+    
+    - Author: Jerilyn Gonçalves
+    - Since: 3.4.8
+    */
+    open func upload(files: [FileUploadData], params: [String: Any], completionHandler: @escaping (Response) -> Void) {
+        
+        guard var request = self.buildRequest(), let boundary = self.generateBoundary() else { return }
+        guard self.reachability.isReachable() else {
+            let response = Response.noInternet()
+            completionHandler(response)
+            return
+        }
+        
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request.httpBody = self.buildUploadData(files: files, params: params, boundary: boundary)
+        self.request = request
+        self.logRequest()
+        self.cancel()
+        
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForResource = self.timeout
+        if #available(iOS 11, *) {
+            configuration.waitsForConnectivity = true
+        }
+        let session = URLSession(configuration: configuration, delegate: self as? URLSessionDelegate, delegateQueue: nil)
+        
+        self.task = session.uploadTask(with: request, from: nil, completionHandler: { data, urlResponse, error in
+            
+            let response = Response(data: data, response: urlResponse, error: error, standardType: self.standardType)
+
+            if self.verbose {
+                response.logResponse(self.logInfo)
+            }
+            
+            DispatchQueue.main.async {
+                completionHandler(response)
+            }
+        })
         
         self.task?.resume()
     }
@@ -314,6 +360,13 @@ open class Request: Selfie {
     }
 	
 	fileprivate func logRequest() {
+        guard self.verbose else { return }
+        
+        if self.logInfo == nil {
+            LogManager.shared.logLevel = .debug
+            LogManager.shared.appName = "GIGLibrary"
+        }
+        
 		let url = self.request?.url?.absoluteString ?? "no url set"
 		let method = self.request?.httpMethod ?? "no method set"
 		
@@ -353,9 +406,54 @@ open class Request: Selfie {
 		
 		return logString + "\n}\n"
 	}
-	
-}
+    
+    fileprivate func generateBoundary() -> String? {
 
+        let lowerCaseLettersInASCII = UInt8(ascii: "a")...UInt8(ascii: "z")
+        let upperCaseLettersInASCII = UInt8(ascii: "A")...UInt8(ascii: "Z")
+        let digitsInASCII = UInt8(ascii: "0")...UInt8(ascii: "9")
+        
+        let sequenceOfRanges = [lowerCaseLettersInASCII, upperCaseLettersInASCII, digitsInASCII].joined()
+        guard let toString = String(data: Data(sequenceOfRanges), encoding: .utf8) else { return nil }
+        
+        var randomString = ""
+        for _ in 0..<20 { randomString += String(toString.randomElement()!) }
+        
+        let boundary = randomString + "\(Int(Date.timeIntervalSinceReferenceDate))"
+        
+        return boundary
+    }
+    
+    fileprivate func buildUploadData(files: [FileUploadData], params: [String: Any], boundary: String) -> Data {
+        var data = Data()
+        guard let boundaryData = "\r\n--\(boundary)\r\n".data(using: .utf8) else { return data }
+
+        for (key, value) in params {
+            guard
+                let keyData = "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8),
+                let valueData = "\(value)".data(using: .utf8) else {
+                return data
+            }
+            data.append(boundaryData)
+            data.append(keyData)
+            data.append(valueData)
+        }
+        
+        for file in files {
+            guard
+                let contentDispositionData = "Content-Disposition: form-data; name=\"\(file.name)\"; filename=\"\(file.filename)\"\r\n".data(using: .utf8),
+                let contentTypeData = "Content-Type: \(file.mimeType)\r\n\r\n".data(using: .utf8) else {
+                    return data
+            }
+            data.append(boundaryData)
+            data.append(contentDispositionData)
+            data.append(contentTypeData)
+            data.append(file.data)
+        }
+        data.append(boundaryData)
+        return data
+    }
+}
 
 func concat(_ lhs: [URLQueryItem]?, _ rhs: [URLQueryItem]?) -> [URLQueryItem] {
 	guard let left = lhs else {
