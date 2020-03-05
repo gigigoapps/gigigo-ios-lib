@@ -206,14 +206,12 @@
 		D99AD3721B1DAAE6005BB4E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D99AD3621B1DAAE6005BB4E5 /* Main.storyboard */; };
 		D99AD3741B1DAAE6005BB4E5 /* GLAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3641B1DAAE6005BB4E5 /* GLAMainViewController.m */; };
 		D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3651B1DAAE6005BB4E5 /* main.m */; };
-		D99AD3781B1DAAE6005BB4E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99AD3671B1DAAE6005BB4E5 /* Images.xcassets */; };
 		D99AD37A1B1DAAE6005BB4E5 /* domains.json in Resources */ = {isa = PBXBuildFile; fileRef = D99AD3691B1DAAE6005BB4E5 /* domains.json */; };
 		D99AD37C1B1DAAE6005BB4E5 /* fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36A1B1DAAE6005BB4E5 /* fixture.json */; };
 		D99AD37E1B1DAAE6005BB4E5 /* fixtures.json in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36B1B1DAAE6005BB4E5 /* fixtures.json */; };
 		D99AD3801B1DAAE6005BB4E5 /* GET_config.json in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36C1B1DAAE6005BB4E5 /* GET_config.json */; };
 		D99AD3821B1DAAE6005BB4E5 /* GET_keepalive.json in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36D1B1DAAE6005BB4E5 /* GET_keepalive.json */; };
 		D99AD3841B1DAAE6005BB4E5 /* GET_logout.json in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36E1B1DAAE6005BB4E5 /* GET_logout.json */; };
-		D99AD3861B1DAAE6005BB4E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */; };
 		D9A39D921BD531AB00EAB2E0 /* GIGURLResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734F1BBBC4E000AB5655 /* GIGURLResponseTests.m */; };
 		D9E10E5F1BBBC7620016C00B /* GIGURLCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473471BBBC4E000AB5655 /* GIGURLCommunicatorTests.m */; };
 		D9E10E631BBBC76C0016C00B /* GIGURLRequestFixtureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734A1BBBC4E000AB5655 /* GIGURLRequestFixtureTests.m */; };
@@ -293,6 +291,7 @@
 		FA4CEAE31CBBC0AF0029FF4C /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */; };
 		FA56AFF21CDF2F5600ABDA53 /* KeyboardAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56AFF11CDF2F5600ABDA53 /* KeyboardAdaptable.swift */; };
 		FA56AFF51CDF323700ABDA53 /* KeyboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56AFF41CDF323700ABDA53 /* KeyboardVC.swift */; };
+		FA623B7423EC28600092A2CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA623B7223EC279E0092A2CD /* LaunchScreen.storyboard */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FA6A3A351CD3B16000835521 /* GLABasicFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E18E131BD542FD00611CDA /* GLABasicFormViewController.m */; };
 		FA6A3A371CD3B24F00835521 /* basic_form.json in Resources */ = {isa = PBXBuildFile; fileRef = D9B2F7F51BD549490057422F /* basic_form.json */; };
@@ -603,7 +602,6 @@
 		D99AD36C1B1DAAE6005BB4E5 /* GET_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_config.json; sourceTree = "<group>"; };
 		D99AD36D1B1DAAE6005BB4E5 /* GET_keepalive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_keepalive.json; sourceTree = "<group>"; };
 		D99AD36E1B1DAAE6005BB4E5 /* GET_logout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_logout.json; sourceTree = "<group>"; };
-		D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		D9A39DB11BD538D000EAB2E0 /* GIGFormFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIGFormFields.h; sourceTree = "<group>"; };
 		D9AD96FA1B0A386500CB5E8C /* GIGLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIGLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AD96FD1B0A386500CB5E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -692,6 +690,7 @@
 		FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = SlideMenu.swift; path = UIComponents/SlideMenu/SlideMenu.swift; sourceTree = "<group>"; tabWidth = 4; };
 		FA56AFF11CDF2F5600ABDA53 /* KeyboardAdaptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardAdaptable.swift; path = Keyboard/KeyboardAdaptable.swift; sourceTree = "<group>"; };
 		FA56AFF41CDF323700ABDA53 /* KeyboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardVC.swift; path = Keyboard/KeyboardVC.swift; sourceTree = "<group>"; };
+		FA623B7223EC279E0092A2CD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1A1B009B6B006FC484 /* GIGLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1D1B009B6B006FC484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1518,7 +1517,7 @@
 			children = (
 				D99AD3681B1DAAE6005BB4E5 /* JSON */,
 				D99AD3671B1DAAE6005BB4E5 /* Images.xcassets */,
-				D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */,
+				FA623B7223EC279E0092A2CD /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -2246,12 +2245,11 @@
 				FA6A3A371CD3B24F00835521 /* basic_form.json in Resources */,
 				D99AD3841B1DAAE6005BB4E5 /* GET_logout.json in Resources */,
 				D99AD37E1B1DAAE6005BB4E5 /* fixtures.json in Resources */,
+				FA623B7423EC28600092A2CD /* LaunchScreen.storyboard in Resources */,
 				D99AD37A1B1DAAE6005BB4E5 /* domains.json in Resources */,
 				D99AD3721B1DAAE6005BB4E5 /* Main.storyboard in Resources */,
 				D99AD3821B1DAAE6005BB4E5 /* GET_keepalive.json in Resources */,
-				D99AD3781B1DAAE6005BB4E5 /* Images.xcassets in Resources */,
 				D99AD3801B1DAAE6005BB4E5 /* GET_config.json in Resources */,
-				D99AD3861B1DAAE6005BB4E5 /* LaunchScreen.xib in Resources */,
 				D99AD37C1B1DAAE6005BB4E5 /* fixture.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
