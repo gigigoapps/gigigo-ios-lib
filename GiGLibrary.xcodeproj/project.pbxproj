@@ -51,6 +51,8 @@
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
 		7BA7BBA51D7D724500644B6C /* GIGParseJsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */; };
 		8F8C8EFB20F4842500F5CE2C /* ReachabilityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8C8EFA20F4842500F5CE2C /* ReachabilityWrapper.swift */; };
+		96D003672411525F000F1873 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D003662411525F000F1873 /* KeychainStore.swift */; };
+		96D0036924115DBE000F1873 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D0036824115DBE000F1873 /* Status.swift */; };
 		A51F6D751D50BBB30052D95A /* StyledString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6D741D50BBB30052D95A /* StyledString.swift */; };
 		A51F6D771D50C0410052D95A /* StyledStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6D761D50C0410052D95A /* StyledStringTests.swift */; };
 		A55EE0771DACFDFF002E4EDF /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EE0761DACFDFF002E4EDF /* ImageExtension.swift */; };
@@ -423,6 +425,8 @@
 		7B6B84941BC2962600517C2F /* GIGParseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGParseClass.m; path = Class/GIGParseClass.m; sourceTree = "<group>"; };
 		7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGParseJsonTests.swift; sourceTree = "<group>"; };
 		8F8C8EFA20F4842500F5CE2C /* ReachabilityWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReachabilityWrapper.swift; path = SwiftNetwork/ReachabilityWrapper.swift; sourceTree = "<group>"; };
+		96D003662411525F000F1873 /* KeychainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		96D0036824115DBE000F1873 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		A5057DA51D536857006E1F6A /* StyledString.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StyledString.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A51F6D741D50BBB30052D95A /* StyledString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledString.swift; sourceTree = "<group>"; };
 		A51F6D761D50C0410052D95A /* StyledStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledStringTests.swift; sourceTree = "<group>"; };
@@ -964,6 +968,15 @@
 			name = Class;
 			sourceTree = "<group>";
 		};
+		96D0036524115231000F1873 /* KeychainStore */ = {
+			isa = PBXGroup;
+			children = (
+				96D003662411525F000F1873 /* KeychainStore.swift */,
+				96D0036824115DBE000F1873 /* Status.swift */,
+			);
+			path = KeychainStore;
+			sourceTree = "<group>";
+		};
 		A94D4A5F1CDDF54100CC4CAF /* GIGScanner */ = {
 			isa = PBXGroup;
 			children = (
@@ -1032,6 +1045,7 @@
 				D99AD18F1B1DA3A3005BB4E5 /* GIGUtils */,
 				D99AD15D1B1DA3A3005BB4E5 /* GIGNetwork */,
 				FA723AC41C64AAF700225E79 /* SwiftNetwork */,
+				96D0036524115231000F1873 /* KeychainStore */,
 				FA4CEADA1CBBBE1C0029FF4C /* UIComponents */,
 				0273BC7021393A2E005A1105 /* Libs */,
 			);
@@ -2411,6 +2425,7 @@
 				4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */,
 				A95E67D71F5D343B001D8B19 /* GIGScannerVC.swift in Sources */,
 				D93CA5301BEA49600098D37C /* NSData+GIGExtension.m in Sources */,
+				96D003672411525F000F1873 /* KeychainStore.swift in Sources */,
 				02F2F7FC1E82D71E0098E4AF /* ProgressVC.swift in Sources */,
 				FA0C22351D3E397E00433AFD /* Result.swift in Sources */,
 				D99AD2B51B1DA3A3005BB4E5 /* NSDictionary+GIGJSON.m in Sources */,
@@ -2443,6 +2458,7 @@
 				D99AD25D1B1DA3A3005BB4E5 /* GIGURLStorage.m in Sources */,
 				64D89EC121ADA1AB0090F9D3 /* UIView+Borders.swift in Sources */,
 				D99AD2CB1B1DA3A3005BB4E5 /* NSRegularExpression+GIGRegexp.m in Sources */,
+				96D0036924115DBE000F1873 /* Status.swift in Sources */,
 				D99AD2CF1B1DA3A3005BB4E5 /* NSString+GIGRegexp.m in Sources */,
 				D9FD36191B416774000D356F /* GIGLengthValidator.m in Sources */,
 				FA3BA31D1DCB7CD80004B8D9 /* ImageDownloader.swift in Sources */,
