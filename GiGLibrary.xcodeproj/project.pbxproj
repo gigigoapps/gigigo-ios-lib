@@ -51,6 +51,13 @@
 		7B6B84961BC2962600517C2F /* GIGParseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B84941BC2962600517C2F /* GIGParseClass.m */; };
 		7BA7BBA51D7D724500644B6C /* GIGParseJsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */; };
 		8F8C8EFB20F4842500F5CE2C /* ReachabilityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8C8EFA20F4842500F5CE2C /* ReachabilityWrapper.swift */; };
+		96D003672411525F000F1873 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D003662411525F000F1873 /* KeychainStore.swift */; };
+		96D0036924115DBE000F1873 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D0036824115DBE000F1873 /* Status.swift */; };
+		96D00378241281B4000F1873 /* KeychainAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D00377241281B4000F1873 /* KeychainAccessibility.swift */; };
+		96D0037A2412834F000F1873 /* KeychainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D003792412834F000F1873 /* KeychainConstants.swift */; };
+		96D0037C24128389000F1873 /* KeychainAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D0037B24128389000F1873 /* KeychainAttributes.swift */; };
+		96D0037E24128EB5000F1873 /* KeychainAuthenticationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D0037D24128EB5000F1873 /* KeychainAuthenticationPolicy.swift */; };
+		96D0038024128F07000F1873 /* KeychainOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D0037F24128F07000F1873 /* KeychainOptions.swift */; };
 		A51F6D751D50BBB30052D95A /* StyledString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6D741D50BBB30052D95A /* StyledString.swift */; };
 		A51F6D771D50C0410052D95A /* StyledStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6D761D50C0410052D95A /* StyledStringTests.swift */; };
 		A55EE0771DACFDFF002E4EDF /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55EE0761DACFDFF002E4EDF /* ImageExtension.swift */; };
@@ -206,14 +213,12 @@
 		D99AD3721B1DAAE6005BB4E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D99AD3621B1DAAE6005BB4E5 /* Main.storyboard */; };
 		D99AD3741B1DAAE6005BB4E5 /* GLAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3641B1DAAE6005BB4E5 /* GLAMainViewController.m */; };
 		D99AD3761B1DAAE6005BB4E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D99AD3651B1DAAE6005BB4E5 /* main.m */; };
-		D99AD3781B1DAAE6005BB4E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99AD3671B1DAAE6005BB4E5 /* Images.xcassets */; };
 		D99AD37A1B1DAAE6005BB4E5 /* domains.json in Resources */ = {isa = PBXBuildFile; fileRef = D99AD3691B1DAAE6005BB4E5 /* domains.json */; };
 		D99AD37C1B1DAAE6005BB4E5 /* fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36A1B1DAAE6005BB4E5 /* fixture.json */; };
 		D99AD37E1B1DAAE6005BB4E5 /* fixtures.json in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36B1B1DAAE6005BB4E5 /* fixtures.json */; };
 		D99AD3801B1DAAE6005BB4E5 /* GET_config.json in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36C1B1DAAE6005BB4E5 /* GET_config.json */; };
 		D99AD3821B1DAAE6005BB4E5 /* GET_keepalive.json in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36D1B1DAAE6005BB4E5 /* GET_keepalive.json */; };
 		D99AD3841B1DAAE6005BB4E5 /* GET_logout.json in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36E1B1DAAE6005BB4E5 /* GET_logout.json */; };
-		D99AD3861B1DAAE6005BB4E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */; };
 		D9A39D921BD531AB00EAB2E0 /* GIGURLResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734F1BBBC4E000AB5655 /* GIGURLResponseTests.m */; };
 		D9E10E5F1BBBC7620016C00B /* GIGURLCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93473471BBBC4E000AB5655 /* GIGURLCommunicatorTests.m */; };
 		D9E10E631BBBC76C0016C00B /* GIGURLRequestFixtureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D934734A1BBBC4E000AB5655 /* GIGURLRequestFixtureTests.m */; };
@@ -293,6 +298,7 @@
 		FA4CEAE31CBBC0AF0029FF4C /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */; };
 		FA56AFF21CDF2F5600ABDA53 /* KeyboardAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56AFF11CDF2F5600ABDA53 /* KeyboardAdaptable.swift */; };
 		FA56AFF51CDF323700ABDA53 /* KeyboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56AFF41CDF323700ABDA53 /* KeyboardVC.swift */; };
+		FA623B7423EC28600092A2CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA623B7223EC279E0092A2CD /* LaunchScreen.storyboard */; };
 		FA680F421B009CAF006FC484 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */; };
 		FA6A3A351CD3B16000835521 /* GLABasicFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E18E131BD542FD00611CDA /* GLABasicFormViewController.m */; };
 		FA6A3A371CD3B24F00835521 /* basic_form.json in Resources */ = {isa = PBXBuildFile; fileRef = D9B2F7F51BD549490057422F /* basic_form.json */; };
@@ -424,6 +430,13 @@
 		7B6B84941BC2962600517C2F /* GIGParseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GIGParseClass.m; path = Class/GIGParseClass.m; sourceTree = "<group>"; };
 		7BA7BBA41D7D724500644B6C /* GIGParseJsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGParseJsonTests.swift; sourceTree = "<group>"; };
 		8F8C8EFA20F4842500F5CE2C /* ReachabilityWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReachabilityWrapper.swift; path = SwiftNetwork/ReachabilityWrapper.swift; sourceTree = "<group>"; };
+		96D003662411525F000F1873 /* KeychainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		96D0036824115DBE000F1873 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		96D00377241281B4000F1873 /* KeychainAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccessibility.swift; sourceTree = "<group>"; };
+		96D003792412834F000F1873 /* KeychainConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConstants.swift; sourceTree = "<group>"; };
+		96D0037B24128389000F1873 /* KeychainAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAttributes.swift; sourceTree = "<group>"; };
+		96D0037D24128EB5000F1873 /* KeychainAuthenticationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAuthenticationPolicy.swift; sourceTree = "<group>"; };
+		96D0037F24128F07000F1873 /* KeychainOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainOptions.swift; sourceTree = "<group>"; };
 		A5057DA51D536857006E1F6A /* StyledString.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StyledString.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A51F6D741D50BBB30052D95A /* StyledString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledString.swift; sourceTree = "<group>"; };
 		A51F6D761D50C0410052D95A /* StyledStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledStringTests.swift; sourceTree = "<group>"; };
@@ -603,7 +616,6 @@
 		D99AD36C1B1DAAE6005BB4E5 /* GET_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_config.json; sourceTree = "<group>"; };
 		D99AD36D1B1DAAE6005BB4E5 /* GET_keepalive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_keepalive.json; sourceTree = "<group>"; };
 		D99AD36E1B1DAAE6005BB4E5 /* GET_logout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_logout.json; sourceTree = "<group>"; };
-		D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		D9A39DB11BD538D000EAB2E0 /* GIGFormFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIGFormFields.h; sourceTree = "<group>"; };
 		D9AD96FA1B0A386500CB5E8C /* GIGLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIGLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AD96FD1B0A386500CB5E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -692,6 +704,7 @@
 		FA4CEAE21CBBC0AF0029FF4C /* SlideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = SlideMenu.swift; path = UIComponents/SlideMenu/SlideMenu.swift; sourceTree = "<group>"; tabWidth = 4; };
 		FA56AFF11CDF2F5600ABDA53 /* KeyboardAdaptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardAdaptable.swift; path = Keyboard/KeyboardAdaptable.swift; sourceTree = "<group>"; };
 		FA56AFF41CDF323700ABDA53 /* KeyboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardVC.swift; path = Keyboard/KeyboardVC.swift; sourceTree = "<group>"; };
+		FA623B7223EC279E0092A2CD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA65BF991AEFD5F90031A91B /* GIGLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GIGLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1A1B009B6B006FC484 /* GIGLibraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIGLibraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA680F1D1B009B6B006FC484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -965,6 +978,20 @@
 			name = Class;
 			sourceTree = "<group>";
 		};
+		96D0036524115231000F1873 /* KeychainStore */ = {
+			isa = PBXGroup;
+			children = (
+				96D003662411525F000F1873 /* KeychainStore.swift */,
+				96D003792412834F000F1873 /* KeychainConstants.swift */,
+				96D00377241281B4000F1873 /* KeychainAccessibility.swift */,
+				96D0037B24128389000F1873 /* KeychainAttributes.swift */,
+				96D0037D24128EB5000F1873 /* KeychainAuthenticationPolicy.swift */,
+				96D0037F24128F07000F1873 /* KeychainOptions.swift */,
+				96D0036824115DBE000F1873 /* Status.swift */,
+			);
+			path = KeychainStore;
+			sourceTree = "<group>";
+		};
 		A94D4A5F1CDDF54100CC4CAF /* GIGScanner */ = {
 			isa = PBXGroup;
 			children = (
@@ -1033,6 +1060,7 @@
 				D99AD18F1B1DA3A3005BB4E5 /* GIGUtils */,
 				D99AD15D1B1DA3A3005BB4E5 /* GIGNetwork */,
 				FA723AC41C64AAF700225E79 /* SwiftNetwork */,
+				96D0036524115231000F1873 /* KeychainStore */,
 				FA4CEADA1CBBBE1C0029FF4C /* UIComponents */,
 				0273BC7021393A2E005A1105 /* Libs */,
 			);
@@ -1518,7 +1546,7 @@
 			children = (
 				D99AD3681B1DAAE6005BB4E5 /* JSON */,
 				D99AD3671B1DAAE6005BB4E5 /* Images.xcassets */,
-				D99AD36F1B1DAAE6005BB4E5 /* LaunchScreen.xib */,
+				FA623B7223EC279E0092A2CD /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -2246,12 +2274,11 @@
 				FA6A3A371CD3B24F00835521 /* basic_form.json in Resources */,
 				D99AD3841B1DAAE6005BB4E5 /* GET_logout.json in Resources */,
 				D99AD37E1B1DAAE6005BB4E5 /* fixtures.json in Resources */,
+				FA623B7423EC28600092A2CD /* LaunchScreen.storyboard in Resources */,
 				D99AD37A1B1DAAE6005BB4E5 /* domains.json in Resources */,
 				D99AD3721B1DAAE6005BB4E5 /* Main.storyboard in Resources */,
 				D99AD3821B1DAAE6005BB4E5 /* GET_keepalive.json in Resources */,
-				D99AD3781B1DAAE6005BB4E5 /* Images.xcassets in Resources */,
 				D99AD3801B1DAAE6005BB4E5 /* GET_config.json in Resources */,
-				D99AD3861B1DAAE6005BB4E5 /* LaunchScreen.xib in Resources */,
 				D99AD37C1B1DAAE6005BB4E5 /* fixture.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2339,6 +2366,7 @@
 				D9FD35FC1B415CAE000D356F /* GIGNumericValidator.m in Sources */,
 				02F2F7F71E82C8760098E4AF /* ProgressPageControl.swift in Sources */,
 				D99AD2451B1DA3A3005BB4E5 /* GIGURLFile.m in Sources */,
+				96D0038024128F07000F1873 /* KeychainOptions.swift in Sources */,
 				D9FE61FD1BD65CC900E2B23C /* GIGFormController.m in Sources */,
 				644D9B6521AEB6C6002817A7 /* TextViewStyle.swift in Sources */,
 				D99AD2A71B1DA3A3005BB4E5 /* NSInvocation+GIGExtension.m in Sources */,
@@ -2356,6 +2384,7 @@
 				64D89EBD21ADA1AB0090F9D3 /* TextFieldStyle.swift in Sources */,
 				D99AD2EF1B1DA3A3005BB4E5 /* UIView+GIGBorderShadowExtension.m in Sources */,
 				D99AD2131B1DA3A3005BB4E5 /* GIGURLConfigAddDomainViewController.m in Sources */,
+				96D0037E24128EB5000F1873 /* KeychainAuthenticationPolicy.swift in Sources */,
 				FAAE2A4F1D227D5C00C5F808 /* Selfie.swift in Sources */,
 				A94D4A611CDDF67300CC4CAF /* GIGScannerViewController.swift in Sources */,
 				64D89EBE21ADA1AB0090F9D3 /* ViewStyle.swift in Sources */,
@@ -2383,6 +2412,7 @@
 				230A6AA020908FB700BC886D /* ScreenRecordVC.swift in Sources */,
 				0273BC7321393A2E005A1105 /* Reachability.swift in Sources */,
 				FAEDF67A1BE20EA400F05AE2 /* GIGStringValidator.m in Sources */,
+				96D0037C24128389000F1873 /* KeychainAttributes.swift in Sources */,
 				FAA3F8871C60EDD80061AADD /* Log.swift in Sources */,
 				D99AD2D71B1DA3A3005BB4E5 /* UIScrollView+GIGScrollTo.m in Sources */,
 				D99AD2F71B1DA3A3005BB4E5 /* UIView+GIGFrameExtension.m in Sources */,
@@ -2406,6 +2436,7 @@
 				8F8C8EFB20F4842500F5CE2C /* ReachabilityWrapper.swift in Sources */,
 				61F2ACEE1E9B9D53003E20C4 /* InfiniteCollectionVC.swift in Sources */,
 				D99AD2B11B1DA3A3005BB4E5 /* NSData+GIGJSON.m in Sources */,
+				96D0037A2412834F000F1873 /* KeychainConstants.swift in Sources */,
 				D9FD36221B416CCB000D356F /* GIGPhoneValidator.m in Sources */,
 				618616AC208DF099001B4603 /* HyperlinkTextView.swift in Sources */,
 				D9FE62201BD6878600E2B23C /* GIGMessageFormField.m in Sources */,
@@ -2413,6 +2444,7 @@
 				4A881C121C5F7C72000EC61E /* AlertController.swift in Sources */,
 				A95E67D71F5D343B001D8B19 /* GIGScannerVC.swift in Sources */,
 				D93CA5301BEA49600098D37C /* NSData+GIGExtension.m in Sources */,
+				96D003672411525F000F1873 /* KeychainStore.swift in Sources */,
 				02F2F7FC1E82D71E0098E4AF /* ProgressVC.swift in Sources */,
 				FA0C22351D3E397E00433AFD /* Result.swift in Sources */,
 				D99AD2B51B1DA3A3005BB4E5 /* NSDictionary+GIGJSON.m in Sources */,
@@ -2443,8 +2475,10 @@
 				FA36E9701C637CD100214598 /* Dispatch.swift in Sources */,
 				64D89ECE21AE7ED50090F9D3 /* LabelStyle.swift in Sources */,
 				D99AD25D1B1DA3A3005BB4E5 /* GIGURLStorage.m in Sources */,
+				96D00378241281B4000F1873 /* KeychainAccessibility.swift in Sources */,
 				64D89EC121ADA1AB0090F9D3 /* UIView+Borders.swift in Sources */,
 				D99AD2CB1B1DA3A3005BB4E5 /* NSRegularExpression+GIGRegexp.m in Sources */,
+				96D0036924115DBE000F1873 /* Status.swift in Sources */,
 				D99AD2CF1B1DA3A3005BB4E5 /* NSString+GIGRegexp.m in Sources */,
 				D9FD36191B416774000D356F /* GIGLengthValidator.m in Sources */,
 				FA3BA31D1DCB7CD80004B8D9 /* ImageDownloader.swift in Sources */,
